@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+    <TITLE> New Document </TITLE>
+    <meta charset="UTF-8">
+    <META NAME="Generator" CONTENT="EditPlus">
+    <META NAME="Author" CONTENT="">
+    <META NAME="Keywords" CONTENT="">
+    <META NAME="Description" CONTENT="">
+
+    <style>
+        .divGlobal,.DivTop,.DivBottom{min-width: 760px;width: expression(document.body.clientWidth < 760? "760px": "100%" )/*最小宽度设置*/;width:100%;}
+        .divGlobal{/*border:1px solid #ff0000;*/}
+        .DivTop,.DivBottom,.DivMainLeft,.DivMainRight {border:1px solid #ff0000;}
+        .DivBottom {clear: both;}
+        .DivMainLeft{float:left;}
+        .DivMainRight{margin-left:210px;}
+        .DivFiexWidth{width:200px;}
+        .DivMainRightChild{}
+        .clear{clear: both;}
+        ul.ul1{margin:0px;margin-left:0px;padding-left:0px; /*fiexfox里需要设置此项,否则UR和DIV间会有空白*/}
+        li.li1{margin-left:0px;list-style-type:none;}
+        li.liBg {margin-left:0px;background-color:#ffDD00;list-style-type:none;padding:5px;}
+    </style>
+</HEAD>
+
+<BODY>
+<script>
+    // alert(document.body.clientWidth);
+    //alert(document.body.clientWidth < 760? "760px": "100%" );
+</script>
+<div class="DivTop">
+    top
+</div>
+<div class="divGlobal">
+    <div class="DivMainLeft">
+        <div class="DivFiexWidth">
+            <ul class="ul1">
+                <li class ="liBg">左边固定宽度</li>
+                <li class ="li1">左边固定宽度</li>
+                <li class ="li1">左边固定宽度</li>
+                <li class ="li1">左边固定宽度</li>
+                <li class ="li1">左边固定宽度</li>
+                <li class ="li1">左边固定宽度</li>
+            </ul>
+        </div>
+        <div class="DivFiexWidth">
+            <ul class="ul1">
+                <li class ="liBg">左边固定宽度</li>
+                <li class ="li1">左边固定宽度</li>
+                <li class ="li1">左边固定宽度</li>
+                <li class ="li1">左边固定宽度</li>
+                <li class ="li1">左边固定宽度</li>
+                <li class ="li1">左边固定宽度</li>
+            </ul>
+        </div>
+        <!-- <div class="DivFiexWidth">
+          <ul class="ul1">
+         <li class ="liBg">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+          </ul>
+         </div>
+          <div class="DivFiexWidth">
+          <ul class="ul1">
+         <li class ="liBg">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+          </ul>
+         </div>
+          <div class="DivFiexWidth">
+          <ul class="ul1">
+         <li class ="liBg">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+         <li class ="li1">左边固定宽度</li>
+          </ul>
+         </div> -->
+    </div>
+
+    <div class="DivMainRight">
+        <div class="DivMainRightChild" >
+            <ul class="ul1">
+                <li class ="liBg">右边宽度自适应.</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+            </ul>
+        </div>
+        <div class="DivMainRightChild" >
+            <ul class="ul1">
+                <li class ="liBg">右边宽度自适应.</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+            </ul>
+        </div>
+        <div class="DivMainRightChild" >
+            <ul class="ul1">
+                <li class ="liBg">右边宽度自适应.</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+                <li class ="li1">右边宽度自适应</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="DivBottom">
+    DIV+CSS 布局一行两列,左列固定宽度,右列自适应宽度;设置最小宽度,窗口小的时候显示滚动条;firefox ie测试通过.
+    辛苦几天的结果啊
+    平行共三行,中间行分两列,左边固定宽度,右边自适应,并且对行宽度设置了最小值,如果窗口小到最小值以下将出现滚动条,这样一来布局就不会乱了.
+</div>
+</BODY>
+</HTML>

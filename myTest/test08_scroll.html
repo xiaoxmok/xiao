@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚屏_真正有用的代码_勿删</title>
+    <meta name="keywords" content="关键词,多个关键词以逗号隔开,英文的逗号"/>
+    <meta name="description" content="这是一段描述，介绍网页面内容" />
+    <script src="http://css.res.szgla.com/jquery/jquery-1.4.4.min.js?v=1"></script>
+    <style type="text/css">
+        /*==========css_reset==========*/
+        html, body, div, ul, li, h1, h2, h3, h4, p,table,td,th,span,em { margin: 0; padding: 0 ;font-family:"Microsoft YaHei"}
+        h1, h2, h3,h4 { font-weight: normal}
+        li { list-style: none }
+        body { font-family: 'Microsoft YaHei', "宋体"; color: #666; font-size: 12px; min-width: 1000px;}
+        img { border: 0 }
+        em{font-style:normal}
+        input{outline:0}
+        a { text-decoration: none; color: #222 ;outline:none}
+        a:hover { color: red }
+        table,td,th{border-collapse:collapse}
+
+        /*==========page_style==========*/
+        html{overflow: hidden;}
+        .nav{position:fixed;right:40px;z-index: 999;display:none;}
+        .nav_li{font-size:14px;color: #ba7e1c;margin-bottom: 20px;cursor:pointer;}
+        .nav li:hover,.nav_focus{color: #0f0b95;}
+
+
+        .main{position:absolute;width:100%;height:100%;top:0px;left:0px;display:none;}
+
+        .list1{background: #91d49d;width:100%;}
+        .list2{background: #d4cca7;width:100%;}
+        .list3{background: #d4c3bf;width:100%;}
+        .list4{background: #b4bbd4;width:100%;}
+        .list5{background: #82d498;width:100%;}
+
+        .list_con{width:1000px;height:100%;margin:0 auto;position:relative;}
+
+        .con_1{position:absolute;width:50%;top:100px;left:25%;margin:0 auto;text-align:center;transform:translate(0px,-100px);opacity: 0;}
+        .con_1,.con_2{transition: all 1s ease 0s;}
+        .animate .con_1,.animate .con_2{-webkit-transform: translate(0px,0px);transform:translate(0px,0px);opacity: 1;}
+        .con_1 p{font-size:16px;color:#ffffff;font-family:"宋体";}
+        .con_1 .p1{font-size:30px;}
+        .con_1 hr{border:1px solid #d47f7c;}
+        .con_2{position:absolute;top:220px;left:25%;transform:translate(-100px,0px);opacity: 0;}
+        .bon{width: 200px;height: 100px;background: #b5bab4;opacity: 1;transform:scale(1,1);transition: all 1s ease 0s;float:left;}
+        .bon:hover{transform:scale(1.1,1.1);transition: all 1s ease 0s;}
+
+        .photo{float:left;width: 200px;height: 100px;margin-left:20px;background: #b0baad;text-align:center;line-height:100px;cursor:pointer;font-size:16px;color:#fff;opacity: 1;transform:scale(1,1);transition: all 1s ease 0s;}
+        .photo:hover{transform:scale(1.1,1.1);transition: all 1s ease 0s;}
+
+
+        .load_bg{position:absolute;top:0;left:0;background: #eeffe1;text-align:center;}
+        .load_num{position:absolute;width: 500px;height:250px;border:0px solid orange;}
+        .col{font-size:15px;color:#000;font-family:"宋体";}
+        .load_border{height:3px;width:100%;border:1px solid orange;}
+        .load_bar{width:1px;height:3px;background:orange;}
+
+        .zhezhao{width:100%;height:100%;background:#000;position:absolute;top:0;left:0;z-index:100;display:none;}
+
+        .show_photo{position:fixed;width:500px;height:400px;border:2px solid orange;z-index:101;overflow: hidden;display:none;}
+        .close{width:40px;height:20px;background: #b6d476;position:absolute;top:10px;right:10px;z-index:102;text-align:center;cursor:pointer;}
+        .next{width:20px;height:20px;position:absolute;background: #b6d476;top:200px;right:20px;z-index:102;cursor:pointer;}
+        .previous{width:20px;height:20px;position:absolute;background: #b6d476;top:200px;left:20px;z-index:102;cursor:pointer;}
+        .close,.next,.previous{opacity: 1;transform:scale(1,1);transition: all 1s ease 0s;}
+        .close:hover,.next:hover,.previous:hover{transform:scale(1.3,1.3);transition: all 1s ease 0s;}
+        .all_photo{position:absolute;top:0;left:0;width:2500px;z-index:101;clear:left;}
+        .first,.second,.third,.fourth,.fifth{width:500px;height:400px;float:left;text-align: center;line-height: 400px;color:#fff;font-size:20px;}
+        .first{background: #91d49d;}
+        .second{background: #d4cca7;}
+        .third{background: #d4c3bf;}
+        .fourth{background: #b4bbd4;}
+        .fifth{background: #b5ffb0;}
+
+        .nav_photo{position:absolute;bottom:10px;left:150px;z-index:102;}
+        .photo_li{
+            float:left;
+            margin-left:10px;
+            width:10px;
+            height:10px;
+            background: #cc1419;
+            cursor:pointer;
+            border:1px solid orange;
+        }
+
+        .logo{display:none;}
+
+    </style>
+
+
+</head>
+    <body>
+    <!--用于百度搜索显示的图片-->
+    <h1 class="logo"><a href="http://lw2.q1.com/main.html"><img src="http://img.res.szgla.com/lw/logo.jpg" width="121" height="75" alt="龙武" /></a></h1>
+
+    <div class="nav">
+            <ul>
+                <li class="nav_li" onclick="chage_case(0)">第一页<em>first</em></li>
+                <li class="nav_li" onclick="chage_case(1)">第二页<em>second</em></li>
+                <li class="nav_li" onclick="chage_case(2)">第三页<em>third</em></li>
+                <li class="nav_li" onclick="chage_case(3)">第四页<em>fourth</em></li>
+                <li class="nav_li" onclick="chage_case(4)">第五页<em>fifth</em></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="list1">
+                <div class="list_con">
+                    <div class="con_1">
+                        <p class="p1">第一页</p>
+                        <hr>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <hr>
+                        </br>
+                    </div>
+                    <div class="con_2">
+                        <div class="bon"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="list2">
+                <div class="list_con">
+                    <div class="con_1">
+                        <p class="p1">第二页</p>
+                        <hr>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <hr>
+                        </br>
+                    </div>
+                    <div class="con_2">
+                        <div class="bon"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="list3">
+                <div class="list_con">
+                    <div class="con_1">
+                        <p class="p1">第三页</p>
+                        <hr>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <hr>
+                        </br>
+                    </div>
+                    <div class="con_2">
+                        <div class="bon"></div>
+                        <div class="photo" onclick="show();">图片展示</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="list4">
+                <div class="list_con">
+                    <div class="con_1">
+                        <p class="p1">第四页</p>
+                        <hr>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <hr>
+                        </br>
+                    </div>
+                    <div class="con_2">
+                        <div class="bon"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="list5">
+                <div class="list_con">
+                    <div class="con_1">
+                        <p class="p1">第五页</p>
+                        <hr>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <p>内容无所谓 内容无所谓 内容无所谓 内容无所谓</p>
+                        <hr>
+                        </br>
+                    </div>
+                    <div class="con_2">
+                        <div class="bon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="load_bg">
+            <div class="load_num">
+                <div class="col">0</div>
+                <div class="load_border">
+                    <div class="load_bar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="zhezhao"></div>
+        <div class="show_photo">
+
+            <div class="all_photo">
+                <div class="first">first</div>
+                <div class="second">second</div>
+                <div class="third">third</div>
+                <div class="fourth">fourth</div>
+                <div class="fifth">fifth</div>
+            </div>
+            <div class="close">close</div>
+            <div class="previous"><<</div>
+            <div class="next">>></div>
+            <div class="nav_photo">
+                <ul>
+                    <li class="photo_li" onclick="chage_photo(0)"></li>
+                    <li class="photo_li" onclick="chage_photo(1)"></li>
+                    <li class="photo_li" onclick="chage_photo(2)"></li>
+                    <li class="photo_li" onclick="chage_photo(3)"></li>
+                    <li class="photo_li" onclick="chage_photo(4)"></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+
+            function getResize(){
+                $('.nav').css('top',($(window).height()/2)-($('.nav').height()/2));
+                $('.list1,.list2,.list3,.list4,.list5,.load_bg').height($(window).height());
+                $('.list1,.list2,.list3,.list4,.list5,.load_bg').width($(window).width());
+                $('.load_num').css({"top":($(window).height()/2)-($('.load_num').height()/2),"left":($(window).width()/2)-($('.load_num').width()/2)});
+            }
+            getResize();
+            $(window).resize(function(){
+                getResize();
+
+            });
+
+            var photo_case=0;
+            function chage_photo(num){
+                var phot_w=0-(num*($('.show_photo').width()));
+                if(!$('.all_photo').is(":animated")){
+                    $('.all_photo').animate({left:phot_w},400);
+
+                    for(var i=0;i<$('.photo_li').length;i++){
+                        $('.photo_li').eq(i).css("background",$('.all_photo div').eq(i).css("background"));
+                    }
+                    //$('.photo_li').eq(num).css({"background":"#cc1419","border":"1px solid orange"});
+                    $('.photo_li').eq(num).css("background","#fff");
+
+
+                    photo_case=num;
+                }
+            }
+
+            function show(){                                                            //图片展示的show
+                $('.zhezhao').height($(window).height());
+                $('.zhezhao').fadeTo(250,.5);
+                $('.show_photo').css('top',($(window).height()-$('.show_photo').height())/2);
+                $('.show_photo').css('left',($(window).width()-$('.show_photo').width())/2).show();
+
+                for(var i=0;i<$('.photo_li').length;i++){
+                    $('.photo_li').eq(i).css("background",$('.all_photo div').eq(i).css("background"));
+                }
+
+
+                chage_photo(0);
+                $('.previous').click(function(){                                        //向左翻页
+                    if(photo_case!=0){
+                        chage_photo(photo_case-1);
+
+                    }
+                })
+                $('.next').click(function(){                                            //向右翻页
+                    if(photo_case!=4){
+                       chage_photo(photo_case+1);
+                    }
+                })
+                $('.close').click(function(){
+                    $('.zhezhao,.show_photo').hide();
+                })
+
+            }
+
+            var h=0;
+            var j=0;
+            function load_bar(){
+                if(h<$('.load_border').width()){
+                    h+=$('.load_border').width()/100;
+                    j+=1;
+                    //console.log(j);
+                    $('.col').html(j+"%");
+                    $(".load_bar").width(h+"px");
+                    setTimeout(load_bar,10);
+                }else{
+                    $('.load_bg').fadeOut("3000");                          //加载完后隐藏加载页面，显示主页面
+                    $('.main,.nav').show();
+
+                    chage_case(0);
+                }
+            }
+
+            var case_list=0;
+            function chage_case(num){
+                var window_h=$(window).height();
+
+                if(!$('.main').is(":animated")){
+                    var case_height=0-(num*window_h)+"px";
+                    $('.main').animate({top:case_height},400);
+
+                    case_list=num;                                          //防止鼠标一次滚动多下，case_list只加1
+
+                    $('.nav li').removeClass("nav_focus");                  //清除导航条焦点
+                    $('.nav li').eq(num).addClass("nav_focus");             //导航条焦点
+
+                    $('.list_con').removeClass("animate");                  //离开屏滚动效果显示
+                    $('.list_con').eq(num).addClass("animate");             //当前屏滚动效果显示
+                }
+            }
+
+            function scroll_case(direction){
+                if(direction){
+                    if(case_list!=0){                   //向上滚动时，判断是否到第一屏
+                        chage_case(case_list-1);        //此处，case_list不宜加1或减1，当鼠标滚轮滚动多次时，会多次增加或减少，应该当滚屏成功后，再加1或减1;
+                    }
+                }else{
+                    if(case_list!=4){                   //向下滚动时，判断是否到最后屏
+                        chage_case(case_list+1);
+                    }
+                }
+            }
+
+
+            $(function(){
+                load_bar();
+
+                var scrollFunc=function(e){
+                    e=e || window.event;
+                    if(e.detail){
+                        if(e.detail>0){                 //e.wheelDelta == -120 || e.detail == 3   向下  e.detail:firefox
+                            //向下
+                            scroll_case(false);
+                        }else{
+                            //向上
+                            scroll_case(true);
+                        }
+                    }else if(e.wheelDelta){             //e.wheelDelta == 120 || e.detail == -3   向上  e.wheelDelta:IE/Opera/Chrome
+                        if(e.wheelDelta>0){
+                            //向上
+                            //alert(e.wheelDelta);
+                            scroll_case(true);
+                        }else{
+                            //向下
+                            //alert(e.wheelDelta);
+                            scroll_case(false);
+                        }
+                    }
+                }
+
+                /*注册事件*/
+                if(document.addEventListener){
+                    document.addEventListener('DOMMouseScroll',scrollFunc,false);
+                }//w3c
+                document.onmousewheel=scrollFunc;       //IE/Opera/Chrome
+
+            })
+        </script>
+
+    </body>
+</html>

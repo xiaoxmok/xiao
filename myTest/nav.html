@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+    <script src="http://css.res.szgla.com/jquery/jquery-1.4.4.min.js?v=1"></script>
+    <style>
+        /*==========css_reset==========*/
+        html, body, div, ul, li, h1, h2, h3, h4, p,table,td,th,span,em { margin: 0; padding: 0 ;font-family:"Microsoft YaHei"}
+        h1, h2, h3,h4 { font-weight: normal}
+        li { list-style: none }
+        body,html,.container{overflow-x:hidden}
+        body { font-family: "宋体"; color: #666; font-size: 12px; min-width: 1000px;}
+        img { border: 0 }
+        em{font-style:normal}
+        input{outline:0}
+        a { text-decoration: none; color: #222 ;outline:none}
+        a:hover { color: red }
+        table,td,th{border-collapse:collapse}
+
+
+        /*nav*/
+        .main{width:1200px;margin:100px auto;background: #311d07;}
+        .nav{height: 70px;}
+        .nav li{float:left;width:200px;text-align:center;cursor:pointer;position: relative;}
+        .nav li a{color: #d4ad42;font-size:16px;line-height: 70px;font-family:"微软雅黑";width:100%;height:100%;display:block;}
+        .nav li a:hover{color: #d4ad42;}
+        .solid{height:4px;background:#d4af46;position: absolute;top:0;left:0;}
+        .solid-active{width:100%;font-size: 0px;}
+        .nav li:hover,.focus{background: rgba(216, 188, 169, 0.4);background:#101f29\9;}
+
+        /*footer*/
+        .footer{margin-top:73px;height:190px;background:#0c1216;}
+        .fonter_con{width:1200px;margin:0 auto;padding-top: 35px;}
+        .left{width:157px;height:35px;margin:43px 38px 77px 123px;_margin:43px 38px 0px 100px;float:left;}
+        .right{float:left;border-left:1px solid #1d282f;padding-left:41px;color:#717171;line-height: 24px;}
+        .right_p{color:#434648;margin-bottom: 15px;}
+        .right a{color:#717171;}
+    </style>
+</head>
+<body>
+<div class="top">
+    <div class="top_con">
+
+    </div>
+</div>
+
+<div class="main">
+    <div class="nav">
+        <ul>
+            <li class="navLi focus"><a href="#">首页</a><i class="solid solid-active"></i></li>
+            <li class="navLi"><a href="#">导航一</a><i class="solid"></i></li>
+            <li class="navLi"><a href="#">导航二</a><i class="solid"></i></li>
+            <li class="navLi"><a href="#">导航三</a><i class="solid"></i></li>
+            <li class="navLi"><a href="#">导航四</a><i class="solid"></i></li>
+            <li class="navLi"><a href="#">导航五</a><i class="solid"></i></li>
+        </ul>
+    </div>
+
+</div>
+
+
+<div class="footer">
+    <div class="fonter_con">
+        <div class="left"></div>
+        <div class="right">
+            <p class="right_p">健康游戏忠告：抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</p>
+            <!--<span>
+                <a href="http://www.q1.com/about.html" target="_blank">公司介绍</a> |
+                <a href="http://www.q1.com/business.html" target="_blank">商务合作</a> |
+                <a href="http://hr.q1.com/" target="_blank">加入我们</a> |
+                <a href="http://service.q1.com/LW/Index" target="_blank">客服服务</a>
+            </span>
+            <br/>-->
+            Copyright © 2009 - 2016 Glacier Co.,Ltd. All Rights Reserved. 深圳冰川网络股份有限公司 版权所有<br/>
+            <a href='http://www.miitbeian.gov.cn/' target='_blank'>粤ICP备09111525号</a>&nbsp;&nbsp;网络文化经营许可证：<a href='http://www.q1.com/www.html' target='_blank'>粤网文[2015]2035-421号</a>&nbsp;&nbsp;粤B2-20090165<br/>
+            公司地址：深圳市南山区科技中二路1号深圳软件园（2期）9栋601、602室<br/>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+
+
+        //content交互
+
+        $('.lump').mouseover(function(){
+            var index=$(this).index('.lump');
+            $('.ic'+index).removeClass('icon'+index);
+            $('.ic'+index).addClass('icon'+index+'_h');
+            $('.p'+index).css("color","#ffffff");
+            $(this).css("background","#76b6e3");
+            $('.btn'+index).removeClass('lump_btn'+index);
+            $('.btn'+index).addClass('lump_btn_hover');
+        });
+
+        $('.lump').mouseout(function(){
+            var index=$(this).index('.lump');
+            $('.ic'+index).removeClass('icon'+index+'_h');
+            $('.ic'+index).addClass('icon'+index);
+            $('.p'+index).css("color","#999999");
+            $(this).css("background","#ffffff");
+            $('.btn'+index).removeClass('lump_btn_hover');
+            $('.btn'+index).addClass('lump_btn'+index);
+        });
+    });
+
+    //导航交互
+    var navLi=$('.navLi');
+    var solid=$('.solid');
+
+    function slideEffect(obj,eve,obj2,wid){
+        obj.bind(eve,function(){
+            obj2.stop(true,true);
+            var index=$(this).index();
+            if(!obj2.eq(index).hasClass("solid-active")){
+                obj2.eq(index).animate({width:wid},"slow");
+            }
+        })
+    };
+
+    slideEffect(navLi,'mouseover',solid,'100%');
+    slideEffect(navLi,'mouseout',solid,'0');
+
+
+</script>
+</body>
+</html>

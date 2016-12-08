@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oUl=document.getElementById('ul1');
+		var aLi=document.getElementsByTagName('li');
+		var aA=document.getElementsByTagName('a');
+
+		for(var i=0;i<aA.length;i++){
+			aA[i].onclick=function(){
+				
+				oUl.removeChild(this.parentNode);
+				if(aA.length==0){
+					alert("已全部删除");
+				}
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<ul id="ul1">
+		<li>aaaaaaa<a href="#">删除</a></li>
+		<li>bbbbbbb<a href="javascript:;">删除</a></li>
+		<li>ccccccc<a href="javascript:;">删除</a></li>
+		<li>ddddddd<a href="javascript:;">删除</a></li>
+		<input type="button" onclick="window.open('http://www.baidu.com')" value="跳转">
+	</ul>
+</body>
+</html>

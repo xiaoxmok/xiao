@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>定时器</title>
+	<script type="text/javascript">
+	function show(){
+		alert('1111111');
+
+	}
+	//setInterval(show, 2000);
+	//setTimeout(show, 2000);
+
+	window.onload=function(){
+		var but1=document.getElementById('but1');
+		var but2=document.getElementById('but2');
+		var timer=null;
+
+		but1.onclick=function(){			//开启定时器
+			timer=setInterval(show,1000);		
+		};
+
+		but2.onclick=function(){			//关闭定时器
+			clearInterval(timer);
+		}
+	};
+
+
+	</script>
+
+</head>
+<body>
+
+	<input id="but1" type="button" value="开启定时器" />
+	<input id="but2" type="button" value="关闭定时器" />
+	
+</body>
+</html>

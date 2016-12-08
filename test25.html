@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>文档碎片</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oBut=document.getElementById('but1');
+		var oUl=document.getElementById('ul1');
+
+		oBut.onclick=function(){
+			var tStart=new Date().getTime();
+			var iFrag=document.createDocumentFragment();		//文档碎片
+
+			for(var i=0;i<=10000;i++){
+				var oLi=document.createElement('li');
+				oLi.innerHTML=i;
+				/*if(oLi.length==0){
+					iFrag.appendChild(oLi);
+				}else{
+					var aLi=oUl.getElementsByTagName("li");
+					iFrag.insertBefore(oLi, aLi[0]);			//
+				}*/
+				iFrag.appendChild(oLi);
+			}
+			oUl.appendChild(iFrag);
+			
+			alert(new Date().getTime()-tStart);
+		}
+	}
+	</script>
+</head>
+<body>
+	<input id="but1" type="button" value="开始"/>
+	<ul id="ul1"></ul>
+</body>
+</html>

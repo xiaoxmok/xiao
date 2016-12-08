@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oBtn=document.getElementById('but1');
+		var oTxt=document.getElementById('txt1');
+		var oDiv=document.getElementById('div1');
+
+		oBtn.onclick=function(){
+			oDiv.innerHTML=oTxt.value;
+			alert("11111");
+		};
+	};
+
+
+
+	</script>
+	<style type="text/css">
+		div{
+			width:200px;
+			height:200px;
+			background:#A68820;
+		}
+	</style>
+
+</head>
+<body>
+	<input id="txt1" type="text"/>
+	<input id="but1" type="button" value="设置文字">
+	<div id="div1"></div>
+	<kbd>1111</kbd>
+	<kbd>1111</kbd>
+	<kbd>1111</kbd>
+	<kbd>1111</kbd>
+	<u>222</u>
+	<dir>111</dir>
+	<dir>111</dir>
+	<dir>111</dir>
+	<dir>111</dir>
+	<big>33333</big>
+	<small>22222</small>
+	<em>44444</em>
+	<menu>54545534</menu>
+</body>
+</html>

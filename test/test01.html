@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="./css/style01.css">
+</head>
+<body>
+	<div id="div1" onmouseover="onOver1()" onmouseout="onOut1()">
+		<button id="but">按钮</button>
+		<a href="http://www.baidu.com/" id="aid" >百度一下，你就知道</a>
+	</div>
+	
+	<script type="text/javascript">
+	document.getElementById("but").addEventListener("click", getType);
+	document.getElementById("div1").addEventListener("click", getDiv);
+	document.getElementById("aid").addEventListener("click", showA);
+	function getType(event){
+		//alert(event.type);			//获取事件类型。
+		alert(event.target);			//获取事件目标。
+		event.stopPropagation();		//阻止事件冒泡。
+	};
+	function getDiv(){
+		alert("div");
+	};
+	function showA(enent){
+		event.stopPropagation():
+		event.preventDefault();		//阻止默认事件;
+	}
+	function onOut(){
+		var e = document.getElementById("div1");
+		e.style.background="red";
+		e.innerHTML="";
+	}
+	function onOver(){
+		var e = document.getElementById("div1");
+		e.style.background="green";
+		e.innerHTML="你好中国";
+	}
+	</script>
+</body>
+</html>

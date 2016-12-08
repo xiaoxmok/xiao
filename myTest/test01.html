@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>有用</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script src="http://css.res.szgla.com/jquery/jquery-1.4.4.min.js"></script>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.test{
+			width: 100px;
+			height: 100px;
+			background: #9da;
+			margin:20px;
+			position: absolute;
+			top:200px;
+		}
+		#test1{
+			width: 10px;
+			height: 4px;
+			background: #9da;
+			margin:20px;
+			top:200px;
+		}
+		#test2{
+			margin:20px;
+			width: 1000px;
+			text-align: center;
+			font-weight: bold;
+			font-size: 18px;
+		}
+		input{
+			margin:20px;
+		}
+
+		.img_test1{position: absolute;
+            top:350px;}
+        .img1{background: url(http://img.res.szgla.com/bbcs/images/huodong/kxhd2016/btns.png) no-repeat 0 0;width: 347px;height: 172px;}
+        .img2{background:url(all1.png);width: 426px;height: 375px;}
+        .img3{background:url(all.png);width: 426px;height: 375px;}
+
+	</style>
+</head>
+	<body>
+		<div class="test"></div>
+		<p id="test2">0%</p>
+		<div id="test1"></div>
+		<input id="in" type="button" name="点击" value="点击">
+		<h3>这是一段内容</h3>
+		<script type="text/javascript" src="E:/svn/yz.q1.com/js/footer.js"></script>
+		<div>
+			<p>
+
+			</p>
+		</div>
+
+		<div class="img_test1">
+            <div class="img1"></div>
+            <div class="img2"></div>
+            <div class="img3"></div>
+        </div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$("#in").click(function(){
+				//$(".test").animate({left:"250px",opacity:'.5'},"slow")
+				$(".test").animate({width:"toggle"},2000)
+				$('h3').load('./test.txt',function(responseTxt,statusTxt,xhr){
+					if(statusTxt=="success"){
+						alert("加载成功！");
+					}else if(statusTxt=="error"){
+						alert("加载失败！");
+					}
+				});
+			});
+
+			//alert(comptime("2016-01-01 12:00:00","2016-08-09 13:00:00"));
+		});
+
+		var h=0;
+		var j=0;
+		function toShow(){
+			if(h<1000){
+				h+=10;
+				j+=1;
+				document.getElementById("test1").style.width=h+"px";
+				document.getElementById("test2").innerHTML=j+"%";
+			}else{
+				return;
+			}
+			setTimeout(toShow,80);
+		}
+
+		window.onload=function(){
+			var oC=document.getElementById("in");
+			oC.onclick=function(){
+				toShow();
+			}
+			
+		}
+
+		//比较时间 格式 yyyy-mm-dd hh:mi:ss
+		function comptime(beginTime, endTime) {
+		    var beginTimes = beginTime.substring(0, 10).split('-');
+		    var endTimes = endTime.substring(0, 10).split('-');
+		    beginTime = beginTimes[1] + '-' + beginTimes[2] + '-' + beginTimes[0] + ' ' + beginTime.substring(10, 19);
+		    endTime = endTimes[1] + '-' + endTimes[2] + '-' + endTimes[0] + ' ' + endTime.substring(10, 19);
+		    var a = (Date.parse(endTime) - Date.parse(beginTime)) / 3600 / 1000;
+		    if (a < 0) {//开始时间大于结束时间
+		        return false;
+		    } else {
+		        return true;
+		    }
+		}
+
+		window.onresize=function(){
+			//alert(1111);
+			//console.log($(window).height());
+		}
+		function test(){
+			var a="1111a";
+			var b=parents(a);
+		}
+
+		function add(a,b){
+			alert(a+b);
+		};
+		function sub(a,b){
+			alert(a-b);
+		};
+
+		function person(name,age){
+            this.name=name;
+            this.age=age;
+            this.sayHello=function(){
+                console.log("Hello Word");
+            }
+        }
+
+        function print(){
+            this.funcName="print";
+            this.show=function(){
+                var msg=[];
+                for(var key in this){
+                    if(typeof(this[key])!="function"){
+                        msg.push([key,":",this[key]].join(""));
+                        console.log("show");
+                    }
+                }
+                console.log(msg);
+            }
+        }
+
+        function student(name,age,grade,school){
+            person.apply(this,arguments);               //apply继承了person的属性和方法
+            print.apply(this,arguments);                //apply继承了print的属性和方法
+            this.grade=grade;
+            this.school=school;
+        }
+
+        var p1 = new person("jack",25);
+        p1.sayHello();
+        var s1 = new student("tom",20,6,"北京大学");
+        s1.show();
+        s1.sayHello();
+        console.log(s1.funcName);
+
+
+	</script>
+</html>

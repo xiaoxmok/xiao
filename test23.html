@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>定时展开、定时收起</title>
+	<style type="text/css">
+	body{
+		margin:0;
+		padding:0;
+
+	}
+	#div1{
+		margin:0 auto;
+		width:600px;
+		height: auto;
+	}
+	#img1{
+		width:600px;
+		height:auto;
+		margin:0;
+		padding:5px;
+		text-align: center;
+		background:url(./img/3.jpg);
+		background-size:cover;
+		display: none;
+	}
+	#img2{
+		width:600px;
+		margin:0;
+		padding:5px;
+		text-align: center;
+		background:#111;
+		color:#fff;
+	}
+
+	</style>
+	<script type="text/javascript">
+	var h=0;
+	function show(){
+		if(h<500){
+			h+=5;
+			document.getElementById('img1').style.height=h + "px";
+			document.getElementById('img1').style.display='block';
+
+		}else{
+			return;
+		}
+		setTimeout(show, 30);
+	}
+
+	function hShow(){
+		if(h>0){
+			h-=5;
+			document.getElementById('img1').style.height=h + "px";
+		}else{
+			document.getElementById('img1').style.display='none';
+			return;
+		}
+		setTimeout(hShow, 30);
+	}
+
+	window.onload=function(){
+		show();
+
+		setTimeout(hShow, 5000);
+	}
+
+	</script>
+
+</head>
+<body>
+	<div id="div1">
+		<div id="img1">
+			<p>南海是中国的</p>
+			<p>台湾是中国的</p>
+		</div>
+		<div id="img2">
+			<p>欢迎进入本网站</p>
+		</div>
+	</div>
+</body>
+</html>

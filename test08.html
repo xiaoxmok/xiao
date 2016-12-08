@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	body{
+		font-family:Verdana;
+		font-size:12px;
+		line-height:1.5;
+	}
+	a{
+		color:#000;
+		text-decoration:none;
+	}
+	a.hover{
+		color:#F00;
+	}
+	#menu{
+		border-bottom:3px solid red;
+		height:26px;
+		/* background:#eee; */
+		width:590px;
+		margin:0 auto;
+	}
+	#menu ul{
+		list-style:none;
+		margin:0px;
+		padding:0px;
+	}
+	#menu ul li{
+		float:left;
+		margin-left:2px;
+	}
+	#menu ul li a{
+		display: block;
+		padding:0px 8px;
+		height:26px;
+		line-height: 26px;
+		width:80px;
+		text-align:center;
+		background-image:url(./img/5.png);
+		background-position: 180px -209px;
+		border:0px solid red;
+		border-radius: 5px 5px 0px 0px;
+	}
+	#menu ul li a:hover{
+		background-image:url(./img/5.png);
+		background-position: 0px -209px;
+		color:#fff;
+	}
+	#menu ul li a#current{
+		background-image:url(./img/5.png);
+		background-position: 0px -209px;
+		color:#fff;
+	}
+	#menu ul li ul{
+		border:1px solid #ccc;
+	}
+	#menu ul li ul li{
+		float:none;
+		width:85px;
+		background:#eee;
+		margin:0;
+	}
+	#menu ul li ul li a{
+		background-image:url(./img/5.png);
+		background-position: 180px -210px;
+		border-radius:0px;
+	}
+	#menu ul li ul li a:hover{
+		background-image:url(./img/5.png);
+		background-position: 0px -210px;
+		color:#fff;
+		border-radius:0px;
+	}
+	#menu1{
+		border:1px solid #333;
+		width:200px;
+		text-align: center;
+	}
+	#menu1 ul{
+		list-style: none;
+		margin: 0px;
+		padding:0px;
+	}
+
+	</style>
+	<script type="text/javascript">
+		function onClick_M(){
+			var mav=document.getElementById("ul_ul");
+			if (mav.style.display=='none'){
+				mav.style.display='block';
+			}else{
+				mav.style.display='none';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="menu">
+		<ul>
+			<li><a id="current" herf="#">首页</a>
+			</li>
+			<li  onclick="onClick_M()"><a herf="#">网页版式布局</a>
+				<ul style="display:none;" id="ul_ul">
+					<li><a href="#">html</a></li>
+					<li><a href="#">css</a></li>
+				</ul>
+			</li>
+			<li><a herf="#">div-css教程</a></li>
+			<li><a herf="#">div-css实例</a></li>
+			<li><a herf="#">常用代码</a></li>
+			<li><a herf="#">欢迎进入</a></li>
+		</ul>
+	</div>
+	<div id="menu1">
+		<ul>
+			<li><a herf="#">首页</a>
+				<ul>
+					<li><a href="#">1111</a></li>
+					<li><a href="#">2222</a></li>
+					<li><a href="#">3333</a></li>
+					<li><a href="#">4444</a></li>
+					<li><a href="#">5555</a></li>
+				</ul>
+			</li>
+			<li><a herf="#">首页</a>
+				<ul>
+					<li><a href="#">1111</a></li>
+					<li><a href="#">2222</a></li>
+					<li><a href="#">3333</a></li>
+					<li><a href="#">4444</a></li>
+					<li><a href="#">5555</a></li>
+				</ul>
+			</li>
+			<li><a herf="#">首页</a>
+				<ul>
+					<li><a href="#">1111</a></li>
+					<li><a href="#">2222</a></li>
+					<li><a href="#">3333</a></li>
+					<li><a href="#">4444</a></li>
+					<li><a href="#">5555</a></li>
+				</ul>
+			</li>
+			<li><a herf="#">首页</a>
+				<ul>
+					<li><a href="#">1111</a></li>
+					<li><a href="#">2222</a></li>
+					<li><a href="#">3333</a></li>
+					<li><a href="#">4444</a></li>
+					<li><a href="#">5555</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

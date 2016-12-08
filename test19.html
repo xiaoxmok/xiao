@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div1{
+			width:200px;
+			height:200px;
+			background:#ccc;
+		}
+	</style>
+	<script type="text/javascript">
+		function getStyle(obj, arrt){
+			if(obj.currentStyle){
+				return obj.currentStyle[arrt];
+			}else{
+				return getComputedStyle(obj, false)[arrt];
+			}
+		}
+		window.onload=function(){
+			var div1=document.getElementById('div1');
+			alert(getStyle(div1, 'background'));
+		}
+
+	</script>
+
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

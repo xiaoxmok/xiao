@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>物体滚动</title>
+	<style text="text/css">
+		#div1{
+			width:200px;
+			height:200px;
+			background:#ccc;
+			position:absolute;
+			left:0;
+		}
+	</style>
+	<script text="text/javascript">
+		window.onload=function(){
+			var oBut1=document.getElementById('but1');
+			var oBut2=document.getElementById('but2');
+			var div1=document.getElementById('div1');
+			var timer=null;
+
+			oBut1.onclick=function(){
+				timer=setInterval(function(){
+					div1.style.left=div1.offsetLeft+5+'px';
+				},300);
+			}
+
+			oBut2.onclick=function(){
+				timer=clearInterval(timer);
+			}
+		}
+	</script>
+
+</head>
+<body>
+<input id="but1" type="button" value="向左移动" />
+<input id="but2" type="button" value="停止移动" />
+<div id="div1"></div>
+	
+</body>
+</html>
