@@ -1,0 +1,144 @@
+.top {
+	padding:20px 0;
+	display: block;
+	text-align: center;
+	text-indent: -80px;
+	letter-spacing: 10px;
+	font-size: 24px;
+	color: #ca5252;
+}
+
+.main{
+	width:70%;
+	margin: 0 auto;
+	border:1px solid #c8c8c8;
+	border-radius: 3px;
+	margin-top:20px;
+	padding: 20px ;
+}
+
+
+.main-con{
+	margin: 10px 0 0 20%;
+	height: 45px;
+}
+
+.lable{
+	width: 20%;
+	text-align: right;
+	float: left;
+	font-size: 16px;
+	font-family: "Microsoft YaHei","微软雅黑","宋体",helvetica,"Hiragino Sans GB";
+	line-height: 30px;
+}
+
+.box{
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 20px;
+}
+
+.box-other-1{
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 20px;
+}
+
+.box input{
+	width: 200px;
+	height: 30px;
+	border:1px solid #c8c8c8;
+	border-radius: 3px;
+	padding: 0 5px;
+	display: block;
+	float: left;
+}
+
+.box-check{
+	float: left;
+	height: 35px;
+	line-height: 35px;
+} 
+
+.box-check input{
+	width: 15px;
+	display: block;
+	float: left;
+	margin: 4px 5px 0px 15px;
+}
+
+#massage{
+	float: left;
+	position: relative;
+	left:10px;
+	top: 10px;
+	border:1px solid orange;
+	display: none;
+}
+
+.box-other{
+	line-height: 35px;
+}
+
+.box-other input{
+	height: 35px;
+	display: block;
+	float: left;
+	margin: 0 0 10px 20px;
+}
+
+.box-all{
+	line-height: 35px;
+	margin-left: 11px;
+}
+
+
+
+.box-checkbox label{
+	height: 20px;
+	display: block;
+	margin: 5px 0 5px 10px;
+	float: left;
+}
+
+.box-checkbox{
+	width: 500px;
+	height: 100%;
+	text-align: left;
+}
+
+span{
+	display: block;
+	float: left;
+}
+
+.box-other select{
+	display: block;
+	height: 30px;
+	width: 100px;
+	float: left;
+	margin-left: 20px;
+}
+
+.box-other textarea{
+	width: 260px;
+	height: 100px;
+	display: block;
+	float: left;
+	margin-left: 20px;
+}
+
+.box-button{
+	margin: 20px 0px 0px 160px;
+}
+
+.box-button input{
+	display: block;
+	float: left;
+	margin: 0 20px;
+	width: 60px;
+	height: 30px;
+	border: 1px solid #c8c8c8;
+	border-radius: 3px;
+	background-color: #96b97d;
+}

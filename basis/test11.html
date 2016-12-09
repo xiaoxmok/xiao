@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script type="text/javascript" src="../lib/jquery-3.1.0.js"></script>
+	<title>评分</title>
+	<style type="text/css">
+        /*==========css_reset==========*/
+        html, body, div, ul, li, h1, h2, h3, h4, p,table,td,th,span,em { margin: 0; padding: 0 ;font-family:"Microsoft YaHei"}
+        h1, h2, h3,h4 { font-weight: normal}
+        li { list-style: none }
+        body,html,.container{overflow-x:hidden}
+        body { font-family: "宋体"; color: #666; font-size: 12px; min-width: 1000px;}
+        img { border: 0 }
+        em{font-style:normal}
+        input{outline:0}
+        a { text-decoration: none; color: #222 ;outline:none}
+        a:hover { color: red }
+        table,td,th{border-collapse:collapse}
+
+
+        #roll{
+            width:300px;
+            height:100px;
+            margin:0 auto;
+
+            text-align: center;
+	    }
+
+        #roll li{
+            list-style: none;
+            width:30px;
+            height:30px;
+            float:left;
+            margin:1px;
+            background:#ccc;
+	    }
+
+        #roll p{
+            width:158px;
+            height:30px;
+            clear:left;
+            border:1px solid #ccc;
+            text-align:center;
+            line-height: 28px;
+	    }
+
+
+    .pop{width:547px;height:383px;background:#f8f8f8;position:fixed;z-index:301;display: block;}
+    .pop_p1{width:510px;margin:0 auto;height:46px;*height:76px;border-bottom:1px dashed #dedee0;}
+    .pop_p1 p{text-align:center;color:#4e95c7;margin:30px 0px;font-weight:bold;font-size:14px;}
+    .pop_p2{float:left;color:#767878;font-size:14px;line-height: 38px;margin-left:26px;font-weight:bold;}
+    .pop_radio{color:#767878;font-size:14px;line-height: 38px;font-weight:bold;float:left;margin-left: 20px;}
+    .pop_p3{clear:left;color:#767878;font-size:14px;line-height: 38px;margin:0 10px 0 26px;font-weight:bold;float:left;}
+    .textarea{clear:left;margin:10px 0 0 26px;width:466px;height:100px;}
+    .textarea textarea{width:466px;height:74px;background:#f0f0f0;border:0;padding:10px;color:#767878;}
+    .textarea textarea:active{border:0;}
+    .pop_star li{background:url(../img/icon.png) -360px -385px no-repeat;width:29px;height:24px;float:left;margin:5px 0 0 0px;cursor:pointer;}
+    .on{background:url(../img/icon.png) -360px -360px no-repeat!important;width:24px;height:24px;}
+    .on1{background:url(../img/icon.png) -360px -360px no-repeat!important;width:24px;height:24px;}
+    .pop_sp{display:block;float:left;color:#767878;font-size:14px;line-height: 38px;margin-left:26px;font-weight:bold;}
+    .pop_close{background:url(../img/icon.png) -267px -418px no-repeat;width:48px;height:48px;position:absolute;top:0;right:-60px;cursor:pointer;}
+    .pop_btn{margin:26px auto;display:block;background:#76b6e3;width:200px;height:51px;border:0;color:#ffffff;font-size:18px;cursor:pointer;border-radius:3px; }
+
+
+    </style>
+	<script type="text/javascript">
+	var pArray=['很差','较差','一般','良好','很好'];
+
+	window.onload=function(){
+		var div1=document.getElementById('roll');
+		var li=div1.getElementsByTagName('li');
+		var op=div1.getElementsByTagName('p')[0];
+
+		for(var i=0;i<li.length;i++){
+			li[i].index=i;
+			li[i].onmouseover=function(){
+			op.style.display='block';
+			op.innerHTML=pArray[this.index];
+				for(var i=0;i<=this.index;i++){
+						li[i].style.background='red';
+				}
+			}
+
+			li[i].onmouseout=function(){
+			op.style.display='none';
+				for(var i=0;i<li.length;i++){
+						li[i].style.background='#ccc';
+				}
+			}
+
+			li[i].onclick=function(){
+				alert('你的评分为：'+(this.index+1)+'分');
+			}
+		}
+
+	};
+
+    $(function(){
+        var aMsg = ["态度恶劣", "有待提高", "还可以", "满意", "非常满意"];
+        var t=null;
+
+        $('.pop_star li').mouseover(function(){
+            var index = $(this).index();
+            $('.pop_sp').html(aMsg[index]);
+            for(var i=0;i<=index;i++){
+                $('.pop_star li').eq(i).addClass('on');
+            }
+        });
+
+        $('.pop_star li').mouseout(function(){
+            var index = $(this).index();
+            if(t==null){
+                $('.pop_sp').html(" ");
+            }else{
+                $('.pop_sp').html(aMsg[t]);
+            }
+            for(var i=0;i<=index;i++){
+                $('.pop_star li').eq(i).removeClass('on');
+            }
+        });
+
+        $('.pop_star li').click(function(){
+            var index = $(this).index();
+            $('.pop_sp').html(aMsg[index]);
+            t=index;
+            $('.pop_star li').removeClass('on1');
+            for(var i=0;i<=index;i++){
+                $('.pop_star li').eq(i).addClass('on1');
+            }
+        });
+    })
+
+	</script>
+
+</head>
+<body>
+	<div id="roll">
+		<ul>
+			<li>11</li>
+			<li>22</li>
+			<li>33</li>
+			<li>44</li>
+			<li>55</li>
+		</ul>
+		<p>一般</p>
+	</div>
+
+	<div class="pop">
+		<div class="pop_close"></div>
+		<div class="pop_p1">
+			<p>对本次服务做出评价</p>
+		</div>
+		<div>
+			<p class="pop_p2">对处理结果：</p>
+			<p class="pop_radio"><input type="radio" name="result" checked value="">满意</p>
+			<p class="pop_radio"><input type="radio" name="result" value="">不满意</p>
+		</div>
+		<div>
+			<p class="pop_p3">客服态度：</p>
+			<ul class="pop_star">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<span class="pop_sp"></span>
+		</div>
+		<div class="textarea">
+                <textarea name="textarea" onfocus="if(value=='输入您的评价描述'){value='';this.style.color='#000000';}"
+						  onblur="if (value ==''){value='输入您的评价描述';this.style.color='#b2b4b4';}">输入您的评价描述</textarea>
+		</div>
+		<input type="submit" value="提交" class="pop_btn">
+	</div>
+</body>
+</html>

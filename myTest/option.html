@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>选项卡</title>
+	<link rel="stylesheet" type="text/css" href="./css/defult1.css">
+	<style type="text/css">
+	.main{
+		text-align: center;
+		margin: 100px;
+		width: 306px;
+		
+	}
+	
+	.main_top{
+
+	}
+
+	span{
+		display: block;
+		float: left;
+		text-align: center;
+		height: 50px;
+		width: 100px;
+		border: 1px solid orange;
+		background-color: #FFCC99;
+	}
+
+	.active{
+		
+		border-bottom:  1px solid #fff;
+		background-color: #FFE099;
+	}
+
+	.option_1{
+		border: 1px solid orange;
+		padding: 5px;
+		display: none;
+	}
+
+	</style>
+	<script type="text/javascript">
+	window.onload=function (){
+		var onMove=document.getElementsByTagName('span');
+		var option=document.getElementById('option');
+		var oDiv=option.getElementsByTagName('div')
+		var i=0;
+		
+		for (i = 0; i < onMove.length; i++) {
+			onMove[i].index=i;
+			onMove[i].onmousemove=function(){
+				for (var i = 0; i < onMove.length; i++) {
+					onMove[i].className='';
+					oDiv[i].style.display='none';
+				};
+				this.className='active';
+				oDiv[this.index].style.display='block';
+			}
+			
+		};
+		
+	}
+
+
+	</script>
+
+</head>
+	<body>
+		<div class="main">
+			<div class="main_top" >
+				<span class='active'>选项1</span>
+				<span >选项2</span>
+				<span >选项3</span>
+			</div>
+			<div id="option">
+				<div class="option_1" style="display:block">
+					<p>中华人民共和国</p>
+					<p>中华人民共和国</p>
+					<p>中华人民共和国</p>
+					<p>中华人民共和国</p>
+					<p>中华人民共和国</p>
+					<p>中华人民共和国</p>
+					<p>中华人民共和国</p>
+				</div>
+				<div class="option_1">
+					<p>美利坚合众国</p>
+					<p>美利坚合众国</p>
+					<p>美利坚合众国</p>
+					<p>美利坚合众国</p>
+					<p>美利坚合众国</p>
+					<p>美利坚合众国</p>
+					<p>美利坚合众国</p>
+				</div>
+				<div class="option_1">
+					<p>大日本垃圾帝国</p>
+					<p>大日本垃圾帝国</p>
+					<p>大日本垃圾帝国</p>
+					<p>大日本垃圾帝国</p>
+					<p>大日本垃圾帝国</p>
+					<p>大日本垃圾帝国</p>
+					<p>大日本垃圾帝国</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

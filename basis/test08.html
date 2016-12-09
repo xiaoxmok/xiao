@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>div隐藏</title>
+	<style type="text/css">
+		#div1{
+			width: 200px;
+			height:20px;
+			background:red;
+			margin:10px;
+		}
+		#div2{
+			width:100px;
+			height:20px;
+			background:#ccc;
+			margin:10px;
+			display:none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var div1=document.getElementById('div1');
+			var div2=document.getElementById('div2');
+			var timer=null;
+
+			function show(){
+				clearTimeout(timer);
+				div2.style.display='block';
+			}
+
+			function hide(){
+				timer=setTimeout(function(){			//定时器，让移开div1时不隐藏
+					div2.style.display='none';
+				}, 300);
+			}
+
+			div1.onmousemove=show;
+
+			div1.onmouseout=hide;
+
+			div2.onmousemove=show;
+
+			div2.onmouseout=hide;
+
+			//简洁的写法，如：a=b=3,连续赋值；
+			/*div1.onmousemove=div2.onmousemove=function (){
+				clearTimeout(timer);
+				div2.style.display='block';
+			}*/
+		}
+
+	</script>
+</head>
+<body>
+	<p>js控制div隐藏与显示</p>
+	<div id="div1">鼠标移入</div>
+	<div id="div2"></div>
+	
+</body>
+</html>

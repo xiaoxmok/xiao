@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>js字符串操作，时钟操作</title>
+</head>
+<script type="text/javascript">
+	/*people = new Object();
+	people.name = "张三";
+	people.age = "33";*/
+	
+
+	/*function people(name,age){
+		this.name=name;
+		this.age=age;
+	};
+	son = new people("小李", 30);
+	document.write("名字："+son.name+",年龄："+son.age);*/
+
+	var str = "hello world";
+	document.write("长度为："+str.length);			//返回字符串长度;
+	document.write("<br/>")
+
+	document.write("查找字符串："+str.indexOf("world"));			//是否存在字符串，存在返回具体位置，不存在则返回-1;
+
+	document.write("<br/>");
+	document.write("匹配字符串是否存在："+str.match("hello"));		//如果存在则直接输出字符串内容，不存在则输出null;
+
+	document.write("<br/>");
+	document.write("替换内容："+str.replace("world","china"));		//将内容替换掉,输出结果为：hello china;
+
+	document.write("<br/>");
+	document.write("字符串转换成大写："+str.toUpperCase());			//将字符串全部转换成大写
+
+	document.write("<br/>");
+	document.write("字符串转换成小写："+str.toLowerCase());			//将字符串全部转换成大写
+
+	var str1 = "China,America,English";
+	var s = str1.split(",");				//将字符串拆分成数组;
+	for(var i=0;i<s.length;i++){
+		document.write("<br/>");
+		document.write("str拆分后的数组为：s["+i+"]="+s[i]);
+	}
+
+	var s1 = s.join("|");
+	document.write("<br/>");
+	document.write("数组组合成字符串："+s1);
+
+	function getTime(){
+		var today = new Date();
+		var y = today.getFullYear();
+		var mon = (today.getMonth()+1);
+		var d = today.getDay();
+		var h = today.getHours();
+		var m = today.getMinutes();
+		var s = today.getSeconds();
+		mon = checkTime(mon);
+		d = checkTime(d);
+		h = checkTime(h);
+		s = checkTime(s);
+		m = checkTime(m);
+		
+		var timeShow = document.getElementById("timeShow");
+		timeShow.innerHTML=y+"年"+mon+"月"+d+"日  "+h+":"+m+":"+s;
+
+		//setTimeout(getTime,300);
+		setTimeout(function(){
+			getTime();
+		},300)
+	}
+
+	function checkTime(s){
+		if(s<10){
+			s = "0"+s;
+		}
+		return s;
+	}
+	
+</script>
+<body onload="getTime()">
+	<div id="timeShow"></div>
+</body>
+</html>

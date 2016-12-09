@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>模仿菜鸟教程首页</title>
+	<link rel="stylesheet" id="link-top" type="text/css" href="./css/defult1.css">
+	<script type="text/javascript">
+		function onClick_M(){			
+			var box_display=document.getElementById('box_display');
+			var box_tab=document.getElementById('box_tab');
+			if (box_display.style.display=='block'){				
+				box_display.style.display='none';
+				box_tab.style.border='1px solid rgba(0,0,0,.1)';
+			}else{
+				box_display.style.display='block';
+			}
+		};
+
+		function toColor(){
+			/*当搜索框内容为‘搜索.....’时,获得焦点后内容为空，颜色变亮*/
+			var header_input;
+			header_input=document.getElementById('header_input')
+			if(header_input.value=='搜索.....')
+				/*alert('提示框');*/
+				header_input.value='';
+				header_input.style.color='#666';
+		}
+
+		function clearColor(){
+			/*当搜索框失去焦点内容为空时，内容变为‘搜索.....’，颜色变暗，否则颜色变亮*/
+			var header_input;
+			header_input=document.getElementById('header_input')
+			if(header_input.value==''){
+				header_input.value='搜索.....';
+				header_input.style.color='#ccc';
+			}else{
+				header_input.style.color='#666';
+			}
+
+		}
+	</script>
+</head>
+	<body>
+		<!-- header -->
+		<div class="header">
+			<div class="header_row">
+				<div class="header_left">
+					<a href="/"></a>	
+					
+				</div>
+				<div class="header_right">
+					<form>
+						<input id="header_input" value="搜索....." onfocus="toColor()" onblur="clearColor()" autocomplete="off">
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 导航栏-->
+		<div class="container">
+			<div class="container_row">
+				<div class="container_nav">
+					<ul>
+						<li>
+							<a href="/" title="菜鸟教程" class="current" target="_blank">首页</a>
+						</li>
+						<li>
+							<a href="/" title="菜鸟笔记" target="_blank">菜鸟笔记</a>
+						</li>
+						<li>
+							<a href="/" title="菜鸟工具" target="_blank">菜鸟工具</a>
+						</li>
+						<li>
+							<a href="/" title="参考手册" target="_blank">参考手册</a>
+						</li>
+						<li>
+							<a href="/" title="测验/考试" target="_blank">测验/考试</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="header_top">
+				<label class="label1"><input type="radio" name="background-color" checked="" title="默认" onclick="document.getElementById('link-top').href='./css/defult1.css'"></label>
+				<label class="label2"><input type="radio" name="background-color" title="偏红" onclick="document.getElementById('link-top').href='./css/defult2.css'"></label>
+				<label class="label3"><input type="radio" name="background-color" title="偏蓝" onclick="document.getElementById('link-top').href='./css/defult3.css'"></label>
+				<label class="label4"><input type="radio" name="background-color" title="偏紫" onclick="document.getElementById('link-top').href='./css/defult4.css'"></label>
+			</div>
+		</div>
+
+		<!-- main-->
+		<div class="main">
+			<div class="main-row">
+				<div class="main-column">
+					<div class="tab" id="box_tab" onclick="onClick_M()">
+						<p class="fa">
+						&equiv;
+						</p>
+						全部教程
+					</div>
+					<div id="box_display" style="display:block">
+						<div class="sidebar-box">
+							<div class="design">
+								<a href="/">&diams;&nbsp;HTML / CSS</a>
+							</div>
+						</div>
+						<div class="sidebar-box">
+							<div class="design">
+								<a href="/">&diams;&nbsp;JavaScript</a>
+							</div>
+						</div>
+						<div class="sidebar-box">
+							<div class="design">
+								<a href="/">&diams;&nbsp;服务端</a>
+							</div>
+						</div>
+						<div class="sidebar-box">
+							<div class="design">
+								<a href="/">&diams;&nbsp;数据库</a>
+							</div>
+						</div>
+						<div class="sidebar-box">
+							<div class="design">
+								<a href="/">&diams;&nbsp;移动端</a>
+							</div>
+						</div>
+						<div class="sidebar-box">
+							<div class="design">
+								<a href="/">&diams;&nbsp;XML教程</a>
+							</div>
+						</div>
+						<div class="sidebar-box">
+							<div class="design">
+								<a href="/">&diams;&nbsp;ASP.NET</a>
+							</div>
+						</div>
+						<div class="sidebar-box">
+							<div class="design">
+								<a href="/">&diams;&nbsp;Web Service</a>
+							</div>
+						</div>
+						<div class="sidebar-box">
+							<div class="design">
+								<a href="/">&diams;&nbsp;开发工具</a>
+							</div>
+						</div>
+						<div class="sidebar-box">
+							<div class="design">
+								<a href="/">&diams;&nbsp;网站建设</a>
+							</div>
+						</div>
+						<div class="sidebar-box">
+							<div class="design">
+								<a href="./collect.html" target="_blank">&diams;&nbsp;意见收集</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="main-home">
+					<div class="codelist">
+						<h2>
+							&equiv;&nbsp;HTML / CSS
+						</h2>
+						<a href="/" target="_blank">
+							<h4>【学习 HTML】</h4>
+							<img src="./img/html.png">
+							<strong>HTML，即超文本标记语言（Hyper Text Markup Language）</strong>
+						</a>
+						<a href="/" target="_blank">
+							<h4>【学习 HTML5】</h4>
+							<img src="./img/html.png">
+							<strong>HTML5 是下一代 HTML 标准</strong>
+						</a>
+						<a href="/" target="_blank">
+							<h4>【学习 CSS】</h4>
+							<img src="./img/html.png">
+							<strong>层叠样式表（Cascading StyleSheet）</strong>
+						</a>
+						<a href="/" target="_blank">
+							<h4>【学习 CSS3】</h4>
+							<img src="./img/html.png">
+							<strong>CSS3是CSS技术的升级版本</strong>
+						</a>
+						<a href="/" target="_blank">
+							<h4>【学习 Bootstrap】</h4>
+							<img src="./img/html.png">
+							<strong>Bootstrap，来自 Twitter，是目前最受欢迎的前端框架</strong>
+						</a>
+						<a href="/" target="_blank">
+							<h4>【学习 Foundation】</h4>
+							<img src="./img/html.png">
+							<strong>Foundation 用于开发响应式的 HTML, CSS and JavaScript 框架</strong>
+						</a>
+					</div>
+					<div class="codelist">
+						<h2>
+							&equiv;&nbsp;JavaScript
+						</h2>
+						<a href="/" target="_blank">
+							<h4>【学习 JavaScript】</h4>
+							<img src="./img/html.png">
+							<strong>HTML，即超文本标记语言（Hyper Text Markup Language）</strong>
+						</a>
+					</div>
+					<div class="codelist">
+						<h2>
+							&equiv;&nbsp;服务端
+						</h2>
+						<a href="/" target="_blank">
+							<h4>【学习 服务端】</h4>
+							<img src="./img/html.png">
+							<strong>HTML，即超文本标记语言（Hyper Text Markup Language）</strong>
+						</a>
+					</div>
+					<div class="codelist">
+						<h2>
+							&equiv;&nbsp;数据库
+						</h2>
+						<a href="/" target="_blank">
+							<h4>【学习 数据库】</h4>
+							<img src="./img/html.png">
+							<strong>HTML，即超文本标记语言（Hyper Text Markup Language）</strong>
+						</a>
+					</div>
+					<div class="codelist">
+						<h2>
+							&equiv;&nbsp;移动端
+						</h2>
+						<a href="/" target="_blank">
+							<h4>【学习 移动端】</h4>
+							<img src="./img/html.png">
+							<strong>HTML，即超文本标记语言（Hyper Text Markup Language）</strong>
+						</a>
+					</div>
+					<div class="codelist">
+						<h2>
+							&equiv;&nbsp;XML教程
+						</h2>
+						<a href="/" target="_blank">
+							<h4>【学习 XML教程】</h4>
+							<img src="./img/html.png">
+							<strong>HTML，即超文本标记语言（Hyper Text Markup Language）</strong>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- footer-->
+		<div class="footer">
+			<div class="footer-block">
+				<div class="footer-main">
+					<dl>
+						<dt>在线实例</dt>
+						<dd>
+							&sdot;<a href="/">HTML实例</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">CSS实例</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">JavaScript实例</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">Ajax实例</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">JQuery实例</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">XML实例</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">Java实例</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>字符集&amp;工具</dt>
+						<dd>
+							&sdot;<a href="/">HTML字符集设置</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">HTML ASCll字符集</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">HTML ISO-8859-1</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">HTML实体符号</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">HTML拾色器</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">JSON格式化工具</a>
+						</dd>
+						<dd>
+							<a href="/"></a>
+						</dd>
+
+					</dl>
+					<dl>
+						<dt>最新更新</dt>
+						<dd>
+							&sdot;<a href="/">菜鸟教程离线版下载教程</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">CSS分页实例</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">CSS按钮</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">PHP初学者</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">Style filter 属性</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">CSS3 filter(滤镜)属性</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">Linux let 命令</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>站点信息</dt>
+						<dd>
+							&sdot;<a href="/">意见反馈</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">免责声明</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">关于我们</a>
+						</dd>
+						<dd>
+							&sdot;<a href="/">文章归档</a>
+						</dd>
+						<dd>
+							<a href="/"></a>
+						</dd>
+						<dd>
+							<a href="/"></a>
+						</dd>
+						<dd>
+							<a href="/"></a>
+						</dd>
+					</dl>
+					<div class="seach-share">
+						<div class="weixin">
+							<strong>关注微信</strong>
+						</div>
+						<div class="share">
+							<img width="150px" height="150px" src="./img/qrcode.jpg">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyright">
+					CopyRight&nbsp;&copy;&nbsp;2001-2016&nbsp;
+					<strong>
+						<a href="/">菜鸟教程</a>&nbsp;
+					</strong>
+					<strong>
+						<a href="http://www.baidu.com/" target="_blank">www.baidu.com</a>&nbsp;
+					</strong>
+					All Rights Reserved. 备案号：闽ICP备15012807号-1
+				</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>播放音乐</title>
+    <script src="http://css.res.szgla.com/jquery/jquery-1.4.4.min.js?v=1"></script>
+    <style>
+        .china{display:none;position:absolute;top:100px;left:500px;width:100px;height:100px;background: #cc4f15;padding:10px;}
+        .american{display:none;position:absolute;top:200px;left:500px;width:100px;height:100px;background: #b5bab4;padding:10px;}
+        .english{display:none;position:absolute;top:300px;left:500px;width:100px;height:100px;background: #b87814;padding:10px;}
+
+    </style>
+</head>
+    <body>
+    <input type="radio" value="11" name="aa">111
+    <input type="radio" value="22" name="aa">222
+    <input type="radio" value="33" name="aa">333
+    <input type="radio" value="44" name="aa">444
+
+    <div class="china">China</div>
+    <div class="american">American</div>
+    <div class="english">English</div>
+    <input type="button" value="弹窗1" onclick="onC(china)">
+    <input type="button" value="弹窗2" onclick="onC(american)">
+    <input type="button" value="弹窗3" onclick="onC(english)">
+    <input type="button" value="关闭" onclick="onClose()">
+
+    <div class="music_box"></div>
+    <input type="button" value="播放" onClick="music_play()">
+    <input type="button" value="停止" onClick="music_stop()">
+    <input type="button" value="暂停" onClick="music_pause()">
+
+    <script>
+        function music_play(){
+            var mus="http://res.szgla.com/images/upload/Friend/Programs/201412/17/831d91ac-9e38-4cfb-957b-782d162ff5a6.mp3";
+            $(".music_box").html("<embed height='100' width='400' hidden='false' src="+mus+" autostart=true loop=100 />");
+        }
+        function music_stop(){
+            $(".music_box").html("<embed height='100' width='400' hidden='false' src='' autostart=true loop=100 />");
+        }
+        function music_pause(){
+            $('.music').pause();
+        }
+
+
+        function testDemo1(){
+            var num1 = 2;
+            var num2 = 20;
+            var num3 = --num1 + num2;                       //21
+            var num4 = num1 + num2;                         //21
+            //return "nu3= "+ num3+";num4= "+num4;          //如果加了return，return后面的语句永远不会执行；
+            console.log("nu3= "+ num3+";num4= "+num4);
+
+        }
+        //testDemo1();
+
+        function switchDemo(){
+
+            var i = 100;
+
+            switch(true){
+                case i<=10:
+                    console.log("可以去搬砖了！");
+                    break;
+                case 10<i && i<=20:
+                    console.log("离搬砖仅有一步一遥了！");
+                    break;
+                case 20<i && i<=30:
+                    console.log("还能再差点吗？");
+                    break;
+                case 30<i && i<=40:
+                    console.log("糟糕极了！");
+                    break;
+                case 40<i && i<=50:
+                    console.log("十分糟糕！");
+                    break;
+                case 50<i && i<=60:
+                    console.log("算是及格了！");
+                    break;
+                default :
+                    console.log("真的不错吗？");
+            }
+        }
+        //switchDemo();
+
+        function doAdd(num1,num2){
+            arguments[1]=10;
+            console.log(arguments[0] + num2);
+        }
+
+        //doAdd(1,2);
+
+        var person={
+            "name":"老外", "age":"29",5:true
+        }
+
+        var china='china';
+        var american='american';
+        var english='english';
+        function onC(name){
+            var ele=$('.'+name);
+            ele.slideDown();
+
+        }
+
+        function onClose(){
+            $('.china').slideUp();
+            $('.american').slideUp();
+            $('.english').slideUp();
+        }
+
+
+        function displayInfo(args){
+            var input='';
+            if(typeof args.name == "string"){
+                input += "Name:"+args.name +"\n";
+            }
+            if(typeof args.age == "number"){
+                input += "Age:"+args.age +"\n";
+            }
+            console.log(input);
+        }
+        displayInfo({
+            "name":"china",
+            "age":75
+        })
+        displayInfo({
+            "name":"22"
+        })
+
+
+        /*==============================================*/
+        var arr = ["red","blue","orange"];
+        //arr.length=4;
+        //alert(arr.toString());
+        //alert(arr);
+
+        var arr_sort=[2,1,20,10,15,3,4,6,12,43,22]
+        console.log(arr_sort.sort(compare2));     //43,22,20,15,12,10,6,4,3,2,1
+        console.log(arr_sort.sort(compare));
+        console.log(arr_sort.reverse());          //1,2,3,4,6,10,12,15,20,22,43
+
+        function compare(value1,value2){
+            //正序
+            if(value1 < value2){
+                return -1;                  //如果第一个参数应该位于第二个之前则返回一个负数，如果两个参数相等则返回0，如果第一个参数应该位于第二个之后则返回一个正数
+            }else if(value1 > value2){
+                return 1;
+            }else{
+                return 0;
+            }
+        }
+        function compare1(value1,value2){
+            //逆序
+            if(value1 < value2){
+                return 1;                  //如果第一个参数应该位于第二个之前则返回一个负数，如果两个参数相等则返回0，如果第一个参数应该位于第二个之后则返回一个正数
+            }else if(value1 > value2){
+                return -1;
+            }else{
+                return 0;
+            }
+        }
+        //正序 更简单的写法
+        function compare2(value1,value2){
+            return value1-value2;
+        }
+        //逆序
+        function compare1(value1,value2){
+            return value2-value1;
+        }
+        /*==============================================*/
+
+    </script>
+    </body>
+</html>

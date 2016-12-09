@@ -1,0 +1,102 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+#div1{
+	margin:20px;
+	width:100px;
+	height: 100px;
+	background:#9da;
+	border:0px solid red;
+	border-radius: 5px;
+}
+
+
+#div2{
+	margin: 20px;
+	width:100px;
+	height:100px;
+	background: #9da;
+	/* 左上、右上、右下、左下 */
+	border-radius:10px 20px 30px 40px;			
+}
+
+#div3{
+	margin:20px;
+	width:100px;
+	height: 50px;
+	background:#9da;
+	/* 半圆 */
+	border-radius: 50px 50px 0 0 ;
+}
+
+#div4{
+	margin:20px;
+	width:100px;
+	height:100px;
+	background:#9da;
+	border-radius:50px;
+}
+
+#div5{
+	margin:20px;
+	width: 100px;
+	height:100px;
+	background: #9da;
+	box-shadow:10px 10px 10px #999 ;
+}
+
+#div6{
+	margin:20px;
+	width:100px;
+	height:100px;
+	background:#9da;
+	box-shadow:10px 10px 10px #999,-4px -4px 6px #f00,0 0 10px 5px orange inset;
+}
+
+#main{
+	float:left;
+	border:1px solid #9da;
+	margin:10px;
+}
+
+#div7{
+	margin:20px;
+	width:100px;
+	height:100px;
+	background-image:linear-gradient(to right,#9da,orange);
+}
+
+#div8{
+	margin:20px;
+	width:100px;
+	height:100px;
+	/* border-radius:50px; */
+	background-image:radial-gradient(circle,red,green,orange);
+}
+
+#div9{
+	margin:20px;
+	width:100px;
+	background: #ccc;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+@font-face{
+	font-family:"MOOC-Font";
+	src:url("http://www.imooc.com/Amaranth-BoldItalic.otf");
+}
+
+#div10{
+	margin:20px;
+	width:100px;
+	background:#9da;
+	
+	word-wrap:break-word;
+	font-size: 24px;
+	font-family:"微软雅黑";
+	text-shadow:2px 2px 0px orange;
+}

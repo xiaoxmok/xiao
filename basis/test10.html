@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>无缝滚动</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var div1=document.getElementById('roll');
+		var oUl=div1.getElementsByTagName('ul')[0];
+		var oLi=oUl.getElementsByTagName('li');
+
+		var but1=document.getElementById('but1');
+		var but2=document.getElementById('but2');
+		var but3=document.getElementById('but3');
+
+		var timer=null;
+
+		var oSleep=-2;
+
+		setTimeout(onRoll, 10);
+
+		but1.onclick=function(){
+			oSleep=-2;
+			onRoll();
+		}
+
+		but2.onclick=function(){
+			oSleep=2;
+			onRoll();
+		}
+
+		but3.onclick=function(){
+			if (but3.value=='暂停'){
+				clearInterval(timer);
+				but3.value='开始';
+			}else{
+				onRoll();
+				but3.value='暂停';
+			}
+		}
+
+		oUl.onmouseover=function(){
+			clearInterval(timer);
+		}
+
+		oUl.onmouseout=function(){
+			onRoll();
+		}
+
+		oUl.innerHTML+=oUl.innerHTML;
+		oUl.style.width=oLi[0].offsetWidth*oLi.length+'px';
+
+
+		function onRoll(){
+			timer=setInterval(function(){
+				oUl.style.left=oUl.offsetLeft+oSleep+'px';
+				if(oUl.offsetLeft<-oUl.offsetWidth/2){
+					oUl.style.left=0;
+				}
+				else if (oUl.offsetLeft>0){
+					oUl.style.left=-oUl.offsetWidth/2+'px';
+				}
+
+			}, 30);
+		}
+
+
+	}
+	</script>
+
+
+	<style type="text/css">
+		.wrap{
+			width:819px;
+			height: 154px;
+			border:0px solid red;
+			margin:0 auto;
+			position:relative;
+			overflow:hidden;
+		}
+		.wrap ul{
+			position:absolute;
+			top:-16px;
+			padding:0;
+			left:0px;
+		}
+		.wrap ul li{
+			list-style: none;
+			float: left;
+			width:273px;
+		}
+	</style>
+</head>
+<body>
+	<div id="roll">
+		<div class="wrap">
+			<ul>
+				<li><img src="../img/images/3_11.gif" /></li>
+				<li><img src="../img/images/3_12.gif" /></li>
+				<li><img src="../img/images/3_13.gif" /></li>
+				<li><img src="../img/images/3_14.gif" /></li>
+			</ul>
+		</div>
+	</div>
+	<input id="but1" type="button" value="向左" />
+	<input id="but2" type="button" value="向右" />
+	<input id="but3" type="button" value="暂停" />
+</body>
+</html>
