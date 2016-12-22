@@ -1,0 +1,102 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>雪花</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <script src="../lib/jquery-3.1.0.js"></script>
+    <style>
+        body,dd,div,dl,dt,form,h1,h2,h3,h4,img,li,ol,p,ul{margin:0;padding:0}
+        li{list-style:none}
+        h1,h2,h3,h4{font-size:100%}
+        img{border:0;vertical-align:top}
+        table{border-collapse:collapse;font-size:12px}
+        a{text-decoration:none;outline:0}
+        a:hover{text-decoration:underline}
+        .clear{clear:both;height:0;overflow:hidden}
+        body{background:url(./img/bg.jpg) center top no-repeat;font-size:12px; overflow-x:hidden;  font-family:"Microsoft YaHei","Helvetica Neue",Arial,HelveticaNeue,Helvetica,"BBAlpha Sans",sans-serif; position:relative}
+
+        .box{
+            width:12px;
+            height: 12px;
+            background-repeat:no-repeat;
+            background-position:center top;
+            background-image: url(img/snow0.gif);
+            position: absolute;
+            display: none;
+            z-index: 9999;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<script type="text/javascript">
+    //雪花的背景图地址数组
+    var this_arr=['img/snow0.gif','img/snow1.gif','img/snow2.gif','img/snow3.gif'];
+    //飘落的初始的位置为this_top,this_left
+    //飘落的数度为初始速度this_spend,雪花清除的高度为this_high;喷射的距离为0到this_width
+    var this_top=10;
+    var this_spend=20;
+    var this_high=800;
+    var this_width=$(window).width();
+    var this_left=this_width;
+
+    //	初始化创建元素,给予相应类box(此处类名固定)
+    init();
+    //   窗口改变时,喷射的距离也不能超过可视区宽
+    $(window).resize(function(){
+        this_width=$(window).width();
+    });
+    function init(){
+        setInterval(function(){
+            this_left=Math_random(0,this_width);
+            var html=$(document.createElement('div'));
+            html.addClass('box');
+            if(this_arr){
+                html.css('background-image','url('+this_arr[Math_random(0,3)]+')')
+            }else{
+                alert('没有给this_arr图片地址数组');
+                return false;
+            };
+            html.css({'left':this_left,'top':this_top});
+            $('body').append(html);
+            fall(html);
+        },300);
+    };
+    //	 雪花的回收函数
+    function Remove(obj){
+        if(obj.offset().top>this_high){
+            obj.fadeOut(500,function(){
+                $(this).remove();
+            });
+        };
+    };
+    //	 每个雪花的飘落函数
+    function fall(obj){
+        var top_x=this_top;
+        var top_y=this_left;
+        var this_obj=obj;
+        var x=Math_random(2,6);
+        this_obj.fadeIn(600);
+        move();
+//	 	   初始值为随机数,下降速度系数为1.01，随机像左移动-5,5,
+        function move(){
+            var y=Math_random(-5,5);
+            x=x*1.02;
+            top_x+=x;
+            top_y=top_y+y;
+            this_obj.animate({'top':top_x,'left':top_y},200,function(){
+                Remove(this_obj);move();
+            });
+        };
+    };
+    function Math_random(min,max){
+        return Math.round(Math.random()*(max-min)+min);
+    };
+</script>
+</body>
+</html>
