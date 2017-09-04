@@ -1,0 +1,262 @@
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+	<title>bing search</title>
+	<script src="jquery-1.8.3.min.js"></script>
+	<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	body{background-color: #333;font-family: "Segoe UI",Segoe,Tahoma,Arial,Verdana,sans-serif;}
+	#bg-div{width:100%;background:url(3.jpg) no-repeat;height:100%;margin: 0 auto;}
+	.logo{background-image: url(logo.png);height:53px;width: 107px; float: left;margin: -4px 18px 0 0;}
+	.search-form{float: left; background-color: #fff;padding:5px;}
+	.search-text{height:25px;line-height: 25px;float: left;width: 350px;border: 0;outline: none;}
+	.search-button{background-image: url(search-button.png);width:29px;height:29px;float: left;border: 0;}
+	.search-box{position:absolute;top:150px;left: 200px;}
+	#top{
+		top:0;
+		height:40px;
+		width: 100%;
+		background:#333;
+		position:fixed;
+	}
+	#top_1{
+		line-height: 40px;
+		float:left;
+	}
+	#top_1 ul li{
+		float:left;
+		margin-left:25px;
+		color:#ACACAC;
+		list-style: none;
+		line-height: 40px;
+	}
+	#top_1 ul li a,#top_2 ul li a{
+		color:#ACACAC;
+		font-size:13px;
+		text-decoration:none;
+	}
+	#top_1 ul li a:hover,#top_2 ul li a:hover{
+		color:#fff;
+	}
+	#top_2{
+		float:right;
+		line-height: 40px;
+		margin-right: 25px;
+	}
+	#top_2 ul li{
+		float:left;
+		margin-left:25px;
+		color:#ACACAC;
+		list-style: none;
+	}
+	#footer{
+		height:40px;
+		width: 100%;
+		background:#333;
+		position:fixed;
+		bottom:0;
+
+
+	}
+	#footer ul{
+		float:right;
+		margin-right: 25px;
+	}
+	#footer ul li{
+		float:left;
+		line-height: 40px;
+		margin-left:10px;
+		font-size:small;
+		color:#666;
+		list-style: none;
+	}
+	#footer ul li a{
+		font-size:13px;
+		color:#666;
+		text-decoration: none;
+	}
+	#footer ul li a:hover{
+		color:#acacac;
+		text-decoration: underline;
+	}
+
+	#search_text{
+		position:absolute;
+		width:389px;
+		background:#fff;
+		border:1px solid #999;
+		display: none;	
+	}
+	#search_text ul{
+		list-style: none;
+		
+	}
+	#search_text ul li{
+		padding:3px;
+		font-size:14px;
+		color:#777;
+		line-height: 25px;
+		cursor:pointer;
+	}
+	#search_text ul li:hover{
+		background:#e5e5e5;
+		text-decoration:underline;
+	}
+
+	</style>
+	<script type="text/javascript">
+	
+		
+
+		
+
+
+
+
+	window.onload=function(){
+		
+
+		var bg=document.getElementById("bg-div");
+		imgData={"data":[{"src":"1.jpg"},{"src":"2.jpg"},{"src":"3.jpg"},{"src":"4.jpg"}]};
+		
+		setInterval(function(){
+			var i = Math.floor(Math.random()*imgData.data.length);
+			//console.log(i);
+			bg.style.background="url("+imgData.data[i].src+") no-repeat";
+			//alert(bg.style.background);
+		},5000);
+
+		$('#search_input').bind('keyup',function(){
+			//alert("hello");
+			var searchText = $("#search_input").val();
+			
+			$.ajax({
+				type:"GET",
+				url:"http://api.bing.com/qsonhs.aspx?type=cb&q="+searchText,
+				async:true,
+				dataType:"jsonp",
+				jsonp:"cb",
+				success:function(data){
+					if(data == null) {
+						return false;
+					}
+					if(data.AS == null) {
+						return false;
+					}
+					if(data.AS.Results == null) {
+						return false;
+					}
+					if(data.AS.Results[0] == null) {
+						return false;
+					}
+					if(data.AS.Results[0].Suggests == null) {
+						return false;
+					}
+					
+					//以上代码为定义data.AS.Results[0].Suggests，以防止浏览器报错
+					
+					var d=data.AS.Results[0].Suggests;
+					var html = '';
+					for(var i=0;i<d.length;i++){
+						html+="<li>"+d[i].Txt+"</li>";
+					}
+					//console.log(html);
+					$("#search-result").html(html);
+				},
+				error:function(jqXHR){
+					console.log("发生错误"+jqXHR.status);
+				}
+			});
+			
+			$('#search_text').show().css({
+					width:$("#search-form").width(),
+					top:$("#search_input").offset().top+$("#search_input").height()+9,
+					left:$("#search_input").offset().left-6
+			});
+			$(document).bind("click",function(){
+				$("#search_text").hide();
+			})
+
+			$(document).delegate("li","click",function(){
+				var keyword = $(this).text();
+				location.href = "https://cn.bing.com/search?q="+keyword;
+			})
+
+		})
+
+		
+	}
+
+	
+
+
+	</script>
+
+
+</head>
+
+<body>
+ <div id="bg-div">
+ 	<div id="top">
+ 		<div id="top_1">
+ 			<ul>
+ 				<li><a href="">图片</a></li>
+ 				<li><a href="">视频</a></li>
+ 				<li><a href="">学术</a></li>
+ 				<li><a href="">词典</a></li>
+ 				<li><a href="">地图</a></li>
+ 				<li><a href="">更多</a></li>
+ 				<li>|</li>
+ 				<li><a href="">Office Online</a></li>
+ 				<li><a href="">Outlook.com</a></li>
+ 			</ul>
+ 		</div>
+		<div id="top_2">
+			<ul>
+				<li><a href="">Switch Bing in English</a></li>
+				<li>|</li>
+				<li><a href="">登录</a></li>
+				<li><a href="">设置</a></li>
+			</ul>
+		</div>
+ 	</div>
+ 	<div class="search-box">
+ 		<div class="logo"></div>
+ 	
+	 	<form class="search-form" action="https://cn.bing.com/search" target="_blank">
+	 		<input type="text" class="search-text" name="q" id="search_input" />
+	 		<input type="submit" class="search-button" value=""/>
+	 	</form>
+ 	</div>
+ 	<div id="footer">
+ 		<ul>
+ 			<li>&copy;2016 Microsoft</li>
+ 			<li>|</li>
+ 			<li>京ICP备10036305号</li>
+ 			<li>|</li>
+ 			<li><a href="">隐私声明和 Cookie</a></li>
+ 			<li>|</li>
+ 			<li><a href="">使用条款</a></li>
+ 			<li>|</li>
+ 			<li><a href="">广告</a></li>
+ 			<li>|</li>
+ 			<li><a href="">帮助</a></li>
+ 			<li>|</li>
+ 			<li><a href="">反馈</a></li>
+ 		</ul>
+ 	</div>
+ </div>
+<div id="search_text" style="display:none;">
+	<ul id="search-result">
+		<!--<li>内容1</li>
+		<li>内容2</li>-->
+	</ul>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>H5练习</title>
+    <style>
+        body,html{margin:0;padding:10px;overflow-x:hidden; }
+        header{width:100%;height:40px;border:1px solid orange;}
+        nav{text-align: center;}
+        footer{width:100%;height:40px;border:1px solid orange;clear:left;margin-top: 30px;}
+        .main{overflow:hidden;}
+        section{width:60%;height:90%;border: 1px solid orange;float:left;}
+        aside{width:30%;height:90%;border: 1px solid orange;float:left;margin-left: 10px;}
+        figure{clear:left;}
+        .menu{width:100px;height:100px;background:pink}
+    </style>
+</head>
+    <body>
+        <header>
+            这里头部
+        </header>
+        <div class="main">
+            <nav>
+                <a href="#">首页</a>
+                <a href="#">首页</a>
+                <a href="#">首页</a>
+                <a href="#">首页</a>
+            </nav>
+            <section>
+                <hgroup>
+                    <h1>文章标题</h1>
+                </hgroup>
+                <article>
+                    中华人民共和国中华人民共和国中华人民共和国中华人民共和国中华人民共和国中华人民共和国中华人民共和国中华人民共和国
+                </article>
+            </section>
+            <aside>
+                中华人民共和国中华人民共和国中华人民共和国
+            </aside>
+            <figure>
+                <figcaption>这是一个图片的集合</figcaption>
+                <img src="" alt="图片1">
+                <img src="" alt="图片2">
+                <img src="" alt="图片3">
+            </figure>
+            <!--dialog chrome不支持-->
+            <dialog>
+                <dt>美国：</dt>
+                    <dd>我是最强的。</dd>
+                <dt>中国：</dt>
+                    <dd>呵呵。</dd>
+            </dialog>
+            <meter max="10" min="0" value="9"></meter>
+            <p>当前时间为 <time>2017</time>年</p>
+            <p>我在 <time datetime="2010-02-14">情人节</time> 有个约会。</p>
+            <progress max="10" min="0" value="0"></progress>
+            <div>
+                搜索：<input type="text" list="li"/>
+                <datalist id="li">
+                    <option>呵呵</option>
+                    <option>呢呢</option>
+                    <option>哦哦</option>
+                    <option>啊啊</option>
+                    <option>呼呼</option>
+                </datalist>
+            </div>
+            <div class="menu" contextmenu="one"></div>
+            <menu id="one" type="context">
+                <menuitem label="中国" icon="" onclick="javascript:window.location.href='http://www.baidu.com/'"></menuitem>
+                <menuitem label="美国" icon=""></menuitem>
+            </menu>
+            <div contenteditable="true">我可以编辑</div>
+            <div hidden>我要隐藏</div>
+        </div>
+        <footer>
+            萧香明出品
+        </footer>
+        <script>
+            var pro=document.getElementsByTagName('progress')[0];
+            var main=document.querySelector('.main');
+            var t=setInterval(function(){
+                if(pro.value==10){
+                    clearInterval(t);
+                    main.removeChild(pro);
+                    var spans=document.createElement('span');
+                    spans.innerHTML="加载完成";
+                    main.appendChild(spans);
+
+                }else{
+                    pro.value+=1;
+                }
+            },500);
+        </script>
+    </body>
+</html>

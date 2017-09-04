@@ -1,0 +1,146 @@
+@charset "UTF-8";
+body{
+  //background:orange;
+}
+
+//引入less
+@import "ku";
+
+//引入css
+//@import "a.css";
+
+//a=12;
+@test_w:300px;
+.box{
+  width:@test_w;
+  height:@test_w;
+  background: #5fff65;
+  .border;
+}
+//混合
+.border{
+  border:5px solid orange;
+}
+
+.box1{
+  .box;
+  background:orange;
+  margin:10px;
+}
+
+//混合 带参数
+.border_2(@border_w){
+  border:@border_w solid orange;
+}
+.test_border{
+  .border_2(2px);
+}
+
+//混合 带默认值
+.border_2(@border_w: 10px){
+  border:@border_w solid orange;
+}
+.test_border_02{
+  .border_2();
+}
+
+//混合的例子
+.border_radius(@radius:50px){
+  -webkit-border-radius:@radius;
+  -moz-border-radius: @radius;
+  border-radius:@radius;
+}
+.test_radius{
+  width:100px;
+  height:100px;
+  background:#00ff21;
+  .border_radius();
+}
+
+//匹配模式
+.triangle(top,@w:10px,@color:orange){
+  border-width:@w;
+  border-color: transparent transparent @color transparent;
+  border-style:dashed dashed solid dashed;
+}
+.triangle(left,@w:10px,@color:orange){
+  border-width:@w;
+  border-color: transparent @color transparent transparent;
+  border-style:dashed solid dashed dashed;
+}
+.triangle(right,@w:10px,@color:orange){
+  border-width:@w;
+  border-color: transparent transparent transparent @color;
+  border-style:dashed dashed dashed solid;
+}
+.triangle(bottom,@w:10px,@color:orange){
+  border-width:@w;
+  border-color: @color transparent transparent  transparent;
+  border-style:solid dashed dashed dashed;
+}
+//@_，表示不管匹配以上哪一个，都要带上此样式，并且后面的参数必需带上
+.triangle(@_,@w:10px,@color:orange){
+  width:0;
+  height:0;
+  overflow:hidden;
+}
+
+.sanjiao{
+  .triangle(bottom,50px,blue);
+}
+
+
+//运算
+@test_01:300px;
+
+.box2{
+  width:@test_01+20;
+  background:#ccc - 100;
+}
+
+//嵌套
+.list{
+  width:500px;
+  padding:0;
+  margin: 10px auto;
+
+  li{
+    list-style: none;
+    background:pink;
+    margin-top:5px;
+  }
+  a{
+    color:orange;
+    font-size: 12px;
+    //&代表上一层选择器
+    &:hover{
+      color:red;
+    }
+  }
+  span{
+    float:right;
+    font-size: 12px;
+  }
+}
+
+//@arguments,代码所传的所有参数
+.border_argu(@w:5px,@c:orange,@x:solid){
+  border:@arguments;
+}
+.box2{
+  width:50px;
+  height:50px;
+  .border_argu();
+}
+
+//避免编译
+.text_03{
+  width:~'calc(300px - 200px)';
+}
+
+//!important 关键字
+.test_importent{
+  .border_argu()!important;
+}
+
+

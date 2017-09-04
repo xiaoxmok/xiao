@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽效果</title>
+    <style>
+        body,html,ul,li{margin:0;padding:0;}
+        .one{width:200px;height:200px;border:1px solid orange;}
+        .two{width:100px;height:100px;border:1px solid pink;}
+
+        .box{width:200px;height:200px;border: 1px solid orange;list-style: none;}
+        .con{width:200px;height:200px;border: 1px solid orange;}
+        .con li,.box li{background:#ccc;list-style:none;margin-top:5px;text-align: center;}
+
+    </style>
+</head>
+    <body>
+        <div class="one"></div>
+        <div class="two" draggable="true">拖动</div>
+
+        <div class="box"></div>
+        <div class="con">
+            <ul>
+                <li>管子</li>
+                <li>小熊</li>
+                <li>斌斌</li>
+                <li>西瓜</li>
+            </ul>
+        </div>
+    </body>
+    <script>
+        window.onload=function(){
+            var one=document.querySelector('.one');
+            var two=document.querySelector('.two');
+
+            //拖拽物体事件
+            two.ondragstart=function(e){
+                e.dataTransfer.setData("text","萧香明出品");
+                one.innerHTML+="开始！"
+            };
+            two.ondrag=function(){
+                //one.innerHTML+="移动"
+            };
+            two.ondragend=function(){
+                one.innerHTML+="结束"
+            };
+
+            //投放物体事件
+            one.ondragenter=function(e){
+
+                one.innerHTML+='进入';
+                e.preventDefault();
+            };
+            one.ondragover=function(e){
+                e.preventDefault();
+                //one.innerHTML+="OVER"
+            };
+            one.ondragleave=function(e){
+                one.innerHTML="离开";
+                document.body.appendChild(two);
+                e.preventDefault();
+            };
+            one.ondrop=function(e){
+
+                one.innerHTML+='放下';
+                alert(e.dataTransfer.getData("text"));
+                e.preventDefault();
+                //alert("放下");
+                one.appendChild(two);
+            };
+
+            //==========双向拖动的实例===========
+            var box=document.querySelector(".box");
+            var con=document.querySelector(".con");
+            var lis=document.getElementsByTagName("li");
+
+            for(var i=0;i<lis.length;i++){
+                lis[i].draggable=true;
+                lis[i].flag=false;
+                lis[i].ondragstart=function(){
+                    this.flag=true;
+                    console.log("开始移动");
+                };
+                lis[i].ondragend=function(){
+                    this.flag=false;
+                    console.log("移动结束");
+                }
+            };
+
+            function dragenter(e){
+                e.preventDefault();
+                console.log("开始进入");
+            };
+
+            function dragover(e){
+                e.preventDefault();
+                console.log("投放区移动");
+
+            };
+            function dragleave(e){
+                e.preventDefault();
+                console.log("离开投放区");
+
+            };
+            function drop(e){
+                e.preventDefault();
+                for(var i=0;i<lis.length;i++){
+                    if(lis[i].flag){
+                        this.appendChild(lis[i]);
+                        console.log("投放区结束");
+                    }
+                }
+            };
+
+            box.ondragenter=dragenter;
+            box.ondragover=dragover;
+            box.ondragleave=dragleave;
+            box.ondrop=drop;
+
+            con.ondragenter=dragenter;
+            con.ondragover=dragover;
+            con.ondragleave=dragleave;
+            con.ondrop=drop;
+
+            (function(){
+                "use strict";
+                var a=window.b=5;
+                console.log(b);
+            })();
+
+        };
+    </script>
+</html>

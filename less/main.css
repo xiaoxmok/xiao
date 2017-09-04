@@ -1,0 +1,76 @@
+@charset "UTF-8";
+.box {
+  width: 300px;
+  height: 300px;
+  background: #5fff65;
+  border: 5px solid orange;
+}
+.border {
+  border: 5px solid orange;
+}
+.box1 {
+  width: 300px;
+  height: 300px;
+  background: #5fff65;
+  border: 5px solid orange;
+  background: orange;
+  margin: 10px;
+}
+.test_border {
+  border: 2px solid #ffa500;
+}
+.test_border_02 {
+  border: 10px solid #ffa500;
+}
+.test_radius {
+  width: 100px;
+  height: 100px;
+  background: #00ff21;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+.sanjiao {
+  border-width: 50px;
+  border-color: #0000ff transparent transparent transparent;
+  border-style: solid dashed dashed dashed;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.box2 {
+  width: 320px;
+  background: #686868;
+}
+.list {
+  width: 500px;
+  padding: 0;
+  margin: 10px auto;
+}
+.list li {
+  list-style: none;
+  background: pink;
+  margin-top: 5px;
+}
+.list a {
+  color: orange;
+  font-size: 12px;
+}
+.list a:hover {
+  color: red;
+}
+.list span {
+  float: right;
+  font-size: 12px;
+}
+.box2 {
+  width: 50px;
+  height: 50px;
+  border: 5px #ffa500 solid;
+}
+.text_03 {
+  width: calc(300px - 200px);
+}
+.test_importent {
+  border: 5px #ffa500 solid !important;
+}
