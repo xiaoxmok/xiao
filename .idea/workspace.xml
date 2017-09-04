@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/study/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/study/index.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="study.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +35,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state relative-caret-position="403">
+              <caret line="34" column="50" lean-forward="false" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -55,6 +52,8 @@
     <replaceStrings>
       <replace>/xiao/study</replace>
       <replace>./study/</replace>
+      <replace>/xiao/</replace>
+      <replace>/xiao</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -63,8 +62,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -154,12 +153,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1488012389274</updated>
-      <workItem from="1504521072024" duration="100000" />
+      <workItem from="1504521072024" duration="276000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100000" />
+    <option name="totallyTimeSpent" value="276000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
@@ -215,8 +214,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        <state relative-caret-position="403">
+          <caret line="34" column="50" lean-forward="false" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
           <folding />
         </state>
       </provider>
