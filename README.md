@@ -44,5 +44,6 @@
 - [导航](http://xiaoxmok.github.io/study/myTest/shopping.html)
 - [瀑布流](http://xiaoxmok.github.io/study/myTest/Demo/test03.html)
 - [雪花飘落](http://xiaoxmok.github.io/study/myTest/test12.html)
+- [去过的地方](https://xiaoxmok.github.io/study/map/map.htm)
 
 
