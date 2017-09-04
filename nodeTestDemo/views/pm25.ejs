@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/pm25.css">
+  <script src="/js/jquery-1.11.0.min.js"></script>
+  <!--<script src="/js/pm25/pm25.js"></script>-->
+  <title>PM2.5</title>
+</head>
+  <body>
+    <div id="view"></div>
+    <div class="content">
+      <table class="pm1">
+        <thead>
+          <tr>
+            <th>排名</th>
+            <th>城市</th>
+            <th>AQI</th>
+            <th>空气质量指数类别</th>
+            <th>首度污染物</th>
+            <th>PM 2.5细颗粒物</th>
+            <th>PM 10可吸入颗粒物</th>
+            <th>CO一氧化碳</th>
+            <th>NO2二氧化碳</th>
+            <th>O3臭氧1小时平均</th>
+            <th>O3_8h臭氧8小时平均</th>
+            <th>SO2二氧化硫</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="content">
+      <table class="pm2">
+        <thead>
+        <tr>
+          <th>AQI</th>
+          <th>城市</th>
+          <th>PM 2.5</th>
+          <th>PM 2.5_24h</th>
+          <th>监测点</th>
+          <th>首要污染物</th>
+          <th>空气质量指数类别</th>
+          <th>监测点编码</th>
+          <th>数据发布的时间</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+    <script>
+        var pmJson = function(data){
+            if(data.error){
+                console.log(data.error);
+            }else{
+                var life=data.sort(function(a,b){
+                    return a.pm2_5 - b.pm2_5;
+                });
+                //console.log(data);
+                for(var i=0;i<life.length;i++){
+                    //var tr=document.createElement("tr");
+
+                    var trHtml='<td>'+life[i].aqi+'</td>'
+                        +'<td>'+life[i].area+'</td>'
+                        +'<td>'+life[i].pm2_5+'</td>'
+                        +'<td>'+life[i].pm2_5_24h+'</td>'
+                        +'<td>'+life[i].position_name+'</td>'
+                        +'<td>'+life[i].primary_pollutant+'</td>'
+                        +'<td>'+life[i].quality+'</td>'
+                        +'<td>'+life[i].station_code+'</td>'
+                        +'<td>'+life[i].time_point+'</td>';
+
+                    $('.pm2 tbody').append("<tr>"+trHtml+"</tr>");
+                }
+            };
+        };
+
+        /*jQuery jsonp协议*/
+        function ajaxJq(){
+                $.ajax({
+                    type:'GET',
+                    url:'http://www.pm25.in/api/querys/pm2_5.json?city=&token=5j1znBVAsnSf5xQyNQyq',
+                    dataType:'jsonp',
+                    jsonp:"callback",
+                    callback:"pmJson",
+                    success:function(data){
+                        console.log("1111");
+                        pmJson(data);
+                    },
+                    error:function(xhr,status,error){
+                        console.log(xhr.readyState);
+                        console.log(status);
+                        $('.pm2 tbody').append("<tr>"+"<td colspan='9'>请求错误，请稍候再试。</td>"+"</tr>");
+                        //var abc=error.message
+
+                        //console.log(data);
+                    }
+                })
+        };
+
+
+        /*原生jsonp的方式*/
+        function jsonpD(){
+            var KEY='5j1znBVAsnSf5xQyNQyq';
+            var API='http://www.pm25.in/api/querys/pm2_5.json';
+            var CITY='shenzhen';
+            //var data=[{"aqi":14,"area":"深圳","pm2_5":9,"pm2_5_24h":8,"position_name":"荔园","primary_pollutant":null,"quality":"优","station_code":"1356A","time_point":"2017-06-30T16:00:00Z"},{"aqi":20,"area":"深圳","pm2_5":10,"pm2_5_24h":12,"position_name":"洪湖","primary_pollutant":null,"quality":"优","station_code":"1357A","time_point":"2017-06-30T16:00:00Z"},{"aqi":18,"area":"深圳","pm2_5":9,"pm2_5_24h":11,"position_name":"华侨城","primary_pollutant":null,"quality":"优","station_code":"1358A","time_point":"2017-06-30T16:00:00Z"},{"aqi":16,"area":"深圳","pm2_5":10,"pm2_5_24h":9,"position_name":"南油","primary_pollutant":null,"quality":"优","station_code":"1359A","time_point":"2017-06-30T16:00:00Z"},{"aqi":20,"area":"深圳","pm2_5":14,"pm2_5_24h":10,"position_name":"盐田","primary_pollutant":null,"quality":"优","station_code":"1360A","time_point":"2017-06-30T16:00:00Z"},{"aqi":30,"area":"深圳","pm2_5":21,"pm2_5_24h":13,"position_name":"龙岗","primary_pollutant":null,"quality":"优","station_code":"1361A","time_point":"2017-06-30T16:00:00Z"},{"aqi":19,"area":"深圳","pm2_5":10,"pm2_5_24h":10,"position_name":"西乡","primary_pollutant":null,"quality":"优","station_code":"1362A","time_point":"2017-06-30T16:00:00Z"},{"aqi":15,"area":"深圳","pm2_5":10,"pm2_5_24h":9,"position_name":"南澳","primary_pollutant":null,"quality":"优","station_code":"1363A","time_point":"2017-06-30T16:00:00Z"},{"aqi":18,"area":"深圳","pm2_5":8,"pm2_5_24h":11,"position_name":"葵涌","primary_pollutant":null,"quality":"优","station_code":"1364A","time_point":"2017-06-30T16:00:00Z"},{"aqi":23,"area":"深圳","pm2_5":16,"pm2_5_24h":12,"position_name":"梅沙","primary_pollutant":null,"quality":"优","station_code":"1365A","time_point":"2017-06-30T16:00:00Z"},{"aqi":0,"area":"深圳","pm2_5":0,"pm2_5_24h":0,"position_name":"观澜","primary_pollutant":null,"quality":null,"station_code":"1366A","time_point":"2017-06-30T16:00:00Z"},{"aqi":20,"area":"深圳","pm2_5":11,"pm2_5_24h":10,"position_name":null,"primary_pollutant":"","quality":"优","station_code":null,"time_point":"2017-06-30T16:00:00Z"}];
+
+
+            var url=API +"?city=" +CITY+ "&token=" +KEY+ "&callback=pmJson";
+            var newScript=document.createElement("script");
+            newScript.type='text/javascript';
+            newScript.src=url;
+            $('body').append(newScript);
+        }
+
+
+        //jsonpD();
+        ajaxJq();
+        //fileJson()
+
+
+            //pmJson(data);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>异步数据加载和更新</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/echarts.css">
+  <script src="/js/echarts.min.js"></script>
+  <script src="/js/jquery-1.11.0.min.js"></script>
+</head>
+  <body>
+      <div class="charts" id="bar"></div>
+      <script>
+          var myCharts=echarts.init(document.getElementById('bar'));
+
+          myCharts.setOption({
+              title:{
+                  text:'异步数据加载'
+              },
+              tooltip:{},
+              legend:{
+                  data:['销量']
+              },
+              xAxis:{
+                  data:[]
+              },
+              yAxis:{
+
+              },
+              series:[{
+                  name:'销量',
+                  type:'bar',
+                  data:[]
+              }]
+          });
+
+          $.get('data/data.json').done(function (data){
+              myCharts.setOption({
+                  xAxis:{
+                      data:data.myEcharts.xAxisData
+                  },
+                  series:[{
+                      data:data.myEcharts.seriesData
+                  }]
+              })
+          })
+          /*$.getJSON('data/data.json',function(data){
+              myCharts.setOption({
+                  xAxis:{
+                      data:data.xAxisData
+                  },
+                  series:[{
+                      data:data.seriesData
+                  }]
+              })
+          })*/
+
+      </script>
+  </body>
+</html>

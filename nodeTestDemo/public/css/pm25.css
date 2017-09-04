@@ -1,0 +1,5 @@
+@charset "utf-8";
+
+.content{width:1200px;margin: 40px auto 0;}
+.content table th{border: 1px solid #666;text-align: center;padding: 0 7px;line-height: 30px;font-weight: bold;}
+.content table td{border: 1px solid #666;text-align: center;padding: 0 7px;line-height: 30px;}

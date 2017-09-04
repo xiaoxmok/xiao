@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/css/common.css' />
+    <link rel='stylesheet' href='/css/echarts.css' />
+    <script src="/js/echarts.min.js"></script>
+  </head>
+  <body>
+    <h1 class="p20 f21"><%= title %></h1>
+    <div class="charts" id="bar"></div>
+    <div class="charts" id="pie"></div>
+    <script>
+      var myBar = echarts.init(document.getElementById('bar'));
+      var myPie = echarts.init(document.getElementById('pie'));
+
+      var option={
+        backgroundColor:'#e9f2ab',
+        color:['#c23531','#2f4554'],
+        title:{
+          text:'bar'
+        },
+        tooltip:{
+          trigger:'item'
+        },
+        legend:{
+          data:['销量','价格']
+        },
+        xAxis:{
+          axisLabel:{
+            inside:false,
+            textStyle:{
+              color:'#c23531'
+            }
+          },
+          data:["苹果","大米","红豆","叶子","tea","呵呵"],
+          z:10
+        },
+        yAxis:{},
+        series:[{
+          name:'销量',
+          type:'bar',
+          data:[150,250,40,320,255,343]
+        },{
+          name:'价格',
+          type:'bar',
+          data:[50,20,40,32,25,34]
+        }]
+      };
+
+      myBar.setOption(option);
+
+      myPie.setOption({
+          //全局字体颜色
+          textStyle:{
+              color:'rgba(200,200,200,0.9)'
+          },
+          series:[{
+            name:'访问来源',
+            type:'pie',
+            radius:'55%',
+            roseType:'angle',
+            //扇形颜色
+            itemStyle:{
+                normal:{
+                    color: '#c23531',
+                    shadowBlur:200,
+                    shadowOffsetX:0,
+                    shadowOffsetY:0,
+                    shadowColor:'rgba(0,0,0,0.5)'
+                }
+            },
+            data:[
+              //单个扇形颜色和字体颜色
+              {value:284,name:'视频',itemStyle:{normal:{color:'#c23531'}},label:{normal:{textStyle:{color:'#c23531'}}}},
+              {value:320,name:'联盟',itemStyle:{normal:{color:'#c2ad5a'}},label:{normal:{textStyle:{color:'#c2ad5a'}}}},
+              {value:532,name:'邮件',itemStyle:{normal:{color:'#90c254'}},label:{normal:{textStyle:{color:'#90c254'}}}},
+              {value:433,name:'搜索',itemStyle:{normal:{color:'#c296b8'}},label:{normal:{textStyle:{color:'#c296b8'}}}},
+              {value:321,name:'直接访问',itemStyle:{normal:{color:'#8788c2'}},label:{normal:{textStyle:{color:'#8788c2'}}}}
+            ]
+          }]
+      })
+
+    </script>
+
+  </body>
+</html>
