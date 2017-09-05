@@ -17,7 +17,7 @@ function fsWrite(data){
         if(err){
             return console.log(err);
         }
-        console.log("写入文件成功");
+        //console.log("写入文件成功");
     })
 }
 
@@ -88,7 +88,7 @@ function filterChapters(htmlData){
 function printCourseInfo(coursesData){
     coursesData.forEach(function(couseData){
         console.log(couseData.titile+"  课程共计："+couseData.number+"   人学习了\n");
-        //fsWrite(couseData.titile+"  课程共计："+couseData.number+"   人学习了\n");
+        fsWrite(couseData.titile+"  课程共计："+couseData.number+"   人学习了\n");
     });
 
     coursesData.forEach(function(couseData){
