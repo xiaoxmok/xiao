@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <title>移动端的长按事件</title>
     <script src="../lib/jquery-3.1.0.min.js"></script>
     <style>
         body,html,div,li,a{padding: 0;margin: 0;font-family: "Microsoft YaHei", "宋体";}
 
-        .touchArea{width:100%;height: 600px;background: #ded8e0;font-size: 45px;font-weight: bold;text-align: center;line-height: 600px;}
-        .tan{display:none;background: #e99b82;width:250px;border-radius: 5px;position:absolute;z-index: 99;}
+        .touchArea{width:100%;height: 300px;background: #ded8e0;font-size: 45px;font-weight: bold;text-align: center;line-height: 300px;}
+        .tan{display:none;background: #e99b82;width:150px;border-radius: 5px;position:absolute;z-index: 99;}
         .tan a{font-size: 30px;padding: 10px;color: #020202;display: block;text-decoration: none;text-align: center;}
         .zhezhao{display:none;background: #000000;opacity: .3;width:100%;height: 100%;z-index: 2;position: absolute;top:0;left:0;}
 
@@ -54,7 +55,16 @@
         function longPress(event){
             timeOutEvent=0;
             console.log("恭喜你，这是长按。");
-            $(".tan").css({top:y+"px",left:x+"px"});
+            var w = screen.width;
+            var t_w = $(".tan").width();
+            console.log("w="+w+";t_w="+t_w+";");
+            if((x+t_w)>w){
+                x = x - t_w;
+                $(".tan").css({top:y+"px",left:x+"px"});
+            }else{
+                $(".tan").css({top:y+"px",left:x+"px"});
+            }
+
             $(".tan,.zhezhao").show();
         }
 
