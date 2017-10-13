@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vue Demo</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/vue.css">
+  <script src="../js/vue/vue.js"></script>
+</head>
+  <body>
+      <div id="app">
+          <div>
+              <h2>成为房东</h2>
+              <h4>基本房源信息</h4>
+              <p>针对你房间对床铺、卫生间和便利设施方面的意见。</p>
+              <textarea name="" id="" cols="30" rows="10" v-model="newMessage.message"></textarea>
+              <button @click="submit">提交</button>
+          </div>
+          <div class="msg" >
+              <p v-for="msg in Message">{{msg.message}}</p>
+          </div>
+      </div>
+      <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                newMessage:{
+                    message:''
+                },
+                Message:[{
+                    message:'这是一条留言；'
+                },{
+                    message:'这是二条留言；'
+                }]
+            },
+            methods:{
+                submit:function(){
+                    this.Message.push(this.newMessage);
+                    this.newMessage = {message:''};
+                }
+            }
+        });
+      </script>
+  </body>
+</html>
