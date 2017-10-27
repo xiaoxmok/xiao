@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添富投顾</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/base.css">
+	<link rel="stylesheet" type="text/css" href="./css/content.css">
+	<script type="text/javascript" src="./js/fontresize.js"></script>
+</head>
+<body class="bg">
+    <div class="top">
+		<a href="javascript:;" class="focus">投资洞察</a>
+		<a href="javascript:;">添富观点</a>
+	</div>
+
+	<div class="con">
+		<a href="tfInsight.html">
+			<div>
+				<p class="p1">赵鹏飞：中国高端制造迎来黄金时代</p>
+				<p class="p2">2017-08-31 13:50</p>
+			</div>
+			<span class="to_right"></span>
+		</a>
+		<a href="tfInsight.html">
+			<div>
+				<p class="p1">赵鹏飞：中国高端制造迎来黄金时代</p>
+				<p class="p2">2017-08-31 13:50</p>
+			</div>
+			<span class="to_right"></span>
+		</a>
+		<a href="tfInsight.html">
+			<div>
+				<p class="p1">赵鹏飞：中国高端制造迎来黄金时代</p>
+				<p class="p2">2017-08-31 13:50</p>
+			</div>
+			<span class="to_right"></span>
+		</a>
+		<a href="tfInsight.html">
+			<div>
+				<p class="p1">赵鹏飞：中国高端制造迎来黄金时代</p>
+				<p class="p2">2017-08-31 13:50</p>
+			</div>
+			<span class="to_right"></span>
+		</a>
+	</div>
+	<div class="con nds">
+		<a href="tfView.html">
+			<div>
+				<p class="p1">稳增长依然是重头戏，市场情绪相对会比较稳定</p>
+				<p class="p2">2017-08-31 13:50</p>
+			</div>
+			<span class="to_right"></span>
+		</a>
+		<a href="tfView.html">
+			<div>
+				<p class="p1">稳增长依然是重头戏，市场情绪相对会比较稳定</p>
+				<p class="p2">2017-08-31 13:50</p>
+			</div>
+			<span class="to_right"></span>
+		</a>
+		<a href="tfView.html">
+			<div>
+				<p class="p1">稳增长依然是重头戏，市场情绪相对会比较稳定</p>
+				<p class="p2">2017-08-31 13:50</p>
+			</div>
+			<span class="to_right"></span>
+		</a>
+		<a href="tfView.html">
+			<div>
+				<p class="p1">稳增长依然是重头戏，市场情绪相对会比较稳定</p>
+				<p class="p2">2017-08-31 13:50</p>
+			</div>
+			<span class="to_right"></span>
+		</a>
+	</div>
+	<script src="./js/zepto.min.js"></script>
+	<script>
+		$(function(){
+		    $('.top a').click(function(){
+		        var i = $(this).index();
+				$('.con').hide().eq(i).show();
+                $('.top a').removeClass("focus").eq(i).addClass("focus");
+			})
+		})
+
+	</script>
+</body>
+</html>

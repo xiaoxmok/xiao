@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nodeExpressDemo/public/css/vue.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nodeExpressDemo/views/vue/test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nodeExpressDemo/views/vue/vue.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="" />
     <ignored path="study.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -59,8 +54,8 @@
       <file leaf-file-name="vue.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nodeExpressDemo/views/vue/vue.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+            <state relative-caret-position="234">
+              <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -405,12 +400,12 @@
       <workItem from="1505704549876" duration="1394000" />
       <workItem from="1507600903036" duration="24028000" />
       <workItem from="1507862543087" duration="733000" />
-      <workItem from="1507884526776" duration="3509000" />
+      <workItem from="1507884526776" duration="4979000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39492000" />
+    <option name="totallyTimeSpent" value="40962000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="0" />
@@ -851,8 +846,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nodeExpressDemo/views/vue/vue.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        <state relative-caret-position="234">
+          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
           <folding />
         </state>
       </provider>
