@@ -4,7 +4,7 @@
 .bg{background:#f6f6f6;}
 
 .top{background:#fff;display: flex;display: -webkit-flex;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;}
-.top a{display: flex;display: -webkit-flex;flex:1;height: 1.856rem;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;color:#000;font-size: .64rem;border-bottom: 2px solid #fff;}
+.top a{display: flex;display: -webkit-flex;flex:1;-webkit-flex: 1;height: 1.856rem;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;color:#000;font-size: .64rem;border-bottom: 2px solid #fff;}
 .top .focus{color:#c9a85b;border-bottom: 2px solid #c9a85b;}
 
 .con{margin-top: .4266rem;background:#fff;}
@@ -33,7 +33,7 @@
 .nds{display: none;}
 
 .con a{display: flex;display:-webkit-flex;align-items: center;-webkit-align-items: center;padding:.64rem .64rem .4266rem 0;margin-left:.64rem;border-bottom: 1px solid #eee;}
-.con a div{flex:1;}
+.con a div{flex:1;-webkit-flex: 1;}
 .con a div .p1{font-size: .64rem;color:#000;}
 .con a div .p2{font-size: .5546rem;color:#666;margin-top: .4266rem;}
 
@@ -54,8 +54,8 @@
 .author .top{padding:.64rem .64rem .4266rem .64rem;border-bottom: 1px solid #eee;display: block;}
 
 .mana_top{padding:.70rem .64rem;display: flex;display: -webkit-flex;background:#fff;}
-.mana_img{flex:1;background:url(../img/men.jpg) no-repeat;background-size: contain;width:3.84rem;height: 5.12rem;}
-.mana_info{flex:2;margin-top: .554rem;}
+.mana_img{flex:1;-webkit-flex: 1;background:url(../img/men.jpg) no-repeat;background-size: contain;width:3.84rem;height: 5.12rem;}
+.mana_info{flex:2;-webkit-flex: 2;margin-top: .554rem;}
 .mana_info p{font-size: .64rem;line-height: 1rem;color:#000;}
 
 .mana_text{padding:.30rem .64rem .853rem .64rem;background:#fff;font-size: .64rem;line-height: 1.2rem;color:#666;}
@@ -68,14 +68,14 @@
 
 .ptys{margin-top: .4266rem;background: #fff;}
 .ptys .ptys_1{display: flex;display: -webkit-flex;text-align: center;padding:.64rem 0;}
-.ptys .ptys_1 div{flex:1;}
+.ptys .ptys_1 div{flex:1;-webkit-flex: 1;}
 .ptys .ptys_1 div:first-child{border-right: 1px solid #eee;}
 .ptys .ptys_1 div p{color:#666666;font-size:.554rem;}
 .ptys .ptys_1 div span{color:#fe7e01;font-size:.853rem;font-weight: bold;margin-top: .554rem;display: inline-block;}
 
 .flex{display: flex;display: -webkit-flex;padding:.5973rem .64rem .5973rem 0;margin-left: .64rem;}
-.flex .flex_1{flex:1;display: flex;display: -webkit-flex; justify-content: center;align-items:center;flex-direction: column;-webkit-justify-content: center;-webkit-align-content: center;-webkit-flex-direction: column;}
-.flex .flex_2{flex:2;margin-left: .853rem;display: flex;display: -webkit-flex;justify-content: center;flex-direction: column;-webkit-justify-content: center;-webkit-flex-direction: column;}
+.flex .flex_1{flex:1;-webkit-flex: 1;display: flex;display: -webkit-flex; justify-content: center;align-items:center;flex-direction: column;-webkit-justify-content: center;-webkit-align-content: center;-webkit-flex-direction: column;}
+.flex .flex_2{flex:2;-webkit-flex: 2;margin-left: .853rem;display: flex;display: -webkit-flex;justify-content: center;flex-direction: column;-webkit-justify-content: center;-webkit-flex-direction: column;}
 .flex .flex_2 p{color:#333333;font-size:.597rem;margin-bottom: .40rem;font-weight: bold;font-family: "Microsoft YaHei";}
 .flex .flex_2 span{color:#666666;font-size:.512rem;line-height: .8rem;}
 .flex .flex_2 div{margin-bottom: .40rem;display: flex;display:-webkit-flex;color:#f85d63;}
