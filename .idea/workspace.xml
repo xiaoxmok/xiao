@@ -26,8 +26,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DatePicker/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="262">
+              <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -37,11 +37,12 @@
         <entry file="file://$PROJECT_DIR$/DatePicker/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="57">
-                <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+              <first_editor relative-caret-position="190">
+                <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
                 <folding>
-                  <marker date="1512024252380" expanded="true" signature="68:134" ph="..." />
-                  <marker date="1512024252380" expanded="true" signature="188:309" ph="{...}" />
+                  <marker date="1512024330416" expanded="true" signature="68:134" ph="..." />
+                  <marker date="1512024330416" expanded="true" signature="201:365" ph="..." />
+                  <marker date="1512024330416" expanded="true" signature="233:354" ph="{...}" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -343,12 +344,12 @@
       <workItem from="1507884526776" duration="4979000" />
       <workItem from="1511142464163" duration="20377000" />
       <workItem from="1511247191748" duration="21259000" />
-      <workItem from="1511831583990" duration="25422000" />
+      <workItem from="1511831583990" duration="25502000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108020000" />
+    <option name="totallyTimeSpent" value="108100000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="0" />
@@ -789,8 +790,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DatePicker/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="262">
+          <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -798,11 +799,12 @@
     <entry file="file://$PROJECT_DIR$/DatePicker/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="57">
-            <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+          <first_editor relative-caret-position="190">
+            <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
             <folding>
-              <marker date="1512024252380" expanded="true" signature="68:134" ph="..." />
-              <marker date="1512024252380" expanded="true" signature="188:309" ph="{...}" />
+              <marker date="1512024330416" expanded="true" signature="68:134" ph="..." />
+              <marker date="1512024330416" expanded="true" signature="201:365" ph="..." />
+              <marker date="1512024330416" expanded="true" signature="233:354" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />

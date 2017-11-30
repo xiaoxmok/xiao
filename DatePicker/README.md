@@ -10,11 +10,14 @@
 ```
 
 #### js引用
-```js
+```html
+<script src="./date.js"></script>
+<script>
 datepicker.init(".datepicker",{
                 isClick:false,          //晚于当前时间的日期是否显示
                 isTime:true             //是否显示时分秒
             });
+</script>
 ```
 
 Demo演示链接：
