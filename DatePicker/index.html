@@ -18,16 +18,46 @@
             border: 1px solid #1abc9c;
         }
 
+        .demo{
+            width:100px;height: 100px;background: #1abc9c;margin: 10px;
+        }
+
     </style>
 </head>
     <body>
 
-        <input type="text" class="datepicker">
+
+        <span class="ui-input-date">
+            <input type="text" class="datepicker" id="1">
+        </span>
+
         <!--<div class="ui-datepicker-wrapper"></div>-->
+
+        <div class="test">
+            <div class="demo"></div>
+            <div class="demo"></div>
+        </div>
         <script src="./date.js"></script>
         <script>
 
-            datepicker.init('.datepicker');
+            datepicker.init(".datepicker",{
+                isClick:false,
+                isTime:true
+            });
+
+            var demo = document.querySelectorAll(".demo");
+
+            for(var i=0;i<demo.length;i++){
+                demo[i].addEventListener('click',function(){
+                    this.style.background = "#bc6145";
+                });
+            }
+
+            /*demo.onclick=function(){
+                this.style.background = "#2e37bc";
+            }*/
+
+
         </script>
     </body>
 </html>

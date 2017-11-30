@@ -52,8 +52,8 @@
 
         //默认周日是0，将周日改为7；
         /*if(firstDayWeekDay === 0){
-            firstDayWeekDay =7;
-        }*/
+         firstDayWeekDay =7;
+         }*/
 
         //获取当前年和月
         year = firstDay.getFullYear();
@@ -302,29 +302,53 @@
         datepicker.render();
 
         //点击input展开日期选择器，判断日期组件是否展开
-        var $input = document.querySelector(input);
+        var $input = document.querySelectorAll(input);
         //var $input = input;
-        //console.log($input);
+        console.log($input);
 
         var isOpen = false;
-        $input.addEventListener('click',function(){
-            if(isOpen){
+        for(var i=0;i<$input.length;i++){
+            var $inp = $input[i];
+            console.log($inp);
+            $inp.addEventListener('click',function(e){
+                var $target = e.target;
+                if(isOpen){
+                    $wrapper.classList.remove('ui-datepicker-wrapper-show');
+                    isOpen = false;
+                }else{
+                    $wrapper.classList.add('ui-datepicker-wrapper-show');
+
+                    //显示位置；
+                    var left = $target.offsetLeft;
+                    var top = $target.offsetTop;
+                    var height = $target.offsetHeight;
+                    $wrapper.style.left = left + 'px';
+                    $wrapper.style.top = top + height +'px';
+
+                    isOpen = true;
+                }
+            },false);
+
+            //点击日期显示在input上
+            $wrapper.addEventListener('click', function(e){
+                var $target = e.target;
+                if(!$target.classList.contains('ui-datepicker-body-td')) return;
+
+                var date = new Date(monthData.year,monthData.month-1,$target.dataset.date);
+
                 $wrapper.classList.remove('ui-datepicker-wrapper-show');
                 isOpen = false;
-            }else{
-                $wrapper.classList.add('ui-datepicker-wrapper-show');
 
-                //显示位置；
-                var left = $input.offsetLeft;
-                var top = $input.offsetTop;
-                var height = $input.offsetHeight;
-                $wrapper.style.left = left + 'px';
-                $wrapper.style.top = top + height +'px';
+                $inp.value=format(date);
+                console.log($inp);
 
-                isOpen = true;
-            }
+                checkedData = $inp.value; //获取选中值
+                console.log("选中日期为："+checkedData);
 
-        },false);
+                datepicker.render();
+
+            }, false);
+        }
 
         //点击上一月、下一月
         $wrapper.addEventListener('click', function(e){
@@ -345,24 +369,7 @@
 
         }, false);
 
-        //点击日期显示在input上
-        $wrapper.addEventListener('click', function(e){
-            var $target = e.target;
-            if(!$target.classList.contains('ui-datepicker-body-td')) return;
 
-            var date = new Date(monthData.year,monthData.month-1,$target.dataset.date);
-
-            $wrapper.classList.remove('ui-datepicker-wrapper-show');
-            isOpen = false;
-
-            $input.value=format(date);
-
-            checkedData = $input.value; //获取选中值
-            console.log("选中日期为："+checkedData);
-
-            datepicker.render();
-
-        }, false);
 
     };
 

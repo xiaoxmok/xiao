@@ -44,6 +44,7 @@
 .ui-datepicker-wrapper .ui-datepicker-body table{
     width:100%;
     border-collapse: collapse;
+    background: #fff;
 }
 
 .ui-datepicker-wrapper .ui-datepicker-body th,
@@ -74,7 +75,7 @@
 }
 
 .ui-datepicker-wrapper .ui-datepicker-body .ui-datepicker-body-nowday{
-    background: #ff9b26;
+    background: #fb0;
     color:#fff;
     font-weight: bold;
 }
