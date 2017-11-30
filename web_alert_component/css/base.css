@@ -1,0 +1,33 @@
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+body {
+    font: 12px "Microsoft YaHei",SimSun, Tahoma, Arial, sans-serif;
+    color: #000;
+    background-color: #fff;
+}
+em, i {
+    font-style: normal;
+}
+strong {
+    font-weight: normal;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    text-decoration: none;
+}
+ul, ol {
+    list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+img {
+    border: none;
+}
+table { border-collapse: collapse; border-spacing: 0px; }
