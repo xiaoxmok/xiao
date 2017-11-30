@@ -2,7 +2,7 @@
 日期选择插件
 
 #### html例子
-```
+```html
 <span class="ui-input-date">
             <input type="text" class="datepicker" id="1">
 </span>

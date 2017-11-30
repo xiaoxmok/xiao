@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatePicker/index.html" afterPath="$PROJECT_DIR$/DatePicker/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/study/README.md" afterPath="$PROJECT_DIR$/study/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatePicker/README.md" afterPath="$PROJECT_DIR$/DatePicker/README.md" />
     </list>
     <ignored path="study.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/DatePicker/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -39,10 +37,11 @@
         <entry file="file://$PROJECT_DIR$/DatePicker/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="380">
-                <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+              <first_editor relative-caret-position="57">
+                <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
                 <folding>
-                  <marker date="1512024087447" expanded="true" signature="184:305" ph="{...}" />
+                  <marker date="1512024252380" expanded="true" signature="68:134" ph="..." />
+                  <marker date="1512024252380" expanded="true" signature="188:309" ph="{...}" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -55,7 +54,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="456">
-                <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+                <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -68,7 +67,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="260">
-                <caret line="24" column="2" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="65" />
+                <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="65" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -344,12 +343,12 @@
       <workItem from="1507884526776" duration="4979000" />
       <workItem from="1511142464163" duration="20377000" />
       <workItem from="1511247191748" duration="21259000" />
-      <workItem from="1511831583990" duration="25258000" />
+      <workItem from="1511831583990" duration="25422000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107856000" />
+    <option name="totallyTimeSpent" value="108020000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="0" />
@@ -770,7 +769,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="456">
-            <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+            <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
             <folding />
           </first_editor>
           <second_editor />
@@ -781,7 +780,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="260">
-            <caret line="24" column="2" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="65" />
+            <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="65" />
             <folding />
           </first_editor>
           <second_editor />
@@ -791,7 +790,7 @@
     <entry file="file://$PROJECT_DIR$/DatePicker/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -799,10 +798,11 @@
     <entry file="file://$PROJECT_DIR$/DatePicker/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="380">
-            <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <first_editor relative-caret-position="57">
+            <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
             <folding>
-              <marker date="1512024087447" expanded="true" signature="184:305" ph="{...}" />
+              <marker date="1512024252380" expanded="true" signature="68:134" ph="..." />
+              <marker date="1512024252380" expanded="true" signature="188:309" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
