@@ -1,7 +1,7 @@
 ## /study
 基础练习。
 
-###基础
+### 基础
 - [Div布局页面](http://xiaoxmok.github.io/xiao/study/basis/test01.html)
 - [Div首页布局](http://xiaoxmok.github.io/xiao/study/basis/test02.html)
 - [垃圾导航](http://xiaoxmok.github.io/xiao/study/basis/test04.html)
@@ -21,7 +21,7 @@
 - [js控制div属性](http://xiaoxmok.github.io/xiao/study/basis/test20.html)
 
 
-###css3练习
+### css3练习
 - [css3练习](http://xiaoxmok.github.io/xiao/study/css3/test01.html)
 - [CSS制作立体导航](http://xiaoxmok.github.io/xiao/study/css3/test02.html)
 - [css3案例](http://xiaoxmok.github.io/xiao/study/css3/test03.html)
@@ -30,7 +30,7 @@
 
 
 
-###其它
+### 其它
 - [导航](http://xiaoxmok.github.io/xiao/study/myTest/nav.html)
 - [加载条](http://xiaoxmok.github.io/xiao/study/myTest/test01.html)
 - [到计时](http://xiaoxmok.github.io/xiao/study/myTest/test04.html)
