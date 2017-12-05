@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基金开户</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/base.css">
+	<link rel="stylesheet" type="text/css" href="./css/content.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script type="text/javascript" src="./js/fontresize.js"></script>
+</head>
+<body class="bg">
+    <header class="skin">
+        <a href="javascript:history.back();" ><span class="back"></span>返回</a><a href="javascript:;" class="close_h">关闭</a><span>基金开户</span>
+    </header>
+    <div class="info_section mt17">
+        <div class="info_text info_text2">
+            <div class="flex">
+                <span>基金交易密码</span><i class="ask"></i>
+            </div>
+            <input type="password" placeholder="请输入6位数字密码" maxlength="6" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></input>
+            <i class="eye"></i>
+        </div>
+        <div class="info_text info_text2">
+            <div class="flex">
+                <span>确认交易密码</span>
+            </div>
+            <input type="password" class="qr" placeholder="请输入6位数字密码" maxlength="6" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></input>
+            <i class="eye"></i>
+        </div>
+    </div>
+    <div class="info_section">
+        <div class="info_text">
+            <span class="sw">短信随机发送登录密码开启</span>
+            <i class="switch">
+                <label class="switch_on" for="check-1"></label>
+                <input type="checkbox" id="check-1" checked="checked">
+            </i>
+        </div>
+        <div class="info_text info_text3">
+            <div class="flex">
+                <span>设置登录密码</span>
+                <i class="ask"></i>
+            </div>
+            <input type="password" placeholder="6-14个字母或数字" maxlength="14" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')"></input>
+            <i class="eye"></i>
+        </div>
+    </div>
+
+    <div class="info_bottom">
+        <a href="javascript:;" class="submit">确定</a>
+    </div>
+    <div class="zhezhao"></div>
+    <div class="info_tan">
+        <div class="info_tan_top">
+            <p>基金交易密码用于汇添富基金相关产品转入、体现的安全校验。</p>
+        </div>
+        <div class="know_btn">
+            <a href="javascript:;" class="know">我知道了</a>
+        </div>
+    </div>
+    <div class="info_tan">
+        <div class="info_tan_top">
+            <p>登录密码可用于登录汇添富基金官网，查看您的基金份额、交易记录等。</p>
+        </div>
+        <div class="know_btn">
+            <a href="javascript:;" class="know">我知道了</a>
+        </div>
+    </div>
+    <div class="err_tan tan2">
+        <p>基金</p>
+    </div>
+    <script src="./js/jquery-2.2.2.min.js"></script>
+    <script>
+        $(function () {
+            /*查看-隐藏密码*/
+            $('.eye').click(function(event) {
+                $(this).toggleClass('eye_cur');
+                if ($(this).hasClass('eye_cur')) {
+                    $(this).siblings('input').prop('type', 'text')
+                } else {
+                    $(this).siblings('input').prop('type', 'password')
+                }
+            });
+
+            $('.info_text3').hide();
+            /*  switch按钮的切换事件 */
+            $(".switch label").on("click",function(){
+                var labelclass = $(this).attr("class");
+                var check = $(this).siblings("input");
+                if(labelclass == "switch_on"){
+                    check.attr("checked",false);
+                    $('.info_text3').show();
+                    $(this).attr("class","switch_off");
+                }else{
+                    check.attr("checked",true);
+                    $('.info_text3').hide();
+                    $(this).attr("class","switch_on");
+                }
+            });
+
+
+            $('.info_text .ask').on("click",function(){
+                var index = $(this).index('.ask');
+                $('.zhezhao').show();
+                $('.info_tan').eq(index).show();
+                $('.know').click(function(){
+                    $('.zhezhao,.info_tan').hide();
+                })
+            })
+
+
+        });
+
+        /*输入的判断*/
+        $(function(){
+            var input = $('.qr');
+            input.keyup(function(){
+                //console.log('222');
+                //this.value=this.value.replace(/[^1-9]/g,'');
+                if(this.value.length >0){
+                    $('.submit').addClass('skin');
+                }else{
+                    $('.submit').removeClass('skin');
+                }
+            });
+        });
+
+        /*点击确认的弹窗*/
+        $(document).on("click",'.skin',function(){
+            $('.err_tan').show();
+            setTimeout(function(){
+                $('.err_tan').hide();
+            },3000);
+        });
+
+        $(function(){
+            var w = $('.err_tan').width();
+            var w_d = $(document).width();
+            //var w_p = $('.err_tan p').outerWidth();
+
+            //console.log(w);
+            //console.log(w_d);
+            var w_t=w_d-150;        //解决换行问题
+
+
+            if(w >= w_t){
+                $('.err_tan').css({"width":w_t + "px"});
+                $('.err_tan').css({"left":(w_d - $('.err_tan').outerWidth())/2+"px"});
+            }else{
+                $('.err_tan').css({"left":(w_d - $('.err_tan').outerWidth())/2+"px"});
+                //$('.err_tan').css({"margin-left":-(w_rem/2)+"rem"});
+            }
+
+        })
+
+    </script>
+
+</body>
+</html>

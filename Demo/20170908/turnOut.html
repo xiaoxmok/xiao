@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<html lang="zh-cmn-Hans">
+<head>
+	<meta charset="UTF-8">
+	<title>转出</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/base.css">
+	<link rel="stylesheet" type="text/css" href="./css/content.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="http://res.wx.qq.com/open/libs/weui/0.4.0/weui.min.css">
+	<script type="text/javascript" src="./js/fontresize.js"></script>
+</head>
+<body class="bg">
+    <header class="skin">
+        <a href="javascript:history.back();" ><span class="back"></span>返回</a><a href="javascript:;" class="close_h">关闭</a><span>转出</span>
+    </header>
+    <div class="turn_top mt17">
+        <div class="img bank_003"></div>
+        <div class="info">
+            <p class="p1">招商银行</p>
+            <p class="p2">尾号2462</p>
+        </div>
+    </div>
+    <p class="turn_p">请选择取现方式</p>
+    <div class="turn_section">
+        <div class="turn_con bord">
+            <p class="p1">普通取现（当日有收益）</p>
+            <p class="p2">预计2017-08-31到账，不限额，不限次数</p>
+            <div class="check">
+                <label class="icon-off" for="radio-1"></label>
+                <input type="radio" name="radio" id="radio-1" value="1">
+            </div>
+        </div>
+        <div class="turn_con">
+            <p class="p1">快速取现（当日无收益）</p>
+            <p class="p2">预计今天到账，取现资金当天不产生收益</p>
+            <div class="check">
+                <label class="icon-on" for="radio-2"></label>
+                <input type="radio" name="radio" id="radio-2" checked="checked" value="2">
+            </div>
+        </div>
+    </div>
+    <p class="turn_p">可赎回份额：<strong class="textColor">23.789</strong>份&nbsp;&nbsp;&nbsp;<!--冻结份额：<strong class="textColor">23.789</strong>份</p>-->
+    <div class="turn_section">
+        <div class="turn_text money">
+            <span>转出金额（元）</span>
+            <input type="number" placeholder="请输入转出金额">
+        </div>
+    </div>
+    <p class="turn_p disno">预计到账日期</p>
+    <p class="pro ml20 mt20"><input type="checkbox" name="info1" id="info11"/><label for="info11">同意<a href="protocol_2.html">《快速取现服务协议》</a></label></p>
+    <div class="turn_btn">
+        <a href="javascript:;" class="submit">确认</a>
+    </div>
+
+    <div class="zhezhao"></div>
+    <div class="turn_tan">
+        <div class="close"></div>
+        <div class="tan_top">
+            <p>请输入密码</p>
+        </div>
+        <p class="tan_p">使用<strong class="textColor">尾号6664</strong>工商银行卡，充值<strong class="textColor">1,234.00</strong>元</p>
+        <input type="number" pattern="[0-9]*" oninput="if(value.length>6)value=value.slice(0,5)" class="input_password" autofocus>
+        <div class="tan_con">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="info_tan">
+        <div class="info_tan_top tc pb20">
+            <p>交易密码错误，请重试。</p>
+        </div>
+        <div class="know_btn">
+            <a href="javascript:;" class="forget">忘记密码</a>
+            <a href="javascript:;" class="know">我知道了</a>
+        </div>
+    </div>
+    <div class="info_tan">
+        <div class="info_tan_top tc">
+            <p>交易密码请到汇添富基金官网<strong class="textColor">www.99fund.com</strong>进行找回</p>
+        </div>
+        <div class="know_btn">
+            <a href="javascript:;" class="know">我知道了</a>
+        </div>
+    </div>
+    <div class="loading_tan">
+        <div class="img"></div>
+        <p>加载中...</p>
+    </div>
+
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/jquery-2.2.2.min.js"></script>
+    <script>
+        /*  取现-按钮的切换事件 */
+        $(".check label").on("click",function(){
+            var labelclass = $(this).attr("class");
+            var radio = $(this).siblings("input");
+            if(labelclass == "icon-off"){
+                radio.attr("checked",true);
+                $(".check label").attr("class","icon-off");
+                $(this).attr("class","icon-on");
+            }else{
+                radio.attr("checked",false);
+                //$(".check label").attr("class","icon-off");
+                $(this).attr("class","icon-on");
+            }
+        });
+
+
+        $("input:radio[name='radio']").click(function(){
+            var radio= $(this).val();
+
+            if(radio == 1){
+                $('.disno').show();
+                $('.pro').hide();
+            }else{
+                $('.disno').hide();
+                $('.pro').show();
+            }
+        });
+
+        /*点击确认的弹窗*/
+        $(document).on("click",'.skin',function(){
+            $('.zhezhao,.turn_tan').show();
+            $('.input_password').focus();
+            $('.input_password').val('');
+            $(".tan_con td").html('')
+            $('.tan_con td').click(function(){
+                $('.input_password').focus();
+            })
+            $('.close').click(function(){
+                $('.zhezhao,.turn_tan').hide();
+            })
+
+        });
+
+        $(function(){
+            $('.know').click(function(){
+                $('.zhezhao,.info_tan').hide();
+            })
+            $('.forget').click(function(){
+                $('.info_tan').hide().eq(1).show();
+            })
+        });
+
+        /*输入完1位数字后自动跳到第二个input，如此类推到第6个完成*/
+       /* $(function(){
+            var txts = $(".tan_con input");
+            for(var i = 0; i<txts.length;i++){
+                var t = txts[i];
+                t.index = i;
+                t.setAttribute("readonly", true);
+                t.onkeyup=function(){
+                    this.value=this.value.replace(/[^1-9]/g,'');
+                    $(this).attr('type','password');
+                    var next = this.index + 1;
+                    if(next > txts.length - 1){
+                        $('.turn_tan').hide();
+                        $('.zhezhao').show();
+                        $('.info_tan').eq(0).show();
+                    }else{
+                        if(this.value == ''){
+                            txts[next-1].focus();
+                            return;
+                        }else{
+                            txts[next].removeAttribute("readonly");
+                            //txts[next].focus();
+                        }
+                    }
+                }
+            }
+            txts[0].removeAttribute("readonly");
+        });*/
+       /*输入密码*/
+       $(function(){
+           var pwd = $('.input_password');
+           pwd.keyup(function(){
+                var val = this.value.split('');
+                //console.log(val);
+                //console.log(val.length);
+               switch (val.length){
+                   case 0:
+                       $(".tan_con td").html('');
+                       break;
+                   case 1:
+                       $(".tan_con td").html('').eq(0).html("*");
+                       break;
+                   case 2:
+                       $(".tan_con td").html('').eq(0).html("*");
+                       $(".tan_con td").eq(1).html("*");
+                       break;
+                   case 3:
+                       $(".tan_con td").html('').eq(0).html("*");
+                       $(".tan_con td").eq(1).html("*");
+                       $(".tan_con td").eq(2).html("*");
+                       break;
+                   case 4:
+                       $(".tan_con td").html('').eq(0).html("*");
+                       $(".tan_con td").eq(1).html("*");
+                       $(".tan_con td").eq(2).html("*");
+                       $(".tan_con td").eq(3).html("*");
+                       break;
+                   case 5:
+                       $(".tan_con td").html('').eq(0).html("*");
+                       $(".tan_con td").eq(1).html("*");
+                       $(".tan_con td").eq(2).html("*");
+                       $(".tan_con td").eq(3).html("*");
+                       $(".tan_con td").eq(4).html("*");
+                       break;
+                   case 6:
+                       $(".tan_con td").html('').eq(0).html("*");
+                       $(".tan_con td").eq(1).html("*");
+                       $(".tan_con td").eq(2).html("*");
+                       $(".tan_con td").eq(3).html("*");
+                       $(".tan_con td").eq(4).html("*");
+                       $(".tan_con td").eq(5).html("*");
+
+                       /*输入六个密码后验证*/
+                       //$('.turn_tan').css({"z-index":"99"});
+                       //$('.zhezhao').show();
+                       $('.loading_tan').show();
+                       //$('.info_tan').eq(0).show();
+                       $('.input_password').blur();
+                       setTimeout(function(){
+                           //$('.turn_tan').css({"z-index":"99"});
+                           $('.loading_tan,.turn_tan').hide();
+                           $('.info_tan').eq(0).show();
+                       },5000);
+                       break;
+               }
+           });
+       });
+
+        /*金额的判断*/
+        $(function(){
+            var input = $('.money input');
+            input.keyup(function(){
+                //console.log('222');
+                //this.value=this.value.replace(/[^1-9]/g,'');
+                if(this.value.length >0){
+                    $('.submit').addClass('skin');
+                }else{
+                    $('.submit').removeClass('skin');
+                }
+            });
+        })
+
+        function num(obj){
+            obj.value = obj.value.replace(/[^\d.]/g,""); //清除"数字"和"."以外的字符
+            obj.value = obj.value.replace(/^\./g,""); //验证第一个字符是数字
+            obj.value = obj.value.replace(/\.{2,}/g,"."); //只保留第一个, 清除多余的
+            obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+            obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3'); //只能输入两个小数
+        }
+
+    </script>
+</body>
+</html>
