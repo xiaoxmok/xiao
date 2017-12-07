@@ -9,18 +9,37 @@
     z-index:99;
     background: #fff;
 }
-.window_boundingBox .window_footer input{
+.window_boundingBox .window_footer .window_alertBtn{
     position: absolute;
     bottom:10px;
     left:50%;
     margin-left: -25px;
 }
+.window_boundingBox .window_footer .window_confirmBtn,.window_boundingBox .window_footer .window_promptBtn{
+    position: absolute;
+    bottom:10px;
+    left:25%;
+    margin-left: -12px;
+}
+.window_boundingBox .window_footer .window_cancelBtn{
+    position: absolute;
+    bottom:10px;
+    left:75%;
+    margin-left: -50px;
+}
+
+
+
 input{
     width:50px;height: 30px;border-radius: 3px;background: #ffb586;margin: 10px;
 }
 
 .window_header{background: #bc6145;padding: 3px;height: 20px;line-height: 20px;font-size: 14px;text-align: center;}
-.window_content{padding: 5px;font-size: 20px;text-align: center;}
+.window_content{padding: 5px;font-size: 16px;text-align: center;}
 .window_closeBtn{background: #9eafff;padding: 3px;position: absolute;top:0;right: 0;width:20px;height: 20px;text-align: center;line-height: 20px;cursor:pointer;}
+
+.window_promptInputWrapper{}
+.window_promptInput{background: #fff;width:80%;text-align: left;border: 1px solid #000000;text-indent: 5px;}
+
 .window_mask{position: fixed;top:0;left:0;background: #000;opacity:.3;width:100%;height:100%;z-index:2;}
 
