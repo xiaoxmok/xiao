@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/goBangAI/css/base.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/goBangAI/css/chess.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/goBangAI/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/goBangAI/js/chess.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web_alert_component/js/widget.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web_alert_component/js/window_old.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scrollHighlight/index.html" afterPath="$PROJECT_DIR$/scrollHighlight/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web_alert_component/css/base.css" afterPath="$PROJECT_DIR$/web_alert_component/css/base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web_alert_component/css/window.css" afterPath="$PROJECT_DIR$/web_alert_component/css/window.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web_alert_component/index.html" afterPath="$PROJECT_DIR$/web_alert_component/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web_alert_component/js/main.js" afterPath="$PROJECT_DIR$/web_alert_component/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web_alert_component/js/window.js" afterPath="$PROJECT_DIR$/web_alert_component/js/window.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/scrollHighlight/git.png" afterPath="$PROJECT_DIR$/goBangAI/img/git.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/goBangAI/js/chess.js" afterPath="$PROJECT_DIR$/goBangAI/js/chess.js" />
     </list>
     <ignored path="study.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,8 +36,8 @@
       <file leaf-file-name="chess.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/goBangAI/js/chess.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="276" column="26" lean-forward="true" selection-start-line="276" selection-start-column="26" selection-end-line="276" selection-end-column="26" />
+            <state relative-caret-position="114">
+              <caret line="119" column="23" lean-forward="true" selection-start-line="119" selection-start-column="23" selection-end-line="119" selection-end-column="23" />
               <folding>
                 <element signature="e#0#48#0" expanded="false" />
               </folding>
@@ -386,12 +373,12 @@
       <workItem from="1511142464163" duration="20377000" />
       <workItem from="1511247191748" duration="21259000" />
       <workItem from="1511831583990" duration="40469000" />
-      <workItem from="1512349791222" duration="55919000" />
+      <workItem from="1512349791222" duration="56267000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178986000" />
+    <option name="totallyTimeSpent" value="179334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="0" />
@@ -817,8 +804,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/goBangAI/js/chess.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="276" column="26" lean-forward="true" selection-start-line="276" selection-start-column="26" selection-end-line="276" selection-end-column="26" />
+        <state relative-caret-position="114">
+          <caret line="119" column="23" lean-forward="true" selection-start-line="119" selection-start-column="23" selection-end-line="119" selection-end-column="23" />
           <folding>
             <element signature="e#0#48#0" expanded="false" />
           </folding>

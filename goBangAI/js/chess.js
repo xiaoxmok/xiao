@@ -118,7 +118,7 @@ for(var i=0; i<count;i++){
 
 var bg = new Image();
 bg.src = 'img/git.png';
-bg.onload = function(){
+window.onload = function(){
     //context.drawImage(bg,0,0,450,450);      //增加背景水印
     drawChessBoard();
     /*oneStep(0,0,true);
