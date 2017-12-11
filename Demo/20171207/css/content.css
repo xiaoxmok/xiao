@@ -13,7 +13,7 @@
 .top .focus{color:#fb5c5f;border-bottom: 2px solid #fbadb0;}
 
 .fund_news{margin:.4266rem .64rem;border-radius:2px;display: flex;display: -webkit-flex;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;}
-.fund_news a{display: flex;color:#fb5c5f;border-left:1px solid #fb5c5f;border-bottom:1px solid #fb5c5f;border-top:1px solid #fb5c5f;display: -webkit-flex;flex:1;-webkit-flex: 1;height: 1.28rem;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;font-size: .64rem;}
+.fund_news a{display: flex;display: -webkit-flex;color:#fb5c5f;border-left:1px solid #fb5c5f;border-bottom:1px solid #fb5c5f;border-top:1px solid #fb5c5f;display: -webkit-flex;flex:1;-webkit-flex: 1;height: 1.28rem;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;font-size: .64rem;}
 .fund_news a:nth-child(4){border:1px solid #fb5c5f;border-radius:0 2px 2px 0;}
 .fund_news a:first-child{border-radius:2px 0 0 2px;}
 .fund_news .focus{color:#fff;background: #fb5c5f;}
@@ -29,8 +29,8 @@
 .comp_more a{display: inline-block;height: 1.593rem;width: 100%;color:#218ee3;font-size: .55rem;}
 
 .intor_info{padding:.70rem 0;margin-left:.64rem;border-bottom: 1px solid #efefef;display: flex;font-size: .64rem;}
-.intor_info .p1{flex:1;color:#000;display: flex;align-items: center;}
-.intor_info .p2{flex:3;color:#666;padding-left: .2rem;}
+.intor_info .p1{flex:1;-webkit-flex: 1;color:#000;display: flex;align-items: center;}
+.intor_info .p2{flex:3;-webkit-flex: 3;color:#666;padding-left: .2rem;}
 .intor_info .p2 a{color:#148ce6;}
 
 .news{margin-top: .4266rem;background:#fff;}
@@ -43,15 +43,15 @@
 .fund_dividends div{color:#000;padding: .60rem 0;font-size: .64rem;border-bottom:1px solid #efefef;display: flex;display: -webkit-flex;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;}
 .fund_dividends div p{justify-content: center;align-items: center;text-align:center;}
 .fund_dividends .fund_div_con{color:#666666;margin-left: .64rem;}
-.fund_dividends div .p1{flex: 1;}
-.fund_dividends div .p2{flex: 1;padding-left: 0.3rem;}
-.fund_dividends div .p3{flex: 2;}
+.fund_dividends div .p1{flex: 1;-webkit-flex: 1;}
+.fund_dividends div .p2{flex: 1;padding-left: 0.3rem;-webkit-flex: 1;}
+.fund_dividends div .p3{flex: 2;-webkit-flex: 2;}
 
-.fund_dividends .fund_his_con p{flex: 1!important;color:#666666;}
+.fund_dividends .fund_his_con p{flex: 1!important;color:#666666;-webkit-flex: 1;}
 .font_color{color:#000!important;padding: .50rem 0!important;}
 
 .fund_dividends .fund_net_con p:nth-child(2){padding-left: 0;}
-.fund_dividends .fund_net_con p{flex: 1!important;color:#666666;}
+.fund_dividends .fund_net_con p{flex: 1!important;color:#666666;-webkit-flex: 1;}
 .fund_dividends .fund_net_con p.p_add{color:#fe5a5b;}
 .fund_dividends .fund_net_con p.p_drop{color:#009944;}
 
@@ -61,8 +61,8 @@
 
 /*交易规则*/
 .dis_flex{display: flex;display:-webkit-flex;align-items: center;-webkit-align-items: center;}
-.flex_1{flex:1;}
-.flex_2{flex:2;}
+.flex_1{flex:1;-webkit-flex: 1;}
+.flex_2{flex:2;-webkit-flex: 2;}
 .dis_info{color:#666;padding: .70rem .64rem;font-size: .64rem;border-bottom:1px solid #efefef;}
 .dis_title{color:#000;}
 .dis_title.pd{padding: .25rem .64rem;}
