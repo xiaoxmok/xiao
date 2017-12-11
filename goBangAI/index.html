@@ -8,7 +8,26 @@
     <link rel="stylesheet" href="./css/chess.css">
 </head>
 <body>
-    <canvas id="chess" width="450px" height="450px"></canvas>
-    <script src="./js/chess.js"></script>
+    <div class="main">
+        <!--<div class="chess">
+            <div class="play">
+                <p>黑子玩家</p>
+                <p>胜场数：<strong>0</strong></p>
+                <p>败场数：<strong>0</strong></p>
+                <p>和场数：<strong>0</strong></p>
+            </div>
+            <div class="play">
+                <p>白子玩家</p>
+                <p>胜场数：<strong>0</strong></p>
+                <p>败场数：<strong>0</strong></p>
+                <p>和场数：<strong>0</strong></p>
+            </div>
+            <canvas id="chess" width="450px" height="450px"></canvas>-->
+        </div>
+    </div>
+    <script src="js/chess_new.js"></script>
+    <script>
+        chess.init(".main");
+    </script>
 </body>
 </html>
