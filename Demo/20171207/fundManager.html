@@ -54,7 +54,7 @@
                 <p class="flex_2">2016.12-2018.2</p>
                 <p class="flex_1 p_add">+19.87%</p>
             </div>
-            <div class="comp_more b_t_n"><a href="javascript:;">展开更多</a></div>
+            <div class="comp_more b_t_n btn_fund"><a href="javascript:;">展开更多</a></div>
         </div>
 
         <div class="mana_top comp_section">
@@ -99,7 +99,7 @@
                 <p class="flex_2">2016.12-2018.2</p>
                 <p class="flex_1 p_add">+19.87%</p>
             </div>
-            <div class="comp_more b_t_n"><a href="javascript:;">展开更多</a></div>
+            <div class="comp_more b_t_n btn_fund"><a href="javascript:;">展开更多</a></div>
         </div>
 
         <script src="js/component.js"></script>
@@ -118,7 +118,7 @@
                 defaultTextLen:112       //默认显示字数
             });
 
-            $('.b_t_n').click(function(){
+            $('.btn_fund').click(function(){
                 var html = '<div class="dis_flex dis_info">'+
                     '<p class="flex_2">汇添富外延增长主题股票</p>'+
                     '<p class="flex_2">2016.12-2018.2</p>'+
@@ -131,6 +131,8 @@
                     '</div>';
 
                 $(this).before(html);
+
+
             })
         </script>
     </body>
