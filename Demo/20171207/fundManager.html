@@ -118,6 +118,20 @@
                 defaultTextLen:112       //默认显示字数
             });
 
+            $('.b_t_n').click(function(){
+                var html = '<div class="dis_flex dis_info">'+
+                    '<p class="flex_2">汇添富外延增长主题股票</p>'+
+                    '<p class="flex_2">2016.12-2018.2</p>'+
+                    '<p class="flex_1 p_add">+19.87%</p>'+
+                    '</div>'+
+                    '<div class="dis_flex dis_info">'+
+                    '<p class="flex_2">汇添富6月红添利定期开放债券型证券投资基金A类</p>'+
+                    '<p class="flex_2">2016.12-2018.2</p>'+
+                    '<p class="flex_1 p_add">+19.87%</p>'+
+                    '</div>';
+
+                $(this).before(html);
+            })
         </script>
     </body>
 </html>
