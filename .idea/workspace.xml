@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Demo/20171207/test.html" />
-    </list>
+    <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="" />
     <ignored path="study.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -416,12 +414,12 @@
       <workItem from="1511247191748" duration="21259000" />
       <workItem from="1511831583990" duration="40469000" />
       <workItem from="1512349791222" duration="57207000" />
-      <workItem from="1512716481110" duration="13589000" />
+      <workItem from="1512716481110" duration="13864000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193863000" />
+    <option name="totallyTimeSpent" value="194138000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="0" />
