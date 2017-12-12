@@ -31,28 +31,40 @@
             <h3>目前管理基金</h3>
             <div class="dis_flex dis_info dis_title">
                 <p class="flex_2">基金名称</p>
-                <p class="flex_2">任期</p>
+                <p class="flex_2 tc">任期</p>
                 <p class="flex_1">回报</p>
             </div>
             <div class="dis_flex dis_info">
                 <p class="flex_2">汇添富外延增长主题股票</p>
-                <p class="flex_2">2016.12-2018.2</p>
+                <p class="flex_2 tc">16.12-18.2</p>
                 <p class="flex_1 p_add">+19.87%</p>
             </div>
             <div class="dis_flex dis_info">
                 <p class="flex_2">汇添富6月红添利定期开放债券A</p>
-                <p class="flex_2">2016.12-2018.2</p>
+                <p class="flex_2 tc">16.12-18.2</p>
                 <p class="flex_1 p_add">+19.87%</p>
             </div>
             <div class="dis_flex dis_info">
                 <p class="flex_2">汇添富外延增长主题股票</p>
-                <p class="flex_2">2016.12-2018.2</p>
+                <p class="flex_2 tc">16.12-18.2</p>
                 <p class="flex_1 p_add">+19.87%</p>
             </div>
             <div class="dis_flex dis_info">
                 <p class="flex_2">汇添富6月红添利定期开放债券型证券投资基金A类</p>
-                <p class="flex_2">2016.12-2018.2</p>
+                <p class="flex_2 tc">16.12-18.2</p>
                 <p class="flex_1 p_add">+19.87%</p>
+            </div>
+            <div class="onMore">
+                <div class="dis_flex dis_info">
+                    <p class="flex_2">汇添富外延增长主题股票11</p>
+                    <p class="flex_2 tc">16.12-18.2</p>
+                    <p class="flex_1 p_add">+19.87%</p>
+                </div>
+                <div class="dis_flex dis_info">
+                    <p class="flex_2">汇添富6月红添利定期开放债券型证券投资基金A类11</p>
+                    <p class="flex_2 tc">16.12-18.2</p>
+                    <p class="flex_1 p_add">+19.87%</p>
+                </div>
             </div>
             <div class="comp_more b_t_n btn_fund"><a href="javascript:;">展开更多</a></div>
         </div>
@@ -76,30 +88,42 @@
             <h3>目前管理基金</h3>
             <div class="dis_flex dis_info dis_title">
                 <p class="flex_2">基金名称</p>
-                <p class="flex_2">任期</p>
+                <p class="flex_2 tc">任期</p>
                 <p class="flex_1">回报</p>
             </div>
             <div class="dis_flex dis_info">
                 <p class="flex_2">汇添富外延增长主题股票</p>
-                <p class="flex_2">2016.12-2018.2</p>
+                <p class="flex_2 tc">16.12-18.2</p>
                 <p class="flex_1 p_add">+19.87%</p>
             </div>
             <div class="dis_flex dis_info">
                 <p class="flex_2">汇添富6月红添利定期开放债券A</p>
-                <p class="flex_2">2016.12-2018.2</p>
+                <p class="flex_2 tc">16.12-18.2</p>
                 <p class="flex_1 p_add">+19.87%</p>
             </div>
             <div class="dis_flex dis_info">
                 <p class="flex_2">汇添富外延增长主题股票</p>
-                <p class="flex_2">2016.12-2018.2</p>
+                <p class="flex_2 tc">16.12-18.2</p>
                 <p class="flex_1 p_add">+19.87%</p>
             </div>
             <div class="dis_flex dis_info">
                 <p class="flex_2">汇添富6月红添利定期开放债券型证券投资基金A类</p>
-                <p class="flex_2">2016.12-2018.2</p>
+                <p class="flex_2 tc">16.12-18.2</p>
                 <p class="flex_1 p_add">+19.87%</p>
             </div>
-            <div class="comp_more b_t_n btn_fund"><a href="javascript:;">展开更多</a></div>
+            <div class="onMore">
+                <div class="dis_flex dis_info">
+                    <p class="flex_2">汇添富外延增长主题股票11</p>
+                    <p class="flex_2 tc">16.12-18.2</p>
+                    <p class="flex_1 p_add">+19.87%</p>
+                </div>
+                <div class="dis_flex dis_info">
+                    <p class="flex_2">汇添富6月红添利定期开放债券型证券投资基金A类11</p>
+                    <p class="flex_2 tc">16.12-18.2</p>
+                    <p class="flex_1 p_add">+19.87%</p>
+                </div>
+            </div>
+            <div class="comp_more b_t_n btn_fund"><a href="javascript:;" class="on">展开更多</a></div>
         </div>
 
         <script src="js/component.js"></script>
@@ -119,7 +143,7 @@
             });
 
             $('.btn_fund').click(function(){
-                var html = '<div class="dis_flex dis_info">'+
+                /*var html = '<div class="dis_flex dis_info">'+
                     '<p class="flex_2">汇添富外延增长主题股票</p>'+
                     '<p class="flex_2">2016.12-2018.2</p>'+
                     '<p class="flex_1 p_add">+19.87%</p>'+
@@ -130,9 +154,17 @@
                     '<p class="flex_1 p_add">+19.87%</p>'+
                     '</div>';
 
-                $(this).before(html);
 
-
+                $(this).before(html);*/
+                if($(this).find('a').hasClass('on')){
+                    $(this).prev('.onMore').show();
+                    $(this).find('a').html('收起');
+                    $(this).find('a').removeClass('on');
+                }else{
+                    $(this).prev('.onMore').hide();
+                    $(this).find('a').html('展开更多');
+                    $(this).find('a').addClass('on');
+                }
             })
         </script>
     </body>
