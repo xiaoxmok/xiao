@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="" />
     <ignored path="study.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -46,8 +44,8 @@
       <file leaf-file-name="fundManager.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Demo/20171207/fundManager.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="118" column="15" lean-forward="true" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="15" />
+            <state relative-caret-position="704">
+              <caret line="142" column="15" lean-forward="true" selection-start-line="142" selection-start-column="15" selection-end-line="142" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -837,8 +835,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Demo/20171207/fundManager.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="118" column="15" lean-forward="true" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="15" />
+        <state relative-caret-position="704">
+          <caret line="142" column="15" lean-forward="true" selection-start-line="142" selection-start-column="15" selection-end-line="142" selection-end-column="15" />
           <folding />
         </state>
       </provider>
