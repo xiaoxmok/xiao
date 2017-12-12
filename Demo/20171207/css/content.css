@@ -3,8 +3,8 @@
 .mt17{margin-top: 1.7rem!important;overflow: hidden;}
 .mt0{margin-top: 0!important;}
 .pl0{padding-left: 0!important;}
-.tc{text-align: center;}
-.tr{text-align: right;}
+.tc{text-align: center!important;}
+.tr{text-align: right!important;}
 .tl{text-align: left!important;}
 
 .w26{width: 3rem;}
@@ -30,7 +30,7 @@
 .comp_more{height: 1.593rem;width: 100%;  line-height: 1.593rem; font-size: .68rem; text-align: center; border-top: 1px solid #efefef;}
 .comp_more a{display: inline-block;height: 1.593rem;width: 100%;color:#218ee3;font-size: .55rem;}
 
-.intor_info{padding:.70rem 0;margin-left:.64rem;border-bottom: 1px solid #efefef;display: flex;font-size: .64rem;}
+.intor_info{padding:.554rem 0;margin-left:.64rem;border-bottom: 1px solid #efefef;display: flex;font-size: .64rem;}
 .intor_info .p1{flex:1;-webkit-flex: 1;color:#000;display: flex;align-items: center;}
 .intor_info .p2{flex:3;-webkit-flex: 3;color:#666;padding-left: .2rem;}
 .intor_info .p2 a{color:#148ce6;}
@@ -42,7 +42,7 @@
 .news a div .p2{font-size: .5546rem;color:#666;margin-top: .10rem;}
 
 .fund_dividends{margin-top: .427rem;background: #fff;}
-.fund_dividends div{color:#000;padding: .60rem 0;margin-left:.64rem;font-size: .64rem;border-bottom:1px solid #efefef;display: flex;display: -webkit-flex;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;}
+.fund_dividends div{color:#000;padding: .554rem 0;margin-left:.64rem;margin-right:.64rem;font-size: .64rem;border-bottom:1px solid #efefef;display: flex;display: -webkit-flex;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;}
 .fund_dividends div p{justify-content: center;align-items: center;text-align:center;}
 .fund_dividends .fund_div_con{color:#666666;margin-left: .64rem;}
 .fund_dividends div .p1{flex: 1;-webkit-flex: 1;}
@@ -67,7 +67,7 @@
 .flex_2{flex:2;-webkit-flex: 2;}
 .flex_3{flex:3;-webkit-flex: 3;}
 .flex_4{flex:4;-webkit-flex: 4;}
-.dis_info{color:#666;padding: .70rem .64rem;font-size: .64rem;border-bottom:1px solid #efefef;}
+.dis_info{color:#666;padding: .554rem .64rem;font-size: .64rem;border-bottom:1px solid #efefef;}
 .dis_title{color:#000!important;}
 .dis_title.pd{padding: .25rem .64rem;}
 .dis_info.pd{padding: .25rem .64rem;}

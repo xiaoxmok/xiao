@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Demo/20171207/portfolio_currencyType.html" afterPath="$PROJECT_DIR$/Demo/20171207/portfolio_currencyType.html" />
-    </list>
+    <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="" />
     <ignored path="study.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.idea/" />
