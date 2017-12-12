@@ -75,7 +75,7 @@
         seriesCenter:['22%', '55%'],
         seriesRadius:'65%',
         legendTop:'25%',
-        legendLeft:'50%'
+        legendLeft:'45%'
     };
 
     pieEcharts.init = function(domID,options){

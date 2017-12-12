@@ -30,7 +30,7 @@
 .comp_more{height: 1.593rem;width: 100%;  line-height: 1.593rem; font-size: .68rem; text-align: center; border-top: 1px solid #efefef;}
 .comp_more a{display: inline-block;height: 1.593rem;width: 100%;color:#218ee3;font-size: .55rem;}
 
-.intor_info{padding:.554rem 0;margin-left:.64rem;border-bottom: 1px solid #efefef;display: flex;font-size: .64rem;}
+.intor_info{padding:.554rem 0;margin-left:.64rem;border-bottom: 1px solid #efefef;display: flex;display:-webkit-flex;font-size: .64rem;}
 .intor_info .p1{flex:1;-webkit-flex: 1;color:#000;display: flex;align-items: center;}
 .intor_info .p2{flex:3;-webkit-flex: 3;color:#666;padding-left: .2rem;}
 .intor_info .p2 a{color:#148ce6;}
@@ -82,12 +82,12 @@
 
 /*基金经理*/
 .mana_top{padding:.70rem .64rem;display: flex;display: -webkit-flex;background:#fff;}
-.mana_img{flex:1;-webkit-flex:1;width:3.84rem;height: 3.84rem;}
+.mana_img{flex:1;-webkit-flex:1;width:4.13rem;height:4.13rem;}
 /*.mana_img img{width:3.84rem;height: 5.12rem;}*/
-.mana_img img{width:3.84rem;height: 3.84rem;}
+.mana_img img{width:4.13rem;height:4.13rem;}
 .mana_info{flex:2;-webkit-flex:2;margin-top: 1rem;}
 .mana_info p{font-size: .74rem;line-height: 1rem;color:#000;}
-.mana_info p:last-child{font-size: .64rem;line-height: 1rem;color:#666;}
+.mana_info p:last-child{font-size: .64rem;line-height: 1rem;color:#666;margin-top: .40 rem}
 
 .mana_text{padding:.30rem .64rem;background:#fff;font-size: .64rem;line-height: 1rem;color:#666;}
 .b_t_n{border-top:none;}
