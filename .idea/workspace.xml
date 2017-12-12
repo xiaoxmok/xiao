@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="" />
+    <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Demo/20171207/portfolio_currencyType.html" afterPath="$PROJECT_DIR$/Demo/20171207/portfolio_currencyType.html" />
+    </list>
     <ignored path="study.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -21,7 +23,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test01.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test01.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/study/css3/test01.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -36,16 +38,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
               <caret line="15" column="70" lean-forward="false" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fundManager.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Demo/20171207/fundManager.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="152" column="15" lean-forward="true" selection-start-line="152" selection-start-column="15" selection-end-line="152" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -426,12 +418,12 @@
       <workItem from="1511831583990" duration="40469000" />
       <workItem from="1512349791222" duration="57207000" />
       <workItem from="1512716481110" duration="14452000" />
-      <workItem from="1513040796657" duration="1200000" />
+      <workItem from="1513040796657" duration="1866000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195926000" />
+    <option name="totallyTimeSpent" value="196592000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="1" />
@@ -747,14 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/study/css3/test01.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/study/css3/css/style01.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
@@ -825,6 +809,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Demo/20171207/fundManager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="140" column="16" lean-forward="true" selection-start-line="140" selection-start-column="16" selection-end-line="140" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Demo/20171207/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -833,10 +825,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Demo/20171207/fundManager.html">
+    <entry file="file://$PROJECT_DIR$/study/css3/test01.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="152" column="15" lean-forward="true" selection-start-line="152" selection-start-column="15" selection-end-line="152" selection-end-column="15" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

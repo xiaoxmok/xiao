@@ -74,7 +74,7 @@
         ],
         seriesCenter:['22%', '55%'],
         seriesRadius:'65%',
-        legendTop:'23%',
+        legendTop:'25%',
         legendLeft:'50%'
     };
 
