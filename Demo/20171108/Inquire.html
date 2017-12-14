@@ -17,12 +17,12 @@
         <div class="info_text">
             <span>客户手机:</span>
             <input placeholder="请输入您的手机号码" type="number" pattern="[0-9]*" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></input>
-            <i class="del"></i>
+            <div class="del"><i></i></div>
         </div>
         <div class="info_text">
             <span>企业编号:</span>
             <input placeholder="请输入您的企业编号" ></input>
-            <i class="del"></i>
+            <div class="del"><i></i></div>
         </div>
 
         <button class="inqu">查询</button>
@@ -74,7 +74,9 @@
             <a href="javascript:;" class="define">确定</a>
         </div>
     </div>
-
+    <div class="unlock_tan">
+        <p>解锁成功！</p>
+    </div>
 
     <script src="./js/jquery-2.2.2.min.js"></script>
     <script>
@@ -82,8 +84,16 @@
             $(".unlock").click(function(){
                 $('.zhezhao,.info_tan').show();
             });
-            $(".cancel,.define").click(function(){
+            $(".cancel").click(function(){
                 $('.zhezhao,.info_tan').hide();
+            });
+            $(".define").click(function(){
+                $('.unlock_tan').show();
+                $('.zhezhao,.info_tan').hide();
+                setTimeout(function(){
+                    $('.unlock_tan').hide();
+                },3000);
+
             });
         });
 
@@ -93,9 +103,9 @@
                 //console.log('222');
                 //this.value=this.value.replace(/[^1-9]/g,'');
                 if(this.value.length >0){
-                    $(this).parent().find('i').show();
+                    $(this).parent().find('.del').show();
                 }else{
-                    $(this).parent().find('i').hide();
+                    $(this).parent().find('.del').hide();
                 }
             });
 
@@ -104,6 +114,29 @@
                 $(this).hide();
             });
         });
+
+        $(function(){
+            $(".unlock_tan").removeAttr("style");
+            var w = $('.unlock_tan').width();
+            var w_d = $(document).width();
+            //var w_p = $('.err_tan p').outerWidth();
+
+            //console.log(w);
+            //console.log(w_d);
+            var w_t=w_d-150;
+
+
+            if(w >= w_t){
+                $('.unlock_tan').css({"width":w_t + "px"});
+                $('.unlock_tan').css({"left":(w_d - $('.unlock_tan').outerWidth())/2+"px"});
+            }else{
+                $('.unlock_tan').css({"left":(w_d - $('.unlock_tan').outerWidth())/2+"px"});
+                //$('.err_tan').css({"margin-left":-(w_rem/2)+"rem"});
+            }
+
+        })
+
+
 
     </script>
 
