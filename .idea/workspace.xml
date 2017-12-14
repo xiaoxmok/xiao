@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/animation/css/animation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/animation/css/rabbit.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/animation/js/rabbit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/animation/rabbit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="b1c66701-57fc-433d-8055-a5abac89107a" name="默认的" comment="" />
     <ignored path="study.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.idea/" />
