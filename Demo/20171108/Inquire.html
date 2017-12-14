@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>客户登录状态解锁经办</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/base.css">
+	<link rel="stylesheet" type="text/css" href="./css/content.css">
+	<link rel="stylesheet" type="text/css" href="./css/mobiscroll.custom-3.0.0-beta6.min.css">
+	<script type="text/javascript" src="./js/fontresize.js"></script>
+</head>
+<body class="bg">
+    <header class="skin">
+        <a href="javascript:;" class="go_back">返回</a><span>客户登录状态解锁经办</span>
+    </header>
+    <div class="info_section">
+        <div class="info_text">
+            <span>客户手机:</span>
+            <input placeholder="请输入您的手机号码" ></input>
+            <i class="del"></i>
+        </div>
+        <div class="info_text">
+            <span>企业编号:</span>
+            <input placeholder="请输入您的企业编号" ></input>
+            <i class="del"></i>
+        </div>
+
+        <button class="inqu">查询</button>
+    </div>
+    <h3 class="h3">已锁定的客户信息列表</h3>
+    <div class="info_section mar">
+        <div class="info_con">
+            <div class="left">
+                <p>企业名称：<span>上海小胡子有限公司</span></p>
+                <p>企业证件：<span>1234567777777</span></p>
+                <p>企业编号：<span>2897456423</span></p>
+                <p>手机号码：<span>1380000112</span></p>
+            </div>
+            <div class="right">
+                <p>证件类型：<span>营业执照</span></p>
+                <p>账户分类：<span>web版</span></p>
+                <p>开户日期：<span>锁定</span></p>
+            </div>
+        </div>
+        <div class="info_bottom">
+            <button class="unlock">解锁</button>
+        </div>
+    </div>
+    <div class="info_section mar">
+        <div class="info_con">
+            <div class="left">
+                <p>企业名称：<span>上海小胡子有限公司</span></p>
+                <p>企业证件：<span>1234567777777</span></p>
+                <p>企业编号：<span>2897456423</span></p>
+                <p>手机号码：<span>1380000112</span></p>
+            </div>
+            <div class="right">
+                <p>证件类型：<span>营业执照</span></p>
+                <p>账户分类：<span>web版</span></p>
+                <p>开户日期：<span>锁定</span></p>
+            </div>
+        </div>
+        <div class="info_bottom">
+            <button class="unlock">解锁</button>
+        </div>
+    </div>
+    <div class="zhezhao"></div>
+    <div class="info_tan">
+        <div class="info_tan_top tc pb20">
+            <p>您确定要解锁？</p>
+        </div>
+        <div class="define_btn">
+            <a href="javascript:;" class="cancel">取消</a>
+            <a href="javascript:;" class="define">确定</a>
+        </div>
+    </div>
+
+
+    <script src="./js/jquery-2.2.2.min.js"></script>
+    <script>
+        $(function () {
+            $(".unlock").click(function(){
+                $('.zhezhao,.info_tan').show();
+            });
+            $(".cancel,.define").click(function(){
+                $('.zhezhao,.info_tan').hide();
+            });
+        });
+
+        $(function(){
+            var input = $('.info_text input');
+            input.keyup(function(){
+                //console.log('222');
+                //this.value=this.value.replace(/[^1-9]/g,'');
+                if(this.value.length >0){
+                    $(this).parent().find('i').show();
+                }else{
+                    $(this).parent().find('i').hide();
+                }
+            });
+
+            $('.del').click(function(){
+                $(this).parent().find('input').val("");
+                $(this).hide();
+            });
+        });
+
+    </script>
+
+</body>
+</html>
