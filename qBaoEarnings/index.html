@@ -6,167 +6,72 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/base.css">
     <link rel="stylesheet" type="text/css" href="./css/content.css">
-    <link rel="stylesheet" type="text/css" href="./css/mobiscroll.custom-3.0.0-beta6.min.css">
     <script type="text/javascript" src="./js/fontresize.js"></script>
+    <script src="./js/vue/vue.js"></script>
 </head>
 <body class="bg">
-<div class="info_top">
-    <p>仅供参考</p>
-</div>
-<div class="info_section">
-    <div class="info_text">
-        <span>总资产</span>
-        <input placeholder="请输入您的真实姓名" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></input>
+<div id="app">
+    <div class="info_top">
+        <p>仅供参考</p>
     </div>
-    <div class="info_text card">
-        <span>身份证</span>
-        <input placeholder="请输入18位身份证号码" maxlength="18"></input>
+    <div class="info_section">
+        <div class="info_text">
+            <span>总资产:</span>
+            <input placeholder="请输入您的总资产" class="total"></input>
+            <div class="del"><i></i></div>
+        </div>
+        <div class="info_text">
+            <span>天数:</span>
+            <input placeholder="请输入您的天数" class="days"></input>
+            <div class="del"><i></i></div>
+        </div>
+
+        <button class="inqu" @click="submit">计算</button>
     </div>
-    <div class="info_text selc">
-        <span>证件有效期</span>
-        <input id="idCard" placeholder="请选择证件有效期"></input>
-    </div>
-    <div class="info_text info_text_card">
-        <span></span>
-        <p><input type="checkbox"></input>&nbsp;&nbsp;证件长期有效</p>
-    </div>
-</div>
-<div class="info_section">
-    <div class="info_text">
-        <span>银行卡号</span>
-        <input placeholder="请输入16~19位储蓄卡卡号" maxlength="19" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></input>
-    </div>
-    <div class="info_text selc">
-        <span>银行</span>
-        <!--<input id="bank_demo" placeholder="请选择"></input>-->
-        <select name="bank" id="bank">
-            <option value="1">请选择</option>
-            <option value="2">招商银行</option>
-            <option value="3">中国银行</option>
-            <option value="4">建设银行</option>
-            <option value="5">平安银行</option>
-            <option value="6">花旗银行</option>
-            <option value="7">华夏银行</option>
-            <option value="8">工商银行</option>
-            <option value="9">农业银行</option>
-        </select>
-    </div>
-    <div class="info_text">
-        <span>手机号码</span>
-        <input placeholder="银行卡预留手机号码" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></input>
+    <h3 class="h3">计算结果</h3>
+
+    <div class="info_section mar" v-for="msg in Message">
+        <div class="info_con">
+            <div class="left">
+                <p>{{msg.days}}</p>
+                <p>日收益：<span>{{msg.dailyIncome}}</span></p>
+                <p>总资产：<span>{{msg.totals}}</span></p>
+            </div>
+            <div class="right">
+                <p>账户管理费：<span>{{msg.dailyAccountManagementFee}}</span></p>
+                <p>月管理费：<span>{{msg.monthAccountManagementFee}}</span></p>
+            </div>
+        </div>
     </div>
 
-
-</div>
-<div class="info_bottom">
-    <p class="pro"><input type="checkbox" name="info1" id="info1"/><label for="info1">同意<a href="protocol.html" class="link_color">《汇添富基金网上交易服务协议》</a>、<a
-            href="protocol_1.html" class="link_color">《投资者权益须知》</a></label></p>
-    <a href="javascript:;" class="submit">确定</a>
-</div>
-<div class="err_tan" style="width:170px;">
-    <p>请输入图形验证码</p>
+    <div class="err_tan">
+        <p>格式错误！</p>
+    </div>
+    <div class="text"></div>
 </div>
 <script src="./js/jquery-2.2.2.min.js"></script>
-<script src="./js/mobiscroll.custom-3.0.0-beta6.min.js"></script>
+<script src="./js/test.js"></script>
+
 <script>
-    $(function () {
-        var now = new Date(),
-            max = new Date(now.getFullYear() + 100, now.getMonth(), now.getDate());
 
-        $('#idCard').mobiscroll().date({
-            theme: 'ios',
-            lang: 'zh',
-            display: 'bottom',
-            dateFormat: 'yyyy-mm-dd',
-            max: max,
-            onSet:function(valueText,inst){
-                console.log("2222");
-            }
-        });
-    });
-    $(function () {
-        $('#bank').mobiscroll().select({
-            theme: 'ios',
-            lang: 'zh',
-            display: 'bottom',
-            minWidth: 200
-        });
-    });
-
-    /*身份证的判断*/
-    $(function(){
-        $('.card input').keyup(function(){
-            var len = this.value.length;
-            console.log(len);
-            if(len >18){
-                this.value=this.value.replace(/[^1-9]/g,'');
-            }
-            if(len = 18){
-                if((this.value).charAt(this.value.length-1) == 'x') return;
-                this.value=this.value.replace(/[^1-9]/g,'');
-            }
-        })
-    });
-
-    /*图形验证码更换*/
-    $('.imgCode').click(function(){
-        if($('.imgCode').attr('src') == './img/img_yz02.jpg'){
-            $('.imgCode').attr('src','./img/img_yz.jpg');
-        }else{
-            $('.imgCode').attr('src','./img/img_yz02.jpg');
-        }
-
-    });
-
-    /*获取验证码倒记时*/
-    var time=20;
-    var time1;
-    function cl_verCode(){
-        //console.log($('.img_code input').val().length);
-        if($('.img_code input').val().length !=0){
-            $('.verCode').hide();
-            $('.countDown').show();
-            time1=setInterval(timeOut,1000);
-        }else{
-            $('.err_tan').show();
-            setTimeout(function(){
-                $('.err_tan').hide();
-            },3000);
-        }
-    }
-
-    function timeOut(){
-        time--;
-        $('.timeOut').html(time);
-        //console.log(time);
-        if(time < 0){
-            clearInterval(time1);
-            $('.verCode').show();
-            $('.countDown').hide();
-        }
-    }
 
     $(function(){
-        var input = $('#info1');
-        input.click(function(){
-            if($(this).prop('checked')){//获取是否选中 并判断
-                $('.submit').addClass('skin');
-            }else{
-                $('.submit').removeClass('skin');
-            }
+        var input = $('.info_text input');
+        input.keyup(function(){
             //console.log('222');
             //this.value=this.value.replace(/[^1-9]/g,'');
+            if(this.value.length >0){
+                $(this).parent().find('.del').show();
+            }else{
+                $(this).parent().find('.del').hide();
+            }
+        });
+
+        $('.del').click(function(){
+            $(this).parent().find('input').val("");
+            $(this).hide();
         });
     });
-
-    /*点击确认的弹窗*/
-    $(document).on("click",'.skin',function(){
-        $('.err_tan').show();
-        setTimeout(function(){
-            $('.err_tan').hide();
-        },3000);
-    });
-
     $(function(){
         $(".err_tan").removeAttr("style");
         var w = $('.err_tan').width();
@@ -186,8 +91,75 @@
             //$('.err_tan').css({"margin-left":-(w_rem/2)+"rem"});
         }
 
-    })
+    });
 
+
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            Message:[]
+        },
+        methods:{
+            submit:function(){
+                var valueAll;
+                var total = $('.total').val();
+                var days = $('.days').val();
+                console.log(CheckNum(total));
+                console.log(total);
+
+                if(total == '' || days == ''){
+                    console.log("无值");
+                }else{
+                    valueAll= cal(days,total);
+                    //$('.text').html(valueAll);
+                    this.Message = valueAll;
+
+                    /*for(var i=0;i<valueAll.length;i++){
+                        this.Message.push(valueAll[i]);
+                    }*/
+
+                    //console.log(valueAll[0].days);
+                    //$('.text').html(this.Message);
+                }
+            }
+        }
+    });
+
+    /*$('.inqu').click(function(){
+        var valueAll;
+
+        var total = $('.total').val();
+        var days = $('.days').val();
+        console.log(CheckNum(total));
+        console.log(total);
+
+        if(total == '' || days == ''){
+            console.log("无值");
+        }else{
+            valueAll= cal(days,total);
+            console.log(valueAll);
+            var vm=new Vue({
+                el:'#app',
+                data:{
+                    Message:valueAll
+                },
+                methods:{
+
+                }
+            });
+        }
+
+    });*/
+
+
+
+    //是否是纯数字
+    function CheckNum(Str) {
+        var re=/^\d+$/;
+        //var re=^(-?\\d+)(;
+
+        return re.test(Str);
+    }
 </script>
 
 </body>
