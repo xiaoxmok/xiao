@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>红包收益全拿走</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/base.css">
+	<script type="text/javascript" src="./js/fontresize.js"></script>
+</head>
+<body>
+    <header>
+        <a href="javascript:history.back();" class="back"></a><span>红包收益全拿走</span>
+    </header>
+	<div class="main index">
+        <div class="banner1">
+            <a href="myReward.html">我的奖励</a>
+            <a href="javascript:show(2);">活动规则</a>
+        </div>
+        <div class="banner2">
+            <p class="p1">答题赢奖励，收好不谢</p>
+            <p class="p2">活动时间：2017年9月2日-2017年9月13日</p>
+            <div class="con">
+                <p>基金定投协议一旦签订能否取消?</p>
+                <div class="inp">
+                    <div>
+                        <input type="radio" id="a1" checked="checked" name="fund" value="0">
+                        <label for="a1"></label><span>A.能</span>
+                    </div>
+                    <div>
+                        <input type="radio" id="a2" name="fund" value="1">
+                        <label for="a2"></label><span>B.不能</span>
+                    </div>
+                </div>
+                <a href="javascript:onBtn();">提交赢好礼</a>
+            </div>
+        </div>
+        <div class="banner3">
+            <div class="line"></div>
+            <div class="con">
+                <p class="p1">活动内容</p>
+                <p class="p2">阅读理财知识后正确回答问题并在活动期间首次定投非货币类公募基金（10元起投），在每个定投周期成功扣款后，即可在我的奖励，中受到一份现金红包份额。</p>
+            </div>
+            <div class="line"></div>
+            <div class="con1">
+                <p>风险提示：基金投资需谨慎，业绩经托管人复核，过往业绩不预示其未来表现，请登录官网查看完整业绩。</p>
+            </div>
+        </div>
+    </div>
+    <div class="zhezhao"></div>
+    <div class="tan1 tan">
+        <div class="close"></div>
+        <div class="top"></div>
+        <div class="con">
+            <p>您已经获得参与资格，多投多得哦！</p>
+            <button>马上挑选定投基金</button>
+        </div>
+    </div>
+    <div class="tan2 tan">
+        <div class="close"></div>
+        <div class="con">
+            <p class="p1">您已获得活动资格!</p>
+            <p class="p2">快去成为汇添富基金定投用户,签订定投协议并成功扣款后,现金宝份额累计红包将立刻存入您的奖励中哦！</p>
+            <p class="p3">您可在现金宝APP该活动!</p>
+            <p class="p4">详情页面<strong>我的奖励</strong>中查看!</p>
+            <p class="p5">Tipes:不同定投计划可享多次红包奖励~</p>
+            <button>马上成为定投用户</button>
+        </div>
+    </div>
+    <div class="tan3 tan">
+        <div class="close"></div>
+        <div class="top"></div>
+        <div class="con">
+            <p>1.通过此活动页面签订定投计划并成功扣款的客户才会收到相应现金宝份额红包奖励;</p>
+            <p>2.同一用户不同的定投计划视为多个定投计划，成功扣款后均会获得相应奖励;</p>
+            <p>3. 现金宝份额红包大小将根据您每期的定投金额生成(具体规则待定);</p>
+            <p>4. 储蓄罐中的现金宝份额红包累计超过10元即可转入现金宝份额，单个红包有效期为1年，1年之内均可被累计，过期的红包将不再被累计;</p>
+            <p>5. 参与本次活动的新用户应确保本人年满18周岁，且具备证券投资基金合格投资者的资格，否则由此引起无法领取奖励的情形，本公司不承担任何责任。奖品不含个人所得税，获奖者需自行承担、申报、缴纳。</p>
+            <p>6.在法律法规的范围内，以上活动最终解释权归汇添富基金所有。如有任何疑问，请咨询汇添富基金官方微信在线客服，或致电400-888-9918， 按0转人工服务(免长途)。</p>
+        </div>
+    </div>
+    <script src="./js/zepto.min.js"></script>
+    <script>
+
+            function show(num){
+                $('.zhezhao').show();
+                $('.tan').eq(num).show();
+                $('.close').click(function(){
+                    $('.tan').hide();
+                    $('.zhezhao').hide();
+                })
+            }
+            function onBtn(){
+                var radio = $('input[name="fund"]:checked').val();
+                if(radio == 0){
+                    show(0);
+                }else{
+                    show(1);
+                }
+                console.log(radio);
+            }
+
+
+
+    </script>
+
+</body>
+</html>

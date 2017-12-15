@@ -9,41 +9,42 @@
         onOff:true,             //是否默认收起
         onText:"展开全部",       //展开文字
         offText:"收起",           //收起文字
-        defaultTextLen:112       //默认显示字数 手机端显示5行
+        defaultTextLen:130       //默认显示字数 手机端显示5行
     };
 
     expand.init = function(dom, options){
 
-        opts = extend(defaults,options);
-        //var oA = $(oA);
+        opts= extend(defaults,options);
 
-        var oDiv = $(dom).find('p');
+        var oDiv = $(dom).find('.introduction');
         var oA = $(dom).find("a");
 
         var onOff = opts.onOff;
-        var old=oDiv.html();
+        var old=oDiv.html().replace(/\s+/g,"");
+
 
         if(onOff){  //判断
             oDiv.html(old.toString().substring(0,opts.defaultTextLen)+'...');//默认显示65个字符，字符末尾添加 “...>>展开”
             oA.html(opts.onText);
+            oDiv.addClass("off")
         }else{
             oDiv.html(old);
             oA.html(opts.offText);
+            oDiv.addClass("on")
         }
 
+
         oA.click(function(){
-            if(onOff){  //判断
-                onOff=false;
-                oDiv.html(old);
-                //oDiv.animate({height:"100%"});
-                oA.html(opts.offText);
-            }else{
-                onOff=true;
-                oDiv.html(old.toString().substring(0,opts.defaultTextLen)+'...');//默认显示65个字符，字符末尾添加 “...>>展开”
-                //oDiv.animate({height:"100%"});
-                oA.html(opts.onText);
+            if ($(this).parent().prev('.introduction').hasClass("off")) {  //判断
+                $(this).parent().prev('.introduction').html(old);
+                $(this).html(opts.offText);
+                $(this).parent().prev('.introduction').removeClass("off")
+            } else {
+                $(this).parent().prev('.introduction').html(old.toString().substring(0, opts.defaultTextLen) + '...');//默认显示65个字符，字符末尾添加 “...>>展开”
+                $(this).html(opts.onText);
+                $(this).parent().prev('.introduction').addClass("off")
             }
-        })
+        });
     };
 
     // 合并对象

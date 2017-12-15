@@ -77,12 +77,18 @@
 .del{
     display: none;
     position: absolute;
-    top:30%;
+    top:10%;
     right:0;
-    width:.64rem;
-    height:.64rem;
+    width:1.2rem;
+    height:1.5rem;
+}
+.del i{
+    display: block;
     background: url(../img/del.png) no-repeat;
     background-size: contain;
+    width:.64rem;
+    height:.64rem;
+    margin: .4rem auto 0;
 }
 
 .go_back{position: absolute;left: .8rem;top: 3%;color: #fff;font-size: .584rem;}
@@ -99,7 +105,7 @@
 .info_section .left p:first-child{font-size: .59rem!important;}
 .info_section .right{margin-top: .9rem;float: right;margin-right: .7rem;}
 .info_bottom{overflow: hidden;}
-.info_bottom .unlock{height:1.2rem;background: #c73e31;color:#fff;margin:.3rem auto 0;width:2.5rem;border-radius: 4px;float: right;}
+.info_bottom .unlock{height:1.2rem;text-align:center;line-height:1.2rem;font-size:.6rem;background: #c73e31;color:#fff;margin:.3rem auto 0;width:2.5rem;border-radius: 4px;float: right;}
 
 .h3{font-size: .64rem;font-weight: normal;padding:.554rem .64rem .4rem;}
 
@@ -113,3 +119,66 @@
 .define_btn a{flex: 1;-webkit-flex:1;}
 .tc{text-align: center;}
 .pb20{padding-bottom: 1.20rem!important;}
+
+.unlock_tan{
+    display: none;
+    background: #a2a4a3;
+    color: #fff;
+    text-align: left;
+    padding: .64rem;
+    position: absolute;
+    top: 40%;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    line-height: 0.9rem;
+    font-size: .64rem;
+    overflow: hidden;
+}
+.unlock_tan p{color:#fff;font-size: .64rem;}
+
+
+.fund_btn {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    border-top: 1px solid #eee;
+}
+.fund_btn a {
+    height: 2.13rem;
+    flex: 1;
+    -webkit-flex: 1;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    font-size: .755333rem;
+    color: #000;
+}
+
+.focus{color: #c73e31!important;}
+
+.fund_btn .border_left {
+    border-left-color: #eee !important;
+}
+
+.fund_btn .border_left {
+    border-left: 1px solid #eee;
+}
+
+.con{display: none;}
+
+.reset,.overrule{float:right;}
+
+.overrule{height:1.2rem;text-align:center;line-height:1.2rem;font-size:.6rem;background: #fff;color:#c73e31;border:1px solid #c73e31;margin:.3rem auto 0;width:2.5rem;border-radius: 4px;}
+.reset{height:1.2rem;text-align:center;line-height:1.2rem;font-size:.6rem;background: #c73e31;color:#fff;margin:.3rem 0 0 .554rem;width:2.5rem;border-radius: 4px;}
+
+.flex2{flex:2!important;-webkit-flex: 2!important;}

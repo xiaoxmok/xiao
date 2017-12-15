@@ -1,0 +1,236 @@
+@charset "utf-8";
+/*手机端初始化样式*/
+
+/* 禁用iPhone中Safari的字号自动调整 */
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	position:relative;
+	min-height:100%;
+}
+input{
+	border: none;
+	outline-style: none;
+}
+
+/* 去除iPhone中默认的input样式 */
+input[type="submit"], input[type="reset"], input[type="button"], input,select{
+	-webkit-appearance: none;
+	resize: none;
+}
+input[type="checkbox"]{
+	-webkit-appearance:checkbox;
+}
+input[type="radio"]{
+	-webkit-appearance:radio;
+}
+/* 取消链接高亮  */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* 图片自适应 */
+img {
+	-ms-interpolation-mode: bicubic;/*为了照顾ie图片缩放失真*/
+}
+
+/* 初始化 */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+body {
+	font: 12px "Microsoft YaHei",SimSun, Tahoma, Arial, sans-serif;
+	color: #000;
+	background-color: #fff;
+}
+em, i {
+	font-style: normal;
+}
+strong {
+	font-weight: normal;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+a:hover {
+	text-decoration: none;
+}
+ul, ol {
+	list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+}
+img {
+	border: none;
+}
+/*header css*/
+header{
+	height:1.7rem;
+	line-height: 1.7rem;
+	text-align:center;
+	background-color: #ff7618;
+	font-size: 0.7rem;
+	color:#fff;
+	position: relative;
+}
+header a.back{
+	position: absolute;
+	left: 0.625rem;
+	top: 50%;
+	width: 10px;
+	height: 10px;
+	border-left: 3px solid #fff;
+	border-bottom: 3px solid #fff;
+	-webkit-transform: translateY(-50%) rotate(45deg);
+	-ms-transform: translateY(-50%) rotate(45deg);
+	-o-transform: translateY(-50%) rotate(45deg);
+	transform: translateY(-50%) rotate(45deg);
+}
+header a.back:active{
+	border-color:rgba(255,255,255,.8);
+}
+
+header a:active{
+	font-weight:bold;
+}
+
+/*
+---------------index主体css----------------*/
+
+.index .banner1{background:url(../img/index_1.png) center top no-repeat;background-size:contain;width:100%;height:15.68rem;}
+.index .banner2{background:url(../img/index_2.png) center top no-repeat;background-size:contain;width:100%;height:12.43733333333333rem;}
+.index .banner3{background:#f44c4c;padding-top:1.109333333333333rem; }
+.index .line{height: 1px;width:90%;border-bottom: 1px dashed #ffb1b1;margin: 0 auto;}
+.index .banner3 .con{padding:.8rem 1.28rem 1.109333333333333rem;color:#fcf0c6;}
+.index .banner3 .con .p1{font-size: 0.6826666666666667rem;line-height: 1.7rem;}
+.index .banner3 .con .p2{font-size: 0.5546666666666667rem;line-height: .9rem;}
+
+.index .banner3 .con1{padding:1.28rem 1.28rem 1.493333333333333rem;color:#febaba;}
+.index .banner3 .con1 p{font-size: 0.4266666666666667rem;line-height: .9rem;}
+
+.index .banner1 a{float: right;color:#f44c4c;font-size: 0.4693333333333333rem;border: 1px solid #f44c4c;border-radius:0.4266666666666667rem;width:2.730666666666667rem;height: 0.8533333333333333rem;line-height: 0.8533333333333333rem;text-align: center;margin-right: .3413333333333333rem;margin-top: 0.3413333333333333rem;display: block;}
+
+.index .banner2 .p1{color:#f44c4c;font-size: 0.74rem;text-align: center;padding-top: .16rem;}
+.index .banner2 .p2{color:#ffffff;font-size: 0.512rem;text-align: center;padding-top: 1.0rem;}
+
+.index .banner2 .con p{color:#8d6e02;font-size: 0.5973333333333333rem;text-align: center;padding-top:2rem;}
+
+.index .banner2 .con .inp{color:#8d6e02;overflow:hidden;font-size: 0.5973333333333333rem;margin:0 auto;padding-top:1rem;width: 80%;}
+.index .banner2 .con .inp label{margin-left: 2.6rem;}
+.index .banner2 .con .inp div{float: left;}
+.index .banner2 .con a{width:5.546666666666667rem;height:2.432rem;display: block;font-size:0.64rem;color:#f40000;text-align: center;line-height: 2.432rem;margin: .9rem auto;}
+
+
+.index .banner2 .con div span{margin-left:0.2rem;display: inline-block;float: right;}
+.index .banner2 .con div input {
+	display: none;
+}
+
+.index .banner2 .con .inp input  + label {
+	background-color: #fa4d53;
+	border: 1px solid #fa4d53;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+.index .banner2 .con .inp input + label:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.index .banner2 .con .inp input:checked + label {
+	background-color: #fa4d53;
+	border: 1px solid #fa4d53;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+	color: #243441;
+}
+
+.index .banner2 .con .inp input:checked + label:after {
+	content: '\2714'; /*勾选符号*/
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+	/*font-size: .1em;*/
+	vertical-align: text-top;
+}
+
+.zhezhao{display:none;position:absolute;top:0;left:0;background:#000;opacity: 0.4;width:100%;height:100%;z-index: 2;}
+.close{background:url(../img/close.png) no-repeat;width:1.066666666666667rem;height:1.066666666666667rem;background-size:contain;position: absolute;top:-1rem;right:0;cursor:pointer;}
+
+.tan1{display:none;position: absolute;top:10.3rem;left:50%;margin-left:-5.5rem;width: 11.02933333333333rem;z-index: 100;}
+.tan1 .top{background: url(../img/tan_1.png) center top no-repeat;background-size:contain;width: 100%;height: 4.949333333333333rem;}
+.tan1 p{text-align: center;color:#494848;font-size:0.5546666666666667rem;font-weight: bold; padding:1.49rem 0 1.06rem 0;}
+.tan1 button{height: 1.6rem;width:80%;background:#fe7e01;font-size: 0.64rem;color: #fff;margin: 0 auto;display: block;border-radius: 5px;}
+.tan1 .con{background:#fff;border-radius:0 0 5px 5px;padding-bottom: 0.8533rem;}
+
+.tan3{display:none;position: absolute;top:6.3rem;left:50%;margin-left:-7rem;width: 14.016rem;z-index: 100;}
+.tan3 .top{background: url(../img/tan_2.png) center top no-repeat;background-size:contain;width: 100%;height: 4.949333333333333rem;}
+.tan3 .con{background:#fff;border-radius:0 0 5px 5px;padding-bottom: 0.8533rem;padding-top: .5rem;}
+.tan3 .con p{padding: .2rem .4rem;color:#666464;font-size: 0.512rem;}
+
+.tan2{display:none;background: url(../img/tan_3.png) center top no-repeat;background-size:contain;position: absolute;top:10.3rem;left:50%;margin-left:-6.5rem;width: 13.14rem;height:15.168rem;z-index: 100;}
+.tan2 .close{right:1rem; top:-.5rem;}
+.tan2 .con{text-align: center;padding:0 2.0rem;}
+.tan2 .con .p1{font-size: 0.64rem;color:#292929;margin-top: 4.266666666666667rem;}
+.tan2 .con .p2{font-size: 0.4693333333333333rem;color:#494848;margin-top: .5rem;text-align: left;line-height: .8rem;}
+.tan2 .con .p3{font-size: 0.512rem;color:#494848;margin-top: 1.58rem;line-height: .8rem;}
+.tan2 .con .p4{font-size: 0.512rem;color:#494848;line-height: .8rem;}
+.tan2 .con .p4 strong{color:#fd4646;}
+.tan2 .con .p5{font-size: 0.4266666666666667rem;color:#a4a4a4;margin-top:0.8533333333333333rem;line-height: .8rem;}
+.tan2 .con button{width:100%;height:1.621rem;background: #fe7e01;border-radius: 5px;font-size: .64rem;color:#fff;}
+
+
+
+
+/*-------------reward主体css-----------------*/
+.reward .banner1{background:url(../img/reward_1.png) center top no-repeat;background-size:contain;width:100%;height:10.56rem;overflow: hidden;}
+.reward .banner1 .p1{color:#fff;font-size: 2.346666666666667rem;margin-left: 5.4rem;margin-top: 1.6rem;width:6.784rem;text-align: center;}
+.reward .banner1 .p2{color:#fff;font-size: 0.5546666666666667rem;text-align: center;margin-top: 2.330666666666667rem;}
+
+
+.reward .banner1 .btn{background:url(../img/reward_btn_1.png) no-repeat;background-size:contain;width:7.488rem;height:1.706666666666667rem;margin: .50rem auto 0;display: block;}
+.reward .banner1 .btn_no{background:url(../img/reward_btn_2.png) no-repeat;background-size:contain;width:7.488rem;height:1.706666666666667rem;margin: .50rem auto 0;display: block;}
+
+.reward .banner2{background:#fff;padding:0 0.6rem;}
+.reward .banner2 .title{border-bottom: 1px solid #d5d5d5;}
+.reward .banner2 .title p{color:#333232;font-size: 0.84rem;line-height: 1.5rem;font-weight: bold;margin-left: .64rem;margin-top: .64rem;}
+.reward .banner2 .details{display: flex;border-bottom: 1px dashed #d5d5d5;padding: 0.4rem 0;align-items: center;}
+.reward .banner2 .details .left{flex:3;margin-left: .64rem;}
+.reward .banner2 .details .left .tit{color:#4c4c4c;font-size: 0.612rem;font-weight: bold;line-height: 1.2rem;}
+.reward .banner2 .details .left .time{color:#848484;font-size: 0.4267rem;line-height: 1rem;}
+.reward .banner2 .details .left .time p{display: inline-block;}
+.reward .banner2 .details .left .time .p2{margin-left: .6rem;}
+.reward .banner2 .details .right{flex:1;text-align: right;font-size: 0.64rem;color:#e90409;font-weight: bold;padding-right: .6rem;}
+.reward .banner2 .more{text-align: center;color:#333232;font-size: 0.512rem;padding:0.5973333333333333rem 0;}
+
+
+.tan4{display:none;position: absolute;top:5.3rem;left:50%;margin-left:-5.5rem;width: 11.02933333333333rem;z-index: 100;}
+.tan4 .top{background: url(../img/tan_1.png) center top no-repeat;background-size:contain;width: 100%;height: 4.949333333333333rem;}
+.tan4 p{text-align: center;}
+.tan4 .p1{color:#494848;font-size: 0.5973333333333333rem;padding-top: 1.352rem;}
+.tan4 .p2{color:#494848;font-size: 0.5973333333333333rem;}
+.tan4 .p3{color:#a9a9a9;font-size: 0.512rem;padding:1.09rem 0;}
+.tan4 .p1 strong{color:#fd4646;}
+.tan4 button{height: 1.6rem;width:80%;background:#fe7e01;font-size: 0.64rem;color: #fff;margin: 0 auto;display: block;border-radius: 5px;}
+.tan4 .con{background:#fff;border-radius:0 0 5px 5px;padding-bottom: 0.8533rem;}
+
+
+
+
+.no_reward .none{background: url(../img/none.png) center top no-repeat;background-size:contain;width:6.4854rem;height:5.7174rem;margin: 7.338rem auto 0;}
+
+.no_reward p{text-align: center;color:#999999;font-size: 0.64rem;padding-top: 1.28rem;}
+

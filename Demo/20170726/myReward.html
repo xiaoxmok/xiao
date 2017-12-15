@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>我的奖励</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/base.css">
+	<script type="text/javascript" src="./js/fontresize.js"></script>
+</head>
+<body>
+    <header>
+        <a href="javascript:history.back();" class="back"></a><span>我的奖励</span>
+    </header>
+	<div class="main reward">
+        <div class="banner1">
+            <p class="p1">1000</p>
+            <p class="p2">恭喜您，总共获得1000元奖励</p>
+            <button class="btn" onclick="show(0);"></button>
+        </div>
+        <div class="banner2">
+            <div class="title">
+                <p>奖励记录</p>
+            </div>
+            <div class="details">
+                <div class="left">
+                    <div class="tit">汇添富社会责任混合</div>
+                    <div class="time">
+                        <p>2017-07-21 11：08</p>
+                        <p class="p2">定投100元</p>
+                    </div>
+                </div>
+                <div class="right">
+                    +10元
+                </div>
+            </div>
+            <div class="details">
+                <div class="left">
+                    <div class="tit">汇添富社会责任混合</div>
+                    <div class="time">
+                        <p>2017-07-21 11：08</p>
+                        <p class="p2">定投100元</p>
+                    </div>
+                </div>
+                <div class="right">
+                    +10元
+                </div>
+            </div>
+            <div class="details">
+                <div class="left">
+                    <div class="tit">汇添富社会责任混合</div>
+                    <div class="time">
+                        <p>2017-07-21 11：08</p>
+                        <p class="p2">定投100元</p>
+                    </div>
+                </div>
+                <div class="right">
+                    +10元
+                </div>
+            </div>
+            <div class="details">
+                <div class="left">
+                    <div class="tit">汇添富社会责任混合</div>
+                    <div class="time">
+                        <p>2017-07-21 11：08</p>
+                        <p class="p2">定投100元</p>
+                    </div>
+                </div>
+                <div class="right">
+                    +10元
+                </div>
+            </div>
+            <div class="details">
+                <div class="left">
+                    <div class="tit">汇添富社会责任混合</div>
+                    <div class="time">
+                        <p>2017-07-21 11：08</p>
+                        <p class="p2">定投100元</p>
+                    </div>
+                </div>
+                <div class="right">
+                    +10元
+                </div>
+            </div>
+            <div class="more">
+                <p>查看更多</p>
+            </div>
+        </div>
+    </div>
+    <div class="zhezhao"></div>
+    <div class="tan4 tan">
+        <div class="close"></div>
+        <div class="top"></div>
+        <div class="con">
+            <p class="p1">您的奖励已经<strong>提取成功</strong>，</p>
+            <p class="p2">红包会在一个工作日发放到您的账户</p>
+            <p class="p3">您可在现金宝APP-我的红包中查看</p>
+            <button class="cls">我知道了</button>
+        </div>
+    </div>
+    <script src="./js/zepto.min.js"></script>
+    <script>
+
+            function show(num){
+                $('.zhezhao').show();
+                $('.tan').eq(num).show();
+                $('.close,.cls').click(function(){
+                    $('.tan').hide();
+                    $('.zhezhao').hide();
+                })
+            }
+            function onBtn(){
+                var radio = $('input[name="fund"]:checked').val();
+                if(radio == 0){
+                    show(0);
+                }else{
+                    show(1);
+                }
+                console.log(radio);
+            }
+
+
+
+    </script>
+
+</body>
+</html>
