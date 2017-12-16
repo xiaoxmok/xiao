@@ -1,5 +1,4 @@
 
-
 //展开更多，收起 组件
 (function(){
 
@@ -67,23 +66,23 @@
     var opts = {};
     var defaults = {            //默认参数配置
         title:'资产净值 29.58亿元(2017-09-30)',             //标题
-        data: [                                             //数据
-            {value:61.67, name:'银行存款：61.67%'},
-            {value:36.75, name:'债券：36.75%'},
-            {value:0.97, name:'买入返售证券：0.97%'},
-            {value:0.60, name:'其他资产：0.60%'},
-            {value:0.01, name:'其他：0.00%'}
-        ],
+        data: [],                                             //数据
         seriesCenter:['22%', '55%'],
         seriesRadius:'65%',
-        legendTop:'25%',
-        legendLeft:'45%'
+        legendTop:'30%',
+        legendLeft:'50%'
     };
 
     pieEcharts.init = function(domID,options){
         var myChart = echarts.init(document.getElementById(domID));
 
         opts = extend(defaults,options);
+        //console.log(opts.data);
+        var va =[];
+        for(var i=0;i<opts.data.length;i++){
+            va.push(opts.data[i].name);
+        }
+        console.log("0000:"+va);
 
         var option = {
             color:['#fedb85','#fdb331', '#fd8124', '#fc5b1f', '#ea4c29','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'],
@@ -104,7 +103,7 @@
                 left:opts.legendLeft,
                 top:opts.legendTop,
                 itemWidth:14,
-                data: [opts.data[0].name,opts.data[1].name,opts.data[2].name,opts.data[3].name,opts.data[4].name],
+                data: va,
                 textStyle:{
                     color:'#666',
                     fontSize:12,
@@ -118,13 +117,7 @@
                     radius : opts.seriesRadius,
                     center: opts.seriesCenter,
                     avoidLabelOverlap:false,
-                    data:[
-                        {value:opts.data[0].value, name:opts.data[0].name},
-                        {value:opts.data[1].value, name:opts.data[1].name},
-                        {value:opts.data[2].value, name:opts.data[2].name},
-                        {value:opts.data[3].value, name:opts.data[3].name},
-                        {value:opts.data[4].value, name:opts.data[4].name}
-                    ],
+                    data:opts.data,
                     itemStyle: {
                         emphasis: {
                             shadowBlur: 10,
@@ -163,4 +156,3 @@
 
     window.pieEcharts=pieEcharts;
 })();
-

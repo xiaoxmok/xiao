@@ -3,7 +3,8 @@
 .bg{background:#f6f6f6;}
 
 .info_top{padding: .5rem;color:#666666;font-size: .512rem;text-align: center;}
-.info_section{padding: 0 .64rem;background:#fff;}
+.info_section{padding: .64rem .64rem;background:#fff;overflow: hidden;border-bottom: 1px dashed #e4e4e4;font-size: .554rem;line-height: .955rem;}
+.info_section:last-child,.borderNo{border: none;}
 .info_text{position:relative;padding: .60rem 0;font-size: .64rem;color:#000;border-bottom: 1px solid #eee;display: flex;display: -webkit-flex;}
 .info_text_card p{flex:3;-webkit-flex:3;color:#666666;}
 .info_text span{flex: 1;-webkit-flex:1;letter-spacing: normal}
@@ -21,6 +22,15 @@
 .info_text .veriCode{font-size: .64rem;flex:3!important;-webkit-flex:3!important;display: flex;display: -webkit-flex;}
 .info_text .veriCode input{font-size: .64rem;flex:1!important;-webkit-flex:1!important;width:60%;}
 .info_text a{font-size: .54rem;width:40%;border-left: 1px solid #999;padding-left: .60rem;}
+
+.text p{width:50%;float:left;}
+.text p:nth-child(3):after{content:" ";display:inline-block;width:100%;border-bottom:1px dashed #e4e4e4;padding-bottom: .3rem;margin-bottom: .2rem;}
+.text p:nth-child(4):after{content:" ";display:inline-block;width:100%;border-bottom:1px dashed #e4e4e4;padding-bottom: .3rem;margin-bottom: .2rem;}
+.text .p1{}
+
+.pt0{padding-top: 0!important;}
+
+.pie{width:100%;height: 8.768rem;}
 
 .selc:after{
     content: "";
@@ -63,7 +73,6 @@
 .info_section table .str{font-weight: bold;}
 .mar{padding:.6rem .64rem .3rem;margin-bottom: .20rem;}
 
-.info_con{overflow: hidden;border-bottom: 1px dashed #e4e4e4;font-size: .554rem;line-height: .955rem;padding-bottom: .64rem;}
 .info_section .left,.info_section .right{float:left;}
 .info_section .left p:first-child{font-size: .59rem!important;}
 .info_section .right{margin-top: .9rem;float: right;margin-right: .7rem;}
@@ -71,6 +80,7 @@
 .info_bottom .unlock{height:1.2rem;text-align:center;line-height:1.2rem;font-size:.6rem;background: #c73e31;color:#fff;margin:.3rem auto 0;width:2.5rem;border-radius: 4px;float: right;}
 
 .h3{font-size: .64rem;font-weight: normal;padding:.554rem .64rem .4rem;}
+.h3 strong{font-size: .554rem;color:#7d2e2e}
 
 .zhezhao{display:none;position:absolute;top:0;left:0;background:#000;opacity: 0.4;width:100%;height:100%;z-index: 2;}
 
@@ -98,3 +108,7 @@
     overflow: hidden;
 }
 .err_tan p{color:#fff;font-size: .64rem;}
+
+.comp_section{margin-top: .427rem;background: #fff;overflow: hidden;}
+.comp_section h3{height: 1.92rem;  line-height: 1.92rem;  font-size: .68rem;  color: #000;  font-weight: normal;  border-bottom: 1px solid #e7e7e7;  padding-left: .64rem;}
+.comp_section h3 strong{color:#666666;font-size: .554rem;margin-left: .2rem;}

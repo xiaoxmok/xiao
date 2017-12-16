@@ -14,24 +14,38 @@
     <div class="info_top">
         <p>仅供参考</p>
     </div>
-    <div class="info_section">
+    <div class="info_section borderNo pt0">
         <div class="info_text">
             <span>总资产:</span>
-            <input placeholder="请输入您的总资产" class="total"></input>
+            <input placeholder="请输入您的总资产" class="total" maxlength="9"/>
             <div class="del"><i></i></div>
         </div>
         <div class="info_text">
             <span>天数:</span>
-            <input placeholder="请输入您的天数" class="days"></input>
+            <input placeholder="请输入您的天数" class="days" maxlength="5"/>
             <div class="del"><i></i></div>
         </div>
 
         <button class="inqu" @click="submit">计算</button>
     </div>
-    <h3 class="h3">计算结果</h3>
 
-    <div class="info_section mar" v-for="msg in Message">
-        <div class="info_con">
+    <div class="comp_section">
+        <h3>{{days}}天的总收益及手续费 <strong>（单位元）</strong></h3>
+        <div class="info_section borderNo">
+            <div class="text">
+                <p v-for="allDays in allDays" v-bind:class="{p1:!allDays.type}">{{allDays.name}}：<span>{{allDays.value}}</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="comp_section">
+        <h3>资产分布</h3>
+        <div id="pie1" class="pie"></div>
+    </div>
+
+    <div class="comp_section">
+        <h3>每日收益明细 <strong>（单位元）</strong></h3>
+        <div class="info_section" v-for="msg in allDaily">
             <div class="left">
                 <p>{{msg.days}}</p>
                 <p>日收益：<span>{{msg.dailyIncome}}</span></p>
@@ -39,7 +53,7 @@
             </div>
             <div class="right">
                 <p>账户管理费：<span>{{msg.dailyAccountManagementFee}}</span></p>
-                <p>月管理费：<span>{{msg.monthAccountManagementFee}}</span></p>
+                <p>数据助手：<span>{{msg.dailyAssistantFee}}</span></p>
             </div>
         </div>
     </div>
@@ -51,10 +65,11 @@
 </div>
 <script src="./js/jquery-2.2.2.min.js"></script>
 <script src="./js/test.js"></script>
-
+<script src="./js/echarts.common.min.js"></script>
+<script src="./js/component.js"></script>
 <script>
 
-
+    //输入框清空按钮操作
     $(function(){
         var input = $('.info_text input');
         input.keyup(function(){
@@ -72,6 +87,8 @@
             $(this).hide();
         });
     });
+
+    //错误提示弹窗样式
     $(function(){
         $(".err_tan").removeAttr("style");
         var w = $('.err_tan').width();
@@ -97,29 +114,37 @@
     var vm=new Vue({
         el:'#app',
         data:{
-            Message:[]
+            days:0,
+            allDays:[],
+            allDaily:[]
         },
         methods:{
             submit:function(){
                 var valueAll;
                 var total = $('.total').val();
                 var days = $('.days').val();
-                console.log(CheckNum(total));
-                console.log(total);
 
                 if(total == '' || days == ''){
                     console.log("无值");
                 }else{
                     valueAll= cal(days,total);
                     //$('.text').html(valueAll);
-                    this.Message = valueAll;
+                    var chartsData = [];
+                    for(var i=0;i<valueAll.allDays.length;i++){
+                        if(valueAll.allDays[i].type){
+                            var data = {name:valueAll.allDays[i].name+"："+valueAll.allDays[i].value,value:valueAll.allDays[i].value};
+                            chartsData.push(data);
+                        }
+                    }
+                    console.log(chartsData);
+                    this.allDays = valueAll.allDays;
+                    this.allDaily = valueAll.allDaily;
+                    this.days = days;
+                    pieEcharts.init("pie1",{            //默认参数配置
+                        title:'',             //标题
+                        data: chartsData
+                    });
 
-                    /*for(var i=0;i<valueAll.length;i++){
-                        this.Message.push(valueAll[i]);
-                    }*/
-
-                    //console.log(valueAll[0].days);
-                    //$('.text').html(this.Message);
                 }
             }
         }
