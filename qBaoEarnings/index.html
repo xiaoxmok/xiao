@@ -61,7 +61,7 @@
     <div class="err_tan">
         <p>格式错误！</p>
     </div>
-    <div class="text"></div>
+    <div class="toTop"></div>
 </div>
 <script src="./js/jquery-2.2.2.min.js"></script>
 <script src="./js/test.js"></script>
@@ -150,31 +150,20 @@
         }
     });
 
-    /*$('.inqu').click(function(){
-        var valueAll;
-
-        var total = $('.total').val();
-        var days = $('.days').val();
-        console.log(CheckNum(total));
-        console.log(total);
-
-        if(total == '' || days == ''){
-            console.log("无值");
+    $(window).scroll(function(){
+        //console.log($(window).scrollTop());
+        if($(window).scrollTop() > 1000){
+            $('.toTop').show();
         }else{
-            valueAll= cal(days,total);
-            console.log(valueAll);
-            var vm=new Vue({
-                el:'#app',
-                data:{
-                    Message:valueAll
-                },
-                methods:{
-
-                }
-            });
+            $('.toTop').hide();
         }
+    });
+    $('.toTop').click(function(){
+        //$('.toTop').hide();
+        $('body,html').animate({scrollTop:0},1000);
+    });
 
-    });*/
+
 
 
 

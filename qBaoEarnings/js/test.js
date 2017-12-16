@@ -27,7 +27,7 @@ function cal(days, total) {
     //var allDays = {};       //查询时间内的所有收益及手续费
 
 
-    for (var i = 0; i <= days; i++) {
+    for (var i = 0; i < days; i++) {
 
         switch (true) {
             //固定奖励比例，0<x<2W
