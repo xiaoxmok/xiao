@@ -95,7 +95,7 @@ function cal(days, total) {
 
         {name: '总资产：', value: totals, type: true},
         {name: '总收益：', value: allIncome, type: true},
-        {name: '总数据助手费：', value: allAssistantFee, type: true},
+        {name: '总数据助手费：', value: allAssistantFee*days, type: true},
         {name: '总账户管理费：', value: allAccountManagementFee, type: true},
         {name: '行为酬劳：', value: "0.02%", type: false},
         {name: '工资奖励：', value: "0.06%", type: false},
