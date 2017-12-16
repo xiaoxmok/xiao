@@ -113,4 +113,4 @@
 .comp_section h3{height: 1.92rem;  line-height: 1.92rem;  font-size: .68rem;  color: #000;  font-weight: normal;  border-bottom: 1px solid #e7e7e7;  padding-left: .64rem;}
 .comp_section h3 strong{color:#666666;font-size: .554rem;margin-left: .2rem;}
 
-.toTop{display:none;background: url(../img/timg.gif) no-repeat;background-size: contain;width:1.3rem;height: 1.3rem;position: fixed;bottom: 1rem;right: 1rem;border: 1px solid #eee;opacity: .7;cursor:pointer;}
+.toTop{display:none;background: url(../img/timg.gif) no-repeat;background-size: contain;width:1.3rem;height: 1.3rem;position: fixed;bottom: 1rem;right: 1rem;opacity: .7;cursor:pointer;}
