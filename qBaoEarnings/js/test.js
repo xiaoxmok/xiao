@@ -86,7 +86,7 @@ function cal(days, total) {
             dailyAssistantFee: dailyAssistantFee
         };
 
-        console.log("第" + (i + 1) + "天，日收益：" + dailyIncome + ",总：" + totals + ",账户管理费：" + dailyAccountManagementFee + ",月管理费：" + allAccountManagementFee + ",数据助手：" + dailyAssistantFee);
+        //console.log("第" + (i + 1) + "天，日收益：" + dailyIncome + ",总：" + totals + ",账户管理费：" + dailyAccountManagementFee + ",月管理费：" + allAccountManagementFee + ",数据助手：" + dailyAssistantFee);
     }
     //console.log(all[0].days);
 

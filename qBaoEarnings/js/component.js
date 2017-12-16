@@ -82,7 +82,7 @@
         for(var i=0;i<opts.data.length;i++){
             va.push(opts.data[i].name);
         }
-        console.log("0000:"+va);
+        //console.log("0000:"+va);
 
         var option = {
             color:['#fedb85','#fdb331', '#fd8124', '#fc5b1f', '#ea4c29','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'],
