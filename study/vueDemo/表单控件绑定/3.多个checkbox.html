@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>Title</title>
+<script src="../vue.js"></script>
+</head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<body>
+<div id="app">
+    <label for="a">篮球：<input type="checkbox"id="a" name="list" value="篮球" v-model="boxList"></label><br>
+    足球：<input type="checkbox" name="list" value="足球" v-model="boxList"><br>
+    羽毛球：<input type="checkbox" name="list" value="羽毛球" v-model="boxList"><br>
+    乒乓球：<input type="checkbox" name="list" value="乒乓球" v-model="boxList"><br>
+    混球：<input type="checkbox" name="list" value="混球" v-model="boxList"><br>
+     <p>你选择了：{{boxList}}</p>
+    <p>你选择了：{{boxList | json}}</p>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            boxList:[]
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-if="ok">YES</p>
+     <p v-else>NO</p>
+</div>
+
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            ok:false
+        }
+
+    })
+
+</script>

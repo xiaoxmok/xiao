@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <style>
+        .static {
+            border: 1px solid red;
+        }
+
+        .aa {
+            background-color: #00ff21;
+        }
+
+        .bb {
+            font-size: 50px;
+        }
+        .cc{
+            border: 2px solid green;
+        }
+        .dd{
+            text-align:center
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <p class="static" v-bind:class="{'aa':isA,'bb':isB}">绑定class</p>
+     <p v-bind:class="[c,d]">绑定class数组形式</p>
+    <p v-bind:style="{color:currColor,backgroundColor:fontSize}">绑定内联样式</p>
+    <p v-bind:style="styleObj">绑定一个样式对象</p>
+</div>
+
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            isA: true,
+            isB: false,
+            c:"cc",
+            d:"dd",
+            currColor:"yellow",
+            fontSize:"pink",
+            styleObj:{
+                color:"red",
+                border:"1px solid gold"
+            }
+        }
+    })
+</script>

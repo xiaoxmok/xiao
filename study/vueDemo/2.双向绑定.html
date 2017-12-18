@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向绑定</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input v-model="userName"/>
+    <p>{{userName>0?'正数':userName==''?'空值':userName=='0'?'0':'负数'}}</p>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            userName:""
+        }
+    });
+      alert(vm);
+
+
+
+</script>
+</body>
+</html>

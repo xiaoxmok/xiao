@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="num">
+    <p>{{double}}</p>
+
+</div>
+
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            num:123,
+            double:""
+        },
+        /*watch:{//监听某个值的变化（双向绑定），一旦这个值反生变化则执行下面的语句
+            num:function(num,num2){//监听num值，参数第一个值为当前值，第二个num2为上一个的值
+                this.double=num*2;
+            }
+        }*/
+    })
+    vm.$watch("num",function(num1,num2){
+        vm.double=num1*2
+    })
+</script>

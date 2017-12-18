@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="vue.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input[type=checkbox]{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <p>{{ userName }}</p>  <!--{{a}}插值表达式,a对应data里面的值-->
+    <input v-model="userName">
+    <input type="checkbox">
+</div>
+</body>
+</html>
+<script>
+    
+    
+    
+  var vm = new Vue({
+        el: '#app',
+        data: {
+            userName: '张三'
+        }
+    });
+
+    vm.userName="李四";
+
+</script>
+
+

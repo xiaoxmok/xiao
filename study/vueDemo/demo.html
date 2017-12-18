@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="swiper.min.css">
+    <style>
+        .swiper-container{
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+        }
+        .swiper-scrollbar{
+            background-color: red;
+        }
+
+        
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <img src="img/6a99383a66cefb6836f099d7f546a02d.png" class="swiper-slide" alt="">
+        <img src="img/9ad516364936f0ebffa113eb0036d344.png" class="swiper-slide" alt="">
+        <img src="img/282c4c7f10dee1e7c007f0b55ae1a394.png"  class="swiper-slide" alt="">
+    </div>
+
+        <!--如需要导航按钮-->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!--如需要分页器-->
+    <div class="swiper-pagination"></div>
+
+         <!--如果需要滚动条-->
+    <div class="swiper-scrollbar"></div>
+
+</div>
+</body>
+</html>
+<script src="swiper.js"></script>
+<script>
+    //new Swiper（a,b）a为必选，为html元素或string类型，swiper容器的css选择器
+    //b：可选属性配置选项，放于{}内
+    var mySwiper=new Swiper(".swiper-container",{
+
+         loop:true,
+        //默认值是false，会在wrapper前后生成若干个slide，让slides看起来是衔接的。用于无限循环
+
+         autoplay:2000,//自动播放
+
+         speed:1000,//滑动速度
+
+        //如果需要分页器
+        pagination:".swiper-pagination",
+
+        //如果需要前进后退按钮可操作
+        nextButton:".swiper-button-next",
+        prevButton:".swiper-button-prev",
+
+        //如果需要滚动条的话
+        scrollbar:".swiper-scrollbar",
+
+        //点击后轮播失效，下面属性可以再次重启autoplay轮播
+        autoplayDisableOnInteraction:false,
+
+        //点击分页器的知识点分页器会控制swiper切换
+        paginationClickabke:true,
+
+        //设置为true，拖动时指针会变成抓手形状(根据不同浏览器有所不同)
+        grabCursor:true
+
+
+    })
+</script>

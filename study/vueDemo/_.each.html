@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>_.each</title>
+    <script src="../store/js/lib/underscore.js"></script>
+</head>
+<body>
+<script>
+    var list=[{"id":"1112","prdNum":1},{"id":"1111 ","prdnNum":"1"}];
+    _.each(list,function(a,b){//a为对象，b为下标
+        document.write("对象属性是："+ a.id+"--------下标"+b+",");
+    })
+
+
+
+</script>
+</body>
+</html>

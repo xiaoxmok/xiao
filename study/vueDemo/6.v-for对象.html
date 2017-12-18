@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-for="v in obj">
+       {{$index}}----{{$key}}----{{v}} <!--$key是vue的一个特殊变量:键-->
+    </p>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            obj:{
+                name:"嘿嘿",
+                age:18,
+                hobby:"篮球"
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in flowers"> <!--(li其它标签也可以)item是别名，自定义；flower是打他对应的属性名-->
+         {{$index}}------{{item.flowName}}------>{{item.addr}} <!--$index是vue的一个特殊变量：索引-->
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            flowers:[
+                {flowName:"玫瑰",addr:"上海"},
+                {flowName:"月季",addr:"广东"},
+                {flowName:"牡丹",addr:"广西"}
+            ]
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据填充</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{className}}3</p>  <!--二个大括号嵌套替换{{className}}的内容，只得文本值-->
+    <p>{{{btn}}}</p>  <!-- 三个大括号嵌套可以使里面内容为html格式-->
+    <p v-text="className">2</p>  <!--v-text可替换标签内容-->
+    <p v-text="btn">1</p>
+    <p v-html="btn">1</p>   <!--v-html才能插入标签-->
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            className:"1305班",
+            btn:'<button>这是个按钮</button>'
+        }
+    });
+    //vm.btn="<input value='我是文字'/>";
+</script>
+</body>
+</html>

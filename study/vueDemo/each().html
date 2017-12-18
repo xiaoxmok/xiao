@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>each()方法</title>
+    <script src="jquery-1.11.1.js"></script>
+</head>
+<script>
+    $(function () {
+        $("button").click(function () {
+            $("li").each(function (index, dom) {
+                alert($(dom).text());
+            })
+
+        })
+    })
+</script>
+<body>
+<button>输出每个列表项的值</button>
+<ul>
+    <li>coffee</li>
+    <li>milk</li>
+    <li>soda</li>
+</ul>
+</body>
+</html>

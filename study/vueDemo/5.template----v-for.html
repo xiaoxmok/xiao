@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template模版v-for</title>
+    <script src="vue.js" ></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <template v-for="item in list">
+            <li>{{$index}}</li>
+            <li>{{item.flower}}---{{item.addr}}</li>
+        </template>
+    </ul>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            list:[
+                {flower:"玫瑰",addr:"上海"},
+                {flower:"月季",addr:"广西"},
+                {flower:"牡丹",addr:"广东"}
+            ]
+        }
+    });
+    //添加元素到数组
+    vm.list.push({flower:"紫金花",addr:"湖南"});
+    //过滤数组(遍历后赋值)
+    vm.list=vm.list.filter(function(item1){
+        return item1.addr=="广东";
+    });
+    //更换数组中的某个对象
+    vm.list.$set(1,{flower:"紫金花",addr:"湖南"});
+
+</script>
+</body>
+</html>

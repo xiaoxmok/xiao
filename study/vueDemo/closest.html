@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>closest</title>
+    <script src="jquery-1.11.1.js"></script>
+    <style>
+        .lineHight{
+
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>Click me</li>
+            <li>You can also click</li>
+
+
+
+        </ul>
+
+    </div>
+    <script>
+        $("ul").on("click","li",function(){
+            $(this).closest("div").toggleClass("lineHight");
+             //closest（）从当前元素往上找直接第一个对应祖先元素，给它加状态
+        })
+
+
+    </script>
+
+
+
+</body>
+</html>
