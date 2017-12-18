@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <style>
+        .text {
+            color: orange;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="example"></div>
+<div id="container"></div>
+<script type="text/jsx">
+
+    //学习网站：https://zhuanlan.zhihu.com/p/21246327?refer=leanreact
+
+    /*
+     react 生命周期
+     Mounted : React Components被render解析生成对应的DOM节点，并被插入浏览器的DOM结构的一个过程
+
+     Update: 指一个mounted的React Components被重新render的过程
+     setState() OR setProps()
+
+     Unmounted: 指一个mounted的React Components对应的DOM节点，被从DOM结构中移除的这样一个过程;
+
+
+     以上每个状态，React都封装了对应的hook函数
+
+     will:将要怎么怎么样
+     did:已经怎么怎么样
+
+
+
+
+     */
+
+
+
+
+    var Hello = React.createClass({
+        getDefaultProps: function () {
+        },           //初始化props函数
+        getInitialState: function () {             //初始化state函数
+            console.log("init");
+            //alert("init");
+            return {
+                opacity: 1.0,
+                fontSize: '20px',
+                color: 'red'
+            };
+        },
+        render: function render() {
+            /*return <div className="text" style={{fontSize:'15px'}}>Hello {this.props.name}</div>;*/
+            return <div className="text" style={this.state}>Hello {this.props.name}</div>;
+        },
+        componentWillMount: function () {          //将要mount之前调用函数
+            console.log("will");
+            //alert("will");
+        },
+        componentDidMount: function () {           //已经mount时调用函数
+            console.log("did");
+            //alert("did");
+
+            var _seft = this;
+            window.setTimeout(function () {
+                _seft.setState({
+                    opacity: 0.5,
+                    fontSize: '30px'
+                })
+            }, 1000);
+        }
+    });
+
+    ReactDOM.render(
+            <Hello name="World"/>,
+            document.getElementById('example')
+    );
+
+
+
+    /*React-Event-Listener*/
+
+    var TestClickComponent = React.createClass({
+        handleClick:function(event){
+            var tipE = ReactDOM.findDOMNode(this.refs.tip);
+
+            if(tipE.style.display === 'none'){
+                tipE.style.display = 'inline';
+            }else{
+                tipE.style.display = 'none';
+            }
+
+            event.stopPropagation();        //停止冒泡
+            event.preventDefault();         //阻止默认事件
+        },
+        render:function(){
+            return (
+              <div>
+                  <button onClick={this.handleClick}>显示|隐藏</button><span ref="tip">测试点击</span>
+              </div>
+            );
+        }
+    });
+
+    var TestInputComponent = React.createClass({
+        getInitialState:function(){
+            return {
+                inputContent:''
+            }
+        },
+        changeHandler:function(event){
+
+            this.setState({
+               inputContent:event.target.value
+            });
+
+            event.stopPropagation();        //停止冒泡
+            event.preventDefault();         //阻止默认事件
+        },
+        render:function(){
+            return (
+                    <div>
+                        <input type="text" onChange={this.changeHandler}/><span>{this.state.inputContent}</span>
+                    </div>
+            )
+        }
+    });
+    ReactDOM.render(
+            <div>
+                <TestClickComponent/>
+                <TestInputComponent/>
+            </div>,
+            document.getElementById('container'));
+
+
+</script>
+</body>
+</body>
+</html>
