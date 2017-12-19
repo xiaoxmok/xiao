@@ -79,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/qBaoEarnings/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
-              <caret line="71" column="48" lean-forward="true" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
+              <caret line="71" column="56" lean-forward="false" selection-start-line="71" selection-start-column="56" selection-end-line="71" selection-end-column="56" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#1;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -472,12 +472,12 @@
       <workItem from="1512716481110" duration="14452000" />
       <workItem from="1513040796657" duration="28027000" />
       <workItem from="1513558632930" duration="4827000" />
-      <workItem from="1513645209274" duration="8681000" />
+      <workItem from="1513645209274" duration="8724000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236261000" />
+    <option name="totallyTimeSpent" value="236304000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="0" />
@@ -860,7 +860,7 @@
     <entry file="file://$PROJECT_DIR$/qBaoEarnings/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="71" column="48" lean-forward="true" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
+          <caret line="71" column="56" lean-forward="false" selection-start-line="71" selection-start-column="56" selection-end-line="71" selection-end-column="56" />
           <folding>
             <element signature="n#style#0;n#p#0;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#1;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
