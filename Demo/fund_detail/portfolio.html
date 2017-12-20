@@ -28,7 +28,7 @@
                 <p class="flex_2 tr">2,658,955,491.53</p>
                 <p class="flex_3 tr">89.88</p>
             </div>
-            <div class="dis_pr dis_info bg_color pd">
+            <div class="dis_pr dis_info pd">
                 <p class="flex_1">银行存款</p>
                 <p class="flex_2 tr">256,177,943.47</p>
                 <p class="flex_3 tr">8.66</p>
@@ -59,7 +59,7 @@
                 <p class="flex_2 tr">2,014,565,597.81</p>
                 <p class="flex_3 tr">68.40</p>
             </div>
-            <div class="dis_pr dis_info bg_color pd">
+            <div class="dis_pr dis_info pd">
                 <p class="flex_1">金融业</p>
                 <p class="flex_2 tr">443,083,667.88</p>
                 <p class="flex_3 tr">15.04</p>
@@ -69,8 +69,8 @@
                 <p class="flex_2 tr">136,398,020.00</p>
                 <p class="flex_3 tr">4.63</p>
             </div>
-            <div class="dis_pr dis_info bg_color pd">
-                <p class="flex_1 lineNo">交通运输、仓<br>储和邮政业</p>
+            <div class="dis_pr dis_info pd">
+                <p class="flex_1 ">交通运输、仓储和邮政业</p>
                 <p class="flex_2 tr">38,040,589.47</p>
                 <p class="flex_3 tr">1.29</p>
             </div>
@@ -87,7 +87,7 @@
         </div>
         <div class="comp_section">
             <h3>十大股票持仓</h3>
-            <div class="dis_flex dis_info dis_title">
+            <div class="dis_flex dis_info">
                 <p class="flex_1 tl">序号</p>
                 <p class="flex_2 tc">股票代码</p>
                 <p class="flex_2 tc">股票名称</p>
@@ -99,7 +99,7 @@
                 <p class="flex_2 tc">贵州茅台</p>
                 <p class="flex_2 tr">9.67</p>
             </div>
-            <div class="dis_flex dis_info bg_color">
+            <div class="dis_flex dis_info">
                 <p class="flex_1 tl">2</p>
                 <p class="flex_2 tc">000651</p>
                 <p class="flex_2 tc">格力电器</p>
@@ -111,7 +111,7 @@
                 <p class="flex_2 tc">美的集团</p>
                 <p class="flex_2 tr">7.20</p>
             </div>
-            <div class="dis_flex dis_info bg_color">
+            <div class="dis_flex dis_info">
                 <p class="flex_1 tl">4</p>
                 <p class="flex_2 tc">601601</p>
                 <p class="flex_2 tc">中国太保</p>
@@ -123,7 +123,7 @@
                 <p class="flex_2 tc">华帝股份</p>
                 <p class="flex_2 tr">4.79</p>
             </div>
-            <div class="dis_flex dis_info bg_color">
+            <div class="dis_flex dis_info">
                 <p class="flex_1 tl">6</p>
                 <p class="flex_2 tc">002304</p>
                 <p class="flex_2 tc">洋河股份</p>
@@ -135,7 +135,7 @@
                 <p class="flex_2 tc">新南洋</p>
                 <p class="flex_2 tr">4.63</p>
             </div>
-            <div class="dis_flex dis_info bg_color">
+            <div class="dis_flex dis_info">
                 <p class="flex_1 tl">8</p>
                 <p class="flex_2 tc">000921</p>
                 <p class="flex_2 tc">海信科龙</p>
@@ -147,7 +147,7 @@
                 <p class="flex_2 tc">伊利股份</p>
                 <p class="flex_2 tr">4.48</p>
             </div>
-            <div class="dis_flex dis_info bg_color">
+            <div class="dis_flex dis_info">
                 <p class="flex_1 tl">10</p>
                 <p class="flex_2 tc">000921</p>
                 <p class="flex_2 tc">水井坊</p>
@@ -162,31 +162,48 @@
         <script src="js/echarts.common.min.js"></script>
         <script src="js/component.js"></script>
         <script>
-            pieEcharts.init("pie1",{            //默认参数配置
-                title:'资产净值 29.58亿元(2017-09-30)',             //标题
-                data: [                                             //数据
-                    {value:61.67, name:'银行存款：61.67%'},
-                    {value:36.75, name:'债券：36.75%'},
-                    {value:0.97, name:'买入返售证券：0.97%'},
-                    {value:0.60, name:'其他资产：0.60%'},
-                    {value:0.01, name:'其他：0.00%'}
-                ]
+            $(function(){
+                pieEcharts.init("pie1",{            //默认参数配置
+                    title:'资产净值 29.58亿元 29.58亿元 (2017-09-30)',             //标题
+                    data: [                                             //数据
+                        {value:61.67, name:'银行存款：61.67%'},
+                        {value:36.75, name:'债券：36.75%'},
+                        {value:0.97, name:'买入返售证券：0.97%'},
+                        {value:0.60, name:'其他资产：0.60%'},
+                        {value:0.01, name:'其他：0.00%'}
+                    ]
+                });
             });
-            pieEcharts.init("pie2",{            //默认参数配置
-                title:'',             //无标题
-                data: [                                             //数据
-                    {value:46.35, name:'制造业：46.35%'},
-                    {value:13.69, name:'金融业：13.69%'},
-                    {value:4.63, name:'教育：4.63%'},
-                    {value:1.29, name:'交通运输、仓储和邮政业:1.29%'},
-                    {value:10.64, name:'其他：10.64%'}
-                ],
-                seriesCenter:['20%', '45%'],
-                legendTop:'13%',
-                //legendRight:'2%',
-                legendLeft:'39%'
 
+            $(function(){
+                pieEcharts.init("pie2",{            //默认参数配置
+                    title:'',             //无标题
+                    data: [                                             //数据
+                        {value:46.35, name:'制造业：46.35%'},
+                        {value:13.69, name:'金融业：13.69%'},
+                        {value:10.64, name:'教育：10.64%'},
+                        {value:10.64, name:'交通运输、仓储和邮政业:10.64%'},
+                        {value:4.63, name:'其他：4.63%'},
+                        {value:1.29, name:'其他1：1.29%'}
+                    ],
+                    seriesCenter:['20%', '45%'],
+                    legendTop:'13%',
+                    //legendRight:'2%',
+                    legendLeft:'39%'
+
+                });
             });
+
+
+            $(function(){
+                for(var i=0;i<$('.dis_pr .flex_1').length;i++){
+                    var text = $('.dis_pr .flex_1').eq(i).html();
+                    if(text.length > 6){
+                        $('.dis_pr .flex_1').eq(i).addClass('lineNo');
+                    }
+                }
+            })
+
         </script>
     </body>
 </html>

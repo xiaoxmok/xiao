@@ -1,47 +1,60 @@
-
-
 //展开更多，收起 组件
-(function(){
+(function () {
 
     var expand = {};
 
     var opts = {};
     var defaults = {            //默认参数配置
-        onOff:true,             //是否默认收起
-        onText:"展开全部",       //展开文字
-        offText:"收起",           //收起文字
-        defaultTextLen:130       //默认显示字数 手机端显示5行
+        onOff: true,             //是否默认收起
+        onText: "展开全部",       //展开文字
+        offText: "收起",           //收起文字
+        defaultTextLen: 130       //默认显示字数 手机端显示5行
     };
 
-    expand.init = function(dom, options){
+    expand.init = function (dom, options) {
 
-        opts= extend(defaults,options);
+        opts = extend(defaults, options);
 
-        var oDiv = $(dom).find('.introduction');
-        var oA = $(dom).find("a");
+        //console.log($(dom)[1]);
+        var old = [];
 
-        var onOff = opts.onOff;
-        var old=oDiv.html().replace(/\s+/g,"");
+        for (var i = 0; i < $(dom).length; i++) {
 
 
-        if(onOff){  //判断
-            oDiv.html(old.toString().substring(0,opts.defaultTextLen)+'...');//默认显示65个字符，字符末尾添加 “...>>展开”
-            oA.html(opts.onText);
-            oDiv.addClass("off")
-        }else{
-            oDiv.html(old);
-            oA.html(opts.offText);
-            oDiv.addClass("on")
+            var oDiv = $(dom).eq(i).find('.introduction');
+            var oA = $(dom).eq(i).find(".textOn");
+            var oClick = $(dom).find(".textOn");
+            var comp_more = $(dom).eq(i).find(".comp_more");
+            old[i] = oDiv.html().replace(/\s+/g, "");
+
+            var onOff = opts.onOff;
+
+
+            if (old[i].length > opts.defaultTextLen) {  //判断
+                oDiv.html(old[i].toString().substring(0, opts.defaultTextLen) + '...');//默认显示65个字符，字符末尾添加 “...>>展开”
+                oA.html(opts.onText);
+                oDiv.addClass("off");
+                comp_more.show();
+            } else {
+                oDiv.html(old[i]);
+                oA.html(opts.offText);
+                oDiv.addClass("on");
+                comp_more.hide();
+            }
+
         }
+        ;
 
 
-        oA.click(function(){
+        oClick.click(function () {
+            var i = $(this).index(".textOn");
+            console.log(i);
             if ($(this).parent().prev('.introduction').hasClass("off")) {  //判断
-                $(this).parent().prev('.introduction').html(old);
+                $(this).parent().prev('.introduction').html(old[i]);
                 $(this).html(opts.offText);
                 $(this).parent().prev('.introduction').removeClass("off")
             } else {
-                $(this).parent().prev('.introduction').html(old.toString().substring(0, opts.defaultTextLen) + '...');//默认显示65个字符，字符末尾添加 “...>>展开”
+                $(this).parent().prev('.introduction').html(old[i].toString().substring(0, opts.defaultTextLen) + '...');//默认显示65个字符，字符末尾添加 “...>>展开”
                 $(this).html(opts.onText);
                 $(this).parent().prev('.introduction').addClass("off")
             }
@@ -61,70 +74,64 @@
 })();
 
 /*饼图插件*/
-(function(){
+(function () {
     var pieEcharts = {};
 
     var opts = {};
     var defaults = {            //默认参数配置
-        title:'资产净值 29.58亿元(2017-09-30)',             //标题
-        data: [                                             //数据
-            {value:61.67, name:'银行存款：61.67%'},
-            {value:36.75, name:'债券：36.75%'},
-            {value:0.97, name:'买入返售证券：0.97%'},
-            {value:0.60, name:'其他资产：0.60%'},
-            {value:0.01, name:'其他：0.00%'}
-        ],
-        seriesCenter:['22%', '55%'],
-        seriesRadius:'65%',
-        legendTop:'25%',
-        legendLeft:'45%'
+        title: '资产净值 29.58亿元(2017-09-30)',             //标题
+        data: [],
+        seriesCenter: ['22%', '55%'],
+        seriesRadius: '65%',
+        legendTop: '25%',
+        legendLeft: '45%'
     };
 
-    pieEcharts.init = function(domID,options){
+    pieEcharts.init = function (domID, options) {
         var myChart = echarts.init(document.getElementById(domID));
 
-        opts = extend(defaults,options);
+        opts = extend(defaults, options);
+
+        var va = [];
+        for (var i = 0; i < opts.data.length; i++) {
+            va.push(opts.data[i].name);
+        }
 
         var option = {
-            color:['#fedb85','#fdb331', '#fd8124', '#fc5b1f', '#ea4c29','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'],
-            title : {
+            color: ['#fedb85', '#fdb331', '#fd8124', '#fc5b1f', '#ea4c29', "#cc7eb1", '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570'],
+            title: {
                 text: opts.title,
 
-                textStyle:{
-                    color:'#666',
-                    fontSize:14,
-                    fontWeight:'normal'
+                textStyle: {
+                    color: '#666',
+                    fontSize: 14,
+                    fontWeight: 'normal'
                 },
-                x:'center',
-                top:'10'
+                x: 'center',
+                top: '10'
             },
             legend: {
                 orient: 'vertical',
                 //left: 'left',
-                left:opts.legendLeft,
-                top:opts.legendTop,
-                itemWidth:14,
-                data: [opts.data[0].name,opts.data[1].name,opts.data[2].name,opts.data[3].name,opts.data[4].name],
-                textStyle:{
-                    color:'#666',
-                    fontSize:12,
-                    fontWeight:'normal'
+                left: opts.legendLeft,
+                top: opts.legendTop,
+                itemWidth: 14,
+                data: va,
+                textStyle: {
+                    color: '#666',
+                    fontSize: 12,
+                    fontWeight: 'normal',
+                    padding: 0
                 }
             },
-            series : [
+            series: [
                 {
                     name: '访问来源',
                     type: 'pie',
-                    radius : opts.seriesRadius,
+                    radius: opts.seriesRadius,
                     center: opts.seriesCenter,
-                    avoidLabelOverlap:false,
-                    data:[
-                        {value:opts.data[0].value, name:opts.data[0].name},
-                        {value:opts.data[1].value, name:opts.data[1].name},
-                        {value:opts.data[2].value, name:opts.data[2].name},
-                        {value:opts.data[3].value, name:opts.data[3].name},
-                        {value:opts.data[4].value, name:opts.data[4].name}
-                    ],
+                    avoidLabelOverlap: false,
+                    data: opts.data,
                     itemStyle: {
                         emphasis: {
                             shadowBlur: 10,
@@ -161,6 +168,6 @@
         return target;
     }
 
-    window.pieEcharts=pieEcharts;
+    window.pieEcharts = pieEcharts;
 })();
 

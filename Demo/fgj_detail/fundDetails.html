@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>现金宝详情</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/base.css">
+	<link rel="stylesheet" type="text/css" href="./css/content.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script type="text/javascript" src="./js/fontresize.js"></script>
+    <script src="./js/zepto.min.js"></script>
+</head>
+<body class="bg">
+    <header class="skin">
+        <a href="javascript:history.back();" ><span class="back"></span>返回</a><a href="javascript:;" class="close_h">关闭</a><span>现金宝详情</span>
+    </header>
+    <div class="fund_top mt17">
+        <p class="p_title">持有汇添富基金现金宝(元)</p>
+        <p class="p_num textColor">39,658.93</p>
+        <p class="p_tomorrow">昨日收益（元）</p>
+        <p class="p_add textColor">+1.24</p>
+        <div class="line"></div>
+    </div>
+    <div class="fund_echarts">
+        <div class="fund_income">
+            <div class="left">
+                <p class="p1">万份收益(08-31)</p>
+                <p class="p2 textColor">1.256</p>
+            </div>
+            <div class="right line_left">
+                <p class="p1">累计收益</p>
+                <p class="p2 textColor">123.25</p>
+                <a href="orderInquire.html" class="to_right"></a>
+            </div>
+        </div>
+        <div class="echarts_details" id="line"></div>
+        <div class="fund_date">
+            <a href="javascript:;" class="skin">7天</a>
+            <a href="javascript:;">1个月</a>
+            <a href="javascript:;">2个月</a>
+        </div>
+    </div>
+    <div class="fund_rules">
+        <h3>交易规则</h3>
+        <div class="rules_details">
+            <p class="p1">转入</p>
+            <div class="p2">
+                <p>交易日15点前转入，下一个交易日确认份额；交易日15点后转入、双休日及节假日转入，下两个交易日确认份额</p>
+            </div>
+        </div>
+        <div class="rules_details">
+            <p class="p1">转出</p>
+            <div class="p2">
+                <p>交易日15点前转出，下一个交易日资金到达账户；交易日15点后转出、双休日及节假日转出，下两个交易日资金到达账户</p>
+            </div>
+        </div>
+        <div class="rules_details">
+            <p class="p1">收益</p>
+            <div class="p2">
+                <p>基金份额确认后每日计算并显示收益</p>
+            </div>
+        </div>
+        <div class="rules_details">
+            <p class="p1">快速取现</p>
+            <div class="p2">
+                <p>随时可取，每笔最高500万，每天5笔，每月最高500万，最快5分钟到账</p>
+            </div>
+        </div>
+        <div class="rules_details">
+            <p class="p1">普通取现</p>
+            <div class="p2">
+                <p>额度不限，次数不限</p>
+            </div>
+        </div>
+        <div class="rules_add">
+            <a href="takeRules.html">查看取现规则详情</a>
+        </div>
+    </div>
+    <div class="fund_pro">
+        <h3>产品档案</h3>
+        <div class="pro_details">
+            <p class="p1">基金介绍</p>
+            <div class="p2">
+                <a href="fundIntroduction.html"><span>基本信息</span><span class="to_right"></span></a>
+            </div>
+        </div>
+        <div class="pro_details">
+            <p class="p1">基金经理</p>
+            <div class="p2">
+                <a href="fundManager.html"><span>徐寅喆</span><span class="to_right"></span></a>
+            </div>
+        </div>
+        <div class="pro_details">
+            <p class="p1">基金公司</p>
+            <div class="p2">
+                <a href="fundCompany.html"><span>汇添富基金管理有限公司</span><span class="to_right"></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="fund_risk">
+        <h3>风险提示</h3>
+        <div class="risk_details">
+            <p>货币基金主要投资于银行定期存款和国债等信用级别极高的短期债券（详细投资组成请查看投资组合说明），这些投资安全性高，流动性强，收益稳健，出现亏损的可能性较小。</p>
+            <p>但在一些情况下也可能会出现亏损风险，例如：投资的债券发生违约，不能偿付，可能产生亏损；多数用户同时赎回时，基金短期内需要大量现金兑付，集中抛售债券，可能产生亏损。</p>
+        </div>
+    </div>
+    <div class="fund_btn">
+        <a href="turnOut.html" class="textColor">转出</a>
+        <a href="turnIn.html" class="border_left textColor">转入</a>
+    </div>
+    <script src="./js/echarts.common.min.js"></script>
+    <script src="./js/fundEcharts.js"></script>
+</body>
+</html>

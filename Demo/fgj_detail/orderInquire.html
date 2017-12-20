@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>交易查询</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/base.css">
+	<link rel="stylesheet" type="text/css" href="./css/content.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script type="text/javascript" src="./js/fontresize.js"></script>
+</head>
+<body class="bg">
+    <header class="skin">
+        <a href="javascript:history.back();" ><span class="back"></span>返回</a><a href="javascript:;" class="close_h">关闭</a><span>交易查询</span>
+    </header>
+    <!--<div class="top">
+        <div class="top_view">
+            <span>全部</span><a href="javascript:;" class="down"></a>
+        </div>
+        <div class="top_none">
+            <p>全部</p>
+            <p>现金宝</p>
+            <p>基金</p>
+            <p>其它</p>
+        </div>
+    </div>-->
+    <div class="content mt17">
+        <div class="con">
+            <div class="con_1">
+                <span class="title">收益结转</span>
+                <span class="right">0.91元</span>
+            </div>
+            <div class="con_2">
+                <span class="left">2015-04-05 15:08</span>
+                <span class="right">交易成功</span>
+            </div>
+        </div>
+        <div class="con">
+            <div class="con_1">
+                <span class="title">快速取现</span>
+                <span class="right">-100.00元</span>
+            </div>
+            <div class="con_2">
+                <span class="left">2015-04-05 15:08</span>
+                <span class="right">交易成功</span>
+            </div>
+        </div>
+        <div class="con">
+            <div class="con_1">
+                <span class="title">快速取现</span>
+                <span class="right">-100.00元</span>
+            </div>
+            <div class="con_2">
+                <span class="left">2015-04-05 15:08</span>
+                <span class="right">交易成功</span>
+            </div>
+        </div>
+        <div class="con">
+            <div class="con_1">
+                <span class="title">快速取现</span>
+                <span class="right">-100.00元</span>
+            </div>
+            <div class="con_2">
+                <span class="left">2015-04-05 15:08</span>
+                <span class="right">交易成功</span>
+            </div>
+        </div>
+        <div class="con">
+            <div class="con_1">
+                <span class="title">快速取现</span>
+                <span class="right">-100.00元</span>
+            </div>
+            <div class="con_2">
+                <span class="left">2015-04-05 15:08</span>
+                <span class="right">交易成功</span>
+            </div>
+        </div>
+        <div class="con">
+            <div class="con_1">
+                <span class="title">充值</span>
+                <span class="right">0.92元</span>
+            </div>
+            <div class="con_2">
+                <span class="left">2015-04-05 15:08</span>
+                <span class="right">交易成功</span>
+            </div>
+        </div>
+        <div class="con">
+            <div class="con_1">
+                <span class="title">赎回现金宝(汇添富鑫瑞债...</span>
+                <span class="right">-99.94元</span>
+            </div>
+            <div class="con_2">
+                <span class="left">2015-04-05 15:08</span>
+                <span class="right textColor">处理中</span>
+            </div>
+        </div>
+    </div>
+    <div class="load_more">
+        <a href="jsvascript:;">加载更多</a>
+    </div>
+    <script src="./js/zepto.min.js"></script>
+    <script>
+        $(function(){
+            $('.top_view a').click(function(){
+                if($('.top_view a').hasClass('down')){
+                    $('.top_view a').removeClass('down').addClass('up');
+                    $('.top_none').show();
+                }else{
+                    $('.top_view a').removeClass('up').addClass('down');
+                    $('.top_none').hide();
+                }
+            });
+
+            $('.top_none p').click(function(){
+                var tit = $(this).html();
+                $('.top_view span').html(tit);
+                $('.top_view a').removeClass('up').addClass('down');
+                $('.top_none').hide();
+            });
+
+            $('.load_more a').click(function(){
+                var html='<div class="con">'
+                    +'<div class="con_1">'
+                    +'<span class="title">快速取现</span>'
+                    +'<span class="right">-100.00元</span>'
+                    +'</div>'
+                    +'<div class="con_2">'
+                    +'<span class="left">2015-04-05 15:08</span>'
+                    +'<span class="right">交易成功</span>'
+                    +'</div>'
+                    +'</div>'
+                    +'<div class="con">'
+                    +'<div class="con_1">'
+                    +'<span class="title">充值</span>'
+                    +'<span class="right">0.92元</span>'
+                    +'</div>'
+                    +'<div class="con_2">'
+                    +'<span class="left">2015-04-05 15:08</span>'
+                    +'<span class="right">交易成功</span>'
+                    +'</div>'
+                    +'</div>'
+                    +'<div class="con">'
+                    +'<div class="con_1">'
+                    +'<span class="title">充值</span>'
+                    +'<span class="right">0.92元</span>'
+                    +'</div>'
+                    +'<div class="con_2">'
+                    +'<span class="left">2015-04-05 15:08</span>'
+                    +'<span class="right">交易成功</span>'
+                    +'</div>'
+                    +'</div>'
+                    +'<div class="con">'
+                    +'<div class="con_1">'
+                    +'<span class="title">充值</span>'
+                    +'<span class="right">0.92元</span>'
+                    +'</div>'
+                    +'<div class="con_2">'
+                    +'<span class="left">2015-04-05 15:08</span>'
+                    +'<span class="right">交易成功</span>'
+                    +'</div>'
+                    +'</div>'
+                    +'<div class="con">'
+                    +'<div class="con_1">'
+                    +'<span class="title">充值</span>'
+                    +'<span class="right">0.92元</span>'
+                    +'</div>'
+                    +'<div class="con_2">'
+                    +'<span class="left">2015-04-05 15:08</span>'
+                    +'<span class="right">交易成功</span>'
+                    +'</div>'
+                    +'</div>'
+                    +'<div class="con">'
+                    +'<div class="con_1">'
+                    +'<span class="title">充值</span>'
+                    +'<span class="right">0.92元</span>'
+                    +'</div>'
+                    +'<div class="con_2">'
+                    +'<span class="left">2015-04-05 15:08</span>'
+                    +'<span class="right">交易成功</span>'
+                    +'</div>'
+                    +'</div>'
+                    +'<div class="con">'
+                    +'<div class="con_1">'
+                    +'<span class="title">充值</span>'
+                    +'<span class="right">0.92元</span>'
+                    +'</div>'
+                    +'<div class="con_2">'
+                    +'<span class="left">2015-04-05 15:08</span>'
+                    +'<span class="right">交易成功</span>'
+                    +'</div>'
+                    +'</div>'
+                    +'<div class="con">'
+                    +'<div class="con_1">'
+                    +'<span class="title">充值</span>'
+                    +'<span class="right">0.92元</span>'
+                    +'</div>'
+                    +'<div class="con_2">'
+                    +'<span class="left">2015-04-05 15:08</span>'
+                    +'<span class="right">交易成功</span>'
+                    +'</div>'
+                    +'</div>'
+                    +'<div class="con">'
+                    +'<div class="con_1">'
+                    +'<span class="title">充值</span>'
+                    +'<span class="right">0.92元</span>'
+                    +'</div>'
+                    +'<div class="con_2">'
+                    +'<span class="left">2015-04-05 15:08</span>'
+                    +'<span class="right">交易成功</span>'
+                    +'</div>'
+                    +'</div>'
+                    +'<div class="con">'
+                    +'<div class="con_1">'
+                    +'<span class="title">充值</span>'
+                    +'<span class="right">0.92元</span>'
+                    +'</div>'
+                    +'<div class="con_2">'
+                    +'<span class="left">2015-04-05 15:08</span>'
+                    +'<span class="right">交易成功</span>'
+                    +'</div>'
+                    +'</div>';
+                $('.content').append(html);
+            });
+        })
+
+    </script>
+</body>
+</html>
