@@ -128,6 +128,7 @@
                 //left: 'left',
                 left: opts.legendLeft,
                 top: opts.legendTop,
+                align:'auto',
                 itemWidth: 14,
                 selectedMode:false,
                 itemGap:11,
@@ -137,17 +138,17 @@
                     //return (name.length > 8 ? (name.slice(0,8)+"...") : name );
                 },
                 data: va,
+                padding:5,
                 textStyle: {
                     color: '#666',
                     fontSize: 12,
                     fontWeight: 'normal',
                     lineHeight:14,
-                    height:14,
                     padding:0,
                     rich: {
                         a: {
                             lineHeight:0,
-                            height:0
+                            padding:0
                         }
                     }
                 }

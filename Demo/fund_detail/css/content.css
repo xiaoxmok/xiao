@@ -25,7 +25,7 @@
 .con,.news{display: none;}
 
 .comp_section{margin-top: .427rem;background: #fff;overflow: hidden;}
-.comp_section h3{height: 1.92rem;  line-height: 1.92rem;  font-size: .59rem;  color: #000;  font-weight: normal;  border-bottom: 1px solid #e7e7e7;  padding-left: .64rem;}
+.comp_section h3{height: 1.706rem;  line-height: 1.92rem;  font-size: .59rem;  color: #000;  font-weight: normal;  border-bottom: 1px solid #e7e7e7;  padding-left: .64rem;}
 .comp_section h3 strong{color:#666666;font-size: .554rem;margin-left: .2rem;}
 .comp_section .comp_info{margin: 0 .64rem;font-size: .59rem;color: #666;padding: .426rem 0 .34rem 0;}
 .comp_section .comp_info p{margin-bottom: .32rem;}
