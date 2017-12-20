@@ -134,7 +134,19 @@
                 itemGap:11,
                 formatter: function (name) {
                     //console.log(name.length );
-                    return (name.length > 14 ? (name.slice(0,14)+"\n"+name.slice(14)) : name );
+                    var names = name.split(":");
+                    if(name.length > 14){
+                        if(names[0].length > 14){
+                            console.log(111);
+                            console.log(names[0]);
+                            return names[0].slice(0,14)+"\n"+names[0].slice(14)+':'+names[1];
+                        }else{
+                            return names[0]+':'+"\n"+names[1];
+                        }
+                    }else{
+                        return name;
+                    }
+                    //return (name.length > 14 ? (name.slice(0,14)+"\n"+name.slice(14)) : name );
                     //return (name.length > 8 ? (name.slice(0,8)+"...") : name );
                 },
                 data: va,
