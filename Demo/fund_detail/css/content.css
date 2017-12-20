@@ -49,8 +49,8 @@
 .fund_dividends div p{justify-content: center;align-items: center;text-align:center;}
 .fund_dividends .fund_div_con{color:#666666;margin-left: .64rem;}
 .fund_dividends div .p1{flex: 1;-webkit-flex: 1;}
-.fund_dividends div .p2{flex: 1;padding-left: 0.3rem;-webkit-flex: 1;}
-.fund_dividends div .p3{flex: 2;-webkit-flex: 2;}
+.fund_dividends div .p2{flex: 2;padding-left: 0.3rem;-webkit-flex: 2;}
+.fund_dividends div .p3{flex: 3;-webkit-flex: 3;}
 
 .fund_dividends .fund_his_con p{flex: 1!important;color:#666666;-webkit-flex: 1;}
 .font_color{color:#000!important;padding: .50rem 0!important;}

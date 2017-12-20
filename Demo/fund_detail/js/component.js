@@ -116,6 +116,7 @@
                 left: opts.legendLeft,
                 top: opts.legendTop,
                 itemWidth: 14,
+                selectedMode:false,
                 data: va,
                 textStyle: {
                     color: '#666',
