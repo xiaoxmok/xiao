@@ -20,7 +20,7 @@
         <div class="comp_section">
             <div class="dis_pr dis_info dis_title pd">
                 <p class="flex_1">资产类型</p>
-                <p class="flex_2 tr">公允价值(元)</p>
+                <p class="flex_2 tr">金额(元)</p>
                 <p class="flex_3 tr lineNo">占基金总资<br>产比例(%)</p>
             </div>
             <div class="dis_pr dis_info pd">
@@ -166,11 +166,11 @@
                 pieEcharts.init("pie1",{            //默认参数配置
                     title:'资产净值 29.58亿元 29.58亿元 (2017-09-30)',             //标题
                     data: [                                             //数据
-                        {value:61.67, name:'银行存款：61.67%'},
-                        {value:36.75, name:'债券：36.75%'},
-                        {value:0.97, name:'买入返售证券：0.97%'},
-                        {value:0.60, name:'其他资产：0.60%'},
-                        {value:0.01, name:'其他：0.00%'}
+                        {value:61.67, name:'银行存款:61.67%'},
+                        {value:36.75, name:'银行存款和结算备付金合计:36.75%'},
+                        {value:0.97, name:'买入返售证券:0.97%'},
+                        {value:0.60, name:'其他资产:0.60%'},
+                        {value:0.01, name:'其他:0.00%'}
                     ]
                 });
             });
@@ -179,18 +179,15 @@
                 pieEcharts.init("pie2",{            //默认参数配置
                     title:'',             //无标题
                     data: [                                             //数据
-                        {value:46.35, name:'制造业：46.35%'},
-                        {value:13.69, name:'金融业：13.69%'},
+                        {value:46.35, name:'制造业:46.35%'},
+                        {value:13.69, name:'金融业:13.69%'},
                         {value:10.64, name:'教育：10.64%'},
                         {value:10.64, name:'交通运输、仓储和邮政业:10.64%'},
-                        {value:4.63, name:'其他：4.63%'},
-                        {value:1.29, name:'其他1：1.29%'}
+                        {value:4.63, name:'其他:4.63%'},
+                        {value:1.29, name:'其他1:1.29%'}
                     ],
-                    seriesCenter:['20%', '45%'],
-                    legendTop:'13%',
-                    //legendRight:'2%',
-                    legendLeft:'39%'
-
+                    seriesCenter:['22%', '45%'],
+                    legendTop:'11%'
                 });
             });
 

@@ -27,25 +27,25 @@
 .comp_section{margin-top: .427rem;background: #fff;overflow: hidden;}
 .comp_section h3{height: 1.92rem;  line-height: 1.92rem;  font-size: .59rem;  color: #000;  font-weight: normal;  border-bottom: 1px solid #e7e7e7;  padding-left: .64rem;}
 .comp_section h3 strong{color:#666666;font-size: .554rem;margin-left: .2rem;}
-.comp_section .comp_info{margin: 0 .64rem;font-size: .59rem;color: #666;padding: .64rem 0 .34rem 0;}
+.comp_section .comp_info{margin: 0 .64rem;font-size: .59rem;color: #666;padding: .426rem 0 .34rem 0;}
 .comp_section .comp_info p{margin-bottom: .32rem;}
 .comp_more{display:none;height: 1.593rem;width: 100%;  line-height: 1.593rem; font-size: .59rem; text-align: center; border-top: 1px solid #efefef;}
 .comp_more a{display: inline-block;height: 1.593rem;width: 100%;color:#218ee3;font-size: .55rem;}
 .btn_fund{display: none;}
 
-.intor_info{padding:.554rem 0;margin-left:.64rem;border-bottom: 1px solid #efefef;display: flex;display:-webkit-flex;font-size: .59rem;}
+.intor_info{padding:.426rem 0;margin-left:.64rem;margin-right:.64rem;border-bottom: 1px solid #efefef;display: flex;display:-webkit-flex;font-size: .59rem;}
 .intor_info .p1{flex:1;-webkit-flex: 1;color:#000;display: flex;align-items: center;}
 .intor_info .p2{flex:3;-webkit-flex: 3;color:#666;padding-left: .2rem;}
 .intor_info .p2 a{color:#148ce6;}
 
 .news{margin-top: .4266rem;background:#fff;}
-.news a{display: flex;display:-webkit-flex;align-items: center;-webkit-align-items: center;padding:.64rem .64rem .4266rem 0;margin-left:.64rem;border-bottom: 1px solid #eee;}
+.news a{display: flex;display:-webkit-flex;align-items: center;-webkit-align-items: center;padding:.426rem .64rem .4266rem 0;margin-left:.64rem;border-bottom: 1px solid #eee;}
 .news a div{flex:1;-webkit-flex: 1;}
 .news a div .p1{font-size: .59rem;color:#000;}
 .news a div .p2{font-size: .5546rem;color:#666;}
 
 .fund_dividends{margin-top: .427rem;background: #fff;}
-.fund_dividends div{color:#000;padding: .554rem 0;margin-left:.64rem;margin-right:.64rem;font-size: .59rem;border-bottom:1px solid #efefef;display: flex;display: -webkit-flex;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;}
+.fund_dividends div{color:#000;padding: .426rem 0;margin-left:.64rem;margin-right:.64rem;font-size: .59rem;border-bottom:1px solid #efefef;display: flex;display: -webkit-flex;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;}
 .fund_dividends div p{justify-content: center;align-items: center;text-align:center;}
 .fund_dividends .fund_div_con{color:#666666;margin-left: .64rem;}
 .fund_dividends div .p1{flex: 1;-webkit-flex: 1;}
@@ -70,17 +70,17 @@
 .flex_2{flex:2;-webkit-flex: 2;}
 .flex_3{flex:3;-webkit-flex: 3;}
 .flex_4{flex:4;-webkit-flex: 4;}
-.dis_info{color:#666;padding: .554rem .64rem;font-size: .59rem;border-bottom:1px solid #efefef;}
+.dis_info{color:#666;padding: .426rem .64rem;font-size: .59rem;border-bottom:1px solid #efefef;}
 .dis_title{color:#000!important;background:#fff!important;}
-.dis_title.pd{padding: .25rem .64rem;}
-.dis_info.pd{padding: .25rem .64rem;}
+.dis_title.pd{padding: .2rem .64rem;}
+.dis_info.pd{padding: .2rem .64rem;}
 .bg_color{background: #f6f6f6;}
 .dis_info:nth-child(2n){background: #f6f6f6;}
 
-.dis_pr{clear: left;display: block;height: 1.82rem;}
-.dis_pr .flex_1{width: 30%;float: left;line-height: 1.82rem;}
-.dis_pr .flex_2{width: 40%;float: left;line-height: 1.82rem;}
-.dis_pr .flex_3{width: 30%;float: left;line-height: 1.82rem;}
+.dis_pr{clear: left;display: block;height: 1.72rem;}
+.dis_pr .flex_1{width: 30%;float: left;line-height: 1.72rem;}
+.dis_pr .flex_2{width: 40%;float: left;line-height: 1.72rem;}
+.dis_pr .flex_3{width: 30%;float: left;line-height: 1.72rem;}
 .lineNo{line-height: 1rem!important;}
 
 
@@ -102,7 +102,7 @@
 .data_text{font-size: .59rem;color:#666;text-align: center;height: 1.4933rem;line-height: 1.49333rem;}
 
 .comp_section .none_img{background: url(../img/none1.png) no-repeat;background-size: contain;width:2.282666rem;height: 2.602666rem;margin: .64rem auto;}
-.pie{width:100%;height: 8.768rem;}
+.pie{width:100%;height: 10rem;}
 
 .onMore{display: none;}
 

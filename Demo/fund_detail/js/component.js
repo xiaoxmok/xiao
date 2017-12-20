@@ -83,9 +83,22 @@
         data: [],
         seriesCenter: ['22%', '55%'],
         seriesRadius: '65%',
-        legendTop: '25%',
-        legendLeft: '45%'
+        legendTop: '23%',
+        legendLeft: '42%'
     };
+
+    var screnH = window.screen.width;
+    //console.log(screnH);
+    if(screnH > 374){
+        defaults = {            //默认参数配置
+            title: '资产净值 29.58亿元(2017-09-30)',             //标题
+            data: [],
+            seriesCenter: ['22%', '55%'],
+            seriesRadius: '65%',
+            legendTop: '23%',
+            legendLeft: '45%'
+        };
+    }
 
     pieEcharts.init = function (domID, options) {
         var myChart = echarts.init(document.getElementById(domID));
@@ -117,12 +130,26 @@
                 top: opts.legendTop,
                 itemWidth: 14,
                 selectedMode:false,
+                itemGap:11,
+                formatter: function (name) {
+                    //console.log(name.length );
+                    return (name.length > 14 ? (name.slice(0,14)+"\n"+name.slice(14)) : name );
+                    //return (name.length > 8 ? (name.slice(0,8)+"...") : name );
+                },
                 data: va,
                 textStyle: {
                     color: '#666',
                     fontSize: 12,
                     fontWeight: 'normal',
-                    padding: 0
+                    lineHeight:14,
+                    height:14,
+                    padding:0,
+                    rich: {
+                        a: {
+                            lineHeight:0,
+                            height:0
+                        }
+                    }
                 }
             },
             series: [
