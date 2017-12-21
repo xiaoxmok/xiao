@@ -45,14 +45,14 @@
             </div>
         </div>
         <div class="comp_section">
-            <h3>行业分布 <strong>基金投资各个行业所占比重</strong></h3>
+            <h3>行业分布 <strong>基金投资各个行业所占例</strong></h3>
             <div id="pie2" class="pie"></div>
         </div>
         <div class="comp_section">
             <div class="dis_pr dis_info dis_title pd">
-                <p class="flex_1">资产类型</p>
+                <p class="flex_1">行业类别</p>
                 <p class="flex_2 tr">公允价值(元)</p>
-                <p class="flex_3 tr lineNo">占基金总资<br>产比例(%)</p>
+                <p class="flex_3 tr lineNo">占基金资产<br>净值比例(%)</p>
             </div>
             <div class="dis_pr dis_info pd">
                 <p class="flex_1">制造业</p>
@@ -158,18 +158,21 @@
             <h3>五大债券持仓</h3>
             <div class="none_img"></div>
         </div>
-        <script src="js/jquery-2.2.2.min.js"></script>
-        <script src="js/echarts.common.min.js"></script>
-        <script src="js/component.js"></script>
+        <script src="./js/jquery-2.2.2.min.js"></script>
+        <script src="./js/echarts.common.min.js"></script>
+        <!--<script src="http://www.99fund.com/web/script/h5/echarts.common.min.js"></script>-->
+        <script src="./js/component.js"></script>
+        <script src="./js/number.js"></script>
         <script>
+
             $(function(){
                 pieEcharts.init("pie1",{            //默认参数配置
                     title:'资产净值 29.58亿元 29.58亿元 (2017-09-30)',             //标题
                     data: [                                             //数据
                         {value:61.67, name:'银行存款:61.67%'},
                         {value:36.75, name:'银行存款和结算备付金合计:36.75%'},
-                        {value:0.97, name:'买入返售证券:0.97%'},
-                        {value:0.60, name:'其他资产:0.60%'},
+                        {value:0.97, name:'买入返售证券212121212:0.97%'},
+                        {value:0.60, name:'其他资产212121212:0.60%'},
                         {value:0.01, name:'其他:0.00%'}
                     ]
                 });
@@ -183,11 +186,11 @@
                         {value:13.69, name:'金融业:13.69%'},
                         {value:10.64, name:'教育运输、仓储和邮政业政业政业政:10.64%'},
                         {value:10.64, name:'交通运输、仓储和邮政业:10.64%'},
-                        {value:4.63, name:'其他:4.63%'},
+                        {value:4.63, name:'其他11111111111111:4.63%'},
                         {value:1.29, name:'其他1:1.29%'}
                     ],
                     seriesCenter:['22%', '45%'],
-                    legendTop:'11%'
+                    legendTop:'8%'
                 });
             });
 
@@ -199,7 +202,7 @@
                         $('.dis_pr .flex_1').eq(i).addClass('lineNo');
                     }
                 }
-            })
+            });
 
         </script>
     </body>

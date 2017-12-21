@@ -82,8 +82,8 @@
         title: '资产净值 29.58亿元(2017-09-30)',             //标题
         data: [],
         seriesCenter: ['22%', '55%'],
-        seriesRadius: '65%',
-        legendTop: '23%',
+        seriesRadius: '50%',
+        legendTop: '18%',
         legendLeft: '42%'
     };
 
@@ -94,7 +94,7 @@
             title: '资产净值 29.58亿元(2017-09-30)',             //标题
             data: [],
             seriesCenter: ['22%', '55%'],
-            seriesRadius: '65%',
+            seriesRadius: '60%',
             legendTop: '23%',
             legendLeft: '45%'
         };
@@ -114,7 +114,8 @@
             color: ['#fedb85', '#fdb331', '#fd8124', '#fc5b1f', '#ea4c29', "#cc7eb1", '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570'],
             title: {
                 text: opts.title,
-
+                itemGap:-3,
+                padding:0,
                 textStyle: {
                     color: '#666',
                     fontSize: 14,
@@ -129,15 +130,16 @@
                 left: opts.legendLeft,
                 top: opts.legendTop,
                 align:'auto',
-                itemWidth: 14,
+                itemWidth: 12,
+                itemHeight: 12,
                 selectedMode:false,
                 itemGap:11,
                 formatter: function (name) {
                     //console.log(name.length );
                     var names = name.split(":");
-                    if(name.length > 14){
-                        if(names[0].length > 14){
-                            return names[0].slice(0,14)+"\n"+names[0].slice(14)+':'+names[1];
+                    if(name.length > 13){
+                        if(names[0].length > 13){
+                            return names[0].slice(0,13)+"\n"+names[0].slice(13)+':'+names[1];
                         }else{
                             return names[0]+':'+"\n"+names[1];
                         }
@@ -197,10 +199,7 @@
         };
 
         myChart.setOption(option);
-        console.log(myChart.getOption());
-        console.log(myChart.getDom());
-        //console.log(myChart.getWidth());
-        //console.log(myChart.getHeight());
+        console.log(option);
     };
 
     // 合并对象
