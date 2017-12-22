@@ -29,8 +29,7 @@
 
             var onOff = opts.onOff;
 
-
-            if (old[i].length > opts.defaultTextLen) {  //判断
+            if ((old[i].length - 4) > opts.defaultTextLen) {  //判断
                 oDiv.html(old[i].toString().substring(0, opts.defaultTextLen) + '...');//默认显示65个字符，字符末尾添加 “...>>展开”
                 oA.html(opts.onText);
                 oDiv.addClass("off");
@@ -48,7 +47,7 @@
 
         oClick.click(function () {
             var i = $(this).index(".textOn");
-            console.log(i);
+            //console.log(i);
             if ($(this).parent().prev('.introduction').hasClass("off")) {  //判断
                 $(this).parent().prev('.introduction').html(old[i]);
                 $(this).html(opts.offText);
@@ -199,7 +198,6 @@
         };
 
         myChart.setOption(option);
-        console.log(option);
     };
 
     // 合并对象

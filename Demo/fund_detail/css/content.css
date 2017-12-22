@@ -71,11 +71,12 @@
 .flex_3{flex:3;-webkit-flex: 3;}
 .flex_4{flex:4;-webkit-flex: 4;}
 .dis_info{color:#666;padding: .426rem .64rem;font-size: .59rem;border-bottom:1px solid #efefef;}
-.dis_title{color:#000!important;background:#fff!important;}
+.dis_title,.dis_pr:last-child{color:#000!important;background:#fff!important;}
 .dis_title.pd{padding: .2rem .64rem;}
 .dis_info.pd{padding: .2rem .64rem;}
 .bg_color{background: #f6f6f6;}
 .dis_info:nth-child(2n){background: #f6f6f6;}
+.rules .dis_info{background: #fff;}
 
 .dis_pr{clear: left;display: block;height: 1.72rem;}
 .dis_pr .flex_1{width: 30%;float: left;line-height: 1.72rem;}
