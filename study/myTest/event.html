@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理</title>
+</head>
+<body>
+<div id="box">
+    <input type="button" id="btn" value="点击">
+    <input type="button" id="btn1" value="点击1">
+    <a href="http://www.baidu.com/" target="_blank" id="goto">走你</a>
+</div>
+<script>
+    /**
+     * 封装事件
+     * 解决事件绑定时浏览器兼容性问题
+     * @type {{addHandler: eventUtil.addHandler, removeHandler: eventUtil.removeHandler}}
+     */
+    var eventUtil = {
+        /**
+         * 添加句柄 优雅降级
+         * @param element 节点
+         * @param type  事件类型
+         * @param handler  事件处理程序
+         */
+        addHandler: function (element, type, handler) {
+            if (element.addEventListener) {
+                //Dom2级 非IE
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                //Dom2级 IE、opera
+                element.attachEvent('on' + type, handler);
+            } else {
+                //Dom0级
+                element['on' + type] = handler;
+                //element.onclick === element['on'+type];
+                //alert("Dom0级");
+            }
+        },
+        /**
+         * 删除句柄 优雅降级
+         * @param element
+         * @param type
+         * @param handler
+         */
+        removeHandler: function (element, type, handler) {
+            if (element.removeEventListener) {
+                //Dom2级 非IE
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                //Dom2级 IE8以下、opera
+                element.detachEvent('on' + type, handler);
+            } else {
+                //Dom0级
+                element['on' + type] = null;
+                //element.onclick === element['on'+type];
+            }
+        },
+        /**
+         * 获取event的兼容写法
+         * @param event
+         * @returns {Event}
+         */
+        getEvent: function (event) {
+            return event ? event : window.event;
+        },
+        /**
+         *获取事件类型 的兼容性写法
+         * @param event
+         *
+         */
+        getType: function (event) {
+            event = this.getEvent(event);
+            return event.type;
+        },
+        /**
+         *获取事件节点 的兼容性写法
+         * @param event
+         * @returns {EventTarget|Object}
+         */
+        getElement: function (event) {
+            event = this.getEvent(event);
+            return event.target || event.srcElement;
+        },
+        /**
+         * 停止事件冒泡 的兼容写法
+         * @param event
+         */
+        stopPropagation: function (event) {
+            event = this.getEvent(event);
+
+            /*if (event.stopPropagation) {
+             event.stopPropagation();
+             } else {
+             event.cancelBubble = true;
+             }
+             */
+            window.event ? event.cancelBubble = true : event.stopPropagation();
+        },
+        /**
+         * 阻止事件默认行为 的兼容写法
+         * @param event
+         */
+        preventDefault: function (event) {
+            event = this.getEvent(event);
+
+            /*if (event.preventDefault) {
+             event.preventDefault();
+             } else {
+             event.returnValue = true;
+             }*/
+
+            window.event ? event.returnValue = false : event.preventDefault();
+        }
+    };
+
+    var btn = document.getElementById('btn');
+    var btn1 = document.getElementById('btn1');
+    var box = document.getElementById('box');
+    var goto = document.getElementById('goto');
+
+    function showMeg(e) {
+        e = e || window.event;      //IE8以下不支持event，需要用window.event
+
+        console.log("Meg测试测试");
+        console.log(e.type);
+
+        var ele = e.target || e.srcElement;     //兼容IE的写法
+        console.log(ele);
+        e.stopPropagation();    //阻止事件冒泡
+        //window.event ? e.cancelBubble = true : e.stopPropagation();
+    }
+    function showBox(e) {
+        console.log("Box测试测试");
+        //console.log(e.type);
+    }
+    function stopGo(e) {
+
+        console.log("不会跳转链接的");
+
+        e.stopPropagation();    //停止冒泡
+        e.preventDefault();     //阻止事件默认行为
+    }
+
+    function btnT(e) {
+        console.log("btnT");
+
+        eventUtil.stopPropagation(e);
+        eventUtil.preventDefault(e);
+    }
+
+    eventUtil.addHandler(btn, 'click', showMeg);
+    eventUtil.addHandler(btn1, 'click', btnT);
+    eventUtil.addHandler(box, 'click', showBox);
+    eventUtil.addHandler(goto, 'click', stopGo);
+    //eventUtil.removeHandler(btn, 'click', show);
+
+</script>
+</body>
+</html>

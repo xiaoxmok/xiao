@@ -6,10 +6,53 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/window.css">
 </head>
-    <body>
-    <input type="button" id="a" value="alert">
-    <input type="button" id="b" value="confirm">
-    <input type="button" id="c" value="prompt">
-    <script type="text/javascript" src="js/require.js" data-main="js/main"></script>
-    </body>
+<body>
+<input type="button" id="a" value="alert">
+<input type="button" id="b" value="confirm">
+<input type="button" id="c" value="prompt">
+<script type="text/javascript" src="js/require.js" data-main="js/main"></script>
+<script>
+    var eventUtil = {
+        /**
+         * 添加句柄 优雅降级
+         * @param element 节点
+         * @param type  事件类型
+         * @param handler  事件处理程序
+         */
+        addHandler: function (element, type, handler) {
+            if (element.addEventListener) {
+                //Dom2级 非IE
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                //Dom2级 IE、opera
+                element.attachEvent('on' + type, handler);
+            } else {
+                //Dom0级
+                element['on' + type] = handler;
+                //element.onclick === element['on'+type];
+            }
+        },
+        /**
+         * 删除句柄 优雅降级
+         * @param element
+         * @param type
+         * @param handler
+         */
+        removeHandler: function (element, type, handler) {
+            if (element.removeEventListener) {
+                //Dom2级 非IE
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                //Dom2级 IE、opera
+                element.detachEvent('on' + type, handler);
+            } else {
+                //Dom0级
+                element['on' + type] = null;
+                //element.onclick === element['on'+type];
+            }
+        }
+    }
+
+</script>
+</body>
 </html>

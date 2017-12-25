@@ -1,0 +1,136 @@
+@charset "utf-8";
+
+
+.bg{background:#f6f6f6;}
+.mt17{margin-top: 1.7rem!important;overflow: hidden;}
+.mt0{margin-top: 0!important;}
+.pl0{padding-left: 0!important;}
+.tc{text-align: center!important;}
+.tr{text-align: right!important;}
+.tl{text-align: left!important;}
+
+.w26{width: 3rem;}
+
+/*基金档案*/
+.top{background:#fff;display: flex;display: -webkit-flex;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;}
+.top a{display: flex;display: -webkit-flex;flex:1;-webkit-flex: 1;height: 1.856rem;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;color:#000;font-size: .64rem;border-bottom: 2px solid #fff;}
+.top .focus{color:#fb5c5f;border-bottom: 2px solid #fbadb0;}
+
+.fund_news{margin:.4266rem .64rem;border-radius:2px;display: flex;display: -webkit-flex;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;}
+.fund_news a{display: flex;display: -webkit-flex;color:#fb5c5f;border-left:1px solid #fb5c5f;border-bottom:1px solid #fb5c5f;border-top:1px solid #fb5c5f;display: -webkit-flex;flex:1;-webkit-flex: 1;height: 1.28rem;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;font-size: .64rem;}
+.fund_news a:nth-child(4){border:1px solid #fb5c5f;border-radius:0 2px 2px 0;}
+.fund_news a:first-child{border-radius:2px 0 0 2px;}
+.fund_news .focus{color:#fff;background: #fb5c5f;}
+
+.con,.news{display: none;}
+
+.comp_section{margin-top: .427rem;background: #fff;overflow: hidden;}
+.comp_section h3{height: 1.92rem;  line-height: 1.92rem;  font-size: .68rem;  color: #000;  font-weight: normal;  border-bottom: 1px solid #e7e7e7;  padding-left: .64rem;}
+.comp_section h3 strong{color:#666666;font-size: .554rem;margin-left: .2rem;}
+.comp_section .comp_info{margin: 0 .64rem;font-size: .64rem;color: #666;padding: .64rem 0 .34rem 0;}
+.comp_section .comp_info p{margin-bottom: .32rem;}
+.comp_more{display:none;height: 1.593rem;width: 100%;  line-height: 1.593rem; font-size: .68rem; text-align: center; border-top: 1px solid #efefef;}
+.comp_more a{display: inline-block;height: 1.593rem;width: 100%;color:#218ee3;font-size: .55rem;}
+.btn_fund{display: none;}
+
+.intor_info{padding:.554rem 0;margin-left:.64rem;border-bottom: 1px solid #efefef;display: flex;display:-webkit-flex;font-size: .64rem;}
+.intor_info .p1{flex:1;-webkit-flex: 1;color:#000;display: flex;align-items: center;}
+.intor_info .p2{flex:3;-webkit-flex: 3;color:#666;padding-left: .2rem;}
+.intor_info .p2 a{color:#148ce6;}
+
+.news{margin-top: .4266rem;background:#fff;}
+.news a{display: flex;display:-webkit-flex;align-items: center;-webkit-align-items: center;padding:.64rem .64rem .4266rem 0;margin-left:.64rem;border-bottom: 1px solid #eee;}
+.news a div{flex:1;-webkit-flex: 1;}
+.news a div .p1{font-size: .64rem;color:#000;}
+.news a div .p2{font-size: .5546rem;color:#666;}
+
+.fund_dividends{margin-top: .427rem;background: #fff;}
+.fund_dividends div{color:#000;padding: .554rem 0;margin-left:.64rem;margin-right:.64rem;font-size: .64rem;border-bottom:1px solid #efefef;display: flex;display: -webkit-flex;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;}
+.fund_dividends div p{justify-content: center;align-items: center;text-align:center;}
+.fund_dividends .fund_div_con{color:#666666;margin-left: .64rem;}
+.fund_dividends div .p1{flex: 1;-webkit-flex: 1;}
+.fund_dividends div .p2{flex: 1;padding-left: 0.3rem;-webkit-flex: 1;}
+.fund_dividends div .p3{flex: 2;-webkit-flex: 2;}
+
+.fund_dividends .fund_his_con p{flex: 1!important;color:#666666;-webkit-flex: 1;}
+.font_color{color:#000!important;padding: .50rem 0!important;}
+
+.fund_dividends .fund_net_con p:nth-child(2){padding-left: 0;}
+.fund_dividends .fund_net_con p{flex: 1!important;color:#666666;-webkit-flex: 1;}
+.fund_dividends .fund_net_con p.p_add{color:#fe5a5b;}
+.fund_dividends .fund_net_con p.p_drop{color:#009944;}
+
+.none .img {background: url(../img/none.png) no-repeat;background-size: contain;width:3.925rem;height:4.096rem;margin: 3rem auto 1rem;}
+.none p{color:#999999;text-align: center;font-size: .60rem;}
+
+
+/*交易规则*/
+.dis_flex{display: flex;display:-webkit-flex;align-items: center;-webkit-align-items: center;}
+.flex_1{flex:1;-webkit-flex: 1;}
+.flex_2{flex:2;-webkit-flex: 2;}
+.flex_3{flex:3;-webkit-flex: 3;}
+.flex_4{flex:4;-webkit-flex: 4;}
+.dis_info{color:#666;padding: .554rem .64rem;font-size: .64rem;border-bottom:1px solid #efefef;}
+.dis_title{color:#000!important;background:#fff!important;}
+.dis_title.pd{padding: .25rem .64rem;}
+.dis_info.pd{padding: .25rem .64rem;}
+.bg_color{background: #f6f6f6;}
+.dis_info:nth-child(2n){background: #f6f6f6;}
+
+.dis_pr{clear: left;display: block;height: 1.82rem;}
+.dis_pr .flex_1{width: 30%;float: left;line-height: 1.82rem;}
+.dis_pr .flex_2{width: 40%;float: left;line-height: 1.82rem;}
+.dis_pr .flex_3{width: 30%;float: left;line-height: 1.82rem;}
+.lineNo{line-height: 1rem!important;}
+
+
+/*基金经理*/
+.mana_top{padding:.70rem .64rem;display: flex;display: -webkit-flex;background:#fff;}
+.mana_img{flex:1;-webkit-flex:1;width:4.13rem;height:4.13rem;}
+/*.mana_img img{width:3.84rem;height: 5.12rem;}*/
+.mana_img img{width:4.13rem;height:4.13rem;border-radius: 50%}
+.mana_info{flex:2;-webkit-flex:2;margin-top: 1rem;}
+.mana_info p{font-size: .74rem;line-height: 1rem;color:#000;}
+.mana_info p:last-child{font-size: .64rem;line-height: 1rem;color:#666;margin-top: .40rem}
+
+.mana_text{padding:.30rem .64rem;background:#fff;font-size: .64rem;line-height: 1rem;color:#666;}
+.b_t_n{border-top:none;}
+.p_add{color:#f8575d;}
+
+/*
+投资组合*/
+.data_text{font-size: .60rem;color:#666;text-align: center;height: 1.4933rem;line-height: 1.49333rem;}
+
+.comp_section .none_img{background: url(../img/none1.png) no-repeat;background-size: contain;width:2.282666rem;height: 2.602666rem;margin: .64rem auto;}
+.pie{width:100%;height: 8.768rem;}
+
+.onMore{display: none;}
+
+/*公告*/
+.main{background: #fff;}
+.main .top{padding:.64rem .64rem .4266rem .64rem;border-bottom: 1px solid #eee;display: block;}
+.main .top .p1,.author .top .p1{font-size: .64rem;color:#000;}
+.main .top .p2{font-size: .5546rem;color:#666;margin-top: .4266rem;}
+.main .text{padding: 0 .64rem;}
+.main .text p,.main .text h4{color:#666;font-size: .597rem;line-height: 1.2rem;padding-top: .50rem;text-indent: 1.20rem;}
+.main .text h4{font-weight: bold;}
+
+.main table {
+    width: 100%;
+    border-bottom: 1px solid #999;
+    border-right: 1px solid #999;
+    border-spacing: 0;
+    font-size: .64rem;
+    color:#666;
+}
+
+.main table th,.main table td {
+
+    height: 1.2rem;
+    text-align: center;
+
+    border: 1px solid #999;
+    border-collapse: collapse;
+}
+
+.tr{text-align: right;}
