@@ -86,15 +86,15 @@
 
 
 /*基金经理*/
-.mana_top{padding:.70rem .64rem;display: flex;display: -webkit-flex;background:#fff;}
+.mana_top{padding:.85rem .64rem;display: flex;display: -webkit-flex;background:#fff;}
 .mana_img{flex:1;-webkit-flex:1;width:4.13rem;height:4.13rem;}
 /*.mana_img img{width:3.84rem;height: 5.12rem;}*/
 .mana_img img{width:4.13rem;height:4.13rem;border-radius: 50%}
 .mana_info{flex:2;-webkit-flex:2;margin-top: 1rem;}
-.mana_info p{font-size: .59rem;line-height: 1rem;color:#000;}
-.mana_info p:last-child{font-size: .59rem;line-height: 1rem;color:#666;margin-top: .40rem}
+.mana_info p{font-size: .64rem;line-height: 1rem;color:#000;}
+.mana_info p:last-child{font-size: .59rem;line-height: 1rem;color:#666;margin-top: .42rem}
 
-.mana_text{padding:.30rem .64rem;background:#fff;font-size: .59rem;line-height: 1rem;color:#666;}
+.mana_text{padding:0 .64rem .30rem ;background:#fff;font-size: .59rem;line-height: 1rem;color:#666;}
 .b_t_n{border-top:none;}
 .p_add{color:#f8575d;}
 
@@ -113,25 +113,26 @@
 .main .top .p1,.author .top .p1{font-size: .59rem;color:#000;}
 .main .top .p2{font-size: .5546rem;color:#666;margin-top: .4266rem;}
 .main .text{padding: 0 .64rem;}
-.main .text p,.main .text h4{color:#666;font-size: .597rem;line-height: 1.2rem;padding-top: .50rem;text-indent: 1.20rem;}
-.main .text h4{font-weight: bold;}
+.main .text p,.main .text h4,.main .text h2{color:#666;font-size: .597rem;line-height: 1.2rem;padding-top: .50rem;text-indent: 1.20rem;}
+.main .text h4,.main .text h2{font-weight: bold;}
 
 .main table {
     width: 100%;
-    border-bottom: 1px solid #999;
-    border-right: 1px solid #999;
     border-spacing: 0;
     font-size: .59rem;
     color:#666;
+    display: inline-block;
+    overflow-x: scroll;
 }
 
-.main table th,.main table td {
+.main table th,.main table td{
 
     height: 1.2rem;
     text-align: center;
-
+    padding: 0 .6rem ;
     border: 1px solid #999;
     border-collapse: collapse;
 }
+.main table td p{color:#666;padding-top: 0!important;text-indent: 0!important;text-align: center;}
 
 .tr{text-align: right;}

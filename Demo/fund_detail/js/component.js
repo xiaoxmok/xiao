@@ -77,7 +77,7 @@
     var pieEcharts = {};
 
     var opts = {};
-    var defaults = {            //默认参数配置
+    var defaults = {            //默认参数配置        iphone5
         title: '资产净值 29.58亿元(2017-09-30)',             //标题
         data: [],
         seriesCenter: ['22%', '55%'],
@@ -88,25 +88,87 @@
 
     var screnH = window.screen.width;
     //console.log(screnH);
-    if(screnH > 374){
-        defaults = {            //默认参数配置
-            title: '资产净值 29.58亿元(2017-09-30)',             //标题
-            data: [],
-            seriesCenter: ['22%', '55%'],
-            seriesRadius: '60%',
-            legendTop: '23%',
-            legendLeft: '45%'
-        };
-    }
+
 
     pieEcharts.init = function (domID, options) {
         var myChart = echarts.init(document.getElementById(domID));
+
+        var domId = document.getElementById(domID);
+
+        if(screnH > 374){           //iphone6 iphone7 iphone8
+            defaults = {            //默认参数配置
+                title: '资产净值 29.58亿元(2017-09-30)',             //标题
+                data: [],
+                seriesCenter: ['22%', '45%'],
+                seriesRadius: '60%',
+                legendTop: '15%',
+                legendLeft: '45%'
+            };
+
+            domId.style.height = 9+'rem';
+        }
+        if(screnH > 413){           //iphone6 plus iphone7 plus iphone8 plus
+            defaults = {            //默认参数配置
+                title: '资产净值 29.58亿元(2017-09-30)',             //标题
+                data: [],
+                seriesCenter: ['22%', '45%'],
+                seriesRadius: '60%',
+                legendTop: '15%',
+                legendLeft: '45%'
+            };
+            domId = document.getElementById(domID);
+            domId.style.height = 8+'rem';
+        }
+
 
         opts = extend(defaults, options);
 
         var va = [];
         for (var i = 0; i < opts.data.length; i++) {
             va.push(opts.data[i].name);
+        }
+
+        //if(va.length = 1){}
+        switch(va.length){
+            case 1:
+                opts.legendTop = '35%';
+                if(opts.title.length == 0){
+                    opts.legendTop = '30%';
+                }
+                break;
+            case 2:
+                opts.legendTop = '30%';
+                if(opts.title.length == 0){
+                    opts.legendTop = '25%';
+                }
+                break;
+            case 3:
+                opts.legendTop = '25%';
+                if(opts.title.length == 0){
+                    opts.legendTop = '23%';
+                }
+                break;
+            case 4:
+                opts.legendTop = '20%';
+                if(opts.title.length == 0){
+                    opts.legendTop = '15%';
+                }
+                break;
+            case 5:
+                opts.legendTop = '15%';
+                if(opts.title.length == 0){
+                    opts.legendTop = '10%';
+                }
+                break;
+            case 6:
+                opts.legendTop = '10%';
+                if(opts.title.length == 0){
+                    opts.legendTop = '5%';
+                }
+                break;
+            default:
+                opts.legendTop = '15%';
+                break;
         }
 
         var option = {

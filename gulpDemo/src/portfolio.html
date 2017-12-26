@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>投资组合</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--build:css cdd/combined.css-->
     <link rel="stylesheet" type="text/css" href="css/base.css">
     <link rel="stylesheet" type="text/css" href="css/content.css">
-    <script type="text/javascript" src="js/fontresize.js"></script>
+    <!--endbuild-->
 </head>
     <body class="bg">
         <header>
@@ -160,9 +161,11 @@
         </div>
         <script src="js/jquery-2.2.2.min.js"></script>
         <script src="js/echarts.common.min.js"></script>
-        <!--<script src="http://www.99fund.com/web/script/h5/echarts.common.min.js"></script>-->
+        <!--build:js js/combined.js-->
+        <script type="text/javascript" src="js/fontresize.js"></script>
         <script src="js/component.js"></script>
         <script src="js/number.js"></script>
+        <!--endbuild-->
         <script>
 
             $(function(){
