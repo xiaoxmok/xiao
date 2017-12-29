@@ -71,7 +71,7 @@
                 <p class="flex_3 tr">4.63</p>
             </div>
             <div class="dis_pr dis_info pd">
-                <p class="flex_1 ">交通运输、仓储和邮政业</p>
+                <p class="flex_1 ">交通运输、仓储和邮政业和邮政业和邮政业</p>
                 <p class="flex_2 tr">38,040,589.47</p>
                 <p class="flex_3 tr">1.29</p>
             </div>
@@ -188,7 +188,7 @@
                         {value:10.64, name:'教育运输、仓储和邮政业政业政业政:10.64%'},
                         {value:10.64, name:'交通运输、仓储和邮政业:10.64%'},
                         {value:4.63, name:'其他11111111111111:4.63%'},
-                        {value:1.29, name:'其他1:1.29%'}
+                        {value:1.29, name:'教育运输、仓储和邮政业政业政业政:1.29%'}
                     ],
                     seriesCenter:['22%', '40%'],
                     legendTop:'5%'
@@ -199,8 +199,12 @@
             $(function(){
                 for(var i=0;i<$('.dis_pr .flex_1').length;i++){
                     var text = $('.dis_pr .flex_1').eq(i).html();
-                    if(text.length > 6){
+                    if(text.length > 6 && text.length < 12){
                         $('.dis_pr .flex_1').eq(i).addClass('lineNo');
+                    }else if(text.length > 12){
+                        $('.dis_pr .flex_1').eq(i).addClass('lineNo');
+                        $('.dis_pr .flex_1').eq(i).parent().css("height","2.72rem");
+                        $('.dis_pr .flex_1').eq(i).siblings('p').css("line-height","2.72rem");
                     }
                 }
             });

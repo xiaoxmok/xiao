@@ -80,7 +80,7 @@
     var defaults = {            //默认参数配置        iphone5
         title: '资产净值 29.58亿元(2017-09-30)',             //标题
         data: [],
-        seriesCenter: ['22%', '55%'],
+        seriesCenter: ['22%', '45%'],
         seriesRadius: '50%',
         legendTop: '18%',
         legendLeft: '42%'
@@ -117,7 +117,14 @@
                 legendLeft: '45%'
             };
             domId = document.getElementById(domID);
-            domId.style.height = 8+'rem';
+            domId.style.height = 8.2+'rem';
+        }
+
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if(isAndroid){
+            domId.style.height = 10+'rem';
         }
 
 
@@ -194,7 +201,7 @@
                 itemWidth: 12,
                 itemHeight: 12,
                 selectedMode:false,
-                itemGap:11,
+                itemGap:15,
                 formatter: function (name) {
                     //console.log(name.length );
                     var names = name.split(":");

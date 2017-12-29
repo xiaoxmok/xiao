@@ -136,3 +136,34 @@
 .main table td p{color:#666;padding-top: 0!important;text-indent: 0!important;text-align: center;}
 
 .tr{text-align: right;}
+
+
+
+/*基金详情*/
+.borderNo{border: none!important;}
+.comp_section .comp_detail{margin: 0 .64rem;font-size: .554rem;color: #666;padding: .426rem 0 .34rem 0;}
+
+.comp_section table{font-size: .512rem;width: 100%;border: none;}
+.comp_section table tr{border-bottom: 1px solid #e7e7e7;border-collapse: collapse;}
+.comp_section table th:first-child,.comp_section table td:first-child{padding-left: .64rem;width:27%;}
+.comp_section table th:last-child,.comp_section table td:last-child{padding-right: .64rem;}
+
+.comp_section table td,.comp_section table th{height: 1.49rem;text-align: left;}
+.comp_section table td,.comp_section table th{width:23%}
+
+.comp_section .table3 table th:first-child,.comp_section .table3 table td:first-child{width:40%;}
+.comp_section .table3 table th:last-child,.comp_section .table3 table td:last-child{width:25%;}
+.comp_section .table3 table td,.comp_section .table3 table th{width:25%}
+
+.comp_section .table5 table th:first-child,.comp_section .table5 table td:first-child{width:27%;}
+.comp_section .table5 table td,.comp_section .table5 table th{width:15%}
+.comp_section .table5 table th:last-child,.comp_section .table5 table td:last-child{width:18%;}
+
+.line1{width: 100%;height: 8rem;}
+.line_title{background: #f6f6f6;height: 1.70rem;font-size: 0.512rem;padding:0 .64rem;}
+.line_title p{display:inline-block;float: left;margin-right: .44rem;line-height: 1.70rem;color:#666666}
+.line_title p i{width:0.456rem;height: .412rem;display: inline-block;margin-right: .2rem;}
+.col1{background: #ffdc7f;}
+.col2{background: #ffb415;}
+.col3{background: #ff8100;}
+.fr{float:right!important;}

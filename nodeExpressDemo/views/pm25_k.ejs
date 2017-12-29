@@ -82,6 +82,7 @@
             };
         };
 
+
         /*jQuery jsonp协议*/
         function ajaxJq(){
                 $.ajax({
@@ -120,6 +121,8 @@
             newScript.src=url;
             $('body').append(newScript);
         }
+
+
         //window.name 方法跨域
         function test() {
             var iframe = document.getElementById('a');
@@ -129,8 +132,8 @@
 
                 var data = iframe.contentWindow.name;
                 var d = JSON.parse(data);
-                console.log(d);
-            }
+                //console.log(d);
+            };
             iframe.src='ky.htm';
 
         }
@@ -141,9 +144,11 @@
 
             var data = iframe.contentWindow;
             var d = JSON.parse(data.document.getElementsByTagName('body')[0].innerText);
-            console.log(d);
+            //console.log(d);
         }
-        //ajaxJq()
+        //ajaxJq();
+        //jsonpD();
+        //test2()
     </script>
   </body>
 </html>
