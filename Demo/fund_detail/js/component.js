@@ -95,7 +95,7 @@
 
         var domId = document.getElementById(domID);
 
-        if(screnH > 374){           //iphone6 iphone7 iphone8
+        if (screnH > 374) {           //iphone6 iphone7 iphone8
             defaults = {            //默认参数配置
                 title: '资产净值 29.58亿元(2017-09-30)',             //标题
                 data: [],
@@ -105,9 +105,9 @@
                 legendLeft: '45%'
             };
 
-            domId.style.height = 9+'rem';
+            domId.style.height = 9 + 'rem';
         }
-        if(screnH > 413){           //iphone6 plus iphone7 plus iphone8 plus
+        if (screnH > 413) {           //iphone6 plus iphone7 plus iphone8 plus
             defaults = {            //默认参数配置
                 title: '资产净值 29.58亿元(2017-09-30)',             //标题
                 data: [],
@@ -117,59 +117,74 @@
                 legendLeft: '45%'
             };
             domId = document.getElementById(domID);
-            domId.style.height = 8.2+'rem';
+            domId.style.height = 8.2 + 'rem';
         }
 
         var u = navigator.userAgent;
         var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-        if(isAndroid){
-            domId.style.height = 10+'rem';
-        }
+
 
 
         opts = extend(defaults, options);
 
         var va = [];
+        var num = 0;
         for (var i = 0; i < opts.data.length; i++) {
             va.push(opts.data[i].name);
+            if (opts.data[i].name.length > 13) {
+                num += 1;
+            }
+        }
+
+        console.log(num);
+
+        if (isAndroid) {
+            if(num === 3){
+                domId.style.height = 10 + 'rem';
+            }else if(num === 4){
+                domId.style.height = 12 + 'rem';
+            }else{
+                domId.style.height = 9 + 'rem';
+            }
+
         }
 
         //if(va.length = 1){}
-        switch(va.length){
+        switch (va.length) {
             case 1:
                 opts.legendTop = '35%';
-                if(opts.title.length == 0){
+                if (opts.title.length == 0) {
                     opts.legendTop = '30%';
                 }
                 break;
             case 2:
                 opts.legendTop = '30%';
-                if(opts.title.length == 0){
+                if (opts.title.length == 0) {
                     opts.legendTop = '25%';
                 }
                 break;
             case 3:
                 opts.legendTop = '25%';
-                if(opts.title.length == 0){
+                if (opts.title.length == 0) {
                     opts.legendTop = '23%';
                 }
                 break;
             case 4:
                 opts.legendTop = '20%';
-                if(opts.title.length == 0){
+                if (opts.title.length == 0) {
                     opts.legendTop = '15%';
                 }
                 break;
             case 5:
                 opts.legendTop = '15%';
-                if(opts.title.length == 0){
+                if (opts.title.length == 0) {
                     opts.legendTop = '10%';
                 }
                 break;
             case 6:
                 opts.legendTop = '10%';
-                if(opts.title.length == 0){
+                if (opts.title.length == 0) {
                     opts.legendTop = '5%';
                 }
                 break;
@@ -182,8 +197,8 @@
             color: ['#fedb85', '#fdb331', '#fd8124', '#fc5b1f', '#ea4c29', "#cc7eb1", '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570'],
             title: {
                 text: opts.title,
-                itemGap:-3,
-                padding:0,
+                itemGap: -3,
+                padding: 0,
                 textStyle: {
                     color: '#666',
                     fontSize: 14,
@@ -197,38 +212,38 @@
                 //left: 'left',
                 left: opts.legendLeft,
                 top: opts.legendTop,
-                align:'auto',
+                align: 'auto',
                 itemWidth: 12,
                 itemHeight: 12,
-                selectedMode:false,
-                itemGap:15,
+                selectedMode: false,
+                itemGap: 15,
                 formatter: function (name) {
                     //console.log(name.length );
                     var names = name.split(":");
-                    if(name.length > 13){
-                        if(names[0].length > 13){
-                            return names[0].slice(0,13)+"\n"+names[0].slice(13)+':'+names[1];
-                        }else{
-                            return names[0]+':'+"\n"+names[1];
+                    if (name.length > 13) {
+                        if (names[0].length > 13) {
+                            return names[0].slice(0, 13) + "\n" + names[0].slice(13) + ':' + names[1];
+                        } else {
+                            return names[0] + ':' + "\n" + names[1];
                         }
-                    }else{
+                    } else {
                         return name;
                     }
                     //return (name.length > 14 ? (name.slice(0,14)+"\n"+name.slice(14)) : name );
                     //return (name.length > 8 ? (name.slice(0,8)+"...") : name );
                 },
                 data: va,
-                padding:5,
+                padding: 5,
                 textStyle: {
                     color: '#666',
                     fontSize: 12,
                     fontWeight: 'normal',
-                    lineHeight:14,
-                    padding:0,
+                    lineHeight: 14,
+                    padding: 0,
                     rich: {
                         a: {
-                            lineHeight:0,
-                            padding:0
+                            lineHeight: 0,
+                            padding: 0
                         }
                     }
                 }
