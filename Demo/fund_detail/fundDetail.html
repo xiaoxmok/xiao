@@ -35,7 +35,7 @@
                     <p><i class="col3"></i>期末总份额</p>
                     <p class="fr">单位：亿元</p>
                 </div>
-                <div id="line1" class="line1">
+                <div id="line1" class="line">
 
                 </div>
             </div>
@@ -86,6 +86,15 @@
         <!--份额变动-->
         <div class="con">
             <div class="comp_section mt0">
+                <div class="line_title">
+                    <p><i class="col1"></i>净资产</p>
+                    <p class="fr">单位：亿元</p>
+                </div>
+                <div id="line2" class="line">
+
+                </div>
+            </div>
+            <div class="comp_section mt0">
                 <h3 class="bg borderNo">变动详情</h3>
                 <div class="table3">
                     <table>
@@ -125,6 +134,17 @@
         </div>
         <!--持有人结构-->
         <div class="con">
+            <div class="comp_section mt0">
+                <div class="line_title">
+                    <p><i class="col1"></i>机构</p>
+                    <p><i class="col2"></i>个人</p>
+                    <p><i class="col3"></i>内部</p>
+                    <p class="fr">单位：亿元</p>
+                </div>
+                <div id="line3" class="line">
+
+                </div>
+            </div>
             <div class="comp_section mt0">
                 <h3 class="bg borderNo">变动详情</h3>
                 <div class="table5">
@@ -177,7 +197,7 @@
         </div>
 
         <script src="js/echarts.common.min.js"></script>
-        <script src="js/echatrsLine.js"></script>
+        <script src="js/echatrsBar.js"></script>
         <script src="js/jquery-2.2.2.min.js"></script>
         <script>
             $(function(){
@@ -185,15 +205,79 @@
                     var i = $(this).index();
                     $('.con').hide().eq(i).show();
                     $('.top a').removeClass("focus").eq(i).addClass("focus");
+
+                    if($('.top a').eq(1).hasClass("focus")){
+                        barEcharts.init("line2",{
+                            yData:['2017-06-30','2016-12-30'],
+                            data:[
+                                {
+                                    name:'净资产',
+                                    type:'bar',
+                                    barWidth:8,
+                                    barGap:1,
+                                    data:[110, 132]
+                                }
+                            ]
+                        });
+                    }else if($('.top a').eq(2).hasClass("focus")){
+                        barEcharts.init("line3",{
+                            yData:['2017-06-30','2016-12-30'],
+                            data:[
+                                {
+                                    name:'机构',
+                                    type:'bar',
+                                    barWidth:8,
+                                    barGap:1,
+                                    data:[120, 132]
+                                },
+                                {
+                                    name:'个人',
+                                    type:'bar',
+                                    barWidth:8,
+                                    barGap:1,
+                                    data:[220, 132]
+                                },
+                                {
+                                    name:'内部',
+                                    type:'bar',
+                                    barWidth:8,
+                                    barGap:1,
+                                    data:[120, 122]
+                                }
+                            ]
+                        });
+                    }
+
                 })
             });
             $(function(){
-                lineEcharts.init("line1");
-            })
+                barEcharts.init("line1",{
+                    yData:['2017-06-30','2016-12-30'],
+                    data:[
+                        {
+                            name:'期间申购',
+                            type:'bar',
+                            barWidth:8,
+                            barGap:1,
+                            data:[120, 132]
+                        },
+                        {
+                            name:'期间赎回',
+                            type:'bar',
+                            barWidth:8,
+                            barGap:1,
+                            data:[120, 132]
+                        },
+                        {
+                            name:'期末总份额',
+                            type:'bar',
+                            barWidth:8,
+                            barGap:1,
+                            data:[120, 122]
+                        }
+                    ]
+                });
+            });
         </script>
-
-
-
-
     </body>
 </html>

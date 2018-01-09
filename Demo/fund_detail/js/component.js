@@ -95,6 +95,10 @@
 
         var domId = document.getElementById(domID);
 
+        if(screnH < 374){               //       iphone5s
+            domId.style.height = 12 + 'rem';
+        }
+
         if (screnH > 374) {           //iphone6 iphone7 iphone8
             defaults = {            //默认参数配置
                 title: '资产净值 29.58亿元(2017-09-30)',             //标题
@@ -137,15 +141,22 @@
             }
         }
 
-        console.log(num);
+        //console.log(num);
 
+        var gap = -2;
         if (isAndroid) {
             if(num === 3){
                 domId.style.height = 10 + 'rem';
+                gap = -5;
             }else if(num === 4){
                 domId.style.height = 12 + 'rem';
+                gap = -8;
+            }else if(num === 5){
+                domId.style.height = 14 + 'rem';
+                gap = -9;
             }else{
                 domId.style.height = 9 + 'rem';
+                gap = -4;
             }
 
         }
@@ -216,7 +227,7 @@
                 itemWidth: 12,
                 itemHeight: 12,
                 selectedMode: false,
-                itemGap: 15,
+                itemGap: 11,            //此处需要上线需要修改为 gap，目前值仅为调试所用。
                 formatter: function (name) {
                     //console.log(name.length );
                     var names = name.split(":");

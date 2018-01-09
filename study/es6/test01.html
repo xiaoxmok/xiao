@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习</title>
+    <!-- 第一个是加载Traceur的库文件 -->
+    <script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+    <!-- 将Traceur编译器用于网页 -->
+    <script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+    <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+    <!-- 打开实验选项，否则有些特性可能编译不成功 -->
+    <script>
+        //traceur.options.experimental = true;
+    </script>
+</head>
+
+<body>
+<script type="module">
+    class Calc {
+        constructor(){
+            console.log('Calc constructor');
+        }
+        add(a, b){
+            return a + b;
+        }
+    }
+    var c = new Calc();
+    console.log(c.add(4,5));
+</script>
+
+<script>
+    var b = 1;
+    function foo(a) {
+        var b = a * 2;
+
+        function bar(c) {
+            console.log(a, b, c);
+        }
+
+        bar(b * 3);
+    }
+    foo(2);
+
+    console.log(b);
+
+    (function IIFE(global) {
+        var b = 3;
+        console.log(global.b);
+    })(window);
+</script>
+</body>
+</html>

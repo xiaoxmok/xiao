@@ -87,9 +87,11 @@
 
 /*基金经理*/
 .mana_top{padding:.85rem .64rem;display: flex;display: -webkit-flex;background:#fff;}
-.mana_img{flex:1;-webkit-flex:1;width:4.13rem;height:4.13rem;}
+.mana_img{flex:1;-webkit-flex:1;width:4.13rem;height:5.12rem;}
+/*.mana_img{flex:1;-webkit-flex:1;width:4.13rem;height:4.13rem;}*/
 /*.mana_img img{width:3.84rem;height: 5.12rem;}*/
-.mana_img img{width:4.13rem;height:4.13rem;border-radius: 50%}
+.mana_img img{width:3.84rem;height:5.12rem;border:1px solid #e7e7e7;}
+/*.mana_img img{width:4.13rem;height:4.13rem;border-radius: 50%;border:1px solid #e7e7e7;}*/
 .mana_info{flex:2;-webkit-flex:2;margin-top: 1rem;}
 .mana_info p{font-size: .64rem;line-height: 1rem;color:#000;}
 .mana_info p:last-child{font-size: .59rem;line-height: 1rem;color:#666;margin-top: .42rem}
@@ -144,22 +146,24 @@
 .comp_section .comp_detail{margin: 0 .64rem;font-size: .554rem;color: #666;padding: .426rem 0 .34rem 0;}
 
 .comp_section table{font-size: .512rem;width: 100%;border: none;}
-.comp_section table tr{border-bottom: 1px solid #e7e7e7;border-collapse: collapse;}
-.comp_section table th:first-child,.comp_section table td:first-child{padding-left: .64rem;width:27%;}
-.comp_section table th:last-child,.comp_section table td:last-child{padding-right: .64rem;}
+.comp_section table tr{border-bottom: 1px solid #efefef;border-top:none;border-collapse: collapse;}
+.comp_section table th{color:#000;}
+.comp_section table td{color:#666;}
+.comp_section table th:first-child,.comp_section table td:first-child{padding-left: .64rem;width:27%;text-align: left;}
+.comp_section table th:last-child,.comp_section table td:last-child{padding-right: .64rem;text-align: right;}
 
-.comp_section table td,.comp_section table th{height: 1.49rem;text-align: left;}
+.comp_section table td,.comp_section table th{height: 1.49rem;text-align: center;}
 .comp_section table td,.comp_section table th{width:23%}
 
-.comp_section .table3 table th:first-child,.comp_section .table3 table td:first-child{width:40%;}
-.comp_section .table3 table th:last-child,.comp_section .table3 table td:last-child{width:25%;}
-.comp_section .table3 table td,.comp_section .table3 table th{width:25%}
+.comp_section .table3 table th:first-child,.comp_section .table3 table td:first-child{width:30%;}
+.comp_section .table3 table th:last-child,.comp_section .table3 table td:last-child{width:30%;}
+.comp_section .table3 table td,.comp_section .table3 table th{width:30%}
 
-.comp_section .table5 table th:first-child,.comp_section .table5 table td:first-child{width:27%;}
-.comp_section .table5 table td,.comp_section .table5 table th{width:15%}
-.comp_section .table5 table th:last-child,.comp_section .table5 table td:last-child{width:18%;}
+.comp_section .table5 table th:first-child,.comp_section .table5 table td:first-child{width:25%;}
+.comp_section .table5 table td,.comp_section .table5 table th{width:17%}
+.comp_section .table5 table th:last-child,.comp_section .table5 table td:last-child{width:19%;}
 
-.line1{width: 100%;height: 8rem;}
+.line{width: 100%;height: 8rem;}
 .line_title{background: #f6f6f6;height: 1.70rem;font-size: 0.512rem;padding:0 .64rem;}
 .line_title p{display:inline-block;float: left;margin-right: .44rem;line-height: 1.70rem;color:#666666}
 .line_title p i{width:0.456rem;height: .412rem;display: inline-block;margin-right: .2rem;}
@@ -167,3 +171,64 @@
 .col2{background: #ffb415;}
 .col3{background: #ff8100;}
 .fr{float:right!important;}
+
+
+/*
+分享*/
+
+.fund_income {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    padding: .64rem 0;
+    background: #fff;
+}
+.echarts_details {
+    height: 300px;
+    width: 100%;
+    margin: 0 auto;
+}
+.fund_income .left {
+    flex: 1;
+    -webkit-flex: 1;
+    text-align: center;
+}
+.fund_income .p1 {
+    color: #999;
+    font-size: 0.59rem;
+}
+.fund_income .p2 {
+    font-size: 0.8533rem;
+}
+ .fund_income .line_left {
+    /*border-left: 1px solid #eee;*/
+    position: relative;
+}
+ .fund_income .right {
+    flex: 1;
+    -webkit-flex: 1;
+    text-align: center;
+}
+.textColor1 {
+    color: #010101!important;
+}
+.textColor2 {
+    color: #fe5a5b!important;
+}
+
+
+.marking{border-top:1px solid #e7e7e7;padding:.64rem;height: 1.1rem}
+.marking a{display: block;border: 1px solid #999;border-radius: 3px;font-size: .59rem;color:#999;padding:2px;float: left;margin-right: .3rem;}
+
+.bottom{background: #999;width:100%;position: fixed;bottom: 0;left:0;padding:.40rem 0;}
+.bottom .logo,.bottom .text{float:left;}
+.bottom .logo{background: #fff;width:1.5rem;height: 1.5rem;margin-right: .5rem;margin-left: .64rem;}
+.bottom .text .p1{font-size: .64rem;color:#fff;}
+.bottom .text .p2{font-size: .50rem;color:#fff;}
+.bottom a{display: block;float:right;background: #ff8780;color:#fff;font-size: .59rem;padding: .2rem;margin-right: .64rem;}
+
+.mb{margin-bottom: 2.5rem;}
+
