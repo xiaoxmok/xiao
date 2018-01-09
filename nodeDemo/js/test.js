@@ -5,10 +5,15 @@
 "use strict";
 
 
-for(var i=1;i<=5;i++){
-    (function(j){
-        setTimeout(function(){
-            console.log(j);
-        },j*1000);
-    })(i)
-}
+var obj = {
+    id:'awesome',
+    cool:function coolFn(){
+        console.log(this.id);
+    }
+};
+
+var id = 'not awesome';
+
+obj.cool();
+
+setTimeout(obj.cool,100);

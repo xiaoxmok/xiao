@@ -7,21 +7,19 @@
 <body>
 
 <script>
+    var obj = {
+        id:'awesome',
+        cool:function coolFn(){
+            console.log(this.o);
+        }
+    };
+    obj.o = 2;
+    var id = 'not awesome';
 
-    /*for(var i=0;i<2;i++){
-        console.log(i);
-        setTimeout(function(){
-            console.log(i);
-        },0);
-    }*/
-    var a=2;
-    (function IIFE(def){
-        def(window)
-    })(function def(global){
-        var a=3;
-        console.log(a);
-        console.log(global.a);
-    });
+    obj.cool.call(obj);
+    //console.log(obj.o);
+
+    //setTimeout(obj.cool,100);
 </script>
 </body>
 </html>

@@ -46,6 +46,7 @@
             },*/
             title: {
                 left: 'center',
+                top:10,
                 text: opts.title,
                 subtext:opts.subtext,
                 textStyle: {
@@ -66,6 +67,7 @@
                 y: 40,
                 x2: 30,
                 y2: 30,
+                top:50,
                 borderWidth: 1,
                 borderColor: "#f4f4f4"
 
@@ -79,13 +81,13 @@
                 axisLine: {
                     show: false,
                     lineStyle: {
-                        color: "#c0c0c0"
+                        color: "#999"
                     }
                 },
                 splitLine: {
                     show: false,
                     lineStyle: {
-                        color: "#c0c0c0"
+                        color: "#f1f1f1"
                     }
                 },
                 data: opts.date,
@@ -112,12 +114,12 @@
                 boundaryGap: [0, '100%'],
                 axisLine: {
                     lineStyle: {
-                        color: "#c0c0c0"
+                        color: "#f1f1f1"
                     }
                 },
                 splitLine: {
                     lineStyle: {
-                        color: "#c0c0c0"
+                        color: "#f1f1f1"
                     }
                 },
                 splitNumber: 3,

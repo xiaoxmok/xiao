@@ -202,6 +202,7 @@
 }
 .fund_income .p2 {
     font-size: 0.8533rem;
+    margin-top: .20rem;
 }
  .fund_income .line_left {
     /*border-left: 1px solid #eee;*/
@@ -220,15 +221,15 @@
 }
 
 
-.marking{border-top:1px solid #e7e7e7;padding:.64rem;height: 1.1rem}
-.marking a{display: block;border: 1px solid #999;border-radius: 3px;font-size: .59rem;color:#999;padding:2px;float: left;margin-right: .3rem;}
+.marking{border-top:1px solid #e7e7e7;padding:.27rem .64rem;height: 1.1rem}
+.marking a{display: block;border: 1px solid #999;border-radius: 3px;font-size: .554rem;color:#999;padding:2px 4px;float: left;margin-right: .5rem;}
 
-.bottom{background: #999;width:100%;position: fixed;bottom: 0;left:0;padding:.40rem 0;}
+.bottom{background: rgba(0,0,0,.6);width:100%;position: fixed;bottom: 0;left:0;padding:.29rem 0;}
 .bottom .logo,.bottom .text{float:left;}
-.bottom .logo{background: #fff;width:1.5rem;height: 1.5rem;margin-right: .5rem;margin-left: .64rem;}
-.bottom .text .p1{font-size: .64rem;color:#fff;}
-.bottom .text .p2{font-size: .50rem;color:#fff;}
-.bottom a{display: block;float:right;background: #ff8780;color:#fff;font-size: .59rem;padding: .2rem;margin-right: .64rem;}
+.bottom .logo{background: url(../img/logo.png) no-repeat;background-size:contain;width:1.53rem;height: 1.55rem;margin-right: .234rem;margin-left: .64rem;}
+.bottom .text .p1{font-size: .597rem;color:#fff;}
+.bottom .text .p2{font-size: .426rem;color:#fff;}
+.bottom a{display: block;float:right;background: #ff7e00;color:#fff;font-size: .554rem;margin-right: .64rem;height: 1.28rem;width: 3.41rem;line-height: 1.28rem;text-align: center;border-radius: 3px;margin-top: .136rem;}
 
 .mb{margin-bottom: 2.5rem;}
 
