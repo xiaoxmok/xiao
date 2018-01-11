@@ -7,14 +7,20 @@
 <body>
 
 <script>
-    function foo() {
-        var a = 2;
-        this.bar();
+    function foo(something) {
+        console.log(this.a, something);
+        return this.a + something;
     }
-    function bar() {
-        console.log(this.a);
-    }
-    foo();
+    var obj = {
+        a: 2
+    };
+    var bar = function (a) {
+        //return foo.apply(obj,arguments);
+        return foo.call(obj,a);
+    };
+
+    console.log(bar(333));
+
 </script>
 </body>
 </html>
