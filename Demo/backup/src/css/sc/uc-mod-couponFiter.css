@@ -1,0 +1,12 @@
+/**
+ * 网通商场 会员中心 买家中心 我的优惠劵 筛选
+ * @authors 谭子良
+ * @date    2014-07-21 13:55:25
+ * @version 1.0.0
+ */
+
+.coupFiter { width: 100%; padding: 10px 20px 0px 10px;}
+.coupFiter dl { width: 100%;}
+.coupFiter dt , .coupFiter dd { float: left; height: 25px; line-height: 25px; margin-bottom: 10px; margin-right: 10px; }
+.coupFiter dd { cursor: pointer; margin-right: 20px;}
+.coupFiter .checked { background: #1896e6; padding: 0px 10px; border-radius: 3px 3px 3px 3px; color: #fff; cursor: default;}

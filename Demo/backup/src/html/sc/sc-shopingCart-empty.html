@@ -1,0 +1,55 @@
+@@include('-html-header.html', { "title": "网通商场 购物车", "css": "sc/sc-shopingCart.css" })
+
+	<header class="header">
+		@@include('-pub-header-topbar.html')
+		@@include('-pub-header-logo.html')
+	</header>
+
+    <section class="wrap">
+
+		<!--购物车步骤进度指示条-->
+        <div class="shop-progress clearfix">
+            <ul>
+                <li class="now">
+                    <div class="point">1</div>
+                    <div class="tis">查看购物车</div>
+                </li>
+                <li class="arrow"><div class="on"></div></li>
+                <li class="sp2">
+                    <div class="point">2</div>
+                    <div class="tis">确认订单信息</div>
+                </li>
+                <li class="arrow"></li>
+                <li class="sp3">
+                    <div class="point">3</div>
+                    <div class="tis">付款</div>
+                </li>
+                <li class="arrow"></li>
+                <li class="sp4">
+                    <div class="point">4</div>
+                    <div class="tis">确认收货</div>
+                </li>
+                <li class="arrow"></li>
+                <li class="sp5">
+                    <div class="point">5</div>
+                    <div class="tis">评价</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 如果购物车是空的 -->
+        <div class="empty-cart box">
+            <div class="empty-cart-icon"></div>
+            <div class="empty-cart-info">
+                <h2>您的购物车还是空的呐！赶快去放满吧！</h2>
+                <p>马上去 <a href="#">商场逛逛</a> 马上去挑选喜欢的商品</p>
+            </div>
+        </div>
+
+    </section>
+    @@include('-pub-footer-recommend.html')
+	<footer class="footer">
+        @@include('-pub-footer.html')
+    </footer>
+    
+@@include('-html-footer.html', { "script": "sc/v/sc-shopingCart" })    

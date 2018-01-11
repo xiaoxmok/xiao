@@ -1,0 +1,108 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-safeguard.css");
+@import url("pub-footer.css");
+
+/**
+ * 网通商场 消费者保障专题
+ * @authors 谭子良
+ * @date    2014-05-21 16:46:46
+ * @version 1.0.0
+ */
+
+
+.wrap { width: 100%; min-width: 1000px; background:#fff url(../../img/sc/safeguard/x-wrap-bg.png) repeat; }
+.sub-wrap { width: 100%; min-width: 1000px; background:url(../../img/sc/safeguard/x-ad-bg.png) repeat-x; }
+.eara { width: 1000px; position: relative; margin: 0px auto;}
+
+/*
+	广告区
+*/
+.ad { width: 1000px; height: 370px; margin: 0px auto; }
+
+/*
+	导航
+*/
+.nav { height: 120px; overflow: hidden; position: absolute; top: 310px; left: 0px; padding-left: 60px;}
+.nav li { width: 120px; height: 120px; overflow: hidden; float: left; background:url(../../img/sc/safeguard/ico.png) no-repeat -240px 0px; margin-right: 13px; font-size: 20px; color:#1fa455; text-align: center; cursor: pointer; padding-top: 34px; line-height: 26px;}
+.nav li.hover { background:url(../../img/sc/safeguard/ico.png) no-repeat -120px 0px; color:#fff; }
+.nav li.current , .nav li.hover.current { background:url(../../img/sc/safeguard/ico.png) no-repeat 0px 0px; color: #fff; }
+
+/*
+	图标集
+*/
+.item-icon-1 { width: 50px; height: 50px; float: left; background:url(../../img/sc/safeguard/ico.png) no-repeat 0px -130px; text-indent: -9999px;}
+.item-icon-2 { width: 50px; height: 50px; float: left; background:url(../../img/sc/safeguard/ico.png) no-repeat -50px -130px; text-indent: -9999px;}
+.item-icon-3 { width: 50px; height: 50px; float: left; background:url(../../img/sc/safeguard/ico.png) no-repeat -100px -130px; text-indent: -9999px;}
+.item-icon-4 { width: 50px; height: 50px; float: left; background:url(../../img/sc/safeguard/ico.png) no-repeat -150px -130px; text-indent: -9999px;}
+.item-icon-5 { width: 50px; height: 50px; float: left; background:url(../../img/sc/safeguard/ico.png) no-repeat -200px -130px; text-indent: -9999px;}
+.item-icon-6 { width: 50px; height: 50px; float: left; background:url(../../img/sc/safeguard/ico.png) no-repeat -250px -130px; text-indent: -9999px;}
+.item-icon-m1 { width: 20px; height: 22px; margin: 0px 5px; display: inline-block; background:url(../../img/sc/safeguard/ico.png) no-repeat 0px -200px; text-indent: -9999px;}
+.item-icon-m2 { width: 20px; height: 22px; margin: 0px 5px; display: inline-block; background:url(../../img/sc/safeguard/ico.png) no-repeat -50px -200px; text-indent: -9999px;}
+.item-icon-m3 { width: 20px; height: 22px; margin: 0px 5px; display: inline-block; background:url(../../img/sc/safeguard/ico.png) no-repeat -100px -200px; text-indent: -9999px;}
+.item-icon-m4 { width: 20px; height: 22px; margin: 0px 5px; display: inline-block; background:url(../../img/sc/safeguard/ico.png) no-repeat -150px -200px; text-indent: -9999px;}
+.item-icon-m5 { width: 20px; height: 22px; margin: 0px 5px; display: inline-block; background:url(../../img/sc/safeguard/ico.png) no-repeat -200px -200px; text-indent: -9999px;}
+.item-icon-m6 { width: 20px; height: 22px; margin: 0px 5px; display: inline-block; background:url(../../img/sc/safeguard/ico.png) no-repeat -250px -200px; text-indent: -9999px;}
+.item-icon-s1 { width: 18px; height: 18px; margin: 0px 2px; display: inline-block; background:url(../../img/sc/safeguard/ico.png) no-repeat 0px -280px; text-indent: -9999px;}
+.item-icon-s2 { width: 18px; height: 18px; margin: 0px 2px; display: inline-block; background:url(../../img/sc/safeguard/ico.png) no-repeat -50px -280px; text-indent: -9999px;}
+.item-icon-s3 { width: 18px; height: 18px; margin: 0px 2px; display: inline-block; background:url(../../img/sc/safeguard/ico.png) no-repeat -100px -280px; text-indent: -9999px;}
+.item-icon-s4 { width: 18px; height: 18px; margin: 0px 2px; display: inline-block; background:url(../../img/sc/safeguard/ico.png) no-repeat -150px -280px; text-indent: -9999px;}
+.item-icon-s5 { width: 18px; height: 18px; margin: 0px 2px; display: inline-block; background:url(../../img/sc/safeguard/ico.png) no-repeat -200px -280px; text-indent: -9999px;}
+.item-icon-s6 { width: 18px; height: 18px; margin: 0px 2px; display: inline-block; background:url(../../img/sc/safeguard/ico.png) no-repeat -250px -280px; text-indent: -9999px;}
+
+/*
+	内容区
+*/
+.rel-content { width: 100%; padding-top: 100px;}
+
+/*
+	子分区
+*/
+.item { width: 1000px; margin-bottom: 20px; overflow: hidden; background:url(../../img/sc/safeguard/item-left-bg.png) no-repeat 23px 50px;}
+.item-box { width: 890px; overflow: hidden; float: right; position: relative; padding: 25px; background:url(../../img/sc/safeguard/item-box.png) repeat-y 0px 0px; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6;}
+.item-box h2 { width: 100%; overflow: hidden; font-size: 20px; margin-bottom: 10px; padding-left: 20px; color: #333; background:url(../../img/sc/safeguard/ico-arrow.png) no-repeat 0px 13px; font-weight: bold; line-height: 36px;}
+.item-box p { font-size: 14px; color: #666; margin-bottom: 35px; padding-left: 20px; line-height: 24px;}
+.index .item-box h2 { width: 350px; overflow: hidden; }
+.index .item-box p { width: 350px; overflow: hidden; margin-bottom: 32px;}
+.item-box h2 a { color: #35a; font-size: 14px; margin-left: 10px;}
+.item-box h2 a:hover { color: #f30;}
+
+/*
+	首页子区块专用
+*/
+.item-text { width: 370px; float: left;}
+.item-photo { width: 460px; float: right; margin-right: 25px;}
+.item-arrow { width: 32px; height: 32px; background:url(../../img/sc/safeguard/ico.png) no-repeat -200px -240px; position: absolute; left: 46px; bottom: 20px; display: none;}
+
+/*
+	鼠标划过样式改变 显示跳转图标
+*/
+.item.hover .item-arrow { display: block;}
+.item.hover .item-box {  background:url(../../img/sc/safeguard/item-box.png) repeat-y -1000px 0px; cursor: pointer;}
+
+/*
+	维权流程
+*/
+.step { padding-left:20px; margin:15px auto 40px auto; overflow: hidden; *zome:1;}
+.step ul li { float: left; width: 180px; height: 44px; padding: 18px 5px 18px 25px; font-size: 14px; background:#f5f5f5; color: #666; }
+.step ul li.step1 { border-top: 4px solid #e57373; border-right: 1px solid #e6e6e6; border-radius: 0px 0px 0px 10px; }
+.step ul li.step2 { border-top: 4px solid #66ccc7; border-right: 1px solid #e6e6e6; }
+.step ul li.step3 { border-top: 4px solid #fca67e; border-right: 1px solid #e6e6e6; }
+.step ul li.step4 { border-top: 4px solid #9a7acc; border-radius: 0px 0px 10px 0px; }
+.step ul li i { width: 35px; height: 35px; overflow: hidden; float: left; text-indent: -9999px; margin-top: 7px;}
+.step ul li.step1 i { background:url(../../img/sc/safeguard/ico.png) repeat-y 0px -240px;}
+.step ul li.step2 i { background:url(../../img/sc/safeguard/ico.png) repeat-y -50px -240px;}
+.step ul li.step3 i { background:url(../../img/sc/safeguard/ico.png) repeat-y -100px -240px;}
+.step ul li.step4 i { background:url(../../img/sc/safeguard/ico.png) repeat-y -150px -240px;}
+.step ul li span { line-height: 44px; float: left; white-space: nowrap;}
+.step ul li span.line2 { line-height: 22px;}
+
+/*
+	摘要说明
+*/
+.summary { margin: 15px 0px 25px 20px;}
+.summary li { font-size: 14px; color: #666; line-height: 24px;}
+
+

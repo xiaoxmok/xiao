@@ -1,0 +1,236 @@
+@@include('-html-header.html', { "title": "网通商场 会员中心 买家中心 评价管理 来自卖家的评价", "css": "sc/uc-buy-appraiseAdmin-back.css","bodyclass":"" })
+<header class="header">
+    @@include('-pub-header-topbar.html') 
+    @@include('-pub-header-ucenter.html')
+</header>
+<div class="uc-mod-wrap noBg">
+    <section class="container">
+        <!--左侧栏-->
+        <div class="uc-mod-leftWrap">
+            <div class="uc-mod-sideMenu">
+                @@include('-uc-mod-buy-sideMenu.html')
+            </div>
+        </div>
+        <div class="uc-mod-rightWrap">
+            <!--右侧内容区-->
+            <div class="uc-mod-conter">
+                <div class="clearfix">
+                    <!-- 页面标题 start -->
+                    <div class="uc-mod-page-curMarkBar">
+                        <h2>评价管理</h2>
+                        <aside>
+                        	有<em>10</em>个商品需要您的评价，您共收到<em>5</em>条卖家的评价
+                        </aside>
+                        <a href="#" class="faqRule">评价规则</a>
+                    </div>
+                    <!-- 页面标题 end -->
+                    <!-- 累积信用表 start -->
+                    <div class="buyerCredit">
+                    	<h3>买家累积信用：<em>139</em></h3>
+                    	<table width="100%" cellpadding="0" cellspacing="0" class="ui-border-table">
+                    		<thead>
+                    			<tr>
+                    				<th>评价类型</th>
+	                    			<th>最近一周</th>
+	                    			<th>最近一月</th>
+	                    			<th>最近六月</th>
+	                    			<th>合计</th>
+                    			</tr>
+                    		</thead>
+                    		<tbody>
+                    			<tr>
+	                    			<td><b class="level-well">好评</b></td>
+	                    			<td>50</td>
+	                    			<td>200</td>
+	                    			<td>5000</td>
+	                    			<td>5250</td>
+	                    		</tr>
+	                    		<tr>
+	                    			<td><b class="level-middle">中评</b></td>
+	                    			<td>5</td>
+	                    			<td>10</td>
+	                    			<td>20</td>
+	                    			<td>35</td>
+	                    		</tr>
+	                    		<tr>
+	                    			<td><b class="level-poor">差评</b></td>
+	                    			<td>0</td>
+	                    			<td>0</td>
+	                    			<td>2</td>
+	                    			<td>2</td>
+	                    		</tr>
+                    		</tbody>
+                    	</table>
+                    </div>
+                    <!-- 累积信用表 end -->
+                    <!-- 评价列表 start -->
+                    <div class="appraiseList clearfix">
+                    	<div class="listTab">
+	                    	<ul>
+	                    		<li class="current">来自卖家的评价</li>
+	                    		<li>给卖家的评价</li>
+	                    	</ul>
+                    	</div>
+                    	<div class="listCont">
+	                    	<table width="100%" cellpadding="0" cellspacing="0">
+	                    		<thead>
+	                    			<tr>
+	                    				<th width="10%" style="text-align: center;">
+	                    					<select name="" id="">
+	                    						<option value="">评价</option>
+			                    				<option value="">好评</option>
+			                    				<option value="">中评</option>
+			                    				<option value="">差评</option>
+			                    			</select>
+	                    				</th>
+	                    				<th width="35%">评价内容</th>
+	                    				<th width="12%">评价人</th>
+	                    				<th width="33%">商品信息</th>
+	                    				<th width="10%">操作</th>
+	                    			</tr>
+	                    		</thead>
+	                    		<tbody>
+	                    			<tr>
+	                    				<td><b class="level-well">好评</b></td>
+	                    				<td>
+	                    					<p>卖家好不厚道，叫他送打底裤说没有的送。</p>
+	                    					<h6>2013-10-31  10:10</h6>
+	                    					<div class="appraiseReply">
+	                    						<p>卖家好不厚道，叫他送打底裤说没有的送，别人买一件也有的送。虽然购买过程中有些波折。但东东还是不错的，唯一的问题是阻力绳短了，但是给重新寄了一对。</p>
+	                    						<h6>2013-10-31  10:10</h6>
+	                    					</div>
+	                    				</td>
+	                    				<td>
+	                    					<p>受不起你的海誓山盟</p>
+	                    					<p class="userLevel"><i>用户等级</i></p>
+	                    				</td>
+	                    				<td>
+	                    					<p><a href="#">包邮！小宅女*2013秋冬装新款女装韩版可爱极了 耳朵加厚长款卫衣</a></p>
+	                    					<p class="proPrice"><em>¥</em><b>29.9</b></p>
+	                    				</td>
+	                    				<td>
+	                    					<p><a href="#">修改评论</a></p>
+	                    					<p><a href="#">追加评论</a></p>
+	                    				</td>
+	                    			</tr>
+	                    			<tr>
+	                    				<td><b class="level-middle">中评</b></td>
+	                    				<td>
+	                    					<p>卖家好不厚道，叫他送打底裤说没有的送，别人买一件也有的送。虽然购买过程中有些波折。但东东还是不错的，唯一的问题是阻力绳短了，但是给重新寄了一对。</p>
+	                    					<h6>2013-10-31  10:10</h6>
+	                    				</td>
+	                    				<td>
+	                    					<p>受不起你的海誓山盟</p>
+	                    					<p class="userLevel"><i>用户等级</i></p>
+	                    				</td>
+	                    				<td>
+	                    					<p><a href="#">包邮！小宅女*2013秋冬装新款女装韩版可爱极了 耳朵加厚长款卫衣</a></p>
+	                    					<p class="proPrice"><em>¥</em><b>29.9</b></p>
+	                    				</td>
+	                    				<td>
+	                    					<p><a href="#">修改评论</a></p>
+	                    					<p><a href="#">追加评论</a></p>
+	                    				</td>
+	                    			</tr>
+	                    			<tr>
+	                    				<td><b class="level-poor">中评</b></td>
+	                    				<td>
+	                    					<p>卖家好不厚道，叫他送打底裤说没有的送，别人买一件也有的送。虽然购买过程中有些波折。但东东还是不错的，唯一的问题是阻力绳短了，但是给重新寄了一对。</p>
+	                    					<h6>2013-10-31  10:10</h6>
+	                    				</td>
+	                    				<td>
+	                    					<p>受不起你的海誓山盟</p>
+	                    					<p class="userLevel"><i>用户等级</i></p>
+	                    				</td>
+	                    				<td>
+	                    					<p><a href="#">包邮！小宅女*2013秋冬装新款女装韩版可爱极了 耳朵加厚长款卫衣</a></p>
+	                    					<p class="proPrice"><em>¥</em><b>29.9</b></p>
+	                    				</td>
+	                    				<td>
+	                    					<p><a href="#">修改评论</a></p>
+	                    					<p><a href="#">追加评论</a></p>
+	                    				</td>
+	                    			</tr>
+	                    			<tr>
+	                    				<td><b class="level-well">好评</b></td>
+	                    				<td>
+	                    					<p>卖家好不厚道，叫他送打底裤说没有的送</p>
+	                    					<h6>2013-10-31  10:10</h6>
+	                    					<div class="appraiseReply">
+	                    						<p>卖家好不厚道，叫他送打底裤说没有的送，别人买一件也有的送。虽然购买过程中有些波折。但东东还是不错的，唯一的问题是阻力绳短了，但是给重新寄了一对。</p>
+	                    						<h6>2013-10-31  10:10</h6>
+	                    					</div>
+	                    				</td>
+	                    				<td>
+	                    					<p>受不起你的海誓山盟</p>
+	                    					<p class="userLevel"><i>用户等级</i></p>
+	                    				</td>
+	                    				<td>
+	                    					<p><a href="#">包邮！小宅女*2013秋冬装新款女装韩版可爱极了 耳朵加厚长款卫衣</a></p>
+	                    					<p class="proPrice"><em>¥</em><b>29.9</b></p>
+	                    				</td>
+	                    				<td>
+	                    					<p><a href="#">修改评论</a></p>
+	                    					<p><a href="#">追加评论</a></p>
+	                    				</td>
+	                    			</tr>
+	                    			<tr>
+	                    				<td><b class="level-middle">中评</b></td>
+	                    				<td>
+	                    					<p>卖家好不厚道，叫他送打底裤说没有的送，别人买一件也有的送。虽然购买过程中有些波折。但东东还是不错的，唯一的问题是阻力绳短了，但是给重新寄了一对。</p>
+	                    					<h6>2013-10-31  10:10</h6>
+	                    				</td>
+	                    				<td>
+	                    					<p>受不起你的海誓山盟</p>
+	                    					<p class="userLevel"><i>用户等级</i></p>
+	                    				</td>
+	                    				<td>
+	                    					<p><a href="#">包邮！小宅女*2013秋冬装新款女装韩版可爱极了 耳朵加厚长款卫衣</a></p>
+	                    					<p class="proPrice"><em>¥</em><b>29.9</b></p>
+	                    				</td>
+	                    				<td>
+	                    					<p><a href="#">修改评论</a></p>
+	                    					<p><a href="#">追加评论</a></p>
+	                    				</td>
+	                    			</tr>
+	                    			<tr>
+	                    				<td><b class="level-poor">中评</b></td>
+	                    				<td>
+	                    					<p>卖家好不厚道，叫他送打底裤说没有的送，别人买一件也有的送。虽然购买过程中有些波折。但东东还是不错的，唯一的问题是阻力绳短了，但是给重新寄了一对。</p>
+	                    					<h6>2013-10-31  10:10</h6>
+	                    				</td>
+	                    				<td>
+	                    					<p>受不起你的海誓山盟</p>
+	                    					<p class="userLevel"><i>用户等级</i></p>
+	                    				</td>
+	                    				<td>
+	                    					<p><a href="#">包邮！小宅女*2013秋冬装新款女装韩版可爱极了 耳朵加厚长款卫衣</a></p>
+	                    					<p class="proPrice"><em>¥</em><b>29.9</b></p>
+	                    				</td>
+	                    				<td>
+	                    					<p><a href="#">修改评论</a></p>
+	                    					<p><a href="#">追加评论</a></p>
+	                    				</td>
+	                    			</tr>
+	                    		</tbody>
+	                    		<tfoot>
+	                    			<tr>
+	                    				<td colspan="5">
+	                    					@@include('-uc-mod-footPagesBar-noOpts.html')
+	                    				</td>
+	                    			</tr>
+	                    		</tfoot>
+	                    	</table>
+	                    </div>
+                    </div>
+                    <!-- 评价列表 end -->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<footer class="footer full-border">
+    @@include('-pub-footer-blogroll.html') 
+    @@include('-pub-footer.html')
+</footer>
+@@include('-html-footer.html',{"script": "sc/v/uc-buy-appraiseAdmin-back"})

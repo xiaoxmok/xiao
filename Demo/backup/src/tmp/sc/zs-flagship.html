@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<!--[if lte IE 6 ]>	<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7 ]>		<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8 ]>		<html class="lt-ie9"> <![endif]-->
+<!--[if IE 9 ]>		<html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>开店流程-旗舰店</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="http://fe.wt.com/css/sc/zs-manual.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="http://fe.wt.com/js/public/html5shiv.min.js"></script><![endif]-->
+</head>
+
+<body class="zs zs-qjd">
+    <header class="header">
+        <!-- 
+	name: 		页头 顶部工具栏
+	dependency: pub-header-topbar.css
+ -->
+        <div class="topbar">
+            <div class="container">
+                <div class="ui-grid fs12 fm-s">
+                    <div class="col-9-24 welcome">
+                        您好，
+                        <span class="anonymous">欢迎来网通商场！请
+                            <a href="#">[登录]</a>
+                            <a href="#" class="color-default lnk-reg">[免费注册]</a>
+                        </span>
+                        <span class="logined">
+                            <var class="color-highlight">我和我的小伙伴</var>[273377] ！
+                            <a href="#" class="color-default">[退出]</a>
+                        </span>
+                    </div>
+                    <div class="col-15-24">
+                        <ul class="ta-r topnav">
+                            <li>
+                                <a class="topnav-lnk" target="_blank" href="http://www.ewt.cc/">网通首页</a>
+                                <span class="cut-line">|</span>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" href="javascript:;">我是买家
+                                    <span class="triangle-b"></span>
+                                </a>
+                                <span class="cut-line">|</span>
+                                <div class="topnav-sub">
+                                    <a target="_blank" href="#">我是买家</a>
+                                    <a target="_blank" href="#">我是买家</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" href="javascript:;">我是卖家
+                                    <span class="triangle-b"></span>
+                                </a>
+                                <span class="cut-line">|</span>
+                                <div class="topnav-sub">
+                                    <a target="_blank" href="#">我是卖家</a>
+                                    <a target="_blank" href="#">我是卖家</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" target="_blank" href="#">购物车[
+                                    <var class="color-highlight">0</var>]</a>
+                                <span class="cut-line">|</span>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" href="javascript:;">收藏夹
+                                    <span class="triangle-b"></span>
+                                </a>
+                                <span class="cut-line">|</span>
+                                <div class="topnav-sub">
+                                    <a target="_blank" href="#">我的收藏夹</a>
+                                    <a target="_blank" href="#">我的收藏夹</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" target="_blank" href="http://zz.ewt.cc/help/content/1e591403ff232de0f0f139ac51d99295/">客服中心</a>
+                                <span class="cut-line">|</span>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" target="_blank" href="#">帮助中心</a>
+                                <span class="cut-line">|</span>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" href="javascript:;">一号通
+                                    <span class="triangle-b"></span>
+                                </a>
+                                <div class="topnav-sub">
+                                    <a target="_blank" href="http://zz.ewt.cc">网通智造</a>
+                                    <a target="_blank" href="http://sc.ewt.cc">网通商场</a>
+                                    <a target="_blank" href="http://bh.ewt.cc">网通百货</a>
+                                    <a target="_blank" href="http://im.ewt.cc">网通IM</a>
+                                    <a target="_blank" href="http://www.ewtpay.com">网通宝</a>
+                                    <a target="_blank" href="http://wl.ewt.cc">网通物流</a>
+                                    <a target="_blank" href="http://rj.ewt.cc">网通软件</a>
+                                    <a target="_blank" href="http://wd.ewt.cc/">网通网贷</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 
+	name: 		页头 只有logo
+	dependency: pub-header-logo.css
+ -->
+        <div class="logo-section">
+            <div class="container">
+                <div class="ui-grid fs12 fm-s">
+                    <div class="col-9-24 mt10">
+                        <h1 class="logo">
+                            <a href="http://www.ewt.cc" class="lnk-ewt">
+                                <img src="http://fe.wt.com/img/public/logo/177x51.gif" alt="">
+                            </a>
+                            <a href="http://sc.ewt.cc" class="lnk-sc">商场</a>
+                            <a href="http://sc.ewt.cc" class="lnk-sc-zs">
+                                <img src="http://fe.wt.com/img/public/logo/sc_zs.gif" alt="">
+                            </a>
+                            <img class="sc-zs-sub sc-zs-zmd" src="http://fe.wt.com/img/public/logo/sc_zs_zmd.gif">
+                            <img class="sc-zs-sub sc-zs-qjd" src="http://fe.wt.com/img/public/logo/sc_zs_qjd.gif">
+                            <img class="sc-zs-sub sc-zs-zyd" src="http://fe.wt.com/img/public/logo/sc_zs_zyd.gif">
+
+                        </h1>
+                    </div>
+                    <div class="col-15-24"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="content container">
+
+        <!-- 基本说明 -->
+        <div class="ui-box basic-info">
+            <div class="ui-box-left">
+                开店须知几点
+            </div>
+            <div class="ui-box-right">
+                <p>
+                    1. 网通商场暂未授权任何机构进行代理招商服务，开店申请流程及相关的收费说明均以官方招商页面为准。
+                    <br>2. 网通商场有权根据包括但不仅限于品牌需求、公司经营状况、服务水平等其他因素退回客户申请；同时.网通商场有权在申请开店及后续经营阶段要求客户提供其他资质；网通商场将结合各行业发展动态、国家相关规定及消费者购买需求，不定期更新招商标准。
+                    <br>3. 请确保您申请开店及后续经营阶段提供的相关资质的真实性（若您提供的相关资质为第三方提供，如商标注册证、授权书等，请先行核实文件的真实有效性），一旦发现虚假资质，您的公司将被列入非诚信客户名单，.网通商场将不再与您进行合作。
+                    <br>4. 网通商场暂不接受非中国大陆企业的开店申请
+                </p>
+            </div>
+        </div>
+        <!-- 个人店铺资质 -->
+        <div class="ui-box">
+            <div class="ui-box-hd">个人店铺资质</div>
+            <div class="ui-box-bd">
+                <h3>申请开店条件</h3>
+                <p>有基本企业资质或个人资质的商户在网通商场开设的店铺。个人店有以下几种类型：</p>
+                <p>1. 通过基本企业资质审核的商户开设的个人店；</p>
+                <p>2. 通过严格个人资质审核的商户开设的个人店；</p>
+                <p>每个人最多只能申请一家个人店。目前个人店可免费开店。</p>
+                <h3 class="gap">开店需要准备的材料</h3>
+                <p>申请个人店需提供身份证正反面照片</p>
+            </div>
+        </div>
+        <!-- 特殊产品所需材料 -->
+        <div class="ui-box tabs">
+            <div class="ui-box-hd">特殊产品所需材料</div>
+            <div class="ui-box-left">
+                <h3>特殊商品类目</h3>
+                <ul class="ui-menu-vertical">
+                    <li class="ui-mv-item ui-mv-active tab-title">
+                        <a href="javascript:;">化妆品</a>
+                    </li>
+                    <li class="ui-mv-item tab-title">
+                        <a href="javascript:;">进口化妆品</a>
+                    </li>
+                    <li class="ui-mv-item tab-title">
+                        <a href="javascript:;">食品</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="ui-box-right">
+                <div class="tab-cnt">
+                    <h3>化妆品商家资质</h3>
+                    <p>1.《食品卫生许可证》或《食品流通许可证》复印件</p>
+                    <p>2.《食品生产许可证》复印件</p>
+                    <p>4.如系酒类销售还须提供《酒类零售许可证》或《酒类流通备案登记表》复印件</p>
+                    <p>3.如系进口食品还须商品出入境检验检疫合格证明、《卫生证书》复印件以及报关单</p>
+                    <p>5.如系蔬果、生鲜商品还须提供产地证明及卫生检疫合格证明复印件</p>
+                </div>
+                <div class="tab-cnt">
+                    <h3>进口化妆品商家资质</h3>
+                    <p>1.《食品卫生许可证》或《食品流通许可证》复印件</p>
+                    <p>2.《食品生产许可证》复印件</p>
+                    <p>4.如系酒类销售还须提供《酒类零售许可证》或《酒类流通备案登记表》复印件</p>
+                    <p>3.如系进口食品还须商品出入境检验检疫合格证明、《卫生证书》复印件以及报关单</p>
+                    <p>5.如系蔬果、生鲜商品还须提供产地证明及卫生检疫合格证明复印件</p>
+                </div>
+                <div class="tab-cnt">
+                    <h3>食品商家资质</h3>
+                    <p>1.《食品卫生许可证》或《食品流通许可证》复印件</p>
+                    <p>2.《食品生产许可证》复印件</p>
+                    <p>4.如系酒类销售还须提供《酒类零售许可证》或《酒类流通备案登记表》复印件</p>
+                    <p>3.如系进口食品还须商品出入境检验检疫合格证明、《卫生证书》复印件以及报关单</p>
+                    <p>5.如系蔬果、生鲜商品还须提供产地证明及卫生检疫合格证明复印件</p>
+                </div>
+            </div>
+        </div>
+        <!-- 保证金与资费组成 -->
+        <div class="ui-box box-tariff">
+            <div class="ui-box-hd">保证金与资费组成</div>
+            <div class="ui-box-bd">
+                <div class="item item-1">
+                    <span class="img"></span>
+                    企业商家开店网通商场必须交纳保证金，保证金主要用于保证商家按照网通商场的规范进行经营，并且在商家有违规行为时根据《网通商场服务协议》及相关规则规定用于向消费者支付违约金。保证金根据店铺性质及商标状态不同,具体见下。
+                </div>
+                <div class="item item-2">
+                    <span class="img"></span>
+                    永久免费
+                </div>
+                <div class="item item-3">
+                    <span class="img"></span>
+                    商家在网通商场经营需要按照其销售额（不包含运费）的一定百分比(简称“费率”)交纳平台使用佣金。网通商场各类目佣金费率标准详见《网通商场2013年度各类目佣金费率一览表》。
+                </div>
+            </div>
+        </div>
+        <!-- 商品交易佣金 -->
+        <div class="ui-box tabs">
+            <div class="ui-box-hd">商品交易佣金</div>
+            <div class="ui-box-left">
+                <h3>经营商品大类</h3>
+                <ul class="ui-menu-vertical">
+                    <li class="ui-mv-item ui-mv-active">
+                        <a href="javascript:;">服装鞋包</a>
+                    </li>
+                    <li class="ui-mv-item">
+                        <a href="javascript:;">美妆饰品</a>
+                    </li>
+                    <li class="ui-mv-item">
+                        <a href="javascript:;">户外运动</a>
+                    </li>
+                    <li class="ui-mv-item">
+                        <a href="javascript:;">数码办公</a>
+                    </li>
+                    <li class="ui-mv-item">
+                        <a href="javascript:;">家用电器</a>
+                    </li>
+                    <li class="ui-mv-item">
+                        <a href="javascript:;">家居建材</a>
+                    </li>
+                    <li class="ui-mv-item">
+                        <a href="javascript:;">汽车用品</a>
+                    </li>
+                    <li class="ui-mv-item">
+                        <a href="javascript:;">百货食品</a>
+                    </li>
+                    <li class="ui-mv-item">
+                        <a href="javascript:;">母婴用品</a>
+                    </li>
+                    <li class="ui-mv-item">
+                        <a href="javascript:;">文化玩乐</a>
+                    </li>
+                    <li class="ui-mv-item">
+                        <a href="javascript:;">生活服务</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="ui-box-right">
+                <div class="tab-cnt">
+                    <h3>服装鞋包类商品交易佣金</h3>
+                    <table class="ui-border-table">
+                        <thead>
+                            <tr>
+                                <th>二级类目</th>
+                                <th>佣金费率</th>
+                                <th>三级类目</th>
+                                <th>佣金费率</th>
+                                <th>四级类目</th>
+                                <th>佣金费率</th>
+                                <th>技术服务费</th>
+                                <th>保证金(元)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="4">女装</td>
+                                <td rowspan="4">5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td rowspan="4">0.00</td>
+                                <td rowspan="4">25000.00</td>
+                            </tr>
+                            <tr>
+                                <td>丝绸</td>
+                                <td>1%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">裙子</td>
+                                <td rowspan="2">2%</td>
+                                <td>连衣裙</td>
+                                <td>2%</td>
+                            </tr>
+                            <tr>
+                                <td>短裙</td>
+                                <td>2%</td>
+                            </tr>
+                            <tr>
+                                <td>女装</td>
+                                <td>5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>0.00</td>
+                                <td>25000.00</td>
+                            </tr>
+                            <tr>
+                                <td>女装</td>
+                                <td>5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>0.00</td>
+                                <td>25000.00</td>
+                            </tr>
+                            <tr>
+                                <td>女装</td>
+                                <td>5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>0.00</td>
+                                <td>25000.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="bt-tips">
+                        说明：
+                        <br>由于类目划分较细，子类目仅列出与上一级类目扣点或固定年费不同的类目.
+                        <br>交易佣金=销售额(不含运费)*费率
+                    </div>
+                </div>
+                <div class="tab-cnt">
+                    <h3>美妆饰品类商品交易佣金</h3>
+                    <table class="ui-border-table">
+                        <thead>
+                            <tr>
+                                <th>二级类目</th>
+                                <th>佣金费率</th>
+                                <th>三级类目</th>
+                                <th>佣金费率</th>
+                                <th>四级类目</th>
+                                <th>佣金费率</th>
+                                <th>技术服务费</th>
+                                <th>保证金(元)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="4">女装</td>
+                                <td rowspan="4">5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td rowspan="4">0.00</td>
+                                <td rowspan="4">25000.00</td>
+                            </tr>
+                            <tr>
+                                <td>丝绸</td>
+                                <td>1%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">裙子</td>
+                                <td rowspan="2">2%</td>
+                                <td>连衣裙</td>
+                                <td>2%</td>
+                            </tr>
+                            <tr>
+                                <td>短裙</td>
+                                <td>2%</td>
+                            </tr>
+                            <tr>
+                                <td>女装</td>
+                                <td>5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>0.00</td>
+                                <td>25000.00</td>
+                            </tr>
+                            <tr>
+                                <td>女装</td>
+                                <td>5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>0.00</td>
+                                <td>25000.00</td>
+                            </tr>
+                            <tr>
+                                <td>女装</td>
+                                <td>5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>0.00</td>
+                                <td>25000.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="bt-tips">
+                        说明：
+                        <br>由于类目划分较细，子类目仅列出与上一级类目扣点或固定年费不同的类目.
+                        <br>交易佣金=销售额(不含运费)*费率
+                    </div>
+                </div>
+                <div class="tab-cnt">
+                    <h3>户外运动类商品交易佣金</h3>
+                    <table class="ui-border-table">
+                        <thead>
+                            <tr>
+                                <th>二级类目</th>
+                                <th>佣金费率</th>
+                                <th>三级类目</th>
+                                <th>佣金费率</th>
+                                <th>四级类目</th>
+                                <th>佣金费率</th>
+                                <th>技术服务费</th>
+                                <th>保证金(元)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="4">女装</td>
+                                <td rowspan="4">5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td rowspan="4">0.00</td>
+                                <td rowspan="4">25000.00</td>
+                            </tr>
+                            <tr>
+                                <td>丝绸</td>
+                                <td>1%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">裙子</td>
+                                <td rowspan="2">2%</td>
+                                <td>连衣裙</td>
+                                <td>2%</td>
+                            </tr>
+                            <tr>
+                                <td>短裙</td>
+                                <td>2%</td>
+                            </tr>
+                            <tr>
+                                <td>女装</td>
+                                <td>5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>0.00</td>
+                                <td>25000.00</td>
+                            </tr>
+                            <tr>
+                                <td>女装</td>
+                                <td>5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>0.00</td>
+                                <td>25000.00</td>
+                            </tr>
+                            <tr>
+                                <td>女装</td>
+                                <td>5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>0.00</td>
+                                <td>25000.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="bt-tips">
+                        说明：
+                        <br>由于类目划分较细，子类目仅列出与上一级类目扣点或固定年费不同的类目.
+                        <br>交易佣金=销售额(不含运费)*费率
+                    </div>
+                </div>
+                <div class="tab-cnt">
+                    <h3>数码办公类商品交易佣金</h3>
+                    <table class="ui-border-table">
+                        <thead>
+                            <tr>
+                                <th>二级类目</th>
+                                <th>佣金费率</th>
+                                <th>三级类目</th>
+                                <th>佣金费率</th>
+                                <th>四级类目</th>
+                                <th>佣金费率</th>
+                                <th>技术服务费</th>
+                                <th>保证金(元)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="4">女装</td>
+                                <td rowspan="4">5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td rowspan="4">0.00</td>
+                                <td rowspan="4">25000.00</td>
+                            </tr>
+                            <tr>
+                                <td>丝绸</td>
+                                <td>1%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">裙子</td>
+                                <td rowspan="2">2%</td>
+                                <td>连衣裙</td>
+                                <td>2%</td>
+                            </tr>
+                            <tr>
+                                <td>短裙</td>
+                                <td>2%</td>
+                            </tr>
+                            <tr>
+                                <td>女装</td>
+                                <td>5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>0.00</td>
+                                <td>25000.00</td>
+                            </tr>
+                            <tr>
+                                <td>女装</td>
+                                <td>5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>0.00</td>
+                                <td>25000.00</td>
+                            </tr>
+                            <tr>
+                                <td>女装</td>
+                                <td>5%</td>
+                                <td>皮草</td>
+                                <td>10%</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>0.00</td>
+                                <td>25000.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="bt-tips">
+                        说明：
+                        <br>由于类目划分较细，子类目仅列出与上一级类目扣点或固定年费不同的类目.
+                        <br>交易佣金=销售额(不含运费)*费率
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 开店常见问题 -->
+        <div class="lnk-more">
+            <a href="#">开店常见问题&gt;&gt;</a>
+        </div>
+    </section>
+    <footer class="footer">
+        <!-- 
+	name: 		商场-页尾-sitemap
+	dependency: pub-footer.css
+ -->
+        <div class="sitemap">
+            <div class="container">
+                <div class="ui-grid">
+                    <div class="col-4-24">
+                        <dl>
+                            <dt>账户管理</dt>
+                            <dd>
+                                <a href="#">注册与登录</a>
+                            </dd>
+                            <dd>
+                                <a href="#">创建网通宝账户</a>
+                            </dd>
+                            <dd>
+                                <a href="#">网通宝认证</a>
+                            </dd>
+                            <dd>
+                                <a href="#">账号绑定</a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-4-24">
+                        <dl>
+                            <dt>买家帮助</dt>
+                            <dd>
+                                <a href="#">找商家</a>
+                            </dd>
+                            <dd>
+                                <a href="#">购买流程</a>
+                            </dd>
+                            <dd>
+                                <a href="#">如何购买</a>
+                            </dd>
+                            <dd>
+                                <a href="#">收货与评价</a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-4-24">
+                        <dl>
+                            <dt>卖家帮助</dt>
+                            <dd>
+                                <a href="#">开店与店铺管理</a>
+                            </dd>
+                            <dd>
+                                <a href="#">商品发布和管理</a>
+                            </dd>
+                            <dd>
+                                <a href="#">卖家发货</a>
+                            </dd>
+                            <dd>
+                                <a href="#">交易评价</a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-4-24">
+                        <dl>
+                            <dt>关于支付</dt>
+                            <dd>
+                                <a href="#">网通笔支付</a>
+                            </dd>
+                            <dd>
+                                <a href="#">货到付款</a>
+                            </dd>
+                            <dd>
+                                <a href="#">网上支付</a>
+                            </dd>
+                            <dd>
+                                <a href="#">银行转账</a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-4-24">
+                        <dl>
+                            <dt>售后服务</dt>
+                            <dd>
+                                <a href="#">退换货原则</a>
+                            </dd>
+                            <dd>
+                                <a href="#">退换货流程</a>
+                            </dd>
+                            <dd>
+                                <a href="#">发票制度说明</a>
+                            </dd>
+                            <dd>
+                                <a href="#">服务保障承诺</a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-4-24">
+                        <dl>
+                            <dt>客户优惠</dt>
+                            <dd>
+                                <a href="#">网通金币</a>
+                            </dd>
+                            <dd>
+                                <a href="#">优惠政策</a>
+                            </dd>
+                            <dd>
+                                <a href="#">团购抢购信息</a>
+                            </dd>
+                            <dd>
+                                <a href="#">商场优惠券</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 
+	name: 		商场-页尾-关注
+	dependency: pub-footer-attention.css
+ -->
+
+        <div class="wrap-atten">
+            <div class="container">
+                <div class="ui-grid">
+                    <div class="col-8-24">
+                        <div class="wrap-atten-inner item-1">
+                            <div class="col-left ico-code_60x60"></div>
+                            <div class="col-right">
+                                <strong>商场官方微博</strong>
+                                <p>扫描二维码，即刻与网通商场亲密
+                                    <br>互动，还有劲爆优惠等你来拿！</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8-24">
+                        <div class="wrap-atten-inner item-2">
+                            <div class="col-left ico-mail_60x60"></div>
+                            <div class="col-right">
+                                <strong>商场邮件订阅</strong>
+                                <p>第一手促销资讯，尊享邮件
+                                    <br>特惠商品，优惠不错过！</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8-24">
+                        <div class="wrap-atten-inner item-3">
+                            <p>
+                                <span class="ico-sina_24x24"></span>
+                                <span class="txt">新浪微博</span>
+                                <a href="javascript:;" class="ui-btn ui-btn-s3">立即关注</a>
+                            </p>
+                            <p class="mt10">
+                                <span class="ico-tencent_32x32"></span>
+                                <span class="txt">腾讯微博</span>
+                                <a href="javascript:;" class="ui-btn ui-btn-s3">立即关注</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 
+	name: 		商场-页尾-友情链接
+	dependency: pub-footer.css
+ -->
+        <div class="blogroll">
+            <div class="container">
+                <strong>友情链接：</strong>
+                <a href="#">顺丰快递查询</a>|
+                <a href="#">星期八团游网</a>|
+                <a href="#">爱去游</a>|
+                <a href="#">赛车服</a>|
+                <a href="#">麦包包</a>|
+                <a href="#">乐蜂网</a>|
+                <a href="#">蘑菇街</a>|
+                <a href="#">美团网</a>|
+                <a href="#">红孩子</a>
+            </div>
+        </div>
+        <!-- 
+	name: 		商场-公共页尾
+	contain: 	快捷导航、copyright、认证链接
+	dependency: pub-footer.css
+ -->
+        <div class="footer-basic">
+            <div class="container">
+                <div class="ft-lnks">
+                    <a href="#">商场首页</a>
+                    <a href="#">关于网通商场</a>
+                    <a href="#">关于网通</a>
+                    <a href="#">广告服务</a>
+                    <a href="#">联系我们</a>
+                    <a href="#">法律申明</a>
+                    <a href="#">诚聘英才</a>
+                    <a href="#">帮助中心</a>
+                    <a href="#">网通导航</a>
+                    <a href="#">商场招商</a>
+                </div>
+                <div class="ft-lnks">
+                    <a href="#">网通百货</a>
+                    <a href="#">网通商场</a>
+                    <a href="#">网通智造</a>
+                    <a href="#">网通国贸</a>
+                    <a href="#">网通物流</a>
+                    <a href="#">网通软件</a>
+                    <a href="#">网通宝</a>
+                    <a href="#">招财猫</a>
+                </div>
+                <div class="copyright">
+                    Copyright 2013 – 2015
+                    <a target="_blank" href="http://www.ewt.cc/">网通电商</a>
+                    <a target="_blank" href="http://www.ewt.cc/">深圳市网通电子商务有限公司版权所有</a>
+                </div>
+                <div class="copyright">
+                    粤ICP备09035474号
+                    <a target="_blank" href="http://www.miibeian.gov.cn/" rel="nofollow">增值电信业务经营许可证</a>
+                    粤B2-20080402
+                    <a href="http://net.china.cn/chinese/index.htm" target="_blank" rel="nofollow">违法不良信息举报中心</a>
+                </div>
+                <!-- 认证链接 -->
+                <div class="auth-lnks">
+                    <a href="https://sealinfo.verisign.com/splash?form_file=fdf/splash.fdf&dn=WWW.EWTPAY.COM&lang=zh_cn" class="auth_ss">
+                        <img src="http://fe.wt.com/img/public/footer/auth_ss.png" alt="安全" width="95" height="50">
+                    </a>
+                    <a href="#" class="auth_hlw">
+                        <img src="http://fe.wt.com/img/public/footer/auth_hlw.png" alt="互联网协会" width="122" height="50">
+                    </a>
+                    <a href="http://www.itrust.org.cn/" class="auth_110">
+                        <img src="http://fe.wt.com/img/public/footer/auth_110.png" alt="网络110" width="109" height="50">
+                    </a>
+                    <a href="http://www.ebs.gov.cn/EntCertificate.aspx?domainId=cad8347c-d3b0-4665-86c6-b6e14c9b34b3" class="auth_gswj">
+                        <img src="http://fe.wt.com/img/public/footer/auth_gswj.png" alt="工商网监" width="61" height="50">
+                    </a>
+                    <a href="http://www.eccsp.org/sitecn/aspx/certificationD.aspx?pid=1213" class="auth_cxds">
+                        <img src="http://fe.wt.com/img/public/footer/auth_cxds.png" alt="诚信电商" width="130" height="50">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="http://fe.wt.com/js/public/sea.js"></script>
+    <script src="http://fe.wt.com/js/sc/configure.js"></script>
+    <script>
+        seajs.use(['sc/v/zs-desc']);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<!--[if lte IE 6 ]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7 ]>     <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8 ]>     <html class="lt-ie9"> <![endif]-->
+<!--[if IE 9 ]>     <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>编辑商品信息</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="http://fe.wt.com/css/sc-admin/sp-list-edit.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="http://fe.wt.com/js/public/html5shiv.min.js"></script><![endif]-->
+</head>
+
+<body class="">
+
+    <!-- 
+    name:       页头
+    dependency: pub-header.css
+ -->
+    <header class="container header">
+        <div class="fr login-status">
+            欢迎您：于维维 [系统管理员]
+            <a href="#">安全退出</a>
+        </div>
+        <h1 class="logo">
+            网通商场官方后台
+        </h1>
+    </header>
+    <!-- 
+    name:       导航
+    dependency: pub-nav.css
+ -->
+    <div class="mod-nav">
+        <div class="container">
+            <nav>
+                <a href="home.html" class="active">后台首页</a>
+                <a href="dp-apply-list.html">店铺管理</a>
+                <a href="sp-uncheck-list.html">商品管理</a>
+                <a href="xt-settings.html">系统管理</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-grid">
+            <div class="col-4-24">
+                <!-- 
+    name:       店铺管理 侧栏 导航
+    dependency: pub-sidenav.css
+ -->
+                <dl class="mod-sidenav">
+                    <dt class="title">商品管理</dt>
+                    <dd>
+                        <dl>
+                            <dt class="sub-title">商品信息审核</dt>
+                            <dd>
+                                <a href="sp-uncheck-list.html" class="">待审核商品</a>
+                            </dd>
+                            <dd>
+                                <a href="" class="">被举报商品</a>
+                            </dd>
+                        </dl>
+                    </dd>
+                    <dd>
+                        <dl>
+                            <dt class="sub-title">商品信息管理</dt>
+                            <dd>
+                                <a href="sp-list.html" class="">商品管理</a>
+                            </dd>
+                            <dd>
+                                <a href="" class="">商品分类</a>
+                            </dd>
+                            <dd>
+                                <a href="" class="">导入比价商品</a>
+                            </dd>
+                            <dd>
+                                <a href="" class="">比价商品管理</a>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                </dl>
+            </div>
+            <div class="col-20-24">
+                <div class="content">
+                    <div class="content-title">
+                        <sliong>编辑商品信息</sliong>
+                        <a href="sp-list.html">&lt;返回列表</a>
+                    </div>
+
+                    <!-- 商品详细信息 -->
+                    <form class="ui-form">
+                        <div class="container">
+                            <div class="ui-grid">
+                                <div class="col-20-24">
+                                    <ul class="sp-list-edit">
+                                        <li class="form-item title">
+                                            <div class="title-cnt">
+                                                <strong>商品基本信息</strong>
+                                                (以下带 * 表示该项必填)
+                                            </div>
+                                            <div class="title-line"></div>
+                                        </li>
+
+                                        <!-- 商品分类： -->
+
+                                        <li class="form-item">
+                                            <div class="item-l">商品分类：</div>
+                                            <div class="item-r">
+                                                <span class="div-span">家用电器 > 个人护理/保健/按摩器材 > 经络保健器材 > 温灸器</span>
+                                                <input type="hidden" name="" id="">
+                                                <a href="javascript:;" class="lnk-edit ui-btn ui-btn-s3">编辑类目</a>
+                                            </div>
+                                        </li>
+
+                                        <!-- 新旧程度： -->
+
+                                        <li class="form-item">
+                                            <div class="item-l">
+                                                <em>*</em>新旧程度：</div>
+                                            <div class="item-r">
+                                                <label>
+                                                    <input type="radio" name="radio" value="0" class="ui-radio">全新
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="radio" value="0" class="ui-radio">二手
+                                                </label>
+                                            </div>
+                                        </li>
+
+                                        <!-- 页面模版： -->
+
+                                        <li class="form-item">
+                                            <div class="item-l">页面模版：</div>
+                                            <div class="item-r">
+                                                <select class="ui-select">
+                                                    <option>默认商品详情页</option>
+                                                    <option>秋装（裙子）活动详情页</option>
+                                                    <option>秋装（皮革）活动详情页</option>
+                                                </select>
+                                            </div>
+                                        </li>
+
+                                        <!-- 商品属性： -->
+
+                                        <li class="form-item">
+                                            <div class="item-l">商品属性：</div>
+                                            <div class="item-r">
+                                                <ul class="goods-filed">
+                                                    <li>
+                                                        <div class="filed-name">品牌：</div>
+                                                        <div class="filed-val">
+                                                            <label　class="ui-select-for">
+                                                                <select class="ui-select">
+                                                                    <option>请选择</option>
+                                                                </select>
+                                                                </label>
+                                                                <a href="javascript:;" id="btn-add">新建品牌</a>
+                                                                <span id="add-area" style="display:none;">
+                                                                    <input class="ui-input " style="width:110px;">
+                                                                    <a href="javascript:;" class="ui-btn ui-btn-s2" id="btn-save">保存</a>
+                                                                    <a href="javascript:;" class="btn-cancel" id="btn-cancel">取消</a>
+                                                                </span>
+                                                                <span id="edit-area" style="display:none;">
+                                                                    <span class='val'></span>
+                                                                    <a href="javascript:;" id="btn-edit">修改</a>
+                                                                </span>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="filed-name">风格：</div>
+                                                        <div class="filed-val">
+                                                            <label　class="ui-select-for">
+                                                                <select class="ui-select">
+                                                                    <option>请选择</option>
+                                                                </select>
+                                                                </label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="filed-name">图案：</div>
+                                                        <div class="filed-val">
+                                                            <label　class="ui-select-for">
+                                                                <select class="ui-select">
+                                                                    <option>请选择</option>
+                                                                </select>
+                                                                </label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="filed-name">适用人群：</div>
+                                                        <div class="filed-val">
+                                                            <label　class="ui-select-for">
+                                                                <select class="ui-select">
+                                                                    <option>请选择</option>
+                                                                </select>
+                                                                </label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="filed-name">型号：</div>
+                                                        <div class="filed-val">
+                                                            <label　class="ui-select-for">
+                                                                <select class="ui-select">
+                                                                    <option>请选择</option>
+                                                                </select>
+                                                                </label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="filed-name">功率：</div>
+                                                        <div class="filed-val">
+                                                            <label　class="ui-select-for">
+                                                                <select class="ui-select">
+                                                                    <option>请选择</option>
+                                                                </select>
+                                                                </label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="filed-name">样式：</div>
+                                                        <div class="filed-val">
+                                                            <label　class="ui-select-for">
+                                                                <select class="ui-select">
+                                                                    <option>请选择</option>
+                                                                </select>
+                                                                </label>
+                                                        </div>
+                                                    </li>
+                                                    <li class="last">
+                                                        <div class="filed-name">&nbsp;</div>
+                                                        <div class="filed-val">
+                                                            <span class="ico-add"></span>
+                                                            <a href="javascript:;" id="add-Field">新增商品属性</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <ul id="goods-model" style="display:none;">
+                                                    <li>
+                                                        <div class="filed-name">
+                                                            <input class="ui-input" name="" style="width:100px;">:
+                                                        </div>
+                                                        <div class="filed-val">
+                                                            <input class="ui-input" style="width:190px;" maxlength="25">
+                                                            <a href="javascript:;" class="filed-del">删除</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+                                        <!-- 商品标题： -->
+
+                                        <li class="form-item">
+                                            <div class="item-l">
+                                                <em>*</em>商品标题：</div>
+                                            <div class="item-r">
+                                                <input name="" maxlength="60" class="ui-input wordcount" style="width:490px;">
+                                                <span class="tip">
+                                                    <span class="wordNum">0</span>/60</span>
+                                            </div>
+                                        </li>
+
+                                        <!-- 商品副标题： -->
+
+                                        <li class="form-item">
+                                            <div class="item-l">商品副标题：</div>
+                                            <div class="item-r">
+                                                <input name="" maxlength="60" class="ui-input wordcount" style="width:490px;">
+                                                <span class="tip">
+                                                    <span class="wordNum">0</span>/60</span>
+                                            </div>
+                                        </li>
+
+                                        <!-- 一口价： -->
+
+                                        <li class="form-item">
+                                            <div class="item-l">
+                                                <em>*</em>一口价：</div>
+                                            <div class="item-r">
+                                                <input name="" class="ui-input" style="width:120px;">
+                                                <span>元</span>
+                                                <a href="javascript:;" id="set-range">设置价格区间</a>
+                                                <div class="price-range" style="display:none;">
+                                                    <ul class="range-l">
+                                                        <li>
+                                                            <span>购买</span>
+                                                            <input class="ui-input" name="" style="width:50px;">单位及以上：
+                                                            <input class="ui-input" style="width:70px;">元/
+                                                        </li>
+                                                        <li>
+                                                            <i class="ico-add"></i>
+                                                            <a href="javascript:;" id="add-range">增加区间</a>
+                                                        </li>
+                                                    </ul>
+                                                    <ul style="display:none;" id="range-model">
+                                                        <li>
+                                                            <span>购买</span>
+                                                            <input class="ui-input" style="width:50px;">单位及以上：
+                                                            <input class="ui-input" style="width:70px;">元/
+                                                            <a href="javascript:;" class="del-range">删除</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <!-- 计量单位： -->
+
+                                        <li class="form-item">
+                                            <div class="item-l">计量单位：</div>
+                                            <div class="item-r">
+                                                <input name="" class="ui-input" style="width:120px;">
+                                                <span class="unit"></span>
+                                                <span>
+                                                    <a id="sel-unit" href="javascript:;">选择单位</a>
+                                                </span>
+                                            </div>
+                                        </li>
+
+                                        <!-- 商品规格： -->
+
+                                        <li class="form-item">
+                                            <div class="item-l">商品规格：</div>
+                                            <div class="item-r">
+                                                <ul class="goods-rule">
+
+                                                    <!-- 颜色 -->
+
+                                                    <li>
+                                                        <div class="gtitle">颜色：</div>
+                                                        <div class="garea">
+                                                            <table class="color-table">
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span class="color" style="background: #95fd94;"></span>
+                                                                            <span name='' class='rmk'>浅绿色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                            </span>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span class="color" style="background: #bdb866;"></span>
+                                                                            <span name='' class='rmk'>深卡其布色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                            </span>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span class="color" style="background: #5c7724;"></span>
+                                                                            <span name='' class='rmk'>军绿色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span class="color" style="background: #008100;"></span>
+                                                                            <span name='' class='rmk'>绿色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #fff;"></span>
+                                                                            <span name='' class='rmk'>白色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #ffffad;"></span>
+                                                                            <span name='' class='rmk'>浅黄色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #ffff00;"></span>
+                                                                            <span name='' class='rmk'>黄色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #ffa600;"></span>
+                                                                            <span name='' class='rmk'>桔色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #d46906;"></span>
+                                                                            <span name='' class='rmk'>巧克力色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #e4e4e4;"></span>
+                                                                            <span name='' class='rmk'>浅灰色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #ffb5c0;"></span>
+                                                                            <span name='' class='rmk'>粉红色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #ff0000;"></span>
+                                                                            <span name='' class='rmk'>红色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #9b0000;"></span>
+                                                                            <span name='' class='rmk'>酒红色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #865c00;"></span>
+                                                                            <span name='' class='rmk'>褐色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #666;"></span>
+                                                                            <span name='' class='rmk'>深灰色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #de9ede;"></span>
+                                                                            <span name='' class='rmk'>紫罗兰</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #810082;"></span>
+                                                                            <span name='' class='rmk'>紫色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #4c0084;"></span>
+                                                                            <span name='' class='rmk'>深紫色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #000000;"></span>
+                                                                            <span name='' class='rmk'>黑色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color alpha"></span>
+                                                                            <span name='' class='rmk'>透明</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #00ddff;"></span>
+                                                                            <span name='' class='rmk'>天蓝色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #0000ff;"></span>
+                                                                            <span name='' class='rmk'>蓝色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+
+                                                                            <span class="color" style="background: #000993;"></span>
+                                                                            <span name='' class='rmk'>深蓝色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span class="color flower"></span>
+                                                                            <span name='' class='rmk'>花色</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input id="chkAll" class="ui-checkbox chkAll" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>全选</span>
+                                                                        </label>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </li>
+
+                                                    <!-- 尺码： -->
+
+                                                    <li>
+                                                        <div class="gtitle cm">尺码：</div>
+                                                        <div class="garea">
+                                                            <table class="cm-table">
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>160/80(XS)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>165/84(S)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>170/88(M)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>175/92(L)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>180/96(XL)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>160/80(XS)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>165/84(S)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>170/88(M)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>175/92(L)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>180/96(XL)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>160/80(XS)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>165/84(S)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>170/88(M)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>175/92(L)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label>
+                                                                            <input class="ui-checkbox" type="checkbox" name="chk" value="">
+                                                                            <span name='' class='rmk'>180/96(XL)</span>
+                                                                            <input name='' class='ui-input text'>
+                                                                        </label>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                            <div class="cmtj">
+                                                                尺码推荐：
+                                                                <select name="" style="width:200px;" class="ui-select">
+                                                                    <option value=''>不适应任何尺码推荐</option>
+                                                                    <option value=''>模版1</option>
+                                                                </select>
+                                                                <a href="" class='ui-btn ui-btn-s3'>管理尺码模板</a>
+                                                                <span class="refresh">
+                                                                </span>
+                                                                <a href="javascript:;">刷新</a>
+                                                                <span class="tip">（新建模板后点击刷新获取最新数据）</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="last">
+                                                        <!-- 商品的颜色 显示 -->
+                                                        <div class="box ">
+                                                            <table class="ui-border-table colors">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>颜色分类</th>
+                                                                        <th>图片（无图片可不填）</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <!-- 填充行 -->
+                                                                </tbody>
+                                                            </table>
+                                                            <table class="model">
+                                                                <tr>
+                                                                    <td>
+                                                                        <span class='color' style='background:#95fd94'></span>
+                                                                        <span class='rmk' name="">浅绿色</span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="upload-wrap">
+                                                                            <a href="javascript:;" class="ui-btn-upload">
+                                                                                <span class="ui-btn ui-btn-s3 ui-btn-upload-view">上传图片</span>
+                                                                                <input type="file" id="" name="" class="ui-btn-upload-trigger">
+                                                                            </a>
+                                                                        </span>
+                                                                        <span class="ImgShow">
+                                                                            <img class="uploadImg" src="http://fe.wt.com/img/sc/zx/default.png" alt=''>
+                                                                            <a href="javascript:;">删除</a>
+                                                                        </span>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+
+                                                        <!-- 商品的尺码 显示 -->
+                                                        <div class="box ">
+                                                            <table class="ui-border-table rules">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>颜色分类</th>
+                                                                        <th>尺寸</th>
+                                                                        <th>
+                                                                            <em>*</em>价格(≥1)</th>
+                                                                        <th>
+                                                                            <em>*</em>价格(5~10)</th>
+                                                                        <th>
+                                                                            <em>*</em>价格(≥10)</th>
+                                                                        <th>
+                                                                            <em>*</em>数量</th>
+                                                                        <th>商家编号</th>
+                                                                        <th>批量操作</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>浅绿色</td>
+                                                                        <td>160/80(XS)</td>
+                                                                        <td>
+                                                                            <input name='' class='ui-input' style='width:60px;' placeholder=''>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input name='' class='ui-input' style='width:60px;'>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input name='' class='ui-input' style='width:60px;'>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input name='' class='ui-input' style='width:40px;'>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input name='' class='ui-input' style='width:80px;'>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="javascript:;">
+                                                                                <span class='batches'></span>
+                                                                            </a>
+                                                                            <div class='popsettings'>
+                                                                                <span class='trigon1'></span>
+                                                                                <p>批量设置</p>
+                                                                                <ul>
+                                                                                    <li class='left'>
+                                                                                        <div>价格：</div>
+                                                                                        <div>
+                                                                                            <label>
+                                                                                                <input type='radio' name='radio1' value='0'>同颜色价格相同</label>
+                                                                                        </div>
+                                                                                        <div class='last'>
+                                                                                            <label>
+                                                                                                <input type='radio' name='radio1' value='1'>同尺码价格相同</label>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li class="right">
+                                                                                        <div>数量：</div>
+                                                                                        <div>
+                                                                                            <label>
+                                                                                                <input type='radio' name='radio2' value='0'>同颜色价格相同</label>
+                                                                                        </div>
+                                                                                        <div class='last'>
+                                                                                            <label>
+                                                                                                <input type='radio' name='radio2' value='1'>同尺码价格相同</label>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                </ul>
+                                                                                <div class='gbtns'>
+                                                                                    <a href="javascript:;" class='ui-btn ui-btn-s2'>确定</a>
+                                                                                    <a href="javascript:;">取消</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>深卡其布色</td>
+                                                                        <td>165/84(S)165/84</td>
+                                                                        <td>
+                                                                            <input name='' class='ui-input' style='width:60px;' placeholder=''>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input name='' class='ui-input' style='width:60px;'>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input name='' class='ui-input' style='width:60px;'>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input name='' class='ui-input' style='width:40px;'>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input name='' class='ui-input' style='width:80px;'>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="javascript:;">
+                                                                                <span class='batches'></span>
+                                                                            </a>
+                                                                            <div class='popsettings'>
+                                                                                <span class='trigon1'></span>
+                                                                                <p>批量设置</p>
+                                                                                <ul>
+                                                                                    <li class='left'>
+                                                                                        <div>价格：</div>
+                                                                                        <div>
+                                                                                            <label>
+                                                                                                <input type='radio' name='radio1' value='0'>同颜色价格相同</label>
+                                                                                        </div>
+                                                                                        <div class='last'>
+                                                                                            <label>
+                                                                                                <input type='radio' name='radio1' value='1'>同尺码价格相同</label>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li class="right">
+                                                                                        <div>数量：</div>
+                                                                                        <div>
+                                                                                            <label>
+                                                                                                <input type='radio' name='radio2' value='0'>同颜色价格相同</label>
+                                                                                        </div>
+                                                                                        <div class='last'>
+                                                                                            <label>
+                                                                                                <input type='radio' name='radio2' value='1'>同尺码价格相同</label>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                </ul>
+                                                                                <div class='gbtns'>
+                                                                                    <a href="javascript:;" class='ui-btn ui-btn-s2'>确定</a>
+                                                                                    <a href="javascript:;">取消</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="form-item">
+                                            <div class="item-l">在商铺中所属的分类：</div>
+                                            <div class="item-r">
+                                                <p>
+                                                    <a href="javascript:;" class="">添加店铺商品分类</a>
+                                                </p>
+                                                <div>
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="form-item">
+                                            <div class="item-l">
+                                                <em>*</em>商品图片：</div>
+                                            <div class="item-r">
+                                                <div></div>
+                                                <div>
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="form-item">
+                                            <div class="item-l">
+                                                <em>*</em>商品详情：</div>
+                                            <div class="item-r"></div>
+                                        </li>
+                                        <li class="form-item title">
+                                            <div class="title-cnt">
+                                                <sliong>商品物流信息</sliong>
+                                                (以下带 * 表示该项必填)
+                                            </div>
+                                            <div class="title-line"></div>
+                                        </li>
+                                        <li class="form-item">
+                                            <div class="item-l">
+                                                <em>*</em>商品所在地：</div>
+                                            <div class="item-r">
+                                                <label class="ui-select-for">
+                                                    <select name="eProvince" id="eProvince" class="ui-select">
+                                                        <option value="-1">请选择</option>
+                                                    </select>
+                                                    <span class="ui-form-text">省</span>
+                                                </label>
+                                                <label class="ui-select-for">
+                                                    <select name="eCity" id="eCity" class="ui-select">
+                                                        <option value="-1">请选择</option>
+                                                    </select>
+                                                    <span class="ui-form-text">市</span>
+                                                </label>
+                                                <label class="ui-select-for">
+                                                    <select name="eArea" id="eArea" class="ui-select">
+                                                        <option value="-1">请选择</option>
+                                                    </select>
+                                                    <span class="ui-form-text">县/区</span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="form-item">
+                                            <div class="item-l">
+                                                <em>*</em>运费：</div>
+                                            <div class="item-r">
+                                                <p>
+                                                    <label class="ui-radio-for">
+                                                        <input type="radio" name="radio1" class="ui-radio" value="0">卖家承担运费
+                                                    </label>
+                                                    <label class="ui-radio-for">
+                                                        <input type="radio" name="radio1" class="ui-radio" value="1">买家承担运费
+                                                    </label>
+                                                </p>
+                                                <div class="model-area">
+                                                    <p>
+                                                        <label class="">
+                                                            <input name="radio" class="ui-radio" value="0" type="radio">
+                                                        </label>
+                                                        <select class="ui-select">
+                                                            <option>使用运费模版</option>
+                                                        </select>
+                                                        <a href="javascript:;" class="ui-btn ui-btn-s2 btn-new-model">新建运费模版</a>
+                                                        <span class="refresh"></span>
+                                                        <a href="javascript:;">刷新</a>
+                                                        <span>（新建模版点击后刷新获取最新数据）</span>
+                                                    </p>
+
+                                                    <div class="new-model-area" style="display:none;">
+                                                        <div class="tab-title">
+                                                            <ul>
+                                                                <li class="active">
+                                                                    <span class="item-l">平邮</span>
+                                                                    <span class="liigon"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="item-l">快递</span>
+                                                                    <span class="liigon"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="item-l">EMS</span>
+                                                                    <span class="liigon"></span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="cnt">
+                                                            <div class="tab-cnt">
+                                                                <span>默认运费：10KG内6.00元，每增加1KG，加1.00元</span>
+                                                                &nbsp;&nbsp;&nbsp;
+                                                                <span>
+                                                                    <em>*</em>商品重量:
+                                                                    <input name="" class="ui-input" style="width:110px;  ">KG</span>
+                                                            </div>
+                                                            <div class="tab-tip">
+                                                                <div>指定区域运费:</div>
+                                                                <div>澳门，香港，海外，台湾1KG内999.00元，每增加1KG，加9999.00元</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cnt" style="display:none;">
+                                                            <div class="tab-cnt">
+                                                                <span>默认运费：10KG内6.00元，每增加1KG，加1.00元</span>
+                                                                &nbsp;&nbsp;&nbsp;
+                                                                <span>
+                                                                    <em>*</em>商品重量:
+                                                                    <input name="" class="ui-input" style="width:110px;  ">KG</span>
+                                                            </div>
+                                                            <div class="tab-tip">
+                                                                <div>指定区域运费:</div>
+                                                                <div>澳门，香港，海外，台湾1KG内999.00元，每增加1KG，加9999.00元</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cnt" style="display:none;">
+                                                            <div class="tab-cnt">
+                                                                <span>默认运费：10KG内6.00元，每增加1KG，加1.00元</span>
+                                                                &nbsp;&nbsp;&nbsp;
+                                                                <span>
+                                                                    <em>*</em>商品重量:
+                                                                    <input name="" class="ui-input" style="width:110px;  ">KG</span>
+                                                            </div>
+                                                            <div class="tab-tip">
+                                                                <div>指定区域运费:</div>
+                                                                <div>澳门，香港，海外，台湾1KG内999.00元，每增加1KG，加9999.00元</div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <p>
+                                                        <label class="ui-radio-for">
+                                                            <input name="radio" class="ui-radio" value="1" type="radio">固定运费
+                                                        </label>
+                                                        <label class="ui-radio-for">
+                                                            平邮：
+                                                            <input class="ui-input" style="width:80px;">元
+                                                        </label>
+                                                        <label class="ui-radio-for">
+                                                            快递：
+                                                            <input class="ui-input" style="width:80px;">元
+                                                        </label>
+                                                        <label class="ui-radio-for">
+                                                            EMS：
+                                                            <input class="ui-input" style="width:80px;">元
+                                                        </label>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="form-item title">
+                                            <div class="title-cnt">
+                                                <sliong>其他信息</sliong>
+                                                (以下带 * 表示该项必填)
+                                            </div>
+                                            <div class="title-line"></div>
+                                        </li>
+                                        <li class="form-item">
+                                            <div class="item-l">
+                                                <em>*</em>发票：</div>
+                                            <div class="item-r">
+                                                <label class="ui-radio-for">
+                                                    <input type="radio" class="" name="radio" value="0">无
+                                                </label>
+                                                <label class="ui-radio-for">
+                                                    <input type="radio" class="" name="radio" value="1">有
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="form-item">
+                                            <div class="item-l">
+                                                <em>*</em>保修：</div>
+                                            <div class="item-r">
+                                                <label class="ui-radio-for">
+                                                    <input type="radio" class="" name="radio1" value="0">无
+                                                </label>
+                                                <label class="ui-radio-for">
+                                                    <input type="radio" class="" name="radio1" value="1">有
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="form-item">
+                                            <div class="item-l">退换货承诺：</div>
+                                            <div class="item-r">
+                                                <label class="ui-checkbox-for">
+                                                    <input type="checkbox" class="" name="checkbox" value="0">凡使用网通宝服务付款购买本店商品，若存在质量问题或与描述不符，本店将主动提供退换货服务并承担来回邮费!
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="form-item">
+                                            <div class="item-l">保障服务：</div>
+                                            <div class="item-r">
+                                                <label class="ui-checkbox-for">
+                                                    <input type="checkbox" class="" name="checkbox" value="0">该商品品类须支持”七天退货“服务（承诺更好服务可通过
+                                                    <a href="javascript:;">服务约定</a>设置）
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="form-item">
+                                            <div class="item-l">
+                                                <em>*</em>有效期：</div>
+                                            <div class="item-r">
+                                                <label class="ui-radio-for">
+                                                    <input type="radio" class="" name="radio1" value="0">7天
+                                                </label>
+                                                <label class="ui-radio-for">
+                                                    <input type="radio" class="" name="radio1" value="1">14天
+                                                </label>
+                                                <label class="ui-radio-for">
+                                                    <input type="radio" class="" name="radio1" value="1">30天
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="form-item">
+                                            <div class="item-l">
+                                                <em>*</em>开始时间：</div>
+                                            <div class="item-r">
+                                                <p class="minp">
+                                                    <label class="ui-radio-for">
+                                                        <input type="radio" class="" name="radio1" value="0">立刻
+                                                    </label>
+                                                </p>
+                                                <p class="minp">
+                                                    <label class="ui-radio-for">
+                                                        <input type="radio" class="" name="radio1" value="0">设定
+                                                    </label>
+                                                    <label class="ui-radio-for">
+                                                        <input class="ui-input" style="padding: 3px;">(您可以设定商品的正式开始销售时间;)
+                                                    </label>
+                                                </p>
+                                                <p class="minp">
+                                                    <label class="ui-radio-for">
+                                                        <input type="radio" class="" name="radio1" value="0">放入仓库
+                                                    </label>
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="form-item">
+                                            <div class="item-l">橱窗推荐：</div>
+                                            <div class="item-r">
+                                                <label class="ui-checkbox-for">
+                                                    <input type="checkbox" name="checkbox" value="0">是
+                                                    <span>（您当前共有15个橱窗位，使用了1个。橱窗位是免费的哦）</span>
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="form-item">
+                                            <div class="item-l">验证码：</div>
+                                            <div class="item-r">
+                                                <input class="ui-input">
+                                                <img src="" class="img-yzm">
+                                                <a href="javascript:;">看不清楚，换一个</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <p class="gap"></p>
+                                    <div class="ui-form-item submit-box ib-fix btn-toolbar">
+                                        <button type="submit" class="ui-btn ui-btn-l2">立即发布</button>
+                                        <a href="javascript:;" class="ui-btn ui-btn-l3 btn-view">预览</a>
+                                    </div>
+                                </div>
+                                <div class="col-4-24 ">
+                                    <div class="sideNav-r">
+                                        <div class='title-header'>
+                                            商品信息导航
+                                            <span class="ico-slideUp"></span>
+                                        </div>
+                                        <ul class='nav-cnt'>
+                                            <li>
+                                                <a href="#item0">商品类目</a>
+                                            </li>
+                                            <li>
+                                                <a href="#item1">商品属性</a>
+                                            </li>
+                                            <li>
+                                                <a href="#item2">商品标题</a>
+                                            </li>
+                                            <li>
+                                                <a href="#item3">一口价</a>
+                                            </li>
+                                            <li>
+                                                <a href="#item4">商品规格</a>
+                                            </li>
+                                            <li>
+                                                <a href="#item5">商品数量</a>
+                                            </li>
+                                            <li>
+                                                <a href="#item6">商品图片</a>
+                                            </li>
+                                            <li>
+                                                <a href="#item7">商品详情</a>
+                                            </li>
+                                            <li>
+                                                <a href="#item8">商品物流</a>
+                                            </li>
+                                            <li class="last">
+                                                <a href="#item9">其他信息</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 选择单位 -->
+    <div id="popUnit" class="popup popunit popup-effect-2">
+        <div class="popup-header">
+            <span class="title">选择单位</span>
+            <i>
+                <span class="popup-close"></span>
+            </i>
+        </div>
+        <div class="popup-content">
+            <div class="ta-c msg">
+                <ul class="groups">
+                    <li class="active">
+                        <span class="group">热门</span>
+                        <span class='trigon'></span>
+                    </li>
+                    <li>
+                        <span class="group">A - E</span>
+                        <span class='trigon'></span>
+                    </li>
+                    <li>
+                        <span class="group">F - J</span>
+                        <span class='trigon'></span>
+                    </li>
+                    <li>
+                        <span class="group">K - O</span>
+                        <span class='trigon'></span>
+                    </li>
+                    <li>
+                        <span class="group">P - T</span>
+                        <span class='trigon'></span>
+                    </li>
+                    <li>
+                        <span class="group">U - Z</span>
+                        <span class='trigon'></span>
+                    </li>
+                </ul>
+                <p class="gap"></p>
+                <div class="cnt">
+                    <ul>
+                        <li>
+                            <a href="javascript:;">平方厘米</a>
+                            <a href="javascript:;">分米</a>
+                            <a href="javascript:;">厘米</a>
+                            <a href="javascript:;">平方米</a>
+                            <a href="javascript:;">升</a>
+                            <a href="javascript:;">厘米</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">千米</a>
+                            <a href="javascript:;">克</a>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">米</a>
+                            <a href="javascript:;">摄氏度</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">瓦</a>
+                            <a href="javascript:;">秒</a>
+                            <a href="javascript:;">分</a>
+                            <a href="javascript:;">毫秒</a>
+                            <a href="javascript:;">时</a>
+                            <a href="javascript:;">瓦</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">平方厘米</a>
+                            <a href="javascript:;">分米</a>
+                            <a href="javascript:;">厘米</a>
+                            <a href="javascript:;">平方米</a>
+                            <a href="javascript:;">升</a>
+                            <a href="javascript:;">厘米</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">千米</a>
+                            <a href="javascript:;">克</a>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">米</a>
+                            <a href="javascript:;">摄氏度</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">瓦</a>
+                            <a href="javascript:;">秒</a>
+                            <a href="javascript:;">分</a>
+                            <a href="javascript:;">毫秒</a>
+                            <a href="javascript:;">时</a>
+                            <a href="javascript:;">瓦</a>
+                        </li>
+                    </ul>
+                    <ul style="display:none;">
+                        <li>
+                            <a href="javascript:;">平方厘米</a>
+                            <a href="javascript:;">分米</a>
+                            <a href="javascript:;">厘米</a>
+                            <a href="javascript:;">平方米</a>
+                            <a href="javascript:;">升</a>
+                            <a href="javascript:;">厘米</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">千米</a>
+                            <a href="javascript:;">克</a>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">米</a>
+                            <a href="javascript:;">摄氏度</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">瓦</a>
+                            <a href="javascript:;">秒</a>
+                            <a href="javascript:;">分</a>
+                            <a href="javascript:;">毫秒</a>
+                            <a href="javascript:;">时</a>
+                            <a href="javascript:;">瓦</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">平方厘米</a>
+                            <a href="javascript:;">分米</a>
+                            <a href="javascript:;">厘米</a>
+                            <a href="javascript:;">平方米</a>
+                            <a href="javascript:;">升</a>
+                            <a href="javascript:;">厘米</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">千米</a>
+                            <a href="javascript:;">克</a>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">米</a>
+                            <a href="javascript:;">摄氏度</a>
+                        </li>
+                    </ul>
+                    <ul style="display:none;">
+                        <li>
+                            <a href="javascript:;">平方厘米</a>
+                            <a href="javascript:;">分米</a>
+                            <a href="javascript:;">厘米</a>
+                            <a href="javascript:;">平方米</a>
+                            <a href="javascript:;">升</a>
+                            <a href="javascript:;">厘米</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">千米</a>
+                            <a href="javascript:;">克</a>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">米</a>
+                            <a href="javascript:;">摄氏度</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">瓦</a>
+                            <a href="javascript:;">秒</a>
+                            <a href="javascript:;">分</a>
+                            <a href="javascript:;">毫秒</a>
+                            <a href="javascript:;">时</a>
+                            <a href="javascript:;">瓦</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">平方厘米</a>
+                            <a href="javascript:;">分米</a>
+                            <a href="javascript:;">厘米</a>
+                            <a href="javascript:;">平方米</a>
+                            <a href="javascript:;">升</a>
+                            <a href="javascript:;">厘米</a>
+                        </li>
+                    </ul>
+                    <ul style="display:none;">
+                        <li>
+                            <a href="javascript:;">平方厘米</a>
+                            <a href="javascript:;">分米</a>
+                            <a href="javascript:;">厘米</a>
+                            <a href="javascript:;">平方米</a>
+                            <a href="javascript:;">升</a>
+                            <a href="javascript:;">厘米</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">千米</a>
+                            <a href="javascript:;">克</a>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">米</a>
+                            <a href="javascript:;">摄氏度</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">瓦</a>
+                            <a href="javascript:;">秒</a>
+                            <a href="javascript:;">分</a>
+                            <a href="javascript:;">毫秒</a>
+                            <a href="javascript:;">时</a>
+                            <a href="javascript:;">瓦</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">平方厘米</a>
+                            <a href="javascript:;">分米</a>
+                            <a href="javascript:;">厘米</a>
+                            <a href="javascript:;">平方米</a>
+                            <a href="javascript:;">升</a>
+                            <a href="javascript:;">厘米</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">千米</a>
+                            <a href="javascript:;">克</a>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">米</a>
+                            <a href="javascript:;">摄氏度</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">瓦</a>
+                            <a href="javascript:;">秒</a>
+                            <a href="javascript:;">分</a>
+                            <a href="javascript:;">毫秒</a>
+                            <a href="javascript:;">时</a>
+                            <a href="javascript:;">瓦</a>
+                        </li>
+                    </ul>
+                    <ul style="display:none;">
+                        <li>
+                            <a href="javascript:;">平方厘米</a>
+                            <a href="javascript:;">分米</a>
+                            <a href="javascript:;">厘米</a>
+                            <a href="javascript:;">平方米</a>
+                            <a href="javascript:;">升</a>
+                            <a href="javascript:;">厘米</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">千米</a>
+                            <a href="javascript:;">克</a>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">米</a>
+                            <a href="javascript:;">摄氏度</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">瓦</a>
+                            <a href="javascript:;">秒</a>
+                            <a href="javascript:;">分</a>
+                            <a href="javascript:;">毫秒</a>
+                            <a href="javascript:;">时</a>
+                            <a href="javascript:;">瓦</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">平方厘米</a>
+                            <a href="javascript:;">分米</a>
+                            <a href="javascript:;">厘米</a>
+                            <a href="javascript:;">平方米</a>
+                            <a href="javascript:;">升</a>
+                            <a href="javascript:;">厘米</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">千米</a>
+                            <a href="javascript:;">克</a>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">米</a>
+                            <a href="javascript:;">摄氏度</a>
+                        </li>
+                    </ul>
+                    <ul style="display:none;">
+                        <li>
+                            <a href="javascript:;">平方厘米</a>
+                            <a href="javascript:;">分米</a>
+                            <a href="javascript:;">厘米</a>
+                            <a href="javascript:;">平方米</a>
+                            <a href="javascript:;">升</a>
+                            <a href="javascript:;">厘米</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">千米</a>
+                            <a href="javascript:;">克</a>
+                            <a href="javascript:;">摄氏度</a>
+                            <a href="javascript:;">米</a>
+                            <a href="javascript:;">摄氏度</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">瓦</a>
+                            <a href="javascript:;">秒</a>
+                            <a href="javascript:;">分</a>
+                            <a href="javascript:;">毫秒</a>
+                            <a href="javascript:;">时</a>
+                            <a href="javascript:;">瓦</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">平方厘米</a>
+                            <a href="javascript:;">分米</a>
+                            <a href="javascript:;">厘米</a>
+                            <a href="javascript:;">平方米</a>
+                            <a href="javascript:;">升</a>
+                            <a href="javascript:;">厘米</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer class="ib-fix ta-c popup-footer">
+            <a href="javascript:;" class="popup-save ui-btn ui-btn-s2">保存</a>
+            <a href="javascript:;" class="popup-close ui-btn ui-btn-s3">取消</a>
+        </footer>
+    </div>
+
+    <!-- 
+    name:       修改商品分类：
+    dependency: pub-basic.css  sp-list.css
+ -->
+    <div id="popEdit" class="popup popedit popup-effect-2 ">
+        <div class="popup-content">
+            <div class="ta-c cnt">
+                <form class="ui-form">
+                    <p class="search-form">
+                        <span>类目搜索：</span>
+                        <input placeholder="请输入商品关键词，我们为你推荐商品类目" class="ui-input" style="width:350px;">
+                        <a href="javascript:;" class="ui-btn ui-btn-s2 btn-search">快速找到类目</a>
+                    </p>
+                    <table class="ui-border-table cnt-category">
+                        <tr>
+                            <td>
+                                <div class="cnt-box">
+                                    <div class="search-area">
+                                        <span class="ico"></span>
+                                        <input class="ui-input" placeholder="输入名称或拼音字母查找">
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cnt-box">
+                                    <div class="search-area">
+                                        <span class="ico"></span>
+                                        <input class="ui-input" placeholder="输入名称或拼音字母查找">
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cnt-box">
+                                    <div class="search-area">
+                                        <span class="ico"></span>
+                                        <input class="ui-input" placeholder="输入名称或拼音字母查找">
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="cnt-box">
+                                    <div class="search-area">
+                                        <span class="ico"></span>
+                                        <input class="ui-input" placeholder="输入名称或拼音字母查找">
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                        <li>
+                                            <a href="">百货食品</a>
+                                        </li>
+                                        <li>
+                                            <a href="">服装鞋帽</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <ul class="fast-go">
+                        <li>
+                            <label>
+                                <input name="radio" type="radio" value="0">
+                                <span>家具用品>清洁用品>衣物清洁/护理>其他</span>
+                            </label>
+
+                        </li>
+                        <li>
+                            <label>
+                                <input name="radio" type="radio" value="1">
+                                <span>汽车摩托>装饰用品>个人>其他</span>
+                            </label>
+                        </li>
+                    </ul>
+                    <p class="cnt-result">
+                        您当前选择的是：
+                        <span>百货食品>零食>休闲食品>瓜子</span>
+                    </p>
+                    <div class="ui-form-item submit-box ib-fix btn-toolbar">
+                        <button class="ui-btn ui-btn-l2" type="submit">提交保存</button>
+                        <a href="javascript:;" class="ui-btn ui-btn-l3 popup-close">取消</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="http://fe.wt.com/js/public/sea.js"></script>
+    <script src="http://fe.wt.com/js/sc-admin/configure.js"></script>
+    <script>
+        seajs.use(['sc-admin/c/sp-list-edit']);
+    </script>
+</body>
+
+</html>
+
+
+

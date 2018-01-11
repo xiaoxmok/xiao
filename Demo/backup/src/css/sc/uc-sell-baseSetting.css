@@ -1,0 +1,75 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-form-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-ucenter.css");
+@import url("uc-mod-wrap.css");
+@import url("uc-mod-buy-sideMenu.css");
+@import url("uc-mod-page-curMarkBar.css");
+@import url("pub-footer.css");
+
+/**
+ * 网通商场 会员中心 卖家中心 店铺基本资料
+ * @authors 谭子良
+ * @date    2014-08-07 14:25:39
+ * @version 1.0.0
+ */
+
+
+ /*
+	Select 售后类型 下拉菜单  
+	selectPlugin style.css
+*/
+.selectedShowSpan { display:inline-block; height:20px; line-height:20px; padding:4px 20px 4px 4px; *padding:6px 20px 2px 4px; border:1px solid #bebebe; background:#FFF url(../../img/plugin/form.select/select.png) no-repeat right 11px; color:#333; text-align:left; cursor: pointer; border-radius: 2px 2px 2px 2px;}
+.selectedShowSpan.over , .selectedShowSpan:hover {background:#FFF url(../../img/plugin/form.select/select.png) no-repeat right -59px; border: 1px solid #999;}
+.selectedShowOpts { background:#fff; overflow:hidden; border:1px solid #bebebe; box-shadow:0 8px 6px -6px #ddd; position:absolute; z-index:9999;}
+.selectedShowOpts ul { width:100%; max-height:160px; overflow:auto; margin:0px; padding:0px;}
+.selectedShowOpts li { overflow:hidden; padding:2px 4px; height: 25px; line-height: 25px; background:#fff; color:#333; cursor: default;}
+.selectedShowOpts li.hover , .selectedShowOpts li.selected{ overflow:hidden; background:#ddd; color:#333;}
+
+
+.baseSettingPage { min-height: 1500px;}
+
+.uc-storeBaseSeting-notice { margin: 10px auto; border:1px solid #ffead1; background:#fff6eb; padding:5px 10px;}
+.uc-storeBaseSeting-notice .icon { width:16px; height:16px; padding-bottom: 1000px; margin-bottom: -1000px; display:block; float:left; margin-right:10px; margin-top:2px; background:url(../../img/public/icon/16x16/notice.png) no-repeat 0px 0px;}
+.uc-storeBaseSeting-notice .text { float:left; width: 96%;}
+.uc-storeBaseSeting-notice .text em { color: #f30; margin: 0px 5px 0px 0px;}
+ 
+.baseSettingForm dl { width: 100%; padding:8px 0px;}
+.baseSettingForm dt { width: 100px; padding-right: 5px; float: left; line-height: 30px; text-align: right;}
+.baseSettingForm dd { float: left; width: 85%; line-height: 30px;}
+.baseSettingForm dd .error { color: #f30; margin-left: 10px;}
+.baseSettingForm .ui-input { width: 250px;}
+.baseSettingForm .ui-input.error { border-color: #f30; margin-left: 0px;}
+.baseSettingForm .storeUpfile { float: left; line-height: 23px;}
+.baseSettingForm .ui-btn-upload { height: 27px;}
+
+.baseSettingForm .wtID { font-family: arial; font-weight: 700; color: #000; float: left;}
+.baseSettingForm .safetyLevel { width: 150px; height: 10px; display: block; overflow: hidden; float: left; margin: 10px; background: #e1e1e1; border-radius: 3px 3px 3px 3px; }
+.baseSettingForm .safetyLevel em { background: #ffab19; display:block; float: left; text-indent: -9999px;}
+.baseSettingForm .safetyText { color: #f30; margin-right: 10px; font-weight: 700;}
+.baseSettingForm .storeLogo .storeLogoImg img { width: 80px; height: 80px; padding:4px; border: 1px solid #e7e7e7;}
+.baseSettingForm .storeCates label { width: 120px; float: left; }
+.baseSettingForm .storeCates label input { margin-right: 5px;}
+.baseSettingForm .upStoreZizhi { color: #999; line-height: 30px; float: left; margin-right: 20px;}
+.baseSettingForm .refreshZizhi { background: url(../../img/sc/misc/i_011.gif) no-repeat 0px 0px; padding-left: 20px; line-height: 30px;}
+.baseSettingForm .otherCheck { margin: 20px auto; line-height: 24px;}
+.baseSettingForm .otherCheck p { width: 100%; overflow: hidden;}
+.baseSettingForm .otherCheck input { float: left; margin-right: 5px; margin-top: 5px;}
+.baseSettingForm .otherCheck label { float: left;}
+
+/*品牌资质显示*/
+.zzItem { width: 100%; overflow: hidden; margin: 20px auto;}
+.zzItem li { width: 220px; height: 110px; overflow: hidden; float: left;}
+.zzItem .zzShowBox { width: 180px; height: 65px; overflow: hidden; position: relative;}
+.zzItem .zzShowBox .zzShowBoxBg { width: 100%; height: 20px; background: #000; position: absolute; left: 0px; bottom: 0px; opacity: 0.5; filter:alpha(opacity=50); }
+.zzItem .zzShowBox .zzShowBoxOpts { width: 100%; height: 20px; line-height: 20px; position: absolute; left: 0px; bottom: 0px; color: #fff; }
+.zzItem .zzShowBox .zzShowBoxOpts a.update { float: left; margin-left: 5px; color: #fff; line-height: 18px;}
+.zzItem .zzShowBox .zzShowBoxOpts a.delete { float: right; margin-right: 5px; color: #fff; line-height: 18px;}
+
+a { color: #05a;}
+a:hover { color: #f30;}
+
+#storeInformationError {color:#f30; margin:10px auto; display: none;}

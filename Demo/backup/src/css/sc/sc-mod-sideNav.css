@@ -1,0 +1,29 @@
+
+/**
+ * 右侧产品分类快速导航
+ * @authors 谭子良
+ * @date    2014-06-26 18:14:32
+ * @version 1.0.0
+ */
+
+.sc-mod-sideNav { width:36px; height: 410px; position: fixed;}
+.sc-mod-sideNav li { width: 36px; height: 36px; overflow: hidden; border-bottom: 1px solid #e6e6e6;}
+
+/*分类图标*/
+.sc-mod-sideNav a { width: 20px; height: 20px; margin: 8px; display: block; overflow: hidden; background:url(../../img/sc/misc/i_003.png) no-repeat; text-indent: -9999px;}
+.sc-mod-sideNav a.cate01 { background-position:-75px 0px; }
+.sc-mod-sideNav a.cate02 { background-position:-25px 0px; }
+.sc-mod-sideNav a.cate03 { background-position:-50px 0px; }
+.sc-mod-sideNav a.cate04 { background-position:0px 0px; }
+.sc-mod-sideNav a.cate05 { background-position:-100px 0px; }
+.sc-mod-sideNav a.cate06 { background-position:-125px 0px; }
+.sc-mod-sideNav a.cate07 { background-position:-150px 0px; }
+.sc-mod-sideNav a.cate08 { background-position:-175px 0px; }
+.sc-mod-sideNav a.cate09 { background-position:-200px 0px; }
+.sc-mod-sideNav a.cate10 { background-position:-225px 0px; }
+.sc-mod-sideNav a.cate11 { background-position:-250px 0px; }
+
+.sc-mod-sideNav a:hover { width: 28px; height: 28px; margin: 0px; display: block; padding: 4px; overflow: hidden; line-height: 14px; text-align: center; color: #f30; font-size: 12px; text-indent:0px; background: #fff;}
+
+/*IE6 html*/
+.lt-ie7 { background: url(about:black) no-repeat fixed; /*这个可以让IE6下滚动时无抖动*/ }

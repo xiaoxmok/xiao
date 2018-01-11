@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>客户登录状态解锁经办</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/base.css">
+	<link rel="stylesheet" type="text/css" href="./css/content.css">
+    <link rel="stylesheet" type="text/css" href="./css/mobiscroll.custom-3.0.0-beta6.min.css">
+	<script type="text/javascript" src="./js/fontresize.js"></script>
+</head>
+<body class="bg">
+    <div class="con" style="display: block">
+        <header class="skin">
+            <a href="javascript:;" class="go_back">返回</a><span>客户登录状态解锁经办</span>
+        </header>
+        <div class="info_section">
+            <div class="info_text">
+                <span>客户手机:</span>
+                <input placeholder="请输入您的手机号码" type="number" pattern="[0-9]*" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                <div class="del"><i></i></div>
+            </div>
+            <div class="info_text">
+                <span><i>*</i>企业编号:</span>
+                <input placeholder="请输入您的企业编号" />
+                <div class="del"><i></i></div>
+            </div>
+            <div class="info_text selc">
+                <span>银行:</span>
+                <!--<input id="bank_demo" placeholder="请选择"></input>-->
+                <select name="bank" id="bank">
+                    <option value="1">请选择</option>
+                    <option value="2">招商银行</option>
+                    <option value="3">中国银行</option>
+                    <option value="4">建设银行</option>
+                    <option value="5">平安银行</option>
+                    <option value="6">花旗银行</option>
+                    <option value="7">华夏银行</option>
+                    <option value="8">工商银行</option>
+                    <option value="9">农业银行</option>
+                </select>
+            </div>
+
+            <button class="inqu">查询</button>
+        </div>
+        <div class="title">
+            <h3 class="h3">已锁定的客户信息列表</h3>
+            <a href="javascript:;" class="add">增加</a>
+        </div>
+        <div class="info_section mar">
+            <div class="info_con">
+                <div>
+                    <p>企业名称：<span>上海小胡子有限公司1111</span></p>
+                    <p>企业证件：<span>1234567777777</span></p>
+                </div>
+                <div class="left">
+                    <p>证件类型：<span>营业执照</span></p>
+                    <p>企业编号：<span>2897456423</span></p>
+                    <p>手机号码：<span>1380000112</span></p>
+                </div>
+                <div class="right">
+                    <p>账户分类：<span>web版</span></p>
+                    <p>开户日期：<span>锁定</span></p>
+                    <p>开户日期：<span>锁定</span></p>
+                </div>
+            </div>
+            <div class="info_bottom">
+                <a href="javascript:;" class="unlock">解锁</a>
+            </div>
+        </div>
+        <div class="info_section mar">
+            <div class="info_con">
+                <div>
+                    <p>企业名称：<span>上海小胡子有限公司1111</span></p>
+                    <p>企业证件：<span>1234567777777</span></p>
+                </div>
+                <div class="left">
+                    <p>证件类型：<span>营业执照</span></p>
+                    <p>企业编号：<span>2897456423</span></p>
+                    <p>手机号码：<span>1380000112</span></p>
+                </div>
+                <div class="right">
+                    <p>账户分类：<span>web版</span></p>
+                    <p>开户日期：<span>锁定</span></p>
+                    <p>开户日期：<span>锁定</span></p>
+                </div>
+            </div>
+            <div class="info_bottom">
+                <a href="javascript:;" class="unlock">解锁</a>
+            </div>
+        </div>
+    </div>
+    <div class="con">
+        <header class="skin">
+            <a href="javascript:;" class="go_back">返回</a><span>客户登录状态解锁复核</span>
+        </header>
+        <div class="info_section">
+            <div class="info_text">
+                <span>交易账号:</span>
+                <input placeholder="请输入您的交易账号"/>
+                <div class="del"><i></i></div>
+            </div>
+            <div class="info_text">
+                <span>企业名称:</span>
+                <input placeholder="请输入您的企业名称" />
+                <div class="del"><i></i></div>
+            </div>
+
+            <button class="inqu">查询</button>
+        </div>
+        <h3 class="h3">待复核的客户登录状态解锁信息列表</h3>
+        <div class="info_section mar">
+            <div class="info_con">
+                <div>
+                    <p>企业名称：<span>上海小胡子有限公司</span></p>
+                </div>
+                <div class="left">
+                    <p>交易账号：<span>1000858826</span></p>
+                    <p>企业编号：<span>2897456423</span></p>
+                </div>
+                <div class="right">
+                    <p>原始状态：<span>锁定</span></p>
+                    <p>修改状态：<span>正常</span></p>
+                </div>
+            </div>
+            <div class="info_bottom">
+                <button class="reset">重置</button>
+                <button class="overrule">驳回</button>
+            </div>
+        </div>
+        <div class="info_section mar">
+            <div class="info_con">
+                <div>
+                    <p>企业名称：<span>上海小胡子有限公司</span></p>
+                </div>
+                <div class="left">
+                    <p>交易账号：<span>1000858826</span></p>
+                    <p>企业编号：<span>2897456423</span></p>
+                </div>
+                <div class="right">
+                    <p>原始状态：<span>锁定</span></p>
+                    <p>修改状态：<span>正常</span></p>
+                </div>
+            </div>
+            <div class="info_bottom">
+                <button class="reset">重置</button>
+                <button class="overrule">驳回</button>
+            </div>
+        </div>
+    </div>
+    <div class="con">
+        <header class="skin">
+            <a href="javascript:;" class="go_back">返回</a><span>客户登录状态解锁复核</span>
+        </header>
+        <form action="">
+            <div class="info_section">
+                <div class="info_text">
+                    <span>交易账号:</span>
+                    <input placeholder="请输入您的交易账号"/>
+                    <div class="del"><i></i></div>
+                </div>
+                <div class="info_text">
+                    <span>企业名称:</span>
+                    <input placeholder="请输入您的企业名称" />
+                    <div class="del"><i></i></div>
+                </div>
+                <div class="info_text">
+                    <span>管理员手机号:</span>
+                    <input class="flex2" placeholder="请输入您的手机号" />
+                    <div class="del"><i></i></div>
+                </div>
+                <button class="inqu save">保存</button>
+
+            </div>
+        </form>
+    </div>
+    <div class="fund_btn">
+        <a href="javascript:;" class="focus">经办</a>
+        <a href="javascript:;" class="border_left">复核</a>
+    </div>
+    <div class="zhezhao"></div>
+    <div class="info_tan">
+        <div class="info_tan_top tc pb20">
+            <p>您确定要解锁？</p>
+        </div>
+        <div class="define_btn">
+            <a href="javascript:;" class="cancel">取消</a>
+            <a href="javascript:;" class="define">确定</a>
+        </div>
+    </div>
+    <div class="info_tan">
+        <div class="info_tan_top tc pb20">
+            <p>您确定要驳回？</p>
+        </div>
+        <div class="define_btn">
+            <a href="javascript:;" class="cancel">取消</a>
+            <a href="javascript:;" class="define">确定</a>
+        </div>
+    </div>
+    <div class="unlock_tan">
+        <p>解锁成功！</p>
+    </div>
+
+    <script src="./js/jquery-2.2.2.min.js"></script>
+    <script src="./js/mobiscroll.custom-3.0.0-beta6.min.js"></script>
+    <script>
+        /*$(function(){
+            var $span = $('.info_con').find('span');
+            var arr=[];
+            var screnH = window.screen.width;
+            for(var i=0;i<$span.length;i++){
+                arr[i] = $span.eq(i).html();
+                //console.log($span.eq(i).width());
+                if(screnH > 320){
+                    if($span.eq(i).width() > 96){
+                        $span.eq(i).html(arr[i].slice(0,8)+"...");
+                    }
+                }else{
+                    if($span.eq(i).width() > 70){
+                        $span.eq(i).html(arr[i].slice(0,6)+"...");
+                    }
+                }
+            }
+        });*/
+        $(function () {
+            $('#bank').mobiscroll().select({
+                theme: 'ios',
+                lang: 'zh',
+                display: 'bottom',
+                minWidth: 200
+            });
+        });
+
+        $(function () {
+            $(".unlock").click(function(){
+                $('.zhezhao').show();
+                $('.info_tan').eq(0).show();
+            });
+            $(".cancel").click(function(){
+                $('.zhezhao').hide();
+                $('.info_tan').eq(0).hide();
+            });
+            $('.info_tan').eq(0).find('.define').click(function(){
+                $('.unlock_tan p').html("锁成功解锁成功解锁成功解锁成功功解锁成功解锁成功解锁成功解锁成功解锁成功解锁成功解锁成功解锁成！");
+                textTan();
+                $('.unlock_tan').show();
+                $('.zhezhao').hide();
+                $('.info_tan').eq(0).hide();
+                setTimeout(function(){
+                    $('.unlock_tan').hide();
+                },1500);
+
+            });
+        });
+
+        $(function () {
+            $(".overrule").click(function(){
+                $('.zhezhao').show();
+                $('.info_tan').eq(1).show();
+            });
+            $(".cancel").click(function(){
+                $('.zhezhao').hide();
+                $('.info_tan').eq(1).hide();
+            });
+            $('.info_tan').eq(1).find('.define').click(function(){
+                $('.unlock_tan p').html("驳回成功！");
+                textTan();
+                $('.unlock_tan').show();
+                $('.zhezhao').hide();
+                $('.info_tan').eq(1).hide();
+                setTimeout(function(){
+                    $('.unlock_tan').hide();
+                },1500);
+
+            });
+        });
+
+        $(function () {
+            $(".reset").click(function(){
+                $('.con').hide().eq(2).show();
+            });
+            $('.save').click(function(){
+                $('.unlock_tan p').html("保存成功！");
+                textTan();
+                $('.unlock_tan').show();
+                setTimeout(function(){
+                    $('.unlock_tan').hide();
+                    $('.con').hide().eq(1).show();
+                },1500);
+            });
+
+        });
+
+        $(function(){
+           $(".fund_btn a").click(function(){
+               //window.location.href = "http://www.baidu.com";
+               var i = $(this).index();
+               $('.con').hide().eq(i).show();
+               $('.fund_btn a').removeClass("focus").eq(i).addClass("focus");
+           });
+        });
+
+        $(function(){
+            var input = $('.info_text input');
+            input.keyup(function(){
+                //console.log('222');
+                //this.value=this.value.replace(/[^1-9]/g,'');
+                if(this.value.length >0){
+                    $(this).parent().find('.del').show();
+                }else{
+                    $(this).parent().find('.del').hide();
+                }
+            });
+
+            $('.del').click(function(){
+                $(this).parent().find('input').val("");
+                $(this).hide();
+            });
+        });
+
+
+        textTan();
+        function textTan(){
+            $(".unlock_tan").removeAttr("style");
+            var w = $('.unlock_tan').width();
+            var w_d = $(document).width();
+            //var w_p = $('.err_tan p').outerWidth();
+
+            //console.log(w);
+            //console.log(w_d);
+            var w_t=w_d-150;
+
+
+            if(w >= w_t){
+                $('.unlock_tan').css({"width":w_t + "px"});
+                $('.unlock_tan').css({"left":(w_d - $('.unlock_tan').outerWidth())/2+"px"});
+            }else{
+                $('.unlock_tan').css({"left":(w_d - $('.unlock_tan').outerWidth())/2+"px"});
+                //$('.err_tan').css({"margin-left":-(w_rem/2)+"rem"});
+            }
+        }
+
+    </script>
+
+</body>
+</html>

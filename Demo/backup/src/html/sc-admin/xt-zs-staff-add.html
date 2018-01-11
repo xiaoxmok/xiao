@@ -1,0 +1,77 @@
+@@include('-html-header.html', { "title": "网通商场官方后台", "css": "sc-admin/xt-zs-staff.css", "bodyclass":"" })
+    
+@@include('-pub-header.html')
+@@include('-pub-nav.html')
+
+<div class="container"> 
+    <div class="ui-grid">
+        <div class="col-4-24">
+            @@include('-xt-pub-sidenav.html')
+         </div>
+         <div class="col-20-24">
+            <div class="content">
+                <div class="content-title">
+                    <strong>编辑招商人员</strong>
+                    <a href="xt-zs-staff.html">&lt;返回列表</a>
+                </div>
+
+                <!-- 表单 -->
+                <form class="ui-form add-form">
+                    <fieldset>
+                        <legend>编辑招商人员</legend>
+                       
+                        <div class="ui-form-item">
+                            <label class="ui-label">
+                                <span class="ui-form-required">*</span>经营类目:
+                            </label>
+                            <select name="" id="" class="ui-select">
+                                <option value="">请选择负责类目</option>
+                            </select>
+                        </div>
+                        <div class="ui-form-item">
+                            <label class="ui-label">
+                                <span class="ui-form-required">*</span>招商人员:
+                            </label>
+                            <input type="text" class="ui-input">
+                        </div>
+                       <div class="ui-form-item">
+                            <label class="ui-label">
+                                <span class="ui-form-required">*</span>邮      箱:
+                            </label>
+                            <input type="text" class="ui-input">
+                        </div>
+                        <div class="ui-form-item">
+                            <label class="ui-label">
+                                <span class="ui-form-required">*</span>手      机:
+                            </label>
+                            <input type="text" class="ui-input">
+                        </div>
+                        <div class="ui-form-item">
+                            <label class="ui-label">
+                                <span class="ui-form-required">*</span>网 通 IM:
+                            </label>
+                            <input type="text" class="ui-input">
+                        </div>
+                        <div class="ui-form-item">
+                            <label class="ui-label">
+                                <span class="ui-form-required">*</span>QQ:
+                            </label>
+                            <input type="text" class="ui-input">
+                        </div>
+                        <div class="ui-form-item submit-box ib-fix">
+                        <a href="javascript:;" class="ui-btn ui-btn-l2 btn-submit">提交保存</a>
+                            <a href="xt-zs-staff.html" class="ui-btn ui-btn-l3">返回列表</a>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+         </div>
+     </div>
+</div>
+
+
+@@include('-pop-DeleteConfirm.html', { "title": "删除确认", "cnt": "您确定删除所选项吗？" })
+@@include('-pop-tips.html', { "title": "提示", "cnt": "" })
+
+@@include('-html-footer.html', { "script": "sc-admin/c/xt-zs-staff-add" })

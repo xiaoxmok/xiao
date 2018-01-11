@@ -1,0 +1,391 @@
+@@include('-html-header.html', { "title": "开店申请信息", "css": "sc-admin/dp-apply-edit.css", "bodyclass":"" })
+    
+@@include('-pub-header.html')
+@@include('-pub-nav.html')
+
+<div class="container"> 
+    <div class="ui-grid">
+        <div class="col-4-24">
+            @@include('dp-pub-sidenav.html')
+         </div> 
+         <div class="col-20-24">
+            <div class="content">
+                <div class="content-title">
+                    <strong>编辑申请信息</strong>
+                    <a href="dp-apply-list.html">&lt;返回列表</a>
+                </div>
+ 
+                <!-- 表单 -->
+                <form action="" class="ui-form apply-form">
+                    <fieldset>
+                        <legend>编辑申请信息</legend>
+                        <div class="ui-grid hd">
+                            <div class="col-6-24">
+                                <label class="label">会员号：</label>
+                                <input type="text" name="" id="" class="ui-input">
+                            </div>
+                            
+                            <div class="col-6-24">
+                                <label class="label">申请类型：</label>
+                                <select name="" id="" class="ui-select">
+                                    <option value="">个人店</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-6-24">
+                                <label class="label">店铺名称：</label>
+                                <input type="text" name="" id="" class="ui-input">
+                            </div>
+                            
+                            <div class="col-6-24">
+                                <label class="label">申请人：</label>
+                                <input type="text" name="" id="" class="ui-input">
+                            </div>
+                            
+                            <div class="col-6-24">
+                                <label class="label">签订合同：</label>
+                                <label for="signYes" class="ui-radio-for">
+                                    <input type="radio" name="sign" id="signYes" checked>是
+                                </label>
+                                <label for="signNo" class="ui-radio-for">
+                                    <input type="radio" name="sign" id="signNo">否
+                                </label>
+                            </div>
+                            
+                            <div class="col-6-24">
+                                <label class="label">网通宝状态：</label>
+                                <strong>认证审核通过</strong>
+                            </div>
+                            
+                            <div class="col-6-24">
+                                <label class="label">已缴保证金：</label>
+                                <span>1000</span>
+                                <a href="#">调整保证金额度</a>
+                            </div>
+
+                        </div>
+                        
+                        <div class="wrap">
+                            <div class="ui-grid status">
+                                <a href="#block-people" class="col-6-24">
+                                    申请人信息
+                                    <span class="yes">(审核通过)</span>
+                                </a>
+                                <a href="#block-ID" class="col-6-24">
+                                    身份证信息
+                                    <span class="yes">(审核通过)</span>
+                                </a>
+                                <a href="#block-store" class="col-6-24">
+                                    店铺基本信息
+                                    <span class="yes">(审核通过)</span>
+                                </a>
+                                <a href="#block-brand" class="col-6-24">
+                                    品牌资料
+                                    <span class="yes">(审核通过)</span>
+                                </a>
+                            </div>
+                            
+                            <div class="wrap-inner">
+
+                                <!-- 申请人信息 -->
+
+                                <h3 id="block-people">申请人信息</h3>
+                                <div class="block">
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>姓名：</label>
+                                        <input type="text" class="ui-input" required="">
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>手机号码：</label>
+                                        <input type="text" class="ui-input" required="">
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label">电子邮箱：</label>
+                                        <input type="text" class="ui-input" required="">
+                                    </div>
+                                </div>
+                                
+                                <!-- 身份证信息 -->
+
+                                <h3 id="block-ID">身份证信息<span>(请填写申请人身份证信息)</span></h3>
+                                <div class="block">
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>身份证号码：</label>
+                                        <input type="text" class="ui-input" required="">
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label">身份证类型：</label>
+                                        <div class="ui-form-text">
+                                            <label for="ID1" class="ui-radio-for">
+                                                <input type="radio" name="id" id="ID1" checked>二代身份证
+                                            </label>
+                                            <label for="ID2" class="ui-radio-for">
+                                                <input type="radio" name="id" id="ID2">临时身份证
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>身份证复印件正面：</label>
+                                        <!-- <span class="preview">
+                                            <img src="" alt="">
+                                        </span> -->
+                                        <div class="upload-wrap">
+                                            <a href="javascript:;" class="ui-btn-upload">
+                                                <span class="ui-btn ui-btn-s3 ui-btn-upload-view">修改图片</span>
+                                                <input type="file" id="imgIDfront" name="" class="ui-btn-upload-trigger">
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>身份证复印件正面：</label>
+                                        <span class="preview">
+                                            <img src="" alt="">
+                                        </span>
+                                        <a href="javascript:;" class="ui-btn-upload">
+                                            <span class="ui-btn ui-btn-s3 ui-btn-upload-view">修改图片</span>
+                                            <input type="file" id="" name="" class="ui-btn-upload-trigger">
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <!-- 店铺基本信息 -->
+                                <h3 id="block-store">店铺基本信息</h3>
+                                <div class="block">
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>店铺名称：</label>
+                                        <input type="text" class="ui-input" required>
+                                        <span class="ui-form-explain">店铺名字不得超过24个字符</span> 
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>店铺类目：</label>
+                                        <div class="ui-form-text">
+                                            <label class="ui-checkbox-for"><input type="checkbox" name="" id="">服饰鞋帽</label>
+                                            <label class="ui-checkbox-for"><input type="checkbox" name="" id="">服饰鞋帽</label>
+                                            <label class="ui-checkbox-for"><input type="checkbox" name="" id="">服饰鞋帽</label>
+                                            <label class="ui-checkbox-for"><input type="checkbox" name="" id="">服饰鞋帽</label>
+                                            <label class="ui-checkbox-for"><input type="checkbox" name="" id="">服饰鞋帽</label>
+                                            <label class="ui-checkbox-for"><input type="checkbox" name="" id="">服饰鞋帽</label>
+                                            <label class="ui-checkbox-for"><input type="checkbox" name="" id="">服饰鞋帽</label>
+                                            <label class="ui-checkbox-for"><input type="checkbox" name="" id="">服饰鞋帽</label>
+                                            <label class="ui-checkbox-for"><input type="checkbox" name="" id="">服饰鞋帽</label>
+                                            <label class="ui-checkbox-for"><input type="checkbox" name="" id="">服饰鞋帽</label>
+                                        </div>
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label">店铺介绍：</label>
+                                        <textarea name="" id="" cols="30" rows="10" class="ui-textarea"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <!-- 品牌资质 -->
+                                <h3 id="block-brand">品牌资质</h3>
+                                <div class="block">
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>商标申请号：</label>
+                                        <input type="text" class="ui-input" required>
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>品牌名称：</label>
+                                        <input type="text" class="ui-input" required>
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>品牌英文名称：</label>
+                                        <input type="text" class="ui-input" required>
+                                        <span class="ui-form-explain">若无英文名称，请填写品牌中文拼音</span> 
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>品牌LOGO：</label>
+                                        <div class="upload-wrap">
+                                            <a href="javascript:;" class="ui-btn-upload">
+                                                <span class="ui-btn ui-btn-s3 ui-btn-upload-view">上传图片</span>
+                                                <input type="file" id="" name="" class="ui-btn-upload-trigger">
+                                            </a>
+                                        </div>
+                                        <span class="ui-form-explain">建议尺寸400*200像素。格式JPG、JPEG、PNG、GIF、BMP，大小不超过500K</span> 
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label">品牌资源：</label>
+                                        <div class="ui-form-text">
+                                            <label for="BD1" class="ui-radio-for">
+                                                <input type="radio" name="bd" id="BD1" checked>自有品牌
+                                            </label>
+                                            <label for="BD2" class="ui-radio-for">
+                                                <input type="radio" name="bd" id="BD2">代理品牌
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label">品牌理念：</label>
+                                        <textarea name="" id="" cols="30" rows="10" class="ui-textarea"></textarea>
+                                    </div>
+                                    <div class="ui-form-item">
+                                        <label class="ui-label"><span class="ui-form-required">*</span>商标资质证或受理书：</label>
+                                        <span class="preview">
+                                            <img src="" alt="">
+                                        </span>
+                                        <a href="javascript:;" class="ui-btn-upload">
+                                            <span class="ui-btn ui-btn-s3 ui-btn-upload-view">继续上传</span>
+                                            <input type="file" id="" name="" class="ui-btn-upload-trigger">
+                                        </a>
+                                    </div>
+                                    <div class="ui-form-item btn-box">
+                                        <input type="button" value="提交品牌资料" class="ui-btn ui-btn-m2">
+                                    </div>
+                                </div>
+
+                                <div class="submit-box ib-fix">
+                                    <input type="button" value="审核" class="ui-btn ui-btn-l1" data-popup="#popShenhe">
+                                    <input type="button" value="提交保存" class="ui-btn ui-btn-l2">
+                                    <a href="dp-apply-list.html" class="ui-btn ui-btn-l3">返回列表</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+
+         </div>
+     </div>
+</div>
+
+<!-- 弹层：审核 -->
+<div id="popShenhe" class="popup popup-effect-2 pop-sh">
+        <div class="popup-header j-drag-trigger">
+            <a href="javascript:;" class="popup-close"></a>
+            审核
+        </div>
+        <div class="popup-content">
+            <form action="">
+                <div class="hd">
+                    审核结果：
+                    <label for="rdoSh1">
+                        <input type="radio" name="sh" id="rdoSh1" class="rdo-sh"> 未审核
+                    </label>
+                    <label for="rdoSh2">
+                        <input type="radio" name="sh" id="rdoSh2" class="rdo-sh"> 审核通过
+                    </label>
+                    <label for="rdoSh3">
+                        <input type="radio" name="sh" id="rdoSh3" class="rdo-sh show-sub"> 审核不通过
+                    </label>
+                </div>
+                <div class="bd sub-form">
+                    <div class="block">
+                        <div class="ui-form-item">
+                            <label class="ui-label">申请人信息：</label>
+                            <ul>
+                                <li>
+                                    <label for="sqr-chk-1" class="ui-radio-for">
+                                        <input type="checkbox" name="sqr-chk" id="sqr-chk-1">申请人不存在
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="sqr-chk-2" class="ui-radio-for">
+                                        <input type="checkbox" name="sqr-chk" id="sqr-chk-2">申请人联系方式有误
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="sqr-chk-3" class="ui-radio-for">
+                                        <input type="checkbox" name="sqr-chk" id="sqr-chk-3">申请人姓名与身份证姓名不符
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="sqr-chk-4" class="ui-radio-for">
+                                        <input type="checkbox" name="sqr-chk" id="sqr-chk-4">
+                                        <input type="text" name="" id="">
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ui-form-item">
+                            <label class="ui-label">资质证书：</label>
+                            <ul>
+                                <li>
+                                    <label for="zs-chk-1" class="ui-radio-for">
+                                        <input type="checkbox" name="zs-chk" id="zs-chk-1">证件图片模糊
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="zs-chk-2" class="ui-radio-for">
+                                        <input type="checkbox" name="zs-chk" id="zs-chk-2">证件信息不完整
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="zs-chk-3" class="ui-radio-for">
+                                        <input type="checkbox" name="zs-chk" id="zs-chk-3">证件有修改痕迹
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="zs-chk-4" class="ui-radio-for">
+                                        <input type="checkbox" name="zs-chk" id="zs-chk-4">无效证件
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="zs-chk-5" class="ui-radio-for">
+                                        <input type="checkbox" name="zs-chk" id="zs-chk-5">证件信息与网通宝认证信息不符
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="zs-chk-6" class="ui-radio-for">
+                                        <input type="checkbox" name="zs-chk" id="zs-chk-6">证件图片无法显示，请重新上传
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="zs-chk-7" class="ui-radio-for">
+                                        <input type="checkbox" name="zs-chk" id="zs-chk-7">店铺经营类目与营业执照经营范围不符
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="zs-chk-8" class="ui-radio-for">
+                                        <input type="checkbox" name="zs-chk" id="zs-chk-8">
+                                        <input type="text" name="" id="">
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ui-form-item">
+                            <label class="ui-label">店铺信息：</label>
+                            <ul>
+                                <li>
+                                    <label for="dp-chk-1" class="ui-radio-for">
+                                        <input type="checkbox" name="dp-chk" id="dp-chk-1">店铺命名不规范
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="dp-chk-2" class="ui-radio-for">
+                                        <input type="checkbox" name="dp-chk" id="dp-chk-2">
+                                        <input type="text" name="" id="">
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ui-form-item">
+                            <label class="ui-label">品牌资料：</label>
+                            <ul>
+                                <li>
+                                    <label for="pp-chk-1" class="ui-radio-for">
+                                        <input type="checkbox" name="pp-chk" id="pp-chk-1">品牌授权人与店铺提交资质证书不符
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="pp-chk-2" class="ui-radio-for">
+                                        <input type="checkbox" name="pp-chk" id="pp-chk-2">
+                                        <input type="text" name="" id="">
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="ui-form-item ib-fix">
+                    <input type="submit" value="提交审核" class="ui-btn ui-btn-l2">
+                    <a href="javascript:;" class="ui-btn ui-btn-l3 popup-close">取消</a>
+                </div> 
+            </form>
+        </div>
+    </div>
+ 
+@@include('-html-footer.html', { "script": "sc-admin/c/dp-apply-edit" })

@@ -1,0 +1,33 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-form-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("../mod/form-select.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-uc.css");
+@import url("uc-mod-appraise.css");
+@import url("pub-footer.css");
+@import url("pub-crumbs.css");
+
+/**
+ * 网通商场 会员中心 买家中主 评价 未评论
+ * @authors 谭子良
+ * @date    2014-05-26 14:24:28
+ * @version 1.0.0
+ */
+
+/*page css*/
+.firstArea , .noFirstArea { border: 1px solid #e6e6e6; border-bottom: none; margin-bottom: 10px;}
+
+.apprsise-split-line { width: 900px; height: 31px; overflow: hidden; position: relative; margin: 20px auto;}
+.apprsise-split-line i { width: 900px; height: 1px; text-indent: -9999px; display: block; overflow: hidden; background: #e6e6e6; margin-top: 15px;}
+.apprsise-split-line b { width: 280px; height: 31px; background: #fff; margin: 0px auto; position: absolute; left: 310px; top: 0px; text-align: center; line-height: 31px; font-size: 16px; color: #666; }
+
+.submitForm { width: 100%; height: 45px;}
+.submitForm label { margin-left: 35%; margin-right: 20px; }
+.submitForm label b { font-weight: normal; color: #666;}
+.submitForm label input { margin-right: 5px;}
+
+/*覆盖*/
+.crumbs { margin:5px auto;}

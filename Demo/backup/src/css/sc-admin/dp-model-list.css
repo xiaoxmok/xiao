@@ -1,0 +1,27 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-table-1.0.0.css");
+@import url("../mod/ui-pager-1.0.0.css");
+@import url("../mod/ui-form-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("../mod/popup.css");
+@import url("pub-basic.css");
+@import url("pub-header.css");
+@import url("pub-nav.css");
+@import url("pub-sidenav.css");
+@import url("../mod/picker-theme/classic.css");
+@import url("../mod/picker-theme/classic.date.css");
+/**
+ * 店铺模版管理
+ * @authors jiangzhiqiang 
+ * @date    2014-08-27 16:26:52
+ */
+.tb-model-list .th1{width: 2%;}
+.tb-model-list .green{color: #3a0;}
+.tb-model-list .red{color: #f30;}
+
+.add-form .ui-label{line-height: 30px;vertical-align: middle;}
+.add-form .upload-wrap{line-height: 40px;}
+.add-form em{color: #f50;padding: 0 3px;}
+.add-form .gap{line-height: 32px;padding: 0 5px;display: inline-block;vertical-align: bottom;}

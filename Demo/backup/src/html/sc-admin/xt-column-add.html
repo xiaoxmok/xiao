@@ -1,0 +1,56 @@
+@@include('-html-header.html', { "title": "网通商场官方后台", "css": "sc-admin/xt-column.css", "bodyclass":"" })
+    
+@@include('-pub-header.html')
+@@include('-pub-nav.html')
+
+<div class="container"> 
+    <div class="ui-grid">
+        <div class="col-4-24">
+              @@include('-xt-pub-sidenav.html')
+         </div>
+         <div class="col-20-24">
+            <div class="content">
+                <div class="content-title">
+                    <strong>编辑栏目内容</strong>
+                    <a href="xt-column.html">&lt;返回列表</a>
+                </div>
+
+                <!-- 表单 -->
+                <form class="ui-form add-form">
+                    <fieldset>
+                        <legend>编辑栏目内容</legend>
+                        <div class="ui-form-item">
+                            <label class="ui-label">栏目名称:</label>
+                            <input type="text" class="ui-input">
+                        </div>
+                        <div class="ui-form-item">
+                            <label class="ui-label">系统模块:</label>
+                            <select name="" id="" class="ui-select">
+                                <option value="">一级栏目</option>
+                            </select>
+                        </div>
+                        <div class="ui-form-item">
+                            <label class="ui-label">链接路径:</label>
+                            <input type="text" class="ui-input">
+                        </div>
+                        <div class="ui-form-item">
+                            <label class="ui-label">备注:</label>
+                            <textarea name=""   class="ui-textarea"></textarea>
+                        </div>
+                        <div class="ui-form-item submit-box ib-fix">
+                        <a href="javascript:;" class="ui-btn ui-btn-l2 btn-submit">提交保存</a>
+                            <a href="xt-column.html" class="ui-btn ui-btn-l3">返回列表</a>
+                        </div>
+                    </fieldset>
+                </form>
+
+
+            </div>
+
+         </div>
+     </div>
+</div>
+
+
+
+@@include('-html-footer.html', { "script": "sc-admin/c/xt-zs-column-add" })

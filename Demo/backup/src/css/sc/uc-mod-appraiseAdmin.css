@@ -1,0 +1,38 @@
+/**
+ * 网通商场 会员中心 买家中心 评价管理
+ * @authors 谭子良
+ * @date    2014-07-25 10:19:37
+ * @version 1.0.0
+ */
+
+
+/*买家累积信用：*/
+.buyerCredit { width: 100%; padding: 20px 0px;}
+.buyerCredit h3 { font-size: 14px; font-weight: normal; margin-bottom: 8px;}
+.buyerCredit h3 em { font-family: arial; color: #f30; font-weight: 700;}
+.buyerCredit .ui-border-table th{background-color: #f8f8f8; height: 25px; line-height: 25px;}
+.buyerCredit .ui-border-table td{text-align: center;}
+.buyerCredit .ui-border-table tr:nth-of-type(even){background: #FFF;}
+.buyerCredit .ui-border-table td b.level-well { width: 28px; padding-left:25px; height: 25px; display: block; overflow: hidden; margin: 0px auto; font-weight: normal; line-height: 25px; background: url("../../img/sc/icon/heart.gif") no-repeat  0px 3px; }
+.buyerCredit .ui-border-table td b.level-middle { width: 28px; padding-left:25px; height: 25px; display: block; overflow: hidden; margin: 0px auto; font-weight: normal; line-height: 25px; background: url("../../img/sc/icon/heart.gif") no-repeat 0px -27px; }
+.buyerCredit .ui-border-table td b.level-poor { width: 28px; padding-left:25px; height: 25px; display: block; overflow: hidden; margin: 0px auto; font-weight: normal; line-height: 25px; background: url("../../img/sc/icon/heart.gif") no-repeat 0px -57px;}
+
+/*评价列表*/
+.appraiseList { width: 100%;}
+.appraiseList .listTab { width: 100%; height: 30px; border-bottom: 1px solid #e6e6e6;}
+.appraiseList .listTab li { float: left; height: 29px; line-height: 29px; cursor: pointer; border-radius: 3px 3px 0px 0px; background: #fff; border: 1px solid #e6e6e6; padding: 0px 10px; margin-right: 10px;}
+.appraiseList .listTab li.current { background: #f8f8f8; border-bottom-color: #f8f8f8; cursor: default; }
+.appraiseList .listCont table { border-left: 1px solid #e6e6e6; border-right: 1px solid #e6e6e6;}
+.appraiseList .listCont table th { background: #f8f8f8; padding: 8px 10px; text-align: left;}
+.appraiseList .listCont table td { background: #fff; padding: 18px 10px; border-bottom: 1px solid #e6e6e6; vertical-align: top;}
+.appraiseList .listCont table td b.level-well { width: 25px; height: 25px; display: block; overflow: hidden; text-indent: -9999px; margin: 0px auto; background: url("../../img/sc/icon/heart.gif") no-repeat  0px 0px; }
+.appraiseList .listCont table td b.level-middle { width: 25px; height: 25px; display: block; overflow: hidden; text-indent: -9999px; margin: 0px auto; background: url("../../img/sc/icon/heart.gif") no-repeat 0px -30px; }
+.appraiseList .listCont table td b.level-poor { width: 25px; height: 25px; display: block; overflow: hidden; text-indent: -9999px; margin: 0px auto; background: url("../../img/sc/icon/heart.gif") no-repeat 0px -60px;}
+.appraiseList .listCont table td h6 { color: #999;}
+.appraiseList .listCont table td .appraiseReply { margin-top: 10px; padding-top: 10px; border-top: 1px dashed #e6e6e6;}
+.appraiseList .listCont table td .userLevel { display: block;}
+.appraiseList .listCont table td .userLevel i { width: 16px; height: 16px; text-indent: -9999px; display: block; margin-top: 2px; float:left; margin-right: 10px; background: url(../../img/sc/misc/i_007.gif) no-repeat 0px 0px;}
+.appraiseList .listCont table td a { color: #35a;}
+.appraiseList .listCont table td a:hover , .proPrice { color: #f30;}
+
+

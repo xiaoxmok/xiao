@@ -1,0 +1,24 @@
+/**
+ * 店铺装修-大搜索条（店内搜索）
+ * @authors 	Inman Shaw
+ * @date 		2014-06-10 15:39:33
+ * @version 	1.0.0
+ */
+
+.mod-shop-search{padding: 10px 0;background-color: #fff;border:2px solid #e6e6e6;margin-bottom: 10px;}
+.mod-ss-lb{margin-left: 20px;font-size: 14px}
+.mod-ss-input{height: 15px;line-height: 15px;padding: 4px 5px;background-color: #fff;border:1px solid #bebebe; border-radius: 3px;width: 238px;outline: none;font-family: tahoma,arial,'Microsoft Yahei','SimHei',\5b8b\4f53;}
+.mod-ss-input-s{width: 48px;}
+.mod-ss-submit{height: 25px;line-height: 25px;border:0 none;border-radius: 2px;background-color: #333;color: #fff;padding: 0 15px;font-family: tahoma,arial,'Microsoft Yahei','SimHei',\5b8b\4f53;cursor: pointer;margin-left: 5px;}
+.mod-ss-ext{margin-left: 15px;line-height: 25px;}
+.mod-ss-ext a{color: #666;margin-right: 10px;}
+.mod-sc-result{margin:0 20px;display: none;}
+.mod-sc-result var{margin: 0 4px;}
+
+/* 窄 */
+.wrap-small .mod-shop-search{border-width: 1px;}
+.wrap-small .mod-ss-input{width: 168px;}
+.wrap-small .mod-ss-input-s{width: 38px;}
+.wrap-small .mod-ss-lb{margin-left: 15px;}
+.wrap-small .mod-sc-result{display: inline-block;}
+.wrap-small .mod-ss-ext{display: none;}

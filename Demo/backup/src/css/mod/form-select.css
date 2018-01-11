@@ -1,0 +1,17 @@
+/**
+ * form-select
+ * @authors 谭子良
+ * @date    2014-05-27 14:11:03
+ * @version 1.0.0
+ */
+
+ /*
+	Select 下拉菜单  
+	selectPlugin style.css
+*/
+.selectedShowSpan { display:inline-block; height:19px; line-height:19px; padding:2px 20px 2px 4px; *padding:3px 20px 1px 4px; border:1px solid #bebebe; background:#FFF url(../../img/plugin/form.select/select.png) no-repeat right 7px; color:#333; text-align:left; cursor: pointer; border-radius: 2px 2px 2px 2px;}
+.selectedShowSpan.over , .selectedShowSpan:hover {background:#FFF url(../../img/plugin/form.select/select.png) no-repeat right -63px; border: 1px solid #999;}
+.selectedShowOpts { background:#fff; overflow:hidden; border:1px solid #bebebe; box-shadow:0 8px 6px -6px #ddd; position:absolute; z-index:9999;}
+.selectedShowOpts ul { width:100%; max-height:118px; overflow:auto; margin:0px; padding:0px;}
+.selectedShowOpts li { overflow:hidden; padding:2px 4px; background:#fff; color:#333; cursor: default;}
+.selectedShowOpts li.hover , .selectedShowOpts li.selected{ overflow:hidden; background:#ddd; color:#333;}

@@ -1,0 +1,96 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-form-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-ucenter.css");
+@import url("uc-mod-wrap.css");
+@import url("uc-mod-buy-sideMenu.css");
+@import url("uc-mod-page-curMarkBar.css");
+@import url("pub-footer.css");
+
+/**
+ * 网通商场 会员中心 卖家中心 我的商品分类
+ * @authors jiangzhiqiang
+ * @date    2014-08-20 14:25:39
+ * @version 1.0.0
+ */
+
+/* 头部标题及选项卡 */
+.goodscategoryPage{width:830px; }
+.goodscategoryPage .category-title-bar{line-height: 40px;height:42px;font-size: 14px;border-bottom: 2px solid #ccc;}
+.goodscategoryPage .category-title-bar .category-title{font-size: 18px;font-weight: bold;float: left;}
+.goodscategoryPage .category-title-bar .tabs-btn{cursor:pointer;line-height: 32px;display: inline-block;vertical-align: bottom;float: right;padding: 0 12px;margin-right:10px;margin-top: 10px;border-radius: 3px 3px 0px 0px;background-color: #f8f8f8}
+.goodscategoryPage .category-title-bar .tabs-btn.selected{line-height: 28px;display: inline-block;vertical-align: bottom;float: right;padding: 0 12px;margin-right:10px;margin-top: 10px;border: 2px solid #ccc;border-bottom: 2px solid #fff;border-radius: 3px 3px 0px 0px;background-color: #fff;position:relative;top:2px;}
+
+
+/*表头*/
+.category-list .list-header{ width: 100%;  overflow: hidden; background: #fff; margin-top: 10px;clear: both;}
+.category-list .list-header li { float: left; height: 35px;}
+.category-list .list-header li .cot { height: 33px; overflow: hidden; line-height: 33px; color: #666; text-align: center; background: #f1f1f1; *height: 30px; *line-height: 30px; *padding-top: 3px;}
+.category-list .list-header li .cot.last{border-radius: 0px 3px 0px 0px;}
+.category-list .list-header li .cot.first{border-radius: 3px 0px 0px 0px;text-align: left;text-indent: 60px;}
+.category-list .list-header li .hr { height: 0px; overflow: hidden; border: none; border-top: 2px solid #e6e6e6; padding: 0px; margin:0px 4px 0px 0px; font:0px/0px tahoma,arial,'Microsoft Yahei','SimHei',\5b8b\4f53; font-size: 0px; }
+.category-list .list-header li .hr.last { margin: 0px; }
+.w426{width: 426px;}
+.w112{width: 112px;}
+.w128{width: 128px;}
+.w96{width: 96px;}
+.w68{width: 68px;}
+.w240{width: 240px;}
+.w210{width: 210px;}
+
+/*工具栏*/
+.category-list .list-content li.list-row.list-toolsbar{padding:5px;height: 34px;overflow: hidden;}
+.category-list .list-content li.list-toolsbar label{margin:0 5px; width: 40px; }
+.category-list .list-content .list-toolsbar a:link{color:#333;line-height: 26px;border: 1px solid #e6e6e6;margin: 0px 0px 0px 10px;background: #fff;}
+.category-list .list-content li.list-toolsbar a.ui-btn-s2{color: #fff;border-radius: 3px;background: #239ce9 ;}
+.category-list .list-content li.list-toolsbar .error-msg{color: #f30;vertical-align: middle;line-height: 26px;display:inline-block;margin-left: 10px;}
+.category-list .list-content li.list-toolsbar.footer{background: #f1f1f1;text-align: left;padding: 0px 0px 4px 0px;margin-top: 10px; border: 1px solid #e6e6e6;border-radius: 3px;}
+.category-list .list-content li.list-toolsbar.footer label{margin-left: 10px;}
+
+/* 内容 */
+.category-list .list-content li.list-row{border-bottom: 1px solid #e6e6e6;width: 100%;line-height: 34px;overflow: hidden;padding:15px 0px;}
+.category-list .list-content li.list-row .item{float: left;text-align: center;font-size: 13px;line-height: auto;}
+.category-list .list-content li.list-row .item.first{float: left;text-align: left;}
+.category-list .list-content li.list-row .item.first a{margin-left: 10px; }
+.category-list .list-content li.list-row .item label{width: 50px;display: inline-block;padding-left: 10px;}
+.category-list .list-content li.list-row .item span.lbl{width: 50px;display: inline-block;padding-left: 10px;}
+.category-list .list-content li.list-row .item span.lbl.input{float: left;}
+.category-list .list-content li.list-row .item span.lbl.span{float: left;}
+.category-list .list-content li.list-row .item span{display: inline-block;}
+.category-list .list-content li.list-row .item span.space{display: inline-block;width: 40px;}
+.category-list .list-content li.list-row .item span.space-lv{display: inline-block;width: 34px;}
+.category-list .list-content li.list-row .item span i{vertical-align: middle;width: 12px;height:12px;display:inline-block;cursor: pointer;}
+.category-list .list-content li.list-row .item span i.arrow-up{background: #fff url(../../img/sc/uc/IconS_14.png) no-repeat ;}
+.category-list .list-content li.list-row .item span i.arrow-up.disabled{background: #fff url(../../img/sc/uc/IconS_15.png) no-repeat ;}
+.category-list .list-content li.list-row .item span i.arrow-up.disabled:hover{background: #fff url(../../img/sc/uc/IconS_15.png) no-repeat ;}
+.category-list .list-content li.list-row .item span i.arrow-up:hover{background: #fff url(../../img/sc/uc/IconS_26.png) no-repeat ;}
+
+.category-list .list-content li.list-row .item span i.arrow-down{background: #fff url(../../img/sc/uc/IconS_16.png) no-repeat ;}
+.category-list .list-content li.list-row .item span i.arrow-down.disabled{background: #fff url(../../img/sc/uc/IconS_17.png) no-repeat ;}
+.category-list .list-content li.list-row .item span i.arrow-down.disabled:hover{background: #fff url(../../img/sc/uc/IconS_17.png) no-repeat ;}
+.category-list .list-content li.list-row .item span i.arrow-down:hover{background: #fff url(../../img/sc/uc/IconS_27.png) no-repeat ;}
+
+.category-list .list-content li.list-row .item span i.arrow-lv-up{width: 18px;height:18px;background: #fff url(../../img/sc/uc/IconS_18.png) no-repeat ; }
+.category-list .list-content li.list-row .item span i.arrow-lv-up.disabled{width: 18px;height:18px;background: #fff url(../../img/sc/uc/IconS_19.png) no-repeat ; }
+.category-list .list-content li.list-row .item span i.arrow-lv-up.disabled:hover{width: 18px;height:18px;background: #fff url(../../img/sc/uc/IconS_19.png) no-repeat ; }
+.category-list .list-content li.list-row .item span i.arrow-lv-up:hover{width: 18px;height:18px;background: #fff url(../../img/sc/uc/IconS_28.png) no-repeat ; }
+
+.category-list .list-content li.list-row .item span i.arrow-lv-down{width: 18px;height:18px;background: #fff url(../../img/sc/uc/IconS_20.png) no-repeat ;}
+.category-list .list-content li.list-row .item span i.arrow-lv-down.disabled{width: 18px;height:18px;background: #fff url(../../img/sc/uc/IconS_21.png) no-repeat ; }
+.category-list .list-content li.list-row .item span i.arrow-lv-down.disabled:hover{width: 18px;height:18px;background: #fff url(../../img/sc/uc/IconS_21.png) no-repeat ; }
+.category-list .list-content li.list-row .item span i.arrow-lv-down:hover{width: 18px;height:18px;background: #fff url(../../img/sc/uc/IconS_29.png) no-repeat ; }
+
+.category-list .list-content li.list-row .item span i.arrow-add{background: #fff url(../../img/sc/uc/IconS_22.png) no-repeat ; margin-right: 5px;}
+.category-list .list-content li.list-row .item span i.input-clear{width:12px;height:13px;background: #fff url(../../img/sc/uc/IconS_24.png) no-repeat ; margin-left: -20px;}
+.category-list .list-content li.list-row .item span i.arrow-expand{background: url("../../img/sc/uc/IconS_7.gif") no-repeat scroll 0 -12px rgba(0, 0, 0, 0); margin-left: 8px;margin-top: -11px;position: absolute; }
+.category-list .list-content li.list-row .item span i.arrow-collapse{background: url("../../img/sc/uc/IconS_7.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0); margin-left: 8px;margin-top: -11px;position: absolute;}
+.category-list .list-content li.list-row  span i.error{vertical-align: top;width:20px;height:20px;display:inline-block;background: #fff url(../../img/sc/uc/IconS_25.png) no-repeat ;margin-top: 3px;}
+.category-list .list-content li.list-row .list-child{overflow: hidden;clear: both;}
+.category-list .list-content li.list-row .list-child li{line-height: 34px;margin-top: 15px;overflow: hidden;}
+.category-list .list-content li.list-row .list-child .item span i.arrow-line{width:15px;height:15px;background: #fff url(../../img/sc/uc/IconS_23.png) no-repeat ; margin-right: 10px;}
+
+
+

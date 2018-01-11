@@ -1,0 +1,18 @@
+/**
+ * tabs
+ * @authors 	Inman Shaw
+ * @date 		2014-05-23 11:50:23
+ * @version 	1.0.0
+ */
+.tab-titles{display: inline; margin: 0 }
+.tab-titles .tab-title{padding: 0 40px;background: #ccc; border-bottom: 4px solid #E5E5E5; margin-right: 10px;display: inline-block;  zoom: 1;}
+.tab-titles .tab-title a{color: #fff; display: block; font-size: 18px; font-weight: 300; padding: 14px 24px; text-decoration: none;}
+.tab-titles .tab-title:hover {background: #ccc; border-bottom: 4px solid #68a697; }
+.tab-titles .tab-title:hover a {color: white; }
+.tab-titles .tab-title-active{background: #a0cac0; border-bottom: 4px solid #68a697; }
+.tab-titles .tab-title-active a{color: white; }
+.tab-cnt{background: #fff;display: none;}
+.tab-cnt-active{display: block;}
+
+.lt-ie8 .tabs .tab-titles .tab-title{*margin: 1px;*display: inline;}
+

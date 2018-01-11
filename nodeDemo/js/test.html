@@ -7,19 +7,14 @@
 <body>
 
 <script>
-    var obj = {
-        id:'awesome',
-        cool:function coolFn(){
-            console.log(this.o);
-        }
-    };
-    obj.o = 2;
-    var id = 'not awesome';
-
-    obj.cool.call(obj);
-    //console.log(obj.o);
-
-    //setTimeout(obj.cool,100);
+    function foo() {
+        var a = 2;
+        this.bar();
+    }
+    function bar() {
+        console.log(this.a);
+    }
+    foo();
 </script>
 </body>
 </html>

@@ -1,0 +1,58 @@
+
+@@include('-html-header.html', { "title": "testscDemo", "css": "sc/demo.css", "bodyclass": ""})
+
+<header class="header">
+    @@include('-pub-header-topbar.html') 
+    @@include('-pub-header-logo.html')
+</header>
+<section class="content">
+    <h2>aTabs</h2>
+    <div class="tabs" data-toggle="tab"> 
+        <ul class="tab-titles">
+            <li class="tab-title"><a href="javascript:;">a</a>
+            </li>
+            <li class="tab-title"><a href="javascript:;">b222</a>
+            </li>
+            <li class="tab-title"><a href="javascript:;">cc333</a>
+            </li>
+        </ul>
+        <div class="tab-cnt">1
+        
+        
+        
+        </div>
+        <div class="tab-cnt">2</div>
+        <div class="tab-cnt">3</div>
+    </div>
+    <br>
+    <br>
+    <br>  
+    <h2>Popup</h2>
+    <a href="javascript:;" class="lnk-popup">1、需要js绑定</a>
+    <br>
+    <br>
+    <a href="javascript:;" data-popup="#popupDemo">2、标签属性绑定</a>
+
+</section>
+
+
+    
+
+
+<!-- popup -->
+<div id="popupDemo" class="popup primary radius popup-effect-2">
+    <div class="popup-header">header</div>
+    <div class="popup-content">
+        <!-- content start -->
+        <div style="height: 300px;">
+            test
+        </div>
+        <!-- content end -->
+    </div>
+    <div class="popup-footer">footer</div>
+</div>
+<div class="popup-overlay"></div>
+
+
+
+@@include('-html-footer.html', { "script": "sc/v/test', 'sc/v/demo-in" })

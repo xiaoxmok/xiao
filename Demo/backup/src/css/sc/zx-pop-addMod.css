@@ -1,0 +1,24 @@
+/**
+ * 弹窗：添加模块
+ * @authors 	Inman Shaw
+ * @date 		2014-06-19 10:11:34
+ * @version 	1.0.0
+ */
+.pop-addMod .cnt{padding-left: 100px;background-color: #e6e6e6;}
+.pop-addMod .cnt .left{width: 100px;margin-left: -100px;float: left;}
+.pop-addMod .cnt .left a{display: block;height: 50px;line-height: 50px;font-size: 14px;color: #333;text-align: center;}
+.pop-addMod .cnt .left a:hover{background-color: #f1f1f1;}
+.pop-addMod .cnt .left a.tab-title-active{color: #f50;background-color: #fff;}
+
+.pop-addMod .cnt .right{padding: 0 0 10px 20px;background-color: #fff;}
+.pop-addMod .right .hd{height: 50px;line-height: 50px;}
+.pop-addMod .right .hd a{margin-right: 20px;color: #666}
+.pop-addMod .right .bd{height: 505px;overflow-y:auto }
+.pop-addMod .item{font-size: 0;margin-bottom: 20px;}
+.pop-addMod .item .l,.pop-addMod .item .c,.pop-addMod .item .r{font-size: 13px;vertical-align: top;	}
+.pop-addMod .item .l{width: 78px;height: 78px;line-height: 78px;background-color: #fff;border:1px solid #e6e6e6;text-align: center;}
+.pop-addMod .item .c{width: 286px;height: 80px;margin-left: 10px;line-height: 1.6;}
+.pop-addMod .item .r{width: 164px;height: 80px;line-height: 80px;}
+.pop-addMod .item .title{color: #333}
+.pop-addMod .item .l img{vertical-align: middle;}
+

@@ -1,0 +1,13 @@
+
+/**
+ * 网通商场 购物车底部推荐商品
+ * @authors 谭子良
+ * @date    2014-05-27 18:02:14
+ * @version 1.0.0
+ */
+
+.cart-foot-recommend { width: 1000px; overflow: hidden; margin:20px auto 10px auto; }
+.cart-foot-recommend .title { width: 999px; height: 40px; background:#f4f4f4; border: 1px solid #e6e6e6; }
+.cart-foot-recommend .title li { float: left; width: 332px; height: 40px; line-height: 40px; border-right: 1px solid #e6e6e6; text-align: center; font-size: 14px; font-weight: bold; cursor: pointer;}
+.cart-foot-recommend .title li.current { height: 41px; background: #fff;}
+.cart-foot-recommend .content { width: 998px; height: 300px; border: 1px solid #e6e6e6; border-top: none;}

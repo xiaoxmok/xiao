@@ -1,0 +1,28 @@
+
+/**
+ * 网通商场 商品列表 底部分页条
+ * @authors 谭子良
+ * @date    2014-06-18 15:33:56
+ * @version 1.0.0
+ */
+
+.sc-mod-proPagesBar-wrap { text-align: center; margin: 20px auto; text-align: center;}
+.sc-mod-proPagesBar { display:inline-block; margin: 0px auto;}
+.sc-mod-proPagesBar a { background: #fff; border: 1px solid #e5e5e5; border-right: none; height: 33px; line-height: 33px; display: inline-block; padding: 0px 15px; margin: 0px; float: left;}
+.sc-mod-proPagesBar a.current { background: #ededed; color: #666; cursor: default;}
+.sc-mod-proPagesBar .proPagesBar-more { display: inline-block; height: 35px; line-height: 33px; padding: 0px 10px; border-left: 1px solid #e6e6e6; float: left;}
+.sc-mod-proPagesBar .proPagesBar-gotolt { display: inline-block; height: 35px; line-height: 35px; padding: 0px 5px 0px 35px; border-left: 1px solid #e6e6e6; float: left;}
+.sc-mod-proPagesBar .proPagesBar-goto-input {  width: 40px; height: 33px; line-height: 33px; padding: 0px 5px; border: 1px solid #c0c0c0; float: left; color: #000; font-family: arial;}
+.sc-mod-proPagesBar .proPagesBar-ye { display: inline-block; height: 35px; line-height: 35px; padding: 0px 15px 0px 5px; float: left;}
+.sc-mod-proPagesBar .proPagesBar-goto-btn { border:1px solid #dcdcdc; border-radius: 3px 3px 3px 3px; height: 35px; padding: 0px 10px; line-height: 33px; background:url(../../img/sc/misc/i_002.png) repeat-x 0px -150px; float: left; cursor: pointer;}
+.sc-mod-proPagesBar .proPagesBar-goto-btn:hover , .sc-mod-proPagesBar .proPagesBar-goto-btn-hover { background:url(../../img/sc/misc/i_002.png) repeat-x 0px -185px; color: #fff; border:1px solid #1896e6;}
+
+
+
+
+
+
+
+
+
+

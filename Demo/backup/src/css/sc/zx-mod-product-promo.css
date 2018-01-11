@@ -1,0 +1,16 @@
+/**
+ * 店铺装修-侧栏-商品推荐
+ * @authors 	Inman Shaw
+ * @date 		2014-06-10 18:17:14
+ * @version 	1.0.0
+ */
+
+.mod-product-promo{background-color: #fff;border:1px solid #e6e6e6;border-top: 0 none;border-radius: 0 0 2px 2px;margin-top: -1px;margin-bottom: 10px;padding: 5px 4px 15px 4px;}
+.mod-product-promo .mod-pp-img, .mod-product-promo .mod-pp-img img{display: block;width: 180px;height: 180px;}
+.mod-product-promo p{padding: 2px 0;}
+.mod-pp-title a{color: #333}
+.mod-pp-price,.mod-pp-sales,.mod-pp-comment, .mod-pp-comment a{color: #666}
+.mod-pp-price del{color: #999;font-size: 14px}
+.mod-pp-price strong{font-size: 16px;font-family: arial;color: #f30}
+.mod-pp-price span{font-size: 12px;color: #f30}
+.mod-pp-comment a{color: #666}

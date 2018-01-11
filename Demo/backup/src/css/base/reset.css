@@ -1,0 +1,17 @@
+/**
+ * reset
+ * @authors 	Inman Shaw
+ * @date    	2014-05-19 10:42:28
+ * @version 	1.0.0
+ */
+html{color:#333;background:#fff;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+body{font:12px/1.5 tahoma,arial,'Microsoft Yahei','SimHei',\5b8b\4f53}
+button,input,select,textarea,h1,h2,h3,h4,h5,h6{font-size:100%}
+h1,h2,h3,h4,h5,h6{font-weight: 500}
+fieldset,img{border:0}
+address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}
+ol,ul{list-style:none}
+pre, code, tt {font-family: "Lucida Console", "Monaco", monospace; }

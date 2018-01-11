@@ -1,0 +1,54 @@
+@@include('-html-header.html', { "title": "网通商场官方后台", "css": "sc-admin/dp-creditLv-list.css", "bodyclass":"" })
+    
+@@include('-pub-header.html')
+@@include('-pub-nav.html')
+
+<div class="container"> 
+    <div class="ui-grid">
+        <div class="col-4-24">
+             @@include('dp-pub-sidenav.html')
+         </div>
+         <div class="col-20-24">
+            <div class="content">
+                <div class="content-title">
+                    <strong>编辑店铺信誉</strong>
+                    <a href="dp-creditLv-list.html">&lt;返回列表</a>
+                </div>
+
+                <!-- 表单 -->
+                <form class="ui-form add-form">
+                    <fieldset>
+                        <legend>编辑店铺信誉</legend>
+                        <div class="ui-form-item">
+                            <label class="ui-label"><em>*</em>信誉等级名称:</label>
+                            <input type="text" class="ui-input" style="width:300px;">
+                        </div>
+                        <div class="ui-form-item">
+                            <label class="ui-label"><em>*</em>信誉区间:</label>
+                            <input class="ui-input"><span class="gap">至</span>
+                            <input class="ui-input">
+                        </div>
+                        <div class="ui-form-item">
+                            <label class="ui-label"><em>*</em>等级图片:</label>
+                            <div class="upload-wrap">
+                                <a class="ui-btn-upload" href="javascript:;">
+                                    <span class="ui-btn ui-btn-s3 ui-btn-upload-view">上传图片</span>
+                                    <input type="file" class="ui-btn-upload-trigger" name="" id="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ui-form-item submit-box ib-fix">
+                        <a href="javascript:;" class="ui-btn ui-btn-l2 btn-submit">提交保存</a>
+                            <a href="dp-creditLv-list.html" class="ui-btn ui-btn-l3">返回列表</a>
+                        </div>
+                    </fieldset>
+                </form>
+
+
+            </div>
+
+         </div>
+     </div>
+</div>
+
+@@include('-html-footer.html', { "script": "sc-admin/c/dp-creditLv-add" })

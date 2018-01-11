@@ -1,0 +1,431 @@
+@@include('-html-header.html', { "title": "网通商场 确认订单信息-立即购买(多地址)", "css": "sc/sc-orderConfirm.css" })
+	<header class="header">
+		@@include('-pub-header-topbar.html')
+		@@include('-pub-header-logo.html')
+	</header>
+    <section class="wrap">
+        
+		<!--不能退回到购物车 购物车步骤进度指示条-->
+        <div class="shop-progress short clearfix">
+            <ul>
+                <li class="now">
+                    <div class="point">1</div>
+                    <div class="tis">确认订单信息</div>
+                </li>
+                <li class="arrow"><div class="on"></div></li>
+                <li class="sp3">
+                    <div class="point">2</div>
+                    <div class="tis">付款</div>
+                </li>
+                <li class="arrow"></li>
+                <li class="sp4">
+                    <div class="point">3</div>
+                    <div class="tis">确认收货</div>
+                </li>
+                <li class="arrow"></li>
+                <li class="sp5">
+                    <div class="point">4</div>
+                    <div class="tis">评价</div>
+                </li>
+            </ul>
+        </div>
+        <!-- 可以退回到购物车 购物车步骤进度指示条-->
+        <div class="shop-progress clearfix" style="display:none;">
+            <ul>
+                <li class="before">
+                    <div class="point">1</div>
+                    <div class="tis">查看购物车</div>
+                </li>
+                <li class="arrow"><div></div></li>
+                <li class="now">
+                    <div class="point">2</div>
+                    <div class="tis">确认订单信息</div>
+                </li>
+                <li class="arrow"><div class="on"></div></li>
+                <li class="sp3">
+                    <div class="point">3</div>
+                    <div class="tis">付款</div>
+                </li>
+                <li class="arrow"></li>
+                <li class="sp4">
+                    <div class="point">4</div>
+                    <div class="tis">确认收货</div>
+                </li>
+                <li class="arrow"></li>
+                <li class="sp5">
+                    <div class="point">5</div>
+                    <div class="tis">评价</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 收货信息  -->
+        <div class="item-title"><p></p><em>收货信息</em></div>
+
+        <!-- 第一次购物 默认增加新地址 -->
+        <div class="consignee clearfix" style="display:none;">
+            <form class="ui-form">
+                <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>收货人姓名</label>
+                    <div class="input-rel"><input class="ui-input" style="width:210px;" type="text" name="" value=""></div>
+                </div>
+                <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>所在地</label>
+                    <div class="input-rel">
+                        <select name="">
+                            <option value="">内蒙古</option>
+                        </select>
+                        <select name="">
+                            <option value="">克孜勒苏柯尔克孜</option>
+                        </select>
+                        <select name="">
+                            <option value="">塔什库尔干塔吉克</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ui-form-item">
+                    <label class="ui-label"><span class="ui-form-required">*</span>详细地址：</label>
+                    <div class="input-rel"><textarea name="" class="ui-textarea" style="resize: none;">不需要重复填写省/市/区</textarea></div>
+                </div>
+                <div class="ui-form-item">
+                    <label class="ui-label">邮政编码：</label>
+                    <div class="input-rel"><input class="ui-input" type="text" name="" value=""></div>
+                </div>
+                <div class="ui-form-item">
+                    <label class="ui-label">手机号码：</label>
+                    <div class="input-rel">
+                        <input class="ui-input" style="width:210px;" type="text" name="" value="" >
+                        <span class="rel-text">电话号码、手机号码必填一项</span>
+                    </div>
+                </div>
+                <div class="ui-form-item">
+                    <label class="ui-label">电话号码：</label>
+                    <div class="input-rel">
+                        <input class="ui-input" style="width:50px;" type="text" name="" value="区号" >
+                        <span class="rel-split">-</span>
+                        <input class="ui-input" style="width:130px;" type="text" name="" value="号码" >
+                        <span class="rel-split">-</span>
+                        <input class="ui-input" style="width:90px;" type="text" name="" value="分机/或不填" >
+                    </div>
+                </div>
+                <div class="ui-form-item">
+                    <label class="ui-label">设为默认：</label>
+                    <div class="input-rel"><input type="checkbox" class="ui-checkbox" /></div>
+                </div>
+                <div class="ui-form-item">
+                   <input value="保存" class="ui-btn ui-btn-l2" type="submit">
+                </div>
+            </form>
+        </div>
+        <!-- 非第一次购物者 显示用户的收货地址 -->
+        <div class="address">
+            <ul>
+                <li>
+                    <div class="it1">广东  深圳<br />南山区蛇口花园城数码大厦A座8楼蛇口花园城数码大厦</div>
+                    <div class="it2">于甜甜水电费收（15919768000）</div>
+                    <div class="it3"><i>编辑</i><span>默认地址</span></div>
+                    <div class="it4">&nbsp;</div>
+                </li>
+                <li>
+                    <div class="it1">广东  深圳<br />南山区蛇口花园城数码大厦A座8楼蛇口花园城数码大厦</div>
+                    <div class="it2">于甜甜水电费收（15919768000）</div>
+                    <div class="it3"><i>编辑</i><span>设为默认</span></div>
+                </li>
+                <li>
+                    <div class="it1">广东  深圳<br />南山区蛇口花园城数码大厦A座8楼蛇口花园城数码大厦</div>
+                    <div class="it2">于甜甜水电费收（15919768000）</div>
+                    <div class="it3"><i>编辑</i><span>设为默认</span></div>
+                </li>
+                <li>
+                    <div class="it1">广东  深圳<br />南山区蛇口花园城数码大厦A座8楼蛇口花园城数码大厦</div>
+                    <div class="it2">于甜甜水电费收（15919768000）</div>
+                    <div class="it3"><i>编辑</i><span>设为默认</span></div>
+                </li>
+            </ul>
+        </div>
+        <div class="address-option">
+            <a href="#" class="fl">显示全部地址</a>
+            <a href="#" class="fr">管理收货地址</a>
+        </div>
+
+        <!-- 确认定单信息  -->
+        <div class="item-title"><p></p><em>确认定单信息</em></div>
+		<!-- 购物车表头 -->
+		<div class="shop-cart-bar">
+        	<ul>
+                <li class="w370"><div class="cot">商品信息</div><div class="hr"></div></li>
+                <li class="w110"><div class="cot">单价（元）</div><div class="hr"></div></li>
+                <li class="w110"><div class="cot">数量</div><div class="hr"></div></li>
+                <li class="w150"><div class="cot">优惠（元）</div><div class="hr"></div></li>
+                <li class="w110"><div class="cot">小计（元）</div><div class="hr"></div></li>
+                <li class="w150"><div class="cot">操作</div><div class="hr last"></div></li>
+            </ul>
+        </div>
+        <!--不同物流-->
+        <div class="item normal">
+            <table width="1000" border="0" cellspacing="0" cellpadding="0">
+              <tr class="title">
+                <td colspan="7">
+                    <div class="store">
+                        <ul>
+                            <li>店铺：古古美美旗舰店</li>
+                            <li><span class="ico-cat"></span></li>
+                            <li><span class="rectangle1">满减</span></li>
+                        </ul>
+                    </div>
+                </td>
+              </tr>
+              <tr class="cont">
+                <td width="110" class="ta-r va-t">
+                    <a href="#"><img src="http://my.wt.com/images/IconS/jpg/17.jpg" width="80" height="80" alt="说明文字" class="photo"/>
+                </td>
+                <td width="260" class="va-t">
+                    <div class="sproduct">
+                        <p><a href="#">尊尼女士正品缩短新款潮十字纹牛皮单肩手提包 欧美时尚杀手女包</a></p>
+                        <p class="c-666">颜色：天蓝色</p>
+                        <p class="xiaobao">
+                            <span class="ico-x1" title="正品保障"></span>
+                            <span class="ico-x2" title="闪电发货"></span>
+                            <span class="ico-x3" title="七天退换"></span>
+                            <span class="ico-x4" title="消保会员"></span>
+                        </p>
+                    </div>
+                </td>
+                <td width="110" class="ta-c va-t">
+                    <p><span class="price-666">298.00</span></p>
+                </td>
+                <td width="110" class="ta-c va-t">
+                    <p>1</p>
+                </td>
+                <td width="150" class="ta-c va-t">
+                    <p>满100减10<br>周年庆：限时优惠</p>
+                </td>
+                <td width="110" class="ta-c va-t">
+                    <span class="price-f30">298.00</span>
+                </td>
+                <td width="150" class="ta-c va-m">
+                    <select>
+                        <option value="">免运费</option>
+                    </select>
+                </td>
+              </tr>
+              <tr class="message">
+                <td colspan="4" class="ta-l va-t">
+                    <div class="message-area">
+                        <lable>购买留言：</lable>
+                        <textarea class="ui-textarea" style="resize: none;">选填，可以告诉卖家您对商品的特殊要求，如：颜色、尺码等</textarea>
+                    </div>
+                </td>
+                <td colspan="3" class="va-m">
+                    <div class="item-count">
+                        <dl>
+                            <dt>店铺优惠：</dt>
+                            <dd>
+                                <select class="W110 FS14 MT4">
+                                    <option value="">满100减10</option>
+                                </select>
+                            </dd>
+                        </dl>
+                     </div>
+                </td>
+              </tr>
+              <tr class="cont">
+                <td width="110" class="ta-r va-t">
+                    <a href="#"><img src="http://my.wt.com/images/IconS/jpg/17.jpg" width="80" height="80" alt="说明文字" class="photo"/>
+                </td>
+                <td width="260" class="va-t">
+                    <div class="sproduct">
+                        <p><a href="#">尊尼女士正品缩短新款潮十字纹牛皮单肩手提包 欧美时尚杀手女包</a></p>
+                        <p class="c-666">颜色：天蓝色</p>
+                        <p class="xiaobao">
+                            <span class="ico-x1" title="正品保障"></span>
+                            <span class="ico-x2" title="闪电发货"></span>
+                            <span class="ico-x3" title="七天退换"></span>
+                            <span class="ico-x4" title="消保会员"></span>
+                        </p>
+                    </div>
+                </td>
+                <td width="110" class="ta-c va-t">
+                    <p><span class="price-666">298.00</span></p>
+                </td>
+                <td width="110" class="ta-c va-t">
+                    <p>1</p>
+                </td>
+                <td width="150" class="ta-c va-t">
+                    <p>满100减10<br>周年庆：限时优惠</p>
+                </td>
+                <td width="110" class="ta-c va-t">
+                    <span class="price-f30">298.00</span>
+                </td>
+                <td width="150" class="ta-c va-m">
+                    <select>
+                        <option value="">免运费</option>
+                        <option value="">EMS</option>
+                        <option value="">网通快递</option>
+                        <option value="">中通快递</option>
+                    </select>
+                </td>
+              </tr>
+              <tr class="message">
+                <td colspan="4" class="ta-l va-t">
+                    <div class="message-area">
+                        <lable>购买留言：</lable>
+                        <textarea class="ui-textarea" style="resize: none;">选填，可以告诉卖家您对商品的特殊要求，如：颜色、尺码等</textarea>
+                    </div>
+                </td>
+                <td colspan="3" class="va-m">
+                    <div class="item-count">
+                        <dl class="clearfix">
+                            <dt>店铺优惠：</dt>
+                            <dd>
+                                <select class="W110 FS14 MT4">
+                                    <option value="">满100减10</option>
+                                </select>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix mt5">
+                            <dt>店铺合计（含运费）：</dt>
+                            <dd>
+                                <em class="price-f30">1988.59</em>
+                            </dd>
+                        </dl>
+                     </div>
+                </td>
+              </tr>
+            </table>
+        </div>
+        <!-- 相同物流 -->
+        <div class="item normal">
+            <table width="1000" border="0" cellspacing="0" cellpadding="0">
+              <tr class="title">
+                <td colspan="7">
+                    <div class="store">
+                        <ul>
+                            <li>店铺：古古美美旗舰店</li>
+                            <li><span class="ico-cat"></span></li>
+                            <li><span class="rectangle1">满减</span></li>
+                        </ul>
+                    </div>
+                </td>
+              </tr>
+              <tr class="cont">
+                <td width="110" class="ta-r va-t b-line-white">
+                    <a href="#"><img src="http://my.wt.com/images/IconS/jpg/17.jpg" width="80" height="80" alt="说明文字" class="photo"/>
+                </td>
+                <td width="260" class="va-t b-line-white">
+                    <div class="sproduct">
+                        <p><a href="#">尊尼女士正品缩短新款潮十字纹牛皮单肩手提包 欧美时尚杀手女包</a></p>
+                        <p class="c-666">颜色：天蓝色</p>
+                        <p class="xiaobao">
+                            <span class="ico-x1" title="正品保障"></span>
+                            <span class="ico-x2" title="闪电发货"></span>
+                            <span class="ico-x3" title="七天退换"></span>
+                            <span class="ico-x4" title="消保会员"></span>
+                        </p>
+                    </div>
+                </td>
+                <td width="110" class="ta-c va-t b-line-white">
+                    <p><span class="price-666">298.00</span></p>
+                </td>
+                <td width="110" class="ta-c va-t b-line-white">
+                    <p>1</p>
+                </td>
+                <td width="150" class="ta-c va-t b-line-white">
+                    <p>满100减10<br>周年庆：限时优惠</p>
+                </td>
+                <td width="110" class="ta-c va-t b-line-white">
+                    <span class="price-f30">298.00</span>
+                </td>
+                <td width="150" rowspan="2" class="ta-c va-m l-line-white">
+                    <select>
+                        <option value="">免运费</option>
+                    </select>
+                </td>
+              </tr>
+              <tr class="cont">
+                <td width="110" class="ta-r va-t">
+                    <a href="#"><img src="http://my.wt.com/images/IconS/jpg/17.jpg" width="80" height="80" alt="说明文字" class="photo"/>
+                </td>
+                <td width="260" class="va-t">
+                    <div class="sproduct">
+                        <p><a href="#">尊尼女士正品缩短新款潮十字纹牛皮单肩手提包 欧美时尚杀手女包</a></p>
+                        <p class="c-666">颜色：天蓝色</p>
+                        <p class="xiaobao">
+                            <span class="ico-x1" title="正品保障"></span>
+                            <span class="ico-x2" title="闪电发货"></span>
+                            <span class="ico-x3" title="七天退换"></span>
+                            <span class="ico-x4" title="消保会员"></span>
+                        </p>
+                    </div>
+                </td>
+                <td width="110" class="ta-c va-t">
+                    <p><span class="price-666">298.00</span></p>
+                </td>
+                <td width="110" class="ta-c va-t">
+                    <p>1</p>
+                </td>
+                <td width="150" class="ta-c va-t">
+                    <p>满100减10<br>周年庆：限时优惠</p>
+                </td>
+                <td width="110" class="ta-c va-t">
+                    <span class="price-f30">298.00</span>
+                </td>
+              </tr>
+              <tr class="message">
+                <td colspan="4" class="ta-l va-t">
+                    <div class="message-area">
+                        <lable>购买留言：</lable>
+                        <textarea class="ui-textarea" style="resize: none;">选填，可以告诉卖家您对商品的特殊要求，如：颜色、尺码等</textarea>
+                    </div>
+                </td>
+                <td colspan="3" class="va-m">
+                    <div class="item-count">
+                        <dl class="clearfix">
+                            <dt>店铺优惠：</dt>
+                            <dd>
+                                <select class="W110 FS14 MT4">
+                                    <option value="">满100减10</option>
+                                </select>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix mt5">
+                            <dt>店铺合计（含运费）：</dt>
+                            <dd>
+                                <em class="price-f30">1988.59</em>
+                            </dd>
+                        </dl>
+                     </div>
+                </td>
+              </tr>
+            </table>
+        </div>
+        <!-- 订单商品 end  -->
+
+        <!--价格统计-->
+        <div class="footer-count">
+            <ul>
+                <li><span>实付款：</span></li>
+                <li><span>￥</span></li>
+                <li class="price">9000.00</li>
+            </ul>
+            <p>
+                寄送至：于甜甜 15919768000   广东深圳南山蛇口数码大厦8A
+            </p>
+            <ul>
+                <li><input type="checkbox" /></li>
+                <li> &nbsp; 匿名购买</li>
+            </ul>
+        </div>
+        <p class="fc-post">
+            若价格变动，请在提交订单后联系卖家改价，并查看已买到的商品
+        </p>
+        <div class="fc-post" style="margin-bottom:30px;">
+            <a href="#" class="AL__C_3355aa AH__C_ff3300">返回购物车修改</a> &nbsp; 
+            <a href="javascript:;" class="ui-btn ui-btn-l1">提交表单</a>
+        </div>
+
+    </section>
+	<footer class="footer">
+        @@include('-pub-footer.html')
+    </footer>
+@@include('-html-footer.html', { "script": "sc/v/sc-orderConfirm" })    

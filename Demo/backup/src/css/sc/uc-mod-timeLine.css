@@ -1,0 +1,13 @@
+/**
+ * 买家中心 纵向时间轴
+ * @authors 谭子良
+ * @date    2014-07-24 16:54:07
+ * @version 1.0.0
+ */
+
+.uc-mod-timeLine { width: 100%; padding: 15px 0px; background:#fff url(../../img/sc/uc/IconS_13.gif) repeat-y 16px 0px; }
+.uc-mod-timeLine .time { width: 18%; padding-left: 35px; float: left; background:url(../../img/sc/uc/IconS_11.gif) no-repeat 10px 4px;}
+.uc-mod-timeLine .timeNow { width: 18%; margin-top: 20px; padding-left: 35px; float: left; background:url(../../img/sc/uc/IconS_12.gif) no-repeat 10px 4px;}
+.uc-mod-timeLine .something { width: 82%; margin-left: -35px; float: right;}
+.uc-mod-timeLine .something .appraiseMessage { margin-top: 0px;}
+.c-999 { color: #999;}

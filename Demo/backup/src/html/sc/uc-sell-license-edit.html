@@ -1,0 +1,106 @@
+@@include('-html-header.html', { "title": "网通商场 会员中心 卖家中心 店铺基本资料", "css": "sc/uc-sell-license-edit.css","bodyclass":"" })
+<header class="header">
+    @@include('-pub-header-topbar.html')
+    @@include('-pub-header-ucenter.html')
+</header>
+<div class="uc-mod-wrap noBg">
+    <section class="container">
+        <!--左侧栏-->
+        <div class="uc-mod-leftWrap">
+            <div class="uc-mod-sideMenu">
+                @@include('-uc-mod-sell-sideMenu.html')
+            </div>
+        </div>
+        <div class="uc-mod-rightWrap">
+            <!--右侧内容区-->
+            <div class="uc-mod-conter">
+                <div class="clearfix license">
+                    <!-- 标题 及切换按钮 -->
+                    <div class="title-bar">
+                        <span class="title">上传资质证书</span>
+                    </div>
+                    <div class="ui-form">
+                        <div class="notice">
+                            <i class="icon"></i>
+                            <span>上传证书可以提高店铺信用级别，赢得买家新来！请认真、仔细填写</span>
+                        </div>
+                        <form method="post" action="">
+                            <table>
+                                <tr>
+                                    <td class="title"><em>*</em>选择证书类型：</td>
+                                    <td><select class="ui-select" style="width:200px;"></select></td>
+                                </tr>
+                                <tr>
+                                    <td class="title"><em>*</em>证书名称：</td>
+                                    <td>
+                                        <input class="ui-input" style="width:260px;">
+                                        <span class="tip">证书名称要体现证书的认证内容，一目了然</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="title"><em>*</em>生效时间：</td>
+                                    <td><input class="ui-input" style="width:100px;"></td>
+                                </tr>
+                                <tr>
+                                    <td class="title">有效期截至：</td>
+                                    <td>
+                                        <input class="ui-input" style="width:100px;">
+                                        <span class="tip">如果证书上有，必须填写，如果为空系统默认为长期有效</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="title">证书编号：</td>
+                                    <td><input class="ui-input" style="width:260px;"></td>
+                                </tr>
+                                <tr>
+                                    <td class="title"><em>*</em>发证机构：</td>
+                                    <td><input class="ui-input" style="width:260px;"></td>
+                                </tr>
+                                <tr>
+                                    <td class="title">发证机构电话：</td>
+                                    <td><input class="ui-input" style="width:260px;"></td>
+                                </tr>
+                                <tr>
+                                    <td class="title"><em>*</em>证书复印件：</td>
+                                    <td>
+                                        <ul>
+                                            <li>
+                                                <div class="preview">
+                                                    <img src="">
+                                                </div>
+                                                <div class="upload">
+                                                    <a href="javascript:;" class="ui-btn btn-upload">重新上传</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="tip">仅支持jpg /png/gif /bmp的图片格式。图片大小不超过5M。</span>
+                                                <a href="#">证书图片规范</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="title">证书介绍：</td>
+                                    <td><textarea class="ui-textarea" style="width:500px;height:80px;resize:none;"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <p class="gap"></p>
+                                        <input type="submit" class="ui-btn ui-btn-l2" value="提交"></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<footer class="footer full-border">
+    @@include('-pub-footer-blogroll.html')
+    @@include('-pub-footer.html')
+</footer>
+@@include('-html-footer.html',{"script": "sc/c/uc-sell-license-edit"})
+

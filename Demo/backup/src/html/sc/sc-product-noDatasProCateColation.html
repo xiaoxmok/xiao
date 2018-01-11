@@ -1,0 +1,50 @@
+@@include('-html-header.html', { "title": "网通商场 商品列表 分类筛选结果无数据", "css": "sc/sc-product-bImg.css","bodyclass":"win-1200" })
+	<header class="header">
+		@@include('-pub-header-topbar.html')
+        @@include('-pub-header-product.html')
+        <div class="container clearfix">
+            @@include('-pub-nav-proCates.html')
+            @@include('-pub-nav-list.html')
+        </div>
+	</header>
+    <section class="container">
+    	<!--面包屑-->
+        <div class="crumbs">
+            <ul>
+                <li><a href="#">全部商品分类</a></li>
+                <li>&gt;</li>
+                <li><em>短裙</em> 共 0 件相关商品</li>
+            </ul>
+        </div>
+        <!--列表内容区-->
+        <div class="ui-grid">
+        	<div class="col-18-24">
+                <div class="product-left-area">
+
+                    <!-- 无数据时显示 Start -->
+                    <div class="sc-mod-proNoDatas clearfix">
+                        <h2>抱歉，没有找到与<span class="searchWord">“短裙”</span>相关的商品哦！</h2>
+                        <p>要不您再看看 <a href="#">其他相关分类</a></p>
+                    </div>
+                    <div class="misc-guess-recommend">猜你可能喜欢</div>
+                    <!-- 无数据时显示 End -->
+
+                    @@include('-sc-mod-bigPhotoProList.html')
+
+                </div>
+            </div>
+            <!--右侧推荐-->
+            <div class="col-6-24">
+                @@include('-sc-mod-aside-hotProduct.html')
+            </div>
+        </div>
+
+        @@include('-sc-mod-proFooterSearch.html')
+
+    </section>
+	<footer class="footer">
+        @@include('-pub-footer-sitemap.html')
+        @@include('-pub-footer-blogroll.html')
+        @@include('-pub-footer.html')
+    </footer>
+@@include('-html-footer.html', { "script": "sc/v/sc-product-bImg" })

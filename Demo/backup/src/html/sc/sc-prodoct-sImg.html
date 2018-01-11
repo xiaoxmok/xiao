@@ -1,0 +1,55 @@
+@@include('-html-header.html', { "title": "网通商场 商品列表（小图方式）", "css": "sc/sc-product-sImg.css","bodyclass":"win-1200" })
+	<header class="header">
+		@@include('-pub-header-topbar.html')
+        @@include('-pub-header-product.html')
+        <div class="container clearfix">
+            @@include('-pub-nav-proCates.html')
+            @@include('-pub-nav-list.html')
+        </div>
+	</header>
+    <section class="container">
+    	<!--面包屑-->
+        <div class="crumbs">
+            <ul>
+                <li><a href="#">全部商品分类</a></li>
+                <li>&gt;</li>
+                <li><a href="#">服装鞋帽</a></li>
+                <li>&gt;</li>
+                <li><a href="#">女装</a></li>
+                <li>&gt;</li>
+                <li><div class="s-option"><b class="s-option-val">鞋面材质：真皮、头层皮</b><a href="#" class="del">删除所选项</a></div></li>
+                <li>&gt;</li>
+                <li>共1165件相关商品</li>
+            </ul>
+        </div>
+        <!--列表内容区-->
+        <div class="ui-grid">
+        	<div class="col-18-24">
+                <div class="product-left-area">
+                    <!-- 产品分类筛选 -->
+                    @@include('-sc-mod-proCategory.html')
+                    <!-- 产品排序显示条 -->
+                    <div class="clearfix" style="width:100%; height:10px;"></div>
+                    @@include('-sc-mod-proOrderBy.html')
+                    <!-- 产品排序显示条 -->
+                    <div class="clearfix" style="width:100%; height:10px;"></div>
+                    @@include('-sc-mod-smallPhotoProList.html')
+                   @@include('-sc-mod-proPagesBar.html')
+                </div>
+            </div>
+            <!--右侧推荐-->
+            <div class="col-6-24">
+                @@include('-sc-mod-aside-hotProduct.html')
+            </div>
+        </div>
+
+        @@include('-sc-mod-proFooterHistory.html')
+        @@include('-sc-mod-proFooterSearch.html')
+
+    </section>
+	<footer class="footer">
+        @@include('-pub-footer-sitemap.html')
+        @@include('-pub-footer-blogroll.html')
+        @@include('-pub-footer.html')
+    </footer>
+@@include('-html-footer.html', { "script": "sc/v/sc-product-sImg" })

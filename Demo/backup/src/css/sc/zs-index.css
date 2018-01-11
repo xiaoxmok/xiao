@@ -1,0 +1,81 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-logo.css");
+@import url("pub-footer.css");
+@import url("pub-footer-attention.css");
+@import url("zs-public.css");
+@import url("zs-mod-nav.css");
+@import url("zs-mod-service.css");
+/**
+ * 商场招商：开店流程_首页
+ * @authors 	Inman Shaw
+ * @date 		2014-05-28 10:42:35
+ * @version 	1.0.0
+ */
+
+/*招商logo*/
+.zs .logo-section{border-bottom: 0 none;}
+
+/*首页top banner*/
+.banner{height: 370px;background-color: #c90026;}
+.banner .container{position: relative;}
+.banner .entrance-bg, .banner .entrance{position: absolute;top: 0;right: 10px;}
+.banner .entrance-bg{background-color: #fff;opacity: .7;width: 300px;height: 370px;}
+.banner .entrance{width: 260px;padding: 15px 20px 0 20px;}
+.banner .entrance-inner h3{font-size: 18px;color: #333;line-height: 18px;}
+.banner .entrance-list{margin-top: 15px;margin-right: -20px;font-size: 0;line-height: 0;}
+.banner .entrance-list a{display: inline-block;width: 125px;height: 50px;margin-right: 10px;margin-bottom: 10px;background-color: #fff;text-align: center;line-height: 50px;}
+.banner .entrance-list a img{max-width: 125px;max-height: 50px;}
+.banner .entrance-btns .btn-apply{display: block;font-size: 18px;}
+.banner .entrance-btns p{padding-top: 6px;}
+.banner .entrance-btns p a{color: #3355aa}
+
+/*开店步骤*/
+.setup-steps{border: 1px solid #e6e6e6;}
+.setup-steps .step{float: left;display: inline;height: 80px;margin-left: -1px;margin-top: 20px;border-left: 1px solid #e6e6e6;}
+.setup-steps .title{width: 190px;height: 0;padding-top: 120px;overflow: hidden;margin-top: 0;border-right: 1px solid #e6e6e6;background:#f4f4f4 url(../../img/sc/zs/business_4_steps.gif) center center no-repeat;}
+.setup-steps .step-1{width: 166px;}
+.setup-steps .step-2{width: 220px;}
+.setup-steps .step-3{width: 230px;}
+.setup-steps .step-4{width: 190px;}
+.setup-steps dl{padding-left: 20px;padding-bottom: 500px;margin-bottom: -500px;}
+.setup-steps dl dt{font-size: 18px;line-height: 1.8;color: #1896e6}
+.setup-steps dl dd{color: #333}
+
+/*开店类型*/
+.shop-types{border: 1px solid #e6e6e6;cursor: default;}
+.shop-types .item-wrap{border-top-width: 2px;border-top-style: solid;margin-right: -10px;margin-top: -5px;}
+.shop-types .item-1{border-top-color: #505d95;}
+.shop-types .item-2{border-top-color: #d94e41}
+.shop-types .item-3{border-top-color: #4c9993}
+.shop-types .item-4{border-top-color: #8a5c99;margin-right: 0;}
+.shop-types .item-1 .hover, .shop-types .item-1 .on{background-color: #f3f9fe}
+.shop-types .item-2 .hover, .shop-types .item-2 .on{background-color: #fdf4f3}
+.shop-types .item-3 .hover, .shop-types .item-3 .on{background-color: #f2fbf7}
+.shop-types .item-4 .hover, .shop-types .item-4 .on{background-color: #fbf4fc}
+.shop-types .item-wrap dl{background-position: right top;background-repeat: no-repeat;}
+/*.shop-types .item-1 .hover, .shop-types .item-2 .hover,.shop-types .item-3 .hover,.shop-types .item-4 .hover{background-image: url(../../img/public/icon/24x24/check.gif);}
+.shop-types .item-1 .on,.shop-types .item-2 .on,.shop-types .item-3 .on,.shop-types .item-4 .on{background-image: url(../../img/public/icon/24x24/check_on.gif);}*/
+
+
+.shop-types h3{height: 32px;line-height: 32px;padding-left: 20px;font-size: 16px;color: #333;background-color: #f4f4f4;}
+.shop-types dl{padding: 20px 25px 40px 25px;border-left: 1px dashed #e6e6e6;margin-left: -1px;}
+.shop-types dt{font-size: 20px;font-weight: 700}
+.shop-types dt span{vertical-align: middle;margin-right: 10px;}
+.shop-types dl .item-cnt{margin-top: 10px;height: 260px;}
+.shop-types dl .item-cnt p{margin-top: 10px;}
+.shop-types dl .item-btn{text-align: center;margin-top: 30px;}
+.shop-types dl .item-btn a{padding: 0 40px;font-size: 18px;}
+
+
+/*icons*/
+.ico-geti{display: inline-block;width: 33px;height: 33px;background:url(../../img/sc/icon/geti_32x32.gif) 0 center no-repeat; }
+.ico-qijian{display: inline-block;width: 33px;height: 33px;background:url(../../img/sc/icon/qijian_32x32.gif) 0 center no-repeat; }
+.ico-zhuanmai{display: inline-block;width: 33px;height: 33px;background:url(../../img/sc/icon/zhuanmai_32x32.gif) 0 center no-repeat; }
+.ico-zhuanying{display: inline-block;width: 33px;height: 33px;background:url(../../img/sc/icon/zhuanying_32x32.gif) 0 center no-repeat; }
+
+
+.lt-ie8 .banner .entrance-list a img{width: 125px;height: 50px;overflow: hidden;}

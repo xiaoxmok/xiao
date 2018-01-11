@@ -1,0 +1,19 @@
+/*display-form*/
+.pop-proList .display-form{margin-top: 20px;}
+.pop-proList .display-form .ui-form-item{padding-left: 75px;}
+.pop-proList .display-form .ui-form-item .ui-label{width: 70px;margin-left: -75px;}
+.pop-proList .display-form .ui-checkbox-for{margin-right: 20px;}
+
+.pop-proList .layout-type{width: 120px;height: 80px;padding-top: 5px;display: inline-block;vertical-align: top;border:3px solid #feba00;text-align: center;font-size: 0;position: relative;margin-bottom: 2px;}
+.pop-proList .layout-type span{display: inline-block;background: #ccc}
+.pop-proList .type-1 span{width: 30px;height: 30px;margin: 5px 5px 0 0;}
+.pop-proList .layout-type .ico-check{position: absolute;right: 0;bottom: 0;}
+.pop-proList .type-2 span{width: 32px;height: 32px;margin: 1px 1px 0 0;}
+
+.ico-check{width: 20px;height: 20px;background:  url(../../img/public/icon/16x16/check.gif) center center no-repeat;display: none;}
+.pop-proList .layout-type.checked .ico-check{display: block;}
+
+.type-outter{display: inline-block;width: 126px;margin-right: 20px;text-align: center;}
+
+.pop-proList .btn-box{padding-top: 20px;}
+.pop-proList .btn-box .ui-btn{margin-right: 10px;}

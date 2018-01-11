@@ -1,0 +1,10 @@
+/**
+ * 商场招商： 导航
+ * @authors 	Inman Shaw
+ * @date 		2014-05-28 10:57:13
+ * @version 	1.0.0
+ */
+
+.zs-nav{border-bottom: 2px solid #1896e6;}
+.zs-nav a{display: inline-block;height: 38px;line-height: 38px;font-size:16px;padding: 0 20px;color: #333}
+.zs-nav .active{background-color: #1896e6;color: #fff}

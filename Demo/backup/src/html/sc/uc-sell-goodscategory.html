@@ -1,0 +1,557 @@
+@@include('-html-header.html', { "title": "网通商场 会员中心 卖家中心 店铺基本资料", "css": "sc/uc-sell-goodscategory.css","bodyclass":"" })
+<header class="header">
+    @@include('-pub-header-topbar.html')
+    @@include('-pub-header-ucenter.html')
+</header>
+<div class="uc-mod-wrap noBg">
+    <section class="container">
+        <!--左侧栏-->
+        <div class="uc-mod-leftWrap">
+            <div class="uc-mod-sideMenu">
+                @@include('-uc-mod-sell-sideMenu.html')
+            </div>
+        </div>
+        <div class="uc-mod-rightWrap">
+            <!--右侧内容区-->
+            <div class="uc-mod-conter">
+                <div class="clearfix goodscategoryPage">
+                    <!-- 标题 及切换按钮 -->
+                    <div class="category-title-bar">
+                        <span class="category-title">商品分类管理</span>
+                        <span class="tabs-btn ">商品归类</span>
+                        <span class="tabs-btn selected">自定义分类</span>
+                    </div>
+
+                    <!-- 分类详情 -->
+                    <div class="category-list ">
+                        <!-- 头部栏目列 -->
+                        <div class="list-header">
+                            <ul>
+                                <li class="w426">
+                                    <div class="cot first">分类名称</div>
+                                    <div class="hr"></div>
+                                </li>
+                                <li class="w112">
+                                    <div class="cot">分类图片</div>
+                                    <div class="hr"></div>
+                                </li>
+                                <li class="w128">
+                                    <div class="cot">排序</div>
+                                    <div class="hr"></div>
+                                </li>
+                                <li class="w96">
+                                    <div class="cot">商品数量</div>
+                                    <div class="hr"></div>
+                                </li>
+                                <li class="w68">
+                                    <div class="cot last">操作</div>
+                                    <div class="hr last"></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <form class="list-content">
+                            <ul>
+                               <!-- 头部工具栏 -->
+                                <li class="list-row list-toolsbar">
+                                    <label>
+                                        <input value="" type="checkbox" class="ui-checkbox" name="chk">全选</label>
+                                    <a href="javascript:;" class="ui-btn toolbars-add">添加分类</a>
+                                    <a href="javascript:;" class="ui-btn toolbars-delete">删除</a>
+                                </li>
+                                <li class="list-row">
+                                    <div class="item w426 first">
+                                        <span class="lbl">
+                                            <input value="" type="checkbox" class="ui-checkbox" name="chk">
+                                        </span>
+                                        <input class="ui-input clear w240" value="2013秋季新品">
+                                        <a href="">添加子分类</a>
+                                    </div>
+                                    <div class="item w112">
+                                        <a href="">
+                                            <span><i class="arrow-add"></i>
+                                            </span>添加图片</a>
+                                    </div>
+                                    <div class="item w128">
+                                        <span><i class="arrow-up disabled"></i>
+                                        </span>
+                                        <span class="space"></span>
+                                        <span><i class="arrow-down"></i>
+                                        </span>
+                                    </div>
+                                    <div class="item w96">
+                                        <span>123</span>
+                                    </div>
+                                    <div class="item w68">
+                                        <a href="">删除</a>
+                                    </div>
+                                </li>
+                                <li class="list-row">
+                                    <div class="item w426 first">
+                                        <span class="lbl">
+                                            <input value="" type="checkbox" class="ui-checkbox" name="chk">
+                                        </span>
+                                        <input class="ui-input clear w240" value="2013秋季新品">
+                                        <a href="">添加子分类</a>
+                                    </div>
+                                    <div class="item w112">
+                                        <a href="">
+                                            <span><i class="arrow-add"></i>
+                                            </span>添加图片</a>
+                                    </div>
+                                    <div class="item w128">
+                                        <span><i class="arrow-up"></i>
+                                        </span>
+                                        <span class="space"></span>
+                                        <span><i class="arrow-down"></i>
+                                        </span>
+                                    </div>
+                                    <div class="item w96">
+                                        <span>123</span>
+                                    </div>
+                                    <div class="item w68">
+                                        <a href="">删除</a>
+                                    </div>
+                                </li>
+                                <li class="list-row">
+                                    <div class="item w426 first">
+                                        <span class="lbl">
+                                            <input value="" type="checkbox" class="ui-checkbox" name="chk">
+                                            <span><i class="arrow-expand"></i>
+                                            </span>
+                                        </span>
+                                        <input class="ui-input clear w240" value="2013秋季新品">
+                                        <a href="">添加子分类</a>
+                                    </div>
+                                    <div class="item w112">
+                                        <a href="">
+                                            <span><i class="arrow-add"></i>
+                                            </span>添加图片</a>
+                                    </div>
+                                    <div class="item w128">
+                                        <span><i class="arrow-up"></i>
+                                        </span>
+                                        <span class="space"></span>
+                                        <span><i class="arrow-down"></i>
+                                        </span>
+                                    </div>
+                                    <div class="item w96">
+                                        <span>123</span>
+                                    </div>
+                                    <div class="item w68">
+                                        <a href="">删除</a>
+                                    </div>
+                                </li>
+                                <li class="list-row">
+                                    <div class="list-parent">
+                                        <div class="item w426 first">
+                                            <span class="lbl">
+                                                <input value="" type="checkbox" class="ui-checkbox" name="chk">
+                                                <span><i class="arrow-collapse"></i>
+                                                </span>
+                                            </span>
+                                            <input class="ui-input clear w240" value="2013秋季新品">
+                                            <a href="">添加子分类</a>
+                                        </div>
+                                        <div class="item w112">
+                                            <a href="">
+                                                <span><i class="arrow-add"></i>
+                                                </span>添加图片</a>
+                                        </div>
+                                        <div class="item w128">
+                                            <span><i class="arrow-up"></i>
+                                            </span>
+                                            <span class="space"></span>
+                                            <span><i class="arrow-down"></i>
+                                            </span>
+                                        </div>
+                                        <div class="item w96">
+                                            <span>123</span>
+                                        </div>
+                                        <div class="item w68">
+                                            <a href="">删除</a>
+                                        </div>
+                                    </div>
+                                    <ul class="list-child">
+                                        <li>
+                                            <div class="item w426 first">
+                                                <span class="lbl">
+                                                    <input value="" type="checkbox" class="ui-checkbox" name="chk">
+
+                                                </span>
+                                                <span><i class="arrow-line"></i>
+                                                </span>
+                                                <input class="ui-input clear w210" value="2013秋季新品">
+                                                
+                                            </div>
+                                            <div class="item w112">
+                                                <a href="">
+                                                    <span><i class="arrow-add"></i>
+                                                    </span>添加图片</a>
+                                            </div>
+                                            <div class="item w128">
+                                                <span><i class="arrow-lv-up disabled"></i>
+                                                </span>
+                                                <span class="space-lv"></span>
+                                                <span><i class="arrow-lv-down"></i>
+                                                </span>
+                                            </div>
+                                            <div class="item w96">
+                                                <span>123</span>
+                                            </div>
+                                            <div class="item w68">
+                                                <a href="">删除</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item w426 first">
+                                                <span class="lbl">
+                                                    <input value="" type="checkbox" class="ui-checkbox" name="chk">
+
+                                                </span>
+                                                <span><i class="arrow-line"></i>
+                                                </span>
+                                                <input class="ui-input clear w210" value="2013秋季新品">
+                                                
+                                            </div>
+                                            <div class="item w112">
+                                                <a href="">
+                                                    <span><i class="arrow-add"></i>
+                                                    </span>添加图片</a>
+                                            </div>
+                                            <div class="item w128">
+                                                <span><i class="arrow-lv-up "></i>
+                                                </span>
+                                                <span class="space-lv"></span>
+                                                <span><i class="arrow-lv-down"></i>
+                                                </span>
+                                            </div>
+                                            <div class="item w96">
+                                                <span>123</span>
+                                            </div>
+                                            <div class="item w68">
+                                                <a href="">删除</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item w426 first">
+                                                <span class="lbl">
+                                                    <input value="" type="checkbox" class="ui-checkbox" name="chk">
+
+                                                </span>
+                                                <span><i class="arrow-line"></i>
+                                                </span>
+                                                <input class="ui-input clear w210" value="2013秋季新品">
+                                                
+                                            </div>
+                                            <div class="item w112">
+                                                <a href="">
+                                                    <span><i class="arrow-add"></i>
+                                                    </span>添加图片</a>
+                                            </div>
+                                            <div class="item w128">
+                                                <span><i class="arrow-lv-up "></i>
+                                                </span>
+                                                <span class="space-lv"></span>
+                                                <span><i class="arrow-lv-down"></i>
+                                                </span>
+                                            </div>
+                                            <div class="item w96">
+                                                <span>123</span>
+                                            </div>
+                                            <div class="item w68">
+                                                <a href="">删除</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item w426 first">
+                                                <span class="lbl">
+                                                    <input value="" type="checkbox" class="ui-checkbox" name="chk">
+
+                                                </span>
+                                                <span><i class="arrow-line"></i>
+                                                </span>
+                                                <input class="ui-input clear w210" value="2013秋季新品">
+                                                <span><i class="input-clear"></i></span>
+                                            </div>
+                                            <div class="item w112">
+                                                <a href="">
+                                                    <span><i class="arrow-add"></i>
+                                                    </span>添加图片</a>
+                                            </div>
+                                            <div class="item w128">
+                                                <span><i class="arrow-lv-up "></i>
+                                                </span>
+                                                <span class="space-lv"></span>
+                                                <span><i class="arrow-lv-down disabled"></i>
+                                                </span>
+                                            </div>
+                                            <div class="item w96">
+                                                <span>123</span>
+                                            </div>
+                                            <div class="item w68">
+                                                <a href="">删除</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="list-row">
+                                    <div class="item w426 first">
+                                        <span class="lbl">
+                                            <input value="" type="checkbox" class="ui-checkbox" name="chk">
+                                        </span>
+                                        <input class="ui-input clear w240" value="2013秋季新品">
+                                        <a href="">添加子分类</a>
+                                    </div>
+                                    <div class="item w112">
+                                        <a href="">
+                                            <span><i class="arrow-add"></i>
+                                            </span>添加图片</a>
+                                    </div>
+                                    <div class="item w128">
+                                        <span><i class="arrow-up"></i>
+                                        </span>
+                                        <span class="space"></span>
+                                        <span><i class="arrow-down"></i>
+                                        </span>
+                                    </div>
+                                    <div class="item w96">
+                                        <span>123</span>
+                                    </div>
+                                    <div class="item w68">
+                                        <a href="">删除</a>
+                                    </div>
+                                </li>
+                                <li class="list-row">
+                                    <div class="item w426 first">
+                                        <span class="lbl">
+                                            <input value="" type="checkbox" class="ui-checkbox" name="chk">
+                                        </span>
+                                        <input class="ui-input clear w240" value="2013秋季新品">
+                                        <a href="">添加子分类</a>
+                                    </div>
+                                    <div class="item w112">
+                                        <a href="">
+                                            <span><i class="arrow-add"></i>
+                                            </span>添加图片</a>
+                                    </div>
+                                    <div class="item w128">
+                                        <span><i class="arrow-up"></i>
+                                        </span>
+                                        <span class="space"></span>
+                                        <span><i class="arrow-down"></i>
+                                        </span>
+                                    </div>
+                                    <div class="item w96">
+                                        <span>123</span>
+                                    </div>
+                                    <div class="item w68">
+                                        <a href="">删除</a>
+                                    </div>
+                                </li>
+                                <li class="list-row">
+                                    <div class="item w426 first">
+                                        <span class="lbl">
+                                            <input value="" type="checkbox" class="ui-checkbox" name="chk">
+                                            <span><i class="arrow-expand"></i>
+                                            </span>
+                                        </span>
+                                        <input class="ui-input clear w240" value="2013秋季新品">
+                                        <a href="">添加子分类</a>
+                                    </div>
+                                    <div class="item w112">
+                                        <a href="">
+                                            <span><i class="arrow-add"></i>
+                                            </span>添加图片</a>
+                                    </div>
+                                    <div class="item w128">
+                                        <span><i class="arrow-up"></i>
+                                        </span>
+                                        <span class="space"></span>
+                                        <span><i class="arrow-down"></i>
+                                        </span>
+                                    </div>
+                                    <div class="item w96">
+                                        <span>123</span>
+                                    </div>
+                                    <div class="item w68">
+                                        <a href="">删除</a>
+                                    </div>
+                                </li>
+                                <li class="list-row">
+                                    <div class="list-parent">
+                                        <div class="item w426 first">
+                                            <span class="lbl">
+                                                <input value="" type="checkbox" class="ui-checkbox" name="chk">
+                                                <span><i class="arrow-collapse"></i>
+                                                </span>
+                                            </span>
+                                            <input class="ui-input clear w240" value="2013秋季新品">
+                                            <a href="">添加子分类</a>
+                                        </div>
+                                        <div class="item w112">
+                                            <a href="">
+                                                <span><i class="arrow-add"></i>
+                                                </span>添加图片</a>
+                                        </div>
+                                        <div class="item w128">
+                                            <span><i class="arrow-up"></i>
+                                            </span>
+                                            <span class="space"></span>
+                                            <span><i class="arrow-down disabled"></i>
+                                            </span>
+                                        </div>
+                                        <div class="item w96">
+                                            <span>123</span>
+                                        </div>
+                                        <div class="item w68">
+                                            <a href="">删除</a>
+                                        </div>
+                                    </div>
+                                    <ul class="list-child">
+                                        <li>
+                                            <div class="item w426 first">
+                                                <span class="lbl">
+                                                    <input value="" type="checkbox" class="ui-checkbox" name="chk">
+
+                                                </span>
+                                                <span><i class="arrow-line"></i>
+                                                </span>
+                                                <input class="ui-input clear w210" value="2013秋季新品">
+                                                
+                                            </div>
+                                            <div class="item w112">
+                                                <a href="">
+                                                    <span><i class="arrow-add"></i>
+                                                    </span>添加图片</a>
+                                            </div>
+                                            <div class="item w128">
+                                                <span><i class="arrow-lv-up disabled"></i>
+                                                </span>
+                                                <span class="space-lv"></span>
+                                                <span><i class="arrow-lv-down"></i>
+                                                </span>
+                                            </div>
+                                            <div class="item w96">
+                                                <span>123</span>
+                                            </div>
+                                            <div class="item w68">
+                                                <a href="">删除</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item w426 first">
+                                                <span class="lbl">
+                                                    <input value="" type="checkbox" class="ui-checkbox" name="chk">
+
+                                                </span>
+                                                <span><i class="arrow-line"></i>
+                                                </span>
+                                                <input class="ui-input clear w210" value="2013秋季新品">
+                                                
+                                            </div>
+                                            <div class="item w112">
+                                                <a href="">
+                                                    <span><i class="arrow-add"></i>
+                                                    </span>添加图片</a>
+                                            </div>
+                                            <div class="item w128">
+                                                <span><i class="arrow-lv-up "></i>
+                                                </span>
+                                                <span class="space-lv"></span>
+                                                <span><i class="arrow-lv-down"></i>
+                                                </span>
+                                            </div>
+                                            <div class="item w96">
+                                                <span>123</span>
+                                            </div>
+                                            <div class="item w68">
+                                                <a href="">删除</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item w426 first">
+                                                <span class="lbl">
+                                                    <input value="" type="checkbox" class="ui-checkbox" name="chk">
+
+                                                </span>
+                                                <span><i class="arrow-line"></i>
+                                                </span>
+                                                <input class="ui-input clear w210" value="2013秋季新品">
+                                                
+                                            </div>
+                                            <div class="item w112">
+                                                <a href="">
+                                                    <span><i class="arrow-add"></i>
+                                                    </span>添加图片</a>
+                                            </div>
+                                            <div class="item w128">
+                                                <span><i class="arrow-lv-up "></i>
+                                                </span>
+                                                <span class="space-lv"></span>
+                                                <span><i class="arrow-lv-down"></i>
+                                                </span>
+                                            </div>
+                                            <div class="item w96">
+                                                <span>123</span>
+                                            </div>
+                                            <div class="item w68">
+                                                <a href="">删除</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item w426 first">
+                                                <span class="lbl">
+                                                    <input value="" type="checkbox" class="ui-checkbox" name="chk">
+
+                                                </span>
+                                                <span><i class="arrow-line"></i>
+                                                </span>
+                                                <input class="ui-input clear w210" value="2013秋季新品">
+                                                <span><i class="input-clear"></i></span>
+                                            </div>
+                                            <div class="item w112">
+                                                <a href="">
+                                                    <span><i class="arrow-add"></i>
+                                                    </span>添加图片</a>
+                                            </div>
+                                            <div class="item w128">
+                                                <span><i class="arrow-lv-up "></i>
+                                                </span>
+                                                <span class="space-lv"></span>
+                                                <span><i class="arrow-lv-down disabled"></i>
+                                                </span>
+                                            </div>
+                                            <div class="item w96">
+                                                <span>123</span>
+                                            </div>
+                                            <div class="item w68">
+                                                <a href="">删除</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- 底部工具栏 -->
+                                <li class="list-row list-toolsbar footer">
+                                    <label>
+                                        <input value="" type="checkbox" class="ui-checkbox" name="chk">全选</label>
+                                    <a href="javascript:;" class="ui-btn toolbars-add">添加分类</a>
+                                    <a href="javascript:;" class="ui-btn toolbars-delete">删除</a>
+                                    <a href="javascript:;" class="ui-btn ui-btn-s2 save">保存</a>
+                                    <span class="error-msg">
+                                      <i class="error"></i>
+                                      分类名称不能为空
+                                    </span>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<footer class="footer full-border">
+    @@include('-pub-footer-blogroll.html')
+    @@include('-pub-footer.html')
+</footer>
+@@include('-html-footer.html',{"script": "sc/c/uc-sell-goodscategory"})

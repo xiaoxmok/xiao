@@ -1,0 +1,10 @@
+/**
+ * 商场-店铺装修 店招
+ * @authors 	Inman Shaw
+ * @date 		2014-06-13 09:27:06
+ * @version 	1.0.0
+ */
+.mod-signage{background-color: #eee;}
+.mod-signage-inner{height: 150px;line-height: 150px;position: relative;}
+.mod-signage-inner img{width: 100%;height: 150px;position: absolute;}
+.mod-signage-txt{position: absolute;padding: 0 20px;font-size: 25px;color: #fff}

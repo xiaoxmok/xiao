@@ -1,0 +1,29 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-table-1.0.0.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-logo.css");
+@import url("pub-footer.css");
+@import url("pub-footer-attention.css");
+@import url("zs-public.css");
+@import url("zs-mod-nav.css");
+@import url("zs-mod-service.css");
+/**
+ * 招商咨询
+ * @authors 	Inman Shaw
+ * @date 		2014-05-28 18:11:52
+ * @version 	1.0.0
+ */
+
+/*招商logo*/
+.zs .logo-section{border-bottom: 0 none;}
+
+/*列表*/
+.list{margin-bottom: 20px;}
+.list th{text-align: left;padding: 13px 19px;}
+.list td{padding: 7px 19px;}
+
+.ico-im_24x24, .ico-qq_24x24{display: inline-block;vertical-align: middle;width: 24px;height: 0;padding-top: 24px;overflow: hidden;}
+.ico-im_24x24{background: url(../../img/public/icon/24x24/im.gif) center center no-repeat;}
+.ico-qq_24x24{background: url(../../img/public/icon/24x24/qq.gif) center center no-repeat;}

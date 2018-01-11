@@ -1,0 +1,297 @@
+@@include('-html-header.html', { "title": "开店信息审核", "css": "sc-admin/sp-list.css", "bodyclass":"" })
+    
+@@include('-pub-header.html')
+@@include('-pub-nav.html')
+
+<div class="container"> 
+    <div class="ui-grid">
+        <div class="col-4-24">
+            @@include('sp-pub-sidenav.html')
+         </div>
+         <div class="col-20-24">
+            <div class="content">
+                <div class="content-title"><strong>商品管理</strong></div>
+
+                <!-- 搜索表单 -->
+                <form action="" class="search-form">
+                    <div class="left">
+                        <p>
+                        <label for="">商品名称：</label>
+                        <input type="text" name="" id="" class="ui-input" style="width:90px;">
+                        <label for="">所属店铺：</label>
+                        <input type="text" name="" id="" class="ui-input" style="width:90px;">
+                        <label for="">所属分类：</label>
+                        <input type="text" name="" id="" class="ui-input" style="width:90px;">
+                        <label for="">类型：</label>
+                        <select name="" id="" class="ui-select">
+                            <option value="">全部</option>
+                            <option value="">全新</option>
+                            <option value="">二手</option>
+                        </select>
+                        <label for="">是否上架：</label>
+                        <select name="" id="" class="ui-select">
+                            <option value="">全部</option>
+                            <option value="">已上架</option>
+                            <option value="">已下架</option>
+                        </select>
+                        </p>
+                        <p>
+                        <label for="">价格区间：</label>
+                        <input type="text" name="" id="" class="ui-input" style="width:50px;">-<input type="text" name="" id="" class="ui-input" style="width:50px;">
+
+                        <label for="">销量区间：</label>
+                        <input type="text" name="" id="" class="ui-input" style="width:50px;">-<input type="text" name="" id="" class="ui-input" style="width:50px;">
+                        <label for="">浏览次数区间：</label>
+                        <input type="text" name="" id="" class="ui-input" style="width:50px;">-<input type="text" name="" id="" class="ui-input" style="width:50px;">
+                        <label for="">收藏次数区间：</label>
+                        <input type="text" name="" id="" class="ui-input" style="width:50px;">-<input type="text" name="" id="" class="ui-input" style="width:50px;">
+                        </p>
+                        <p>
+                            <label class="ui-checkbox-for">
+                                <input type="checkbox" name="" id="" class="ui-checkbox">推荐到搜索页
+                            </label>
+                            <label class="ui-checkbox-for">
+                                <input type="checkbox" name="" id="" class="ui-checkbox">推荐到列表页
+                            </label>
+                            <label class="ui-checkbox-for">
+                                <input type="checkbox" name="" id="" class="ui-checkbox">推荐到掌柜热卖
+                            </label>
+                        </p>
+                    </div>
+                    <div class="right">
+                        <button type="submit" class="ui-btn ui-btn-s2">筛选</button>
+                    </div>
+                </form>
+
+                <!-- 表格工具栏 -->
+                <div class="table-toolbar">
+                    <a href="javascript:;" class="ui-btn ui-btn-s1 btn-delete-selected">删除</a>
+                    <a href="javascript:;" class="ui-btn ui-btn-s2 btn-check">审核</a>
+                    <a href="javascript:;" class="ui-btn ui-btn-s2 btn-addshelf">上架</a>
+                    <a href="javascript:;" class="ui-btn ui-btn-s2 btn-removeshelf">下架</a>
+                    <a href="javascript:;" class="ui-btn ui-btn-s2 btn-edit">修改分类</a>
+                    <a href="javascript:;" class="ui-btn ui-btn-s2 btn-recommand">推荐设置</a>
+                </div>
+
+                <!-- 列表 -->
+                <table class="ui-border-table tb-sp-list">
+                    <thead>
+                        <tr>
+                            <th style="width:5%"><input type="checkbox" name="" id="chkAll" data-name="chk" class="j-chk-all"></th>
+                            <th style="width:80%">商品名称</th>
+                            <th>所属分类</th>
+                            <th>所属店铺</th>
+                            <th>类型</th>
+                            <th>价格</th>
+                            <th>库存</th>
+                            <th>销量</th>
+                            <th>浏览次数</th>
+                            <th>收藏次数</th>
+                            <th>推荐到列表页</th>
+                            <th>推荐到搜索页</th>
+                            <th>推荐到掌柜热卖</th>
+                            <th>是否上架</th>
+                            <th>上架时间</th>
+                            <th>剩余时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input id="1" value="" type="checkbox" class="ui-checkbox" name="chk"></td>
+                            <td class="left"><img src="@@include('../staticUrl.html')/img/sc/zx/default.png" alt="" width="40px;height:40px;">
+                                十月妈咪防辐射服孕妇装正品领口大蝴蝶结金属纤维防辐射衣服特价
+                                <p class="ico-bar">
+                                    <span class="ico-x1" title="正品保障"></span>
+                                    <span class="ico-x2" title="闪电发货"></span>   
+                                    <span class="ico-x3" title="7天退换"></span>   
+                                    <span class="ico-x4" title="消保会员"></span>
+                                </p>
+                             
+                            </td>
+                            <td>服装鞋包>女装>风衣</td>
+                            <td>天天女装旗舰店(110928)</td>
+                            <td>全新</td>
+                            <td>100.00</td>
+                            <td>100</td>
+                            <td>200</td>
+                            <td>1000</td>
+                            <td>200</td>
+                            <td>-</td>
+                            <td>Y</td>
+                            <td>-</td>
+                            <td style="color:#3a0;">已上架</td>
+                            <td>2013-12-14 10:25</td>
+                            <td>12天</td>
+                            <td>
+                                <a href="sp-list-show.html">查看</a>
+                                <a href="sp-list-edit.html">修改</a>
+                                <a href="javascript:;" class="lnk-detele">删除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input id="1" value="" type="checkbox" class="ui-checkbox" name="chk"></td>
+                            <td class="left"><img src="@@include('../staticUrl.html')/img/sc/zx/default.png" alt="" width="40px;height:40px;">
+                                十月妈咪防辐射服孕妇装正品领口大蝴蝶结金属纤维防辐射衣服特价
+                                <p class="ico-bar">
+                                    <span class="ico-x1" title="正品保障"></span>
+                                    <span class="ico-x2" title="闪电发货"></span>   
+                                    <span class="ico-x3" title="7天退换"></span>   
+                                    <span class="ico-x4" title="消保会员"></span>
+                                </p>
+                             
+                            </td>
+                            <td>服装鞋包>女装>风衣</td>
+                            <td>天天女装旗舰店(110928)</td>
+                            <td>全新</td>
+                            <td>100.00</td>
+                            <td>100</td>
+                            <td>200</td>
+                            <td>1000</td>
+                            <td>200</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Y</td>
+                            <td style="color:#f30;">已下架</td>
+                            <td>2013-12-14 10:25</td>
+                            <td>12天</td>
+                            <td>
+                                <a href="sp-list-show.html">查看</a>
+                                <a href="sp-list-edit.html">修改</a>
+                                <a href="javascript:;" class="lnk-detele">删除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input id="1" value="" type="checkbox" class="ui-checkbox" name="chk"></td>
+                            <td class="left"><img src="@@include('../staticUrl.html')/img/sc/zx/default.png" alt="" width="40px;height:40px;">
+                                十月妈咪防辐射服孕妇装正品领口大蝴蝶结金属纤维防辐射衣服特价
+                                <p class="ico-bar">
+                                    <span class="ico-x1" title="正品保障"></span>
+                                    <span class="ico-x2" title="闪电发货"></span>   
+                                    <span class="ico-x3" title="7天退换"></span>   
+                                    <span class="ico-x4" title="消保会员"></span>
+                                </p>
+                             
+                            </td>
+                            <td>服装鞋包>女装>风衣</td>
+                            <td>天天女装旗舰店(110928)</td>
+                            <td>全新</td>
+                            <td>100.00</td>
+                            <td>100</td>
+                            <td>200</td>
+                            <td>1000</td>
+                            <td>200</td>
+                            <td>Y</td>
+                            <td>Y</td>
+                            <td>Y</td>
+                            <td style="color:#3a0;">已上架</td>
+                            <td>2013-12-14 10:25</td>
+                            <td>12天</td>
+                            <td>
+                                <a href="sp-list-show.html">查看</a>
+                                <a href="sp-list-edit.html">修改</a>
+                                <a href="javascript:;" class="lnk-detele">删除</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>    
+                
+                <!-- 分页 -->
+                <div class="ui-pager ta-r table-pager">
+                    <span class="pager-option">
+                        每页显示
+                        <select name="" id="" class="ui-select">
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                        </select>
+                        条，
+                        <span class="color-weak">共<var class="color-highlight">86</var>条记录</span>
+                    </span>
+                    <span class="ui-pager-lnks">
+                        <span class="lnk-prev">上一页</span>
+                        <a href="javascript:;" class="ui-pager-lnk-curr">1</a>
+                        <a href="javascript:;">2</a>
+                        <a href="javascript:;">3</a>
+                        <a href="javascript:;">4</a>
+                        <a href="javascript:;">5</a>
+                        <a href="javascript:;">6</a>
+                        <a href="javascript:;">7</a>
+                        <a href="javascript:;">8</a>
+                        <a href="javascript:;" class="lnk-next">下一页</a>
+                    </span>
+                    <form action="">
+                        到第<input type="text" name="" id="" class="ui-pager-input">页
+                        <input type="submit" value="跳转" class="ui-pager-submit">
+                    </form>
+                </div>  
+
+            </div>
+
+         </div>
+     </div>
+</div>
+
+<!-- 审核 -->
+<div id="popcheck" class="popup popcheck popup-effect-2 ">
+    <div class="popup-header">
+        <span class="title">审核</span>
+        <span class="popup-close"></span>
+    </div>
+    <div class="popup-content">
+        <div class="ta-c cnt">
+            <form class="ui-form ">
+                <div class="ui-form-item">
+                    <label>审核类型:</label>
+                    <label><input type="radio" name="radio" value="0">未审核</label>
+                    <label><input type="radio" name="radio" value="1">审核通过</label>
+                    <label><input type="radio" name="radio" value="2">审核不通过</label>
+                </div>
+                <p class="gap"></p>
+                <div class="ui-form-item submit-box ib-fix btn-toolbar" >
+                    <a href="javascript:;" class="ui-btn ui-btn-l2 btn-submit">确认</a>
+                    <a href="javascript:;" class="ui-btn ui-btn-l3 popup-close">取消</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- 推荐设置 -->
+<div id="poprecommand" class="popup popcheck popup-effect-2 ">
+    <div class="popup-header">
+        <span class="title">批量处理</span>
+        <span class="popup-close"></span>
+    </div>
+    <div class="popup-content">
+        <div class="ta-c cnt">
+            <form class="ui-form ">
+                <ul class="ui-form-item">                    
+                    <li>
+                        <label class="ui-checkbox-for"><input type="checkbox" name="checkbox" value="0"> 推荐到搜索页</label></li>
+                    <li>
+                        <label class="ui-checkbox-for"><input type="checkbox" name="checkbox" value="1"> 推荐到列表页</label></li>
+                    <li>
+                        <label class="ui-checkbox-for"><input type="checkbox" name="checkbox" value="2"> 推荐到掌柜热卖</label>
+                    </li>
+                    <li>
+                        <label class="ui-checkbox-for"><input type="checkbox" name="checkbox" value="2"> 推荐到您感兴趣的商品</label>
+                    </li>
+                </ul>
+                <p class="gap"></p>
+                <div class="ui-form-item submit-box ib-fix btn-toolbar" >
+                    <a href="javascript:;" class="ui-btn ui-btn-l2 btn-submit">确认</a>
+                    <a href="javascript:;" class="ui-btn ui-btn-l3 popup-close">取消</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+@@include('-pop-EditCategory.html', { "title": "", "cnt": "" })
+@@include('-pop-DeleteConfirm.html', { "title": "删除确认", "cnt": "您确定删除所选项吗？" })
+@@include('-pop-tips.html', { "title": "提示", "cnt": "" })
+ 
+@@include('-html-footer.html', { "script": "sc-admin/c/sp-list" })

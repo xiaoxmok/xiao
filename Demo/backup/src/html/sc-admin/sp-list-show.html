@@ -1,0 +1,122 @@
+@@include('-html-header.html', { "title": "开店信息审核", "css": "sc-admin/sp-list-show.css", "bodyclass":"" })
+    
+@@include('-pub-header.html')
+@@include('-pub-nav.html')
+
+<div class="container"> 
+    <div class="ui-grid">
+        <div class="col-4-24">
+            @@include('sp-pub-sidenav.html')
+         </div>
+         <div class="col-20-24">
+            <div class="content">
+                <div class="content-title">
+                    <strong>商品详细信息</strong>
+                    <a href="sp-list.html">&lt;返回列表</a>
+                </div>
+
+                <!-- 商品详细信息 -->
+                <table class="ui-border-table sp-list-show">
+                    <tr>
+                        <td class="title">商品名称:</td>
+                        <td>
+                            <a href="">雾花 2013新款女包 欧美风女士单肩包包</a>
+                            <a href="sp-list-edit.html" class="right">修改</a>
+                        </td>
+                        <td class="title">卖家:</td>
+                        <td><a href="">天天女装旗舰店</a><span>(110928)</span><img src="http://my.wt.com/images/IconS/gif/10.gif"></td>
+                    </tr>
+                    <tr>
+                        <td class="title">商品副标题:</td>
+                        <td>双十二热销，好礼有送</td>
+                        <td class="title">商品类型:</td>
+                        <td>全新</td>
+                    </tr>
+                    <tr>
+                        <td class="title">商品所属分类:</td>
+                        <td>
+                            一级>二级>三级>四级
+                            <a href="javascript:;" class="lnk-edit right">修改</a>
+                        </td>
+                        <td class="title">出售类型:</td>
+                        <td>一口价</td>
+                    </tr>
+                    <tr>
+                        <td class="title">计量单位:</td>
+                        <td>g</td>
+                        <td class="title">限购数量:</td>
+                        <td>不限购</td>
+                    </tr>
+                    <tr>
+                        <td class="title">净含量:</td>
+                        <td>500</td>
+                        <td class="title">是否有发票:</td>
+                        <td>无</td>
+                    </tr>
+                    <tr>
+                        <td class="title">所在地区:</td>
+                        <td>广东-深圳</td>
+                        <td class="title">是否保修:</td>
+                        <td>无</td>
+                    </tr>
+                    <tr>
+                        <td class="title">参与消保:</td>
+                        <td>
+                            <span class="ico-x1"></span>
+                            <span class="ico-x2"></span>
+                            <span class="ico-x3"></span>
+                            <span class="ico-x4"></span>
+                        </td>
+                        <td class="title">价格:</td>
+                        <td>100.00   200.00</td>
+                    </tr>
+                    <tr>
+                        <td class="title">是否上架:</td>
+                        <td>已上架</td>
+                        <td class="title">运费:</td>
+                        <td>固定运费：EMS 20.00，快递 10.00，平邮12.00</td>
+                    </tr>
+                    <tr>
+                        <td class="title">上架时间:</td>
+                        <td>2013-12-11 14:25</td>
+                        <td class="title">销量:</td>
+                        <td>2000</td>
+                    </tr>
+                    <tr>
+                        <td class="title">有效期:</td>
+                        <td>7天</td>
+                        <td class="title">库存:</td>
+                        <td>500</td>
+                    </tr>
+                    <tr>
+                        <td class="title">下架时间:</td>
+                        <td>2014-01-11 14:25</td>
+                        <td class="title">浏览次数:</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td class="title">最近更新时间:</td>
+                        <td>2013-12-25 14:25</td>
+                        <td class="title">收藏次数:</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td class="title">推荐显示:</td>
+                        <td>推荐到商品列表页/推荐到搜索页</td>
+                        <td class="title">评论次数:</td>
+                        <td>10<a href="" class="right">增加虚拟评论</a></td>
+                    </tr>
+                    <tr>
+                        <td class="title">审核状态:</td>
+                        <td>审核通过</td>
+                        <td class="title">下单次数:</td>
+                        <td>10</td>
+                    </tr>
+                </table>   
+            </div>
+         </div>
+     </div>
+</div>
+
+@@include('-pop-EditCategory.html', { "title": "", "cnt": "" })
+@@include('-html-footer.html', { "script": "sc-admin/c/sp-list-show" })

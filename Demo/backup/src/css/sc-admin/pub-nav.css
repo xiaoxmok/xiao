@@ -1,0 +1,9 @@
+/**
+ * 商场后台 导航公共
+ * @authors: Inman Shaw
+ * @date:    2014-07-10 18:13:04
+ */
+.mod-nav{background: #777;padding: 8px 0;}
+.mod-nav nav a{padding: 5px 10px;color: #fff;border-radius: 4px;font-size: 14px}
+.mod-nav nav a:hover{background: #555}
+.mod-nav nav a.active{background: #444}

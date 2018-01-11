@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<!--[if lte IE 6 ]>	<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7 ]>		<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8 ]>		<html class="lt-ie9"> <![endif]-->
+<!--[if IE 9 ]>		<html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>网通商场 会员中心 买家中心 已购买的商品 编辑备注</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="http://fe.wt.com/css/sc/uc-buy-myGoods-notes.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="http://fe.wt.com/js/public/html5shiv.min.js"></script><![endif]-->
+</head>
+
+<body class="">
+    <header class="header">
+        <!-- 
+	name: 		页头 顶部工具栏
+	dependency: pub-header-topbar.css
+ -->
+        <div class="topbar">
+            <div class="container">
+                <div class="ui-grid fs12 fm-s">
+                    <div class="col-9-24 welcome">
+                        您好，
+                        <span class="anonymous">欢迎来网通商场！请
+                            <a href="#">[登录]</a>
+                            <a href="#" class="color-default lnk-reg">[免费注册]</a>
+                        </span>
+                        <span class="logined">
+                            <var class="color-highlight">我和我的小伙伴</var>[273377] ！
+                            <a href="#" class="color-default">[退出]</a>
+                        </span>
+                    </div>
+                    <div class="col-15-24">
+                        <ul class="ta-r topnav">
+                            <li>
+                                <a class="topnav-lnk" target="_blank" href="http://www.ewt.cc/">网通首页</a>
+                                <span class="cut-line">|</span>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" href="javascript:;">我是买家
+                                    <span class="triangle-b"></span>
+                                </a>
+                                <span class="cut-line">|</span>
+                                <div class="topnav-sub">
+                                    <a target="_blank" href="#">我是买家</a>
+                                    <a target="_blank" href="#">我是买家</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" href="javascript:;">我是卖家
+                                    <span class="triangle-b"></span>
+                                </a>
+                                <span class="cut-line">|</span>
+                                <div class="topnav-sub">
+                                    <a target="_blank" href="#">我是卖家</a>
+                                    <a target="_blank" href="#">我是卖家</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" target="_blank" href="#">购物车[
+                                    <var class="color-highlight">0</var>]</a>
+                                <span class="cut-line">|</span>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" href="javascript:;">收藏夹
+                                    <span class="triangle-b"></span>
+                                </a>
+                                <span class="cut-line">|</span>
+                                <div class="topnav-sub">
+                                    <a target="_blank" href="#">我的收藏夹</a>
+                                    <a target="_blank" href="#">我的收藏夹</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" target="_blank" href="http://zz.ewt.cc/help/content/1e591403ff232de0f0f139ac51d99295/">客服中心</a>
+                                <span class="cut-line">|</span>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" target="_blank" href="#">帮助中心</a>
+                                <span class="cut-line">|</span>
+                            </li>
+                            <li>
+                                <a class="topnav-lnk" href="javascript:;">一号通
+                                    <span class="triangle-b"></span>
+                                </a>
+                                <div class="topnav-sub">
+                                    <a target="_blank" href="http://zz.ewt.cc">网通智造</a>
+                                    <a target="_blank" href="http://sc.ewt.cc">网通商场</a>
+                                    <a target="_blank" href="http://bh.ewt.cc">网通百货</a>
+                                    <a target="_blank" href="http://im.ewt.cc">网通IM</a>
+                                    <a target="_blank" href="http://www.ewtpay.com">网通宝</a>
+                                    <a target="_blank" href="http://wl.ewt.cc">网通物流</a>
+                                    <a target="_blank" href="http://rj.ewt.cc">网通软件</a>
+                                    <a target="_blank" href="http://wd.ewt.cc/">网通网贷</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 
+	name: 		会员中心 买家中心 头部导航与搜索区
+	dependency: pub-header-ucenter.css
+ -->
+
+        <div class="pub-header-ucenter">
+            <div class="container">
+                <div class="ui-grid">
+                    <div class="col-18-24">
+                        <!--logo-->
+                        <h1 class="logo">
+                            <a href="http://www.ewt.cc" class="fl">
+                                <img src="http://fe.wt.com/img/public/logo/logo.png" height="35" alt="">
+                            </a>
+                            <a class="lnk-sc-img" href="http://sc.ewt.cc">
+                                <img src="http://fe.wt.com/img/sc/uc/IconS_2.gif" width="123" height="26" alt="">
+                            </a>
+                        </h1>
+                        <!--导航-->
+                        <ul class="uc-head-nav">
+                            <li>
+                                <a href="#" class="current">买家中心
+                                    <b>
+                                        <i>买家中心</i>
+                                    </b>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">卖家中心
+                                    <b>
+                                        <i>卖家中心</i>
+                                    </b>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">帐户管理
+                                    <b>
+                                        <i>帐户管理</i>
+                                    </b>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">消息管理
+                                    <b>
+                                        <i>消息管理</i>
+                                    </b>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6-24">
+                        <form class="search-area">
+                            <div class="search-area-options">
+                                <input type="hidden" name="item" id="" value="">
+                                <ul>
+                                    <li>商品</li>
+                                    <li style="display:none;">店铺</li>
+                                </ul>
+                            </div>
+                            <input type="text" name="" id="" class="search-area-input">
+                            <input type="submit" value="搜索" class="search-area-btn">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="uc-mod-wrap noBg">
+        <section class="container">
+            <!--左侧栏-->
+            <div class="uc-mod-leftWrap">
+                <div class="uc-mod-sideMenu">
+                    <!-- 
+	name: 		会员中心 买家中心 左侧导航
+	dependency: uc-mod-buy-sideMenu.css
+ -->
+
+                    <div class="userMenu">
+                        <div class="group">
+                            <h2>
+                                <i></i>我的交易</h2>
+                            <ul>
+                                <li>
+                                    <i></i>
+                                    <a href="">我的购物车</a>
+                                </li>
+                                <li>
+                                    <i></i>
+                                    <a href="">已购买的商品</a>
+                                </li>
+                                <li>
+                                    <i></i>
+                                    <a href="">我的收藏</a>
+                                </li>
+                                <li>
+                                    <i></i>
+                                    <a href="">我的优惠券</a>
+                                </li>
+                                <li>
+                                    <i></i>
+                                    <a href="">我的收货地址</a>
+                                </li>
+                                <li>
+                                    <i></i>
+                                    <a href="">评价管理</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="group">
+                            <h2>
+                                <i></i>我的团购</h2>
+                            <ul>
+                                <li>
+                                    <i></i>
+                                    <a href="">我的团购订单</a>
+                                </li>
+                                <li>
+                                    <i></i>
+                                    <a href="">团购邮件订阅</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="group">
+                            <h2>
+                                <i></i>退款维权</h2>
+                            <ul>
+                                <li>
+                                    <i></i>
+                                    <a href="">退款管理</a>
+                                </li>
+                                <li>
+                                    <i></i>
+                                    <a href="">售后管理</a>
+                                </li>
+                                <li>
+                                    <i></i>
+                                    <a href="">举报管理</a>
+                                </li>
+                                <li>
+                                    <i></i>
+                                    <a href="">投诉管理</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="uc-mod-rightWrap">
+                <!--右侧内容区-->
+                <div class="uc-mod-conter">
+                    <div class="clearfix">
+                        <!-- 列表顶部TAB项 start -->
+                        <div class="uc-mod-page-curMarkBar">
+                            <h2>编辑备注</h2>
+                        </div>
+                        <!-- 列表顶部TAB项 end -->
+                        <!-- 收藏商品搜索 start -->
+                        <div class="proNotes clearfix">
+                            <ul>
+                                <li>订单编号：20120911000000000000489</li>
+                                <li>网通宝交易号：20120911110802567500</li>
+                                <li>下单时间：2013-12-25 14：20</li>
+                                <li>付款时间：2013-12-25 15：20</li>
+                                <li>发货时间：</li>
+                                <li>收货时间：</li>
+                            </ul>
+                        </div>
+                        <!-- 收藏商品搜索 end -->
+                        <!-- 列表表头 start -->
+                        <div class="uc-mod-listTopBar blue">
+                            <ul>
+                                <li style="width:300px;">
+                                    <div class="cot align-left">商品信息</div>
+                                    <div class="hr"></div>
+                                </li>
+                                <li style="width:100px;">
+                                    <div class="cot">单价（元）</div>
+                                    <div class="hr"></div>
+                                </li>
+                                <li style="width:90px;">
+                                    <div class="cot">数量</div>
+                                    <div class="hr"></div>
+                                </li>
+                                <li style="width:120px;">
+                                    <div class="cot">优惠(元)</div>
+                                    <div class="hr"></div>
+                                </li>
+                                <li style="width:120px;">
+                                    <div class="cot">订单状态</div>
+                                    <div class="hr"></div>
+                                </li>
+                                <li style="width:100px;">
+                                    <div class="cot">运费(元)</div>
+                                    <div class="hr last"></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 列表表头 end -->
+                        <!-- 列表循环 start -->
+                        <div class="clearfix">
+                            <!-- 订单 start -->
+                            <div class="myGoodsList clearfix">
+                                <ul>
+                                    <li class="photo">
+                                        <a href="#">
+                                            <img width="80" height="80" alt="说明文字" src="http://my.wt.com/images/IconS/jpg/17.jpg">
+                                        </a>
+                                    </li>
+                                    <li class="proInfo">
+                                        <p>
+                                            <a href="#" title="尊尼女士正品缩短新款潮十字纹牛皮单肩手提包 欧美时尚杀手女包">尊尼女士正品缩短新款潮十字纹牛皮单肩手提包 欧美时尚杀手女包</a>
+                                        </p>
+                                        <p title="颜色：天蓝色 &nbsp; 尺码：M">颜色：天蓝色 &nbsp; 尺码：M</p>
+                                        <p>
+                                            <span class="flag-x1" title="正品保障"></span>
+                                            <span class="flag-x2" title="闪电发货"></span>
+                                            <span class="flag-x3" title="七天退换"></span>
+                                            <span class="flag-x4" title="消保会员"></span>
+                                        </p>
+                                    </li>
+                                    <li class="noePrice">
+                                        <p>9825.00</p>
+                                    </li>
+                                    <li class="number">
+                                        <p>2100</p>
+                                    </li>
+                                    <li class="privilege">
+                                        <p>最后二天省</p>
+                                        <p>9.90</p>
+                                    </li>
+                                    <li class="status">
+                                        <p>等待卖家发货</p>
+                                    </li>
+                                    <li class="logistics">
+                                        <p>0.00
+                                            <p>
+                                                <p>（快递）
+                                                    <p>
+                                                        <p>（免运费）</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 订单 end -->
+                            <div class="blue-rowLine">分隔线</div>
+                            <!-- 订单 start -->
+                            <div class="myGoodsList clearfix">
+                                <ul>
+                                    <li class="photo">
+                                        <a href="#">
+                                            <img width="80" height="80" alt="说明文字" src="http://my.wt.com/images/IconS/jpg/17.jpg">
+                                        </a>
+                                    </li>
+                                    <li class="proInfo">
+                                        <p>
+                                            <a href="#" title="尊尼女士正品缩短新款潮十字纹牛皮单肩手提包 欧美时尚杀手女包">尊尼女士正品缩短新款潮十字纹牛皮单肩手提包 欧美时尚杀手女包</a>
+                                        </p>
+                                        <p title="颜色：天蓝色 &nbsp; 尺码：M">颜色：天蓝色 &nbsp; 尺码：M</p>
+                                        <p>
+                                            <span class="flag-x1" title="正品保障"></span>
+                                            <span class="flag-x2" title="闪电发货"></span>
+                                            <span class="flag-x3" title="七天退换"></span>
+                                            <span class="flag-x4" title="消保会员"></span>
+                                        </p>
+                                    </li>
+                                    <li class="noePrice">
+                                        <p>9825.00</p>
+                                    </li>
+                                    <li class="number">
+                                        <p>2100</p>
+                                    </li>
+                                    <li class="privilege">
+                                        <p>最后二天省</p>
+                                        <p>9.90</p>
+                                    </li>
+                                    <li class="status">
+                                        <p>等待卖家发货</p>
+                                    </li>
+                                    <li class="logistics">
+                                        <p>0.00
+                                            <p>
+                                                <p>（快递）
+                                                    <p>
+                                                        <p>（免运费）</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 订单 end -->
+                            <div class="blue-rowLine">分隔线</div>
+                            <!-- 统计 start -->
+                            <div class="footCount clearfix">
+                                <div class="subWrap">
+                                    <span class="it1">商品总额：</span>
+                                    <span class="it2">￥</span>
+                                    <span class="it3">9878.00</span>
+                                    <span class="minus"></span>
+                                    <span class="it1">优惠/折扣：</span>
+                                    <span class="it2">￥</span>
+                                    <span class="it3">878.00</span>
+                                    <span class="increase"></span>
+                                    <span class="it1">运费：</span>
+                                    <span class="it2">￥</span>
+                                    <span class="it3">10.00</span>
+                                    <span class="count"></span>
+                                    <span class="it1">合计：</span>
+                                    <span class="it2">￥</span>
+                                    <span class="it4">9000.00</span>
+                                </div>
+                            </div>
+                            <!-- 统计 end -->
+                        </div>
+                        <!-- 列表循环 end -->
+                        <div class="senNotes">
+                            <h2>备忘信息：
+                                <span>（网通商场系统不会修改任何交易备忘，请勿备注个人敏感信息。若不是本人填写，请小心被骗）</span>
+                            </h2>
+                            <div class="clearfix">
+                                <textarea class="ui-textarea" style="resize: none;"></textarea>
+                            </div>
+                            <p class="wordsCount">
+                                <em>0</em>/100</p>
+                            <p style="text-align: center;">
+                                <input type="submit" class="ui-btn ui-btn-l2" value="保存">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="footer full-border">
+        <!-- 
+	name: 		商场-页尾-友情链接
+	dependency: pub-footer.css
+ -->
+        <div class="blogroll">
+            <div class="container">
+                <strong>友情链接：</strong>
+                <a href="#">顺丰快递查询</a>|
+                <a href="#">星期八团游网</a>|
+                <a href="#">爱去游</a>|
+                <a href="#">赛车服</a>|
+                <a href="#">麦包包</a>|
+                <a href="#">乐蜂网</a>|
+                <a href="#">蘑菇街</a>|
+                <a href="#">美团网</a>|
+                <a href="#">红孩子</a>
+            </div>
+        </div>
+        <!-- 
+	name: 		商场-公共页尾
+	contain: 	快捷导航、copyright、认证链接
+	dependency: pub-footer.css
+ -->
+        <div class="footer-basic">
+            <div class="container">
+                <div class="ft-lnks">
+                    <a href="#">商场首页</a>
+                    <a href="#">关于网通商场</a>
+                    <a href="#">关于网通</a>
+                    <a href="#">广告服务</a>
+                    <a href="#">联系我们</a>
+                    <a href="#">法律申明</a>
+                    <a href="#">诚聘英才</a>
+                    <a href="#">帮助中心</a>
+                    <a href="#">网通导航</a>
+                    <a href="#">商场招商</a>
+                </div>
+                <div class="ft-lnks">
+                    <a href="#">网通百货</a>
+                    <a href="#">网通商场</a>
+                    <a href="#">网通智造</a>
+                    <a href="#">网通国贸</a>
+                    <a href="#">网通物流</a>
+                    <a href="#">网通软件</a>
+                    <a href="#">网通宝</a>
+                    <a href="#">招财猫</a>
+                </div>
+                <div class="copyright">
+                    Copyright 2013 – 2015
+                    <a target="_blank" href="http://www.ewt.cc/">网通电商</a>
+                    <a target="_blank" href="http://www.ewt.cc/">深圳市网通电子商务有限公司版权所有</a>
+                </div>
+                <div class="copyright">
+                    粤ICP备09035474号
+                    <a target="_blank" href="http://www.miibeian.gov.cn/" rel="nofollow">增值电信业务经营许可证</a>
+                    粤B2-20080402
+                    <a href="http://net.china.cn/chinese/index.htm" target="_blank" rel="nofollow">违法不良信息举报中心</a>
+                </div>
+                <!-- 认证链接 -->
+                <div class="auth-lnks">
+                    <a href="https://sealinfo.verisign.com/splash?form_file=fdf/splash.fdf&dn=WWW.EWTPAY.COM&lang=zh_cn" class="auth_ss">
+                        <img src="http://fe.wt.com/img/public/footer/auth_ss.png" alt="安全" width="95" height="50">
+                    </a>
+                    <a href="#" class="auth_hlw">
+                        <img src="http://fe.wt.com/img/public/footer/auth_hlw.png" alt="互联网协会" width="122" height="50">
+                    </a>
+                    <a href="http://www.itrust.org.cn/" class="auth_110">
+                        <img src="http://fe.wt.com/img/public/footer/auth_110.png" alt="网络110" width="109" height="50">
+                    </a>
+                    <a href="http://www.ebs.gov.cn/EntCertificate.aspx?domainId=cad8347c-d3b0-4665-86c6-b6e14c9b34b3" class="auth_gswj">
+                        <img src="http://fe.wt.com/img/public/footer/auth_gswj.png" alt="工商网监" width="61" height="50">
+                    </a>
+                    <a href="http://www.eccsp.org/sitecn/aspx/certificationD.aspx?pid=1213" class="auth_cxds">
+                        <img src="http://fe.wt.com/img/public/footer/auth_cxds.png" alt="诚信电商" width="130" height="50">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="http://fe.wt.com/js/public/sea.js"></script>
+    <script src="http://fe.wt.com/js/sc/configure.js"></script>
+    <script>
+        seajs.use(['sc/v/uc-buy-myGoods-notes']);
+    </script>
+</body>
+
+</html>

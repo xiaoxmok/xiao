@@ -1,0 +1,18 @@
+/**
+ * 商场-店铺装修 店铺导航
+ * @authors 	Inman Shaw
+ * @date 		2014-06-13 09:41:04
+ * @version 	1.0.0
+ */
+.mod-nav{background-color: #080b0e;font-size: 0;}
+.mod-nav a{color: #fff}
+.mod-nav a:hover{background-color: #1c1c1c;color: #fff}
+.mod-nav-item{display: inline-block;height: 35px;line-height: 35px;padding: 0 20px;text-align: center;vertical-align: top;font-size: 14px;color: #fff;position: relative;}
+/*.mod-nav-item:hover{background-color: #1c1c1c;color: #fff}*/
+.mod-nav-item .triangle-b{border-width: 5px 5px 0 5px; border-top-color: #ccc;margin-left: 5px;vertical-align: 2px;}
+
+.mod-sub-nav{position: absolute;top: 35px;left: 0;padding: 10px 0;background-color: #080b0e;min-width: 120px;text-align:left;display: none;}
+.mod-sub-nav-item{display: block;padding: 0 20px;font-size: 13px;line-height: 2;}
+
+.has-sub{padding: 0;}
+.has-sub:hover .mod-sub-nav{display: block;}

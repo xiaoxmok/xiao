@@ -1,0 +1,30 @@
+/**
+ * 买家中心 售后 退款 …… 公共模块框架
+ * @authors 谭子良
+ * @date    2014-07-24 13:48:57
+ * @version 1.0.0
+ */
+
+.uc-mod-service { border: 1px solid #e6e6e6; background:#FFF; margin-bottom: 10px;}
+.uc-mod-service .proMess { width: 30%; float: left;}
+.uc-mod-service .proMess .title {  font-size: 16px; margin: 20px 20px 0px 20px; line-height: 24px; font-weight: 700;}
+.uc-mod-service .proMess .proCont { padding:20px;}
+.uc-mod-service .proMess .proImg { width: 60px; height: 60px; border: 1px solid #e6e6e6; float: left; margin-right: 10px;}
+.uc-mod-service .proMess .proImg img { width: 60px; height: 60px; display: block;}
+.uc-mod-service .proMess .proInfo p { height: 18px; line-height: 18px; overflow: hidden;}
+.uc-mod-service .proMess .proInfo a { color: #333;}
+.uc-mod-service .proMess .proInfo a:hover { color: #f30;}
+.uc-mod-service .proMess .proInfo p.pro-color { color: #666; margin-top: 2px; margin-bottom: 5px;}
+.uc-mod-service .proMess .flag-x1 { width: 16px; height: 16px; display: inline-block; float: left; margin-right: 3px; background: url("../../img/sc/misc/i_001.png") no-repeat -30px -160px;}
+.uc-mod-service .proMess .flag-x2 { width: 16px; height: 16px; display: inline-block; float: left; margin-right: 3px; background: url("../../img/sc/misc/i_001.png") no-repeat -60px -160px;}
+.uc-mod-service .proMess .flag-x3 { width: 16px; height: 16px; display: inline-block; float: left; margin-right: 3px; background: url("../../img/sc/misc/i_001.png") no-repeat -90px -160px;}
+.uc-mod-service .proMess .flag-x4 { width: 16px; height: 16px; display: inline-block; float: left; margin-right: 3px; background: url("../../img/sc/misc/i_001.png") no-repeat -120px -160px;}
+.uc-mod-service .proMess .proAside { border-top: 1px dashed #e6e6e6; margin: 0px 20px; padding: 15px 0px;}
+.uc-mod-service .proMess .proAside p { margin-bottom: 5px;}
+.uc-mod-service .proMess .proAside dl { width: 100%; overflow: hidden; color: #666; line-height: 24px;}
+.uc-mod-service .proMess .proAside dt { float: left; width: 72px;}
+.uc-mod-service .proMess .proAside dd { float: left;}
+.uc-mod-service .proMess .proAside dd i { font-style: normal;}
+.uc-mod-service .proMess .proAside dd .flag-cat { cursor: pointer; background: url("../../img/public/icon/16x16/cat.gif") no-repeat 0px 0px; display:inline-block; float: left;height: 16px; margin: 4px 0px 0px 5px; width: 16px;}
+.uc-mod-service .mainWrap { width: 70%; background:#fff; float: right; border-left: 1px solid #e6e6e6; margin-left: -1px;}
+.uc-mod-service .mainWrap .mainWrapArea { padding: 20px 30px}

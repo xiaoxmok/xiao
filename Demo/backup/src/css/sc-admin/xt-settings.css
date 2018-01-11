@@ -1,0 +1,21 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-table-1.0.0.css");
+@import url("../mod/ui-pager-1.0.0.css");
+@import url("../mod/ui-form-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("../mod/popup.css");
+@import url("pub-basic.css");
+@import url("pub-header.css");
+@import url("pub-nav.css");
+@import url("pub-sidenav.css");
+/**
+ * 系统管理-系统配置-网站配置
+ * @authors Inman Shaw
+ * @date    2014-07-16 16:39:38
+ */
+
+.add-form .ui-input, .add-form .ui-textarea{width: 50%;}
+.add-form .ui-form-item .ui-btn{vertical-align: -5px;}
+

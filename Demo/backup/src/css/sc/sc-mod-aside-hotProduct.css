@@ -1,0 +1,22 @@
+
+/**
+ * 商场前端 产品列表 右侧掌柜热卖商品
+ * @authors 谭子良
+ * @date    2014-06-12 14:59:52
+ * @version 1.0.0
+ */
+
+.sc-mod-aside-hotProduct { margin-left: 2px; padding-left: 20px; border-left: 1px solid #e6e6e6; }
+.win-1200 .sc-mod-aside-hotProduct { margin-left: 52px;}
+.win-1400 .sc-mod-aside-hotProduct { margin-left: 102px;}
+.sc-mod-aside-hotProduct h2 { height: 36px; font-size: 16px; color: #333; font-weight: bold;}
+.sc-mod-aside-hotProduct ul li { margin-bottom: 20px;}
+.sc-mod-aside-hotProduct ul li a { color: #333;}
+.sc-mod-aside-hotProduct ul li a:hover { color: #f30;}
+.sc-mod-aside-hotProduct ul li .mod-aside-hotPro-img img { width: 217px; height: 217px; border: 1px solid #e6e6e6;}
+.sc-mod-aside-hotProduct ul li .mod-aside-hotPro-title { line-height: 20px; margin-bottom: 5px;}
+.sc-mod-aside-hotProduct ul li .mod-aside-hotPro-price { float: left; height: 30px; color: #f30; display: block;}
+.sc-mod-aside-hotProduct ul li .mod-aside-hotPro-price b { font-size: 12px;}
+.sc-mod-aside-hotProduct ul li .mod-aside-hotPro-price em { font-size: 16px; font-weight: bold; font-family: arial;}
+.sc-mod-aside-hotProduct ul li .mod-aside-hotPro-del { float: left; height: 27px; margin-top: 3px; color: #999; display: block; margin-left: 5px; font-family: arial; text-decoration: line-through;}
+.sc-mod-aside-hotProduct ul li h6 { color: #666; font-size: 13px;}

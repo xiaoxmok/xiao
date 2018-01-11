@@ -1,0 +1,60 @@
+
+/**
+ * 网通商场 产品列表 排序操作显示条
+ * @authors 谭子良
+ * @date    2014-06-16 16:38:54
+ * @version 1.0.0
+ */
+
+.sc-mod-proOrderBy { height: 38px; border: 1px solid #e6e6e6; background: #f8f8f8; position: relative;}
+
+
+/*排序类别*/
+.sc-mod-proOrderBy-type { float: left;}
+.sc-mod-proOrderBy-type a { color: #666; background: #f8f8f8; height: 38px; line-height: 38px; padding: 0px 10px; display: block; float: left; border-right:1px solid #e6e6e6; color: #666; background: #f8f8f8;}
+.sc-mod-proOrderBy-type a:hover { color: #f30;}
+.sc-mod-proOrderBy-type a.current { color: #f30; background: #fff;}
+
+.sc-mod-proOrderBy-type a em { float: left;}
+.sc-mod-proOrderBy-type a b { display: block; width: 15px; height: 16px; margin-top: 12px; float: left; text-indent: -9999px;}
+.sc-mod-proOrderBy-type a b.proOrderBy-down { background:url(../../img/sc/misc/i_001.png) no-repeat 2px -200px;}
+.sc-mod-proOrderBy-type a:hover b.proOrderBy-down { background:url(../../img/sc/misc/i_001.png) no-repeat -58px -200px;}
+.sc-mod-proOrderBy-type a.current b.proOrderBy-down { background:url(../../img/sc/misc/i_001.png) no-repeat -58px -200px;}
+.sc-mod-proOrderBy-type a b.proOrderBy-price { background:url(../../img/sc/misc/i_001.png) no-repeat 2px -240px;}
+.sc-mod-proOrderBy-type a:hover b.proOrderBy-price { background:url(../../img/sc/misc/i_001.png) no-repeat -88px -240px;}
+.sc-mod-proOrderBy-type a.current b.proOrderBy-price { background:url(../../img/sc/misc/i_001.png) no-repeat -88px -240px;}
+.sc-mod-proOrderBy-type a b.proOrderBy-height { background:url(../../img/sc/misc/i_001.png) no-repeat -28px -240px;}
+.sc-mod-proOrderBy-type a b.proOrderBy-low { background:url(../../img/sc/misc/i_001.png) no-repeat -58px -240px;}
+
+
+/*价格区间*/
+.sc-mod-proOrderBy-price { width: 106px; height: 60px; margin-top: -1px; background: #fff; border: 1px solid #e6e6e6; padding:7px 7px 7px 10px; overflow:visible; float: left; }
+.sc-mod-proOrderBy-price.normal { height: 26px; overflow: hidden; padding:7px 8px 5px 11px; background: #f8f8f8; border: none; margin: 0px;}
+.proOrderBy-price-input span { float: left; color: #999; line-height: 26px; margin: 0px 5px;}
+.proOrderBy-price-input input { float: left; width: 35px; height: 17px; padding: 3px; border: 1px solid #bdbdbd; color: #999;}
+.proOrderBy-price-btn { text-align: center; padding: 10px 0px;}
+.proOrderBy-price-btn input.proOrderBy-price-true { float: left; width: 45px; height: 20px; border-radius: 3px 3px 3px 3px; cursor: pointer; border: none; background:url(../../img/sc/misc/i_002.png) repeat-x 0px 0px; color: #fff; margin-right: 5px;}
+.proOrderBy-price-btn input.proOrderBy-price-empty { float: left; width: 50px; height: 20px; border-radius: 3px 3px 3px 3px; cursor: pointer; border: none; background:fff; color: #333;}
+
+
+/*大图小图方式 与 简易分页条*/
+.sc-mod-proOrderBy-aside { float: right;}
+.sc-mod-proOrderBy-showMode { padding: 0px 10px; height: 38px; line-height: 38px; color: #666; border-left: 1px solid #e6e6e6; float: left;}
+.sc-mod-proOrderBy-showMode a.proOrderBy-bigImg { width: 20px; height: 20px; margin-top: 9px; display: block; float: left;  background:url(../../img/sc/misc/i_001.png) no-repeat 0px -120px; text-indent: -9999px; margin-right: 5px;}
+.sc-mod-proOrderBy-showMode a.proOrderBy-bigImg:hover { background:url(../../img/sc/misc/i_001.png) no-repeat -60px -120px;}
+.sc-mod-proOrderBy-showMode a.proOrderBy-bigImg.current { background:url(../../img/sc/misc/i_001.png) no-repeat -120px -80px; cursor: default;}
+.sc-mod-proOrderBy-showMode a.proOrderBy-smaImg { width: 20px; height: 20px; margin-top: 9px; display: block; float: left;  background:url(../../img/sc/misc/i_001.png) no-repeat -30px -120px; text-indent: -9999px;}
+.sc-mod-proOrderBy-showMode a.proOrderBy-smaImg:hover { background:url(../../img/sc/misc/i_001.png) no-repeat -90px -120px;}
+.sc-mod-proOrderBy-showMode a.proOrderBy-smaImg.current { background:url(../../img/sc/misc/i_001.png) no-repeat -150px -80px; cursor: default;}
+
+
+.sc-mod-proOrderBy-pagesBar { float: left; padding: 0px 5px; height: 38px; line-height: 38px; color: #666; border-left: 1px solid #e6e6e6;}
+.sc-mod-proOrderBy-pagesBar a.proOrderBy-prePage { width: 16px; height: 16px; margin-top: 12px; display: block; float: left; background:url(../../img/sc/misc/i_001.png) no-repeat -60px -280px; text-indent: -9999px;}
+.sc-mod-proOrderBy-pagesBar a.proOrderBy-prePage:hover { background:url(../../img/sc/misc/i_001.png) no-repeat -120px -280px;}
+.sc-mod-proOrderBy-pagesBar .proOrderBy-pageCuont { float: left; display: block; margin: 0px 5px;}
+.sc-mod-proOrderBy-pagesBar .proOrderBy-pageCuont em { color: #f30;}
+.sc-mod-proOrderBy-pagesBar a.proOrderBy-nextPage { width: 16px; height: 16px; margin-top: 12px; display: block; float: left; background:url(../../img/sc/misc/i_001.png) no-repeat -90px -280px; text-indent: -9999px;}
+.sc-mod-proOrderBy-pagesBar a.proOrderBy-nextPage:hover { background:url(../../img/sc/misc/i_001.png) no-repeat -150px -280px;}
+
+
+

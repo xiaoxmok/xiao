@@ -1,0 +1,51 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-logo.css");
+@import url("pub-footer.css");
+@import url("pub-crumbs.css");
+
+/**
+ * 网通商场  商品列表 大图模式
+ * @authors 谭子良
+ * @date    2014-05-26 14:24:28
+ * @version 1.0.0
+ */
+
+/*产品列表 筛选项*/
+.s-option { border:1px solid #bebebe; color:#f30; line-height:22px; padding:0px 5px; overflow:hidden; float:left;}
+.s-option:hover , .s-option-hover{ border:1px solid #f30;}
+.s-option b { font-weight:normal; float:left;}
+.s-option a.del { width:18px; height:18px; display:block; overflow:hidden; margin:2px 0px 0px 5px; background:url(../../img/sc/misc/i_001.png) no-repeat -118px -198px; float:left; }
+.s-option a.del:hover { background-position:-118px -238px;}
+
+.area-rt {  margin-left:20px; padding-left:20px; border-left:1px solid #e6e6e6; float:right; }
+.area-rt h2 { width:100%; height:36px; font-size:16px; color:#333; font-weight:bold;}
+.area-rt ul li { margin-bottom:20px;}
+.area-rt ul li p.img { border:1px solid #e6e6e6; margin-bottom:8px;}
+.area-rt ul li p.img { border:1px solid #e6e6e6; margin-bottom:8px;}
+
+
+
+/*
+	重定义:
+*/
+.crumbs { margin:5px auto;}
+
+.wrap-1200 .container { width:1200px;}
+.wrap-1200 .footer .sitemap{width: 1140px;}
+.wrap-1200 .footer .sitemap .container{width:1130px;}
+.wrap-1200 .footer .blogroll{width: 1200px;}
+.wrap-1200 .footer .main{ width:1200px;}
+.wrap-1200 .full-border .blogroll .container{width: 1130px;}
+.wrap-1200 .full-border .sitemap .container{width: 1130px;}
+
+.wrap-1400 .container { width:1400px;}
+.wrap-1400 .footer .sitemap{width: 1340px;}
+.wrap-1400 .footer .sitemap .container{width:1330px;}
+.wrap-1400 .footer .blogroll{width: 1400px;}
+.wrap-1400 .footer .main{ width:1400px;}
+.wrap-1400 .full-border .blogroll .container{width:1330px;}
+.wrap-1400 .full-border .sitemap .container{width:1330px;}

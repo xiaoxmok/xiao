@@ -1,0 +1,54 @@
+@@include('-html-header.html', { "title": "网通商场 商品列表 搜索无数据", "css": "sc/sc-product-bImg.css","bodyclass":"win-1200" })
+	<header class="header">
+		@@include('-pub-header-topbar.html')
+        @@include('-pub-header-product.html')
+        <div class="container clearfix">
+            @@include('-pub-nav-proCates.html')
+            @@include('-pub-nav-list.html')
+        </div>
+	</header>
+    <section class="container">
+    	<!--面包屑-->
+        <div class="crumbs">
+            <ul>
+                <li><a href="#">全部商品分类</a></li>
+                <li>&gt;</li>
+                <li><em>冇</em> 共 0 件相关商品</li>
+            </ul>
+        </div>
+        <!--列表内容区-->
+        <div class="ui-grid">
+        	<div class="col-18-24">
+                <div class="product-left-area">
+
+                    <!-- 无数据时显示 Start -->
+                    <div class="sc-mod-proNoDatas clearfix">
+                        <h2>抱歉，没有找到与<span class="searchWord">“冇”</span>相关的店铺哦！要不您换个词帮您再找找</h2>
+                        <p>建议您：</p>
+                        <p>1. 看看输入的文字是否有误</p>
+                        <p>2. 调整关键字，如“漂亮泡泡袖裙子”改成“泡泡袖”或者“泡泡袖  裙子”</p>
+                        <p class="resetSearch">
+                            <span class="fl">3.</span>
+                            <input type="text" value="冇" class="ui-input" />
+                            <input type="button" value="重新搜索" class="ui-btn ui-btn-s3" />
+                        </p>
+                    </div>
+                    <!-- 无数据时显示 End -->
+
+                </div>
+            </div>
+            <!--右侧推荐-->
+            <div class="col-6-24">
+                @@include('-sc-mod-aside-hotProduct.html')
+            </div>
+        </div>
+
+        @@include('-sc-mod-proFooterSearch.html')
+
+    </section>
+	<footer class="footer">
+        @@include('-pub-footer-sitemap.html')
+        @@include('-pub-footer-blogroll.html')
+        @@include('-pub-footer.html')
+    </footer>
+@@include('-html-footer.html', { "script": "sc/v/sc-product-bImg" })

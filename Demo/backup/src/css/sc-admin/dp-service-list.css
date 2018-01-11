@@ -1,0 +1,42 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-table-1.0.0.css");
+@import url("../mod/ui-pager-1.0.0.css");
+@import url("../mod/ui-form-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("../mod/popup.css");
+@import url("pub-basic.css");
+@import url("pub-header.css");
+@import url("pub-nav.css");
+@import url("pub-sidenav.css");
+
+/**
+ * 技术服务费设置
+ * @authors jiangzhiqiang 
+ * @date    2014-08-27 16:26:52
+ */
+
+
+.add-form .ui-input, .add-form .ui-textarea{width: 50%;}
+.add-form .ui-form-item .ui-btn{vertical-align: -5px;}
+a.disabled,a.disabled:hover,a.disabled:active{background-color: #aaa;}
+.tb-service tr.active{background: #FFEFDB;}
+.tb-service tr:hover{background: #FFEFDB;}
+td.td-treegrid{text-align: left;white-space: nowrap;padding: 3px;}
+td.td-treegrid span{line-height: 26px;}
+td.td-treegrid .td-span-collapse{display:inline-block;width: 16px;height: 16px; margin-top: 6px; padding:0 3px; cursor:pointer; vertical-align: top;  background:  url(../../img/sc-admin/sc-settings/collapse.png) no-repeat ; }
+td.td-treegrid .td-span-expand{display:inline-block;width: 16px;height: 16px; margin-top: 6px; padding:0 3px;cursor:pointer; vertical-align: top; background:  url(../../img/sc-admin/sc-settings/expand.png) no-repeat ; }
+td.td-treegrid .td-span-indent{display: inline-block; width: 16px; height: 16px; mrgin-top: 6px; padding:0 3px; vertical-align: top;}
+td.td-treegrid .arrow-line{display: inline-block; width: 16px; height: 16px; mrgin-top: 6px; padding:0 3px; vertical-align: top;background:  url(../../img/sc/uc/IconS_23.png) no-repeat ; }
+
+.popsetting{width:640px;height: 400px;}
+.popsetting td.title{background: #ebebeb;}
+.popsetting .ui-radio-for{margin-right: 5px;}
+.popsetting .ui-input{width: 80px;}
+.popsetting .ui-form-item{text-align: left;padding: 0px;}
+.popsetting .btn-toolbar{text-align: center;padding:20px 0; border-bottom: 1px dotted #ccc; }
+.footer{text-align: left;padding-top:10px; }
+.footer p{line-height: 24px;}
+
+

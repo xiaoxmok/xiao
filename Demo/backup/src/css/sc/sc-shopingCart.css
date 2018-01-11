@@ -1,0 +1,60 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("../mod/form-select.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-logo.css");
+@import url("pub-footer.css");
+@import url("pub-progress.css");
+@import url("pub-shop.css");
+@import url("pub-footer-recommend.css");
+
+/**
+ * 网通商场 购物车
+ * @authors 谭子良
+ * @date    2014-05-26 14:24:28
+ * @version 1.0.0
+ */
+
+/*购物车上方统计*/
+.wrap { width: 1000px; margin: 0px auto;}
+.shop-top-count { height: 25px; padding-bottom: 10px; color: #333;}
+.shop-top-count em { font-weight: bold;}
+.shop-top-count .price-t , .shop-top-count .price-p , .shop-top-count .price-n { line-height: 25px; float: left; *padding-top: 2px; *line-height: 23px;}
+.shop-top-count .price-p { color: #f30;}
+.shop-top-count .price-n { color: #f30; font-weight: bold; font-size: 16px; margin-right: 10px; *line-height: 19px;}
+
+/*宽度像素*/
+.w660 { width: 660px;}
+.w345 { width: 345px;}
+.w135 { width: 135px;}
+.w115 { width: 115px;}
+.w105 { width: 105px;}
+.w100 { width: 100px;}
+.w95 { width: 95px;}
+.w75 { width: 75px;}
+.w55 { width: 55px;}
+
+/*颜色*/
+.c-666 { color: #666;}
+.c-f30 { color: #f30;}
+
+/*外填充*/
+.mt5 { margin-top: 5px;}
+
+/*购物车底部统计*/
+.foot-count-bar { height: 48px; padding:0px 10px; border: 1px solid #e6e6e6; background:#f4f4f4; line-height: 48px; color: #666; border-radius: 3px 3px 3px 3px;}
+.foot-count-bar .clearfix { float: right;}
+.foot-count-bar span { float: left;}
+.foot-count-bar span.te01 { padding-top: 2px;}
+.foot-count-bar span.te02 { font-size: 14px; padding: 3px;}
+.foot-count-bar span.te03 { font-size: 25px; font-weight: bold;}
+
+.foot-count-bar .ico-minus { margin: 18px 8px;}
+.foot-count-bar .ico-equal { margin: 18px 8px;}
+
+.foot-info-tip { width: 100%; overflow: hidden; text-align: right; padding-top: 5px;}
+.foot-post-area { width: 100%; overflow: hidden; text-align: right; padding: 20px 0px; } 
+.foot-post-area .other { line-height: 30px; margin-right: 10px;}
+

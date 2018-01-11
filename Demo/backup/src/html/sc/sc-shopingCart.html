@@ -1,0 +1,402 @@
+@@include('-html-header.html', { "title": "网通商场 购物车", "css": "sc/sc-shopingCart.css" })
+
+	<header class="header">
+		@@include('-pub-header-topbar.html')
+		@@include('-pub-header-logo.html')
+	</header>
+    <section class="wrap">
+        
+		<!--购物车步骤进度指示条-->
+        <div class="shop-progress clearfix">
+            <ul>
+                <li class="now">
+                    <div class="point">1</div>
+                    <div class="tis">查看购物车</div>
+                </li>
+                <li class="arrow"><div class="on"></div></li>
+                <li class="sp2">
+                    <div class="point">2</div>
+                    <div class="tis">确认订单信息</div>
+                </li>
+                <li class="arrow"></li>
+                <li class="sp3">
+                    <div class="point">3</div>
+                    <div class="tis">付款</div>
+                </li>
+                <li class="arrow"></li>
+                <li class="sp4">
+                    <div class="point">4</div>
+                    <div class="tis">确认收货</div>
+                </li>
+                <li class="arrow"></li>
+                <li class="sp5">
+                    <div class="point">5</div>
+                    <div class="tis">评价</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 如果有商品 start  -->
+		<!--购物车商品统计-->
+        <div class="shop-top-count clearfix">
+        	<div class="fl price-t">购物车商品数量：<em>4</em></div>
+            <div class="fr">
+            	<span class="price-t">已选商品总价：</span>
+            	<span class="price-p">￥</span>
+            	<span class="price-n">195.00</span>
+            	<a href="javascript:;" class="ui-btn ui-btn-s4">去结算</a>
+        	</div>
+        </div>
+		<!-- 购物车表头 -->
+		<div class="shop-cart-bar">
+        	<ul>
+            	<li class="w75">
+            		<div class="cot t2"><label for="all_select" class="fl"><input type="checkbox" id="all_select" />全选</label>
+            		</div><div class="hr"></div>
+            	</li>
+                <li class="w345"><div class="cot">商品信息</div><div class="hr"></div></li>
+                <li class="w115"><div class="cot">单价（元）</div><div class="hr"></div></li>
+                <li class="w115"><div class="cot">数量</div><div class="hr"></div></li>
+                <li class="w135"><div class="cot">优惠（元）</div><div class="hr"></div></li>
+                <li class="w115"><div class="cot">小计（元）</div><div class="hr"></div></li>
+                <li class="w100"><div class="cot">操作</div><div class="hr last"></div></li>
+            </ul>
+        </div>
+        <!--正常商品-->
+        <div class="item normal clearfix">
+            <table width="1000" border="0" cellspacing="0" cellpadding="0">
+              <tr class="title">
+                <td colspan="5">
+                    <div class="store">
+                        <ul>
+                            <li><input type="checkbox" /></li>
+                            <li>店铺：古古美美旗舰店</li>
+                            <li><span class="ico-cat"></span></li>
+                            <li><span class="rectangle1">满减</span></li>
+                        </ul>
+                    </div>
+                </td>
+                <td colspan="3" class="ta-r">
+                    <div class="aside">满500再减50 差200.00元，省100元 &gt;</div>
+                </td>
+              </tr>
+              <tr class="cont">
+                <td width="70" class="ta-c va-m">
+                    <input type="checkbox">
+                </td>
+                <td width="87" class="ta-l va-t">
+                    <a href="#"><img src="http://my.wt.com/images/IconS/jpg/17.jpg" width="80" height="80" alt="说明文字" class="photo"/>
+                </td>
+                <td width="263" class="va-t">
+                    <div class="sproduct">
+                        <p><a href="#">尊尼女士正品缩短新款潮十字纹牛皮单肩手提包 欧美时尚杀手女包</a></p>
+                        <p class="c-666">颜色：天蓝色</p>
+                        <p class="xiaobao">
+                            <span class="ico-x1" title="正品保障"></span>
+                            <span class="ico-x2" title="闪电发货"></span>
+                            <span class="ico-x3" title="七天退换"></span>
+                            <span class="ico-x4" title="消保会员"></span>
+                        </p>
+                    </div>
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <p class="del">1098.00</p>
+                    <p><span class="price-666 oneGoodsPrice">298.00</span></p>
+                    <p class="mt5"><span class="rectangle2">省800</span></p>
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <div class="goods">
+                        <input type="button" value="" class="minus" />
+                        <input type="text" value="1" name="" class="count"/>
+                        <input type="button" value="" class="increase"/>
+                    </div>
+                </td>
+                <td width="135" class="ta-c va-t">
+                    <select class="w110">
+                        <option value="">满100减10</option>
+                        <option value="">满90减10</option>
+                        <option value="">满80减10</option>
+                        <option value="">满70减10</option>
+                        <option value="">满60减10</option>
+                        <option value="">满100减10</option>
+                        <option value="">满90减10</option>
+                        <option value="">满80减10</option>
+                        <option value="">满70减10</option>
+                        <option value="">满60减10</option>
+                    </select>
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <span class="price-f30 goodsCount">298.00</span>
+                </td>
+                <td width="100" class="ta-c va-t">
+                    <a href="#">移入收藏夹</a>
+                    <br />
+                    <a href="#">删除</a>
+                </td>
+              </tr>
+              <tr class="cont">
+                <td width="70" class="ta-c va-m">
+                    <input type="checkbox">
+                </td>
+                <td width="87" class="ta-l va-t">
+                    <a href="#"><img src="http://my.wt.com/images/IconS/jpg/17.jpg" width="80" height="80" alt="说明文字" class="photo"/>
+                </td>
+                <td width="263" class="va-t">
+                    <div class="sproduct">
+                        <p><a href="#">尊尼女士正品缩短新款潮十字纹牛皮单肩手提包 欧美时尚杀手女包</a></p>
+                        <p class="c-666">颜色：天蓝色</p>
+                        <p class="xiaobao">
+                            <span class="ico-x1" title="正品保障"></span>
+                            <span class="ico-x2" title="闪电发货"></span>
+                            <span class="ico-x3" title="七天退换"></span>
+                            <span class="ico-x4" title="消保会员"></span>
+                        </p>
+                    </div>
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <p class="del">1098.00</p>
+                    <p><span class="price-666 oneGoodsPrice">298.00</span></p>
+                    <p class="mt5"><span class="rectangle2">省800</span></p>
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <div class="goods">
+                        <input type="button" value="" class="minus"  />
+                        <input type="text" value="1" name="" class="count" />
+                        <input type="button" value="" class="increase" />
+                    </div>
+                </td>
+                <td width="135" class="ta-c va-t">
+                    <select class="w110">
+                        <option value="">满100减10</option>
+                        <option value="">满90减10</option>
+                        <option value="">满80减10</option>
+                        <option value="">满70减10</option>
+                        <option value="">满60减10</option>
+                        <option value="">满100减10</option>
+                        <option value="">满90减10</option>
+                        <option value="">满80减10</option>
+                        <option value="">满70减10</option>
+                        <option value="">满60减10</option>
+                    </select>
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <span class="price-f30 goodsCount">298.00</span>
+                </td>
+                <td width="100" class="ta-c va-t">
+                    <a href="#">移入收藏夹</a>
+                    <br />
+                    <a href="#">删除</a>
+                </td>
+              </tr>
+            </table>
+        </div>
+		<!--失效商品-->
+        <div class="split-row-line"></div>
+        <div class="item expiry clearfix">
+            <table width="1000" border="0" cellspacing="0" cellpadding="0">
+              <tr class="title">
+                <td colspan="5">
+                    <div class="store">
+                        <ul>
+                            <li>店铺：古古美美旗舰店</li>
+                            <li><span class="ico-cat"></span></li>
+                            <li><span class="rectangle1">满减</span></li>
+                        </ul>
+                    </div>
+                </td>
+                <td colspan="3" class="ta-r">
+                    <div class="aside">满500再减50 差200.00元，省100元 &gt;</div>
+                </td>
+              </tr>
+              <tr class="cont">
+                <td width="70" class="ta-c va-m">
+                    <span class="expiry-checkbox">失效</span>
+                </td>
+                <td width="87" class="ta-l va-t">
+                    <a href="#"><img src="http://my.wt.com/images/IconS/jpg/17.jpg" width="80" height="80" alt="说明文字" class="photo"/>
+                </td>
+                <td width="263" class="va-t">
+                    <div class="sproduct">
+                        <p><a href="#">尊尼女士正品缩短新款潮十字纹牛皮单肩手提包 欧美时尚杀手女包</a></p>
+                        <p class="c-666">颜色：天蓝色</p>
+                        <p class="xiaobao">
+                            <span class="ico-x1" title="正品保障"></span>
+                            <span class="ico-x2" title="闪电发货"></span>
+                            <span class="ico-x3" title="七天退换"></span>
+                            <span class="ico-x4" title="消保会员"></span>
+                        </p>
+                    </div>
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <p><span class="price-666">298.00</span></p>
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <div class="goods">
+                        <input type="button" value="" class="minus"  disabled="disabled" />
+                        <input type="text" value="1" name="" class="count" disabled="disabled" />
+                        <input type="button" value="" class="increase"  disabled="disabled" />
+                    </div>
+                </td>
+                <td width="135" class="ta-c va-t">&nbsp;
+                    
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <span class="price-f30">298.00</span>
+                </td>
+                <td width="100" class="ta-c va-t">
+                    <a href="#">移入收藏夹</a>
+                    <br />
+                    <a href="#">删除</a>
+                </td>
+              </tr>
+            </table>
+        </div>
+        <!--失效店铺-->
+        <div class="split-row-line"></div>
+        <div class="item expiry clearfix">
+            <table width="1000" border="0" cellspacing="0" cellpadding="0">
+              <tr class="title">
+                <td colspan="5">
+                    <div class="store">
+                        <ul>
+                            <li><span class="expiry-checkbox">失效</span></li>
+                            <li>店铺：古古美美旗舰店</li>
+                            <li><span class="ico-cat"></span></li>
+                            <li><span class="rectangle1">满减</span></li>
+                        </ul>
+                    </div>
+                </td>
+                <td colspan="3" class="ta-r">
+                    <div class="aside">满500再减50 差200.00元，省100元 &gt;</div>
+                </td>
+              </tr>
+              <tr class="cont">
+                <td width="70" class="ta-c va-m">&nbsp;
+                    
+                </td>
+                <td width="87" class="ta-l va-t">
+                    <a href="#"><img src="http://my.wt.com/images/IconS/jpg/17.jpg" width="80" height="80" alt="说明文字" class="photo"/>
+                </td>
+                <td width="263" class="va-t">
+                    <div class="sproduct">
+                        <p><a href="#">尊尼女士正品缩短新款潮十字纹牛皮单肩手提包 欧美时尚杀手女包</a></p>
+                        <p class="c-666">颜色：天蓝色</p>
+                        <p class="xiaobao">
+                            <span class="ico-x1" title="正品保障"></span>
+                            <span class="ico-x2" title="闪电发货"></span>
+                            <span class="ico-x3" title="七天退换"></span>
+                            <span class="ico-x4" title="消保会员"></span>
+                        </p>
+                    </div>
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <p><span class="price-666">298.00</span></p>
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <div class="goods">
+                        <input type="button" value="" class="minus"  disabled="disabled" />
+                        <input type="text" value="1" name="" class="count" disabled="disabled" />
+                        <input type="button" value="" class="increase"  disabled="disabled"/>
+                    </div>
+                </td>
+                <td width="135" class="ta-c va-t">&nbsp;
+                    
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <span class="price-f30">298.00</span>
+                </td>
+                <td width="100" class="ta-c va-t">
+                    <a href="#">移入收藏夹</a>
+                    <br />
+                    <a href="#">删除</a>
+                </td>
+              </tr>
+              <tr class="cont">
+                <td width="70" class="ta-c va-m">&nbsp;
+                    
+                </td>
+                <td width="87" class="ta-l va-t">
+                    <a href="#"><img src="http://my.wt.com/images/IconS/jpg/17.jpg" width="80" height="80" alt="说明文字" class="photo"/>
+                </td>
+                <td width="263" class="va-t">
+                    <div class="sproduct">
+                        <p><a href="#">尊尼女士正品缩短新款潮十字纹牛皮单肩手提包 欧美时尚杀手女包</a></p>
+                        <p class="c-666">颜色：天蓝色</p>
+                        <p class="xiaobao">
+                            <span class="ico-x1" title="正品保障"></span>
+                            <span class="ico-x2" title="闪电发货"></span>
+                            <span class="ico-x3" title="七天退换"></span>
+                            <span class="ico-x4" title="消保会员"></span>
+                        </p>
+                    </div>
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <p><span class="price-666">298.00</span></p>
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <div class="goods">
+                        <input type="button" value="" class="minus"  disabled="disabled" />
+                        <input type="text" value="1" name="" class="count" disabled="disabled" />
+                        <input type="button" value="" class="increase"  disabled="disabled"/>
+                    </div>
+                </td>
+                <td width="135" class="ta-c va-t">&nbsp;
+                    
+                </td>
+                <td width="115" class="ta-c va-t">
+                    <span class="price-f30">298.00</span>
+                </td>
+                <td width="100" class="ta-c va-t">
+                    <a href="#">移入收藏夹</a>
+                    <br />
+                    <a href="#">删除</a>
+                </td>
+              </tr>
+            </table>
+        </div>
+        <!--购物车底部操作-->
+        <div class="split-row-line"></div>
+        <div class="shop-cart-bar">
+            <ul>
+                <li class="w75">
+                    <div class="cot t2"><label for="all_select" class="fl"><input type="checkbox" id="all_select" />全选</label>
+                    </div><div class="hr"></div>
+                </li>
+                <li class="w55"><div class="cot"><span>删除</span></div><div class="hr"></div></li>
+                <li class="w105"><div class="cot"><span>清除失效商品</span></div><div class="hr"></div></li>
+                <li class="w105"><div class="cot"><span>批量移入收藏夹</span></div><div class="hr"></div></li>
+                <li class="w660"><div class="cot"><span style="float:right; margin-right:20px;">共选中2件商品</span></div><div class="hr last"></div></li>
+            </ul>
+        </div>
+        <!--底部商品及价格统计-->
+        <div class="foot-count-bar">
+            <div class="clearfix">
+                <span class="te01">商品总额：</span>
+                <span class="te02">￥</span>
+                <span class="te03">9878.00</span>
+                <span class="ico-minus"></span>
+                <span class="te01">优惠/折扣：</span>
+                <span class="te02">￥</span>
+                <span class="te03">878.00</span>
+                <span class="ico-equal"></span>
+                <span class="te01">合计（不含运费）：</span>
+                <span class="te02 c-f30">￥</span>
+                <span class="te03 c-f30">9000.00</span>
+            </div>
+        </div>
+        <div class="foot-info-tip">
+            现在 <a href="#">登录</a>，您加入购物车的商口将永久保存
+        </div>
+        <div class="foot-post-area">
+            <a href="#" class="other">继续购物</a>
+            <a href="javascript:;" class="ui-btn ui-btn-l1">去结算</a>
+        </div>        
+        <!-- 如果有商品 end  -->
+
+    </section>
+    @@include('-pub-footer-recommend.html')
+	<footer class="footer">
+        @@include('-pub-footer.html')
+    </footer>
+    
+@@include('-html-footer.html', { "script": "sc/v/sc-shopingCart" })    

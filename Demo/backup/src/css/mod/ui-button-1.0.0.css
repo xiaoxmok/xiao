@@ -1,0 +1,150 @@
+/**
+ * button
+ * @authors 	Inman Shaw
+ * @date    	2014-05-19 10:47:25
+ * @version 	1.0.0
+ */
+.ui-btn{display: inline-block;vertical-align: middle;text-align: center;text-decoration: none;cursor: pointer;font-family: inherit;
+	border:0 none;border-radius: 2px;padding: 0 15px;*display: inline;*zoom:1;*overflow: visible;}
+.ui-btn-txt{background: none;padding: 0;height: auto;line-height: auto;}
+.ui-btn:hover{text-decoration: none;}
+input.ui-btn-txt,
+button.ui-btn-txt{*vertical-align: top;}
+.ui-btn:active{position: relative;top: 1px;box-shadow: 1px 1px 3px #999 inset;}
+
+/* color 1 : orange */
+.ui-btn-xs1,
+.ui-btn-s1,
+.ui-btn-m1,
+.ui-btn-xl1,
+.ui-btn-l1{color: #fff;background-color: #ff9201;}
+.ui-btn-xs1:hover,
+.ui-btn-s1:hover,
+.ui-btn-m1:hover,
+.ui-btn-l1:hover{background-color: #fb8318;}
+
+a.ui-btn-xs1,
+a.ui-btn-s1,
+a.ui-btn-m1,
+a.ui-btn-l1,
+a.ui-btn-xl1,
+a.ui-btn-xs1:hover,
+a.ui-btn-s1:hover,
+a.ui-btn-m1:hover,
+a.ui-btn-l1:hover,
+a.ui-btn-xl1:hover,
+a.ui-btn-xs1:active,
+a.ui-btn-s1:active,
+a.ui-btn-m1:active,
+a.ui-btn-l1:active,
+a.ui-btn-xl1:active {color:#fff;}
+
+/* color 2 : blue */
+.ui-btn-xs2,
+.ui-btn-s2,
+.ui-btn-m2,
+.ui-btn-l2,
+.ui-btn-xl2{
+	color: #fff;background: #1d99e7; 
+	background: -webkit-linear-gradient(top, #239ce9 0%, #1896e6 100%); 
+	background: linear-gradient(to bottom, #239ce9 0%, #1896e6 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#239ce9', endColorstr='#1896e6', GradientType=0); 
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false); 
+}
+.ui-btn-xs2:hover,
+.ui-btn-s2:hover,
+.ui-btn-m2:hover,
+.ui-btn-l2:hover,
+.ui-btn-xl2:hover{background: #1896e6;}
+
+a.ui-btn-xs2,
+a.ui-btn-s2,
+a.ui-btn-m2,
+a.ui-btn-l2,
+a.ui-btn-xl2,
+a.ui-btn-xs2:hover,
+a.ui-btn-s2:hover,
+a.ui-btn-m2:hover,
+a.ui-btn-l2:hover,
+a.ui-btn-xl2:hover,
+a.ui-btn-xs2:active,
+a.ui-btn-s2:active,
+a.ui-btn-m2:active,
+a.ui-btn-l:active,
+a.ui-btn-xl2:active {color:#fff;}
+
+/* color 3 : light gray */
+.ui-btn-xs3,
+.ui-btn-s3,
+.ui-btn-m3,
+.ui-btn-l3,
+.ui-btn-xl3{color: #666;border:1px solid #d9d9d9;background-color: #f4f4f4;}
+.ui-btn-xs3:hover,
+.ui-btn-s3:hover,
+.ui-btn-m3:hover,
+.ui-btn-l3:hover,
+.ui-btn-xl3:hover{background-color: #f8f8f8;}
+
+a.ui-btn-xs3,
+a.ui-btn-s3,
+a.ui-btn-m3,
+a.ui-btn-l3,
+a.ui-btn-xl3,
+a.ui-btn-x3:hover,
+a.ui-btn-s3:hover,
+a.ui-btn-m3:hover,
+a.ui-btn-l3:hover,
+a.ui-btn-xl3:hover,
+a.ui-btn-xs3:active,
+a.ui-btn-s3:active,
+a.ui-btn-m3:active,
+a.ui-btn-l3:active,
+a.ui-btn-xl3:active {color:#666;}
+
+/* color 4 : gray (disabled) */
+.ui-btn-xs4,
+.ui-btn-s4,
+.ui-btn-m4,
+.ui-btn-l4,
+.ui-btn-xl4{color: #999;border:none;background-color: #cacccd;cursor: default;}
+a.ui-btn-xs4:active,
+a.ui-btn-s4:active,
+a.ui-btn-m4:active,
+a.ui-btn-l4:active,
+a.ui-btn-xl4:active {position: static;top: 0;box-shadow: none;}
+
+a.ui-btn-xs4,
+a.ui-btn-s4,
+a.ui-btn-m4,
+a.ui-btn-l4,
+a.ui-btn-xl4,
+a.ui-btn-xs4:hover,
+a.ui-btn-s4:hover,
+a.ui-btn-m4:hover,
+a.ui-btn-l4:hover,
+a.ui-btn-xl4:hover,
+a.ui-btn-s4:active,
+a.ui-btn-xs4:active,
+a.ui-btn-m4:active,
+a.ui-btn-l4:active,
+a.ui-btn-xl4:active {color:#999;}
+
+/* size */
+.ui-btn-xs1,.ui-btn-xs2,.ui-btn-xs3,.ui-btn-xs4{line-height:20px;height:20px; *line-height: 18px;}
+.ui-btn-s1,.ui-btn-s2,.ui-btn-s3,.ui-btn-s4{line-height:25px;height:25px; *line-height: 23px;}
+.ui-btn-m1,.ui-btn-m2,.ui-btn-m3,.ui-btn-m4{line-height:30px;height:30px; *line-height: 28px;}
+.ui-btn-l1,.ui-btn-l2,.ui-btn-l3,.ui-btn-l4{line-height:35px;height:35px; *line-height: 33px;}
+.ui-btn-xl1,.ui-btn-xl2,.ui-btn-xl3,.ui-btn-xl4{line-height:40px;height:40px; *line-height: 38px;}
+a.ui-btn-xs3{height: 18px;line-height: 18px; *line-height: 16px;}
+a.ui-btn-s3{height: 23px;line-height: 23px; *line-height: 21px;}
+a.ui-btn-m3{height: 28px;line-height: 28px; *line-height: 26px;}
+a.ui-btn-l3{height: 33px;line-height: 33px; *line-height: 31px;}
+a.ui-btn-xl3{height: 38px;line-height: 38px; *line-height: 36px;}
+input.ui-btn-m3{ line-height: 26px; *line-height: 24px;} /*tanzl*/
+
+/* 上传按钮 */
+.ui-btn-upload{width: 94px;height: 25px;overflow: hidden;display: inline-block;vertical-align: middle;position: relative;}
+.ui-btn-upload .ui-btn-upload-view{width: 92px;height: 23px;line-height: 23px;padding: 0;position: absolute;top: 0;left: 0;}
+.ui-btn-upload .ui-btn-upload-trigger{position: absolute;top: 0;right: 0;font-size: 200px;opacity: 0;cursor: pointer;outline: none;}
+.ui-btn-upload:hover .ui-btn-upload-view{background-color: #fff;}
+.lt-ie8 .ui-btn-upload .ui-btn-upload-trigger{filter:alpha(opacity=0);}

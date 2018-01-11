@@ -1,0 +1,148 @@
+@@include('-html-header.html', { "title": "网通商场官方后台", "css": "sc-admin/xt-log.css", "bodyclass":"" })
+    
+@@include('-pub-header.html')
+@@include('-pub-nav.html')
+
+<div class="container"> 
+    <div class="ui-grid">
+        <div class="col-4-24">
+            @@include('-xt-pub-sidenav.html')
+         </div>
+         <div class="col-20-24">
+            <div class="content">
+                <div class="content-title">
+                    <strong>系统日志</strong>
+                </div>
+
+                <!-- 搜索表单 -->
+                <form action="" class="search-form">
+                    <label for="">用户：</label>
+                    <input type="text" name="" id="" class="ui-input" style="width:100px;">
+                    <label for="">栏目名称：</label>
+                    <input type="text" name="" id="" class="ui-input" style="width:100px;">
+                    <label for="">管理员角色：</label>
+                    <select name="" id="" class="ui-select">
+                        <option value="">全部</option>
+                        <option value="">系统管理员</option>
+                    </select>
+                    <label for="">操作类型：</label>
+                    <select name="" id="" class="ui-select">
+                        <option value="">全部</option>
+                        <option value="">新建</option>
+                        <option value="">修改</option>
+                        <option value="">删除</option>
+                        <option value="">审核</option>
+                        <option value="">发布</option>
+                    </select>
+                    <label for="">时间：</label>
+                    <input type="text" name="" id="" class="ui-input" style="width:50px;">
+                    <label for="">-</label>
+                    <input type="text" name="" id="" class="ui-input" style="width:50px;">
+                    <button type="submit" class="ui-btn ui-btn-s2">筛选</button>
+                </form>
+                
+                <!-- 表格工具栏 -->
+                <div class="table-toolbar">
+                    <a href="javascript:;" class="ui-btn ui-btn-s1 btn-delete-selected">删除</a>
+                </div>
+
+                <!-- 列表 -->
+                <table class="ui-border-table tb-settings">
+                    <thead>
+                        <tr>
+                            <th style="width:4%">
+                                <label for="chkAll">
+                                    <input type="checkbox" name="" id="chkAll" data-name="chk" class="j-chk-all">
+                                    全选
+                                </label>
+                            </th>
+                            <th>操作用户（角色）</th>
+                            <th>操作栏目</th>
+                            <th>操作类型</th>
+                            <th>操作内容</th>
+                            <th>操作IP地址</th>
+                            <th>操作时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input id="1" value="" type="checkbox" class="ui-checkbox" name="chk"></td>
+                            <td>(网通商场-产品部编辑) </td>
+                            <td>商品管理 > 商品信息审核</td>
+                            <td>新增</td>
+                            <td>新增促销专题(011003)成功。</td>
+                            <td>183.62.162.33</td>
+                            <td>2013/12/17 15:13:58</td>
+                        </tr>
+                        <tr>
+                            <td><input id="2" value="" type="checkbox" class="ui-checkbox" name="chk"></td>
+                            <td>(网通商场-产品部编辑) </td>
+                            <td>商品管理 > 商品信息审核</td>
+                            <td>删除</td>
+                            <td>新增促销专题(011003)成功。</td>
+                            <td>183.62.162.33</td>
+                            <td>2013/12/17 15:13:58</td>
+                        </tr>
+                        <tr>
+                            <td><input id="3" value="" type="checkbox" class="ui-checkbox" name="chk"></td>
+                            <td>(网通商场-产品部编辑) </td>
+                            <td>商品管理 > 商品信息审核</td>
+                            <td>修改</td>
+                            <td>新增促销专题(011003)成功。</td>
+                            <td>183.62.162.33</td>
+                            <td>2013/12/17 15:13:58</td>
+                        </tr>
+                        <tr>
+                            <td><input id="4" value="" type="checkbox" class="ui-checkbox" name="chk"></td>
+                            <td>(网通商场-产品部编辑) </td>
+                            <td>商品管理 > 商品信息审核</td>
+                            <td>审核</td>
+                            <td>新增促销专题(011003)成功。</td>
+                            <td>183.62.162.33</td>
+                            <td>2013/12/17 15:13:58</td>
+                        </tr>
+                    </tbody>
+                </table>    
+                
+                <!-- 分页 -->
+                <div class="ui-pager ta-r table-pager">
+                    <span class="pager-option">
+                        每页显示
+                        <select name="" id="" class="ui-select">
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                        </select>
+                        条，
+                        <span class="color-weak">共<var class="color-highlight">86</var>条记录</span>
+                    </span>
+                    <span class="ui-pager-lnks">
+                        <span class="lnk-prev">上一页</span>
+                        <a href="javascript:;" class="ui-pager-lnk-curr">1</a>
+                        <a href="javascript:;">2</a>
+                        <a href="javascript:;">3</a>
+                        <a href="javascript:;">4</a>
+                        <a href="javascript:;">5</a>
+                        <a href="javascript:;">6</a>
+                        <a href="javascript:;">7</a>
+                        <a href="javascript:;">8</a>
+                        <a href="javascript:;" class="lnk-next">下一页</a>
+                    </span>
+                    <form action="">
+                        到第<input type="text" name="" id="" class="ui-pager-input">页
+                        <input type="submit" value="跳转" class="ui-pager-submit">
+                    </form>
+                </div>
+
+            </div>
+
+         </div>
+     </div>
+</div>
+
+
+@@include('-pop-DeleteConfirm.html', { "title": "删除确认", "cnt": "您确定删除所选项吗？" })
+@@include('-pop-tips.html', { "title": "提示", "cnt": "" })
+
+@@include('-html-footer.html', { "script": "sc-admin/c/xt-log" })

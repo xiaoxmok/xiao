@@ -1,0 +1,12 @@
+/**
+ * 商场后台 侧栏导航公共
+ * @authors: Inman Shaw
+ * @date:    2014-07-10 18:13:04
+ */
+.mod-sidenav{background:#fff;margin-top: 5px;box-shadow:1px 1px 3px rgba(0,0,0,.05),-1px -1px 3px rgba(0,0,0,.05);}
+.mod-sidenav .title{background: #777;color: #fff;line-height: 30px;text-align: center;font-size: 14px;margin: 0 -1px;}
+.mod-sidenav .sub-title{background: #f6f6f6;color: #333;line-height: 30px;padding: 0 10px;font-size: 14px;}
+.mod-sidenav .title, .mod-sidenav .sub-title{cursor: default;}
+.mod-sidenav dl a{display: block;line-height: 30px;color: #666;padding: 0 10px 0 20px;}
+.mod-sidenav dl a:hover{color: #f60}
+.mod-sidenav dl a.active{color: #f60}

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+<title>一个固定于页面底部的层</title>
+
+<style type="text/css">
+
+body{background-image:url(text.txt); /*for IE6 防抖，也可以用一张图片URL，是否存在这文件无所谓*/  
+
+    background-attachment:fixed;   /* 这句是关键之一：一定要fixed,不能用scroll */
+
+}
+
+.fixedNav{
+
+ border:#F00 1px solid;
+
+ width: 1003px;
+
+ position:fixed;
+
+ bottom:0;
+
+ left:0;
+
+ z-index:999;
+
+ overflow:visible;  
+
+ /* for IE6 */
+
+ _left:expression((document.body.offsetWidth-1003)/2);
+
+ _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight);
+
+ _position:absolute;
+
+ /* for IE6 */
+
+}
+
+</style>
+
+</head>
+
+ 
+
+<body>
+
+<div style="height:1000px">一个固定于页面底部的层</div>
+
+<div style="width:1003px; margin:0 auto; height:50px; background-color:#000">
+
+ <div class="fixedNav">我在这里</div>
+
+</div>
+
+</body>
+
+</html>

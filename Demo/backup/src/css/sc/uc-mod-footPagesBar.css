@@ -1,0 +1,27 @@
+
+/**
+ * 会员中心 列表底部分页条
+ * @authors 谭子良
+ * @date    2014-07-18 14:03:57
+ * @version $Id$
+ */
+
+.uc-mod-footPagesBar { border: 1px solid #e6e6e6; background: #f1f1f1; padding: 7px 9px; height: 25px; margin-top: 10px;}
+.uc-mod-footPagesBar label { float: left; line-height: 25px; margin-right: 20px; }
+.uc-mod-footPagesBar label input { float: left; margin:6px 10px 0px 0px;  }
+.uc-mod-footPagesBar button { color: #333; height: 23px; margin-top: 2px; line-height: 21px; padding: 0px 5px; border: 1px solid #d9d9d9; background: #fff; border-radius: 3px 3px 3px 3px; cursor: pointer;}
+.ucFootPagesBar { float: right;}
+.ucFootPagesBar .count { float: left; line-height: 28px; margin-right: 15px;}
+.ucFootPagesBar .count em { color: #f30; margin: 0px 3px;}
+.ucFootPagesBar .pages , .ucFootPagesBar .tourl , .ucFootPagesBar .pages li , .ucFootPagesBar .tourl li { float: left; }
+.ucFootPagesBar .pages li a.pre { margin-top: 3px; width: 18px; height: 18px; border: 1px solid #e6e6e6; background:#fff url(../../img/public/icon/16x16/sPageBar.gif) no-repeat -1px -1px; display: inline-block; text-indent: -9999px; cursor: pointer;}
+.ucFootPagesBar .pages li a.pre:hover { background:#fff url(../../img/public/icon/16x16/sPageBar.gif) no-repeat -21px -1px;}
+.ucFootPagesBar .pages li a.next { margin-top: 3px; width: 18px; height: 18px; border: 1px solid #e6e6e6; background:#fff url(../../img/public/icon/16x16/sPageBar.gif) no-repeat -41px -1px; display: inline-block; text-indent: -9999px; cursor: pointer;}
+.ucFootPagesBar .pages li a.next:hover { background:#fff url(../../img/public/icon/16x16/sPageBar.gif) no-repeat -61px -1px;}
+.ucFootPagesBar .pages li.count { padding: 0px 5px;}
+.ucFootPagesBar .pages li.count a { padding: 0px 5px; color: #35a;}
+.ucFootPagesBar .pages li.count a:hover { color: #f30;}
+.ucFootPagesBar .pages li.count b { padding: 0px 5px; color: #f30;}
+.ucFootPagesBar .tourl { padding-left: 10px; padding-top: 3px; line-height: 22px;}
+.ucFootPagesBar .tourl input.pageVal { float: left; width: 40px; text-align: center; height: 18px; line-height: 18px; border: 1px solid #bebebe; margin: 0px 5px;}
+.ucFootPagesBar .tourl input.pageGo { float: left; text-align: center; width: 40px; height: 20px; line-height: 16px; border: 1px solid #bebebe; background: #f3f3f3; border-radius: 3px 3px 3px 3px; margin-left: 10px; cursor: pointer;}

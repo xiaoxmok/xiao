@@ -1,0 +1,89 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-form-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-ucenter.css");
+@import url("uc-mod-wrap.css");
+@import url("uc-mod-buy-sideMenu.css");
+@import url("uc-mod-page-curMarkBar.css");
+@import url("pub-footer.css");
+
+/**
+ * 网通商场 会员中心 卖家中心 我的资质证书
+ * @authors jiangzhiqiang
+ * @date    2014-08-21 17:25:39
+ * @version 1.0.0
+ */
+
+/* 头部标题及选项卡 */
+.license{width:830px; }
+.license .title-bar{line-height: 40px;height:42px;font-size: 14px;border-bottom: 2px solid #ccc;}
+.license .title-bar .title{font-size: 18px;font-weight: bold;float: left;}
+.license .title-bar .tabs-btn{cursor:pointer;line-height: 32px;display: inline-block;vertical-align: bottom;float: right;padding: 0 12px;margin-right:10px;margin-top: 10px;border-radius: 3px 3px 0px 0px;background-color: #f8f8f8}
+.license .title-bar .tabs-btn.selected{line-height: 28px;display: inline-block;vertical-align: bottom;float: right;padding: 0 12px;margin-right:10px;margin-top: 10px;border: 2px solid #ccc;border-bottom: 2px solid #fff;border-radius: 3px 3px 0px 0px;background-color: #fff;position:relative;top:2px;}
+
+
+/*表头*/
+.list .header-search{width: 100%;  overflow: hidden; background: #fff;margin:20px 0px;padding: 0px 20px;}
+.list .header-search label{line-height: 30px;margin-right:10px; }
+.list .header-search .form-select{width: 216px;border: 1px solid #c1c1c1;border-radius: 2px;color: #595959;font-size: 12px;line-height: 18px;margin: 0px 45px 0px 3px; padding: 5px; }
+.list .header-search .ui-input{width: 216px;}
+.list .header-search .form-submit{width: 70px;line-height: 28px;text-align: center;background: #f6f6f6;border: 1px solid #c1c1c1;border-radius: 2px;font-family:'Microsoft Yahei';font-size: 14px;color: #666;}
+.list .header-search .form-submit:active {box-shadow: 1px 1px 3px #999 inset;position: relative;top: 1px;}
+
+.list .list-header{ width: 100%;  overflow: hidden; background: #fff; margin-top: 10px;clear: both;}
+.list .list-header li { float: left; height: 35px;}
+.list .list-header li .cot { height: 33px; overflow: hidden; line-height: 33px; color: #666; text-align: center; background: #f1f1f1; *height: 30px; *line-height: 30px; *padding-top: 3px;}
+.list .list-header li .cot.last{border-radius: 0px 3px 0px 0px;}
+.list .list-header li .cot.first{border-radius: 3px 0px 0px 0px;text-align: left;text-indent: 10px;}
+.list .list-header li .hr { height: 0px; overflow: hidden; border: none; border-top: 2px solid #e6e6e6; padding: 0px; margin:0px 4px 0px 0px; font:0px/0px tahoma,arial,'Microsoft Yahei','SimHei',\5b8b\4f53; font-size: 0px; }
+.list .list-header li .hr.last { margin: 0px; }
+.w386{width: 386px;}
+.w144{width: 144px;}
+.w220{width: 220px;}
+.w80{width: 80px;}
+.w240{width: 240px;}
+.w210{width: 210px;}
+
+/*头部工具栏*/
+.list  .toolsbar{padding:5px 0px;height: 28px;border-bottom: 1px solid #e6e6e6;}
+.list  .toolsbar a:link{color:#333;line-height: 26px;border: 1px solid #e6e6e6;margin: 0px 0px 0px 10px;background: #fff;}
+.list  .toolsbar .toolbars-upload{float: left;}
+.list  .toolsbar .pager{float: right;line-height: 22px;}
+.list  .toolsbar .pager span{float:left;padding:0px 1px;}
+.list  .toolsbar .pager a{float:left;padding:0px 1px;color: #333;}
+.list  .toolsbar .pager a.current{color: #f50;}
+.list  .toolsbar .pager i.pre{float:left;margin-right: 3px;background: url("../../img/public/icon/16x16/sPageBar.gif") no-repeat scroll -1px -1px #fff;border: 1px solid #e6e6e6; cursor: pointer;display: block;height: 18px;margin-top: 3px;text-indent: -9999px;width: 18px;}
+.list  .toolsbar .pager i.pre:hover{background: url("../../img/public/icon/16x16/sPageBar.gif") no-repeat scroll -21px -1px #fff;}
+.list  .toolsbar .pager i.next{float:left;margin-left: 3px;background: url("../../img/public/icon/16x16/sPageBar.gif") no-repeat scroll -41px -1px #fff;border: 1px solid #e6e6e6; cursor: pointer;display: block;height: 18px;margin-top: 3px;text-indent: -9999px;width: 18px;}
+.list  .toolsbar .pager i.next:hover{background: url("../../img/public/icon/16x16/sPageBar.gif") no-repeat scroll -61px -1px #fff;}
+
+/*底部工具栏*/
+.list  .footer-pager{background: #f1f1f1;padding: 5px;height: 28px;border: 1px solid #e6e6e6;border-radius: 3px;margin-top: 10px;}
+.list  .footer-pager label{float: left;}
+.list  .footer-pager ul{float: right;line-height: 28px;}
+.list  .footer-pager ul li{float: left;padding: 0 5px;}
+.list  .footer-pager ul li .total{color:#f50;padding: 0px 8px 0px 5px;}
+.list  .footer-pager ul i.pre{float:left;margin-top: 2px;background: url("../../img/public/icon/16x16/sPageBar.gif") no-repeat scroll -1px -1px #fff;border: 1px solid #e6e6e6; cursor: pointer;display: block;height: 18px;margin-top: 5px;text-indent: -9999px;width: 18px;}
+.list  .footer-pager ul i.pre:hover{background: url("../../img/public/icon/16x16/sPageBar.gif") no-repeat scroll -21px -1px #fff;}
+.list  .footer-pager ul i.next{float:left;background: url("../../img/public/icon/16x16/sPageBar.gif") no-repeat scroll -41px -1px #fff;border: 1px solid #e6e6e6; cursor: pointer;display: block;height: 18px;margin-top: 5px;text-indent: -9999px;width: 18px;}
+.list  .footer-pager ul i.next:hover{background: url("../../img/public/icon/16x16/sPageBar.gif") no-repeat scroll -61px -1px #fff;}
+.list  .footer-pager label a:link{color:#333;line-height: 26px;border: 1px solid #e6e6e6;margin: 0px 0px 0px 5px;background: #fff;}
+.list  .footer-pager .pages a{line-height: 26px;border: none;padding-right:5px; }
+.list  .footer-pager .pages a:hover{text-decoration: underline;}
+.list  .footer-pager .pages a.current{color: #f50}
+.list  .footer-pager .pages a.current:hover{text-decoration: none;}
+.list  .footer-pager ul li .pageVal{width:35px;line-height: 12px; margin: 0 5px; }
+.list  .footer-pager ul li .pageGo{padding:0px 10px;line-height: 24px;border: 1px solid #ccc;border-radius: 2px; color: #333;vertical-align: top;margin-top:1px; }
+
+/* 内容区 */
+.list  .list-content .row{overflow: hidden;border-bottom: 1px solid #e6e6e6;padding: 20px 0;}
+.list  .list-content .row .item{float: left;text-align: center;line-height: 26px;}
+.list  .list-content .row .item.first{text-align: left;}
+.list  .list-content .row .item .icons{float: left;padding:0 10px;}
+.list  .list-content .row .item .details{float: left;line-height: 20px;}
+.list  .list-content .row .item.center span{padding: 0px 20px; text-align: center; display:table-cell;width: 180px;}
+.f30{color: #f30; }
+.a30{color: #0a6630;}

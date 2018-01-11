@@ -1,0 +1,45 @@
+/**
+ * 店铺  头部样式
+ * @authors 	Inman Shaw
+ * @date 		2014-06-09 11:35:13
+ * @version 	1.0.0
+ */
+.logo-section{height: 83px;border-bottom: 2px solid #e6e6e6;}
+.logo-section .logo{font-size: 0;height: 60px;padding-top: 23px;border-right: 1px solid #e6e6e6;}
+.logo-section div{margin-top: 0;margin-bottom: 0;padding-top: 0;padding-bottom: 0;}
+.logo .lnk-ewt{display: inline-block;padding-right: 10px;margin-right: 10px;border-right: 1px solid #e1e1e1;vertical-align: middle;}
+.logo .lnk-ewt img{width: 140px;}
+/* 商场 */
+.logo .lnk-sc{font:500 30px/30px tahoma,arial,'Microsoft Yahei','SimHei',\5b8b\4f53;color: #666;display: inline-block;vertical-align: bottom;}
+.logo .lnk-sc:hover{color: #f30}
+.store-info{height: 83px;float: left;width: 227px;position: relative;}
+.store-info .shop-name, .store-info .shop-level{padding: 0 0 0 10px;}
+.store-info .shop-name{padding-top: 12px;padding-bottom: 12px;}
+.logo-section .triangle{position: absolute;top: 50%;right: 5px;margin-top: -2px;}
+.shop-level .grade{font-size: 0;display: inline-block;vertical-align: top;height: 20px;padding-right: 5px;}
+.ico-diamond{display: inline-block; width: 20px; height: 20px; margin-right: 5px; vertical-align: top;background: url(../../img/public/icon/24x24/diamond.png) 0 center no-repeat;}
+.ico-star{display: inline-block; width: 20px; height: 20px;background: url(../../img/public/icon/24x24/star_blue.png) 0 center no-repeat;margin-left: 5px;vertical-align: -5px;margin-right: 3px;}
+.shop-level .lnk-collect{color: #666}
+
+.safeguard-info{height: 83px;width: 74px;margin-left: 232px;position: relative;}
+.ico-safeguard{display: inline-block; width: 31px; height: 31px;background: url(../../img/public/icon/32x32/safeguard.png) 0 center no-repeat;margin: 26px 0 0 20px;}
+
+.zx-logo, .store-info, .safeguard-info,.shop-level .grade{border-right: 1px solid #e6e6e6;}
+
+/* mod-search */
+.mod-search{font-size: 0;display: inline-block;vertical-align: middle;}
+.mod-search .mod-search-options{display: inline-block;height: 30px;font-size: 13px;vertical-align: middle;border:2px solid #1896e6;border-right: 0 none;border-radius: 3px 0 0 3px;overflow: hidden;text-align: center;position: relative;}
+.mod-search .mod-search-options ul{padding: 0 23px 0 10px;border-right: 1px solid #e7e7e7;}
+.mod-search .mod-search-options .ico-arrow_b{display: inline-block;width: 8px;height: 6px;position: absolute;top: 12px;right: 10px;background: #f5f5f5 url(../../img/public/icon/16x16/arrow_b.gif) 0 0 no-repeat;}
+.mod-search .mod-search-options li{height: 30px;line-height: 30px;cursor: pointer;}
+.mod-search .mod-search-input{height: 18px;line-height: 18px;font-size: 14px;padding: 6px 10px;width: 274px;border:0 none;border-top: 2px solid #1896e6;border-bottom: 2px solid #1896e6;outline: none;display: inline-block;vertical-align: middle;background-color: #fff;}
+.mod-search .mod-search-btn{font-size: 14px;display: inline-block;vertical-align: middle;border:0 none;height: 34px;line-height: 34px;color: #fff;border-radius: 0 3px 3px 0;padding: 0 10px;font-family: tahoma,arial,'Microsoft Yahei','SimHei',\5b8b\4f53;cursor: pointer;
+	background-color: #1e99e8;
+    background: -webkit-linear-gradient(top, #249ce9 0%, #1896e6 100%); 
+	background: linear-gradient(to bottom, #249ce9 0%, #1896e6 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#249ce9', endColorstr='#1896e6', GradientType=0); 
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false); }
+.lt-ie8 .mod-search,
+.lt-ie8 .mod-search .mod-search-options{display: inline;zoom:1;}
+
+.search-box .mod-search{margin-top: 24px;}

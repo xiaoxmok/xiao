@@ -1,0 +1,21 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-table-1.0.0.css");
+@import url("../mod/ui-pager-1.0.0.css");
+@import url("../mod/ui-form-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("../mod/popup.css");
+@import url("pub-basic.css");
+@import url("pub-header.css");
+@import url("pub-nav.css");
+@import url("pub-sidenav.css");
+/**
+ * 系统管理-系统日志
+ * @authors 谭子良
+ * @date    2014-08-06 15:21:58
+ * @version 1.0.0
+ */
+
+.add-form .ui-input, .add-form .ui-textarea{width: 50%;}
+.add-form .ui-form-item .ui-btn{vertical-align: -5px;}

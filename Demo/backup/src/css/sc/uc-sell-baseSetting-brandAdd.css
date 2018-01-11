@@ -1,0 +1,39 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-form-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-ucenter.css");
+@import url("uc-mod-wrap.css");
+@import url("uc-mod-buy-sideMenu.css");
+@import url("uc-mod-page-curMarkBar.css");
+@import url("pub-footer.css");
+
+/**
+ * 网通商场 会员中心 卖家中心 提交品牌资料
+ * @authors jiangzhiqiang
+ * @date    2014-08-21 17:25:39
+ * @version 1.0.0
+ */
+
+/* 头部标题及选项卡 */
+.brand{width:830px; }
+.brand .title-bar{line-height: 40px;height:42px;font-size: 14px;border-bottom: 2px solid #ccc;}
+.brand .title-bar .title{font-size: 18px;font-weight: bold;float: left;}
+.brand .title-bar .tip{padding:0 20px;color: #666; }
+
+
+/* 表单 */
+.brand .ui-form form table{padding:20px;}
+.brand .ui-form form table tr td{line-height: 30px;padding-bottom: 16px;}
+.brand .ui-form form table tr td.title{text-align: right;white-space: nowrap;}
+.brand .ui-form form table tr td.title.top{vertical-align: top;}
+.brand em{padding:0 5px;color: #f30;}
+.brand .ui-form form table tr td .ui-input{border-radius: 2px;}
+.brand .ui-form form table tr td .tip{color: #999;padding:0 5px;}
+.brand .ui-form form table tr td .gap{overflow: hidden;height: 10px;}
+.brand .ui-form form table tr td .word-bar{width:510px;overflow: hidden;float: left;overflow: hidden;}
+.brand .ui-form form table tr td .word{line-height: 13px;color: #666;float: right;}
+.brand .ui-form form table tr td .radios{margin-right: 30px;}
+

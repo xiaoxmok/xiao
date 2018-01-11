@@ -1,0 +1,54 @@
+@@include('-html-header.html', { "title": "网通商场 确认订单信息-立即购买(多地址)", "css": "sc/sc-orderConfirm.css" })
+	<header class="header">
+		@@include('-pub-header-topbar.html')
+		@@include('-pub-header-logo.html')
+	</header>
+
+    <section class="wrap">
+
+		<!--购物车步骤进度指示条-->
+        <div class="shop-progress clearfix">
+            <ul>
+                <li class="before">
+                    <div class="point">1</div>
+                    <div class="tis">查看购物车</div>
+                </li>
+                <li class="arrow"><div></div></li>
+                <li class="now">
+                    <div class="point">2</div>
+                    <div class="tis">确认订单信息</div>
+                </li>
+                <li class="arrow"><div class="on"></div></li>
+                <li class="sp3">
+                    <div class="point">3</div>
+                    <div class="tis">付款</div>
+                </li>
+                <li class="arrow"></li>
+                <li class="sp4">
+                    <div class="point">4</div>
+                    <div class="tis">确认收货</div>
+                </li>
+                <li class="arrow"></li>
+                <li class="sp5">
+                    <div class="point">5</div>
+                    <div class="tis">评价</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 如果系统出错 -->
+        <div class="error-cart box">
+            <div class="error-cart-icon"></div>
+            <div class="error-cart-info">
+                <h2>抱歉，系统太忙了，请稍后再试</h2>
+                <p>您可以：<a href="#">返回</a><span> | </span><a href="#">商场首页</a><span> | </span><a href="#" class="em">购物车</a></p>
+            </div>
+        </div>
+
+    </section>
+
+    @@include('-pub-footer-recommend.html')
+	<footer class="footer">
+        @@include('-pub-footer.html')
+    </footer>
+@@include('-html-footer.html', { "script": "sc-orderConfirm" })    

@@ -1,0 +1,15 @@
+/**
+ * 弹窗：店铺招牌
+ * @authors 	Inman Shaw
+ * @date 		2014-06-19 10:12:23
+ * @version 	1.0.0
+ */
+.pop-signBoard .ui-form-item{padding-left: 110px;}
+.pop-signBoard .cnt{padding:15px 30px 20px 0;min-height: 185px;}
+.pop-signBoard .lnk-edit{margin-right: 20px;}
+.pop-signBoard .lnk-use-default-img{color: #333;margin-left: 5px;}
+.pop-signBoard .ui-input-s{width: 60px;}
+.pop-signBoard .ui-form-text{margin-right: 10px;}
+.pop-signBoard .lnk-help{margin-top: 10px;}
+.pop-signBoard .ui-btn{margin-right: 5px;}
+.pop-signBoard .custom{display: none}

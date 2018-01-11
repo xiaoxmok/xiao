@@ -1,0 +1,23 @@
+
+/**
+ * 会员中心 买家中心 列表顶部带简单分页操作条
+ * @authors 	Inman Shaw
+ * @date 		2014-06-10 15:56:56
+ * @version 	1.0.0
+ */
+
+.uc-mod-page-tool { width: 100%; height: 25px; padding: 10px 0px; border-bottom: 1px solid #e6e6e6;}
+.uc-mod-page-tool label { float: left; line-height: 25px; margin-right: 20px; }
+.uc-mod-page-tool label input { float: left; margin:6px 10px 0px 10px;  }
+.uc-mod-page-tool button { color: #333; height: 23px; line-height: 21px; margin-right: 8px; padding: 0px 5px; border: 1px solid #d9d9d9; background: #fff; border-radius: 3px 3px 3px 3px; cursor: pointer;}
+.uc-mod-page-tool button.over { background: #f4f4f4;} 
+
+/*简单小分页*/
+.sPageBar { float: right; padding-top: 3px; }
+.sPageBar li { float: left; }
+.sPageBar li a.pre { width: 18px; height: 18px; border: 1px solid #e6e6e6; background:#fff url(../../img/public/icon/16x16/sPageBar.gif) no-repeat -1px -1px; display: inline-block; text-indent: -9999px; cursor: pointer;}
+.sPageBar li a.pre:hover { background:#fff url(../../img/public/icon/16x16/sPageBar.gif) no-repeat -21px -1px;}
+.sPageBar li a.next { width: 18px; height: 18px; border: 1px solid #e6e6e6; background:#fff url(../../img/public/icon/16x16/sPageBar.gif) no-repeat -41px -1px; display: inline-block; text-indent: -9999px; cursor: pointer;}
+.sPageBar li a.next:hover { background:#fff url(../../img/public/icon/16x16/sPageBar.gif) no-repeat -61px -1px;}
+.sPageBar li.count { padding: 0px 10px;}
+.sPageBar li.count b { color: #f30;}

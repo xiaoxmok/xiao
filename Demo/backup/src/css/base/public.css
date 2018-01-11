@@ -1,0 +1,60 @@
+/**
+ * public
+ * @authors 	Inman Shaw
+ * @date 		2014-05-21 16:58:09
+ * @version 	1.0.0
+ */
+body{font-size:13px;}
+a{color: #0080d1;text-decoration: none}
+a:hover{color: #f60}
+.color-default{color: #666}
+.color-highlight{color: #f30}
+.color-weak{color: #999}
+
+.fm-s{font-family: \5b8b\4f53}
+.fs12{font-size: 12px}
+.arial{font-family: arial;}
+
+.fl{float: left;}
+.fr{float: right;}
+
+.mt10{margin-top: 10px;}
+.mt15{margin-top: 15px;}
+.mb10{margin-bottom: 10px;}
+.mb20{margin-bottom: 20px;}
+.mt-10{margin-top: -10px;}
+.ml10{margin-left: 10px;}
+.mr10{margin-right: 10px;}
+
+.ta-l{text-align: left;}
+.ta-c{text-align: center;}
+.ta-r{text-align: right;}
+.hide{display: none;}
+
+.inline-block{display: inline-block;}
+.ib-fix{font-size: 0;} /*处理display: inline-block;间隙，加到display: inline-block;元素的父标签*/
+.ib-fix *{font-size: 13px;}
+.va-t{vertical-align: top;}
+.va-m{vertical-align: middle;}
+
+.clearfix:after { content:"."; height:0; line-height:0; font-size:0; display:block; clear:both; visibility:hidden; }
+.clearfix { *display:inline-block; }
+
+/* \*/
+* html .clearfix { height:1%; }
+
+/* 纯css三角形 ：方向  上t 右-r 下-b 左-l */
+.triangle-t,.triangle-r,.triangle-b,.triangle-l{height: 0;width: 0;display: inline-block;vertical-align: 1px; border-width: 0;border-style:   dashed;border-color:  transparent }
+.triangle-t{border-width: 0 4px 4px 4px;border-bottom-style:   solid;border-bottom-color:  #666; }
+.triangle-r{border-width: 4px 0 4px 4px;border-left-style:   solid;border-left-color:  #666; }
+.triangle-b{border-width: 4px 4px 0 4px;border-top-style:   solid;border-top-color:  #666; }
+.triangle-l{border-width: 4px 4px 4px 0;border-right-style:   solid;border-right-color:  #666; }
+	/* IE 6 & 7 fixed */
+.lt-ie8 .triangle-t,.lt-ie8 .triangle-r,.lt-ie8 .triangle-b,.lt-ie8 .triangle-l{font-size: 0;line-height: 0;display:inline;zoom:1;}
+
+/* 栅格系统宽度设定 （可重置）*/
+.container{width: 1000px;margin: 0 auto;}
+
+
+.lt-ie8 .inline-block{display: inline;zoom:1;}
+

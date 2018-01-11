@@ -1,0 +1,31 @@
+/**
+ * 页头 顶部工具栏
+ * @authors 	Inman Shaw
+ * @date 		2014-06-11 10:48:19
+ * @version 	1.0.0
+ */
+
+/* 欢迎信息 */
+
+.topbar{background-color: #f1f1f1;}
+.topbar .welcome{line-height: 22px;}
+.topbar .welcome .logined{display: none;}
+.topbar .welcome .anonymous .lnk-reg{margin-left: 5px;}
+
+/* 顶部导航 */
+.topbar .topnav{font-size: 0}
+.topbar .topnav li{display: inline-block;font-size: 0;position: relative;}
+.topbar .topnav a, .topbar .topnav span{font-size: 12px}
+.topbar .topnav a{color: #666;}
+.topbar .topnav .topnav-lnk{display: inline-block;padding: 0 5px;height: 20px;line-height: 20px;color: #666;position: relative;z-index: 1;border: 1px solid #f1f1f1}
+.topbar .topnav a:hover{color: #f60;}
+.topbar .topnav a var.color-highlight{font-weight: 700;}
+.topbar .topnav .cut-line{color: #999;cursor: default;}
+.topbar .topnav .triangle-b{margin-left: 3px;}
+.topbar .topnav-sub{position: absolute;top: 20px;left: 0;width: 60px;text-align: left;padding: 0 10px;border: 1px solid #3a0;background-color: #fff;overflow: hidden;display: none;}
+.topbar .topnav-sub a{display:block;height: 24px;line-height: 24px;margin-bottom: -1px;border:0 none;border-bottom: 1px solid #ddd;}
+.topbar .topnav-hover .topnav-lnk{background-color: #fff;border: 1px solid #3a0;border-bottom: 0 none;z-index: 3}
+.topbar .topnav-hover .topnav-sub{display: block;z-index: 2}
+
+/* IE fixed */
+.lt-ie8 .topbar .topnav li{display: inline;zoom:1;}

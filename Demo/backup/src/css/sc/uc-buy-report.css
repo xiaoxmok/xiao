@@ -1,0 +1,21 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-form-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-uc.css");
+@import url("pub-footer.css");
+@import url("pub-crumbs.css");
+@import url("uc-buy-mod-report.css");
+
+/**
+ * 网通商场 会员中心 买家中心 举报管理 举报状态
+ * @authors 谭子良
+ * @date    2014-08-01 09:54:43
+ * @version 1.0.0
+ */
+
+.crumbs { margin:5px auto;}
+a { color: #35a;}
+a:hover { color: #f30;}

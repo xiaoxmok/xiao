@@ -1,0 +1,25 @@
+/**
+ * 网通商场 购物车步骤进度指示条
+ * @authors 谭子良
+ * @date    2014-05-26 14:33:36
+ * @version 1.0.0
+ */
+
+.shop-progress { height: 50px; padding: 40px 0px 40px 120px;}
+.shop-progress ul li { float: left; position: relative;}
+.shop-progress ul li.arrow { width: 142px; height: 4px; overflow: hidden; margin: 12px 8px 0px 8px; background:url(../../img/sc/shop-cart/progress-line.png) repeat-x 0px -4px;}
+.shop-progress ul li.arrow div { width: 100%; float: left; height: 4px; background:url(../../img/sc/shop-cart/progress-line.png) repeat-x 0px 0px;}
+.shop-progress ul li.arrow div.on { width: 50%; float: left; height: 4px; background:url(../../img/sc/shop-cart/progress-line.png) repeat-x 0px 0px;}
+
+.shop-progress.short ul li.arrow { width: 200px;}
+
+.shop-progress ul li.before { width: 25px; height: 25px; background:url(../../img/sc/shop-cart/progress-step.png) no-repeat 0px 0px;}
+.shop-progress ul li.now { width: 25px; height: 25px; background:url(../../img/sc/shop-cart/progress-step.png) no-repeat 0px 0px;}
+.shop-progress ul li.sp2 { width: 25px; height: 25px; background:url(../../img/sc/shop-cart/progress-step.png) no-repeat -50px 0px;}
+.shop-progress ul li.sp3 { width: 25px; height: 25px; background:url(../../img/sc/shop-cart/progress-step.png) no-repeat -75px 0px;}
+.shop-progress ul li.sp4 { width: 25px; height: 25px; background:url(../../img/sc/shop-cart/progress-step.png) no-repeat -100px 0px;}
+.shop-progress ul li.sp5 { width: 25px; height: 25px; background:url(../../img/sc/shop-cart/progress-step.png) no-repeat -125px 0px;}
+
+.shop-progress ul li .point { width: 25px; height: 25px; overflow: hidden; line-height: 25px; text-align: center; color: #fff; font-size: 14px; font-family:Arial, Helvetica, sans-serif; }
+.shop-progress ul li .tis { position: absolute; text-align: center; width: 145px; height: 25px; line-height: 25px; top: 30px; left: -60px; color: #666;}
+.shop-progress ul li.now .tis { color: #F36801;}

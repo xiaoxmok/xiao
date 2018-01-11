@@ -1,0 +1,42 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-form-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("../mod/form-select.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-uc.css");
+@import url("uc-mod-service.css");
+@import url("pub-footer.css");
+@import url("pub-crumbs.css");
+
+/**
+ * 网通商场 会员中心 买家中主 申请售后
+ * @authors 谭子良
+ * @date    2014-05-26 14:24:28
+ * @version 1.0.0
+ */
+
+.title { width: 100%; height: 30px; overflow: hidden;}
+.title h2 { float: left; font-size: 16px; line-height: 22px; margin-right: 20px;}
+.title p { line-height: 18px; margin-top: 4px;}
+.title p a { color: #35a;}
+.title p a:hover { color: #f30;}
+
+.action { width: 100%; height:100px; padding: 120px 0px;}
+.action a { display: block; float: left; height: 40px; padding: 20px 30px; background: #fff; border:1px solid #e6e6e6; font-size: 16px; line-height: 40px; color: #666; margin-right: 40px; border-radius: 3px 3px 3px 3px; }
+.action a:hover { background: #fff6eb; border:1px solid #ffd7a6;}
+
+.commonFaq { padding: 20px; border: 1px solid #e6e6e6; margin-bottom: 10px;}
+.commonFaq h2 { font-size: 16px; font-weight: 700;}
+.commonFaq dl { width: 100%; overflow: hidden; margin: 20px auto;}
+.commonFaq dt { width: 4.5%; float: left; overflow: hidden;}
+.commonFaq dt b { width: 33px; height: 33px; background: #e3f1fc; line-height: 33px; color: #1896e6; display: block; text-align: center; border-radius: 16px 16px 16px 16px; overflow: hidden;}
+.commonFaq dd { width: 95.5%; padding-top:6px; float: left; overflow: hidden;}
+.commonFaq dd h3 { font-size: 14px; font-weight: 700; color: #333;}
+.commonFaq dd p { color: #666;}
+.commonFaq dd p a { color: #35a;}
+.commonFaq dd p a:hover { color: #f30;}
+
+/*覆盖*/
+.crumbs { margin:5px auto;}

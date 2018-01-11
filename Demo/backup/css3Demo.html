@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		div{width: 100px;
+			height: 100px;
+			background: #666;
+			color: #fff;
+			font: bold 20px/100px arial,sans-serif;
+			text-align: center;
+			margin: -50px 0 0 -50px;
+			cursor: pointer;
+			position: absolute;
+			top:50%;
+			left:50%;
+
+			-webkit-transition: all 0.4s ease-in-out;
+			-moz-transition: all 0.4s ease-in-out;
+			-ms-transition: all 0.4s ease-in-out;
+			-o-transition: all 0.4s ease-in-out;
+			transition: all 0.4s ease-in-out;
+		}
+		.cl:hover{
+	
+			-webkit-transform: scale(1.2);
+			-moz-transform: scale(1.2);
+			-ms-transform: scale(1.2);
+			-o-transform: scale(1.2);
+			transform: scale(1.2);
+			background: #f30;
+		}
+		.cl1:hover{
+	
+			-webkit-transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			-ms-transform: rotate(360deg);
+			-o-transform: rotate(360deg);
+			transform: rotate(360deg);
+			background: #3a0;
+		}
+		.cl2:hover{
+
+			-webkit-transform: rotate(360deg) scale(1.2);
+			-moz-transform: rotate(360deg) scale(1.2);
+			-ms-transform: rotate(360deg) scale(1.2) ;
+			-o-transform: rotate(360deg) scale(1.2);
+			transform: rotate(360deg) scale(1.2);
+			background: #9370DB;
+		}
+		.cl3:hover{
+		
+			-webkit-transform: rotateZ(360deg) translate(200px,200px) scale(1.2);
+			-moz-transform: rotateZ(360deg) translate(200px,200px) scale(1.2);
+			-ms-transform: rotateZ(360deg) translate(200px,200px) scale(1.2);
+			-o-transform: rotateZ(360deg) translate(200px,200px) scale(1.2);
+			transform: rotateZ(360deg) translate(200px,200px) scale(1.2);
+			background: #63B8FF;
+		}
+		@-webkit-keyframes rotate{from{-webkit-transform: rotate(0deg)} 
+		to{-webkit-transform: rotate(360deg)} 
+		} 
+		@-moz-keyframes rotate{from{-moz-transform: rotate(0deg)} 
+		to{-moz-transform: rotate(359deg)} 
+		} 
+		@-o-keyframes rotate{from{-o-transform: rotate(0deg)} 
+		to{-o-transform: rotate(359deg)} 
+		} 
+		@keyframes rotate{from{transform: rotate(0deg)} 
+		to{transform: rotate(359deg)} 
+		} 
+	.cicle{border-radius:100%;-webkit-animation: rotate 1s linear infinite;-moz-animation: rotate 1s linear infinite;-o-animation: rotate 1s linear infinite;animation: rotate 1s linear infinite;} 
+	</style>
+
+
+</head>
+<body>
+	
+	<div class=" cicle">
+		demo
+	</div>	
+	
+	
+	
+</body>
+</html>

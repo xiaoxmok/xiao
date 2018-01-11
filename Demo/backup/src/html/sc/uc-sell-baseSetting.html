@@ -1,0 +1,186 @@
+
+@@include('-html-header.html', { "title": "网通商场 会员中心 卖家中心 店铺基本资料", "css": "sc/uc-sell-baseSetting.css","bodyclass":"" })
+<header class="header">
+    @@include('-pub-header-topbar.html') 
+@@include('-pub-header-ucenter.html')
+</header>
+<div class="uc-mod-wrap noBg">
+    <section class="container">
+        <!--左侧栏-->
+        <div class="uc-mod-leftWrap">
+            <div class="uc-mod-sideMenu">
+                @@include('-uc-mod-sell-sideMenu.html')
+            </div>
+        </div>
+        <div class="uc-mod-rightWrap">
+            <!--右侧内容区-->
+            <div class="uc-mod-conter">
+                <div class="clearfix baseSettingPage">
+                    <!-- 列表顶部TAB项 start -->
+                    <div class="uc-mod-page-curMarkBar">
+                        <h2>店铺基本资料</h2>
+                        <aside>
+                            有
+                            <em>10</em>个商品需要您的评价，您共收到
+                            <em>5</em>条买家的评价
+                        </aside>
+                        <a class="faqRule" href="#">查看帮助</a>
+                    </div>
+                    <!-- 列表顶部TAB项 end -->
+                    <div class="uc-storeBaseSeting-notice clearfix">
+                        <div class="icon"></div>
+                        <div class="text">填写详细的店铺信息，我们将为你提供更专业、更有针对性的经营信息。带 <em>*</em> 为必填项。</div>
+                    </div>
+                    <div class="baseSettingForm clearfix">
+                        <form action="http://ewt.cc" id="baseSetting">
+                            <dl class="clearfix">
+                                <dt><span class="ui-form-required">*</span>店铺账号：</dt>
+                                <dd><span class="wtID">1108728</span><span class="safetyLevel"><em style="width:66%;">66%</em></span><span class="safetyText">中</span><a href="#">帐号安全管理</a></dd>
+                            </dl>
+                            <dl class="clearfix">
+                                <dt><span class="ui-form-required">*</span>手机号码：</dt>
+                                <dd><a href="#">绑定手机</a></dd>
+                            </dl>
+                            <dl class="clearfix">
+                                <dt><span class="ui-form-required">*</span>店铺名称：</dt>
+                                <dd><input type="text" value="111118@ewt.cc" id="storeName" name="storeName" class="ui-input"></dd>
+                            </dl>
+                            <dl class="clearfix">
+                                <dt>店铺标志：</dt>
+                                <dd>
+                                    <div class="storeUpfile storeLogo">
+                                        <p class="storeLogoImg" id="storeLogoImg"><img src="../../img/sc/misc/i_010.gif"></p>
+                                        <a href="javascript:;" class="ui-btn-upload">
+                                            <span class="ui-btn ui-btn-s3" style="width:58px;">上传图片</span>
+                                            <input type="file" id="storeLogo" name="storeLogo" class="ui-btn-upload-trigger">
+                                        </a>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl class="clearfix">
+                                <dt><span class="ui-form-required">*</span>店铺类目：</dt>
+                                <dd class="storeCates">
+                                    <label for="cate01"><input type="checkbox" id="cate01" name="storeCate">食品饮料</label>
+                                    <label for="cate02"><input type="checkbox" id="cate02" name="storeCate">服装鞋包</label>
+                                    <label for="cate03"><input type="checkbox" id="cate03" name="storeCate">运动户外</label>
+                                    <label for="cate04"><input type="checkbox" id="cate04" name="storeCate">手机数码</label>
+                                    <label for="cate05"><input type="checkbox" id="cate05" name="storeCate">个护美妆</label>
+                                    <label for="cate06"><input type="checkbox" id="cate06" name="storeCate">母婴玩具</label>
+                                    <label for="cate07"><input type="checkbox" id="cate07" name="storeCate">家具用品</label>
+                                    <label for="cate08"><input type="checkbox" id="cate08" name="storeCate">文化娱乐</label>
+                                    <label for="cate09"><input type="checkbox" id="cate09" name="storeCate">商业服务</label>
+                                    <label for="cate10"><input type="checkbox" id="cate10" name="storeCate">汽车摩托</label>
+                                    <label for="cate11"><input type="checkbox" id="cate11" name="storeCate">电脑办公</label>
+                                    <label for="cate12"><input type="checkbox" id="cate12" name="storeCate">厨房用具</label>
+                                    <label for="cate13"><input type="checkbox" id="cate13" name="storeCate">钟表珠宝饰品</label>
+                                </dd>
+                            </dl>
+                            <dl class="clearfix">
+                                <dt><span class="ui-form-required">*</span>所在地：</dt>
+                                <dd class="storeAddress">
+                                    <select name="eProvince" id="eProvince" class="ui-select">
+                                        <option value="-1">请选择</option>
+                                    </select>
+                                    <span class="ui-form-text">省</span>
+                                    <select name="eCity" id="eCity" class="ui-select">
+                                        <option value="-1">请选择</option>
+                                    </select>
+                                    <span class="ui-form-text">市</span>
+                                    <select id="eArea" style="display: none;" >
+                                        <option value="-1">请选择</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl class="clearfix">
+                                <dt><span class="ui-form-required">*</span>公司名称：</dt>
+                                <dd><input type="text" value="" id="companyName" name="companyName" class="ui-input"></dd>
+                            </dl>
+                            <dl class="clearfix">
+                                <dt><span class="ui-form-required">*</span>店铺介绍：</dt>
+                                <dd>
+                                    <textarea name="storeInformation" id="storeInformation" cols="30" rows="10"></textarea>
+                                    <div id="storeInformationError"></div>
+                                </dd>
+                            </dl>
+                            <dl class="clearfix">
+                                <dt><span class="ui-form-required">*</span>品牌资质：</dt>
+                                <dd>
+                                    <div class="clearfix">
+                                        <a href="uc-sell-baseSetting-brandAdd.html" class="ui-btn ui-btn-m3" style="width:100px; float:left; margin-right: 10px;">添加品牌资料</a>
+                                        <span class="upStoreZizhi">若为品牌经营，请提交经营品牌或代理品牌资质证明</span>
+                                        <a href="javascript:;" class="refreshZizhi">刷新</a>
+                                    </div>
+                                    <div class="zzItem clearfix">
+                                        <ul>
+                                            <li>
+                                                <div class="zzShowBox">
+                                                    <a href="uc-sell-baseSetting-brandShow.html">
+                                                    <img src="http://pic7.nipic.com/20100519/3657618_103706061230_2.jpg" width="180" height="65">
+                                                    </a>
+                                                    <div class="zzShowBoxBg"></div>
+                                                    <div class="zzShowBoxOpts">
+                                                        <a href="#" class="update">修改</a>
+                                                        <a href="#" class="delete">删除</a>
+                                                    </div>
+                                                </div>
+                                                <div class="zzShowBoxTitle">艾菲尔服饰</div>
+                                            </li>
+                                            <li>
+                                                <div class="zzShowBox">
+                                                    <a href="uc-sell-baseSetting-brandShow.html">
+                                                    <img src="http://img1.imgtn.bdimg.com/it/u=2927276702,318044081&fm=23&gp=0.jpg" width="180" height="65">
+                                                    </a>
+                                                    <div class="zzShowBoxBg"></div>
+                                                    <div class="zzShowBoxOpts">
+                                                        <a href="#" class="update">修改</a>
+                                                        <a href="#" class="delete">删除</a>
+                                                    </div>
+                                                </div>
+                                                <div class="zzShowBoxTitle">艾菲尔服饰</div>
+                                            </li>
+                                            <li>
+                                                <div class="zzShowBox">
+                                                    <img src="http://pic7.nipic.com/20100519/3657618_103706061230_2.jpg" width="180" height="65">
+                                                    <div class="zzShowBoxBg"></div>
+                                                    <div class="zzShowBoxOpts">
+                                                        <a href="#" class="update">修改</a>
+                                                        <a href="#" class="delete">删除</a>
+                                                    </div>
+                                                </div>
+                                                <div class="zzShowBoxTitle">艾菲尔服饰</div>
+                                            </li>
+                                            <li>
+                                                <div class="zzShowBox">
+                                                    <img src="http://img1.imgtn.bdimg.com/it/u=2927276702,318044081&fm=23&gp=0.jpg" width="180" height="65">
+                                                    <div class="zzShowBoxBg"></div>
+                                                    <div class="zzShowBoxOpts">
+                                                        <a href="#" class="update">修改</a>
+                                                        <a href="#" class="delete">删除</a>
+                                                    </div>
+                                                </div>
+                                                <div class="zzShowBoxTitle">艾菲尔服饰</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix otherCheck">
+                                        <p><input type="checkbox" name="agree01" id="agree01"><label for="agree01"> 同意并遵守<a href="#">《网通商场规则》</a> 及 <a href="#">《商品发布规则》</a></label></p>
+                                        <p><input type="checkbox" name="agree02" id="agree02"><label for="agree02"> 已经阅读并同意签署消费者保证服务协议，为消费者提供更优秀的服务查看协议<a href="#">详情>></a> </label></p>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl class="clearfix">
+                                <dt>&nbsp;</dt>
+                                <dd><input type="submit" id="submitSetting" value="保存" class="ui-btn ui-btn-l2" style="width:100px;"></dd>
+                            </dl>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<footer class="footer full-border">
+    @@include('-pub-footer-blogroll.html') 
+    @@include('-pub-footer.html')
+</footer>
+@@include('-html-footer.html',{"script": "sc/c/uc-sell-baseSetting"})

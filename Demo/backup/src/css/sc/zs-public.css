@@ -1,0 +1,13 @@
+/**
+ * 商场-招商 public
+ * @authors 	Inman Shaw
+ * @date 		2014-06-11 15:03:09
+ * @version 	1.0.0
+ */
+
+/*招商logo*/
+.zs .logo-section{border-bottom-width:2px;}
+.logo{width: 384px;}
+.logo .lnk-ewt img{width: 150px;}
+.logo .lnk-sc{display: none;}
+.logo .lnk-sc-zs{display: inline-block;}

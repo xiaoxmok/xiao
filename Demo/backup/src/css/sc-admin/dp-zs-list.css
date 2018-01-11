@@ -1,0 +1,28 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-table-1.0.0.css");
+@import url("../mod/ui-pager-1.0.0.css");
+@import url("../mod/ui-form-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("../mod/popup.css");
+@import url("pub-basic.css");
+@import url("pub-header.css");
+@import url("pub-nav.css");
+@import url("pub-sidenav.css");
+/**
+ * 店招信息审核
+ * @authors jiangzhiqiang 
+ * @date    2014-08-27 16:26:52
+ */
+.tb-zs-list{margin-top: 20px;} 
+.tb-zs-list .box{border: 1px solid #ebebeb;padding: 0px; margin-bottom: 15px;}
+.tb-zs-list .img{margin: 10px;cursor: pointer;overflow: hidden;}
+.tb-zs-list .img .chk{margin-top: 0px;margin-left: 0px;position: absolute;}
+.tb-zs-list .img img{height: 120px;width: 100%;padding: 0px;border: 1px solid #ebebeb;}
+.tb-zs-list .toolbar{background: #f5f5f5;line-height: 32px;display: inline-block;width: 100%;}
+.tb-zs-list .toolbar .dp-name{color: #666;padding: 0 10px;}
+.tb-zs-list .toolbar .dp-state.red{color: #f50;padding:0 20px;}
+.tb-zs-list .toolbar .right{float: right;}
+.tb-zs-list .toolbar .right a{padding: 0 20px;}
+

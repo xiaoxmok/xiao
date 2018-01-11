@@ -1,0 +1,23 @@
+/**
+ * 网通商场 会员中心 买家中心 左侧导航菜单
+ * @authors 谭子良
+ * @date    2014-05-23 11:21:34
+ * @version 1.0.0
+ */
+
+.uc-mod-sideMenu { width:100%;}
+.uc-mod-sideMenu .userImg { margin-top:60px; width:120px; height:120px; padding:9px; background:#fff; border:1px solid #e6e6e6;}
+.uc-mod-sideMenu .userMenu { width:100%; margin-top:20px; }
+.uc-mod-sideMenu .userMenu .group { padding-bottom:5px;}
+.uc-mod-sideMenu .userMenu h2 { font-size:14px; font-weight:500; width:100%; height:35px; line-height:35px; color:#333; }
+.uc-mod-sideMenu .userMenu h2 i { width:12px; height:12px; background:url(../../img/sc/uc/IconS_7.gif) no-repeat 0px 0px; margin:12px 5px 0px 0px; cursor:pointer; float:left;}
+.uc-mod-sideMenu .userMenu h2 i.in { background:url(../../img/sc/uc/IconS_7.gif) no-repeat 0px -12px;}
+.uc-mod-sideMenu .userMenu li { height:30px; line-height:30px; margin:2px auto;}
+.uc-mod-sideMenu .userMenu li i { width:5px; height:5px; float:left; margin:12px 5px 0px 7px; background:url(../../img/sc/uc/IconS_8.gif) no-repeat 0px 0px;}
+.uc-mod-sideMenu .userMenu li a { color:#333;}
+
+/*在侧栏菜单中为当前页面定位标识符*/
+.uc-mod-sideMenu .userMenu li.current { position:relative; background:#eee; }
+.uc-mod-sideMenu .userMenu li.over { background:#eee; }
+.uc-mod-sideMenu .userMenu li.current span { position:absolute; top:0px; right:-1px; width:2px; height:30px; background:#00c0bf; text-indent:-9999px; overflow:hidden;}
+.uc-mod-sideMenu .userMenu li.current a { color:#f30; cursor:default;}

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<!--[if lte IE 6 ]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7 ]>     <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8 ]>     <html class="lt-ie9"> <![endif]-->
+<!--[if IE 9 ]>     <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>网通商场官方后台</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="http://fe.wt.com/css/sc-admin/dp-yj-list.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="http://fe.wt.com/js/public/html5shiv.min.js"></script><![endif]-->
+</head>
+
+<body class="">
+
+    <!-- 
+    name:       页头
+    dependency: pub-header.css
+ -->
+    <header class="container header">
+        <div class="fr login-status">
+            欢迎您：于维维 [系统管理员]
+            <a href="#">安全退出</a>
+        </div>
+        <h1 class="logo">
+            网通商场官方后台
+        </h1>
+    </header>
+    <!-- 
+    name:       导航
+    dependency: pub-nav.css
+ -->
+    <div class="mod-nav">
+        <div class="container">
+            <nav>
+                <a href="home.html" class="active">后台首页</a>
+                <a href="dp-apply-list.html">店铺管理</a>
+                <a href="sp-uncheck-list.html">商品管理</a>
+                <a href="xt-settings.html">系统管理</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ui-grid">
+            <div class="col-4-24">
+                <!-- 
+    name:       店铺管理 侧栏 导航
+    dependency: pub-sidenav.css
+ -->
+                <dl class="mod-sidenav">
+                    <dt class="title">店铺管理</dt>
+                    <dd>
+                        <dl>
+                            <dt class="sub-title">店铺信息审核</dt>
+                            <dd>
+                                <a href="dp-apply-list.html" class="">开店信息审核</a>
+                            </dd>
+                            <dd>
+                                <a href="dp-zs-list.html" class="">店招信息审核</a>
+                            </dd>
+                            <dd>
+                                <a href="dp-img-list.html" class="">自定义图片审核</a>
+                            </dd>
+                            <dd>
+                                <a href="dp-vedio-list.html" class="">视频信息审核</a>
+                            </dd>
+                        </dl>
+                    </dd>
+                    <dd>
+                        <dl>
+                            <dt class="sub-title">店铺基础设置</dt>
+                            <dd>
+                                <a href="dp-creditLv-list.html" class="">信誉等级设置</a>
+                            </dd>
+                            <dd>
+                                <a href="dp-model-list.html" class="">店铺模版管理</a>
+                            </dd>
+                            <dd>
+                                <a href="dp-yj-list.html" class="">店铺佣金设置</a>
+                            </dd>
+                            <dd>
+                                <a href="dp-xb-list.html" class="">店铺消保设置</a>
+                            </dd>
+                            <dd>
+                                <a href="dp-service-list.html" class="">技术服务费设置</a>
+                            </dd>
+                        </dl>
+                    </dd>
+
+                </dl>
+            </div>
+            <div class="col-20-24">
+                <div class="content">
+                    <div class="content-title">
+                        <strong>交易佣金设置</strong>
+                    </div>
+
+                    <!-- 搜索表单 -->
+                    <form action="" class="search-form">
+                        <label for="">商品分类：</label>
+                        <input type="text" name="" id="" class="ui-input">
+                        <button type="submit" class="ui-btn ui-btn-s2">筛选</button>
+                    </form>
+
+                    <!-- 表格工具栏 -->
+                    <div class="table-toolbar">
+                        <a href="javascript:;" class="ui-btn ui-btn-s2 btn-settings">设置交易佣金</a>
+                        <a href="" class="ui-btn ui-btn-s2">导出Excel</a>
+                    </div>
+
+                    <!-- 列表 -->
+                    <table class="ui-border-table tb-yj">
+                        <thead>
+                            <tr>
+                                <th class="w1" rowspan="2">
+                                </th>
+                                <th rowspan="2">商品分类</th>
+                                <th colspan="4">交易佣金设置</th>
+                            </tr>
+                            <tr>
+                                <th>个人店</th>
+                                <th>旗舰店</th>
+                                <th>专营店</th>
+                                <th>直营店</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-id="1" data-pid="">
+                                <td>
+                                    <input id="1" value="" type="checkbox" class="ui-checkbox" name="chk">
+                                </td>
+                                <td class="td-treegrid">
+                                    <span class="td-span-expand"></span>
+                                    <!-- 展开图标 -->
+                                    <span>服装鞋包</span>
+                                </td>
+                                <td>
+                                    <span>3%</span>
+                                </td>
+                                <td>
+                                    <span>3%</span>
+                                </td>
+                                <td>
+                                    <span>3%</span>
+                                </td>
+                                <td>
+                                    <span>3%</span>
+                                </td>
+                            </tr>
+                            <tr data-id="11" data-pid="1">
+                                <td>
+                                    <input id="1" value="" type="checkbox" class="ui-checkbox" name="chk">
+                                </td>
+                                <td class="td-treegrid">
+                                    <span class="td-span-indent"></span>
+                                    <span class="arrow-line"></span>
+                                    <span>女装</span>
+                                </td>
+                                <td>
+                                    <span>3%</span>
+                                </td>
+                                <td>
+                                    <span>3%</span>
+                                </td>
+                                <td>
+                                    <span>3%</span>
+                                </td>
+                                <td>
+                                    <span>3%</span>
+                                </td>
+                            </tr>
+                            <tr data-id="12" data-pid="1">
+                                <td>
+                                    <input id="1" value="" type="checkbox" class="ui-checkbox" name="chk">
+                                </td>
+                                <td class="td-treegrid">
+                                    <span class="td-span-indent"></span>
+                                    <span class="arrow-line"></span>
+                                    <span class="td-span-collapse"></span>
+                                    <!-- 关闭图标 -->
+                                    <span>上衣</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                            </tr>
+                            <tr data-id="13" data-pid="1">
+                                <td>
+                                    <input id="1" value="" type="checkbox" class="ui-checkbox" name="chk">
+                                </td>
+                                <td class="td-treegrid">
+                                    <span class="td-span-indent"></span>
+                                    <span class="arrow-line"></span>
+                                    <span class="td-span-expand"></span>
+                                    <!-- 展开图标 -->
+                                    <span>裤子</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                            </tr>
+                            <tr data-id="131" data-pid="13">
+                                <td>
+                                    <input id="1" value="" type="checkbox" class="ui-checkbox" name="chk">
+                                </td>
+                                <td class="td-treegrid">
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="arrow-line"></span>
+                                    <span class="td-span-expand"></span>
+                                    <!-- 展开图标 -->
+                                    <span>牛仔裤</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                            </tr>
+                            <tr data-id="132" data-pid="13">
+                                <td>
+                                    <input id="1" value="" type="checkbox" class="ui-checkbox" name="chk">
+                                </td>
+                                <td class="td-treegrid">
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="arrow-line"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span>休闲裤</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                            </tr>
+                            <tr data-id="133" data-pid="13">
+                                <td>
+                                    <input id="1" value="" type="checkbox" class="ui-checkbox" name="chk">
+                                </td>
+                                <td class="td-treegrid">
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="arrow-line"></span>
+                                    <span class="td-span-expand"></span>
+                                    <!-- 展开图标 -->
+                                    <span>西裤</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                            </tr>
+                            <tr data-id="1331" data-pid="133">
+                                <td>
+                                    <input id="1" value="" type="checkbox" class="ui-checkbox" name="chk">
+                                </td>
+                                <td class="td-treegrid">
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="arrow-line"></span>
+                                    <span>直角西裤</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                            </tr>
+                            <tr data-id="1332" data-pid="133">
+                                <td>
+                                    <input id="1" value="" type="checkbox" class="ui-checkbox" name="chk">
+                                </td>
+                                <td class="td-treegrid">
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="td-span-indent"></span>
+                                    <span class="arrow-line"></span>
+                                    <span>喇叭西裤</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                            </tr>
+                            <tr data-id="2" data-pid="">
+                                <td>
+                                    <input id="1" value="" type="checkbox" class="ui-checkbox" name="chk">
+                                </td>
+                                <td class="td-treegrid">
+                                    <span class="td-span-collapse"></span>
+                                    <!-- 展开图标 -->
+                                    <span>电脑办公</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                            </tr>
+                            <tr data-id="3" data-pid="">
+                                <td>
+                                    <input id="1" value="" type="checkbox" class="ui-checkbox" name="chk">
+                                </td>
+                                <td class="td-treegrid">
+                                    <span class="td-span-collapse"></span>
+                                    <!-- 展开图标 -->
+                                    <span>文化玩乐</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 设置佣金 -->
+    <div id="popSettings" class="popup popsetting popup-effect-2 ">
+        <div class="popup-header">
+            <span class="title">佣金设置</span>
+            <span class="popup-close"></span>
+        </div>
+        <div class="popup-content">
+            <div class="ta-c cnt">
+                <form class="ui-form add-form ">
+                    <table class="ui-border-table">
+                        <tr>
+                            <td class="title">个人店</td>
+                            <td>
+                                <label class='ui-radio-for'>
+                                    <input name="" type="radio">不收取</label>
+                            </td>
+                            <td>
+                                <label class='ui-radio-for'>
+                                    <input name="" type="radio">按比例</label>
+                                <label class='ui-radio-for'>
+                                    <input class='ui-input'>
+                                    <span>%</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class='ui-radio-for'>
+                                    <input name="" type="radio">按固定值</label>
+                                <label class='ui-radio-for'>
+                                    <input class='ui-input'>
+                                    <span>%</span>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title">旗舰店</td>
+                            <td>
+                                <label class='ui-radio-for'>
+                                    <input name="" type="radio">不收取</label>
+                            </td>
+                            <td>
+                                <label class='ui-radio-for'>
+                                    <input name="" type="radio">按比例</label>
+                                <label class='ui-radio-for'>
+                                    <input class='ui-input'>
+                                    <span>%</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class='ui-radio-for'>
+                                    <input name="" type="radio">按固定值</label>
+                                <label class='ui-radio-for'>
+                                    <input class='ui-input'>
+                                    <span>%</span>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title">直营店</td>
+                            <td>
+                                <label class='ui-radio-for'>
+                                    <input name="" type="radio">不收取</label>
+                            </td>
+                            <td>
+                                <label class='ui-radio-for'>
+                                    <input name="" type="radio">按比例</label>
+                                <label class='ui-radio-for'>
+                                    <input class='ui-input'>
+                                    <span>%</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class='ui-radio-for'>
+                                    <input name="" type="radio">按固定值</label>
+                                <label class='ui-radio-for'>
+                                    <input class='ui-input'>
+                                    <span>%</span>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title">专营店</td>
+                            <td>
+                                <label class='ui-radio-for'>
+                                    <input name="" type="radio">不收取</label>
+                            </td>
+                            <td>
+                                <label class='ui-radio-for' for="">
+                                    <input name="" type="radio">按比例</label>
+                                <label class='ui-radio-for'>
+                                    <input class='ui-input'>
+                                    <span>%</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class='ui-radio-for'>
+                                    <input name="" type="radio">按固定值</label>
+                                <label class='ui-radio-for'>
+                                    <input class='ui-input'>
+                                    <span>%</span>
+                                </label>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="ui-form-item">
+                        <label class="ui-checkbox-for">
+                            <input name="" type="checkbox" value="">子级继承父级设置</label>
+                    </div>
+                    <div class="ui-form-item submit-box ib-fix btn-toolbar">
+                        <a href="javascript:;" class="ui-btn ui-btn-l2 btn-submit">提交保存</a>
+                        <a href="javascript:;" class="ui-btn ui-btn-l3 popup-close">取消</a>
+                    </div>
+                </form>
+                <div class="footer">
+                    <p>1) 按比喻：限输入0.00-100.00之间的数值，精确到小数点后两位。</p>
+                    <p>2) 按固定值： 限输入0-100000000之间的正整数。</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 
+    name:       弹窗：删除确认
+    dependency: pub-basic.css
+ -->
+    <div id="popDeleteConfirm" class="popup popSmall popup-effect-2">
+        <div class="popup-header">
+            <span class="title">删除确认</span>
+            <span class="popup-close"></span>
+        </div>
+        <div class="popup-content">
+            <div class="ta-c cnt">
+                您确定删除所选项吗？
+            </div>
+        </div>
+        <footer class="ib-fix ta-c popup-footer">
+            <a href="javascript:;" class="ui-btn ui-btn-s2 btn-sure">确定</a>
+            <a href="javascript:;" class="popup-close ui-btn ui-btn-s1">取消</a>
+        </footer>
+    </div>
+    <!-- 
+    name:       弹窗：提示（通用）
+    dependency: pub-basic.css
+ -->
+    <div id="popTips" class="popup popSmall popup-effect-2">
+        <div class="popup-header">
+            <span class="title">提示</span>
+            <span class="popup-close"></span>
+        </div>
+        <div class="popup-content">
+            <div class="ta-c msg">
+
+            </div>
+        </div>
+        <footer class="ib-fix ta-c popup-footer">
+            <a href="javascript:;" class="popup-close ui-btn ui-btn-s2">确定</a>
+        </footer>
+    </div>
+
+    <script src="http://fe.wt.com/js/public/sea.js"></script>
+    <script src="http://fe.wt.com/js/sc-admin/configure.js"></script>
+    <script>
+        seajs.use(['sc-admin/c/dp-yj-list']);
+    </script>
+</body>
+
+</html>

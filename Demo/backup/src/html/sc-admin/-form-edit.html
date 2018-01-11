@@ -1,0 +1,53 @@
+<!-- 
+    name:       模板-编辑
+    dependency: form.css
+ --> 
+<form class="ui-form" id="demoForm1">
+    <fieldset>
+        <legend>表单标题</legend>
+        <div class="ui-form-item">
+            <label class="ui-label"><span class="ui-form-required">*</span>必填</label>
+            <input type="text" class="ui-input" required="">
+            <span></span>
+        </div>
+        <div class="ui-form-item">
+            <label class="ui-label">招牌类型：</label>
+            <label for="" class="ui-radio-for">
+                <input type="radio" name="" id="" checked="">默认招牌
+            </label>
+            <label for="" class="ui-radio-for">
+                <input type="radio" name="" id="">通栏招牌
+            </label>
+            <label for="" class="ui-radio-for">
+                <input type="radio" name="" id="">自定义招牌
+            </label>
+        </div>
+        <div class="ui-form-item">
+            <label class="ui-label"><span class="ui-form-required">*</span>长度验证</label>
+            <input type="text" name="name" class="ui-input" minlength="2" required="">
+            <span class="ui-form-text">ui-form-text</span>
+        </div>
+        <div class="ui-form-item">
+            <label class="ui-label"><span class="ui-form-required">*</span>Email</label>
+            <input type="email" name="email" id="" class="ui-input" required="">
+        </div>
+        <div class="ui-form-item">
+            <label class="ui-label"><span class="ui-form-required">*</span>Url</label>
+            <input type="url" name="url" id="" class="ui-input" required="">
+            <span class="ui-form-explain">建议不超过150px，否则导航显示可能异常</span>
+        </div>
+        <div class="ui-form-item">
+            <label class="ui-label"><span class="ui-form-required">*</span>Textarea</label>
+            <textarea name="txta" id="" cols="30" rows="10" class="u-textarea" required=""></textarea>
+        </div>
+        <div class="ui-form-item">
+            <label for="test">
+                <input id="test" value="" type="checkbox" class="ui-checkbox" name="chkb" required="">我已阅读并接受服务协议
+            </label>
+        </div>
+        <div class="ui-form-item">
+            <input type="submit" value="确定" class="ui-btn ui-btn-l2">
+            <input type="button" value="取消" class="ui-btn ui-btn-l3">
+        </div>
+    </fieldset>
+</form>     

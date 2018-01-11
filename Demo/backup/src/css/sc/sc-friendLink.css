@@ -1,0 +1,48 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-form-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-product.css");
+@import url("pub-nav-proCates.css");
+@import url("pub-nav-list.css");
+@import url("pub-footer.css");
+@import url("pub-crumbs.css");
+
+/**
+ * 网通商场 全部品牌分类
+ * @authors 谭子良
+ * @date    2014-05-23 11:21:34
+ * @version 1.0.0
+ */
+
+/*图片链接*/
+.img-links ul { width: 1030px; *padding-bottom: 20px;}
+.img-links li { float: left; margin-right: 20px; margin-bottom: 20px; width: 182px; height: 68px; overflow: hidden; border: 1px solid #e6e6e6;}
+.img-links li img { width: 182px; height: 68px; }
+
+/*文字链接*/
+.text-links ul { width: 1030px; overflow: hidden; margin-bottom: 40px;}
+.text-links li { float: left; margin-right: 20px; margin-bottom: 7px; width: 182px; height: 24px; overflow: hidden;}
+.text-links li a { color:#343434; line-height: 24px; }
+.text-links li a:hover { color:#f30; }
+
+/*子标题*/
+.sub-title { width: 100%; height: 20px; overflow: hidden; position: relative; margin-bottom: 5px;}
+.sub-title p { width: 100%; height: 2px; overflow: hidden; background: #e6e6e6; margin-top: 9px;}
+.sub-title em { color: #000; height: 20px; display: inline-block; line-height: 20px; padding:0px 10px; background: #fff; position: absolute; left: 0px; top: 0px; font-size: 14px; border-left: 5px solid #e6e6e6;}
+
+/*提交表单区域*/
+.post-aside { width: 300px; float: left; padding: 50px 0px 40px 20px; color: #333;}
+.post-aside h2 { font-size: 16px; color: #333; font-weight: bold; }
+.post-aside h3 { margin-top: 20px;}
+.post-aside h4 { margin-top: 20px; font-weight: bold; line-height: 24px;}
+.post-form { width: 600px; float: left; padding: 20px 0px;}
+
+/*重定义*/
+.crumbs { margin-top: 10px; margin-bottom: 5px;}
+
+.ui-input { width: 200px;}
+.ui-textarea { width: 400px; height: 80px;}
+.ui-btn-upload { height: 32px;}

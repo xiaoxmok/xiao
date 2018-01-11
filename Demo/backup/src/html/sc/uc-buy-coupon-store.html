@@ -1,0 +1,83 @@
+@@include('-html-header.html', { "title": "网通商场 会员中心 买家中心 店铺优惠劵", "css": "sc/uc-buy-coupon-store.css","bodyclass":"" })
+<header class="header">
+    @@include('-pub-header-topbar.html') 
+    @@include('-pub-header-ucenter.html')
+</header>
+<div class="uc-mod-wrap noBg">
+    <section class="container">
+        <!--左侧栏-->
+        <div class="uc-mod-leftWrap">
+            <div class="uc-mod-sideMenu">
+                @@include('-uc-mod-buy-sideMenu.html')
+            </div>
+        </div>
+        <div class="uc-mod-rightWrap">
+            <!--右侧内容区-->
+            <div class="uc-mod-conter">
+                <div class="clearfix">
+                    <!-- 列表顶部TAB项 start -->
+                    <div class="uc-mod-page-curMarkBar">
+                        <h2>我的优惠劵</h2>
+                        <ul class="tab">
+                            <li class="current">店铺优惠劵</li>
+                            <li>商品优惠劵</li>
+                            <li>领取优惠劵</li>
+                        </ul>
+                    </div>
+                    <!-- 列表顶部TAB项 end -->
+                    <!-- 筛选排序 start -->
+                    @@include('-uc-mod-couponFiter.html')
+                    <!-- 筛选排序 end -->
+                    <!-- 列表表头 start -->
+                    <div class="uc-mod-listTopBar">
+                        <ul>
+                            <li style="width:155px;">
+                                <div class="cot align-left">伏惠劵</div>
+                                <div class="hr"></div>
+                            </li>
+                            <li style="width:145px;">
+                                <div class="cot">适用店铺</div>
+                                <div class="hr"></div>
+                            </li>
+                            <li style="width:135px;">
+                                <div class="cot">使用条件</div>
+                                <div class="hr"></div>
+                            </li>
+                            <li style="width:105px;">
+                                <div class="cot">领取时间</div>
+                                <div class="hr"></div>
+                            </li>
+                            <li style="width:105px;">
+                                <div class="cot">有效期</div>
+                                <div class="hr"></div>
+                            </li>
+                            <li style="width:95px;">
+                                <div class="cot">状态</div>
+                                <div class="hr"></div>
+                            </li>
+                            <li style="width:90px;">
+                                <div class="cot">操作</div>
+                                <div class="hr last"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 列表表头 end -->
+                    <!-- 列表顶部带简单分页操作条 start -->
+                    @@include('-uc-mod-page-tool.html')
+                    <!-- 列表顶部带简单分页操作条 end -->
+                    <!-- 列表循环 start -->
+                    @@include('-uc-mod-couponList.html')
+                    <!-- 列表循环 end -->
+                    <!-- 列表底部分页条 start -->
+                    @@include('-uc-mod-footPagesBar.html')
+                    <!-- 列表底部分页条 end -->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<footer class="footer full-border">
+    @@include('-pub-footer-blogroll.html') 
+    @@include('-pub-footer.html')
+</footer>
+@@include('-html-footer.html',{"script": "sc/v/uc-buy-coupon-store"})

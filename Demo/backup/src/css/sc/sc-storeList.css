@@ -1,0 +1,37 @@
+@import url("../base/reset.css");
+@import url("../base/public.css");
+@import url("../mod/ui-grid-1.0.0.css");
+@import url("../mod/ui-button-1.0.0.css");
+@import url("pub-header-topbar.css");
+@import url("pub-header-product.css");
+@import url("pub-nav-proCates.css");
+@import url("pub-nav-list.css");
+@import url("pub-footer.css");
+@import url("pub-crumbs.css");
+@import url("sc-mod-aside-hotProduct.css");
+@import url("sc-mod-proCategory.css");
+@import url("sc-mod-proOrderBy.css");
+@import url("sc-mod-storeList.css");
+@import url("sc-mod-proPagesBar.css");
+@import url("sc-mod-proFooterHistory.css");
+@import url("sc-mod-proFooterSearch.css");
+@import url("sc-mod-proNoDatas.css");
+
+/**
+ * 网通商场  店铺列表
+ * @authors 谭子良
+ * @date    2014-05-26 14:24:28
+ * @version 1.0.0
+ */
+
+/*
+	左侧区域
+*/
+.product-left-area { margin-right: 8px;}
+.win-1200 .product-left-area { margin-right: -42px;}
+.win-1400 .product-left-area { margin-right: -92px;}
+
+/*
+	重定义:
+*/
+.crumbs { margin:10px auto 5px auto;}

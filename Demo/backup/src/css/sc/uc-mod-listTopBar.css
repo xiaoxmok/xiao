@@ -1,0 +1,18 @@
+
+/**
+ * 会员中心 买家中心 我的收藏 商品收藏 列表表头
+ * @authors 谭子良
+ * @date    2014-07-18 15:40:01
+ * @version $Id$
+ */
+
+.uc-mod-listTopBar { width: 100%; height: 35px; overflow: hidden; background: #fff;}
+.uc-mod-listTopBar li { float: left; height: 35px;}
+.uc-mod-listTopBar li .cot { height: 33px; overflow: hidden; line-height: 33px; color: #666; text-align:center; background: #f1f1f1; *height: 30px; *line-height: 30px; *padding-top: 3px;}
+.uc-mod-listTopBar li .cot.align-left { padding-left: 10px; text-align: left;}
+.uc-mod-listTopBar li .hr { height: 0px; overflow: hidden; border: none; border-top: 2px solid #e6e6e6; padding: 0px; margin:0px 3px 0px 0px; font:0px/0px arial; }
+.uc-mod-listTopBar li .hr.last { margin: 0px; }
+
+/*兰色 blue*/
+.uc-mod-listTopBar.blue li .cot { background: #ebf7ff;}
+.uc-mod-listTopBar.blue li .hr { border-top: 2px solid #a6ddff;}

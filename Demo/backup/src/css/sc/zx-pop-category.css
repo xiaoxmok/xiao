@@ -1,0 +1,7 @@
+.pop-category .bd{min-height: 340px; padding: 1px; border: 1px solid #e6e6e6;margin: 10px 0 5px;}
+.pop-category .bd .item{display:block;height: 33px; line-height: 33px; padding: 0 16px 0 9px; border-bottom: 1px solid #e6e6e6;}
+.pop-category .bd .item .txt {margin-left: 20px;padding-left: 32px;}
+.pop-category .ib-fix input[type=text]{margin-right: 20px;}
+.pop-category .btn-box{margin-top: 30px;}
+.pop-category .btn-box .ui-btn{margin-right: 10px;}
+.pop-category .ft .fr a{margin-left: 20px;}

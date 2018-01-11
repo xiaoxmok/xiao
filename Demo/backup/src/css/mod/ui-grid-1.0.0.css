@@ -1,0 +1,75 @@
+/**
+ * grid 12 & 24
+ * @authors 	Inman Shaw (neikvon@icloud.com)
+ * @date    		2014-05-20 14:18:53
+ * @version 	1.0.0
+ */
+.container{padding: 0 10px;margin-left: auto;margin-right: auto;}
+.ui-grid{margin: 0 -5px 0 -5px;}
+.ui-grid:before, .ui-grid:after {display: table;content: " ";}
+.ui-grid:after {clear: both;}
+
+/*.col-1-12, .col-2-12, .col-3-12, .col-4-12, .col-5-12, .col-6-12, .col-7-12, .col-8-12, .col-9-12, .col-10-12, .col-11-12, .col-12-12{float: left;padding: 10px 5px;box-sizing: border-box;min-height: 1px;}
+.col-1-12{width: 8.333333333333332%;}
+.col-2-12{width: 16.666666666666664%;}
+.col-3-12{width: 25%;}
+.col-4-12{width: 33.33333333333333%;}
+.col-5-12{width: 41.66666666666667%;}
+.col-6-12{width: 50%;}
+.col-7-12{width: 58.333333333333336%;}
+.col-8-12{width: 66.66666666666666%;}
+.col-9-12{width: 75%;}
+.col-10-12{width: 83.33333333333334%;}
+.col-11-12{width: 91.66666666666666%;}
+.col-12-12{width: 100%;}*/
+
+.col-1-24, .col-2-24, .col-3-24, .col-4-24, .col-5-24, .col-6-24, .col-7-24, .col-8-24, .col-9-24, .col-10-24, .col-11-24, .col-12-24, .col-13-24, .col-14-24, .col-15-24, .col-16-24, .col-17-24, .col-18-24, .col-19-24, .col-20-24, .col-21-24, .col-22-24, .col-23-24, .col-24-24{float: left;padding: 5px;box-sizing: border-box;min-height: 1px;}
+.col-1-24{width: 4.166666667%}
+.col-2-24{width: 8.333333333%}
+.col-3-24{width: 12.5%}
+.col-4-24{width: 16.666666667%}
+.col-5-24{width: 20.833333333%}
+.col-6-24{width: 25%}
+.col-7-24{width: 29.166666667%}
+.col-8-24{width: 33.333333333%}
+.col-9-24{width: 37.5%}
+.col-10-24{width: 41.666666667%}
+.col-11-24{width: 45.833333333%}
+.col-12-24{width: 50%}
+.col-13-24{width: 54.166666667%}
+.col-14-24{width: 58.333333333%}
+.col-15-24{width: 62.5%}
+.col-16-24{width: 66.666666667%}
+.col-17-24{width: 70.833333333%}
+.col-18-24{width: 75%}
+.col-19-24{width: 79.166666667%}
+.col-20-24{width: 83.333333333%}
+.col-21-24{width: 87.5%}
+.col-22-24{width: 91.666666667%}
+.col-23-24{width: 95.833333333%}
+.col-24-24{width: 100%}
+
+/* IE 7 */
+.lt-ie8 .container{width: 1000px;}
+.lt-ie8 .col-1-24{width: 3.2078%;}
+.lt-ie8 .col-2-24{width: 7.35%;}
+.lt-ie8 .col-3-24{width: 11.5%;}
+.lt-ie8 .col-4-24{width: 15.5%;}
+.lt-ie8 .col-5-24{width: 20%;}
+.lt-ie8 .col-6-24{width: 24.2%;}
+.lt-ie8 .col-7-24{width: 28%;}
+.lt-ie8 .col-8-24{width: 32.5%;}
+.lt-ie8 .col-9-24{width: 36.5%;}
+.lt-ie8 .col-10-24{width: 41%;}
+.lt-ie8 .col-11-24{width: 45%;}
+.lt-ie8 .col-12-24{width: 49%;}
+.lt-ie8 .col-13-24{width: 53.5%;}
+.lt-ie8 .col-14-24{width: 57.5%;}
+.lt-ie8 .col-15-24{width: 62%;}
+.lt-ie8 .col-16-24{width: 66%;}
+.lt-ie8 .col-17-24{width: 70.2%;}
+.lt-ie8 .col-18-24{width: 74%;}
+.lt-ie8 .col-19-24{width: 78%;}
+.lt-ie8 .col-20-24{width: 82%;}
+
+.lt-ie8 .col-24-24{width: 99%;}

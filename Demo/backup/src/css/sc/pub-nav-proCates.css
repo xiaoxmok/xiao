@@ -1,0 +1,59 @@
+
+/**
+ * 网通商场 所有产品分类
+ * @authors 谭子良
+ * @date    2014-06-25 10:21:13
+ * @version 1.0.0
+ */
+
+.pub-nav-proCates { width: 190px; height: 40px; float: left;}
+.pub-nav-proCates .pub-nav-proCatesTitle { width: 190px; height: 40px; overflow: hidden; background:#1896e6; }
+.pub-nav-proCates .pub-nav-proCatesTitle a { font-size: 18px; line-height: 40px; color: #fff; display: block; float: left; background: url(../../img/sc/misc/i_004.png) no-repeat 145px 12px; padding-right: 24px; padding:0px 30px;}
+
+/*弹出层*/
+.pub-nav-proCates .pub-nav-proCatesCont { position: absolute; z-index: 2; display: none;}
+.pub-nav-proCates .pub-nav-proCatesCont ul.proItem-wrap { width: 188px; padding:5px 0px 5px 0px;  background: #fff; border:1px solid #bdbdbd; border-top: none; box-shadow: 2px 2px 5px 0px #ddd; position: absolute; left: 0px; top: 0px; }
+/*弹出层 一级分类*/
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem { width: 160px; height: 44px; margin: 0px 14px; border-top: 1px solid #fff; border-bottom: 1px solid #ddd; float: left;}
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 { width: 100%; height: 20px; padding:12px 0px; overflow: hidden; }
+/*弹出层 一级分类上触发二级分类*/
+.pub-nav-proCates .pub-nav-proCatesCont li.hover { margin: 0px; padding: 0px 14px 0px 15px; margin-left: -1px; border-left:1px solid #bdbdbd; border-top:1px solid #bdbdbd; border-bottom:1px solid #bdbdbd; background: #fff;}
+.pub-nav-proCates .pub-nav-proCatesCont li.proLast { border-bottom: 1px solid #fff;}
+/*弹出层 二级分类显示块*/
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem .proItem-show { display: none;}
+.pub-nav-proCates .pub-nav-proCatesCont li.hover .proItem-show { display: block; width: 600px; background: #f6f6f6; border:1px solid #bdbdbd; position: absolute; left: 188px; top: 5px; box-shadow: 0px 3px 5px 0px #ddd; }
+.pub-nav-proCates .pub-nav-proCatesCont li.hover .proItem-show .proItem-show-inlet { height: 44px; width: 5px; background: #fff; overflow: hidden; position: absolute; left: -5px; }
+
+/*展示层 文字链接颜色*/
+.proItem-show a { color: #666;}
+.proItem-show a:hover { color: #f30;}
+
+/*弹出层内容 子分类*/
+.proItem-show .item-sub-wrap { width: 400px; overflow: hidden; float: left; padding:0px 10px; background: #fff;}
+.proItem-show .item-sub-wrap .item-sub { width: 100%; overflow: hidden; padding: 15px 0px; border-bottom: 1px dashed #ddd;}
+.proItem-show .item-sub-wrap .last-item-sub { border-bottom: 1px dashed #fff;}
+.proItem-show .item-sub-wrap .item-sub h3 { width: 95px; padding-left: 5px; overflow: hidden; float: left; word-break: break-all; word-wrap:break-word; font-weight: 500; line-height: 20px; margin: 3px 0px; color: #333;}
+.proItem-show .item-sub-wrap .item-sub ul { width: 300px; overflow: hidden;float: left;} 
+.proItem-show .item-sub-wrap .item-sub ul li { line-height: 20px; float: left; padding:0px 15px 0px 10px; margin:3px 0px; border-left: 1px solid #ddd;}
+
+/*弹出层内容 子分类 关联品牌 促销*/
+.proItem-show .item-aside-wrap { width: 160px; overflow: hidden; float: right; padding: 10px; background: #f6f6f6;}
+.proItem-show .item-aside-wrap h4 { width: 100%; overflow: hidden; word-break: break-all; word-wrap:break-word; font-weight: 500; line-height: 20px; padding: 5px 0px; color: #333; border-bottom: 1px solid #ddd; }
+.proItem-show .item-aside-wrap ul { padding: 5px 0px; width: 100%; overflow: hidden;}
+.proItem-show .item-aside-wrap ul li { line-height: 20px; float: left; padding:0px 15px 0px 0px; }
+
+/*产品分类图标*/
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 i.index01 { width: 20px; height: 20px; background:url(../../img/sc/misc/i_003.png) no-repeat -75px -25px; display: block; margin-right: 8px; float: left;}
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 i.index02 { width: 20px; height: 20px; background:url(../../img/sc/misc/i_003.png) no-repeat -25px -25px; display: block; margin-right: 8px; float: left;}
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 i.index03 { width: 20px; height: 20px; background:url(../../img/sc/misc/i_003.png) no-repeat -50px -25px; display: block; margin-right: 8px; float: left;}
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 i.index04 { width: 20px; height: 20px; background:url(../../img/sc/misc/i_003.png) no-repeat 0px -25px; display: block; margin-right: 8px; float: left;}
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 i.index05 { width: 20px; height: 20px; background:url(../../img/sc/misc/i_003.png) no-repeat -100px -25px; display: block; margin-right: 8px; float: left;}
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 i.index06 { width: 20px; height: 20px; background:url(../../img/sc/misc/i_003.png) no-repeat -125px -25px; display: block; margin-right: 8px; float: left;}
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 i.index07 { width: 20px; height: 20px; background:url(../../img/sc/misc/i_003.png) no-repeat -150px -25px; display: block; margin-right: 8px; float: left;}
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 i.index08 { width: 20px; height: 20px; background:url(../../img/sc/misc/i_003.png) no-repeat -175px -25px; display: block; margin-right: 8px; float: left;}
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 i.index09 { width: 20px; height: 20px; background:url(../../img/sc/misc/i_003.png) no-repeat -200px -25px; display: block; margin-right: 8px; float: left;}
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 i.index10 { width: 20px; height: 20px; background:url(../../img/sc/misc/i_003.png) no-repeat -225px -25px; display: block; margin-right: 8px; float: left;}
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 i.index11 { width: 20px; height: 20px; background:url(../../img/sc/misc/i_003.png) no-repeat -250px -25px; display: block; margin-right: 8px; float: left;}
+/*产品分类名称*/
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 a { color: #333; font-size: 14px; line-height: 20px; float: left;}
+.pub-nav-proCates .pub-nav-proCatesCont li.proItem h2 u { width: 20px; height: 20px; background:url(../../img/sc/misc/i_001.png) no-repeat -30px -278px; display: block; float: right;}

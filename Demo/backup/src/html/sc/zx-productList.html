@@ -1,0 +1,75 @@
+@@include('-html-header.html', { "title": "店铺装修-页面管理（商品列表页）", "css": "sc/zx-productList.css", "bodyclass": "" })
+@@include('-zx-mod-playground.html')
+<header class="header">
+	@@include('-pub-header-topbar.html')
+	@@include('-pub-header-shop.html')
+</header>
+
+@@include('-zx-mod-signage.html')
+@@include('-zx-mod-nav.html')
+<!-- 以上是页头区域 -->
+<div class="region-desc">
+	<p class="cut-off">以上是页头区域</p>
+</div>
+<section class="content">
+	<div class="container">
+		
+		<div class="ui-grid">
+			<div class="col-5-24">
+				<aside class="aside">
+					<div class="aside-title">本店搜索</div>
+					@@include('-zx-mod-aside-search.html')
+					<div class="aside-title">商品分类</div>
+					@@include('-zx-mod-aside-category.html')
+					<div class="aside-title">商品排行</div>
+					@@include('-zx-mod-product-rank.html')
+					@@include('-zx-mod-service.html')
+					<div class="aside-title">自定义模块</div>
+					@@include('-zx-mod-custom-tmpl.html')
+				</aside>
+			</div>
+			<div class="col-19-24">
+				<section class="main wrap-small">
+					<div class="block-title">所有商品</div>
+					@@include('-zx-mod-search-big.html')
+					@@include('-zx-mod-sort.html')
+					@@include('-pub-productList-col3.html')
+					<!-- 分页 start -->
+					<div class="ui-pager ta-r">
+						<span class="ui-pager-lnks">
+						<span class="lnk-prev">上一页</span>
+						<a href="javascript:;" class="ui-pager-lnk-curr">1</a>
+						<a href="javascript:;">2</a>
+						<a href="javascript:;">3</a>
+						<a href="javascript:;">4</a>
+						<a href="javascript:;">5</a>
+						<a href="javascript:;">6</a>
+						<a href="javascript:;">7</a>
+						<a href="javascript:;">8</a>
+						<a href="javascript:;" class="lnk-next">下一页</a>
+						</span>
+						<form action="">
+							到第<input type="text" name="" id="" class="ui-pager-input">页
+							<input type="submit" value="确定" class="ui-pager-submit">
+						</form>
+					</div>
+					<!-- 分页 end -->
+				</section>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- 以下是页尾区域 -->
+<div class="region-desc">
+	<p class="cut-off">以下是页尾区域</p>
+	<div class="container">
+		<div class="block-add-lnk">
+			<a href="javascript:;"><span class="ico-plus"></span>添加模块</a>
+		</div>
+	</div>
+</div>
+<footer class="footer">
+	@@include('-pub-footer-sitemap.html')
+	@@include('-pub-footer.html')
+</footer>
+@@include('-html-footer.html', { "script": "sc/v/zx-productList" })
