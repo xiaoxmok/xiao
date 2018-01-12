@@ -3,7 +3,6 @@
  */
 
 
-
 /**
  * 获取两个时间，
  * endDate 当前时间
@@ -28,28 +27,33 @@ function getDate(n) {
     var month = d.getMonth() + 1;
     var day = d.getDate();
 
-    var startDate,endDate;
+    var startDate, endDate;
 
     //获取当月的最后一天的日期
-    var lastDay = new Date(year,month,0);
+    var lastDay = new Date(year, month, 0);
     //当月最后一天
     lastDay = lastDay.getDate();
 
+    var y=0;
+
+    if (n >= 12) {
+        y = parseInt(n / 12);
+        n = n % 12;
+    }
 
     var f = month - n;
 
-
     if (f > 0) {
-        if(day === lastDay){
-            day = (new Date(year,f,0)).getDate();
+        if (day === lastDay) {
+            day = (new Date(year, f, 0)).getDate();
         }
 
-        startDate = year + '-' + padding(f) + '-' + padding(day);
+        startDate = year - y + '-' + padding(f) + '-' + padding(day);
     } else {
-        if(day === lastDay){
-            day = (new Date(year,12 - Math.abs(f),0)).getDate();
+        if (day === lastDay) {
+            day = (new Date(year, 12 - Math.abs(f), 0)).getDate();
         }
-        startDate = year - 1 + '-' + padding(12 - Math.abs(f)) + '-' + padding(day);
+        startDate = year - y -1 + '-' + padding(12 - Math.abs(f)) + '-' + padding(day);
     }
 
 
@@ -60,9 +64,9 @@ function getDate(n) {
     endDate = ret;
 
     return {
-        startDate:startDate,
-        endDate:endDate
+        startDate: startDate,
+        endDate: endDate
     }
 }
 
-console.log(getDate(1));
+console.log(getDate(25));
