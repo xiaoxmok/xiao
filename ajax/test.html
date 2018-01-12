@@ -13,18 +13,19 @@
 
         function fnAjax(){
             var http;
+
             if (window.XMLHttpRequest) {
                 http = new XMLHttpRequest;   //ie7+,chrome firefox,opera,...
             } else {
                 http = new ActiveXObject("Microsoft.XMLHTTP"); //IE5 IE6
             }
 
-            //http.open(method,url,async);   method:get/post方法、url：请求地址、async:同步(false)/异步（async）默认为异步（）;
+            //http.open(method,url,async);   method:get/post方法、url：请求地址、async:同步(false)/异步（true）默认为异步（）;
             //http.send(string);
             http.open('get', './json/data.xml', true);
             http.send();
 
-            http.onreadystatechange = function () {
+            http.onreadystatechange = function(){
                 if (http.readyState == 4 && http.status == 200) {
                     var s = http.responseXML;    //请求成功后的一些处理；
 
@@ -37,9 +38,11 @@
                 }
             };
         }
+        //console.log(fnAjax());
 
-        /*jquery ajax------------------------------*/
-        console.log(jqAjax());
+
+        /*jquery ajax 同步------------------------------*/
+        //console.log(jqAjax());
         function jqAjax(){
             var date = "";
             var value = "";
@@ -71,6 +74,46 @@
                 lastValue: lastValue     //当前数据最后一个值
             };
         }
+
+        /*jquery ajax 异步------------------------------*/
+
+        /**
+         * jquery ajax 异步 回调函数
+         * @param callback
+         */
+        function jqAjaxAsync(callback){
+            $.ajax({
+                type:"GET",
+                url:"./json/data.xml",
+                dataType:"xml",
+                async:true,
+                success:function(data){
+                    //callback(data);
+                    console.log(callback(data));
+                },
+                error:function(){
+                    console.log("failed");
+                }
+            });
+        }
+
+        function getXml(data){
+            console.log(data);
+            var date = $(data).find('date').text().split(',');
+            var value = $(data).find('value').text().split(',');
+
+            var lastValue = value[value.length - 1];
+
+            console.log(date);
+            console.log(value);
+            return {
+                data: value,          //数据
+                date: date,          //日期
+                lastValue: lastValue     //当前数据最后一个值
+            };
+        }
+
+        console.log(jqAjaxAsync(getXml));
     </script>
     </body>
 </html>
