@@ -1,7 +1,3 @@
-/**
- * Created by xiaoxiangmin on 2018/1/12.
- */
-
 
 /**
  * 封装事件
@@ -81,12 +77,12 @@ var eventUtil = {
     stopPropagation: function (event) {
         event = this.getEvent(event);
 
-        /*if (event.stopPropagation) {
-         event.stopPropagation();
-         } else {
-         event.cancelBubble = true;
-         }
-         */
+		/*if (event.stopPropagation) {
+		 event.stopPropagation();
+		 } else {
+		 event.cancelBubble = true;
+		 }
+		 */
         window.event ? event.cancelBubble = true : event.stopPropagation();
     },
     /**
@@ -96,12 +92,44 @@ var eventUtil = {
     preventDefault: function (event) {
         event = this.getEvent(event);
 
-        /*if (event.preventDefault) {
-         event.preventDefault();
-         } else {
-         event.returnValue = true;
-         }*/
+		/*if (event.preventDefault) {
+		 event.preventDefault();
+		 } else {
+		 event.returnValue = true;
+		 }*/
 
         window.event ? event.returnValue = false : event.preventDefault();
+    },
+    //获取相关元素
+    getRelatedTarget: function (event) {
+        if (event.relatedTarget) {
+            return event.relatedTarget;
+        } else if (event.toElement) {
+            return event.toElement;
+        } else if (event.fromElement) {
+            return event.fromElement;
+        } else {
+            return null;
+        }
+    },
+    //获取charCode
+    getCharCode: function (event) {
+        if (typeof event.charCode == "number") {
+            return event.charCode;
+        } else {
+            return event.keyCode;
+        }
+    },
+    //剪贴板相关方法
+    getClipboardText: function (event) {
+        var clipboardData = (event.clipboardData || window.clipboardData);
+        return clipboardData.getData("text");
+    },
+    setClipboardText: function (event) {
+        if (event.clipboardData) {
+            return event.clipboardData.setData("text/plain",value);
+        } else if (window.clipboardData) {
+            return window.clipboardData.setData("text",value);
+        }
     }
 };

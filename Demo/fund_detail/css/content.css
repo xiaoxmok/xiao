@@ -233,3 +233,8 @@
 
 .mb{margin-bottom: 2.5rem;}
 
+.title_br{    font-size: 12px;margin-top: .2rem;}
+.title_br strong{display: block;line-height:.9rem;}
+.title_br .st1{line-height:1.1rem;font-size: 13px;}
+.title_br .st2{line-height:.5rem;}
+

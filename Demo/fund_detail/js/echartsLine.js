@@ -13,7 +13,7 @@
         title:'七日年化收益率（%）',
         subtext:'',
         symbolX: '40',       //图表标尺寸X
-        symbolY: '25',        //图表标尺寸Y
+        symbolY: '24',        //图表标尺寸Y
         data: [],          //数据
         date: [],          //日期
         lastValue: '0',     //当前数据最后一个值
@@ -68,6 +68,7 @@
                 x2: 30,
                 y2: 30,
                 top:50,
+                right:'12%',
                 borderWidth: 1,
                 borderColor: "#f4f4f4"
 
