@@ -6,72 +6,78 @@
 (function () {
     var barEcharts = {};
 
-    var defaults={};
+    var defaults = {};
     var opts = {};
 
-    barEcharts.init = function (donId,options) {
-        var myChart = echarts.init(document.getElementById(donId));
+    barEcharts.init = function (domId, options) {
+        var dom = document.getElementById(domId);
 
         opts = extend(defaults, options);
 
+        if (opts.yData.length === 1) {
+            dom.style.height = 5 + 'rem';
+        }
+
+        var myChart = echarts.init(dom);
+
         var option = {
             color: ['#ffdc7f', '#ffb415', '#ff8100', '#fc5b1f', '#ea4c29', "#cc7eb1", '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570'],
-            backgroundColor:"#fff",
+            backgroundColor: "#fff",
 
             /*legend: {
-                data:['期间申购','期间赎回','期末总份额'],
-                show:'false'
-            },*/
+             data:['期间申购','期间赎回','期末总份额'],
+             show:'false'
+             },*/
             grid: {
                 left: '3%',
                 //right: '3%',
-                top:'20',
-                bottom:'0',
+                top: '20',
+                bottom: '0',
                 containLabel: true
             },
-            yAxis : [
+            yAxis: [
                 {
-                    type : 'category',
+                    type: 'category',
                     //boundaryGap: [0, '100%'],
-                    axisLine:{
-                        show:'true',
-                        lineStyle:{
-                            color:"#999999"
+                    axisLine: {
+                        show: 'true',
+                        lineStyle: {
+                            color: "#999999"
                         }
                     },
-                    axisLabel:{
-                        color:"#999999"
+                    axisLabel: {
+                        color: "#999999"
                     },
-                    data : opts.yData,
+                    data: opts.yData,
                     splitLine: {
-                        show:'true',
-                        interval:0,
+                        show: 'true',
+                        interval: 0,
                         lineStyle: {
                             color: "#999999",
-                            type:"dashed"
+                            type: "dashed"
                         }
                     }
                 }
             ],
-            xAxis : [
+            xAxis: [
                 {
-                    type : 'value',
+                    type: 'value',
                     splitLine: {
-                        show:false
+                        show: false
                     },
-                    axisLine:{
-                        show:'true',
-                        lineStyle:{
-                            color:"#999999"
+                    axisLine: {
+                        show: 'true',
+                        lineStyle: {
+                            color: "#999999"
                         }
                     },
-                    axisLabel:{
-                        color:"#999999"
+                    axisLabel: {
+                        color: "#999999"
                     },
-                    position:'top'
+                    position: 'top'
                 }
             ],
-            series :opts.data
+            series: opts.data
         };
 
         myChart.setOption(option);
