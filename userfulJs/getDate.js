@@ -34,7 +34,7 @@ function getDate(n) {
     //当月最后一天
     lastDay = lastDay.getDate();
 
-    var y=0;
+    var y = 0;
 
     if (n >= 12) {
         y = parseInt(n / 12);
@@ -53,7 +53,7 @@ function getDate(n) {
         if (day === lastDay) {
             day = (new Date(year, 12 - Math.abs(f), 0)).getDate();
         }
-        startDate = year - y -1 + '-' + padding(12 - Math.abs(f)) + '-' + padding(day);
+        startDate = year - y - 1 + '-' + padding(12 - Math.abs(f)) + '-' + padding(day);
     }
 
 
@@ -70,3 +70,40 @@ function getDate(n) {
 }
 
 console.log(getDate(25));
+
+
+/**
+ * 对Date的扩展，将 Date 转化为指定格式的String
+ *月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
+ * 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
+ * (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
+ * (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
+ * new Date().Format("MM/dd/yyyy")
+ * @param fmt
+ * @returns {*}
+ * @constructor
+ */
+Date.prototype.Format = function (fmt) { //author: meizz
+    var o = {
+        "M+": this.getMonth() + 1, //月份
+        "d+": this.getDate(), //日
+        "h+": this.getHours(), //小时
+        "m+": this.getMinutes(), //分
+        "s+": this.getSeconds(), //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        "S": this.getMilliseconds() //毫秒
+    };
+    if (/(y+)/.test(fmt)){
+        fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    }
+    for (var k in o){
+        if (new RegExp("(" + k + ")").test(fmt)){
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        }
+    }
+    return fmt;
+};
+
+//例
+var nowDt = new Date().Format("yyyy-MM-dd");
+console.log(nowDt);
