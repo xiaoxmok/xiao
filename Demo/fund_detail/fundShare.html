@@ -88,14 +88,19 @@
         var date = [];
 
         var data = [];
-        var now = +new Date(2017, 1, 1);
+        var now = +new Date(2017, 10, 10);
         for (var i = 0; i < month; i++) {
             now = new Date(+now + oneDay);
             data.push((Math.random().toFixed(5) / 10 + 4.2).toFixed(3));
             //console.log(data);
             date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('-'));
-            //console.log(date);
+
         }
+
+        date.splice(0, 1, "{a|" + date[0] + "}");
+        date.splice(date.length - 1, 1, "{b|" + date[date.length - 1] + "}");
+
+        //console.log(date);
         var value = data[data.length - 1];
 
         return {
@@ -202,7 +207,7 @@
         //当月最后一天
         lastDay = lastDay.getDate();
 
-        var y=0;
+        var y = 0;
 
         if (n >= 12) {
             y = parseInt(n / 12);
@@ -221,7 +226,7 @@
             if (day === lastDay) {
                 day = (new Date(year, 12 - Math.abs(f), 0)).getDate();
             }
-            startDate = year - y -1 + '-' + padding(12 - Math.abs(f)) + '-' + padding(day);
+            startDate = year - y - 1 + '-' + padding(12 - Math.abs(f)) + '-' + padding(day);
         }
 
 
@@ -237,7 +242,7 @@
         }
     }
 
-    console.log(getDate(1));
+    //console.log(getDate(1));
 
 </script>
 </body>

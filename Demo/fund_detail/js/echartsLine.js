@@ -10,8 +10,8 @@
         areaColorMin: '#fffaf9',         //区域颜色 浅
         tooltipBgColor: "#fe5a5b",               //悬浮背景色
         markPointPicPath: 'image://img/icon_to.png',       //悬浮图标地址
-        title:'七日年化收益率（%）',
-        subtext:'',
+        title: '七日年化收益率（%）',
+        subtext: '',
         symbolX: '40',       //图表标尺寸X
         symbolY: '24',        //图表标尺寸Y
         data: [],          //数据
@@ -25,7 +25,21 @@
 
         var myChart = echarts.init(document.getElementById(domId));
 
+        myChart.showLoading({
+            text: '加载中...',
+            color: '#c23531',
+            textColor: '#000',
+            maskColor: 'rgba(255, 255, 255, 0.8)',
+            zlevel: 0
+        });
+
+
         opts = extend(defaults, options);
+
+        //myChart.hideLoading();
+        setTimeout(function () {
+            myChart.hideLoading();
+        }, 500);
 
         var option = {
             tooltip: {
@@ -40,24 +54,24 @@
                 backgroundColor: 'rgba(' + parseInt(opts.tooltipBgColor.substring(1, 3), 16).toString() + ',' + parseInt(opts.tooltipBgColor.substring(3, 5), 16).toString() + ',' + parseInt(opts.tooltipBgColor.substring(5, 7), 16).toString() + ',0.7)'
             },
             /*legend:{
-                type:'plain',
-                show:'true',
-                data:['17-11-02']
-            },*/
+             type:'plain',
+             show:'true',
+             data:['17-11-02']
+             },*/
             title: {
                 left: 'center',
-                top:10,
+                top: 10,
                 text: opts.title,
-                subtext:opts.subtext,
+                subtext: opts.subtext,
                 textStyle: {
                     fontWeight: 'normal',
                     fontSize: '13',
                     color: "#666",
-                    rich:{
+                    rich: {
                         a: {
                             color: '#fe5a5b',
                             lineHeight: 10,
-                            fontSize:'13'
+                            fontSize: '13'
                         }
                     }
                 }
@@ -67,8 +81,8 @@
                 y: 40,
                 x2: 30,
                 y2: 30,
-                top:50,
-                right:'12%',
+                top: 50,
+                right: '5%',
                 borderWidth: 1,
                 borderColor: "#f4f4f4"
 
@@ -76,9 +90,6 @@
             xAxis: {
                 type: 'category',
                 boundaryGap: false,
-
-                //data: date,
-
                 axisLine: {
                     show: false,
                     lineStyle: {
@@ -93,22 +104,19 @@
                 },
                 data: opts.date,
                 axisLabel: {
-                    /*formatter: function (value, index) {
-                     var date = new Date(value += oneDay);
-                     //var date = new Date(value);
-                     var texts = [date.getFullYear(), date.getMonth() + 1, date.getDate()].join('-');
-                     return texts;
-                     },*/
                     interval: opts.cycle - 2,
-                    textStyle: {
-                        color: '#7d7d7d'
+                    color: '#7d7d7d',
+                    //align:'right',
+                    //padding:[0,0,0,43],
+                    rich: {
+                        a: {
+                            padding: [0, 0, 0, 45]
+                        },
+                        b: {
+                            padding: [0, 45, 0, 0]
+                        }
                     }
-                }/*,
-                 axisPointer:{
-                 handle:{
-                 show:'true'
-                 }
-                 }*/
+                }
             },
             yAxis: {
                 type: 'value',
@@ -188,7 +196,6 @@
             ]
         };
         myChart.setOption(option);
-
 
 
         myChart.on('mouseover', function (params) {

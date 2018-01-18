@@ -95,8 +95,13 @@
             data.push((Math.random().toFixed(5) / 10 + 4.2).toFixed(3));
             //console.log(data);
             date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('-'));
+
             //console.log(date);
         }
+
+        date.splice(0, 1, "{a|" + date[0] + "}");
+        date.splice(date.length - 1, 1, "{b|" + date[date.length - 1] + "}");
+
         var value = data[data.length - 1];
 
         return {
