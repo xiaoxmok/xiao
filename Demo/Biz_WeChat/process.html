@@ -14,7 +14,23 @@
     </header>
     <!--<div class="line"></div>-->
     <div class="mt17"></div>
+    <div class="btn">
+        <button class="btn_bk">启动/恢复</button>
+        <button>暂停</button>
+        <button>暂停</button>
+        <button>暂停</button>
+        <button>暂停</button>
+        <button>暂停</button>
+        <button>暂停</button>
+        <button>重跑异常</button>
+        <button>已手动完成</button>
+    </div>
 	<div id="main" class="process001">
+        <!--无数据时间的布局-->
+        <!--<div class="none">
+            <div class="img"></div>
+            <p>暂无数据</p>
+        </div>-->
         <div class="pro">
             <p class="zx">已执行</p>
             <div class="round down"></div>
@@ -37,7 +53,9 @@
             <div class="bg mt0">
                 <div class="box colB">数据导入</div>
                 <div class="box col mt10 colY">行情复核</div>
-                <div class="box col mt10 colR">处理前备份</div>
+                <a href="javascript:;" class="error">
+                    <div class="box col mt10 colR">处理前备份</div>
+                </a>
                 <div class="box col mt10 colB">清算预检</div>
             </div>
             <div class="proper"></div>
@@ -68,5 +86,33 @@
             </div>
         </div>
     </div>
+    <div class="zhezhao"></div>
+    <div class="turn_tan">
+        <div class="close"></div>
+        <div class="tan_top">
+            <p>错误信息</p>
+        </div>
+        <p class="tan_p">这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容是内容这是内容这是内容这是内容</p>
+        <!--<p class="tan_p">这是内容这是内容这是内容这是</p>-->
+    </div>
+    <script src="./js/jquery-2.2.2.min.js"></script>
+    <script>
+        $('.btn button').click(function(){
+            var i = $(this).index();
+            $('.btn button').removeClass('btn_bk').eq(i).addClass('btn_bk');
+        })
+        $('.error').click(function(e){
+
+            e.stopPropagation();
+            e.preventDefault();
+
+            $('.zhezhao').show();
+            $('.turn_tan').show();
+        });
+        $(".close").click(function(){
+            $('.zhezhao').hide();
+            $('.turn_tan').hide();
+        });
+    </script>
 </body>
 </html>
