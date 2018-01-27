@@ -136,7 +136,7 @@ var another = object(person);
 another.name = 'Greg';
 another.friends.push("Rob");
 
-var yetAnother = object(person);
+var yetAnother = object(person);        //object()方法，等同于Object.create(person); 
 yetAnother.name = 'Linda';
 yetAnother.friends.push("Barbie");
 
