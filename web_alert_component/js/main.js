@@ -11,6 +11,8 @@ require.config({
 require(['jquery','window','jqueryUI'],function($,w,$UI){
     $('#a').click(function(){
         var win = new w.Window();
+        console.log(win.constructor === w.Window);
+        console.log(win instanceof w.Window);
         win.alert({
             content:"welcome!!",
             title:"这是一个标题",

@@ -14,18 +14,19 @@ Object.defineProperty(myObject, "b", {
     enumerable: false
 });
 
-/*console.log(myObject.b);
+ console.log(myObject.b);
  console.log("b" in myObject);
  console.log(myObject.hasOwnProperty("b"));
  console.log(myObject.propertyIsEnumerable("b"));
  console.log(Object.getOwnPropertyNames(myObject));
- console.log(Object.keys(myObject));*/
+ console.log(Object.keys(myObject));
 
 for (var key in myObject) {
-    //console.log(key,myObject[key]);
+    console.log(key,myObject[key]);
 }
 
 
+console.log("+++++++++++++++++++++++");
 var arr = [1,2,3,4,5,4,3,2,1];
 
 var a = arr.some(function (elem, i, arr) {

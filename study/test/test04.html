@@ -1,10 +1,107 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>面向对象</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>面向对象</title>
 </head>
 <body>
-	<script type="text/javascript" src="./js/test04.js"></script>
+<!--<script type="text/javascript" src="./js/test04.js"></script>-->
+<script type="text/javascript" src="../lib/jquery-3.1.0.min.js"></script>
+
+
+<button>111</button>
+
+<script>
+    /*类的写法*/
+
+    //父类
+    function Widget(width, height) {
+        this.width = width || 50;
+        this.height = height || 50;
+        this.$elem = null;
+    }
+
+    Widget.prototype.render = function ($where) {
+        if (this.$elem) {
+            this.$elem.css({width: this.width + "px", height: this.height + "px"}).appendTo($where);
+        }
+    };
+
+    //子类
+    function Button(width, height, label) {
+        Widget.call(this, width, height);
+        this.label = label || "Default";
+        this.$elem = $("<button>").text(this.label);
+    }
+
+    //让Button继承Widget
+    Button.prototype = Object.create(Widget.prototype);
+
+    //重写render()
+    Button.prototype.render = function ($where) {
+        Widget.prototype.render.call(this, $where);
+        this.$elem.click(this.onClick.bind(this));
+    };
+
+    Button.prototype.onClick = function (evt) {
+        console.log("Button'" + this.label + "'clicked");
+    };
+
+    $(document).ready(function(){
+        var $body = $(document.body);
+        var btn1 = new Button(125,30,"Hello");
+        var btn2 = new Button(150,40,"World");
+
+        btn1.render($body);
+        btn2.render($body);
+    });
+
+    /*+++++++++++++++++++++++++++++++++++++++++++++*/
+
+    /*委托的写法*/
+
+    var Widget2 = {
+        init:function(width,height){
+            this.width = width || 50;
+            this.height = height || 50;
+            this.$elem = null;
+        },
+        insert:function($where){
+            if (this.$elem) {
+                this.$elem.css({width: this.width + "px", height: this.height + "px"}).appendTo($where);
+            }
+        }
+    };
+
+    var Button2 = Object.create(Widget2);
+
+    console.log(Button2);
+    Button2.setup = function(width,height,label,$where){
+        this.init(width,height);
+        this.label = label || "Default";
+        this.$elem = $("<button>").text(this.label);
+        this.build($where);
+    };
+
+    Button2.build = function($where){
+        this.insert($where);
+        this.$elem.click(this.onClick.bind(this));
+    };
+
+    Button2.onClick = function (evt) {
+        console.log("Button'" + this.label + "'clicked");
+    };
+
+    $(function(){
+        var $body2 = $(document.body);
+
+        var btn11 = Object.create(Button2);
+        btn11.setup(125,30,"china",$body2);
+
+        var btn22 = Object.create(Button2);
+        btn22.setup(150,40,"china2",$body2);
+    })
+
+</script>
 </body>
 </html>
