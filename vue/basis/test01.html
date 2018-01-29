@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js是什么</title>
+    <script src="lib/vue.js"></script>
+</head>
+    <body>
+        <!--声明式渲染-->
+        <div id="app">
+            <p>{{message}}</p>
+        </div>
+
+        <div id="app-2">
+            <span v-bind:title="message">鼠标悬停几秒钟查看此处动态绑定的提示信息！</span>
+        </div>
+
+        <!--条件和循环-->
+        <div id="app-3">
+            <p v-if="seen">看到我了吗？</p>
+            <p>{{message}}</p>
+        </div>
+
+        <div id="app-4">
+            <ol>
+                <li v-for="todo in todos">
+                    {{todo.text}}
+                </li>
+            </ol>
+        </div>
+        <!--处理用户输入-->
+        <div id="app-5">
+            <p>{{message}}</p>
+            <button v-on:click="reverseMessage">反转</button>
+            <input v-model="message">
+        </div>
+
+        <div id="app-6">
+            <ol>
+                <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+            </ol>
+        </div>
+
+        <div id="app-7">
+            <p v-once>{{rawHtml}}</p>
+            <p><span v-html="rawHtml"></span></p>
+            <p v-text="rawHtml"></p>
+        </div>
+
+        <script>
+
+            var app = new Vue({
+                el:'#app',
+                data:{
+                    message:'hello world!'
+                }
+            });
+
+            var app2= new Vue({
+                el:'#app-2',
+                data:{
+                    message:"页面加载于"+new Date().toLocaleString()
+                }
+            });
+
+
+            var app3 = new Vue({
+                el:'#app-3',
+                data:{
+                    seen:true,
+                    message:'有'
+                }
+            });
+
+            setTimeout(function(){
+                app3.seen = false;
+                app3.message = "无"
+            },4000);
+
+            var app4 = new Vue({
+                el:'#app-4',
+                data:{
+                    todos:[
+                        {text:'学习 js'},
+                        {text:'学习 vue'},
+                        {text:'学习 项目'},
+                        {text:'学习 todo'}
+                    ]
+                }
+            });
+
+            var app5 = new Vue({
+                el:'#app-5',
+                data:{
+                    message:'hello world!'
+                },
+                methods:{
+                    reverseMessage:function(){
+                        this.message = this.message.split('').reverse().join('');
+                    }
+                }
+            });
+
+            app5.$watch('message',function(newValue,oldValue){
+                console.log(newValue+"---"+oldValue);
+            });
+
+            console.log(app5.$el);
+            console.log(app5.$data.message);
+
+            //Object.freeze(app5);//阻止修改属性
+
+            Vue.component('todo-item',{
+                props:['todo'],
+                template:'<li>{{todo.text}}</li>'
+            });
+
+            var app6 = new Vue({
+                el:'#app-6',
+                data:{
+                    groceryList:[
+                        {id:0,text:'蔬菜'},
+                        {id:1,text:'水果'},
+                        {id:3,text:'随便'}
+                    ]
+                }
+            });
+
+            var app7 = new Vue({
+                el:'#app-7',
+                data:{
+                    rawHtml:"this is a html"
+                }
+            });
+        </script>
+    </body>
+</html>
