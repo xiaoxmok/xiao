@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for列表渲染</title>
+</head>
+<body>
+    <div id="app">
+        <ul v-for="(item,index,key) in items">
+            <li>{{parentMessage}}--{{index}}--{{item.message}}</li>
+        </ul>
+        <p>item of items</p>
+        <ul v-for="(item,index) of items">
+            <li>{{parentMessage}}--{{index}}--{{item.message}}</li>
+        </ul>
+
+        <ul v-for="(value,key,index) in object">
+            <li>{{index}}--{{key}}--{{value}}</li>
+        </ul>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                parentMessage:'Parent',
+                items:[
+                    {message:'foo'},
+                    {message:'bar'}
+                ],
+                object:{
+                    first:'name',
+                    lsat:'doe',
+                    age:20
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
