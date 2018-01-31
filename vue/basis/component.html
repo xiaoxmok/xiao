@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component组件</title>
+</head>
+<body>
+    <div id="app">
+        <test-component></test-component>
+        <child></child>
+
+        <div>
+            <simple-counter></simple-counter>
+            <simple-counter></simple-counter>
+            <simple-counter></simple-counter>
+        </div>
+
+
+        <div>
+            <child2 message="hello"></child2>
+            <child3 my-message="my-message"></child3>
+        </div>
+
+        <div>
+            <input type="text" v-model="parentMsg">
+            <br>
+            <child4 v-bind:my-message="parentMsg"></child4>
+        </div>
+
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        //全局注册
+        Vue.component('test-component',{
+            template:'<div>A custom component!</div>'
+        });
+
+        Vue.component('simple-counter',{
+            template:'<button v-on:click="counter += 1">{{counter}}</button>',
+            data:function(){
+                return {counter:0}
+            }
+        });
+
+        Vue.component('child2',{
+            props:['message'],
+            template:'<span>{{message}}</span>'
+        });
+
+        Vue.component('child3',{
+            props:['myMessage'],
+            template:'<div>{{myMessage}}</div>'
+        });
+
+        Vue.component('child4',{
+            props:['myMessage'],
+            template:'<span>{{myMessage}}</span>'
+        });
+
+        var child = {
+            template:'<div>child 局部注册</div>'
+        };
+
+        //var data = {counter:0};
+
+        //创建根实例
+        var app = new Vue({
+            el:'#app',
+            data:{
+                parentMsg:'111'
+            },
+            components:{
+                'child':child
+            }
+        });
+
+
+    </script>
+</body>
+</html>
