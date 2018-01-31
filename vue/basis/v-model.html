@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model表单输入绑定</title>
+</head>
+<body>
+    <div id="app">
+        <label>
+            <input type="text" v-model="input" placeholder="edit it">
+            <p>input: {{input}}</p>
+        </label>
+        <label>
+            <textarea v-model="textarea" placeholder="please input message"></textarea>
+            <p>textarea: {{textarea}}</p>
+        </label>
+
+        <input type="checkbox" id="checkbox" value="jack" v-model="checked">
+        <label for="jack">{{checked}}</label>
+
+        <div>
+            <input type="checkbox" id="jack" value="jack111" v-model="checkName">
+            <label for="jack">jack</label>
+            <input type="checkbox" id="john" value="john" v-model="checkName">
+            <label for="jack">john</label>
+            <input type="checkbox" id="mike" value="mike" v-model="checkName">
+            <label for="jack">mike</label>
+            <br>
+            <span>多选:{{checkName}}</span>
+        </div>
+
+        <div>
+            <input type="radio" id="one" value="one" v-model="picked">
+            <label for="one">one</label>
+            <br>
+            <input type="radio" id="two" value="tow" v-model="picked">
+            <label for="one">tow</label>
+            <br>
+            <span>单选:{{picked}}</span>
+        </div>
+
+        <div>
+            <select v-model="selected">
+                <option disabled value="">请选择</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>选择框：{{selected}}</span>
+        </div>
+
+        <div>
+            <select v-model="selectsed" multiple>
+                <option disabled value="">请选择</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>选择框 多选：{{selectsed}}</span>
+        </div>
+
+
+        <div>
+            <select v-model="selectVFor">
+                <option v-for="select in selects" v-bind:value="select.value">{{select.text}}</option>
+            </select>
+            <span>v-for 渲染:{{selectVFor}}</span>
+        </div>
+
+        <input type="text" v-model.lazy="msg">
+        <p>change事件:{{msg}}</p>
+
+        <input type="text" v-model.number="age" type="number">
+        <p>自动转换成number类型：{{age}}</p>
+
+        <input type="text" v-model.trim="trim">
+        <p>自动删除首尾空白字符：{{trim}}</p>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                input:'',
+                textarea:'',
+                checkName:[],
+                checked:false,
+                picked:'',
+                selected:'',
+                selectsed:[],
+                selects:[
+                    {text:'one',value:'A'},
+                    {text:'two',value:'B'},
+                    {text:'three',value:'C'}
+                ],
+                selectVFor:'',
+                msg:'',
+                age:'',
+                trim:''
+            },
+            methods:{
+                say:function(){
+                    console.log("222");
+                }
+            }
+        });
+
+
+    </script>
+</body>
+</html>

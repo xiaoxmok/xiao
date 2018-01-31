@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on事件处理</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="counter +=1">add</button>
+        <p>the button above has been clicked {{counter}} times</p>
+
+        <button v-on:click="greet">greet</button>
+
+        <button v-on:click="say('hello')">say hi</button>
+
+        <button v-on:click="warn('For cannot be submitted yet',$event)">warn</button>
+
+        <a v-on:click.stop="doThis">停止冒泡</a>
+        <a v-on:click.prevent="doThis">阻止默认行为</a>
+        <a v-on:click.stop.prevent="doThis">可串联</a>
+        <a v-on:click.captrue="doThis">使用捕获模式</a>
+
+        <input type="text" v-on:keyup.enter="onEnter" v-model="value">
+
+        <input type="text" @keyup.page-down="onEnter" v-model="value">
+
+        <button v-on:click.once="onOne">只能点击一次</button>
+
+        <button v-on:click.ctrl="doSomething">随意键加ctrl键</button>
+        <button v-on:click.ctrl.exact="doSomething">只加ctrl键</button>
+        <button v-on:click.exact="doSomething">不按任何键，只点击</button>
+
+        <input type="text" @keyup.alt.67="clear" v-model="value">
+    </div>
+
+    <!--event.cancelBubble = true  停止事件冒泡
+    event.returnValue = false  阻止默认事件
+    event.preventDefault(); 阻止默认事件
+    event.stopPropagation(); 停止事件冒泡-->
+    <script src="lib/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                counter:0,
+                name:'Vue.js',
+                value:''
+            },
+            methods:{
+                greet:function(e){
+                    console.log("hello " + this.name);
+                    if(e){
+                        console.log(e.target.tagName);
+                    }
+                },
+                say:function(message){
+                    console.log(message);
+                },
+                warn:function(message,event){
+                    if(event) event.preventDefault();
+                    console.log(message);
+                },
+                doThis:function(){
+                    console.log("a");
+                },
+                onEnter:function(){
+                    console.log(this.value);
+                    this.value = '';
+                },
+                onOne:function(){
+                    console.log("点完了。");
+                },
+                doSomething:function(){
+                    console.log("ctrl键点击");
+                },
+                clear:function(){
+                    this.value = '';
+                    console.log("clear");
+                }
+            }
+        });
+
+        app.greet();
+
+    </script>
+</body>
+</html>

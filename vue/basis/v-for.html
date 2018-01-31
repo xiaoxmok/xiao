@@ -5,38 +5,66 @@
     <title>v-for列表渲染</title>
 </head>
 <body>
-    <div id="app">
-        <ul v-for="(item,index,key) in items">
-            <li>{{parentMessage}}--{{index}}--{{item.message}}</li>
-        </ul>
-        <p>item of items</p>
-        <ul v-for="(item,index) of items">
-            <li>{{parentMessage}}--{{index}}--{{item.message}}</li>
-        </ul>
+<div id="app">
+    <ul>
+        <li v-for="(item,index,key) in items">{{parentMessage}}--{{index}}--{{item.message}}</li>
+    </ul>
+    <p>item of items</p>
+    <ul>
+        <li v-for="(item,index) of items">{{parentMessage}}--{{index}}--{{item.message}}</li>
+    </ul>
 
-        <ul v-for="(value,key,index) in object">
-            <li>{{index}}--{{key}}--{{value}}</li>
-        </ul>
+    <ul>
+        <li v-for="(value,key,index) in object">{{index}}--{{key}}--{{value}}</li>
+    </ul>
+
+    <div v-for="item in items" :key="item.id">{{item.message}}</div>
+    <button @click="assObject">合并对象</button>
+
+    <ul>
+        <li v-for="n in even(num)">{{n}}</li>
+    </ul>
+    <div>
+        <span v-for="n in 10">{{n}}</span>
     </div>
+</div>
 
-    <script src="lib/vue.js"></script>
-    <script>
-        var app = new Vue({
-            el:'#app',
-            data:{
-                parentMessage:'Parent',
-                items:[
-                    {message:'foo'},
-                    {message:'bar'}
-                ],
-                object:{
-                    first:'name',
-                    lsat:'doe',
-                    age:20
-                }
+<script src="lib/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            parentMessage: 'Parent',
+            items: [
+                {message: 'foo'},
+                {message: 'bar'}
+            ],
+            object: {
+                first: 'name',
+                last: 'doe',
+                age: 20
+            },
+            num: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        },
+        methods: {
+            assObject: function () {
+                this.object = Object.assign({}, this.object, {
+                    name: 'abc',
+                    job: 'work'
+                })
+            },
+            even: function (arr) {
+                return arr.filter(function (num) {
+                    return num % 2 !== 0
+                })
             }
-        });
+        }
+    });
 
-    </script>
+    Vue.set(app.object, 'age1', 20);
+
+    app.$set(app.object, 'age11', 30);
+
+</script>
 </body>
 </html>
