@@ -52,7 +52,7 @@
     </div>
 
     <div>
-        <transition name="fade">
+        <transition name="fade" mode="in-out">
             <button v-if="on" v-on:click="on= !on">on</button>
             <button v-if="!on" v-on:click="on= !on">off</button>
         </transition>
