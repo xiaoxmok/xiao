@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transition过渡&动画</title>
+    <link rel="stylesheet" href="./lib/animate.css">
+    <style>
+
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity .5s;
+        }
+
+        .fade-enter, .fade-leave-to {
+            opacity: 0;
+        }
+
+        .in-out-translate-demo-wrapper{
+            position: relative;
+            height: 18px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <div>
+        <button v-on:click="show = !show">Toggle</button>
+        <transition name="fade">
+            <p v-if="show">Hello</p>
+        </transition>
+    </div>
+
+    <div>
+        <button v-on:click="show1 = !show1">Toggle</button>
+        <transition name="custom-classes-transition" enter-active-class="animated tada"
+                    leave-active-class="animated bounceOutRight">
+            <p v-if="show1" key="true">animate.css</p>
+            <p v-else key="false">v-else</p>
+        </transition>
+    </div>
+
+    <div>
+        <button v-on:click="show2 = !show2">Toggle</button>
+        <transition
+                v-on:before-enter="beforeEnter"
+                v-on:enter="enter"
+                v-on:leave="leave"
+                v-bind:css="false"
+        >
+            <p v-if="show2">Demo</p>
+        </transition>
+    </div>
+
+    <div>
+        <transition name="fade">
+            <button v-if="on" v-on:click="on= !on">on</button>
+            <button v-if="!on" v-on:click="on= !on">off</button>
+        </transition>
+    </div>
+
+</div>
+
+<script src="lib/vue.js"></script>
+<script src="lib/velocity.min.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            show: true,
+            show1: true,
+            show2: true,
+            on:true
+        },
+        methods: {
+            beforeEnter: function (el) {
+                el.style.opacity = 0;
+                el.style.transformOrigin = 'left';
+            },
+            enter: function (el,done) {
+                Velocity(el, {opacity: 1, fontSize: '1.4em'}, {duration: 300});
+                Velocity(el, {fontSize: '1em'}, {complete: done});
+            },
+            leave: function (el,done) {
+                Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+                Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+                Velocity(el, {
+                    rotateZ: '45deg',
+                    translateY: '30px',
+                    translateX: '30px',
+                    opacity: 0
+                }, { complete: done })
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>
