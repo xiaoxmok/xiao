@@ -14,9 +14,81 @@
             opacity: 0;
         }
 
-        .in-out-translate-demo-wrapper{
+        .in-out-translate-demo-wrapper {
             position: relative;
             height: 18px;
+        }
+
+        .conponent-fade-enter-active, .conponent-fade-leave-active {
+            transition: all .3s ease;
+
+        }
+
+        .conponent-fade-enter, .conponent-fade-leave-to {
+            transform: translateX(10px);
+            opacity: 0;
+        }
+
+        .list-items{
+            width: 238px;
+        }
+        .list-item:nth-child(3n){
+            margin-right: 0;
+        }
+        .list-item:nth-child(27n){
+            margin-bottom: 0;
+        }
+
+        .list-item {
+            display: inline-block;
+            margin-right: -1px;
+            margin-bottom: -1px;
+            transition: all 1s;
+            width:25px;
+            height:25px;
+            border: 1px solid #aaa;
+            text-align: center;
+            line-height: 25px;
+        }
+
+        .list-enter-active, .list-leave-active {
+            position: absolute;
+        }
+
+        .list-enter, .list-leave-to {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+
+        .sudoku-container{
+            display: flex;flex-wrap: wrap;width:238px;margin-top:10px;
+        }
+        .cell{
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            width:25px;
+            height:25px;
+            border: 1px solid #aaa;
+            margin-right: -1px;
+            margin-bottom: -1px;
+        }
+        .cell:nth-child(3n){
+            margin-right: 0;
+        }
+        .cell:nth-child(27n){
+            margin-bottom: 0;
+        }
+
+        .sudoku-move,.sudoku-move .sudo{
+            transition:all 1s;
+        }
+
+        .sudo{
+            width:79px;
+            display: flex;flex-wrap: wrap;
+            margin-bottom: 1px;
         }
 
     </style>
@@ -58,10 +130,52 @@
         </transition>
     </div>
 
+    <div>
+        <h3>多组件的过渡</h3>
+        <input type="radio" value="A" id="a" name="rad" v-model="picked"><label for="a">A</label>
+        <input type="radio" value="B" id="b" name="rad" v-model="picked"><label for="b">B</label>
+        <transition name="conponent-fade" mode="out-in">
+            <comonent v-bind:is="picked"></comonent>
+        </transition>
+    </div>
+
+    <div>
+        <button v-on:click="shuffle">shuffle</button>
+        <button v-on:click="add">add</button>
+        <button v-on:click="remove">remove</button>
+        <transition-group name="list" tag="p" class="list-items">
+            <span v-for="item in items" v-bind:key="item" class="list-item">{{item}}</span>
+        </transition-group>
+
+    </div>
+
+    <div>
+        <button @click="shuffle2">shuffle2</button>
+        <transition-group name="sudoku" tag="div" class="sudoku-container">
+            <div class="cell" v-for="cell in cells" :key="cell.id">{{cell.number}}</div>
+        </transition-group>
+    </div>
+
+    <div>
+        <button @click="shuffle3">shuffle3</button>
+        <transition-group name="sudoku" tag="div" class="sudoku-container">
+            <transition-group name="sudoku" class="sudo" v-for="sudo in sudos" :key="sudo.id" tag="div">
+                <div class="cell" v-for="cell in sudo.number" :key="cell.id">{{cell.number}}</div>
+            </transition-group>
+        </transition-group>
+
+        <!--<div class="sudoku-container">
+            <transition-group name="sudoku" class="sudo" v-for="sudo in sudos" :key="sudo.id" tag="div">
+                <div class="cell" v-for="cell in sudo.number" :key="cell.id">{{cell.number}}</div>
+            </transition-group>
+        </div>-->
+    </div>
+
 </div>
 
 <script src="lib/vue.js"></script>
 <script src="lib/velocity.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
 <script>
     var app = new Vue({
         el: '#app',
@@ -69,26 +183,85 @@
             show: true,
             show1: true,
             show2: true,
-            on:true
+            on: true,
+            picked: 'A',
+            items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            nextNum: 0,
+            cells:Array.apply(null,{length:81}).map(function(_,index){
+                return {
+                    id:index,
+                    number:index % 9 +1
+                }
+            }),
+            sudos:Array.apply(null,{length:9}).map(function(_,index){
+                return {
+                    id:index,
+                    number:Array.apply(null,{length:9}).map(function(_,index){
+                        return {
+                            id:index,
+                            number:index % 9 +1
+                        }
+                    })
+                }
+            }),
+        },
+        components: {
+            'A': {
+                template: '<div>Conponent A</div>'
+            },
+            'B': {
+                template: '<div>Conponent B</div>'
+            }
         },
         methods: {
             beforeEnter: function (el) {
                 el.style.opacity = 0;
                 el.style.transformOrigin = 'left';
             },
-            enter: function (el,done) {
+            enter: function (el, done) {
                 Velocity(el, {opacity: 1, fontSize: '1.4em'}, {duration: 300});
                 Velocity(el, {fontSize: '1em'}, {complete: done});
             },
-            leave: function (el,done) {
-                Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
-                Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+            leave: function (el, done) {
+                Velocity(el, {translateX: '15px', rotateZ: '50deg'}, {duration: 600})
+                Velocity(el, {rotateZ: '100deg'}, {loop: 2})
                 Velocity(el, {
                     rotateZ: '45deg',
                     translateY: '30px',
                     translateX: '30px',
                     opacity: 0
-                }, { complete: done })
+                }, {complete: done})
+            },
+            randomIndex: function () {
+                return Math.floor(Math.random() * this.items.length);
+            },
+            add: function () {
+                //console.log(this.randomIndex());
+                this.nextNum = this.items.length + 1;
+                this.items.splice(this.randomIndex(), 0, this.nextNum++);
+            },
+            remove: function () {
+                this.items.splice(this.randomIndex(), 1);
+
+                var arr = [];
+                for (var i = 0; i < this.items.length; i++) {
+                    arr.push(i+1);
+                }
+
+                //this.items = arr;
+
+            },
+            shuffle:function(){
+                this.items = _.shuffle(this.items);
+            },
+            shuffle2:function(){
+                this.cells = _.shuffle(this.cells);
+                //console.log(this.cells);
+            },
+            shuffle3:function(){
+                for(var i=0;i<this.sudos.length;i++){
+                    this.sudos[i].number = _.shuffle(this.sudos[i].number);
+                }
             }
         }
     });
