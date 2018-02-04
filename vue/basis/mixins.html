@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mixin混合</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+
+        var myMixin = {
+            created:function(){
+                this.hello();
+            },
+            methods:{
+                hello:function(){
+                    console.log("Hello from mixin");
+                }
+            }
+        };
+
+        var Component = Vue.extend({
+            mixins:[myMixin]
+        });
+
+        //var conponent = new Component();
+
+        var app = new Vue({
+            mixins:[myMixin],
+            created:function(){
+                console.log("混合");
+            },
+            methods:{
+                hello:function(){
+                    console.log('Hello from methods');
+                },
+                bar:function(){
+                    console.log("bar");
+                }
+            }
+        });
+
+
+        Vue.mixin({
+           created:function(){
+               var myOption = this.$options.myOption;
+               if(myOption){
+                   console.log(myOption);
+               }
+           }
+        });
+
+        var app2 = new Vue({
+            myOption:'自定义选项"myOption"'
+        });
+
+    </script>
+</body>
+</html>

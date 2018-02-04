@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.directives自定义指令</title>
+    <style>
+
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-focus>
+    <input type="text" v-defalut>
+
+    <div v-demo:foo.a.b="message"></div>
+
+    <div v-test="{color:'red',text:'hello'}"></div>
+
+    <div v-color-swatch="style">{{message}}</div>
+
+</div>
+
+
+<script src="lib/vue.js"></script>
+<script>
+    //注册全局自定义指令 'v-focus'
+    Vue.directive('focus', {
+        inserted: function (el) {
+            el.focus();
+        }
+    });
+
+    Vue.directive('demo', {
+        bind: function (el, binding, vnode) {
+            var s = JSON.stringify;
+            el.innerHTML =
+                    'name:' + s(binding.name) + '<br>' +
+                    'value：' + s(binding.value) + '<br>' +
+                    'expression：' + s(binding.expression) + '<br>' +
+                    'argument:' + s(binding.arg) + '<br>' +
+                    'modifiers:' + s(binding.modifiers) + '<br>' +
+                    'vnode keys:' + Object.keys(vnode).join(', ')
+        }
+    });
+
+
+    //函数的简写，在bind和update时触发
+    Vue.directive('color-swatch',function(el,binding){
+        //el.style.backgroundColor = JSON.stringify(binding.value);
+        el.style.backgroundColor = binding.value.bgColor;
+        el.style.width = binding.value.width;
+        el.style.height = binding.value.height;
+        el.innerHTML = binding.value.text;
+    });
+
+    //指令可以传对象字面量
+    Vue.directive('test',function(el,binding){
+        el.innerHTML = binding.value.color +'--'+binding.value.text;
+        el.style.color = binding.value.color;
+    });
+
+
+    var app = new Vue({
+        el: "#app",
+        data:{
+            message:'hello',
+            style:{
+                text:'hello',
+                bgColor:'#ff9b26',
+                width:'100px',
+                height:'100px'
+            }
+        },
+        //注册局部指令
+        directives: {
+            defalut: {
+                inserted: function (el) {
+                    el.value = 'dafalut';
+                }
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>
