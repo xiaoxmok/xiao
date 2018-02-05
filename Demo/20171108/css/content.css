@@ -21,7 +21,7 @@
 .center{width:3rem;height:2px;background: #a0a0a0;font-size: 1px;float:left;margin-top: .56rem;}
 
 .re_main .step .proper{
-    background: url(../img/icon_on.png) no-repeat;
+    background: url(../../../webpack/webpack-vue/src/assets/img/icon_on.png) no-repeat;
     background-size: contain;
     width: .64rem;
     height: .64rem;
