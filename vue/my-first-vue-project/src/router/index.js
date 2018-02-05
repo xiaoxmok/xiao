@@ -6,10 +6,12 @@ import todoList from '@/components/todoList'
 Vue.use(Router)
 
 export default new Router({
+  // mode: 'history',
+  // base: '/todolist/',
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
+      name: 'Home',
       component: HelloWorld
     },
     {
@@ -23,6 +25,6 @@ export default new Router({
       component: todoList
     }
   ],
-  linkActiveClass:'linkActiveClass',
-  linkExactActiveClass:'linkExactActiveClass'
+  linkActiveClass: 'linkActiveClass',
+  linkExactActiveClass: 'linkExactActiveClass'
 })

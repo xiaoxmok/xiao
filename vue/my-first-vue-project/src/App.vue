@@ -29,5 +29,6 @@ export default {
 .nav .a{margin-right: 20px;color: #42b983;text-decoration: none;}
 
 .linkActiveClass{color:#ff9b26!important;border-bottom: 1px solid #ff9b26}
+.linkExactActiveClass{color:#ff9b26!important;border-bottom: 1px solid #ff9b26}
 
 </style>
