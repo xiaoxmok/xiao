@@ -1,0 +1,220 @@
+@import "./theme.styl"
+
+//通用样式
+*
+  margin 0
+  padding 0
+  list-style none
+
+button
+  border none
+
+.fullBtn
+  width: 100%
+
+button, input
+  -webkit-appearance none
+  outline none
+
+i
+  font-style normal
+
+.ovh
+  overflow hidden
+
+a
+  color: #000
+  outline none
+  text-decoration none
+  -webkit-tap-highlight-color: transparent
+
+.flex
+  display: flex;
+
+.flex-bt
+  justify-content space-between
+
+.mt20
+  margin-top: 20px
+
+.mt30
+  margin-top: 40px
+
+.mt30
+  margin-top: 30px
+
+.mb20
+  margin-bottom: 20px
+
+.mr20
+  margin-right: 20px
+
+.fz13
+  font-size: 1.3rem
+
+.fz14
+  font-size: 1.4rem
+
+.fz12
+  font-size: 1.2rem
+
+.fz16
+  font-size: 1.6rem
+
+.fz15
+  font-size: 1.5rem
+
+.tac
+  text-align: center
+
+.noWrapper
+  white-space nowrap
+
+//app.vue
+#app
+  min-height 100vh
+  min-width 1000px
+  font-family '微软雅黑'
+  background-color: #F5F5F9
+
+//常用文字格式
+.contentCommon
+  color: #7d7d7d
+  font-size: 1.4rem
+  line-height: 1.8rem
+
+.dateContentCommon
+  color: #999
+  font-size: 1.3em
+
+.icon-back
+  color #fff
+  position: absolute
+  left: 1rem
+  top: 50%
+  transform translateY(-50%)
+
+//常用btns按钮
+.my-btn-primary
+  background-color: transparent
+  border 1px solid #0AA86C
+  font-size: 1.3rem
+  padding 0.4rem 1rem
+  line-height: 1
+  border-radius 2.5rem
+  color: #0AA86C
+  a
+    color: #0AA86C
+
+.my-btn-solid
+  background-color: #FF7118
+  font-size: 1.5rem
+  padding 0.5rem 1rem
+  line-height: 1.5rem
+  border-radius 2.5rem
+  color: #fff
+
+.btn-large
+  display: inline-block
+  width: (690 / 750 * 37.5) rem
+  line-height: 1
+  padding: 1em 0
+
+.btn-primary-c
+  background-color: #0DAB6C
+
+// 图标默认样式
+.iconfont
+  vertical-align: middle;
+  margin-right: 5px;
+  width: 24px;
+  text-align: center;
+  font-size: 20px;
+
+// 筛选面板样式
+.toolbar
+  background: #f2f2f2;
+  padding: 10px;
+  margin: 10px 0;
+  padding-bottom: 0px;
+  .el-input__inner
+    height: 36px
+  .el-form-item
+    margin-bottom: 10px
+  .el-button
+    padding: 10px 20px;
+
+// 工具面板样式
+.controls
+  margin: 20px 0 10px
+
+// 列表样式修改
+#app
+  .my_table_cell
+    text-align: center
+  .my_table_header
+    color: #333
+    background: #eef1f6
+    text-align: center
+
+// 表单页面面板样式
+.form_panel, .cards
+  margin-top: 30px
+
+// 面板样式
+.my_panel
+  display: flex
+  flex-wrap wrap
+  &.form_in_panel
+    .el-form-item
+      margin-bottom: 20px
+      .el-input
+        width: 100%
+      &:last-child
+        margin-bottom: 0
+  &.trisect_panel
+    .el-form-item
+      width: 33%;
+  &.half_panel
+    .el-form-item
+      width: 50%;
+  .el-form-item
+    &.flexFull
+      display: flex
+      .el-form-item__label
+        min-width 130px
+      .el-form-item__content
+        flex: 1
+    &.panel_item_row
+      width: 100%
+    width: 100%
+    margin-right: 0;
+    margin-bottom: 0;
+    .el-form-item__label
+      width: 130px;
+      color: #99a9bf;
+
+// 左边图片的面板
+.my_panel
+  .el-form-item__label, .el-form-item__content
+    line-height: 30px
+  .left_img_wrapper
+    display flex
+    align-items center
+    width: 100%
+    margin-bottom: 10px
+    .left_img
+      width: 90px
+      height: 90px
+      margin-right: 30px
+      border-radius: 8px
+
+// 展开效果标题样式
+.collapse_title
+  border-left: 4px solid color-primary
+  line-height: 2.5em
+  padding-left: 10px
+  font-size: 16px
+.el-collapse-item__wrap
+  border-bottom: none
+
