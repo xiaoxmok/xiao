@@ -12,10 +12,13 @@ const config = {
     target: 'web',
 
     // entry输入文件
-    entry: path.join(__dirname, 'src/main.js'),
+    entry: {
+        main: path.join(__dirname, 'src/main.js'),
+        index: path.join(__dirname, 'src/module/index.js')
+    },
     // output输出文件
     output: {
-        filename: 'bundle.js',
+        filename: '[name].js',
         path: path.join(__dirname, 'dist'),
         publicPath: '/'
     },
