@@ -5,5 +5,8 @@ module.exports = {
     },
     c:function(){
         console.log("this is c");
+    },
+    d:function(){
+        console.log("没啥可提交的。");
     }
 }
