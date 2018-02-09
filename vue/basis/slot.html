@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slot渲染函数&JSX</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <blog-post>
+                <h1 slot="header">
+                    About me
+                </h1>
+                <p>Here's some page content,在vm.$slots.default中</p>
+
+                <p slot="footer">Copyright 2016 Evan You</p>
+                <p>some content,在vm.$slots.default中</p>
+            </blog-post>
+        </div>
+
+
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script>
+        Vue.component('blog-post',{
+            render:function(createElement){
+                var header = this.$slots.header
+                var body = this.$slots.default
+                var footer = this.$slots.footer
+                return createElement('div',[
+                    createElement('header',header),
+                    createElement('body',body),
+                    createElement('footer',footer)
+                ])
+            }
+        });
+
+        var app = new Vue({
+            el:'#app'
+        });
+
+    </script>
+</body>
+</html>

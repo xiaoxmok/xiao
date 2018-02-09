@@ -14,19 +14,23 @@ const config = {
     // entry输入文件
     entry: {
         main: path.join(__dirname, 'src/main.js'),
-        index: path.join(__dirname, 'src/module/index.js')
+        //index: path.join(__dirname, 'src/module/index.js')
     },
     // output输出文件
     output: {
         filename: '[name].js',
         path: path.join(__dirname, 'dist'),
-        publicPath: '/'
+        publicPath: './'
     },
     module: {
         rules: [
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'
+            },
+            {
+                test: /\.jsx$/,
+                loader: 'babel-loader'
             },
             {
                 test: /\.css$/,
@@ -41,6 +45,12 @@ const config = {
                 use: [
                     'style-loader',
                     'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
                     'stylus-loader'
                 ]
             },
