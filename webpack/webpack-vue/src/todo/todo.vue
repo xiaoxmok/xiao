@@ -25,13 +25,15 @@
 <script>
 import Item from './item.vue'
 import Tabs from './tabs.vue'
+import Storage from '../storage/storage'
 let id = 0
+const STORAGE_KEY = 'todos'
 
 export default {
     //name: "todo.vue",
     data() {
         return {
-            todos: [],
+            todos: Storage.fetch(STORAGE_KEY),
             filter: 'All'
         }
     },
@@ -47,14 +49,25 @@ export default {
             })*/
         }
     },
+    watch: {
+        todos: {
+            handler: function(val){
+                Storage.save(STORAGE_KEY, val)
+            },
+            deep: true
+        }
+    },
     methods: {
         addTodo(e) {
-            this.todos.unshift({
-                id: id++,
-                content: e.target.value.trim(),
-                completed: false
-            })
-            e.target.value = ''
+            if(e.target.value.trim() !== ''){
+                console.log(e.target.value.trim() !== '')
+                this.todos.unshift({
+                    id: id++,
+                    content: e.target.value.trim(),
+                    completed: false
+                })
+                e.target.value = ''
+            }
         },
         deleteTodo(id) {
             this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1);
