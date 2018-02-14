@@ -30,7 +30,7 @@ if (true) {
     let tmp
 }
 console.log(typeof a);
-if(true){
+if (true) {
     //tmp = 'abc';          //// ReferenceError
     //console.log(tmp);         // ReferenceError
     //typeof tmp;         // ReferenceError
@@ -41,3 +41,16 @@ if(true){
     tmp = 123;
     console.log(tmp);           // 123
 }
+
+
+function foo(arg) {         // 不允许重复声明变量和参数
+    var a = '11';
+    let a = '22';
+    let b
+    let b = 3;
+    let arg;
+}
+
+//foo();
+
+
