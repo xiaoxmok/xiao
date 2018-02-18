@@ -53,4 +53,8 @@ function foo(arg) {         // 不允许重复声明变量和参数
 
 //foo();
 
+const b = [];
+b.push('hello');
+console.log(b);
+
 
