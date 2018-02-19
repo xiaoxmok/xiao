@@ -11,4 +11,12 @@ function f() {
 
 let [x = f()] = [1];
 
-console.log(x,a,b,c);
+console.log(x, a, b, c)
+
+
+const [d, e, i, g, h] = 'hello';
+
+console.log(d, e, i, g, h);
+
+let {length: len} = 'hello';
+console.log(len);

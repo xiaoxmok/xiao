@@ -1,0 +1,36 @@
+import yargs from 'yargs';
+
+var args = yargs
+
+    .option('production', {
+        boolean: true,
+        default: false,
+        describe: 'min all script'
+    })
+
+    .option('watch', {
+        boolean: true,
+        default: false,
+        describe: 'watch all files'
+    })
+
+    .option('verbose', {
+        boolean: true,
+        default: false,
+        describe: 'log'
+    })
+
+    .option('sourcemaps', {
+        describe: 'force the creation of sourcemaps'
+    })
+
+    .option('port', {
+        string: true,
+        default: 8000,
+        describe: 'server port'
+    })
+
+    .argv;
+
+
+export default args;
