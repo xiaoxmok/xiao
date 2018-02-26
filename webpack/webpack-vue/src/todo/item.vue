@@ -64,14 +64,16 @@
     -webkit-appearance none
 }
 .toggle:before{
-    content:url('../assets/img/round.png')
+    content:url('../assets/img/icon_off.png')
     position absolute
+    top 5px
     left 12px
     cursor pointer
 }
 .toggle:checked:before{
-    content : url('../assets/img/done.png')
+    content : url('../assets/img/icon_on.png')
     position absolute
+    top 5px
     left 12px
     cursor pointer
 }
