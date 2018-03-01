@@ -9,7 +9,7 @@
         seriesCenter: ['30%', '50%'],
         seriesRadius: '60%',
         legendTop: '15%',
-        legendLeft: '60%'
+        legendLeft: '55%'
     };
 
     var screnH = window.screen.width;
@@ -93,7 +93,7 @@
                 break;
             case 4:
                 opts.legendTop = '32%';
-                domId.style.height = 7 + 'rem';
+                domId.style.height = 6 + 'rem';
                 opts.seriesRadius='70%';
                 if (opts.title.length === 0) {
                     opts.legendTop = '15%';
@@ -205,6 +205,169 @@
         };
 
         myChart.setOption(option);
+        myChart.on('click', function (params) {
+
+            //console.log('aa',params.dataIndex);
+            //console.log('aa');
+            switch (params.dataIndex){
+                case 0:
+                    var html='<a href="#">\n' +
+                        '                <div class="dis_flex dis_info">\n' +
+                        '                    <p class="flex_2 tl">民生</p>\n' +
+                        '                    <p class="flex_2 tc">148</p>\n' +
+                        '                    <p class="flex_2 tr">237200.93</p>\n' +
+                        '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                        '                </div>\n' +
+                        '            </a>\n' +
+                        '            <a href="#">\n' +
+                        '                <div class="dis_flex dis_info">\n' +
+                        '                    <p class="flex_2 tl">建行</p>\n' +
+                        '                    <p class="flex_2 tc">148</p>\n' +
+                        '                    <p class="flex_2 tr">237200.93</p>\n' +
+                        '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                        '                </div>\n' +
+                        '            </a>'
+                    $('.pieData').html(html);
+
+                    break;
+                case 1:
+                    var html='<a href="#">\n' +
+                        '                <div class="dis_flex dis_info">\n' +
+                        '                    <p class="flex_2 tl">新浪</p>\n' +
+                        '                    <p class="flex_2 tc">148</p>\n' +
+                        '                    <p class="flex_2 tr">237200.93</p>\n' +
+                        '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                        '                </div>\n' +
+                        '            </a>\n' +
+                        '            <a href="#">\n' +
+                        '                <div class="dis_flex dis_info">\n' +
+                        '                    <p class="flex_2 tl">百度</p>\n' +
+                        '                    <p class="flex_2 tc">148</p>\n' +
+                        '                    <p class="flex_2 tr">237200.93</p>\n' +
+                        '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                        '                </div>\n' +
+                        '            </a>';
+                    $('.pieData').html(html);
+                    break;
+                case 2:
+                    var html='<a href="#">\n' +
+                        '                <div class="dis_flex dis_info">\n' +
+                        '                    <p class="flex_2 tl">互联网</p>\n' +
+                        '                    <p class="flex_2 tc">148</p>\n' +
+                        '                    <p class="flex_2 tr">237200.93</p>\n' +
+                        '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                        '                </div>\n' +
+                        '            </a>\n' +
+                        '            <a href="#">\n' +
+                        '                <div class="dis_flex dis_info">\n' +
+                        '                    <p class="flex_2 tl">百度</p>\n' +
+                        '                    <p class="flex_2 tc">148</p>\n' +
+                        '                    <p class="flex_2 tr">237200.93</p>\n' +
+                        '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                        '                </div>\n' +
+                        '            </a>';
+                    $('.pieData').html(html);
+                    break;
+                case 3:
+                    var html='<a href="#">\n' +
+                        '                <div class="dis_flex dis_info">\n' +
+                        '                    <p class="flex_2 tl">其他</p>\n' +
+                        '                    <p class="flex_2 tc">148</p>\n' +
+                        '                    <p class="flex_2 tr">237200.93</p>\n' +
+                        '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                        '                </div>\n' +
+                        '            </a>\n' +
+                        '            <a href="#">\n' +
+                        '                <div class="dis_flex dis_info">\n' +
+                        '                    <p class="flex_2 tl">百度</p>\n' +
+                        '                    <p class="flex_2 tc">148</p>\n' +
+                        '                    <p class="flex_2 tr">237200.93</p>\n' +
+                        '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                        '                </div>\n' +
+                        '            </a>';
+                    $('.pieData').html(html);
+                    break;
+                default:
+
+                    break;
+            }
+        });
+        myChart.on('mouseout',function(params){
+            //console.log('22');
+            var html = '<a href="cmbc.html">\n' +
+                '                <div class="dis_flex dis_info">\n' +
+                '                    <p class="flex_2 tl">民生</p>\n' +
+                '                    <p class="flex_2 tc">147</p>\n' +
+                '                    <p class="flex_2 tr">1520446.19</p>\n' +
+                '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                '                </div>\n' +
+                '            </a>\n' +
+                '            <a href="#">\n' +
+                '                <div class="dis_flex dis_info">\n' +
+                '                    <p class="flex_2 tl">新浪</p>\n' +
+                '                    <p class="flex_2 tc">148</p>\n' +
+                '                    <p class="flex_2 tr">237200.93</p>\n' +
+                '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                '                </div>\n' +
+                '            </a>\n' +
+                '            <a href="#">\n' +
+                '                <div class="dis_flex dis_info">\n' +
+                '                    <p class="flex_2 tl">新浪</p>\n' +
+                '                    <p class="flex_2 tc">148</p>\n' +
+                '                    <p class="flex_2 tr">237200.93</p>\n' +
+                '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                '                </div>\n' +
+                '            </a>\n' +
+                '            <a href="#">\n' +
+                '                <div class="dis_flex dis_info">\n' +
+                '                    <p class="flex_2 tl">新浪</p>\n' +
+                '                    <p class="flex_2 tc">148</p>\n' +
+                '                    <p class="flex_2 tr">237200.93</p>\n' +
+                '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                '                </div>\n' +
+                '            </a>\n' +
+                '            <a href="#">\n' +
+                '                <div class="dis_flex dis_info">\n' +
+                '                    <p class="flex_2 tl">新浪</p>\n' +
+                '                    <p class="flex_2 tc">148</p>\n' +
+                '                    <p class="flex_2 tr">237200.93</p>\n' +
+                '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                '                </div>\n' +
+                '            </a>\n' +
+                '            <a href="#">\n' +
+                '                <div class="dis_flex dis_info">\n' +
+                '                    <p class="flex_2 tl">新浪</p>\n' +
+                '                    <p class="flex_2 tc">148</p>\n' +
+                '                    <p class="flex_2 tr">237200.93</p>\n' +
+                '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                '                </div>\n' +
+                '            </a>\n' +
+                '            <a href="#">\n' +
+                '                <div class="dis_flex dis_info">\n' +
+                '                    <p class="flex_2 tl">新浪</p>\n' +
+                '                    <p class="flex_2 tc">148</p>\n' +
+                '                    <p class="flex_2 tr">237200.93</p>\n' +
+                '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                '                </div>\n' +
+                '            </a>\n' +
+                '            <a href="#">\n' +
+                '                <div class="dis_flex dis_info">\n' +
+                '                    <p class="flex_2 tl">新浪</p>\n' +
+                '                    <p class="flex_2 tc">148</p>\n' +
+                '                    <p class="flex_2 tr">237200.93</p>\n' +
+                '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                '                </div>\n' +
+                '            </a>\n' +
+                '            <a href="#">\n' +
+                '                <div class="dis_flex dis_info">\n' +
+                '                    <p class="flex_2 tl">新浪</p>\n' +
+                '                    <p class="flex_2 tc">148</p>\n' +
+                '                    <p class="flex_2 tr">237200.93</p>\n' +
+                '                    <p class="flex_1"><span class="to_right"></span></p>\n' +
+                '                </div>\n' +
+                '            </a>';
+            $('.pieData').html(html);
+        })
     };
 
     // 合并对象

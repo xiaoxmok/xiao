@@ -409,4 +409,12 @@ TA流程图*/
 .comp_section .left,.comp_section .right{float:left;font-size: .512rem}
 .comp_section .right{float: right;margin-right: .7rem;}
 
-
+.pie_text{text-align: center;padding: .2rem 0;font-size: .554rem;}
+.data_text {
+    font-size: .554rem;
+    color: #666;
+    text-align: center;
+    height: 1.4933rem;
+    line-height: 1.49333rem;
+}
+.info_con strong{color:#fb5c5f;}
