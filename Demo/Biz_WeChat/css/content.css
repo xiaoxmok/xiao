@@ -131,6 +131,7 @@
 
 .info_con{overflow: hidden;border-bottom: 1px dashed #e4e4e4;font-size: .554rem;line-height: .955rem;padding-bottom: .64rem;}
 .info_section .left,.info_section .right{float:left;font-size: .512rem}
+.cle{clear: both;}
 .info_section .right{float: right;margin-right: .7rem;}
 .info_bottom{overflow: hidden;}
 .info_bottom .unlock{height:1.2rem;text-align:center;line-height:1.2rem;font-size:.6rem;background: #c73e31;color:#fff;margin:.3rem auto 0;width:2.5rem;border-radius: 4px;float: right;}
@@ -338,3 +339,74 @@ TA流程图*/
 }
 
 .mt0{margin-left: 0!important;}
+
+.clear_time{margin: .4rem auto;font-size: .54rem;color:#666;}
+.clear_time p{text-align: center;}
+
+.for_pro h3{height:1.593rem;line-height: 1.593rem;font-size: .68rem;color:#000;font-weight:normal;border-bottom: 1px solid #e7e7e7;padding-left: .64rem;}
+.for_pro{background: #fff;margin-top: .445rem;}
+.for_pro .pro_details{margin-left:.64rem;display: flex;display: -webkit-flex;justify-content: center;align-items: center;-webkit-justify-content: center;-webkit-align-items: center;font-size: .59rem;color:#666;border-bottom: 1px solid #e7e7e7;}
+.for_pro .pro_details .p1{flex:1;-webkit-flex:1;margin-right: .64rem;padding: .54rem 0;}
+
+
+.to_right{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #cfcfcf;
+    border-bottom: 2px solid #cfcfcf;
+    -webkit-transform:  rotate(-45deg);
+    -o-transform:  rotate(-45deg);
+    -ms-transform:  rotate(-45deg);
+    transform:  rotate(-45deg);
+    float: right;
+}
+
+.pro_details .focus .to_right{
+    border-right: 2px solid #c73e31!important;
+    border-bottom: 2px solid #c73e31!important;
+}
+
+
+
+/*民生银行*/
+.mt0{margin-top: 0!important;}
+.pl0{padding-left: 0!important;}
+.tc{text-align: center!important;}
+.tr{text-align: right!important;}
+.tl{text-align: left!important;}
+.comp_section{margin-top: .427rem;background: #fff;overflow: hidden;}
+.comp_section h3{height: 1.706rem;  line-height: 1.92rem;  font-size: .59rem;  color: #000;  font-weight: normal;  border-bottom: 1px solid #e7e7e7;  padding-left: .64rem;}
+.comp_section h3 strong{color:#666666;font-size: .554rem;margin-left: .2rem;}
+.comp_section .comp_info{margin: 0 .64rem;font-size: .59rem;color: #666;padding: .426rem 0 .34rem 0;}
+.comp_section .comp_info p{margin-bottom: .32rem;}
+.pie{width:100%;height: 10rem;}
+
+
+.dis_flex{display: flex;display:-webkit-flex;align-items: center;-webkit-align-items: center;}
+.flex_1{flex:1;-webkit-flex: 1;}
+.flex_2{flex:2;-webkit-flex: 2;}
+.flex_3{flex:3;-webkit-flex: 3;}
+.flex_4{flex:4;-webkit-flex: 4;}
+.dis_info,.dis_info2{color:#666;padding: .426rem .64rem;font-size: .554rem;border-bottom:1px solid #efefef;}
+.dis_title,.dis_pr:last-child{color:#000!important;background:#fff!important;}
+.dis_title.pd{padding: .2rem .64rem;}
+.dis_info.pd{padding: .2rem .64rem;}
+.bg_color{background: #f6f6f6;}
+.dis_info:nth-child(2n){background: #f6f6f6;}
+.rules .dis_info{background: #fff;}
+
+.dis_pr{clear: left;display: block;height: 1.72rem;}
+.dis_pr .flex_1{width: 30%;float: left;line-height: 1.72rem;}
+.dis_pr .flex_2{width: 40%;float: left;line-height: 1.72rem;}
+.dis_pr .flex_3{width: 30%;float: left;line-height: 1.72rem;}
+.lineNo{line-height: 1rem!important;}
+
+.cmbc .info_con{border-bottom: none;color:#666;padding:.4rem .64rem;}
+.cmbc .info_con p{line-height: 1.2rem;}
+.comp_section a11{color:#0c7ec4;text-decoration: underline;}
+
+.comp_section .left,.comp_section .right{float:left;font-size: .512rem}
+.comp_section .right{float: right;margin-right: .7rem;}
+
+

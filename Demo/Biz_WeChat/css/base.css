@@ -45,6 +45,10 @@ body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, d
 	padding: 0;
 	border: none;
 }
+@font-face {
+	font-family: 'PingFang SC Regular';
+	src:url('./PingFang SC Regular.ttf');
+}
 body {
 	font: 12px "Microsoft YaHei",SimSun, Tahoma, Arial, sans-serif;
 	color: #000;
