@@ -93,7 +93,7 @@
 }
 
 {
-    // promise.all([]),加载图片示例
+    // promise.all([]),加载图片示例，所有的图片加载完再添加到页面
     function loadImg(src) {
         return new Promise((resolve, reject) => {
             let img = document.createElement('img')
@@ -124,4 +124,36 @@
 
 }
 
+{
+    // 有一张图片加载完就添加到页面，先到先得，promise.race([])
+    function loadImg(src) {
+        return new Promise((resolve, reject) => {
+            let img = document.createElement('img')
+            img.src = src;
+            img.width = 200;
+            img.height = 300;
+            img.onload = function () {
+                resolve(img);
+            };
+
+            img.onerror = function (err) {
+                reject(err);
+            }
+        })
+    }
+
+    function showImg(img){
+        let p = document.createElement('p');
+        p.appendChild(img);
+        document.body.appendChild(p);
+    }
+
+    // race,有一个加载成功，则ok,
+    Promise.race([
+        loadImg('http://f2.dn.anqu.com/down/MmEyZg==/allimg/1311/54-131125093H9.jpg'),
+        loadImg('http://down1.cnmo.com/cnmo-app/a216/ziranweimeifengjing1.jpg'),
+        loadImg('http://img4.duitang.com/uploads/blog/201406/12/20140612035451_RriaU.jpeg')
+    ]).then(showImg);
+
+}
 
