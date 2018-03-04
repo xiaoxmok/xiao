@@ -6,7 +6,7 @@ import csso from 'gulp-csso';
 
 gulp.task('css', () => {
     return gulp.src('app/**/*.css')
-        .pipe(csso())
+        //.pipe(csso())
         .pipe(gulp.dest('server/public'))
         .pipe(gulpif(args.watch,livereload()))
 })

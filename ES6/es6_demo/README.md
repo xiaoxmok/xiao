@@ -20,3 +20,9 @@ app：前端 server:后台 tasks:构建工具
 
 #### 5、根目录下创建 .babelrc、gulpfile.babel.js
 
+
+#### 6、运行
+```
+gulp --watch
+
+```

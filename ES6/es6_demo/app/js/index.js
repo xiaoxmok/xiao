@@ -1,6 +1,3 @@
-import aa from './aa.js'
+import 'babel-polyfill'
+import lottery from './lottery'
 
-function a(){
-    console.log('111');
-    aa.a();
-}
