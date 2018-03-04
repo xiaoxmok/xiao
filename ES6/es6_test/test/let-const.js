@@ -45,10 +45,10 @@ if (true) {
 
 function foo(arg) {         // 不允许重复声明变量和参数
     var a = '11';
-    let a = '22';
-    let b
+    // let a = '22';
+    //let b
     let b = 3;
-    let arg;
+     // let arg;
 }
 
 //foo();
