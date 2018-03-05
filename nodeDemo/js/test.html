@@ -7,7 +7,7 @@
 <body>
 
 <script>
-    function foo(something) {
+    /*function foo(something) {
         console.log(this.a, something);
         return this.a + something;
     }
@@ -19,7 +19,21 @@
         return foo.call(obj,a);
     };
 
-    console.log(bar(333));
+    console.log(bar(333));*/
+
+    var name = '22';
+    var obj = {
+        name:'a',
+        getName:function(){
+            console.log(this.name);
+        }
+    };
+
+    var fn = obj.getName
+    obj.getName();
+    var fn2= obj.getName();
+    fn();
+    fn2();
 
 </script>
 </body>
