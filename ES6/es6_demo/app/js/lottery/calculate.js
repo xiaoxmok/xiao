@@ -1,6 +1,6 @@
 // 计算模块
 
-class calculate {
+class Calculate {
     /**
      * 计算注数
      * @param active 当前选中的号码
@@ -98,4 +98,4 @@ class calculate {
     }
 }
 
-export default calculate
+export default Calculate

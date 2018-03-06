@@ -1,3 +1,6 @@
 import 'babel-polyfill'
-import lottery from './lottery'
+import Lottery from './lottery'
 
+const syy = new Lottery();
+
+// console.log(syy);

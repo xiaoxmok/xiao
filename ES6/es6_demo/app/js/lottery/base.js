@@ -9,36 +9,43 @@ class Base {
         this.play_list.set('r2', {
             bonus: 6,
             tip: '从01～11中任选2个或多个号码，所选号码与开奖号码任意两个号码相同，即中奖<em class="red">6</em>元',
+            selectNumArea: '<em>选号区</em> 至少选2个',
             name: '任二'
         })
             .set('r3', {
                 bonus: 19,
                 tip: '从01～11中任选3个或多个号码，选号与奖号任意三个号相同，即中奖<em class="red">19</em>元',
+                selectNumArea: '<em>选号区</em> 至少选3个',
                 name: '任三'
             })
             .set('r4', {
                 bonus: 78,
                 tip: '从01～11中任选4个或多个号码，所选号码与开奖号码任意四个号码相同，即中奖<em class="red">78</em>元',
+                selectNumArea: '<em>选号区</em> 至少选4个',
                 name: '任四'
             })
             .set('r5', {
                 bonus: 540,
                 tip: '从01～11中任选5个或多个号码，所选号码与开奖号码相同，即中奖<em class="red">540</em>元',
+                selectNumArea: '<em>选号区</em> 至少选5个',
                 name: '任五'
             })
             .set('r6', {
                 bonus: 90,
                 tip: '从01～11中任选6个或多个号码，所选号码与开奖号码五个号码相同，即中奖<em class="red">90</em>元',
+                selectNumArea: '<em>选号区</em> 至少选6个',
                 name: '任六'
             })
             .set('r7', {
                 bonus: 26,
                 tip: '从01～11中任选7个或多个号码，选号与奖号五个号相同，即中奖<em class="red">26</em>元',
+                selectNumArea: '<em>选号区</em> 至少选7个',
                 name: '任七'
             })
             .set('r8', {
                 bonus: 9,
                 tip: '从01～11中任选8个或多个号码，选号与奖号五个号相同，即中奖<em class="red">9</em>元',
+                selectNumArea: '<em>选号区</em> 至少选8个',
                 name: '任八'
             })
     }
@@ -104,7 +111,18 @@ class Base {
         $cur.addClass('active').siblings().removeClass('active');
         self.cur_play = $cur.attr('desc').toLocaleLowerCase();
         $('#zx_sm span').html(self.play_list.get(self.cur_play).tip);
+        $('#play_tips').html(self.play_list.get(self.cur_play).selectNumArea);
         $('.boll-list .btn-boll').removeClass('btn-boll-active');
+        self.getCount();
+    }
+
+    /**
+     * 清空选号
+     */
+    clearBollActive() {
+        let self = this;
+        $('.boll-list .btn-boll').removeClass('btn-boll-active');
+        $('.dxjo .btn-middle').removeClass('btn-middle-active');
         self.getCount();
     }
 
@@ -117,39 +135,46 @@ class Base {
         e.preventDefault();
         let self = this;
         let $cur = $(e.currentTarget);
-        let index = $cur.index();
+        let index = e.currentTarget.getAttribute('count');
+        $('.dxjo .btn-middle').removeClass('btn-middle-active');
+        if(index !== '5'){
+            $cur.addClass('btn-middle-active');
+        }
         $('.boll-list .btn-boll').removeClass('btn-boll-active');
-        if (index === 0) {
+        if (index === '0') {
             $('.boll-list .btn-boll').addClass('btn-boll-active');
         }
-        if (index === 1) {
+        if (index === '1') {
             $('.boll-list .btn-boll').each(function (i, t) {
                 if (t.textContent - 5 > 0) {
                     $(t).addClass('btn-boll-active')
                 }
             })
         }
-        if (index === 2) {
+        if (index === '2') {
             $('.boll-list .btn-boll').each(function (i, t) {
                 if (t.textContent - 6 < 0) {
                     $(t).addClass('btn-boll-active')
                 }
             })
         }
-        if (index === 3) {
+        if (index === '3') {
             $('.boll-list .btn-boll').each(function (i, t) {
                 if (t.textContent % 2 == 1) {
                     $(t).addClass('btn-boll-active')
                 }
             })
         }
-        if (index === 4) {
+        if (index === '4') {
             $('.boll-list .btn-boll').each(function (i, t) {
                 if (t.textContent % 2 == 0) {
                     $(t).addClass('btn-boll-active')
                 }
             })
         }
+        /*if (index === '5') {
+            self.clearBollActive();
+        }*/
         self.getCount();
     }
 
@@ -235,8 +260,10 @@ class Base {
         $('.codelist li').each(function (index, item) {
             count += $(item).attr('count') * 1;
         })
+        let mul = $('#mul').val();
+        console.log(mul);
         $('#count').text(count);
-        $('#money').text(count * 2);
+        $('#money').text(count * 2 * mul);
     }
 
     /**
@@ -266,7 +293,9 @@ class Base {
         let play = this.cur_play.match(/\d+/g)[0];
         let self = this;
         if (num === '0') {
-            $(self.cart_el).html('')
+            $(self.cart_el).html('');
+            self.getTotal();
+            $('#mul').val(1)
         } else {
             for (let i = 0; i < num; i++) {
                 self.addCodeItem(self.getRandom(play), self.cur_play, self.play_list.get(self.cur_play).name, 1);
