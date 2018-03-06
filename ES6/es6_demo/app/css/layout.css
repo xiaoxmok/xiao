@@ -1377,8 +1377,8 @@ input.text, textarea.textarea {
 }
 
 :root .prizeguide-cont {
-    filter: none
-    background: rgba(0, 0, 0, 0.6)
+    filter: none;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .prizeguide-cont .pop-close {
@@ -2218,7 +2218,7 @@ input.text, textarea.textarea {
 
 #hd .more-show .item-more-hd {
     padding: 0 0 0 5px;
-    color: height: 26px;
+    height: 26px;
     line-height: 26px;
     cursor: pointer
 }
@@ -2239,15 +2239,15 @@ input.text, textarea.textarea {
 }
 
 #hd .more-show .item-more-list a:hover {
-    background: #f5f5f5
+    background: #f5f5f5;
 }
 
 #hd .more-show .ico {
-    display: none
+    display: none;
 }
 
 #hd .more-show .num .d {
-    color: #d80000
+    color: #d80000;
 }
 
 #hd .mhover {

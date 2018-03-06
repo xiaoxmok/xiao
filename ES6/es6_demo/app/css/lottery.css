@@ -3477,7 +3477,7 @@ input.text.hm-input {
     border-width: 5px;
     border-style: solid;
     line-height: 0;
-    _right: -11px
+    _right: -11px;
 }
 
 .mod-explaina-table td.kjhm-rj {
@@ -3567,7 +3567,7 @@ input.text.hm-input {
 
 .kpc-select-item .boll-item .k .k1 .caret {
     border-color: #fffaee #fffaee #fffaee #e6e6e6;
-    _right: -10px
+    _right: -10px;
 }
 
 .kpc-select-item .boll-item .v {
@@ -4401,7 +4401,7 @@ body .panel-order-view02 {
 }
 
 .syy .ten-issue-code-data {
-    width:
+
 }
 
 .ten-issue-code-data .sd {
