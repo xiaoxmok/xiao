@@ -6,7 +6,9 @@
       <router-link to="/todoList" class="a">to do list</router-link>
       <router-link to="/elementUi" class="a">elementUi</router-link>
     </div>
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
