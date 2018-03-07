@@ -15,7 +15,7 @@ export function getRecommend() {
   return jsonp(url, data, options)
 }
 
-// 获取歌单数据
+// 获取歌单数据，由于歌单数据需要使用服务端代理，
 export function getDiscList() {
   const url = '/api/getDiscList'
 
@@ -37,3 +37,20 @@ export function getDiscList() {
     return Promise.resolve(res.data)
   })
 }
+
+// 获取MV数据，
+export function getQQMusicMv() {
+  const url = 'https://c.y.qq.com/v8/fcg-bin/getmv_by_tag'
+
+  const data = Object.assign({}, commonParams, {
+    platform: 'yqq',
+    hostUin: 0,
+    notice: 0,
+    needNewCode: 0,
+    cmd: 'shoubo',
+    lan: 'all'
+  })
+
+  return jsonp(url, data, options)
+}
+

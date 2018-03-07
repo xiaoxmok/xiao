@@ -8,11 +8,11 @@ import Singer from 'components/singer/singer'
 Vue.use(Router)
 
 export default new Router({
+  // base:'/dist/',
   routes: [
     {
       path: '/',
-      name: 'index',
-      redirect: Recommend
+      redirect: '/recommend'
     },
     {
       path: '/rank',
