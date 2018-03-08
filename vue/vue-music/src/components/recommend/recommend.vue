@@ -1,45 +1,52 @@
 <template>
     <div class="recommend">
-      <div class="recommend-content">
-        <div v-if="recommends.length" class="slider-wrapper">
-          <slider>
-            <div v-for="item in recommends" :key="item.id">
-              <a :href="item.linkUrl">
-                <img :src="item.picUrl" alt="">
-              </a>
-            </div>
-          </slider>
+      <scroll ref="scroll" class="recommend-content" :data="disclist">
+        <div>
+          <div v-if="recommends.length" class="slider-wrapper">
+            <slider>
+              <div v-for="item in recommends" :key="item.id">
+                <a :href="item.linkUrl">
+                  <img class="needsclick" @load="loadImage" :src="item.picUrl" alt="">
+                </a>
+              </div>
+            </slider>
+          </div>
+          <div class="recommend-list">
+            <h1 class="list-title">热门歌曲推荐</h1>
+            <ul>
+              <li v-for="item in disclist" class="item" :key="item.dissid">
+                <div class="icon">
+                  <img v-lazy="item.imgurl" width="60" height="60" alt="">
+                </div>
+                <div class="text">
+                  <h2 class="name" v-html="item.creator.name"></h2>
+                  <p class="desc" v-html="item.dissname"></p>
+                </div>
+              </li>
+            </ul>
+            <!--<ul>
+              <li v-for="item in QQMusicMv" class="item" :key="item.mv_id">
+                <div class="icon">
+                  <img :src="item.picurl" width="60" height="60" alt="">
+                </div>
+                <div class="text">
+                  <h2 class="name" v-html="item.mvtitle"></h2>
+                  <p class="desc" v-html="item.mvdesc"></p>
+                </div>
+              </li>
+            </ul>-->
+          </div>
         </div>
-        <div class="recommend-list">
-          <h1 class="list-title">热门歌曲推荐</h1>
-          <!--<ul>
-            <li v-for="item in disclist" class="item">
-              <div class="icon">
-                <img :src="item.imgurl" width="60" height="60" alt="">
-              </div>
-              <div class="text">
-                <h2 class="name" v-html="item.creator.name"></h2>
-                <p class="desc" v-html="item.dissname"></p>
-              </div>
-            </li>
-          </ul>-->
-          <ul>
-            <li v-for="item in QQMusicMv" class="item" :key="item.mv_id">
-              <div class="icon">
-                <img :src="item.picurl" width="60" height="60" alt="">
-              </div>
-              <div class="text">
-                <h2 class="name" v-html="item.mvtitle"></h2>
-                <p class="desc" v-html="item.mvdesc"></p>
-              </div>
-            </li>
-          </ul>
+        <div class="loading-container" v-show="!disclist.length">
+          <loading></loading>
         </div>
-      </div>
+      </scroll>
     </div>
 </template>
 
 <script>
+    import Loading from 'base/loading/loading'
+    import Scroll from 'base/scroll/scroll'
     import Slider from 'base/slider/slider'
     import {getRecommend, getDiscList, getQQMusicMv} from "api/recommend";
     import {ERR_OK} from "api/config";
@@ -55,9 +62,8 @@
       },
       created() {
         this._getRecommend()
-
         this._getDiscList()
-        this._getQQMusicMv()
+        // this._getQQMusicMv()
       },
       methods: {
         _getRecommend() {
@@ -71,21 +77,29 @@
           getDiscList().then((res)=>{
             if(res.code === ERR_OK){
               // console.log(res.data);
-              this.disclist = res.data.mvlist;
+              this.disclist = res.data.list;
             }
           })
         },
         _getQQMusicMv() {
           getQQMusicMv().then((res)=>{
             if(res.code === ERR_OK){
-              console.log(res.data);
+              // console.log(res.data);
               this.QQMusicMv = res.data.mvlist;
             }
           })
+        },
+        loadImage() {
+          if(!this.checkLoaded){
+            this.$refs.scroll.refresh()
+            this.checkLoaded = true
+          }
         }
       },
       components: {
-        Slider
+        Slider,
+        Scroll,
+        Loading
       }
     }
 </script>

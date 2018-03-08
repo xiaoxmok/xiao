@@ -6,7 +6,7 @@ export default function jsonp(url, data, option) {
   return new Promise((resolve, reject) => {
     originJSONP(url, option, (err, data) => {
       if (!err) {
-        console.log('url:',url)
+        // console.log('url:',url)
         resolve(data)
       } else {
         reject(err)

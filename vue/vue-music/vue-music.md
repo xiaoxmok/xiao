@@ -12,3 +12,11 @@
 
 
 main.js:入口文件 
+
+
+#### 相关组件
+  1. jsonp：jsonp组件
+  1. fastclick：解决移动端300毫秒
+  1. vue-lazyload：懒加载
+  1. better-scroll：滚动组件
+  1. axios：服务端数请求代理组件
