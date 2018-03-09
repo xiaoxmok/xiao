@@ -1,21 +1,37 @@
 <template>
-  <scroll class="listview" :data="data" ref="listview" :listenScroll="listenScroll" :probeType="probeType"
-          @scroll="scroll">
+  <scroll class="listview"
+          :data="data"
+          ref="listview"
+          :listenScroll="listenScroll"
+          :probeType="probeType"
+          @scroll="scroll"
+  >
     <ul>
       <li v-for="group in data" class="list-group" :key="group.title" ref="listGroup">
         <h2 class="list-group-title">{{group.title}}</h2>
         <ul>
-          <li v-for="item in group.items" class="list-group-item" :key="item.id">
+          <li v-for="item in group.items"
+              @click="selectItem(item)"
+              class="list-group-item"
+              :key="item.id"
+          >
             <img class="avatar" v-lazy="item.avatar" alt="">
             <span class="name">{{item.name}}</span>
           </li>
         </ul>
       </li>
     </ul>
-    <div class="list-shortcut" @touchstart="onShortcutTouchStart" @touchmove.stop.prevent="onShortcutTouchMove">
+    <div class="list-shortcut"
+         @touchstart="onShortcutTouchStart"
+         @touchmove.stop.prevent="onShortcutTouchMove"
+    >
       <ul>
-        <li v-for="(item, index) in shortcutlist" :class="{'current':currentIndex === index}" :key="index" class="item"
-            :data-index="index">
+        <li v-for="(item, index) in shortcutlist"
+            :class="{'current':currentIndex === index}"
+            :key="index"
+            class="item"
+            :data-index="index"
+        >
           {{item}}
         </li>
       </ul>
@@ -72,6 +88,9 @@
       }
     },
     methods: {
+      selectItem(item) {
+        this.$emit('select',item)
+      },
       onShortcutTouchStart(e) {
         let anchorIndex = getData(e.target, 'index')
         let firstTouch = e.touches[0]

@@ -8,7 +8,7 @@
   1. common/js:通用的js
   1. common/stylus:通用样式
   1. router:路由
-  1. store:存放vue相关的代码
+  1. store:存放Vuex相关的代码
 
 
 main.js:入口文件 
