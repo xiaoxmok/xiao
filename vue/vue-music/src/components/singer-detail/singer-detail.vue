@@ -5,8 +5,36 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
+  import {getSingerDetail} from "api/singer";
+  import {ERR_OK} from "api/config";
+
   export default {
-    name: "singer-detail"
+    name: "singer-detail",
+    computed: {
+      ...mapGetters([
+        'singer'
+      ])
+    },
+    created() {
+      this._getDetail()
+      console.log(this.singer);
+    },
+    methods: {
+      _getDetail() {
+        // 边界情况，当在歌手详情页面刷新时，不会获取到this.singer.id，所以刷新后返回前一页面。
+        // 因为this.singer.id是歌手页面通过路由传过来的。
+        if(!this.singer.id){
+          this.$router.push('/singer')
+          return
+        }
+        getSingerDetail(this.singer.id).then((res)=>{
+          if(res.code === ERR_OK){
+            console.log(res.data);
+          }
+        })
+      }
+    }
   }
 </script>
 

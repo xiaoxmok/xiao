@@ -9,6 +9,8 @@ import createLogger from 'vuex/dist/logger'
 
 Vue.use(Vuex)
 
+// vuex解决路由之间参数传递的问题
+
 // 线下调试
 const debug = process.env.NODE_ENV !== 'production'
 
