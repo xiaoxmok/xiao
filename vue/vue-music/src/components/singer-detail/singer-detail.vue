@@ -8,9 +8,16 @@
   import {mapGetters} from 'vuex'
   import {getSingerDetail} from "api/singer";
   import {ERR_OK} from "api/config";
+  import {createSong,isValidMusic,processSongsUrl} from "common/js/song";
+  import {getSongKeys} from "api/song";
 
   export default {
     name: "singer-detail",
+    data() {
+      return {
+        songs: []
+      }
+    },
     computed: {
       ...mapGetters([
         'singer'
@@ -18,21 +25,43 @@
     },
     created() {
       this._getDetail()
-      console.log(this.singer);
+
+      // console.log(this.songs.albummid)
     },
     methods: {
       _getDetail() {
         // 边界情况，当在歌手详情页面刷新时，不会获取到this.singer.id，所以刷新后返回前一页面。
-        // 因为this.singer.id是歌手页面通过路由传过来的。
-        if(!this.singer.id){
+        // 因为this.singer.id是通过路由传递的，所以在刷新页面时该值为空。
+        if (!this.singer.id) {
           this.$router.push('/singer')
           return
         }
-        getSingerDetail(this.singer.id).then((res)=>{
-          if(res.code === ERR_OK){
+        getSingerDetail(this.singer.id).then((res) => {
+          if (res.code === ERR_OK) {
             console.log(res.data);
+            this.songs = this._normalizeSongs(res.data.list)
+            console.log(this.songs);
+
           }
         })
+      },
+      _normalizeSongs(list) {
+        let ret = []
+        list.forEach((item) => {
+          let {musicData} = item
+          if(musicData.songid && musicData.albummid){
+            //console.log(musicData)
+            getSongKeys(musicData.songmid,`C400${musicData.songmid}.m4a`).then((res)=>{
+              if(res.code === ERR_OK){
+                musicData.key = res.data.items[0].vkey
+                //console.log(res.data.items[0].vkey)
+                ret.push(createSong(musicData))
+              }
+            })
+            //this._getSongKeys(musicData.songid)
+          }
+        })
+        return ret
       }
     }
   }
