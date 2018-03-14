@@ -36,7 +36,7 @@ export function createSong(musicData) {
     album: musicData.albumname,
     albummid: musicData.albummid,
     duration: musicData.interval,
-    image: `https://y.gtimg.cn/music/photo_new/T002R300x300M000${musicData.albummid}.jpg?max_age=2592000`,
+    image: `https://y.gtimg.cn/music/photo_new/T001R300x300M000${musicData.albummid}.jpg?max_age=2592000`,
     url: `http://dl.stream.qqmusic.qq.com/C400${musicData.songmid}.m4a?guid=202324981&vkey=${musicData.key}&uin=0&fromtag=999`
   })
 }

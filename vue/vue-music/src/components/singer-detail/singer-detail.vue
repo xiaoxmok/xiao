@@ -1,6 +1,6 @@
 <template>
   <transition name="slide">
-    <div class="singer-detail">222</div>
+    <music-list :title="title" :songs="songs" :bg-image="bgImage"></music-list>
   </transition>
 </template>
 
@@ -10,6 +10,7 @@
   import {ERR_OK} from "api/config";
   import {createSong,isValidMusic,processSongsUrl} from "common/js/song";
   import {getSongKeys} from "api/song";
+  import MusicList from "components/music-list/music-list"
 
   export default {
     name: "singer-detail",
@@ -19,6 +20,12 @@
       }
     },
     computed: {
+      title() {
+        return this.singer.name
+      },
+      bgImage() {
+        return this.singer.avatar
+      },
       ...mapGetters([
         'singer'
       ])
@@ -36,12 +43,12 @@
           this.$router.push('/singer')
           return
         }
+        // console.log(this.singer)
         getSingerDetail(this.singer.id).then((res) => {
           if (res.code === ERR_OK) {
             console.log(res.data);
             this.songs = this._normalizeSongs(res.data.list)
             console.log(this.songs);
-
           }
         })
       },
@@ -51,6 +58,8 @@
           let {musicData} = item
           if(musicData.songid && musicData.albummid){
             //console.log(musicData)
+
+            // 此处需要修改，在音乐播放时再去请求完整的URL地址，目前这种做法对性能损害过大。
             getSongKeys(musicData.songmid,`C400${musicData.songmid}.m4a`).then((res)=>{
               if(res.code === ERR_OK){
                 musicData.key = res.data.items[0].vkey
@@ -63,6 +72,9 @@
         })
         return ret
       }
+    },
+    components: {
+      MusicList
     }
   }
 </script>
