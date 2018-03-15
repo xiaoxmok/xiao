@@ -16,46 +16,51 @@
 </template>
 
 <script>
-import Store from '../store'
-import componentPrompt from './componentPrompt'
+  import Store from '../store'
+  import componentPrompt from './componentPrompt'
 
-export default {
-  name: 'todoList',
-  data: function () {
-    return {
-      items: Store.fetch(),
-      newItems: ''
-    }
-  },
-  components: {componentPrompt},
-  watch: {
-    items: {
-      handler: function (val, oldVal) {
-        Store.save(val)
-        // console.log(val,oldVal);
-      },
-      deep: true
-    }
-  },
-  methods: {
-    toggleFinish: function (item) {
-      // console.log(item.label, item.isFinished)
-      item.isFinished = !item.isFinished
-    },
-    addItem: function () {
-      if (this.newItems !== '') {
-        this.items.push({
-          label: this.newItems, isFinished: false
-        })
-        this.newItems = ''
+  export default {
+    name: 'todoList',
+    data: function () {
+      return {
+        items: Store.fetch(),
+        newItems: ''
       }
     },
-    deleteItem: function (index) {
-      // console.log(index)
-      this.items.splice(index, 1)
+    components: {componentPrompt},
+    watch: {
+      items: {
+        handler: function (val, oldVal) {
+          Store.save(val)
+          // console.log(val,oldVal);
+        },
+        deep: true
+      }
+    },
+    mounted() {
+      // 测试一下jquery的使用
+      $('.inputText').css({width:'100px'})
+      console.log($('.todo-ul').html())
+    },
+    methods: {
+      toggleFinish: function (item) {
+        // console.log(item.label, item.isFinished)
+        item.isFinished = !item.isFinished
+      },
+      addItem: function () {
+        if (this.newItems !== '') {
+          this.items.push({
+            label: this.newItems, isFinished: false
+          })
+          this.newItems = ''
+        }
+      },
+      deleteItem: function (index) {
+        // console.log(index)
+        this.items.splice(index, 1)
+      }
     }
   }
-}
 </script>
 <style scoped>
   .Finished {

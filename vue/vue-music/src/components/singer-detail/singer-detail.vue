@@ -46,9 +46,9 @@
         // console.log(this.singer)
         getSingerDetail(this.singer.id).then((res) => {
           if (res.code === ERR_OK) {
-            console.log(res.data);
+            //console.log(res.data);
             this.songs = this._normalizeSongs(res.data.list)
-            console.log(this.songs);
+            //console.log(this.songs);
           }
         })
       },
@@ -60,14 +60,15 @@
             //console.log(musicData)
 
             // 此处需要修改，在音乐播放时再去请求完整的URL地址，目前这种做法对性能损害过大。
-            getSongKeys(musicData.songmid,`C400${musicData.songmid}.m4a`).then((res)=>{
+            /*getSongKeys(musicData.songmid,`C400${musicData.songmid}.m4a`).then((res)=>{
               if(res.code === ERR_OK){
                 musicData.key = res.data.items[0].vkey
-                //console.log(res.data.items[0].vkey)
                 ret.push(createSong(musicData))
               }
-            })
+            })*/
             //this._getSongKeys(musicData.songid)
+            //console.log(res.data.items[0].vkey)
+            ret.push(createSong(musicData))
           }
         })
         return ret
