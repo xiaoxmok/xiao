@@ -1,16 +1,61 @@
 <template>
-    <div class="player">
-      <div class="normal-player">
-        播放器
+  <div class="player" v-show="playList.length>0">
+    <div class="normal-player" v-show="fullScreen">
+      <div class="background">
+        <img width="100%" height="100%" alt="">
       </div>
-      <div class="mini-player"></div>
+      <div class="top">
+        <div class="black">
+          <i class="icon-back"></i>
+        </div>
+        <h1 class="title"></h1>
+        <h2 class="subtitle"></h2>
+      </div>
+      <div class="middle">
+        <div class="middle-l">
+          <div class="cd-wrapper">
+            <div class="cd">
+              <img class="image" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="operators">
+          <div class="icon icon-left">
+            <i class="icon-sequence"></i>
+          </div>
+          <div class="icon icon-left">
+            <i class="icon-prev"></i>
+          </div>
+          <div class="icon icon-center">
+            <i class="icon-play"></i>
+          </div>
+          <div class="icon icon-right">
+            <i class="icon-next"></i>
+          </div>
+          <div class="icon icon-right">
+            <i class="icon icon-not-favorite"></i>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="mini-player" v-show="!fullScreen"></div>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "player"
+  import {mapGetters} from 'vuex'
+
+  export default {
+    name: "player",
+    computed: {
+      ...mapGetters([
+        'fullScreen',
+        'playList'
+      ])
     }
+  }
 </script>
 
 <style scoped lang="stylus">
