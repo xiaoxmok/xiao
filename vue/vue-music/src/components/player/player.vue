@@ -20,7 +20,7 @@
         <div class="middle">
           <div class="middle-l">
             <div class="cd-wrapper" ref="cdWrapper">
-              <div class="cd">
+              <div class="cd" :class="cdCls">
                 <img class="image" alt="" :src="currentSong.image">
               </div>
             </div>
@@ -50,7 +50,7 @@
     <transition name="mini">
       <div class="mini-player" v-show="!fullScreen" @click="open">
         <div class="icon">
-          <img :src="currentSong.image" width="40" height='40' alt="">
+          <img :class="cdCls" :src="currentSong.image" width="40" height='40' alt="">
         </div>
         <div class="text">
           <h2 class="name" v-html="currentSong.name"></h2>
@@ -86,6 +86,9 @@
       }
     },
     computed: {
+      cdCls() {
+        return this.playing ? 'play' : 'play pause'
+      },
       playIcon() {
         return this.playing ? 'icon-pause' : 'icon-play'
       },
@@ -174,7 +177,7 @@
         getSongKeys(this.currentSong.mid, `C400${this.currentSong.mid}.m4a`).then((res) => {
           if (res.code === ERR_OK) {
             this.url = `http://dl.stream.qqmusic.qq.com/C400${this.currentSong.mid}.m4a?guid=202324981&vkey=${res.data.items[0].vkey}&uin=0&fromtag=999`
-            console.log('url',this.url)
+            // console.log('url',this.url)
           }
         })
 
@@ -195,7 +198,7 @@
       },
       playing(newPlaying) {
         const audio = this.$refs.audio
-        this.$nextTick(()=>{
+        this.$nextTick(() => {
           newPlaying ? audio.play() : audio.pause()
         })
       }
