@@ -1,59 +1,204 @@
 <template>
   <div class="player" v-show="playList.length>0">
-    <div class="normal-player" v-show="fullScreen">
-      <div class="background">
-        <img width="100%" height="100%" alt="">
-      </div>
-      <div class="top">
-        <div class="black">
-          <i class="icon-back"></i>
+    <transition name="normal"
+                @enter="enter"
+                @after-enter="afterEnter"
+                @leave="leave"
+                @after-leave="afterLeave"
+    >
+      <div class="normal-player" v-show="fullScreen">
+        <div class="background">
+          <img width="100%" height="100%" alt="" :src="currentSong.image">
         </div>
-        <h1 class="title"></h1>
-        <h2 class="subtitle"></h2>
-      </div>
-      <div class="middle">
-        <div class="middle-l">
-          <div class="cd-wrapper">
-            <div class="cd">
-              <img class="image" alt="">
+        <div class="top">
+          <div class="back" @click="back">
+            <i class="icon-back"></i>
+          </div>
+          <h1 class="title" v-html="currentSong.name"></h1>
+          <h2 class="subtitle" v-html="currentSong.singer"></h2>
+        </div>
+        <div class="middle">
+          <div class="middle-l">
+            <div class="cd-wrapper" ref="cdWrapper">
+              <div class="cd">
+                <img class="image" alt="" :src="currentSong.image">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="operators">
+            <div class="icon i-left">
+              <i class="icon-sequence"></i>
+            </div>
+            <div class="icon i-left">
+              <i class="icon-prev"></i>
+            </div>
+            <div class="icon i-center">
+              <i @click="togglePlaying" :class="playIcon"></i>
+            </div>
+            <div class="icon i-right">
+              <i class="icon-next"></i>
+            </div>
+            <div class="icon i-right">
+              <i class="icon icon-not-favorite"></i>
             </div>
           </div>
         </div>
       </div>
-      <div class="bottom">
-        <div class="operators">
-          <div class="icon icon-left">
-            <i class="icon-sequence"></i>
-          </div>
-          <div class="icon icon-left">
-            <i class="icon-prev"></i>
-          </div>
-          <div class="icon icon-center">
-            <i class="icon-play"></i>
-          </div>
-          <div class="icon icon-right">
-            <i class="icon-next"></i>
-          </div>
-          <div class="icon icon-right">
-            <i class="icon icon-not-favorite"></i>
-          </div>
+    </transition>
+    <transition name="mini">
+      <div class="mini-player" v-show="!fullScreen" @click="open">
+        <div class="icon">
+          <img :src="currentSong.image" width="40" height='40' alt="">
+        </div>
+        <div class="text">
+          <h2 class="name" v-html="currentSong.name"></h2>
+          <p class="desc" v-html="currentSong.singer"></p>
+        </div>
+        <div class="control">
+          <i @click.stop="togglePlaying" :class="miniIcon"></i>
+        </div>
+        <div class="control">
+          <i class="icon-playlist"></i>
         </div>
       </div>
-    </div>
-    <div class="mini-player" v-show="!fullScreen"></div>
+    </transition>
+    <audio ref="audio" :src="url"></audio>
   </div>
 </template>
 
 <script>
-  import {mapGetters} from 'vuex'
+  import {mapGetters, mapMutations} from 'vuex'
+  import animations from 'create-keyframe-animation'
+  import {prefixStyle} from "common/js/dom";
+  import {getSongKeys} from "api/song";
+  import {ERR_OK} from "api/config";
+
+  const transform = prefixStyle('transform')
 
   export default {
     name: "player",
+    data() {
+      return {
+        // 设置默认的url（因为爱情），如果初始化时，url为undefined，首次调用audio.play()时会报资源不存在。
+        url: 'http://dl.stream.qqmusic.qq.com/C400004HdPmN0HZipA.m4a?guid=202324981&vkey=8CD1C58024ACE3E8B5A02E47D2818795F2D4FB9376A10486475325A85264019EB399EC5C47781FB89EBB3CC34ECFB2E215DB5105C42B0F53&uin=0&fromtag=999'
+      }
+    },
     computed: {
+      playIcon() {
+        return this.playing ? 'icon-pause' : 'icon-play'
+      },
+      miniIcon() {
+        return this.playing ? 'icon-pause-mini' : 'icon-play-mini'
+      },
       ...mapGetters([
         'fullScreen',
-        'playList'
+        'playList',
+        'currentSong',
+        'playing'
       ])
+    },
+    created() {
+      //this.url = this._getSongUrl()
+    },
+    methods: {
+      back() {
+        this.setFullScreen(false)
+      },
+      open() {
+        this.setFullScreen(true)
+      },
+      enter(el, done) {
+        const {x, y, scale} = this._getPosAndScale()
+
+        let animation = {
+          0: {
+            transform: `translate3d(${x}px,${y}px,0) scale(${scale})`
+          },
+          60: {
+            transform: `translate3d(0,0,0) scale(1.1)`
+          },
+          100: {
+            transform: `translate3d(0,0,0) scale(1)`
+          }
+        }
+
+        // 定义动画
+        animations.registerAnimation({
+          name: 'move',
+          animation,
+          presets: {
+            duration: 400,
+            easing: 'linear'
+          }
+        })
+
+        // 执行动画，dom节点，动画函数，回调（执行afterEnter）
+        animations.runAnimation(this.$refs.cdWrapper, 'move', done)
+      },
+      afterEnter() {
+        // 清除动画，清空动画样式
+        animations.unregisterAnimation('move')
+        this.$refs.cdWrapper.style.animation = ''
+      },
+      leave(el, done) {
+        this.$refs.cdWrapper.style.transition = `all 0.4s`
+        const {x, y, scale} = this._getPosAndScale()
+        this.$refs.cdWrapper.style[transform] = `translate3d(${x}px,${y}px,0) scale(${scale})`
+        this.$refs.cdWrapper.addEventListener('transitionend', done)
+      },
+      afterLeave() {
+        this.$refs.cdWrapper.style.transition = ''
+        this.$refs.cdWrapper.style[transform] = ''
+      },
+      togglePlaying() {
+        this.setPlayingState(!this.playing)
+      },
+      _getPosAndScale() {
+        const targetWidth = 40
+        const paddingLeft = 40
+        const paddingBottom = 30
+        const paddingTop = 80
+        const width = window.innerWidth * 0.8
+        const scale = targetWidth / width
+        const x = -(window.innerWidth / 2 - paddingLeft)
+        const y = window.innerHeight - paddingTop - width / 2 - paddingBottom
+        return {
+          x,
+          y,
+          scale
+        }
+      },
+      _getSongUrl() {
+        getSongKeys(this.currentSong.mid, `C400${this.currentSong.mid}.m4a`).then((res) => {
+          if (res.code === ERR_OK) {
+            this.url = `http://dl.stream.qqmusic.qq.com/C400${this.currentSong.mid}.m4a?guid=202324981&vkey=${res.data.items[0].vkey}&uin=0&fromtag=999`
+            console.log('url',this.url)
+          }
+        })
+
+      },
+      ...mapMutations({
+        setFullScreen: 'SET_FULL_SCREEN',
+        setPlayingState: 'SET_PLAYING_STATE'
+      })
+    },
+    watch: {
+      currentSong() {
+        this.url = this._getSongUrl()
+      },
+      url() {
+        this.timer = setTimeout(() => {
+          this.$refs.audio.play()
+        }, 1000)
+      },
+      playing(newPlaying) {
+        const audio = this.$refs.audio
+        this.$nextTick(()=>{
+          newPlaying ? audio.play() : audio.pause()
+        })
+      }
     }
   }
 </script>
@@ -298,5 +443,4 @@
       transform: rotate(0)
     100%
       transform: rotate(360deg)
-
 </style>

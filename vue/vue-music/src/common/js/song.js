@@ -36,10 +36,12 @@ export function createSong(musicData) {
     album: musicData.albumname,
     albummid: musicData.albummid,
     duration: musicData.interval,
-    image: `https://y.gtimg.cn/music/photo_new/T001R300x300M000${musicData.albummid}.jpg?max_age=2592000`,
+    image: `https://y.gtimg.cn/music/photo_new/T002R300x300M000${musicData.albummid}.jpg?max_age=2592000`,
     url: `http://dl.stream.qqmusic.qq.com/C400${musicData.songmid}.m4a?guid=202324981&vkey=${musicData.key}&uin=0&fromtag=999`
   })
 }
+
+// 注：上面的url已无效了，不使用指获取vkey值，性能太慢，，目前只通过单曲获取vkey值
 
 // https://thirdparty.gtimg.com/102636799.m4a?fromtag=38
 // http://dl.stream.qqmusic.qq.com/C400004dADLe4ec8RG.m4a?vkey=F3D4A1BD8F63B8739A39BF9EEE1117B472C8D2720BBB7AA175AD61FF92B5EC7CE190A846C1953EE79F77EAA554A266747C9BFC385F74D1A7&guid=202324981&uin=237363402&fromtag=66

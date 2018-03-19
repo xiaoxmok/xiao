@@ -20,3 +20,4 @@ main.js:入口文件
   1. vue-lazyload：懒加载
   1. better-scroll：滚动组件
   1. axios：服务端数请求代理组件
+  1. create-keyframe-animation: js处理css3动画库
