@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html lang="zh" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>新闻中心</title>
+    <meta name="description" content="Description...">
+    <meta name="keywords" content="keyword1,keyword2,keyword3..">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/bootsnav.css" rel="stylesheet">
+    <link href="plugin/swiper3/css/swiper.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery-1.10.1.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/bootsnav.js"></script>
+    <script src="plugin/swiper3/js/swiper.min.js"></script>
+    <script src="plugin/swiper3/js/swiper.animate1.0.2.min.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        offset: 0,
+        mobile: false,
+        live: true
+    });
+    wow.init();
+    </script>
+	<!--[if lt IE 9]>
+	  <script src="js/html5shiv.min.js"></script>
+	  <script src="js/respond.min.js"></script>
+	<![endif]-->    
+    <script>
+    	function scro(){
+			if($(document).scrollTop()>50){$(".headerBg").addClass("active");}else{$(".headerBg").removeClass("active");}
+		}
+		scro();
+		$(window).scroll(function(){
+			scro();
+		})
+    </script>
+</head>
+<body>
+<header class="headerBg navbar-fixed-top">
+	<div class="container-fluid">
+    	<div class="logo"><a href="#"><img src="images/logo.png" class="img-responsive" alt="智慧星光"></a></div>
+        <div class="menuBtn">
+        	<span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="hdRig">
+            <ul class="hdRigList list-unstyled">
+                <li><a class="hdTel" href="tel:010-52722366"><i class="fa fa-phone"></i></a><span>010-52722366</span></li>
+                <li><a class="hdShare" href="javascript:;"><i class="fa fa-weibo"></i></a></li>
+                <li><a class="hdShare" href="javascript:;"><i class="fa fa-weixin"></i></a>
+                    <div class="hdWx">
+                        <img src="images/wchat.jpg" class="img-responsive">
+                        <p>扫一扫，关注我们</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+        <div class="navBox hidden-xs hidden-sm">
+        	<ul class="navList list-unstyled">
+            	<li class="navLi">
+                	<h3><a href="index.html"><span>首页</span></a></h3>
+                </li>
+            	<li class="navLi on">
+                	<h3><a href="onepage.html"><span>关于我们</span></a></h3>
+                    <div class="navSub">
+                    	<ul class="navSubList list-unstyled">
+                        	<li class="navSubLi">
+                            	<h4><a href="article.html">公司介绍</a></h4>                                
+                            </li>
+                        	<li class="navSubLi">
+                            	<h4><a href="article.html">大事记</a></h4>
+                            </li>
+                        	<li class="navSubLi">
+                            	<h4><a href="honour.html">资质荣誉</a></h4>
+                            </li>
+                        	<li class="navSubLi">
+                            	<h4><a href="artlist.html">新闻中心</a></h4>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            	<li class="navLi">
+                	<h3><a href="#"><span>产品与服务</span></a></h3>
+                    <div class="navSub">
+                    	<ul class="navSubList list-unstyled">
+                        	<li class="navSubLi">
+                            	<h4><a href="https://www.baidu.com">大数据应用</a></h4>
+                                <ul class="navThrList list-unstyled">
+                                	<li class="navThrLi">
+                                    	<h5><a href="#">舆情应用</a></h5>
+                                        <ul class="navFouList list-unstyled">
+                                        	<li class="navFouLi"><a href="#">舆情秘书</a></li>
+                                        	<li class="navFouLi"><a href="#">舆情秘书（企业）</a></li>
+                                        	<li class="navFouLi"><a href="#">舆情OA</a></li>
+                                        	<li class="navFouLi"><a href="#">智慧研判</a></li>
+                                        	<li class="navFouLi"><a href="#">重点人物监控平台</a></li>
+                                        	<li class="navFouLi"><a href="#">智慧网评</a></li>
+                                        </ul>
+                                    </li>
+                                	<li class="navThrLi">
+                                    	<h5><a href="#">互联网应用</a></h5>
+                                        <ul class="navFouList list-unstyled">
+                                        	<li class="navFouLi"><a href="#">舆情秘书</a></li>
+                                        	<li class="navFouLi"><a href="#">舆情秘书（企业）</a></li>
+                                        	<li class="navFouLi"><a href="#">舆情OA</a></li>
+                                        	<li class="navFouLi"><a href="#">智慧研判</a></li>
+                                        	<li class="navFouLi"><a href="#">重点人物监控平台</a></li>
+                                        	<li class="navFouLi"><a href="#">智慧网评</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        	<li class="navSubLi">
+                            	<h4><a href="https://www.jd.com">大数据服务</a></h4>
+                                <ul class="navThrList list-unstyled">
+                                	<li class="navThrLi">
+                                    	<h5><a href="#">舆情应用</a></h5>
+                                    </li>
+                                	<li class="navThrLi">
+                                    	<h5><a href="#">互联网应用</a></h5>
+                                    </li>
+                                </ul>
+                            </li>
+                        	<li class="navSubLi">
+                            	<h4><a href="#">大数据项目</a></h4>
+                            </li>
+                        	<li class="navSubLi">
+                            	<h4><a href="#">大数据报告</a></h4>
+                            </li>
+                        </ul>
+                    </div>
+                </li>                
+            	<li class="navLi">
+                	<h3><a href="#"><span>大数据方案</span></a></h3>
+                    <div class="navSub">
+                    	<ul class="navSubList list-unstyled">
+                        	<li class="navSubLi">
+                            	<h4><a href="#">行业应用解决方案</a></h4>                                
+                            </li>
+                        	<li class="navSubLi">
+                            	<h4><a href="#">数据服务解决方案</a></h4>
+                            </li>
+                        	<li class="navSubLi">
+                            	<h4><a href="#">报告服务解决方案</a></h4>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="navLi">
+                	<h3><a href="case.html"><span>案例</span></a></h3>
+                    <div class="navSub">
+                    	<ul class="navSubList list-unstyled">
+                        	<li class="navSubLi">
+                            	<h4><a href="#">政府部门</a></h4>                                
+                            </li>
+                        	<li class="navSubLi">
+                            	<h4><a href="#">公安部门</a></h4>
+                            </li>
+                        	<li class="navSubLi">
+                            	<h4><a href="#">旅游部门</a></h4>
+                            </li>
+                        	<li class="navSubLi">
+                            	<h4><a href="#">房地产</a></h4>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="navLi">
+                	<h3><a href="contact.html"><span>联系我们</span></a></h3>
+                    <div class="navSub">
+                    	<ul class="navSubList list-unstyled">
+                        	<li class="navSubLi">
+                            	<h4><a href="partner.html">招商加盟</a></h4>                                
+                            </li>
+                        	<li class="navSubLi">
+                            	<h4><a href="contact.html">联系我们</a></h4>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="navBoxm"></div>
+    </div>
+</header>
+<div class="clearfix"></div>
+<div class="bannerN">
+	<div class="imgFull"><img src="images/banNews.jpg" class="img-responsive"></div>
+    <h2 class="banH2 wow fadeInUp">关于我们</h2>
+</div>
+<div class="mainBg">
+	<div class="onepage">
+        <ul class="artlist list-unstyled">
+            <li class="wow fadeInUp">
+                <div class="container">
+                    <a href="#">
+                        <div class="arImg">
+                            <img src="images/arImg1.jpg" class="img-responsive">
+                            <div class="arTime">
+                                <p class="date">07</p>
+                                <p class="month text-uppercase">Apr</p>
+                            </div>
+                        </div>
+                        <div class="arText">
+                            <h3 class="arTit ellipsis">智慧星光聘请大数据资深科学家黄铃博士为首席科学家</h3>
+                            <div class="arBrief">
+                                <p>智慧星光作为一家拥有深厚技术底蕴的大数据公司，一直致力于大数据前沿科技的研究，此次聘请海外归来不久的黄铃博士成为首席科学家，正式因为黄铃博士在大数据，人工智能，机器学习领域的深厚造诣，希望与黄铃博士一起在非结构化数据（文本/音视频）的人工智能开发方面有所突破。欢迎仪式以技术型公司特有的朴实、真挚的方式开始，董事长李青龙代表智慧星光为黄铃博士颁发聘书，……</p>
+                            </div>
+                            <div class="arBot">
+                                <div class="pull-left"><i class="fa fa-eye"></i> 浏览(62)</div>
+                                <div class="pull-right">阅读全文 <i class="fa fa-angle-down"></i></div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li class="wow fadeInUp">
+                <div class="container">
+                    <a href="#">
+                        <div class="arImg">
+                            <img src="images/arImg2.jpg" class="img-responsive">
+                            <div class="arTime">
+                                <p class="date">31</p>
+                                <p class="month text-uppercase">Apr</p>
+                            </div>
+                        </div>
+                        <div class="arText">
+                            <h3 class="arTit ellipsis">2016年医疗圈的那些事（干货PPT）</h3>
+                            <div class="arBrief">
+                                <p>在刚刚过去的一年里， 久热不衰的舆论话题在医院； 人民群众的聚焦重点在医院。 是医疗事故？ 还是为了谋取利益而恶意抹黑？ 医疗机构又和搜索引擎有着哪些微妙关联？ 医院救死扶伤可谁又来保障医务人员安全？ 面对民众和医院之间的矛盾， 有关政府部门是否采取了措施？ 媒体是同情弱者还是公道发言？ 虚假！关怀！惊悸！ 智慧星光带你看看医疗圈的那些事。</p>
+                            </div>
+                            <div class="arBot">
+                                <div class="pull-left"><i class="fa fa-eye"></i> 浏览(62)</div>
+                                <div class="pull-right">阅读全文 <i class="fa fa-angle-down"></i></div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li class="wow fadeInUp">
+                <div class="container">
+                    <a href="#">
+                        <div class="arImg">
+                            <img src="images/arImg3.jpg" class="img-responsive">
+                            <div class="arTime">
+                                <p class="date">07</p>
+                                <p class="month text-uppercase">Apr</p>
+                            </div>
+                        </div>
+                        <div class="arText">
+                            <h3 class="arTit ellipsis">P2P网贷行业发展现状研究报告（干货PPT）</h3>
+                            <div class="arBrief">
+                                <p>5年历史大事件盘点，为您画出P2P网贷行业平台成交量清晰走势图。 想知道网贷行业潜在风险吗？ 想了解网贷行业热点信息吗？ 想展望网贷行业发展未来吗？ 是什么原因导致平台数量增速骤降？ 在问题平台中又有哪些客户造成了损失？ 人们关注的焦点信息又在哪里？ 智慧星光告诉你 作者：智慧星光大数据事业部-行业研究部</p>
+                            </div>
+                            <div class="arBot">
+                                <div class="pull-left"><i class="fa fa-eye"></i> 浏览(62)</div>
+                                <div class="pull-right">阅读全文 <i class="fa fa-angle-down"></i></div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li class="wow fadeInUp">
+                <div class="container">
+                    <a href="#">
+                        <div class="arImg">
+                            <img src="images/arImg4.jpg" class="img-responsive">
+                            <div class="arTime">
+                                <p class="date">31</p>
+                                <p class="month text-uppercase">Apr</p>
+                            </div>
+                        </div>
+                        <div class="arText">
+                            <h3 class="arTit ellipsis">央视大调查如何听到互联网最小的声音？智慧星光告诉你！</h3>
+                            <div class="arBrief">
+                                <p>2017年3月7日全国两会召开之际，作为连续做了11年的权威媒体民生调查，央视《中国经济生活大调查（2016-2017）》将在央视二套财经频道隆重发布。智慧星光作为此次大调查互联网数据的合作方，受邀共同发布此次大调查的年度数据。此次大调查提出一个口号“再小的声音中国都听得见”，如何听到最小的来自老百姓的声音？</p>
+                            </div>
+                            <div class="arBot">
+                                <div class="pull-left"><i class="fa fa-eye"></i> 浏览(62)</div>
+                                <div class="pull-right">阅读全文 <i class="fa fa-angle-down"></i></div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li class="wow fadeInUp">
+                <div class="container">
+                    <a href="#">
+                        <div class="arImg">
+                            <img src="images/arImg5.jpg" class="img-responsive">
+                            <div class="arTime">
+                                <p class="date">31</p>
+                                <p class="month text-uppercase">Apr</p>
+                            </div>
+                        </div>
+                        <div class="arText">
+                            <h3 class="arTit ellipsis">智慧星光蝉联文本数据挖掘应用领域榜首</h3>
+                            <div class="arBrief">
+                                <p>近期，首席数据官联盟在京发布2017《中国大数据企业排行榜》V3.0，北京智慧星光信息技术有限公司蝉联文本数据挖掘应用领域榜首，在社交数据分析和智慧公安领域获得第二名，在自然语言处理方面获得第三名。 一直以来，智慧星光非常重视自主技术的研发和创新，全部产品均拥有自主知识产权，并拥有多项专利技术，先后与清华大学、北京大学、北京航空航天大学建立联合机构……</p>
+                            </div>
+                            <div class="arBot">
+                                <div class="pull-left"><i class="fa fa-eye"></i> 浏览(62)</div>
+                                <div class="pull-right">阅读全文 <i class="fa fa-angle-down"></i></div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <div class="container">
+            <div class="page"><img src="images/page.png" class="img-responsive"></div>
+        </div>    
+    </div>
+</div>
+<footer class="footerBg">
+	<div class="container">
+    	<div class="footTop">
+        	<div class="footTopR text-right">
+            	<a href="#" class="kefu"><img src="images/kefu.png"> 在线客服</a>
+                <div class="clear"></div>
+                <p class="fTel">010-52722366</p>
+                <p>（周一至周五8:30-17:30）</p>
+            </div>
+            <div class="footTopL">
+            	<ul class="footLink list-unstyled list-inline">
+                	<li>
+                    	<h3><a class="ellipsis" href="#">关于我们</a></h3>
+                        <div class="footSub">
+                        	<p><a class="ellipsis" href="#">公司介绍</a></p>
+                        	<p><a class="ellipsis" href="#">大事记</a></p>
+                        	<p><a class="ellipsis" href="#">资质荣誉</a></p>
+                        	<p><a class="ellipsis" href="#">新闻中心</a></p>
+                        </div>
+                    </li>
+                	<li>
+                    	<h3><a class="ellipsis" href="#">产品与服务</a></h3>
+                        <div class="footSub">
+                        	<p><a class="ellipsis" href="#">舆情应用</a></p>
+                        	<p><a class="ellipsis" href="#">互联网信息识别分析应用</a></p>
+                        	<p><a class="ellipsis" href="#">数据服务</a></p>
+                        	<p><a class="ellipsis" href="#">项目服务</a></p>
+                        	<p><a class="ellipsis" href="#">报告服务</a></p>
+                        </div>
+                    </li>
+                	<li>
+                    	<h3><a class="ellipsis" href="#">解决方案</a></h3>
+                        <div class="footSub">
+                        	<p><a class="ellipsis" href="#">行业应用解决方案</a></p>
+                        	<p><a class="ellipsis" href="#">数据服务解决方案</a></p>
+                        	<p><a class="ellipsis" href="#">报告服务解决方案</a></p>
+                        </div>
+                    </li>
+                	<li>
+                    	<h3><a class="ellipsis" href="#">案例</a></h3>
+                        <div class="footSub">
+                        	<p><a class="ellipsis" href="#">政府部门</a></p>
+                        	<p><a class="ellipsis" href="#">公安部门</a></p>
+                        	<p><a class="ellipsis" href="#">旅游部门</a></p>
+                        	<p><a class="ellipsis" href="#">房地产</a></p>
+                        </div>
+                    </li>
+                	<li>
+                    	<h3><a class="ellipsis" href="#">联系我们</a></h3>
+                        <div class="footSub">
+                        	<p><a class="ellipsis" href="#">招商加盟</a></p>
+                        	<p><a class="ellipsis" href="#">联系我们</a></p>
+                        </div>
+                    </li>
+                	<li>
+                    	<h3><a class="ellipsis" href="#">快捷登录</a></h3>
+                        <div class="footSub">
+                        	<p><a class="ellipsis" href="#">舆情秘书</a></p>
+                        	<p><a class="ellipsis" href="#">智慧网评</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    	<div class="footBot">
+        	<img src="images/footLogo.png" class="footLogo">
+        	<p>Copyright © 2001-2015 istarshine.com.All rights reserved.  京ICP备12sdf6号-1  京公网xx008588号  </p>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer>
+<ul class="online list-unstyled">
+	<li>
+    	<a class="onlineIco" href="#">
+        	<i class="fa fa-qq"></i>
+        	<div class="onlineCon">在线客服</div>
+        </a>
+    </li>
+	<li>
+    	<a class="onlineIco" href="#">
+        	<i class="fa fa-phone"></i>
+        	<div class="onlineCon">010-588df850</div>
+        </a>
+    </li>	
+	<li>
+    	<a class="onlineIco" href="#">
+        	<i class="fa fa-weixin"></i>
+        	<div class="onlineCon">扫码关注</div>
+        </a>
+        <div class="onlineWx">
+        	<img src="images/wchat.jpg" class="img-responsive">
+        </div>
+    </li>
+	<li class="online_top">
+    	<a class="onlineIco" href="javascript:;">
+        	<i class="fa fa-arrow-up"></i>
+        	<div class="onlineCon">返回顶部</div>
+        </a>
+    </li>
+</ul>
+</body>
+</html>

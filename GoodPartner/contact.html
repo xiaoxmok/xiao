@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html lang="zh" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<title>联系我们</title>
+    <link href="images/favicon.ico" rel="shortcut icon">
+    <meta name="description" content="Description...">
+    <meta name="keywords" content="keyword1,keyword2,keyword3..">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+    <link href="plugin/swiper3/css/swiper.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery-1.10.1.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="plugin/swiper3/js/swiper.min.js"></script>
+    <script src="plugin/swiper3/js/swiper.animate1.0.2.min.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        offset: 0,
+        mobile: false,
+        live: true
+    });
+    wow.init();
+    </script>
+	<!--[if lt IE 9]>
+	  <script src="js/html5shiv.min.js"></script>
+	  <script src="js/respond.min.js"></script>
+	<![endif]-->    
+    <script>
+    	function scro(){
+			if($(document).scrollTop()>50){$(".headerBg").addClass("active");}else{$(".headerBg").removeClass("active");}
+		}
+		scro();
+		$(window).scroll(function(){
+			scro();
+		})
+    </script>
+</head>
+<body>
+<header class="headerBg navbar-fixed-top">
+	<div class="container-fluid">
+    	<div class="logo"><a href="#"><img src="images/logo2.png" class="img-responsive" alt="柴录信息"></a></div>
+        <div class="menuBtn">
+        	<span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="hdRig">
+            <ul class="hdRigList list-unstyled">
+                <li><a class="hdTel" href="tel:010-52722366"><i class="fa fa-phone"></i></a><span>021-66875008</span></li>
+                <li><a class="hdShare" href="javascript:;"><i class="fa fa-weibo"></i></a></li>
+                <li><a class="hdShare" href="javascript:;"><i class="fa fa-weixin"></i></a>
+                    <!--<div class="hdWx">
+                        <img src="images/wchat.jpg" class="img-responsive">
+                        <p>扫一扫，关注我们</p>
+                    </div>-->
+                </li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+        <div class="navBox hidden-xs hidden-sm">
+        	<ul class="navList list-unstyled">
+            	<li class="navLi">
+                	<h3><a href="index.html"><span>首页</span></a></h3>
+                </li>
+            	<li class="navLi">
+                	<h3><a href="onepage.html"><span>关于我们</span></a></h3>
+                </li>
+            	<li class="navLi">
+                	<h3><a href="scene.html"><span>产品与服务</span></a></h3>
+                </li>
+                <li class="navLi on">
+                	<h3><a href="contact.html"><span>联系我们</span></a></h3>
+                </li>
+            </ul>
+        </div>
+        <div class="navBoxm"></div>
+    </div>
+</header>
+<div class="clearfix"></div>
+<div class="bannerN">
+	<div class="imgFull"><img src="images/banContact.jpg" class="img-responsive"></div>
+    <h2 class="banH2 wow fadeInUp">联系我们</h2>
+</div>
+<div class="mainBg">    
+    <div class="container">
+    	<div class="contact">
+        	<div class="row">
+            	<div class="col-xs-12 col-sm-12 col-md-6 wow fadeInLeft">
+                	<div class="contactWay">
+                    	<h3>上海柴录信息科技有限公司</h3>
+                        <p>地址：上海市宝山区美丹路222号1301室</p>
+                        <p>电话：13917062624</p>
+                        <p>邮箱：chairoad@aliyun.com</p>
+                        <p>客服电话：021-6687008 (周一至周五 08:30 — 17:30)</p>
+                    </div>
+                </div>
+            	<div class="col-xs-12 col-sm-12 col-md-6 wow fadeInRight">
+                	<ul class="contactShare list-unstyled list-inline">
+                    	<li>
+                        	<a class="conShIco" href="#">
+                                <i class="fa fa-qq"></i>
+                                <p>在线客服</p>
+                            </a>
+                        </li>
+                    	<li>
+                        	<a class="conShIco" href="javascript:;">
+                                <i class="fa fa-weixin"></i>
+                                <p>微信公众号</p>
+                            </a>
+
+                        </li>
+                    	<li>
+                        	<a class="conShIco" href="javascript:;">
+                                <i class="fa fa-weibo"></i>
+                                <p>新浪微博</p>
+                            </a>
+                            <div class="conWb"><img src="images/weibo.jpg" class="img-responsive"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact_map" id="dituContent"></div>
+    <div class="container">
+
+    </div>
+</div>
+<footer class="footerBg">
+	<div class="container">
+    	<div class="footTop">
+        	<div class="footTopR text-right">
+            	<a href="#" class="kefu"><img src="images/kefu.png"> 在线客服</a>
+                <div class="clear"></div>
+                <p class="fTel">021-66875008</p>
+                <p>（周一至周五8:30-17:30）</p>
+            </div>
+            <div class="footTopL">
+            	<ul class="footLink list-unstyled list-inline">
+                    <li>
+                        <h3><a class="ellipsis" href="onepage.html">关于我们</a></h3>
+                    </li>
+                    <li>
+                        <h3><a class="ellipsis" href="scene.html">产品与服务</a></h3>
+                    </li>
+                    <li>
+                        <h3><a class="ellipsis" href="contact.html">联系我们</a></h3>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    	<div class="footBot">
+        	<p>Copyright © 上海柴录信息技术有限公司版权所有 沪ICP备18008895号-1</p>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer>
+<ul class="online list-unstyled">
+	<li>
+    	<a class="onlineIco" href="#">
+        	<i class="fa fa-qq"></i>
+        	<div class="onlineCon">在线客服</div>
+        </a>
+    </li>
+	<li>
+    	<a class="onlineIco" href="#">
+        	<i class="fa fa-phone"></i>
+        	<div class="onlineCon">021-66875008</div>
+        </a>
+    </li>	
+	<li>
+    	<a class="onlineIco" href="#">
+        	<i class="fa fa-weixin"></i>
+        	<div class="onlineCon">扫码关注</div>
+        </a>
+
+    </li>
+	<li class="online_top">
+    	<a class="onlineIco" href="javascript:;">
+        	<i class="fa fa-arrow-up"></i>
+        	<div class="onlineCon">返回顶部</div>
+        </a>
+    </li>
+</ul>
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+<script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        //addMapControl();//向地图添加控件
+        addMarker();//向地图中添加marker
+    }
+    
+    //创建地图函数：
+    function createMap(){
+        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+        var point = new BMap.Point(121.357002,31.408475);//定义一个中心点坐标
+        map.centerAndZoom(point,18);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
+    }
+    
+    //地图事件设置函数：
+    function setMapEvent(){
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地图
+    }
+    
+    //地图控件添加函数：
+    function addMapControl(){
+        //向地图中添加缩放控件
+	var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+	map.addControl(ctrl_nav);
+                //向地图中添加比例尺控件
+	var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+	map.addControl(ctrl_sca);
+    }
+    
+    //标注点数组
+    var markerArr = [{title:"上海柴录信息科技有限公司",content:"电话：021-6687008<br/>邮箱：chairoad@aliyun.com",point:"121.357002,31.408475",isOpen:1,icon:{w:23,h:25,l:46,t:21,x:9,lb:12}}
+		 ];
+    //创建marker
+    function addMarker(){
+        for(var i=0;i<markerArr.length;i++){
+            var json = markerArr[i];
+            var p0 = json.point.split(",")[0];
+            var p1 = json.point.split(",")[1];
+            var point = new BMap.Point(p0,p1);
+			var iconImg = createIcon(json.icon);
+            var marker = new BMap.Marker(point,{icon:iconImg});
+			var iw = createInfoWindow(i);
+			var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
+			marker.setLabel(label);
+            map.addOverlay(marker);
+            label.setStyle({
+                        borderColor:"#808080",
+                        color:"#333",
+                        cursor:"pointer"
+            });
+			
+			(function(){
+				var index = i;
+				var _iw = createInfoWindow(i);
+				var _marker = marker;
+				_marker.addEventListener("click",function(){
+				    this.openInfoWindow(_iw);
+			    });
+			    _iw.addEventListener("open",function(){
+				    _marker.getLabel().hide();
+			    })
+			    _iw.addEventListener("close",function(){
+				    _marker.getLabel().show();
+			    })
+				label.addEventListener("click",function(){
+				    _marker.openInfoWindow(_iw);
+			    })
+				if(!!json.isOpen){
+					label.hide();
+					_marker.openInfoWindow(_iw);
+				}
+			})()
+        }
+    }
+    //创建InfoWindow
+    function createInfoWindow(i){
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+        return iw;
+    }
+    //创建一个Icon
+    function createIcon(json){
+        var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
+        return icon;
+    }
+    
+    initMap();//创建和初始化地图
+</script>
+</body>
+</html>
