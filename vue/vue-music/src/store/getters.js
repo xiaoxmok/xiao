@@ -1,8 +1,5 @@
 // 对state做一些映射
 
-import {getSongKeys} from "api/song";
-import {ERR_OK} from "api/config";
-
 export const singer = state => state.singer
 
 export const playing = state => state.playing

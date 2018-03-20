@@ -27,18 +27,25 @@
           </div>
         </div>
         <div class="bottom">
+          <div class="progress-wrapper">
+            <span class="time time-l">{{format(currentTime)}}</span>
+            <div class="progress-bar-wrapper">
+              <progress-bar :percent="percent" @percentChange="onProgressBarChange"></progress-bar>
+            </div>
+            <span class="time time-r">{{format(currentSong.duration)}}</span>
+          </div>
           <div class="operators">
-            <div class="icon i-left">
-              <i class="icon-sequence"></i>
+            <div class="icon i-left" @click="changeMode">
+              <i :class="iconMode"></i>
             </div>
-            <div class="icon i-left">
-              <i class="icon-prev"></i>
+            <div class="icon i-left" :class="disableCls">
+              <i @click="prev" class="icon-prev"></i>
             </div>
-            <div class="icon i-center">
+            <div class="icon i-center" :class="disableCls">
               <i @click="togglePlaying" :class="playIcon"></i>
             </div>
-            <div class="icon i-right">
-              <i class="icon-next"></i>
+            <div class="icon i-right" :class="disableCls">
+              <i @click="next" class="icon-next"></i>
             </div>
             <div class="icon i-right">
               <i class="icon icon-not-favorite"></i>
@@ -57,14 +64,21 @@
           <p class="desc" v-html="currentSong.singer"></p>
         </div>
         <div class="control">
-          <i @click.stop="togglePlaying" :class="miniIcon"></i>
+          <progress-circle :radius="radius" :percent="percent">
+            <i @click.stop="togglePlaying" class="icon-mini" :class="miniIcon"></i>
+          </progress-circle>
         </div>
         <div class="control">
           <i class="icon-playlist"></i>
         </div>
       </div>
     </transition>
-    <audio ref="audio" :src="url"></audio>
+    <audio ref="audio"
+           :src="url"
+           @canplay="ready"
+           @error="error"
+           @timeupdate="updateTime"
+    ></audio>
   </div>
 </template>
 
@@ -74,6 +88,10 @@
   import {prefixStyle} from "common/js/dom";
   import {getSongKeys} from "api/song";
   import {ERR_OK} from "api/config";
+  import ProgressBar from 'base/progress-bar/progress-bar'
+  import ProgressCircle from 'base/progress-circle/progress-circle'
+  import {playMode} from "../../common/js/config";
+  import {shuffle} from "../../common/js/util";
 
   const transform = prefixStyle('transform')
 
@@ -82,7 +100,11 @@
     data() {
       return {
         // 设置默认的url（因为爱情），如果初始化时，url为undefined，首次调用audio.play()时会报资源不存在。
-        url: 'http://dl.stream.qqmusic.qq.com/C400004HdPmN0HZipA.m4a?guid=202324981&vkey=8CD1C58024ACE3E8B5A02E47D2818795F2D4FB9376A10486475325A85264019EB399EC5C47781FB89EBB3CC34ECFB2E215DB5105C42B0F53&uin=0&fromtag=999'
+        url: 'http://dl.stream.qqmusic.qq.com/C400004HdPmN0HZipA.m4a?guid=202324981&vkey=DE2AA22920F433D98F59B50D13C5DD9F24999BF5D91D4BB4B1FAC187A9C52C52EE1C8D13AE8B13CCE8F3BFD6CBE64573CFD20C503406A163&uin=0&fromtag=999',
+        songReady: false,
+        // 当前时间
+        currentTime: 0,
+        radius: 32
       }
     },
     computed: {
@@ -92,14 +114,27 @@
       playIcon() {
         return this.playing ? 'icon-pause' : 'icon-play'
       },
+      iconMode() {
+        return this.mode === playMode.sequence ? 'icon-sequence' : this.mode === playMode.loop ? 'icon-loop' : 'icon-random'
+      },
       miniIcon() {
         return this.playing ? 'icon-pause-mini' : 'icon-play-mini'
+      },
+      // 设置不能点击时的样式，
+      disableCls() {
+        return this.songReady ? '' : 'disable'
+      },
+      percent() {
+        return this.currentTime / this.currentSong.duration
       },
       ...mapGetters([
         'fullScreen',
         'playList',
         'currentSong',
-        'playing'
+        'playing',
+        'currentIndex',
+        'mode',
+        'sequenceList'
       ])
     },
     created() {
@@ -156,7 +191,98 @@
         this.$refs.cdWrapper.style[transform] = ''
       },
       togglePlaying() {
+        if (!this.songReady) {
+          return
+        }
         this.setPlayingState(!this.playing)
+      },
+      next() {
+        // 解决连续点击报错的问题，只有当audio准备能播放时才能点击
+        if (!this.songReady) {
+          return
+        }
+        let index = this.currentIndex + 1
+        if (index === this.playList.length) {
+          index = 0
+        }
+
+        this.setCurrentIndex(index)
+        if (!this.playing) {
+          setTimeout(() => {
+            this.togglePlaying()
+          }, 400)
+        }
+        this.songReady = false
+      },
+      prev() {
+        if (!this.songReady) {
+          return
+        }
+        let index = this.currentIndex - 1
+        if (index === -1) {
+          index = this.playList.length - 1
+        }
+
+        this.setCurrentIndex(index)
+        if (!this.playing) {
+          setTimeout(() => {
+            this.togglePlaying()
+          }, 400)
+        }
+        this.songReady = false
+      },
+      ready() {
+        // 当歌曲加载成功
+        this.songReady = true
+      },
+      error() {
+        // 当网络延迟、歌曲加载错误等情况时，也置为true
+        this.songReady = true
+      },
+      updateTime(e) {
+        this.currentTime = e.target.currentTime
+      },
+      format(interval) {
+        // |0向下取整，相当于调用 Math.floor()方法
+        interval = interval | 0
+        const minute = interval / 60 | 0
+        const second = this._pad(interval % 60)
+        return `${minute}:${second}`
+      },
+      onProgressBarChange(percent) {
+        this.$refs.audio.currentTime = this.currentSong.duration * percent
+        if (!this.playing) {
+          this.togglePlaying()
+        }
+      },
+      changeMode() {
+        const mode = (this.mode + 1) % 3
+        this.setPlayMode(mode)
+        let list = null
+        console.log(mode)
+        if (mode === playMode.random) {
+          list = shuffle(this.sequenceList)
+        } else {
+          list = this.sequenceList
+        }
+        console.log('list',list)
+        this._resetCurrentIndex(list)
+        this.setPlayList(list)
+      },
+      // 切换播放模式时，为了不使用当播放的歌曲受影响，则需要重置当前播放歌曲的index
+      _resetCurrentIndex(list) {
+        let index = list.findIndex((item)=>{
+          return item.id===this.currentSong.id
+        })
+        this.setCurrentIndex(index)
+      },
+      _pad(num, n = 2) {
+        let len = num.toString().length
+        while (len < n) {
+          num = '0' + num
+          len++
+        }
+        return num
       },
       _getPosAndScale() {
         const targetWidth = 40
@@ -184,11 +310,20 @@
       },
       ...mapMutations({
         setFullScreen: 'SET_FULL_SCREEN',
-        setPlayingState: 'SET_PLAYING_STATE'
+        setPlayingState: 'SET_PLAYING_STATE',
+        setCurrentIndex: 'SET_CURRENT_INDEX',
+        setPlayMode: 'SET_PLAY_MODE',
+        setPlayList: 'SET_PLAYLIST'
       })
     },
     watch: {
-      currentSong() {
+      currentSong(newSong, oldSong) {
+        if (!newSong.id) {
+          return
+        }
+        if (newSong.id === oldSong.id) {
+          return
+        }
         this.url = this._getSongUrl()
       },
       url() {
@@ -202,6 +337,10 @@
           newPlaying ? audio.play() : audio.pause()
         })
       }
+    },
+    components: {
+      ProgressBar,
+      ProgressCircle
     }
   }
 </script>
