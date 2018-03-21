@@ -21,3 +21,5 @@ main.js:入口文件
   1. better-scroll：滚动组件
   1. axios：服务端数请求代理组件
   1. create-keyframe-animation: js处理css3动画库
+  1. js-base64: base64转译
+  1. lyric-parser: base64转译

@@ -27,8 +27,8 @@ export function getSongKeys111(songid) {
     platform: 'yqq',
     needNewCode: 0,
     notice: 0,
-    loginUin:0,
-    json:3
+    loginUin: 0,
+    json: 3
   })
 
   return jsonp(url, data, options)
@@ -55,7 +55,28 @@ export function getSongKeys(songmid, filename) {
     needNewCode: 0,
     notice: 0,
     guid: 202324981,
-    cid:205361747,
+    cid: 205361747,
+    format: 'json'
+  })
+
+  return axios.get(url, {
+    params: data
+  }).then((res) => {
+    return Promise.resolve(res.data)
+  })
+}
+
+// 获取歌词
+export function getLyric(mid) {
+  const url = '/api/lyric'
+
+  const data = Object.assign({}, commonParams, {
+    songmid: mid,
+    pcachetime: +new Date(),
+    platform: 'yqq',
+    needNewCode: 0,
+    hostUin: 0,
+    g_tk: 5381,
     format: 'json'
   })
 

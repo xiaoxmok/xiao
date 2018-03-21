@@ -110,6 +110,9 @@
       scroll(pos) {
         this.scrollY = pos.y
       },
+      refresh()　{
+        this.$refs.listview.refresh()
+      },
       _scrollTo(index) {
         // console.log(index)
         // 点击为null时，什么都不需要做
