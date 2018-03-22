@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animation</title>
+    <style>
+        *{padding:0;margin: 0}
+        div{margin: 20px}
+
+        .changeColor{
+            width:100px;
+            height:100px;
+            animation:changeColor 5s ease forwards;
+        }
+        @keyframes changeColor{
+            0%{
+                background: #9c25ff;
+            }
+            100%{
+                background:orange;
+            }
+        }
+
+        .around{
+            width:200px;height:200px;border: 1px solid #ff4012;
+        }
+        .around span{
+            width:20px;height:20px;border-radius:50%;background: #ffb586;display: inline-block;
+            animation:around 10s linear infinite alternate;
+        }
+        .around span:hover{
+            /*animation-name:around;*/
+            animation-play-state:paused
+        }
+        @keyframes around{
+            0%{
+                transform: translateX(0)
+            }
+            25%{
+                transform: translateX(180px)
+            }
+            50%{
+                transform: translate(180px,180px)
+            }
+            75%{
+                transform: translate(0,180px)
+            }
+            100%{
+                transform: translateY(0)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animation">
+        <div class="changeColor"></div>
+        <div class="around">
+            <span></span>
+        </div>
+    </div>
+</body>
+</html>
