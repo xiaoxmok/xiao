@@ -97,7 +97,7 @@
     </transition>
     <audio ref="audio"
            :src="url"
-           @canplay="ready"
+           @play="ready"
            @error="error"
            @timeupdate="updateTime"
            @ended="end"
@@ -127,7 +127,7 @@
       return {
         // 设置默认的url（因为爱情），如果初始化时，url为undefined，首次调用audio.play()时会报资源不存在。
         //url: 'http://dl.stream.qqmusic.qq.com/C400004HdPmN0HZipA.m4a?guid=202324981&vkey=DE2AA22920F433D98F59B50D13C5DD9F24999BF5D91D4BB4B1FAC187A9C52C52EE1C8D13AE8B13CCE8F3BFD6CBE64573CFD20C503406A163&uin=0&fromtag=999',
-        url: 'http://zhangmenshiting.qianqian.com/data2/music/65626884/65626884.mp3?xcode=d0bee9f1ea43348652d17b2d9b423fd1',
+        url: 'http://zhangmenshiting.qianqian.com/data2/music/65626884/65626884.mp3?xcode=b0100da9a825e330766f476e85847328',
         songReady: false,
         // 当前时间
         currentTime: 0,
@@ -255,9 +255,10 @@
         }
 
         // 边界条件，当播放列表只有一条数据时
-        if(this.playList.length === 1){
+        if (this.playList.length === 1) {
           this.loop()
-        }else{
+          return
+        } else {
           let index = this.currentIndex + 1
           if (index === this.playList.length) {
             index = 0
@@ -276,9 +277,10 @@
         if (!this.songReady) {
           return
         }
-        if(this.playList.length===1){
+        if (this.playList.length === 1) {
           this.loop()
-        }else{
+          return
+        } else {
           let index = this.currentIndex - 1
           if (index === -1) {
             index = this.playList.length - 1
@@ -340,6 +342,9 @@
       },
       getLyric() {
         this.currentSong.getLyric().then((lyric) => {
+          if (this.currentSong.lyric !== lyric) {
+            return
+          }
           this.currentLyric = new Lyric(lyric, this.handleLyric)
           if (this.playing) {
             this.currentLyric.play()
@@ -493,7 +498,7 @@
         this.url = this._getSongUrl()
       },
       url() {
-
+        clearTimeout(this.timer)
         this.timer = setTimeout(() => {
           this.$refs.audio.play()
         }, 1000)

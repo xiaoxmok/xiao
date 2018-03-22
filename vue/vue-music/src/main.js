@@ -6,7 +6,13 @@ import store from './store'
 import fastclick from 'fastclick'
 import VueLazyLoad from 'vue-lazyload'
 
+/* eslint-disable no-unused-vars */
+import vConsole from 'vconsole'
+
+console.log('test')
+
 Vue.config.productionTip = false
+
 
 // 解决移动端点击 300毫秒的问题
 fastclick.attach(document.body);
