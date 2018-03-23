@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js实现双向绑定</title>
+</head>
+<body>
+    <div class="app">
+        <input type="text" id="text">
+        <p id="txt"></p>
+    </div>
+    <script>
+        var obj = {}
+        Object.defineProperty(obj,'txt',{
+            get:function(){
+                return obj;
+            },
+            set:function(newVal){
+                document.getElementById('text').value = newVal;
+                document.getElementById('txt').innerText = newVal;
+            }
+        })
+        document.getElementById('text').addEventListener('keyup',function(){
+            obj.txt = this.value;
+        })
+    </script>
+</body>
+</html>
