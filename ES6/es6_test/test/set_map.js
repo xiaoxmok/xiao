@@ -41,14 +41,14 @@
     let arr = ['add', 'delete', 'clear', 'has']
     let list = new Set(arr);
 
-    for(let key of list.keys()){
-        console.log('key',key);
+    for (let key of list.keys()) {
+        console.log('key', key);
     }
-    for(let value of list.values()){
-        console.log('value',value);
+    for (let value of list.values()) {
+        console.log('value', value);
     }
-    for(let [key,value] of list.entries()){
-        console.log('entries',key,value);
+    for (let [key, value] of list.entries()) {
+        console.log('entries', key, value);
     }
 
 }
@@ -59,7 +59,7 @@
 
     let arg = {};
     weakList.add(arg);
-    console.log('weakList',weakList);
+    console.log('weakList', weakList);
 
 }
 
@@ -67,29 +67,29 @@
     // map
     let map = new Map();
     let arr = ['123'];
-    map.set(arr,234);
-    console.log('map',map,map.get(arr));
+    map.set(arr, 234);
+    console.log('map', map, map.get(arr));
 }
 
 {
     // 第二种定义
-    let map = new Map([['a',123],['b',345]]);
-    console.log('map',map);
+    let map = new Map([['a', 123], ['b', 345]]);
+    console.log('map', map);
 
 
     // 常用的属性值和方法
-    console.log('size',map.size);
-    console.log('delete',map.delete('a'),map);
-    console.log('clear',map.clear(),map);
+    console.log('size', map.size);
+    console.log('delete', map.delete('a'), map);
+    console.log('clear', map.clear(), map);
 
 
 }
 
 {
     let weakmap = new WeakMap();
-    let o={};
-    weakmap.set(o,123);
-    console.log('weakmap',weakmap);
+    let o = {};
+    weakmap.set(o, 123);
+    console.log('weakmap', weakmap);
 }
 
 {
@@ -99,27 +99,27 @@
     let array = []
 
     // 增
-    map.set('t',1);
-    array.push({t:1});
+    map.set('t', 1);
+    array.push({t: 1});
 
-    console.info('map-array',map,array);
+    console.info('map-array', map, array);
 
     // 查
     let map_exist = map.has('t');
-    let array_exist = array.find(item=>item.t);
+    let array_exist = array.find(item => item.t);
 
-    console.log(map_exist,array_exist);
+    console.log(map_exist, array_exist);
 
     // 改
-    map.set('t',2);
-    array.forEach(item=>item.t?item.t=2:'');
-    console.info('map-array-modify',map,array);
+    map.set('t', 2);
+    array.forEach(item => item.t ? item.t = 2 : '');
+    console.info('map-array-modify', map, array);
 
     // 删
     map.delete('t');
-    let index = array.findIndex(item=>item.t);
-    array.splice(index,1);
-    console.info('map-array-delete',map,array);
+    let index = array.findIndex(item => item.t);
+    array.splice(index, 1);
+    console.info('map-array-delete', map, array);
 }
 
 {
@@ -128,61 +128,61 @@
     let array = [];
 
     // 增
-    set.add({t:1});
-    array.push({t:1});
-    console.info('set-array-add',set,array);
+    set.add({t: 1});
+    array.push({t: 1});
+    console.info('set-array-add', set, array);
 
     // 查
-    let set_exist = set.has({t:1});
-    let array_exist = array.find(item=>item.t);
-    console.info('set-array-find',set,array);
+    let set_exist = set.has({t: 1});
+    let array_exist = array.find(item => item.t);
+    console.info('set-array-find', set, array);
 
     // 改
-    set.forEach(item=>item.t?item.t=2:'');
-    array.forEach(item=>item.t?item.t=2:'');
-    console.info('set-array-modify',set,array);
+    set.forEach(item => item.t ? item.t = 2 : '');
+    array.forEach(item => item.t ? item.t = 2 : '');
+    console.info('set-array-modify', set, array);
 
     // 删
-    set.forEach(item=>item.t?set.delete(item):'');
-    let index = array.findIndex(item=>item.t);
-    array.splice(index,1);
-    console.info('set-array-delete',set,array);
+    set.forEach(item => item.t ? set.delete(item) : '');
+    let index = array.findIndex(item => item.t);
+    array.splice(index, 1);
+    console.info('set-array-delete', set, array);
 
 }
 
 {
     // map,set,object对比
-    let item = {t:1};
+    let item = {t: 1};
     let map = new Map();
     let set = new Set();
     let obj = {};
 
     // 增
-    map.set('t',1);
+    map.set('t', 1);
     set.add(item);
-    obj['t']=1;
+    obj['t'] = 1;
 
-    console.log('map-set-obj',map,set,obj);
+    console.log('map-set-obj', map, set, obj);
 
     // 查
     console.log({
-        map_exist:map.has('t'),
-        set_exist:set.has(item),
-        obj_exist:'t' in obj
+        map_exist: map.has('t'),
+        set_exist: set.has(item),
+        obj_exist: 't' in obj
     });
 
     // 改
-    map.set('t',2);
-    item.t=2;   // set只修改引用
-    obj['t']=2;
+    map.set('t', 2);
+    item.t = 2;   // set只修改引用
+    obj['t'] = 2;
     //obj.t=3;
-    console.log('map-set-obj-modify',map,set,obj);
+    console.log('map-set-obj-modify', map, set, obj);
 
     // 删
     map.delete('t');
     set.delete(item);
     delete obj.t;
-    console.log('map-set-obj-delete',map,set,obj);
+    console.log('map-set-obj-delete', map, set, obj);
 }
 
 {
