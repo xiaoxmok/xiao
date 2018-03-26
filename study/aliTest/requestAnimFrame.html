@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>requestAnimFrame</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #id {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #0aa86c;
+            position: absolute;
+            top: 100px;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="id">使用js实现一个持续的动画效果</div>
+<script>
+    // requestAnimationFrame的兼容处理
+    window.requestAnimFrame = (function () {
+        return window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame   ||
+            window.msRequestAnimationFrame  ||
+            function (callback) {
+                window.setTimeout(callback, 1000 / 60)
+            }
+    })()
+    var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+
+    var e = document.getElementById('id')
+    var flag = true;
+    var left = 0;
+
+
+    var loop
+    function render() {
+        left === 0 ? flag = true : left === 100 ? flag = false : ''
+        flag ? e.style.left = (left++) + 'px' : e.style.left = (left--) + 'px';
+        //console.log(flag, left)
+        loop= requestAnimFrame(render);
+    }
+    render()
+    e.onmouseover=function(){
+        cancelAnimationFrame(loop);
+        console.log('停止')
+    }
+    e.onmouseout=function(){
+        loop= requestAnimFrame(render);
+        console.log('开始')
+    }
+    /*setTimeout(function(){
+        cancelAnimationFrame(loop);
+        console.log('停止')
+    },5000)*/
+</script>
+</body>
+</html>

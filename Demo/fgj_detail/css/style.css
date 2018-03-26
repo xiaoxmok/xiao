@@ -1,31 +1,28 @@
 @charset "utf-8";
 /*替换皮肤 默认皮肤*/
-/*header{
-    background-color: #ff6d2e;
-}
 
-.submit{color:#fff;}
-.submit_h{background: #ff6d2e;}
-.submit:active{background: #fbb990;}
-
-p strong{color:#ff6d2e;}
-*/
-
-/*.skin{
-    background-color: #b8b3ff!important;
-}
-.textColor{
-    color:#b8b3ff!important;
-}*/
 /*ff6d2e*/
 
 .link_color{color: #ff6048 !important;}
 
+/*
+蓝色样式
 .skin{  background-color: #4c7abf!important;  }
 .textColor{  color:#4c7abf!important;  }
 
 .fund_btn{border-top-color: #4c7abf !important;}
 .fund_btn .border_left{border-left-color: #4c7abf !important;}
+*/
+
+/*橙色样式*/
+.skin{  background-color: #ff6d2e!important;  }
+.textColor{  color:#ff6d2e!important;  }
+
+.fund_btn{border-top-color: #ff6d2e !important;}
+.fund_btn .border_left{border-left-color: #ff6d2e !important;}
+
+
+/*图标*/
 
 .take_main .take_title span{background: url(../img/success.png) no-repeat;background-size:contain;}
 

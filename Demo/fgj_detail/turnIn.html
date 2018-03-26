@@ -52,23 +52,24 @@
                 </tr>
             </table>
         </div>
+        <a href="javascript:;" class="forgetP">忘记密码？</a>
     </div>
     <div class="info_tan">
         <div class="info_tan_top tc pb20">
-            <p>交易密码错误，请重试。</p>
+            <p>交易密码错误，还能尝试3次</p>
         </div>
         <div class="know_btn">
-            <a href="javascript:;" class="forget">忘记密码</a>
-            <a href="javascript:;" class="know">我知道了</a>
+            <a href="javascript:;" class="forget repeat">重新输入</a>
+            <a href="verPayment.html" class="know">验证码支付</a>
         </div>
     </div>
     <div class="info_tan">
-        <div class="info_tan_top tc">
-            <p>交易密码请到汇添富基金官网<strong class="textColor">www.99fund.com</strong>进行找回
-            </p>
+        <div class="info_tan_top tc pb20">
+            <p>交易密码错误次数今日已超限，可重置交易密码或拨打客服热线400-888-9918</p>
         </div>
         <div class="know_btn">
-            <a href="javascript:;" class="know">我知道了</a>
+            <a href="javascript:;" class="forget know">我知道了</a>
+            <a href="verPayment.html" class="know">验证码支付</a>
         </div>
     </div>
     <div class="loading_tan">
@@ -112,7 +113,7 @@
             $('.know').click(function(){
                 $('.zhezhao,.info_tan').hide();
             })
-            $('.forget').click(function(){
+            $('.repeat').click(function(){
                 $('.info_tan').hide().eq(1).show();
             })
         });

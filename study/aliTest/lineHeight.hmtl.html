@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水平垂直居中</title>
+    <style>
+        *{margin:0;padding:0;}
+
+        .translate,.margin,.marginAuto{
+            position:relative;
+            height:300px;
+            width:100%;
+            border:1px solid #440044;
+        }
+        .translate .center{
+            position:absolute;
+            top:50%;
+            left:50%;
+            border:1px solid #440044;
+            transform:translate(-50%,-50%);
+        }
+        .margin .center{
+            position:absolute;
+            width:100px;
+            height:100px;
+            top:50%;
+            left:50%;
+            border:1px solid #440044;
+            margin: -50px 0 0 -50px;
+        }
+        .marginAuto .center{
+            position:absolute;
+            border:1px solid #440044;
+            margin:auto;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            display: inline;
+        }
+
+        .flex{
+            display: flex;
+            height:300px;
+            width:100%;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h3>水平垂直居中</h3>
+    <div>
+        <div class="translate">
+            <p>transform:translate</p>
+            <div class="center">2222</div>
+        </div>
+        <div class="margin">
+            <p>margin</p>
+            <div class="center"></div>
+        </div>
+        <div class="marginAuto">
+            <p>marginAuto</p>
+            <!--<div class="center">
+
+            </div>-->
+            <img class="center" src="../img/1.png" alt="">
+        </div>
+        <div class="flex">
+            <div>111</div>
+        </div>
+    </div>
+</body>
+</html>

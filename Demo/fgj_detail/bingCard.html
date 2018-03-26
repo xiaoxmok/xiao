@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>基金开户</title>
+	<title>绑卡页面</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="./css/base.css">
 	<link rel="stylesheet" type="text/css" href="./css/content.css">
@@ -12,33 +12,19 @@
 </head>
 <body class="bg">
     <header class="skin">
-        <a href="javascript:history.back();" ><span class="back"></span>返回</a><a href="javascript:;" class="close_h">关闭</a><span>基金开户</span>
+        <a href="javascript:history.back();" ><span class="back"></span>返回</a><a href="javascript:;" class="close_h">关闭</a><span>绑卡页面</span>
     </header>
     <div class="info_top mt17">
-        <p>以下基金产品由汇添富基金提供，请先完成汇添富基金账户开户。</p>
+        <p>以下基金产品由汇添富基金提供，请先完成变更银行卡。</p>
     </div>
     <div class="info_section">
         <div class="info_text">
             <span>姓名</span>
-            <input placeholder="请输入您的真实姓名" onkeyup="value=value.replace(/[\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))"、>
+            <input placeholder="请输入您的真实姓名" onkeyup="value=value.replace(/[\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))"></input>
         </div>
-        <div class="info_text card">
-            <span>身份证</span>
-            <input placeholder="请输入18位身份证号码" maxlength="18"、>
-        </div>
-        <div class="info_text selc">
-            <span>证件有效期</span>
-            <input id="idCard" placeholder="请选择证件有效期"、>
-        </div>
-        <div class="info_text info_text_card">
-            <span></span>
-            <p><input type="checkbox"></input>&nbsp;&nbsp;证件长期有效</p>
-        </div>
-    </div>
-    <div class="info_section">
         <div class="info_text">
             <span>银行卡号</span>
-            <input placeholder="请输入16~19位储蓄卡卡号" maxlength="19" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"、>
+            <input placeholder="请输入16~19位储蓄卡卡号" maxlength="19" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></input>
         </div>
         <div class="info_text selc">
             <span>银行</span>
@@ -66,7 +52,7 @@
                 <img class="imgCode" src="./img/img_yz02.jpg" alt="">
             </div>
         </div>
-        <div class="info_text">
+        <div class="info_text phone_code">
             <span>手机验证码</span>
             <div class="veriCode">
                 <input placeholder="输入验证码" class="veriCode" maxlength="6" class="veriCode" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')"></input>
@@ -76,10 +62,11 @@
         </div>
     </div>
     <div class="info_bottom">
-        <p class="pro"><input type="checkbox" name="info1" id="info1"/><label for="info1">同意<a href="protocol.html" class="link_color">《汇添富基金网上交易服务协议》</a>、<a
-                href="protocol_1.html" class="link_color">《投资者权益须知》</a></label></p>
-        <a href="javascript:;" class="submit">确定</a>
+        <!--<p class="pro"><input type="checkbox" name="info1" id="info1"/><label for="info1">同意<a href="protocol.html" class="link_color">《汇添富基金网上交易服务协议》</a>、<a
+                href="protocol_1.html" class="link_color">《投资者权益须知》</a></label></p>-->
+        <a href="javascript:;" class="submit skin">确定</a>
     </div>
+    <div class="zhezhao"></div>
     <div class="err_tan" style="width:170px;">
         <p>请输入图形验证码</p>
     </div>
@@ -110,20 +97,6 @@
             });
         });
 
-        /*身份证的判断*/
-        $(function(){
-            $('.card input').keyup(function(){
-                var len = this.value.length;
-                console.log(len);
-                if(len >18){
-                    this.value=this.value.replace(/[^1-9]/g,'');
-                }
-                if(len = 18){
-                    if((this.value).charAt(this.value.length-1) == 'x') return;
-                    this.value=this.value.replace(/[^1-9]/g,'');
-                }
-            })
-        });
 
         /*图形验证码更换*/
         $('.imgCode').click(function(){
@@ -144,7 +117,15 @@
                 $('.verCode').hide();
                 $('.countDown').show();
                 time1=setInterval(timeOut,1000);
+                $('.err_tan').html('验证码已发送尾号6634手机上');
+                shwo_tan();
+                $('.err_tan').show();
+                setTimeout(function(){
+                    $('.err_tan').hide();
+                },3000);
             }else{
+                $('.err_tan').html('请输入图形验证码');
+                shwo_tan();
                 $('.err_tan').show();
                 setTimeout(function(){
                     $('.err_tan').hide();
@@ -163,46 +144,57 @@
             }
         }
 
-        $(function(){
-            var input = $('#info1');
-            input.click(function(){
-                if($(this).prop('checked')){//获取是否选中 并判断
-                    $('.submit').addClass('skin');
-                }else{
-                    $('.submit').removeClass('skin');
-                }
-                //console.log('222');
-                //this.value=this.value.replace(/[^1-9]/g,'');
-            });
-        });
-
         /*点击确认的弹窗*/
         $(document).on("click",'.skin',function(){
-            $('.err_tan').show();
-            setTimeout(function(){
-                $('.err_tan').hide();
-            },3000);
+            if($('.img_code input').val().length !=0){
+                if($('.phone_code input').val().length !=0){
+                    window.location.href = 'bingCardSuccess.html'
+                }else{
+                    $('.err_tan').html('请输入手机验证码');
+                    shwo_tan();
+                    $('.err_tan').show();
+                    setTimeout(function(){
+                        $('.err_tan').hide();
+                    },3000);
+                }
+            }else{
+                $('.err_tan').html('请输入图形验证码');
+                shwo_tan();
+                $('.err_tan').show();
+                setTimeout(function(){
+                    $('.err_tan').hide();
+                },3000);
+            }
         });
 
         $(function(){
+            $('.know').click(function(){
+                $('.zhezhao,.info_tan').hide();
+            })
+            $('.forget').click(function(){
+                $('.info_tan').hide().eq(1).show();
+            })
+        });
+
+
+        // 弹窗文字
+        function shwo_tan(){
             $(".err_tan").removeAttr("style");
             var w = $('.err_tan').width();
             var w_d = $(document).width();
-            //var w_p = $('.err_tan p').outerWidth();
 
-            //console.log(w);
-            //console.log(w_d);
             var w_t=w_d-150;
-
 
             if(w >= w_t){
                 $('.err_tan').css({"width":w_t + "px"});
                 $('.err_tan').css({"left":(w_d - $('.err_tan').outerWidth())/2+"px"});
             }else{
                 $('.err_tan').css({"left":(w_d - $('.err_tan').outerWidth())/2+"px"});
-                //$('.err_tan').css({"margin-left":-(w_rem/2)+"rem"});
             }
+        }
 
+        $(function(){
+            shwo_tan();
         })
 
     </script>
