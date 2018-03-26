@@ -20,7 +20,7 @@
     <div class="info_section">
         <div class="info_text">
             <span>交易密码</span>
-            <input type="password" class="qr" placeholder="请输入富管家的交易密码" maxlength="18" minlength="6" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+            <input  type="password" pattern="[0-9]*" class="qr" placeholder="请输入富管家的交易密码" maxlength="18" minlength="6" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
             <i class="eye"></i>
         </div>
         <div class="info_text img_code">

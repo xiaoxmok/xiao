@@ -234,8 +234,8 @@
 .info_text3 input:-ms-input-placeholder{flex:2;letter-spacing:0;font-size: .31rem;}*/
 .info_text select{font-size: .59rem;flex:3;-webkit-flex:3;}
 .info_text .veriCode{font-size: .59rem;flex:3!important;-webkit-flex:3!important;display: flex;display: -webkit-flex;}
-.info_text .veriCode input{font-size: .59rem;flex:1!important;-webkit-flex:1!important;width:70%;}
-.info_text a{font-size: .54rem;width:30%;border-left: 1px solid #999;padding-left: .60rem;}
+.info_text .veriCode input{font-size: .59rem;flex:1!important;-webkit-flex:1!important;width:69%;}
+.info_text a{font-size: .54rem;border-left: 1px solid #999;padding-left:.60rem;width: 31%;text-align: center;}
 
 .selc:after{
     content: "";
