@@ -1,5 +1,5 @@
 require.config({
-    //  baseUrl:变更基目录
+    //  baseUrl:变更基目录,
     baseUrl:'./',
     paths:{
         jquery:'jquery-2.2.2.min'
