@@ -67,6 +67,15 @@
         <a href="javascript:;" class="submit skin">确定</a>
     </div>
     <div class="zhezhao"></div>
+    <div class="info_tan">
+        <div class="info_tan_top tc pb20">
+            <p>换卡过程中会删除您原来绑定的银行卡，请确定是否要替换银行卡？</p>
+        </div>
+        <div class="know_btn">
+            <a href="javascript:;" class="forget cancel">取消</a>
+            <a href="javascript:;" class="know">确定</a>
+        </div>
+    </div>
     <div class="err_tan" style="width:170px;">
         <p>请输入图形验证码</p>
     </div>
@@ -148,7 +157,9 @@
         $(document).on("click",'.skin',function(){
             if($('.img_code input').val().length !=0){
                 if($('.phone_code input').val().length !=0){
-                    window.location.href = 'bingCardSuccess.html'
+                    $('.zhezhao,.info_tan').show();
+
+                    //window.location.href = 'bingCardSuccess.html'
                 }else{
                     $('.err_tan').html('请输入手机验证码');
                     shwo_tan();
@@ -169,10 +180,10 @@
 
         $(function(){
             $('.know').click(function(){
-                $('.zhezhao,.info_tan').hide();
+                window.location.href = 'bingCardSuccess.html'
             })
-            $('.forget').click(function(){
-                $('.info_tan').hide().eq(1).show();
+            $('.cancel').click(function(){
+                $('.zhezhao,.info_tan').hide()
             })
         });
 
