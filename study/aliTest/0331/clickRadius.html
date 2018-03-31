@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆形点击区域</title>
+    <style>
+        .radius {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #feff98;
+            border-radius: 50%;
+            background: #0a6630;
+        }
+        .display{
+            width:100px;
+            height:100px;
+            background: #0aa86c;
+            display: none;
+        }
+        .visibility{
+            width:100px;
+            height:100px;
+            background: #0aa86c;
+            visibility:hidden;
+        }
+        .test{
+            width:100px;
+            height:100px;
+            background: #0aa86c;
+        }
+    </style>
+</head>
+<body>
+<div class="radius"></div>
+
+<div class="display">
+    父节点
+    <div style="display: block;">
+        子节点
+    </div>
+</div>
+<div class="visibility">
+    父节点
+    <div style="visibility:visible">子节点</div>
+</div>
+
+<div class="test"></div>
+
+<div style="height: 100px;width: 100px;float: left;background: lightblue">我是一个左浮动的元素</div>
+<div style="width: 200px; height: 200px;background: #eee">我是一个没有设置浮动,
+    也没有触发 BFC 元素, width: 200px; height:200px; background: #eee;
+</div>
+
+<script>
+    var radius = document.querySelector('.radius');
+    radius.addEventListener('click',function(){
+        console.log('ok');
+    })
+</script>
+</body>
+</html>
