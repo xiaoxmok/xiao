@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常见的风种布局</title>
+    <style>
+        /*流体布局*/
+        .lt .left{
+            width:100px;height:200px;float:left;background: yellow;
+        }
+        .lt .right{
+            width:200px;height:200px;float:left;background: #ff7750;
+        }
+        .lt .main{
+            margin-right: 220px;height:200px;background: green;
+        }
+
+        /*圣杯布局*/
+        .sb{
+            margin-right:220px;margin-left:120px;
+        }
+        .sb .main{
+            float:left;width:100%;height:200px;background: red;
+        }
+        .sb .left{
+            position:relative;left:-120px;float:left;height:300px;width:100px;margin-left: -100%;background:yellow;
+        }
+        .sb .right{
+            position:relative;right:-220px;float:right;height:300px;width:200px;margin-left: -200px;background: blue;
+        }
+
+        /*双飞翼布局*/
+        .sfy{clear:both;}
+        .sfy .content{
+            float:left;width:100%;
+        }
+        .sfy .content .main{
+            height:200px;margin-left:110px;margin-right:220px;background: green;
+        }
+        .sfy .content .main::after{
+            content:'';
+            display: block;
+            font-size:0;
+            height:0;
+            zoom:1;
+            clear:both;
+        }
+        .sfy .left{
+            float:left;
+            height:200px;
+            width: 100px;
+            margin-left: 100px;
+            background: yellow;
+        }
+        .sfy .right{
+            float:right;
+            height:200px;
+            width:200px;
+            margin-right: 200px;
+            background:blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="lt">
+        <h3>流体布局（左边固定，右边自适应）</h3>
+        <div class="left">111</div>
+        <div class="right">222</div>
+        <div class="main">333</div>
+    </div>
+    <div class="sb">
+        <h3>圣杯布局（中间自适应，两边固定）</h3>
+        <div class="main"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div class="sfy">
+        <h3>双飞翼布局</h3>
+        <div class="content">
+            <div class="main"></div>
+        </div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
