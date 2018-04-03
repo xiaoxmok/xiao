@@ -89,9 +89,11 @@
 
 
     console.log(['1','2','3'].map(parseInt));
+    console.log('---',parseInt('CC',16));
 
     function num(n,a){
+        console.log(n,a)
         return parseInt(n,a)
     }
-    console.log([1,2,3,4,5].map(num));
+    console.log([1,2,3,4,5,6,7,8,9,10,11,12].map(num));
 }
