@@ -30,3 +30,24 @@
     var b = new Date()
     console.log(Array.isArray(b))    // false
 }
+{
+    fun();
+    function fun(){             // 函数声明会被提升
+        console.log('this')
+    }
+
+    fun = function(){           // 函数表达式不会提升
+        console.log('func()')
+    }
+
+
+}
+{
+    var a = 2;
+    function foo(){
+        var a = 3;
+        console.log(a)
+    }
+    foo();
+    console.log('a:',a)  // 2
+}
