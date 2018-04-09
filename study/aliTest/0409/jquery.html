@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extend</title>
+    <script src="../../lib/jquery-3.1.0.js"></script>
+</head>
+<body>
+
+<div class="title">$.extend & $.fn.extend</div>
+<script>
+    //$.extend(object); // 为jQuery添加“静态方法”（工具方法）
+    $.extend({
+        min: function (a, b) {
+            return a < b ? a : b;
+        },
+        max: function (a, b) {
+            return a > b ? a : b;
+        }
+    })
+    console.log($.min(2, 4));  // 2
+    console.log($.max(2, 4));  // 4
+
+
+    // $.extend([true,] targetObject, object1[, object2]); // 对targt对象进行扩展
+
+    var settings = {
+        validate: false,
+        limit: 5
+    };
+    var options = {
+        validate: true,
+        name: 'bar'
+    }
+    $.extend(settings, options); // 注意：不支持第一个参数传 false
+
+    console.log(settings) // {validate:true, limit:5, name:"bar"}
+
+
+    // $.fn.extend(json); // 为jQuery添加“成员函数”（实例方法）
+
+    $.fn.extend({
+        alertValue: function(){
+            $(this).click(function(){
+                console.log($(this).html())
+            })
+        }
+    })
+    $('.title').alertValue();
+
+</script>
+</body>
+</html>
