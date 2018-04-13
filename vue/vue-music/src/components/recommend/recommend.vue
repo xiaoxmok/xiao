@@ -25,15 +25,17 @@
               </li>
             </ul>-->
             <ul>
-              <li v-for="item in QQMusicMv" class="item" :key="item.mv_id">
-                <div class="icon">
-                  <img :src="item.picurl" width="60" height="60" alt="">
-                </div>
-                <div class="text">
-                  <h2 class="name" v-html="item.mvtitle"></h2>
-                  <p class="desc" v-html="item.mvdesc"></p>
-                </div>
-              </li>
+              <a :href="'https://y.qq.com/n/yqq/mv/v/'+item.vid+'.html'" v-for="item in QQMusicMv" :key="item.mv_id">
+                <li class="item" :key="item.mv_id">
+                    <div class="icon">
+                      <img :src="item.picurl" width="70" height="60" alt="">
+                    </div>
+                    <div class="text">
+                      <h2 class="name" v-html="item.mvtitle"></h2>
+                      <p class="desc" v-html="item.mvdesc"></p>
+                    </div>
+                </li>
+              </a>
             </ul>
           </div>
         </div>
@@ -59,7 +61,7 @@
         return {
           recommends: [],
           disclist: [],
-          QQMusicMv: []
+          QQMusicMv: [],
         }
       },
       created() {
@@ -91,7 +93,7 @@
         _getQQMusicMv() {
           getQQMusicMv().then((res)=>{
             if(res.code === ERR_OK){
-              // console.log(res.data);
+               console.log(res.data);
               this.QQMusicMv = res.data.mvlist;
             }
           })
@@ -127,6 +129,8 @@
         width: 100%
         overflow: hidden
       .recommend-list
+        a
+          display inline-block
         .list-title
           height: 65px
           line-height: 65px
