@@ -1,6 +1,6 @@
 # my-first-vue-project
 
-> this is my project
+> 简单的todoList项目。使用了Local Storage缓存
 
 ## Build Setup
 
@@ -28,3 +28,6 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+[演示地址](https://xiaoxmok.github.io/xiao/vue/my-first-vue-project/dist/index.html)

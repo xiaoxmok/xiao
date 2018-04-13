@@ -13,7 +13,7 @@
           </div>
           <div class="recommend-list">
             <h1 class="list-title">热门歌曲推荐</h1>
-            <ul>
+            <!--<ul>
               <li v-for="item in disclist" class="item" :key="item.dissid">
                 <div class="icon">
                   <img v-lazy="item.imgurl" width="60" height="60" alt="">
@@ -23,8 +23,8 @@
                   <p class="desc" v-html="item.dissname"></p>
                 </div>
               </li>
-            </ul>
-            <!--<ul>
+            </ul>-->
+            <ul>
               <li v-for="item in QQMusicMv" class="item" :key="item.mv_id">
                 <div class="icon">
                   <img :src="item.picurl" width="60" height="60" alt="">
@@ -34,10 +34,10 @@
                   <p class="desc" v-html="item.mvdesc"></p>
                 </div>
               </li>
-            </ul>-->
+            </ul>
           </div>
         </div>
-        <div class="loading-container" v-show="!disclist.length">
+        <div class="loading-container" v-show="!QQMusicMv.length">
           <loading></loading>
         </div>
       </scroll>
@@ -64,8 +64,8 @@
       },
       created() {
         this._getRecommend()
-        this._getDiscList()
-        // this._getQQMusicMv()
+        // this._getDiscList()
+        this._getQQMusicMv()
       },
       methods: {
         handlePlaylist(playlist) {

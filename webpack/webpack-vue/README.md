@@ -9,3 +9,5 @@ npm run dev
 npm run build
 
 ```
+
+[演示地址](https://xiaoxmok.github.io/xiao/webpack/webpack-vue/dist/index.html)
