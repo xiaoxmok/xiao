@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格对角线问题</title>
+    <style>
+        *{padding:0;margin:0;}
+        .main{
+            margin: 20px;
+        }
+        .rulesTable{
+            border-collapse: collapse;
+            border: 1px #525152 solid;
+            width: 100%;
+        }
+        .rulesTable .title{
+            text-align: center;
+            font-weight: bold;
+            background: #0486c4;
+            font-size: 16px!important;
+            color:#fff;
+        }
+        .rulesTable th, td {
+            border: 1px #525152 solid;
+            text-align: center;
+            font-size: 12px;
+            line-height: 30px;
+        }
+        /*模拟对角线*/
+        .rulesTable .out {
+            border-top: 40px #fff solid; /*上边框宽度等于表格第一行行高*/
+            width: 0px; /*让容器宽度为0*/
+            height: 0px; /*让容器高度为0*/
+            border-left: 150px #fff solid; /*左边框宽度等于表格第一行第一格宽度*/
+            position: relative; /*让里面的两个子容器绝对定位*/
+        }
+        .rulesTable b {
+            font-style: normal;
+            display: block;
+            position: absolute;
+            top: -43px;
+            left: -116px;
+            width: 150px;
+            font-weight: normal;
+        }
+        .rulesTable em {
+            font-style: normal;
+            display: block;
+            position: absolute;
+            top: -25px;
+            left: -176px;
+            width: 150px;
+        }
+        .rulesTable .line{
+            width:157px;
+            height: 1px;
+            background: #525152;
+            transform: translate(-153px,-21px) rotate(15deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <table class="rulesTable">
+            <tr class="title">
+                <th colspan="6">汇添富产品风险等级匹配表</th>
+            </tr>
+            <tr>
+                <th style="width:150px;">
+                    <div class="out">
+                        <b>产品风险等级</b>
+                        <em>客户风险承受等级</em>
+                        <div class="line"></div>
+                    </div>
+                </th>
+                <th>高(R5)</th>
+                <th>较高(R4)</th>
+                <th>中(R3)</th>
+                <th>较低(R2)</th>
+                <th>低(R1)</th>
+            </tr>
+            <tr>
+                <td>保守型(C1)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>√</td>
+            </tr>
+            <tr>
+                <td>稳键型(C2)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>√</td>
+                <td>√</td>
+            </tr>
+            <tr>
+                <td>平衡型(C3)</td>
+                <td></td>
+                <td></td>
+                <td>√</td>
+                <td>√</td>
+                <td>√</td>
+            </tr>
+            <tr>
+                <td>进取型(C4)</td>
+                <td></td>
+                <td>√</td>
+                <td>√</td>
+                <td>√</td>
+                <td>√</td>
+            </tr>
+            <tr>
+                <td>积极型(C5)</td>
+                <td>√</td>
+                <td>√</td>
+                <td>√</td>
+                <td>√</td>
+                <td>√</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
