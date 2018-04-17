@@ -1,0 +1,16 @@
+<!--pages/test/swiper.wxml-->
+<swiper autoplay="{{autoplay}}" duration="{{duration}}" indicator-dots="{{indicatorDots}}" interval="{{interval}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <navigator url="{{item.herf}}">
+        <image src="{{item.url}}" class="seiper-img"></image>
+      </navigator>
+    </swiper-item>
+  </block>
+</swiper>
+
+<button bindtap="changeIndicatorDots">{{indicatorDots ? '取消指示点' : '显示指示点'}}</button>
+<button bindtap="changeAutoplay">{{autoplay ? '停止自动播放' : '自动播放'}}</button>
+
+<slider bindchange="changeInterval" show-value min="500" max="2000"/>interval
+<slider bindchange="changeDuration" show-value min="500" max="2000"/>duration

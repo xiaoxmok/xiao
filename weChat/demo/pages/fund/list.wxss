@@ -1,0 +1,21 @@
+/* pages/fund/list.wxss */
+
+page { background: #f6f6f6; padding-top: 88rpx; }
+.page_tab{ position: fixed; z-index: 99; top: 0; left: 0; width: 100%; }
+
+.fund_list{ background: #fff; margin: 15rpx 0 0 0; }
+.fund_list .list_item{ position: relative; display: block; border-bottom: 1px solid #eeeeee; padding: 15rpx 50rpx 20rpx 40rpx; }
+.fund_list .list_item .item_triangle{ position: absolute; left: -45rpx; top: -45rpx; text-align: center; border: 45rpx solid transparent; border-bottom-color: #fc4332; transform: rotate(-45deg); }
+.fund_list .list_item .item_triangle.yellow{ border-bottom-color: #fd9137;}
+.fund_list .list_item .item_triangle .txt{ position: absolute; left: -14rpx; top: 10rpx; color: #fff; font-size: 24rpx; font-family: simsun; transform: rotate(45deg); }
+.fund_list .list_item .css_arr1{ position: absolute; top: 50%; right: 30rpx; margin-top: -10rpx; }
+.fund_list .list_item .item_name{ font-size: 28rpx; line-height: 38rpx; color: #333333; }
+.fund_list .list_item .item_data{ font-size: 0; padding: 20rpx 0 0 0; }
+.fund_list .list_item .item_data .item_data_col{ display: inline-block; vertical-align: top; color: #666666; font-size: 24rpx; line-height: 40rpx; padding-right: 20rpx; }
+.fund_list .list_item .item_data .item_data_col:nth-child(1){ width: 230rpx; }
+.fund_list .list_item .item_data .item_data_col:nth-child(2){ width: 210rpx; }
+.fund_list .list_item .item_data .item_data_col_num{}
+.fund_list .list_item .item_data .item_data_col_num .s1{ font-size: 30rpx; color: #f95e63; }
+.fund_list .list_item .item_data .item_data_col_num .s2{ font-size: 28rpx; color: #333333; }
+.fund_list .list_item .item_data .item_data_col_num .del{ font-size: 24rpx; color: #999999; margin-right: 10rpx; }
+.fund_list .list_item .item_data .item_data_col_txt{ font-size: 22rpx; color: #999999; }

@@ -1,0 +1,11 @@
+<!--pages/test/text.wxml-->
+<view class="classname">
+  <text selectable="true">{{text}}</text>
+  <button bindtap="addLine" >Add line</button>
+  <button bindtap="moveLine">Move line</button>
+</view>
+
+<text>progress 标签</text>
+<progress percent="20" show-info/>
+<progress percent="40" show-info stroke-width="10"/>
+<progress percent="60" backgroundColor="#ccc" activeColor="yellow" show-info active/>

@@ -1,0 +1,15 @@
+<!--pages/details/data1.wxml-->
+
+<view class="data_table_title">
+	<text class="col1">{{title[0]}}</text>
+	<text class="col2">{{title[1]}}</text>
+	<text class="col3">{{title[2]}}</text>
+</view>
+
+<view class="data_table_cnt">
+	<view wx:for="{{table_data}}" wx:key="*this" class="cnt_item">
+		<text class="col1">{{item.date}}</text>
+		<text class="col2">{{item.unit}}</text>
+		<text class="col3 {{item.is_add ? '' : 'green'}}">{{item.is_add ? '' : '-'}}{{item.value}}</text>
+	</view>
+</view>

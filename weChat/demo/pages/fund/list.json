@@ -1,0 +1,6 @@
+{
+	"navigationBarTitleText": "基金列表",
+	"backgroundTextStyle": "dark",
+	"enablePullDownRefresh": true,
+	"backgroundColor": "#f6f6f6"
+}

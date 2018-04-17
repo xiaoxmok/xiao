@@ -1,0 +1,9 @@
+<!--pages/details/manager.wxml-->
+<view wx:for="{{manager}}" wx:for-item="item" wx:key="*this" class="manager_item manager_item_details">
+	<image src="{{item.images_url}}" class="manager_img" />
+	<view class="manager_right">
+		<view class="manager_name"><text>基金经理: {{item.name}}</text></view>
+		<view class="manager_time"><text>任职时间：{{item.time}}</text></view>
+	</view>
+	<view class="manager_intro"><text>{{item.intro}}</text></view>
+</view>

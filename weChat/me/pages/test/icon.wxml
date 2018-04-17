@@ -1,0 +1,16 @@
+<!--pages/test/icon.wxml-->
+<view class="group">
+  <block wx:for="{{iconType}}">
+    <icon type="{{item}}" size="20" />
+  </block>
+</view>
+<view class="group">
+  <block wx:for="{{iconSize}}">
+    <icon type="success" size="{{item}}"/>
+  </block>
+</view>
+<view class="group">
+  <block wx:for="{{iconColor}}">
+    <icon type="success" size="20" color="{{item}}"/>
+  </block>
+</view>

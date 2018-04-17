@@ -1,0 +1,25 @@
+
+<view class="section">
+  <view class="section_title">scroll-view</view>
+  <scroll-view scroll-y="true" class="scroll" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-top="{{scrollTop}}" scroll-into-view="{{toView}}">
+    <view class="scroll-item bg_green" id="green1"></view>
+    <view class="scroll-item bg_red" id="red1"></view>
+    <view class="scroll-item bg_yellow" id="yellow1"></view>
+    <view class="scroll-item bg_blue" id="blue1"></view>
+  </scroll-view>
+</view>
+
+<view class="btn-area">
+  <button size="mini" bindtap="tap">click me to scroll into view</button>
+  <button size="mini" bindtap="tapMove">click me to scroll</button>
+</view>
+
+<view class="section">
+  <view class="section_title">标题</view>
+  <scroll-view scroll-x="true" class="scroll-h" bindscroll="scrollL" scroll-left="{{scrollLeft}}">
+    <view class="scroll-item-h bg_green" id="green"></view>
+    <view class="scroll-item-h bg_red" id="red"></view>
+    <view class="scroll-item-h bg_yellow" id="yellow"></view>
+    <view class="scroll-item-h bg_blue" id="blue"></view>
+  </scroll-view>
+</view>

@@ -1,0 +1,87 @@
+.login-form {
+    padding: 0 30rpx;
+}
+.logo {
+    padding: 100rpx 0;
+    text-align: center;
+}
+.logo-image {
+    height: 130rpx;
+    width: 130rpx;
+}
+.btn-area {
+    padding-top: 50rpx;
+}
+.password-input-cell {
+    position: relative;
+    padding-right: 120rpx;
+}
+.password-visible {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    line-height: 2.5em;
+    width: 70rpx;
+    text-align: center;
+}
+.eye-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width:35rpx;
+    height:30rpx;
+}
+.password-clear {
+    position: absolute;
+    top: 0;
+    right: 70rpx;
+    height: 100%;
+    line-height: 2.5em;
+    width: 70rpx;
+    text-align: center;
+}
+.clear-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 30rpx;
+    height: 30rpx;
+}
+.code-input-cell {
+    position: relative;
+    padding-right: 300rpx;
+}
+.yzm_pic{ position: absolute; top: 50%; right: 0; }
+.yzm_pic_img{ width: 180rpx; height: 70rpx; margin-top: -35rpx; }
+.code-btn {
+    position: absolute;
+    background-color: transparent;
+    color: #fb5c5f;
+    top: 12px;
+    right: 0;
+    width: 180rpx;
+    font-size: 12px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+}
+.code-btn::after {
+    border-color: #fb5c5f;
+}
+.resend-countdown {
+    background: #ccc;
+    color: #fff;
+}
+.resend-countdown::after {
+    border: none;
+}
+.primary-button-hover {
+  background-color: #f48e90;
+}
+.placeholder {
+    color: #999;
+}
+.submit-btn {
+  line-height: 3.255556;
+}
+

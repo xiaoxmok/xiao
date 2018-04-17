@@ -1,0 +1,93 @@
+/**index.wxss**/
+page {
+  background: #f6f6f6;
+}
+.content {
+  padding-bottom: 20rpx;
+}
+.account-summary {
+  background: #fff;
+  border-bottom: solid 2px #fbaeb1;
+  padding: 25rpx 30rpx 48rpx;
+  font-size: 12px;
+  color: #999;
+  line-height: 1;
+}
+.unit {
+  font-size: 10px;
+}
+.account-total {
+  padding-top: 15rpx;
+}
+.money-total {
+  font-size: 30px;
+  color: #fb5c5f;
+  padding: 40rpx 0 50rpx;
+}
+.account-detail {
+  display: flex;
+}
+.account-line {
+  height: 80rpx;
+  border-left: 1rpx solid #e5e5e5;
+}
+.detail-item {
+  flex: 1;
+}
+.detail-label {
+  padding-bottom: 22rpx;
+}
+.money-detail {
+  font-size: 18px;
+  color: #fb5c5f;
+}
+.products {
+  padding-top: 20rpx;
+}
+.panel-content {
+  display: flex;
+  padding: 30rpx 30rpx 35rpx;
+}
+.panel-item {
+  flex: 1;
+  line-height: 1;
+  font-size: 14px;
+}
+.panel-item-label {
+  font-size: 12px;
+  color: #999;
+  padding-bottom: 20rpx;
+}
+.weui-panel__hd {
+  padding: 30rpx;
+  line-height: 1;
+  font-size: 14px;
+  color: #333;
+}
+.weui-panel__hd::after {
+  border-color: #eee;
+}
+.weui-panel::after {
+  border: none;
+}
+.weui-panel::before {
+  border: none;
+}
+.money-income {
+  color: #fb5c5f;
+}
+
+.logout {
+  margin: 20rpx 0;
+  background: #fff;
+  border-radius: 0;
+  border: none;
+  color: #999;
+  font-size: 14px;
+  padding: 5px 0;
+}
+
+.logout::after {
+  border-radius: 0;
+  border: none;
+}

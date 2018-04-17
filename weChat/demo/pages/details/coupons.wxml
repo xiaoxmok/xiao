@@ -1,0 +1,38 @@
+<!--pages/details/coupons.wxml-->
+<!--介绍-->
+<view class="title">
+  <text>我们会根据您的投资偏好，提供相对应的投资配置组合建议。为保证评测结果的准确性，请认真填写以下问券。</text>
+</view>
+
+<!--列表-->
+<form bindsubmit="formSubmit">
+<view class="content">
+    <block wx:for='{{list}}'>
+      <view class="list">
+        <text class="list-title">{{item.title}}</text>
+        <radio-group name="{{item.name}}" class="radio-group">
+          <label class="label" wx:for="{{item.items}}">
+            <radio value="{{item.name}}"/>
+            <text>{{item.name}}、</text>
+            <text>{{item.value}}</text>
+          </label>
+        </radio-group>
+      </view>
+    </block>
+</view>
+
+<!--输入-->
+<view class="input-con">
+  <input class='inp' placeholder="姓名（必填）" confirm="next" />
+  <input placeholder="手机号（必填）" tpye="number" confirm="done" />
+</view>
+
+<!--按钮-->
+<view class="button-con">
+  <button type="primary" formType="submit" hover-class="button-hover"><i class="{{loading ? 'weui-loading' : ''}}"></i>提交</button>
+</view>
+</form>
+<!--弹窗-->
+<view class="tan {{tan ? 'tan-show' : ''}}">
+  <text>选项不能为空</text>
+</view>

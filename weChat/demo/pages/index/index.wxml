@@ -1,0 +1,40 @@
+<!--list.wxml-->
+<view class="content">
+<swiper 
+  indicator-dots="{{true}}"
+  autoplay="{{true}}" 
+  interval="{{5000}}"
+  circular="{{true}}"
+  duration="{{500}}"
+  indicator-color="#999"
+  indicator-active-color="#fb5c5f"
+  >
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <navigator url="{{item.href}}" open-type="{{item.type}}"><image src="{{item.url}}" class="slide-image" /></navigator>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="list">
+  <block wx:for="{{list}}" wx:key="{{index}}">
+    <view class="item">
+      <view class="item-icon">
+        <image src="{{item.icon}}" class="icon-image" />
+        <view class="item-label">{{item.label}}</view>
+      </view>
+      <navigator url="{{item.url}}" class="item-content">
+        <view class="css_arr1"></view>
+        <view>
+          <view  class="item-title inline-block">{{item.title}}</view>
+          <!-- <view wx:if="{{item.code}}" class="inline-block item-code">({{item.code}})</view> -->
+        </view>
+        <view class="item-rate">
+          <view class="inline-block">{{type === "001" ? "七日年化收益率" : "累计收益率"}}</view>
+          <view class="rate-percent inline-block">{{item.rate}}%</view>
+        </view>
+        <view class="item-feature">{{item.feature}}</view>
+      </navigator>
+    </view>
+  </block>
+</view>
+</view>

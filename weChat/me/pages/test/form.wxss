@@ -1,0 +1,12 @@
+/* pages/test/form.wxss */
+.section{
+  background:#fafafa;margin-bottom: 10rpx;
+}
+.btn-area{
+
+}
+label{display: block;}
+.result{margin:20rpx;border:1px solid #666666;padding:20rpx;border-radius:5rpx;}
+.result .sult{font-size:24rpx;font-weight: bold;margin-bottom: 20rpx;}
+.result .res{color:#666666;}
+.result .res text{color:orange;}

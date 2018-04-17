@@ -1,0 +1,31 @@
+<view class="index">
+  <view class="index-hd">
+    <image src="../../image/icon_component_HL.png" class="index-logo"></image>
+    <view class="index-desc">王者不可阻档，快乐生活，快乐游戏。</view>
+  </view>
+  <view class="nav-text">战队信息：</view>
+  <view class="index-bd">
+    <view class="kind-list">
+      <block wx:for-items="{{list}}" wx:key="{{list.id}}">
+        <view class="kind-list-item">
+          <view id="{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" bindtap="kindToggle">
+            <view class="kind-list-text">{{item.name}}</view>
+          </view>
+          <view class="kind-list-item-bd {{item.open ? 'kind-list-item-bd-show' : ''}}">
+            <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
+              <navigator class="navigator">
+                <view class="navigator-text">段位：{{page.dw}}</view>
+              </navigator>
+              <navigator class="navigator">
+                <view class="navigator-text">称号：{{page.ch}}</view>
+              </navigator>
+              <navigator class="navigator">
+                <view class="navigator-text">名望：{{page.mw}}</view>
+              </navigator>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

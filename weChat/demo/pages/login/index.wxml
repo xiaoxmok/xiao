@@ -1,0 +1,38 @@
+<!--index.wxml-->
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="login-form">
+    <view class="logo">
+        <image src="../../assets/images/logo.png" class="logo-image"></image>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入手机号码" type="digit" placeholder-class="placeholder" bindinput="bindPhoneChange" />
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd password-input-cell">
+                <input class="weui-input" placeholder="请输入密码" password="{{!passwordVisible}}" bindinput="bindPasswordChange" value="{{password}}" placeholder-class="placeholder" />
+                <view class="password-visible" bindtap="bindPasswordVisibleToggle">
+                    <image src="../../assets/images/{{passwordVisible ? 'eye' : 'eye_closed'}}.png" class="eye-icon" />
+                </view>
+                <view class="password-clear" hidden="{{!password.length}}" bindtap="clearPassword">
+                    <image src="../../assets/images/clear.png" class="clear-icon" />
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input code-input-cell">
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入验证码" type="digit" placeholder-class="placeholder" bindinput="bindCodeChange" />
+                <!-- <view wx:if="{{countDown === 60}}"><button class="send-code-btn code-btn" ontap="startCountDown">发送验证码</button></view>
+                <view wx:else><button class="resend-countdown code-btn">{{countDown}}s后重试</button></view> -->
+                <view class="yzm_pic"><image src="../../assets/images/yzm.png" class="yzm_pic_img" /></view>
+            </view>
+        </view>
+    </view>
+    <view class="btn-area">
+        <button class="weui-btn submit-btn" bindtap="redirect" type="primary" hover-class="primary-button-hover" disabled="{{!isValid}}">登录</button>
+    </view>
+  </view>
+</form>

@@ -1,0 +1,20 @@
+
+.scroll{
+  height:200rpx;
+}
+.scroll-h{width:100%;white-space: nowrap;}
+.scroll-item{
+  height:100rpx;
+}
+.scroll-item-h{
+  width:50%;
+  height: 100rpx;
+  display: inline-block;
+}
+.bg_green{background:green;}
+.bg_red{background:red;}
+.bg_yellow{background:yellow;}
+.bg_blue{background:blue;}
+
+.btn-area{margin-top:20rpx;}
+.btn-area button{display: block;margin:0 20rpx 20rpx 20rpx;}

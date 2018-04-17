@@ -1,0 +1,36 @@
+<!--pages/details/coupons4.wxml-->
+<!--top-->
+<view class="top">
+  <text class="text1">您的评测结果是：</text>
+  <text class="text2">进取型</text>
+  <navigator class="nav" url="./coupons" open-type="redirect">重新评测</navigator>
+</view>
+
+<!--wxcharts-->
+<view class="con">
+  <text class="text1">根据您的投资理财特点，为您专属定制以下投资组合</text>
+  <view class="charts">
+    <image animation="{{animationData}}" src="../../assets/images/ring1_jq.png" class="img1 {{img ? 'hidden' : ''}}"></image>
+    <image src="../../assets/images/ring_jq.png" class="img {{img ? 'show' : ''}}"></image>
+  </view>
+  <view class="line">
+    <text>组合明细</text>
+  </view>
+</view>
+
+<view wx:for="{{list}}" class="classname">
+  <view class="con-title">
+    <text>{{item.name}}</text>
+  </view>
+  <view class="con-list">
+    <view class="left">
+      <text wx:for="{{item.text1}}">{{item.value}}</text>
+    </view>
+    <view class="right">
+      <text wx:for="{{item.text2}}">{{item.value}}</text>
+    </view>
+  </view> 
+</view>
+<view class="bottom">
+    <image src="../../assets/images/hui.png" class=""></image>
+  </view>

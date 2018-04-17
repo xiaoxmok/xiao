@@ -1,0 +1,7 @@
+/* pages/test/button.wxss */
+.other-button-hove{
+  background-color:blue;
+}
+.button-hove{
+  background-color:red;
+}

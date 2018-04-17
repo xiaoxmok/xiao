@@ -1,0 +1,29 @@
+/* pages/details/coupons.wxss */
+@import "../../libs/weui.wxss";
+
+page{background:#efeff4;position: relative;}
+/*介绍*/
+.title{padding: 28rpx;font-size: 27rpx;color:#333;}
+
+/*列表*/
+.content{padding: 28rpx;background:#fff;}
+.list{margin-top:20rpx;}
+.list-title{font-size: 29rpx;color:#333;font-weight: bold;}
+.radio-group{margin-top:10rpx;}
+.label{display: flex;font-size: 29rpx;margin-top:25rpx;}
+.label text{line-height: 50rpx;}
+
+/*输入*/
+.input-con{margin-top: 20rpx;background:#fff;padding:0 28rpx;}
+.input-con input{height: 80rpx;}
+.input-con .inp{border-bottom:1px solid #ccc;}
+
+.button-con{margin: 30rpx 0;padding:0 28rpx;}
+.button-con button{background-color: #fe7e01;}
+.button-con .button-hover {
+  background-color: #e64240;
+}
+
+/*弹窗*/
+.tan{position: absolute;bottom:600rpx;left:34%;width:240rpx;height:100rpx;background:#ccc;line-height: 100rpx;text-align: center;color:#fff;display: none;}
+.tan-show{display: block;}

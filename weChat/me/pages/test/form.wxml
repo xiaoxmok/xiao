@@ -1,0 +1,50 @@
+<!--pages/test/form.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <view class="classname">switch</view>
+    <switch type="switch" name="switch" />
+  </view>
+
+  <view class="section">
+    <view class="classname">slider</view>
+    <slider name="slider" show-value/>
+  </view>
+
+  <view class="section">
+    <view class="classname">input</view>
+    <input name="input" placeholder="please input here" />
+  </view>
+
+  <view class="section" wx:for="{{list}}">
+    <view class="classname">radio</view>
+    <radio-group name="{{item.name}}">
+      <label><radio value="radio1" checked="" />radio1</label>
+      <label><radio value="radio2" checked="" />radio2</label>
+    </radio-group>
+  </view>
+
+  <view class="section">
+    <view class="classname">checkbox</view>
+    <checkbox-group name="checkbox">
+      <label><checkbox value="checkbox1" checked="false" />checkbox1</label>
+      <label><checkbox value="checkbox2" checked="false" />checkbox2</label>
+    </checkbox-group>
+  </view>
+
+  <view class="btn-area">
+    <button form-type="submit">Submit</button>
+    <button form-type="reset">Reset</button>
+  </view>
+
+</form>
+
+<view class="result">
+  <text class="sult">form提交结果：</text>
+  <view class="res">switch:<text>{{switch}}</text></view>
+  <view class="res">slider:<text>{{slider}}</text></view>
+  <view class="res">input:<text>{{input}}</text></view>
+  <view class="res">radio:<text>{{radio}}</text></view>
+  <view class="res">checkbox:<text>{{checkbox}}</text></view>
+</view>
+
+<navigator url="http://www.baidu.com">baidu</navigator>

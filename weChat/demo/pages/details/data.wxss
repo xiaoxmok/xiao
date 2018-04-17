@@ -1,0 +1,16 @@
+/* pages/details/data.wxss */
+
+page{ background: #f6f6f6; font-family: microsoft yahei; }
+.col1{ display: inline-block; vertical-align: middle; padding-left: 5rpx; width: 185rpx; text-align: left; font-size: 28rpx; white-space: nowrap; }
+.col2{ display: inline-block; vertical-align: middle; width: 250rpx; text-align: center; font-size: 28rpx; white-space: nowrap; }
+.col3{ display: inline-block; vertical-align: middle; width: 250rpx; text-align: center; font-size: 28rpx; white-space: nowrap; }
+
+.data_table_title{ height: 85rpx; line-height: 85rpx; padding: 0 30rpx; color: #333; font-size: 0; }
+
+.data_table_cnt{ padding: 0 30rpx; font-size: 26rpx; background: #fff; border: 2rpx solid #dfdfdf; border-left: none; border-right: none; }
+.data_table_cnt .cnt_item{ height: 85rpx; line-height: 85rpx; border-bottom: 1rpx solid #dfdfdf; font-family: arial; font-size: 0; }
+.data_table_cnt .cnt_item:last-child{ border-bottom: none; }
+.data_table_cnt .cnt_item .col1{ color: #666;}
+.data_table_cnt .cnt_item .col2{ color: #fe7e01;}
+.data_table_cnt .cnt_item .col3{ color: #f84c2a;}
+.data_table_cnt .cnt_item .col3.green{ color: #009944; }

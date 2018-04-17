@@ -1,0 +1,52 @@
+<!--pages/fund/list.wxml-->
+
+<!-- tab -->
+<scroll-view class="page_tab" scroll-x="true">
+	<block wx:for="{{tab}}" wx:key="*this">
+		<text class="tab_item {{item.selected ? 'cur' : ''}}" bindtap="taptab" id='tab{{item.ind}}'>{{item.name}}</text>
+	</block>
+</scroll-view>
+<!-- tab end -->
+
+<!-- 基金列表 -->
+<view class="fund_list">
+	<block wx:for="{{tab}}" wx:key="unique">
+		<view class="{{item.selected ? 'show' : 'hidden'}}">
+			<block wx:for="{{item.list}}" wx:key="*this">
+				<view class="list_item">
+					<view wx:if="{{item.is_recom}}" class="item_triangle"><text class="txt">荐</text></view>
+					<view wx:if="{{item.is_new}}" class="item_triangle yellow"><text class="txt">新</text></view>
+					<view class="css_arr1"></view>
+					<view class="item_name">{{item.name}}</view>
+					<view class="item_data">
+						<view class="item_data_col">
+							<view class="item_data_col_num">
+								<text class="s1">{{item.col1_val}}</text>（{{item.col1_per}}）
+							</view>
+							<view class="item_data_col_txt">
+								{{item.col1_name}}
+							</view>
+						</view>
+						<view class="item_data_col">
+							<view class="item_data_col_num">
+								<text class="s2">{{item.col2_per}}</text>
+							</view>
+							<view class="item_data_col_txt">
+								{{item.col2_name}}
+							</view>
+						</view>
+						<view class="item_data_col">
+							<view class="item_data_col_num">
+								<text class="del">{{item.col3_per_old}}</text> <text class="s1">{{item.col3_per_new}}</text>
+							</view>
+							<view class="item_data_col_txt">
+								{{item.col3_name}}
+							</view>
+						</view>
+					</view>
+				</view>
+			</block>
+		</view>
+	</block>
+</view>
+<!-- 基金列表 end -->

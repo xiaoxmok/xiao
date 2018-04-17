@@ -1,0 +1,27 @@
+/* pages/details/coupons5.wxss */
+
+page{position: relative;}
+.top{text-align: center;padding:28rpx;background:#fef7f1;}
+.top text{display: block;}
+.top .text2{font-size:40rpx;font-weight: bold;margin-top:10rpx;}
+.top .nav{color:#fe7e01;font-size:30rpx;margin-top:20rpx;text-decoration: underline;}
+
+.con{background:#fff;text-align: center;padding:40rpx 0;}
+.con .text1{}
+.line{width:90%;height: 1px;background:#ccc;margin:30rpx 28rpx 0;position: relative;}
+.line text{position: absolute;top:-20rpx;left:50%;margin-left:-70rpx;width:140rpx;background:#fff;}
+
+.con-title{padding-left:28rpx;font-size: 30rpx;font-weight: bold;line-height: 60rpx;background:#f0f7fe;}
+.con-list{background:#fff;padding:30rpx 40rpx;display: flex;font-size: 30rpx;}
+.con-list text{display: block;line-height:50rpx;}
+.right{flex:1;}
+.left{flex:1;}
+
+.charts .img{height:360rpx;width:652rpx;display: none;margin-top:20rpx;}
+.charts .img1{height:360rpx;width:361rpx;margin-top:20rpx;}
+.bottom image{width:100%;height:164rpx;margin:30rpx 0;}
+.charts .show{display: inline-block;}
+.charts .hidden{display: none;}
+
+
+/* pages/details/coupons3.wxss */

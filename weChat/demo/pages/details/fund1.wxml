@@ -1,0 +1,53 @@
+<!--pages/details/fund.wxml-->
+<!-- 标题 -->
+<view class="fund_title">
+	<text>{{fund_title}}</text><text class="fund_id">{{fund_id}}</text>
+</view>
+<!-- 标题 end -->
+
+<!-- 介绍 -->
+<view class="fund_intro">
+	<view class="intro_item" wx:for="{{fund_intro}}" wx:for-item="item" wx:key="*this">
+		{{item.label}}
+		<text class="{{item.is_red ? 'f_c_red' : ''}}">
+			<block wx:if="{{item.compare_data}}">
+				<text class="del">{{item.compare_data[0]}}</text><text class="f_c_red">{{item.compare_data[1]}}</text>
+			</block>
+			<text wx:else>{{item.value}}</text>
+		</text>
+	</view>
+</view>
+<!-- 介绍 end -->
+
+<!-- 数据 -->
+<view class="fund_data">
+	<navigator url="data1" class="fund_data_intro">
+		<text class="intro_s1">{{fund_data.data_simple[0].label}}  <text class="f_c_red">{{fund_data.data_simple[0].value}}</text></text>
+		<text class="intro_s2">{{fund_data.data_simple[1].label}}  {{fund_data.data_simple[1].value}}</text>
+		<text class="css_arr1"></text>
+	</navigator>
+	<view class="fund_data_canvas">
+		<canvas canvas-id="lineCanvas" class="fund_data_canvas_c"></canvas>
+	</view>
+	<view class="fund_data_button">
+		<button class="fund_btn1 {{btn[0].is_cur ? 'cur' : ''}}" bindtap="getOne">1个月</button>
+		<button class="fund_btn1 {{btn[1].is_cur ? 'cur' : ''}}" bindtap="getThree">3个月</button>
+		<button class="fund_btn1 {{btn[2].is_cur ? 'cur' : ''}}" bindtap="getTwelve">1年</button>
+	</view>
+</view>
+<!-- 数据 end -->
+
+<!-- 经理 -->
+<view class="fund_manager">
+	<view class="fund_manager_title"><text>基金经理</text></view>
+	<navigator class="manager_item" url="manager1">
+		<image src="{{manager.images_url}}" class="manager_img" />
+		<view class="manager_right">
+			<view class="manager_name"><text>基金经理: {{manager.name}}</text></view>
+			<view class="manager_time"><text>任职时间：{{manager.time}}</text></view>
+		</view>
+		<view class="manager_intro"><text>{{manager.intro}}</text></view>
+		<text class="manager_go">查看详情</text>
+	</navigator>
+</view>
+<!-- 经理 end -->

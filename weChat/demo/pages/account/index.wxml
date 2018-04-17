@@ -1,0 +1,85 @@
+<!--account.wxml-->
+<view class="content">
+    <view class="account-summary">
+        <view class="text-right unit">单位：元</view>
+        <view class="account-total text-center">
+            <view class="total-label">总资产</view>
+            <view class="money-total">2,412,123.31</view>
+        </view>
+        <view class="account-detail">
+            <view class="money-avaliable text-center detail-item">
+                <view class="detail-label">可用资金</view>
+                <view class="money-detail">2,412,123.31</view>
+            </view>
+            <view class="account-line"></view>
+            <view class="money-pending text-center detail-item">
+                <view class="detail-label">在途资产</view>
+                <view class="money-detail">1,138,345.00</view>
+            </view>
+        </view>
+    </view>
+    <view class="products">
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">现金宝</view>
+            <view class="weui-panel__bd panel-content">
+                <view class="panel-item">
+                    <view class="panel-item-label">持有资产</view>
+                    <view class="money-own">82,368.00</view>
+                </view>
+                <view class="panel-item">
+                    <view class="panel-item-label">昨日收益</view>
+                    <view class="money-income">82,368.00</view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">高收益产品</view>
+            <view class="weui-panel__bd panel-content">
+                <view class="panel-item">
+                    <view class="panel-item-label">持有资产</view>
+                    <view class="money-own">82,368.00</view>
+                </view>
+                <!--<view class="panel-item">
+                    <view class="panel-item-label">可用资产</view>
+                    <view class="money-income">82,368.00</view>
+                </view>-->
+            </view>
+        </view>
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">定期产品</view>
+            <view class="weui-panel__bd panel-content">
+                <view class="panel-item">
+                    <view class="panel-item-label">持有资产</view>
+                    <view class="money-own">82,368.00</view>
+                </view>
+                <!--<view class="panel-item">
+                    <view class="panel-item-label">可用资产</view>
+                    <view class="money-income">82,368.00</view>
+                </view>-->
+            </view>
+        </view>
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">基金产品</view>
+            <view class="weui-panel__bd panel-content">
+                <view class="panel-item">
+                    <view class="panel-item-label">持有资产</view>
+                    <view class="money-own">82,368.00</view>
+                </view>
+                <view class="panel-item">
+                    <view class="panel-item-label">持有盈亏</view>
+                    <view class="money-income">82,368.00</view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">第三方资产</view>
+            <view class="weui-panel__bd panel-content">
+                <view class="panel-item">
+                    <view class="panel-item-label">持有资产</view>
+                    <view class="money-own">82,368.00</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <button class="logout" bindtap="logout">退出登录</button>
+</view>

@@ -1,0 +1,2 @@
+/* pages/details/manager.wxss */
+@import "./fund.wxss";

@@ -1,0 +1,8 @@
+<!--pages/test/button.wxml-->
+<button type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="default" hover-class="other-button-hove">default</button>
+<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary">primary</button>
+<button type="warn" size="{{warnSize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="warn">warn</button>
+<button bindtap="setDisabled">设置disabled属性</button>
+<button bindtap="setPlain">设置plain属性</button>
+<button bindtap="setLoading">设置loading属性</button>
+<button open-type="contact">进入客服会话</button>

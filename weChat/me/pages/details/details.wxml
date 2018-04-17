@@ -1,0 +1,142 @@
+
+<scroll-view class="page_tab" scroll-x="true">
+  <block wx:for="{{tab}}" wx:key="*this">
+    <text class="tab_item {{item.selected ? 'cur' : ''}}" bindtap="taptab" id='tab{{item.ind}}'>{{item.name}}</text>
+  </block>
+</scroll-view>
+
+<view class="kue_list">
+	<block wx:for="{{tab}}" wx:key="unique">
+		<view class="{{item.selected ? 'show' : 'hidden'}}">
+      <view class="usedHero">
+        <view class="Hero">信息介绍</view>
+      </view>
+      <view class="info_one">
+        <view class="info_dw">{{item.info.dw}}</view>
+        <view class="dw_res">
+          <view class="dw_all">总场次：<text>{{item.info.reslut.all}}</text></view>
+          <view class="dw_all">胜场：<text>{{item.info.reslut.wins}}</text></view>
+          <view class="dw_all">胜率：<text>{{item.info.reslut.winPer}}</text></view>
+        </view>
+      </view>
+      <view class="info_one">
+          <view class="info_i">
+            <view class="info_s">
+              <view class="info_d">MVP</view>
+              <view class="info_j">{{item.info.mvp}}</view>
+            </view>
+            <view class="info_s">
+              <view class="info_d">GOD</view>
+              <view class="info_j">{{item.info.mvp}}</view>
+            </view>
+            <view class="info_s">
+              <view class="info_d">5杀</view>
+              <view class="info_j">{{item.info.mvp}}</view>
+            </view>
+            <view class="info_s">
+              <view class="info_d">4杀</view>
+              <view class="info_j">{{item.info.mvp}}</view>
+            </view>
+            <view class="info_s">
+              <view class="info_d">3杀</view>
+              <view class="info_j">{{item.info.mvp}}</view>
+            </view>
+          </view>
+          <view class="info_i">
+            <view class="info_s">
+              <view class="info_d">连胜</view>
+              <view class="info_j">{{item.info.mvp}}</view>
+            </view>
+            <view class="info_s">
+              <view class="info_d">每周</view>
+              <view class="info_j">{{item.info.mvp}}</view>
+            </view>
+            <view class="info_s">
+              <view class="info_d">1血</view>
+              <view class="info_j">{{item.info.mvp}}</view>
+            </view>
+            <view class="info_s">
+              <view class="info_d">助攻</view>
+              <view class="info_j">{{item.info.mvp}}(单场)</view>
+            </view>
+            <view class="info_s">
+              <view class="info_d">击杀</view>
+              <view class="info_j">{{item.info.mvp}}(单场)</view>
+            </view>
+          </view>
+        </view>
+        <view class="info_one">
+          <view class="info_title">匹配模式</view>
+          <view class="info_box">
+            <view class="info_name">5V5</view>
+            <view class="info_deta">
+              <view class="dw_all">总场次：<text>{{item.info.fvf.all}}</text></view>
+          <view class="dw_all">胜场：<text>{{item.info.fvf.wins}}</text></view>
+          <view class="dw_all">胜率：<text>{{item.info.fvf.winPer}}</text></view>
+            </view>
+          </view>
+          <view class="info_box">
+            <view class="info_name">3V3</view>
+            <view class="info_deta">
+              <view class="dw_all">总场次：<text>{{item.info.tvt.all}}</text></view>
+          <view class="dw_all">胜场：<text>{{item.info.tvt.wins}}</text></view>
+          <view class="dw_all">胜率：<text>{{item.info.tvt.winPer}}</text></view>
+            </view>
+          </view>
+          <view class="info_box">
+            <view class="info_name">1V1</view>
+            <view class="info_deta">
+              <view class="dw_all">总场次：<text>{{item.info.ovo.all}}</text></view>
+          <view class="dw_all">胜场：<text>{{item.info.ovo.wins}}</text></view>
+          <view class="dw_all">胜率：<text>{{item.info.ovo.winPer}}</text></view>
+            </view>
+          </view>
+          <view class="info_box">
+            <view class="info_name">FUN</view>
+            <view class="info_deta">
+              <view class="dw_all">总场次：<text>{{item.info.fun.all}}</text></view>
+          <view class="dw_all">胜场：<text>{{item.info.fun.wins}}</text></view>
+          <view class="dw_all">胜率：<text>{{item.info.fun.winPer}}</text></view>
+            </view>
+          </view>
+        </view>
+      <view class="usedHero">
+        <view class="Hero">常用英雄</view>
+      </view>
+			<block wx:for="{{item.list}}" wx:key="*this">
+				<view class="list_item">
+					<view wx:if="{{item.is_recom}}" class="item_triangle"><text class="txt">荐</text></view>
+					<view wx:if="{{item.is_new}}" class="item_triangle yellow"><text class="txt">新</text></view>
+					<view class="css_arr1"></view>
+					<view class="item_name">{{item.name}}</view>
+					<view class="item_data">
+						<view class="item_data_col">
+							<view class="item_data_col_num">
+								<text class="s1">{{item.col1_val}}</text>（{{item.col1_per}}）
+							</view>
+							<view class="item_data_col_txt">
+								{{item.col1_name}}
+							</view>
+						</view>
+						<view class="item_data_col">
+							<view class="item_data_col_num">
+								<text class="s2">{{item.col2_per}}</text>
+							</view>
+							<view class="item_data_col_txt">
+								{{item.col2_name}}
+							</view>
+						</view>
+						<view class="item_data_col">
+							<view class="item_data_col_num">
+								<text class="del">{{item.col3_per_old}}</text> <text class="s1">{{item.col3_per_new}}</text>
+							</view>
+							<view class="item_data_col_txt">
+								{{item.col3_name}}
+							</view>
+						</view>
+					</view>
+				</view>
+			</block>
+		</view>
+	</block>
+</view>
