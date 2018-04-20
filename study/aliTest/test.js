@@ -66,3 +66,28 @@
     obj.postB('checkfy');
     obj.postC('checkfy');
 }
+{
+    /**
+     * 倒记时
+     * @param year
+     * @param month
+     * @param day
+     * @returns {string}
+     */
+    function getTimeString(year, month, day) {
+        var start = new Date();
+        var end = new Date(year, month - 1, day);
+        var elapse = Math.floor(end - start) / 1000;    // 获得总共的秒数。
+
+        var seconds = Math.floor(elapse % 60);      // 秒
+        var minutes = Math.floor(elapse / 60) % 60;     // 分
+        var hours = Math.floor(elapse / (60 * 60)) % 24;   // 时
+        var days = Math.floor(elapse / (60 * 60 * 24)) % 30;   // 天，假设一个月为30天。
+        var months = Math.floor(elapse / (60 * 60 * 24 * 30)) % 12;     // 月
+        var years = Math.floor(elapse / (60 * 60 * 24 * 30 * 12))    // 年
+
+        return '距离 ' + year + ' 年 ' + month + ' 月 ' + day + ' 日 ' + ' 还剩 ' + years + ' 年 ' + months + ' 月 ' + days + ' 天 ' + hours + ' 时 ' + minutes + ' 分 ' + seconds + ' 秒。'
+
+    }
+
+}
