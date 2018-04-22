@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒记时</title>
+</head>
+<body>
+    <div>
+        <label>年：</label><input type="text" id="year"/>
+        <label>月：</label><input type="text" id="month"/>
+        <label>日：</label><input type="text" id="day"/>
+        <input type="button" value="提交" id="submit">
+    </div>
+
+    <span id="target">输入时间获取倒记时。</span>
+</body>
+<script>
+    function getTimeString(year, month, day) {
+        var start = new Date();
+        var end = new Date(year, month - 1, day);
+        var elapse = Math.floor(end - start) / 1000;    // 获得总共的秒数。
+
+        var seconds = Math.floor(elapse % 60);      // 秒
+        var minutes = Math.floor(elapse / 60) % 60;     // 分
+        var hours = Math.floor(elapse / (60 * 60)) % 24;   // 时
+        var days = Math.floor(elapse / (60 * 60 * 24)) % 30;   // 天，假设一个月为30天。
+        var months = Math.floor(elapse / (60 * 60 * 24 * 30)) % 12;     // 月
+        var years = Math.floor(elapse / (60 * 60 * 24 * 30 * 12))    // 年
+
+        return '距离 ' + year + ' 年 ' + month + ' 月 ' + day + ' 日 ' + ' 还剩 ' + years + ' 年 ' + months + ' 月 ' + days + ' 天 ' + hours + ' 时 ' + minutes + ' 分 ' + seconds + ' 秒。'
+
+    }
+
+    function domText(elem, text) {
+        if (text === undefined) {
+            if (elem.textContent) {
+                return elem.textContent;
+            } else if (elem.innerText) {
+                return elem.innerText
+            }
+        } else {
+            if (elem.textContent) {
+                elem.textContent = text;
+            } else if (elem.innerText) {
+                elem.innerText = text;
+            } else {
+                elem.innerHTML = text;
+            }
+        }
+    }
+
+
+    var target = document.getElementById('target');
+    var submit = document.getElementById('submit');
+
+    /*setInterval(function () {
+        domText(target, getTimeString(2019, 1, 1));
+    }, 1000)*/
+
+    submit.addEventListener('click',function(){
+        var year = document.getElementById('year').value;
+        var month = document.getElementById('month').value;
+        var day = document.getElementById('day').value;
+        setInterval(function () {
+            domText(target, getTimeString(year, month, day));
+        }, 1000)
+    },false)
+
+</script>
+</html>
