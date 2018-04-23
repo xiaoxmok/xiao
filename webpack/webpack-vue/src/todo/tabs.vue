@@ -11,7 +11,7 @@
                 {{state}}
             </span>
         </span>
-        <span class="clear" @click="clearAllCompleted">Clear Completed</span>
+        <span class="clear" @click="clearAllCompleted">{{$t('tabs.clear')}}</span>
     </div>
 </template>
 

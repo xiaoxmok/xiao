@@ -4,7 +4,7 @@
                 type="text"
                 class="add-input"
                 autofocus="autofocus"
-                placeholder="接下去要做什么？"
+                :placeholder="$t('global.todo')"
                 @keyup.enter="addTodo"
         >
         <item

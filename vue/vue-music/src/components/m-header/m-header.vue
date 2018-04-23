@@ -2,13 +2,25 @@
   <div class="m-header">
     <div class="icon"></div>
     <h1 class="text">Chicken Music</h1>
+    <span class="lang" @click.stop="changeLang">{{lang?'ZH':'EN'}}</span>
   </div>
 </template>
 
 <script>
-    export default {
+  export default {
+    data() {
+      return {
+        lang: false
+      }
+    },
+    methods: {
+      changeLang() {
 
+        this.$i18n.locale = this.lang ? 'zh' : 'en'
+        this.lang = !this.lang;
+      }
     }
+  }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
@@ -21,6 +33,17 @@
     text-align: center
     color: $color-theme
     font-size: 0
+    .lang
+      position absolute
+      width 20px
+      height 15px
+      line-height 15px
+      font-size 12px
+      top 10px
+      right 10px
+      color: #fff
+      border 1px solid bisque
+      border-radius 3px
     .icon
       display: inline-block
       vertical-align: top

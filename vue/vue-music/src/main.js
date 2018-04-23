@@ -6,6 +6,22 @@ import store from './store'
 import fastclick from 'fastclick'
 import VueLazyLoad from 'vue-lazyload'
 
+import VueI18n from 'vue-i18n'
+import en from './local/en-US'
+import zh from './local/zh-CN'
+
+Vue.use(VueI18n)
+
+const messages = {
+  en: Object.assign({ message: 'hello' }, en),
+  zh: Object.assign({ message: '你好' }, zh)
+};
+//console.log(messages.en)
+const i18n = new VueI18n({
+  locale: 'zh',  // set locale
+  messages  // set locale messages
+});
+
 /* eslint-disable no-unused-vars */
 // import vConsole from 'vconsole'
 
@@ -27,6 +43,7 @@ import 'common/stylus/index.styl'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  i18n: i18n,
   router,
   store,
   render: h => h(App)
