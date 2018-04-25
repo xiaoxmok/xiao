@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>非模态窗口</title>
+    <!-- 此文件为了显示Demo样式，项目中不需要引入 -->
+    <link href="../../assets/code/demo.css" rel="stylesheet">
+
+    <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/dpl.css" rel="stylesheet">
+    <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/bui.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="demo-content">
+    <div>
+        <button id="btnShow" class="button button-primary">显示</button>
+        <button id="btnShow1" class="button button-primary">显示1</button>
+    </div>
+<div id="content" style="display: none">
+    <p>这是一个非模态窗口,并且不带按钮</p>
+</div>
+
+    <script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+    <script src="http://g.alicdn.com/bui/seajs/2.3.0/sea.js"></script>
+    <script src="http://g.alicdn.com/bui/bui/1.1.21/config.js"></script>
+
+    <!-- script start -->
+    <script type="text/javascript">
+        BUI.use('bui/overlay',function(Overlay){
+            var dialog = new Overlay.Dialog({
+                title:'非模态窗口',
+                width:500,
+                height:300,
+                mask:false,
+                buttons:[],
+                contentId:'content',
+                closeAction : 'destroy'
+            });
+            var dialog1 = new Overlay.Dialog({
+                title:'非模态窗口1',
+                width:500,
+                height:300,
+                mask:false,
+                buttons:[],
+                contentId:'content',
+                closeAction : 'destroy'
+            });
+
+            //dialog.show();
+            $('#btnShow').on('click',function () {
+                dialog.show();
+                //console.log(dialog.__attrVals);
+            });
+            $('#btnShow1').on('click',function () {
+                dialog1.show();
+            });
+        });
+    </script>
+    <!-- script end -->
+</div>
+</body>
+</html>
