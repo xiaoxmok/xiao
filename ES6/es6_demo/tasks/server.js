@@ -13,7 +13,7 @@ gulp.task('server', (cb) => {
         server.notify.apply(server,[file])
     })
 
-    gulp.watch(['server/routes/**/*.js','server/app.js'],function(){
+    gulp.watch(['server/routes/**/*.js','server/src.js'],function(){
         server.start.bind(server)()
     })
 })

@@ -30,7 +30,7 @@
             autoplay: false,
             autoplayDisableOnInteraction: true,
             autoplayStopOnLast: false,
-            // To support iOS's swipe-to-go-back gesture (when being used in-app, with UIWebView).
+            // To support iOS's swipe-to-go-back gesture (when being used in-src, with UIWebView).
             iOSEdgeSwipeDetection: false,
             iOSEdgeSwipeThreshold: 20,
             // Free mode
@@ -1545,7 +1545,7 @@
             var startX = s.touches.currentX = e.type === 'touchstart' ? e.targetTouches[0].pageX : e.pageX;
             var startY = s.touches.currentY = e.type === 'touchstart' ? e.targetTouches[0].pageY : e.pageY;
         
-            // Do NOT start if iOS edge swipe is detected. Otherwise iOS app (UIWebView) cannot swipe-to-go-back anymore
+            // Do NOT start if iOS edge swipe is detected. Otherwise iOS src (UIWebView) cannot swipe-to-go-back anymore
             if(s.device.ios && s.params.iOSEdgeSwipeDetection && startX <= s.params.iOSEdgeSwipeThreshold) {
                 return;
             }

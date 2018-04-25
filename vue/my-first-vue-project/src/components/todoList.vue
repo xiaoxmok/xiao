@@ -39,7 +39,7 @@
     },
     mounted() {
       // 测试一下jquery的使用
-      $('.inputText').css({width:'100px'})
+      //$('.inputText').css({width:'100px'})
       console.log($('.todo-ul').html())
     },
     methods: {

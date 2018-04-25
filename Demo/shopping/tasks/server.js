@@ -6,14 +6,14 @@ import args from './util/args';
 gulp.task('server', (cb) => {
     if (!args.watch) return cb();
 
-    var server = liveserver.new(['--harmony', 'server/bin/www']);
+    var server = liveserver.new(['--harmony', 'prod.server.js']);
     server.start();
 
-    gulp.watch(['server/public/**/*.js','server/views/**/*.ejs'],function(file){
+    gulp.watch(['dist/**/*.js','dist/!**!/!*.html'],function(file){
         server.notify.apply(server,[file])
     })
 
-    gulp.watch(['server/routes/**/*.js','server/src.js'],function(){
+    gulp.watch(['server/routes/!**/!*.js','server/src.js'],function(){
         server.start.bind(server)()
     })
 })

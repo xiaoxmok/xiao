@@ -9,8 +9,8 @@ module.exports = function(grunt) {
               banner:'/*! <%=pkg.name%> <%=pkg.version%> | <%=grunt.template.today("yyyy-mm-dd HH:MM:ss")%> */\n'
           },
           build:{
-              src:'js/app.js',
-              dest:'dist/app.min.js'
+              src:'js/src.js',
+              dest:'dist/src.min.js'
           }
        },
        //配置css压缩插件
@@ -20,8 +20,8 @@ module.exports = function(grunt) {
                roundingPrecision: -1
            },
            build: {
-               src:'css/app.css',
-               dest:'dist/app.css'
+               src:'css/src.css',
+               dest:'dist/src.css'
            }
        },
        watch:{

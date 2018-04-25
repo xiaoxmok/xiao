@@ -12,7 +12,7 @@ import {log, colors} from 'gulp-util';
 import args from './util/args';
 
 gulp.task('scripts', () => {
-    return gulp.src(['app/js/index.js'])
+    return gulp.src(['src/js/index.js'])
         .pipe(plumber({
             errorHandler: function () {
 

@@ -5,7 +5,7 @@ import args from './util/args';
 
 gulp.task('browser', (cb) => {
     if (!args.watch) return cb();
-    gulp.watch('app/**/*.js', ['scripts']);
-    gulp.watch('app/**/*.ejs', ['pages']);
-    gulp.watch('app/**/*.css', ['css']);
+    gulp.watch('src/**/*.js', ['scripts']);
+    gulp.watch('src/**/*.ejs', ['pages']);
+    gulp.watch('src/**/*.css', ['css']);
 })

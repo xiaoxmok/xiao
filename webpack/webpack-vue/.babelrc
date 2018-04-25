@@ -1,6 +1,13 @@
 {
   "presets": [
-    "env"
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["ie >=9"]
+      },
+      "useBuiltIns": true,
+      "debug": true
+    }]
   ],
   "plugins": [
     "transform-vue-jsx"

@@ -12,38 +12,23 @@ import {log, colors} from 'gulp-util';
 import args from './util/args';
 
 gulp.task('scripts', () => {
-    return gulp.src(['src/js/index.js'])
+    return gulp.src(['src/**/*.js'])
         .pipe(plumber({
             errorHandler: function () {
 
             }
         }))
         .pipe(named())
-        //通过webpack解析ES6的js文件
-        .pipe(gulpWebpack({
-            module: {
-                loaders: [{
-                    test: /\.js$/,
-                    loader: 'babel-loader'
-                }]
-            }
-            //错误的处理
-        }), null, (err, stats) => {
-            log(`Finished '${colors.cyan('scripts')}'`, stats.toString({
-                chunk: false
-            }))
-        })
         //将处理后的js文件写入指定文件中
-        .pipe(gulp.dest('server/public/js'))
+        .pipe(gulp.dest('dist'))
         //重命名xxx.min.js
         .pipe(rename({
-            basename: 'index',
             extname: '.min.js'
         }))
         //压缩
         .pipe(uglify({compress: {properties: false}, output: {'quote_keys': true}}))
         //保存文件，存在两个文件，一个压缩，一个未压缩
-        .pipe(gulp.dest('server/public/js'))
+        .pipe(gulp.dest('dist'))
         // 文件热更新
         .pipe(gulpif(args.watch, livereload()))
 });

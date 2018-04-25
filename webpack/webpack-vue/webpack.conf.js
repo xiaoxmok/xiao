@@ -14,10 +14,12 @@ const config = {
     target: 'web',
 
     // entry输入文件
-    entry: {
-        app: path.join(__dirname, 'src/main.js'),
+    /*entry: {
+
+        src: path.join(__dirname, 'src/main.js')
         //index: path.join(__dirname, 'src/module/index.js')
-    },
+    },*/
+    entry:["babel-polyfill", "./src/main.js"],
     // output输出文件
     output: {
         filename: '[name].[hash:8].js',
@@ -32,6 +34,10 @@ const config = {
             },
             {
                 test: /\.jsx$/,
+                loader: 'babel-loader'
+            },
+            {
+                test: /\.js$/,
                 loader: 'babel-loader'
             },
             {

@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import Vue from 'vue'
 import App from './App.vue'
 import VueI18n from 'vue-i18n'
@@ -7,7 +8,7 @@ import zh from './local/zh-CN'
 Vue.use(VueI18n)
 
 const messages = {
-    en: Object.assign({ message: 'hello' }, en),
+    en:  Object.assign({ message: 'hello' }, en),
     zh: Object.assign({ message: '你好' }, zh)
 };
 
@@ -25,6 +26,6 @@ new Vue({
     render: (h) => h(App),
     i18n,
     /*function(h){
-        return h(app);
+        return h(src);
     }*/
 }).$mount(root)

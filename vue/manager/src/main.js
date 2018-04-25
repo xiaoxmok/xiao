@@ -16,7 +16,7 @@ Vue.use(ElementUI)
 Vue.use(vueMoment) // moment的filter指令集
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  el: '#src',
   router,
   template: '<App/>',
   components: {App}

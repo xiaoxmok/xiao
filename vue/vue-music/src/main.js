@@ -42,7 +42,7 @@ import 'common/stylus/index.styl'
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  el: '#src',
   i18n: i18n,
   router,
   store,

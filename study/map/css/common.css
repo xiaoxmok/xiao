@@ -524,11 +524,11 @@ body { color: #343434; }
 .qr-code .icon { width: 30px; height: 30px; background: url(/img/headerIcon.png) no-repeat; }
 
 .qr-code .icon.wechart { background-position: -8px -7px; }
-.qr-code .icon.app { background-position: -44px -7px; }
+.qr-code .icon.src { background-position: -44px -7px; }
 .qr-code .icon.wechart:hover { background-position: -80px -7px; }
-.qr-code .icon.app:hover { background-position: -117px -7px; }
+.qr-code .icon.src:hover { background-position: -117px -7px; }
 .qr-code .icon.wechart:hover p { display: block; }
-.qr-code .icon.app:hover p { display: block; }
+.qr-code .icon.src:hover p { display: block; }
 
 .qr-code .icon p { top: 32px; width: 140px; height: 145px; right: -17px; }
 .qr-code .icon p img{ width: 106px; height: 106px; }

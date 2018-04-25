@@ -10,6 +10,6 @@ gulp.task('css', () => {
     return gulp.src('src/**/*.css')
         //.pipe(csso())                 // 多个文件时，csso压缩有问题，需要使用minify
         .pipe(minifyCss())
-        .pipe(gulp.dest('server/public'))
+        .pipe(gulp.dest('dist'))
         .pipe(gulpif(args.watch,livereload()))
 })

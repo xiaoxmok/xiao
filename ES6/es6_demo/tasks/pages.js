@@ -4,7 +4,7 @@ import livereload from 'gulp-livereload';
 import args from './util/args'
 
 gulp.task('pages', () => {
-    return gulp.src('app/**/*.ejs')
+    return gulp.src('src/**/*.ejs')
         .pipe(gulp.dest('server'))
         .pipe(gulpif(args.watch, livereload()))
 })

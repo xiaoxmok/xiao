@@ -3,7 +3,7 @@ const path = require('path')
 
 const config = {
     /*entry:{
-        app:path.join(__dirname,'./src/main.js')
+        src:path.join(__dirname,'./src/main.js')
     },*/
     entry:'./src/main.js',
     output:{

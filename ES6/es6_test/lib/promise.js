@@ -115,7 +115,7 @@
         });
     };
 
-    Promise.all([loadImg('http://f2.dn.anqu.com/down/MmEyZg==/allimg/1311/54-131125093H9.jpg'), loadImg('http://down1.cnmo.com/cnmo-app/a216/ziranweimeifengjing1.jpg'), loadImg('http://img4.duitang.com/uploads/blog/201406/12/20140612035451_RriaU.jpeg')]).then(showImg);
+    Promise.all([loadImg('http://f2.dn.anqu.com/down/MmEyZg==/allimg/1311/54-131125093H9.jpg'), loadImg('http://down1.cnmo.com/cnmo-src/a216/ziranweimeifengjing1.jpg'), loadImg('http://img4.duitang.com/uploads/blog/201406/12/20140612035451_RriaU.jpeg')]).then(showImg);
 }
 
 {
@@ -145,5 +145,5 @@
     // race,有一个加载成功，则ok,
 
 
-    Promise.race([_loadImg('http://f2.dn.anqu.com/down/MmEyZg==/allimg/1311/54-131125093H9.jpg'), _loadImg('http://down1.cnmo.com/cnmo-app/a216/ziranweimeifengjing1.jpg'), _loadImg('http://img4.duitang.com/uploads/blog/201406/12/20140612035451_RriaU.jpeg')]).then(_showImg);
+    Promise.race([_loadImg('http://f2.dn.anqu.com/down/MmEyZg==/allimg/1311/54-131125093H9.jpg'), _loadImg('http://down1.cnmo.com/cnmo-src/a216/ziranweimeifengjing1.jpg'), _loadImg('http://img4.duitang.com/uploads/blog/201406/12/20140612035451_RriaU.jpeg')]).then(_showImg);
 }
