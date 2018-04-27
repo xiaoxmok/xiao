@@ -58,12 +58,12 @@ var getNavLanguage = function(){
 /**
  * 设置语言类型： 默认为中文
  */
-var i18nLanguage = "zh-CN";
+var i18nLanguage = "ZH";
 
 /*
 设置一下网站支持的语言种类
  */
-var webLanguage = ['zh-CN', 'zh-TW', 'en'];
+var webLanguage = ['ZH', 'zh-TW', 'en'];
 
 /**
  * 执行页面i18n方法
@@ -85,7 +85,7 @@ var execI18n = function(){
      */
     if (getCookie("userLanguage")) {
         i18nLanguage = getCookie("userLanguage");
-        console.log('i18nLanguage:',i18nLanguage)
+        //console.log('i18nLanguage:',i18nLanguage)
     } else {
         // 获取浏览器语言
         var navLanguage = getNavLanguage();
@@ -107,7 +107,7 @@ var execI18n = function(){
     }
     /* 需要引入 i18n 文件*/
     if ($.i18n == undefined) {
-        console.log("请引入i18n js 文件")
+        //console.log("请引入i18n js 文件")
         return false;
     };
 
@@ -121,14 +121,14 @@ var execI18n = function(){
         language : i18nLanguage,
         callback : function() {//加载成功后设置显示内容
             var insertEle = $(".i18n");
-            console.log(".i18n 写入中...");
+            //console.log(".i18n 写入中...");
             insertEle.each(function() {
                 // 根据i18n元素的 name 获取内容写入
                 $(this).html($.i18n.prop($(this).attr('data-name')));
             });
-            console.log("写入完毕");
+            //console.log("写入完毕");
 
-            console.log(".i18n-input 写入中...");
+            //console.log(".i18n-input 写入中...");
             var insertInputEle = $(".i18n-input");
             insertInputEle.each(function() {
                 var selectAttr = $(this).attr('selectattr');
@@ -137,7 +137,7 @@ var execI18n = function(){
                 };
                 $(this).attr(selectAttr, $.i18n.prop($(this).attr('selectname')));
             });
-            console.log("写入完毕");
+            //console.log("写入完毕");
         }
     });
         
@@ -150,12 +150,32 @@ $(function(){
     execI18n();
 
     /*将语言选择默认选中缓存中的值*/
-    $("#language option[value="+i18nLanguage+"]").attr("selected",true);
+    //$("#language option[value="+i18nLanguage+"]").attr("selected",true);
 
     /* 选择语言 */
-    $("#language").bind('change', function() {
+   /* $("#language").bind('change', function() {
         var language = $(this).children('option:selected').val()
         console.log(language);
+        getCookie("userLanguage",language,{
+            expires: 30,
+            path:'/'
+        });
+        location.reload();
+    });*/
+    if(i18nLanguage === 'ZH'){
+        $(".lan input").attr("value","EN");
+    }else if(i18nLanguage === 'EN'){
+        $(".lan input").attr("value","ZH");
+    }
+
+    $(".lan input").bind('click', function() {
+        var language = $(this).val();
+        if(language === 'ZH'){
+            $(".lan input").attr("value","EN");
+        }else if(language === 'EN'){
+            $(".lan input").attr("value","ZH");
+        }
+        // console.log(language);
         getCookie("userLanguage",language,{
             expires: 30,
             path:'/'

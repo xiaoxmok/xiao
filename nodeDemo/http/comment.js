@@ -7,7 +7,7 @@
 
 Accept:application/json, text/javascript, *!/!*; q=0.01
  Accept-Encoding:gzip, deflate
- Accept-Language:zh-CN,zh;q=0.8
+ Accept-Language:ZH,zh;q=0.8
  Connection:keep-alive
  Content-Length:62
  Content-Type:application/x-www-form-urlencoded; charset=UTF-8
@@ -38,7 +38,7 @@ var options={
     headers:{
         'Accept':'application/json, text/javascript, *!*; q=0.01',
         'Accept-Encoding':'gzip, deflate',
-        'Accept-Language':'zh-CN,zh;q=0.8',
+        'Accept-Language':'ZH,zh;q=0.8',
         'Connection':'keep-alive',
         'Content-Length':postData.length,
         'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',
