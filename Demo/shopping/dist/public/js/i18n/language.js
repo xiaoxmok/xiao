@@ -179,6 +179,6 @@ $(function(){
             expires: 30,
             path:'/'
         });
-        execI18n();
+        location.reload();
     });
 });

@@ -179,7 +179,6 @@ $(function(){
             expires: 30,
             path:'/'
         });
-        //location.reload();
-        execI18n();
+        location.reload();
     });
 });
