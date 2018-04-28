@@ -1,7 +1,7 @@
 /**
  * cookie操作
  */
-var getCookie = function (name, value, options) {
+var getCookie = function(name, value, options) {
     if (typeof value != 'undefined') { // name and value given, set cookie
         options = options || {};
         if (value === null) {
@@ -42,70 +42,3 @@ var getCookie = function (name, value, options) {
         return cookieValue;
     }
 };
-
-
-/**
- * 设置语言类型： 默认为中文
- */
-var i18nLanguage;
-
-if (getCookie("userLanguage")) {
-    i18nLanguage = getCookie("userLanguage");
-    //console.log('i18nLanguage:',i18nLanguage)
-} else {
-    i18nLanguage = "zh";
-    getCookie("userLanguage", i18nLanguage, {
-        expires: 30,
-        path: '/'
-    });
-}
-
-/*城市选择*/
-$(function () {
-    // 默认城市
-    var address = 'shenzhen';
-
-    /*
-      首先获取用户浏览器设备之前选择过的城市
-       */
-    if (getCookie("address")) {
-        address = getCookie("address");
-        if (i18nLanguage === 'zh') {
-            if (address === 'shenzhen') {
-                $('.address a').html('深圳');
-            } else {
-                $('.address a').html('上海');
-            }
-        } else {
-            $('.address a').html(address);
-        }
-        //console.log('address:',address)
-    } else {
-        getCookie("address", address, {
-            expires: 30,
-            path: '/'
-        });
-    }
-
-
-    $('.address a').click(function () {
-        if ($('.address ul').is(":hidden")) {
-            $('.address ul').slideDown();
-        } else {
-            $('.address ul').slideUp();
-        }
-    });
-
-    $('.address li').click(function () {
-        var value = $(this).html();
-        var dataName = $(this).attr('data-name');
-        // console.log(value);
-        getCookie("address", dataName, {
-            expires: 30,
-            path: '/'
-        });
-        $('.address a').html(value);
-        $('.address ul').hide();
-
-    });
-});
