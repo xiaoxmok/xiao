@@ -16,7 +16,7 @@ const messages = {
   en: Object.assign({ message: 'hello' }, en),
   zh: Object.assign({ message: '你好' }, zh)
 };
-//console.log(messages.EN1)
+//console.log(messages.EN)
 const i18n = new VueI18n({
   locale: 'zh',  // set locale
   messages  // set locale messages

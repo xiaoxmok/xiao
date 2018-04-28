@@ -45,7 +45,7 @@
      *      path:      'bundles'
      * });
      * @param  name      (string/string[], optional) names of file to load (eg, 'Messages' or ['Msg1','Msg2']). Defaults to "Messages"
-     * @param  language    (string, optional) language/country code (eg, 'EN1', 'en_US', 'pt_BR'). if not specified, language reported by the browser will be used instead.
+     * @param  language    (string, optional) language/country code (eg, 'EN', 'en_US', 'pt_BR'). if not specified, language reported by the browser will be used instead.
      * @param  path      (string, optional) path of directory that contains file to load
      * @param  mode      (string, optional) whether bundles keys are available as JavaScript variables/functions or as a map (eg, 'vars' or 'map')
      * @param  debug     (boolean, optional) whether debug statements are logged at the console
@@ -486,7 +486,7 @@
         }
 
         lang = lang.toLowerCase();
-        lang = lang.replace(/-/, "_"); // some browsers report language as EN1-US instead of en_US
+        lang = lang.replace(/-/, "_"); // some browsers report language as EN-US instead of en_US
         if (lang.length > 3) {
             lang = lang.substring(0, 3) + lang.substring(3).toUpperCase();
         }
