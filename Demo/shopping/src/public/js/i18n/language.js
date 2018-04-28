@@ -58,7 +58,7 @@ var getNavLanguage = function(){
 /**
  * 设置语言类型： 默认为中文
  */
-var i18nLanguage = "ZH";
+var i18nLanguage;
 
 /*
 设置一下网站支持的语言种类
@@ -101,8 +101,7 @@ var execI18n = function(){
                 });
             };
         } else{
-            console.log("not navigator");
-            return false;
+            i18nLanguage = "ZH";
         }
     }
     /* 需要引入 i18n 文件*/
@@ -124,7 +123,9 @@ var execI18n = function(){
             //console.log(".i18n 写入中...");
             insertEle.each(function() {
                 // 根据i18n元素的 name 获取内容写入
-                $(this).html($.i18n.prop($(this).attr('data-name')));
+                if($(this).attr('data-name')){
+                    $(this).html($.i18n.prop($(this).attr('data-name')));
+                }
             });
             //console.log("写入完毕");
 
@@ -135,7 +136,9 @@ var execI18n = function(){
                 if (!selectAttr) {
                     selectAttr = "value";
                 };
-                $(this).attr(selectAttr, $.i18n.prop($(this).attr('selectname')));
+                if($(this).attr('data-name')){
+                    $(this).attr(selectAttr, $.i18n.prop($(this).attr('data-name')));
+                }
             });
             //console.log("写入完毕");
         }
@@ -170,16 +173,13 @@ $(function(){
 
     $(".lan input").bind('click', function() {
         var language = $(this).val();
-        if(language === 'ZH'){
-            $(".lan input").attr("value","EN");
-        }else if(language === 'EN'){
-            $(".lan input").attr("value","ZH");
-        }
+
         // console.log(language);
         getCookie("userLanguage",language,{
             expires: 30,
             path:'/'
         });
-        location.reload();
+        //location.reload();
+        execI18n();
     });
 });

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta id="i18n_pagename" content="index-common">
     <link rel="stylesheet" href="./public/css/common.css">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="keywords" content="" />
     <meta name="description" content=""/>
     <link rel="stylesheet" href="./public/css/reset.css">
@@ -30,7 +30,7 @@
                 <li><a href="javascript:;" class="i18n" data-name="solution">解决方案</a></li>
                 <li><a href="javascript:;" class="i18n" data-name="educationalSoftware">教育软件推荐</a></li>
                 <li><a href="javascript:;" class="i18n" data-name="informationCentre">资讯中心</a></li>
-                <li><a href="javascript:;" class="i18n active" data-name="BYODPlatform">BYOD平台</a></li>
+                <li><a href="./index.html" class="i18n active" data-name="BYODPlatform">BYOD平台</a></li>
             </ul>
         </div>
         <div class="other">
@@ -52,7 +52,7 @@
         </ul>
     </div>
     <div class="cart"><a href="javascript:;" class="i18n" data-name="cart">购物车</a></div>
-    <div class="login"><a href="javascript:;" class="i18n" data-name="login">登录/注册</a></div>
+    <div class="login"><a href="./registered.html" class="i18n" data-name="loginReg">登录/注册</a></div>
     <!--<div class="login"><a href="javascript:;" data-name="personalCenter">个人中心</a></div>-->
     <div class="welcome">Dear XXX,欢迎访问协同学校专属页面。</div>
 </div>
@@ -158,18 +158,24 @@
             </ul>
         </div>
         <div class="page">
-            <p>共16个</p>
             <div>
-                <a href="javascript:;" class="active">1</a>
-                <a href="javascript:;">2</a>
+                <a href="javascript:;" class="i18n" data-name="home">首页</a>
+                <a href="javascript:;"><</a>
+                <input type="text" value="1/2">
                 <a href="javascript:;">></a>
+                <a href="javascript:;" class="i18n" data-name="last">尾页</a>
             </div>
         </div>
     </div>
 </div>
 
 
-
+<!--尾部-->
+<div class="footer">
+    <div class="content">
+        <p><span class="i18n" data-name="icp">ICP备案</span>：XXXXXX</p>
+    </div>
+</div>
 <script src="./public/js/lib/swiper-4.2.2.min.js"></script>
 <script>
     $(function(){
