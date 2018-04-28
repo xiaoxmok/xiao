@@ -62965,7 +62965,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                // center or left
 	                align: 'center',
 
-	                // cn EN []
+	                // cn EN1 []
 	                nameMap: 'en',
 	                formatter: null,
 	                textStyle: {
