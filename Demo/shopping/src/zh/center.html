@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    @@include('./view/meta.html')
+    <link rel="stylesheet" href="../public/css/center.css">
+</head>
+<body>
+@@include('./view/header.html')
+@@include('./view/header-bar.html')
+<div class="main">
+    <div class="process">
+        <a href="./index.html" class="i18n" data-name="byod">BYOD平台</a> >
+        <a href="javascript:;" class="i18n" data-name="registered">个人中心</a>
+    </div>
+    <div class="school">
+        <div class="img">
+            <img src="../public/img/school.png" alt="">
+        </div>
+        <div class="con">
+            <p class="title">上海协和学校</p>
+            <span>如果你无法简洁的表达你的想法，那说明你还不够了解它。   ——————阿尔伯特爱因斯坦</span>
+        </div>
+        <div class="device">
+            <div class="img"></div>
+            <p><a href="javascript:;">设备验证</a></p>
+        </div>
+        <div class="data">
+            <div class="img"></div>
+            <p><a href="javascript:;">官方数据统计</a></p>
+        </div>
+        <div class="question">
+            <div class="img"></div>
+            <p><a href="javascript:;">常见问题</a></p>
+        </div>
+    </div>
+    <div class="userName">
+        <div class="person">
+            <div>
+                <span class="name">小明</span>
+                <span class="sex">男</span>
+                <span>学号：201020102</span>
+                <span>学生</span>
+                <span class="tuijian"><em></em><a href="javascript:;">为我推荐</a></span>
+            </div>
+            <div>
+                <span>手机号：15888888888</span>
+                <span>邮箱：youxiang@163.com</span>
+                <span>配送地址：深圳市南山区149号</span>
+            </div>
+        </div>
+        <div class="dizhi">
+            <div class="img"></div>
+            <p><a href="javascript:;">配送地址管理</a></p>
+        </div>
+    </div>
+    <div class="orderNav">
+        <ul>
+            <li class="active">我的订单</li>
+            <li>我的收藏</li>
+            <li>我的设备</li>
+            <li>我的特权券</li>
+            <li>维修记录</li>
+        </ul>
+    </div>
+    <div class="list" style="display: block;">
+        <table class="order">
+            <thead>
+            <tr>
+                <th>订单号</th>
+                <th>订单状态</th>
+                <th>订单金额</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>
+                    <div class="img"><img src="../public/img/order.png" alt=""></div>
+                    <div class="con">
+                        <p>订单号：2009119291</p>
+                        <span>下单时间：2018-01-01 15：00</span>
+                    </div>
+                </td>
+                <td>已支付</td>
+                <td>￥999.00</td>
+                <td class="operate">
+                    <a href="javascript:;">查看详情</a>
+                    <a href="javascript:;">开具发票</a>
+                    <a href="javascript:;">退换货</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="img"><img src="../public/img/order.png" alt=""></div>
+                    <div class="con">
+                        <p>订单号：2009119291</p>
+                        <span>下单时间：2018-01-01 15：00</span>
+                    </div>
+                </td>
+                <td>已支付</td>
+                <td>￥999.00</td>
+                <td class="operate">
+                    <a href="javascript:;">查看详情</a>
+                    <a href="javascript:;">开具发票</a>
+                    <a href="javascript:;">退换货</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="img"><img src="../public/img/order.png" alt=""></div>
+                    <div class="con">
+                        <p>订单号：2009119291</p>
+                        <span>下单时间：2018-01-01 15：00</span>
+                    </div>
+                </td>
+                <td>已支付</td>
+                <td>￥999.00</td>
+                <td class="operate">
+                    <a href="javascript:;">查看详情</a>
+                    <a href="javascript:;">开具发票</a>
+                    <a href="javascript:;">退换货</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="list goods" style="display: none;">
+        <div class="content">
+            <ul>
+                <li>
+                    <img src="../public/img/goods1.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
+                        <p class="price"><span>常规价格：</span><del>￥999.00</del></p>
+                        <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
+                    </div>
+                </li>
+                <li>
+                    <img src="../public/img/goods2.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
+                        <p class="price"><span>常规价格：</span><del>￥999.00</del></p>
+                        <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
+                    </div>
+                </li>
+                <li>
+                    <img src="../public/img/goods1.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
+                        <p class="price"><span>常规价格：</span><del>￥999.00</del></p>
+                        <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
+                    </div>
+                </li>
+                <li>
+                    <img src="../public/img/goods3.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
+                        <p class="price"><span>常规价格：</span><del>￥999.00</del></p>
+                        <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="list goods" style="display: none;">
+        <div class="content">
+            <ul>
+                <li>
+                    <img src="../public/img/goods1.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="time">购买时间：2018-01-01 15：00</p>
+                        <a class="apply" href="javascript:;">申请维修</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="../public/img/goods2.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="time">购买时间：2018-01-01 15：00</p>
+                        <a class="apply" href="javascript:;">申请维修</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="../public/img/goods1.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="time">购买时间：2018-01-01 15：00</p>
+                        <a class="apply" href="javascript:;">申请维修</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="../public/img/goods3.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="time">购买时间：2018-01-01 15：00</p>
+                        <a class="apply" href="javascript:;">申请维修</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="list ticket" style="display: none;">
+        <ul>
+            <li class="ticket1">
+                <div class="up">
+                    <div class="img"></div>
+                    <p>维修券</p>
+                </div>
+                <div class="down">
+                    <a href="javascript:;">未使用</a>
+                </div>
+            </li>
+            <li class="ticket1">
+                <div class="up">
+                    <div class="img"></div>
+                    <p>维修券</p>
+                </div>
+                <div class="down">
+                    <a href="javascript:;">未使用</a>
+                </div>
+            </li>
+            <li class="ticket2">
+                <div class="up">
+                    <div class="img"></div>
+                    <p>培训券</p>
+                </div>
+                <div class="down">
+                    <a href="javascript:;">未使用</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="list" style="display: none;">
+        <table class="order">
+            <thead>
+            <tr>
+                <th>故障描述</th>
+                <th>维修评估</th>
+                <th>操作</th>
+                <th>维修状态</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>
+                    <p>
+                        电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，
+                    </p>
+                </td>
+                <td><p>预计维修费用为800元，维修五个工作日。</p></td>
+                <td class="operate"><a href="javascript:;">领取备用机</a></td>
+                <td class="status">
+                    <p>维修中</p>
+                    <span>提交时间：2018-01-01 15：00</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，
+                    </p>
+                </td>
+                <td><p>预计维修费用为800元，维修五个工作日。</p></td>
+                <td class="operate"><a href="javascript:;">付款</a></td>
+                <td class="status">
+                    <p>维修已完成，待付款</p>
+                    <span>提交时间：2018-01-01 15：00</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，
+                    </p>
+                </td>
+                <td><p>预计维修费用为800元，维修五个工作日。</p></td>
+                <td class="operate"><a href="javascript:;">确认领取</a></td>
+                <td class="status">
+                    <p>待领取</p>
+                    <span>提交时间：2018-01-01 15：00</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，
+                    </p>
+                </td>
+                <td><p>预计维修费用为800元，维修五个工作日。</p></td>
+                <td class="operate"><a href="javascript:;">领取备用机</a></td>
+                <td class="status">
+                    <p>维修中</p>
+                    <span>提交时间：2018-01-01 15：00</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，
+                    </p>
+                </td>
+                <td><p>预计维修费用为800元，维修五个工作日。</p></td>
+                <td class="operate"><a href="javascript:;">领取备用机</a></td>
+                <td class="status">
+                    <p>维修中</p>
+                    <span>提交时间：2018-01-01 15：00</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+@@include('./view/footer.html')
+<script>
+    $(function(){
+        $('.orderNav li').click(function(){
+            var index = $(this).index();
+
+            $('.list').hide().eq(index).show();
+            $('.orderNav li').removeClass('active');
+            $(this).addClass('active');
+        })
+    })
+</script>
+</body>
+</html>

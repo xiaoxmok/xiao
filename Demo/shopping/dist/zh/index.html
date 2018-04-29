@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../public/css/common.css">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="keywords" content="" />
     <meta name="description" content=""/>
     <link rel="stylesheet" href="./../public/css/reset.css">
     <link rel="stylesheet" href="./../public/css/include.css">
+    <link rel="stylesheet" href="./../public/css/common.css">
     <script src="./../public/js/lib/jquery-3.1.0.js"></script>
+    <script src="../public/js/common.js"></script>
     <title>BYOD平台</title>
     <link rel="stylesheet" href="../public/css/swiper-4.2.2.min.css">
 </head>
@@ -21,35 +22,74 @@
         </div>
         <div class="nav">
             <ul>
-                <li><a href="javascript:;" class="i18n" data-name="aboutMe">关于我们</a></li>
-                <li><a href="javascript:;" class="i18n" data-name="solution">解决方案</a></li>
-                <li><a href="javascript:;" class="i18n" data-name="educationalSoftware">教育软件推荐</a></li>
-                <li><a href="javascript:;" class="i18n" data-name="informationCentre">资讯中心</a></li>
-                <li><a href="./index.html" class="i18n active" data-name="BYODPlatform">BYOD平台</a></li>
+                <li><a href="javascript:;">关于我们</a></li>
+                <li><a href="javascript:;">解决方案</a></li>
+                <li><a href="javascript:;">教育软件推荐</a></li>
+                <li><a href="javascript:;">资讯中心</a></li>
+                <li><a href="./index.html" class="active">BYOD平台</a></li>
             </ul>
         </div>
         <div class="other">
-            <div class="service"><a href="#" class="i18n" data-name="service">维修</a></div>
+            <div class="service">
+                <a href="#">维修</a>
+                <ul>
+                    <li><a href="javascript:;">维修记录</a></li>
+                    <li><a href="javascript:;">维修申请</a></li>
+                </ul>
+            </div>
             <div class="lan">
                 <a href="./../en/index.html">EN</a>
             </div>
         </div>
     </div>
 </div>
+
+<div class="media-header">
+    <div class="icon">
+        ≡
+    </div>
+    <div class="address">
+        <a class="madd" href="javascript:;">深圳</a><span>^</span>
+        <ul>
+            <li data-name="shenzhen">深圳</li>
+            <li data-name="shanghai">上海</li>
+        </ul>
+    </div>
+    <div class="logo">
+        <img src="./../public/img/logo.jpg" alt="logo">
+    </div>
+    <div class="cart"><a href="javascript:;">购物车</a></div>
+    <div class="user"><a href="javascript:;">人</a></div>
+
+
+    <div class="nav">
+        <ul>
+            <li class="selc"><a href="javascript:;">关于我们</a></li>
+            <li class="selc"><a href="javascript:;">解决方案</a></li>
+            <li class="selc"><a href="javascript:;">教育软件推荐</a></li>
+            <li class="selc"><a href="javascript:;">资讯中心</a></li>
+            <li class="selc"><a href="./index.html">BYOD平台</a></li>
+            <li class="selc"><a href="javascript:;">维修</a></li>
+            <li class="selc"><a href="javascript:;">当前语言：中文</a></li>
+        </ul>
+    </div>
+</div>
 <!--头部登录信息-->
 <div class="header-bar">
     <div class="content">
+        <span class="welcome">Dear XXX,欢迎访问协同学校专属页面。</span>
+        <div class="login"><a href="./center.html">个人中心</a></div>
+        <div class="cart"><a href="javascript:;"><span></span>购物车</a></div>
         <div class="address">
-            <a href="javascript:;">深圳</a>
+            <span></span>
+            <a class="add" href="javascript:;">深圳</a>
             <ul>
                 <li data-name="shenzhen">深圳</li>
                 <li data-name="shanghai">上海</li>
             </ul>
         </div>
-        <div class="cart"><a href="javascript:;">购物车</a></div>
-        <div class="login"><a href="./registered.html">登录/注册</a></div>
         <!--<div class="login"><a href="javascript:;" data-name="personalCenter">个人中心</a></div>-->
-        <div class="welcome">Dear XXX,欢迎访问协同学校专属页面。</div>
+
     </div>
 </div>
 <div class="main">
@@ -73,9 +113,9 @@
             <div class="left">
                 <ul>
                     <li class="i18n active">全部</li>
-                    <li>macbook系列</li>
-                    <li>Ipad系列</li>
-                    <li>Iphone系列</li>
+                    <li>macbook</li>
+                    <li>Ipad</li>
+                    <li>Iphone</li>
                 </ul>
             </div>
             <div class="right">
@@ -172,7 +212,6 @@
         <p>ICP备案：XXXXXX</p>
     </div>
 </div>
-<script src="../public/js/common.js"></script>
 <script src="./../public/js/lib/swiper-4.2.2.min.js"></script>
 <script>
     i18nLanguage = "zh";

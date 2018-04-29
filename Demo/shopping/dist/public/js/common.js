@@ -87,12 +87,27 @@ $(function () {
         });
     }
 
+    $(document).bind('click',function(){
+        $('.media-header .nav').slideUp();
+        $('.address ul').slideUp();
+        $('.service ul').slideUp();
+        //e.stopPropagation();
+    });
 
-    $('.address a').click(function () {
+    $('.address a').click(function (e) {
+        e.stopPropagation(e);
         if ($('.address ul').is(":hidden")) {
             $('.address ul').slideDown();
         } else {
             $('.address ul').slideUp();
+        }
+    });
+    $('.service a').click(function (e) {
+        e.stopPropagation(e);
+        if ($('.service ul').is(":hidden")) {
+            $('.service ul').slideDown();
+        } else {
+            $('.service ul').slideUp();
         }
     });
 
@@ -108,4 +123,15 @@ $(function () {
         $('.address ul').hide();
 
     });
+
+    // 移动端
+    $('.media-header .icon').click(function (e) {
+        e.stopPropagation();
+        if ($('.media-header .nav').is(":hidden")) {
+            $('.media-header .nav').slideDown();
+        } else {
+            $('.media-header .nav').slideUp();
+        }
+    });
+
 });

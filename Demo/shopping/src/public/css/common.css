@@ -6,6 +6,7 @@
 .swiper-container {
     width: 1000px;
     height: 400px;
+    clear:both;
 }
 .goods{position: relative;overflow: hidden;}
 .goods .title{
@@ -41,48 +42,50 @@
 .goods .page div a:hover,.goods .page div .active{color:#50b7b4;}
 
 
+@media screen and (max-width:414px){
+    .main{width:100%;margin: 0 auto;clear: both;}
+    .swiper-container {
+        width: 100%;
+        height: 200px;
+    }
+    .swiper-container img{
+        width:100%
+    }
+    .goods .title{font-size: 25px;}
+    .goods .nav{border: none;}
+    .goods .nav .left li{border-radius:5px;width:21%;font-size: 12px;margin-right: 8px;}
+    .goods .nav .left li:first-child{margin-left: 10px;}
+    .goods .nav .right{display: none;}
+
+    .goods .content li{width:39%;}
+    .goods .content li img{width:100%;height:133px;}
+}
+
 /*
 rigistered.html*/
-.process{border-bottom: 2px solid #b7b7b7;line-height: 50px;height: 50px;padding-left: 30px;color:#7a7b82;}
+.process{border-bottom: 1px solid #b7b7b7;line-height: 50px;height: 50px;padding-left: 30px;color:#7a7b82;}
 .process a{font-size: 12px;}
+.process span{font-size: 12px;float: right;display: none;}
 
-.reg{background: #f9f7fd;border:1px solid #999;border-radius:5px;width:499px;margin: 20px auto 0;position: relative;overflow: hidden;z-index: 2;}
-.phone,.mail{background:#b9d7df;width:249px;height:50px;text-align: center;line-height: 50px;color:#fff;font-size: 18px;float:left;cursor: pointer;}
-.phone:hover,.mail:hover,.focus{background:#4e95c7;}
-.mail{margin:0 0 0 1px;}
-
-.reg li{position: relative;}
-.span_focus{position: absolute;left: 113px;bottom: -19px;width: 0;height: 0;border-width: 10px;border-style: solid;border-color: #4e95c7 transparent transparent transparent;}
-.reg_phone{clear:left;padding: 45px 0 0 40px;display: block;}
-.reg_mail{padding: 45px 0 0 40px;display: none;}
-.txt{width:448px;float:left;}
-
-.box{clear:left;margin-bottom: 25px; height: 38px; zoom:1;}
-.input{width:266px;height:38px;border:1px solid #b9d7df;text-align: left;padding-left:10px;line-height:38px;color:#2a608d;font-size:14px;float:left;}
-.input input{width:170px;height:25px;border: none;line-height: 25px;background: none;}
-.box p{line-height:25px;margin-left: 10px;float:left;color:#7a7b82;font-size: 12px; padding-top:10px;}
-.box p{height:28px;line-height: 15px!important;padding-top:5px!important;}
-
-.box a{color:#2a608d;text-decoration: underline;}
-.input input,.input2 input{text-indent:5px;font-size: 14px;}
-.input2{width:153px;height:38px;border:1px solid #2a608d;background:#153553;text-align: left;padding-left:10px;line-height:38px;color:#2a608d;font-size:14px;float:left;}
-.input2 input{width:70px;height:25px;border: none;line-height: 25px;*line-height: 38px;background: none;font-size: 14px;color: #fff;}
-.code{width:111px;height:38px;border:1px solid #2a608d;background:#153553;border-left:0;float:left;text-align: center;}
-.pCode{line-height: 38px;font-size: 14px;text-decoration: none!important;}
-.check{color:#2e80b9;font-size: 12px;}
-.check a{color:#55b9ff;}
-.btn{margin: 20px 0;}
-.btn1{background:#cdaa48; height:35px;width:400px;border:none;border-radius: 5px;color:#ffffff;font-size: 16px;font-family:inherit;cursor:pointer;}
-.btn1:hover{background:#4E9ED5;}
-
-.reg .other a{display: block;text-align: center;}
-.reg .other .protocol{color:#2a608d;text-decoration: underline;font-size: 12px;padding:20px 0;}
-.reg .other .login{color:#2a608d;font-size: 12px;margin:20px 0;background: #b9d7df;height: 40px;line-height: 40px;}
 
 
 
 /*login.html*/
-.userLogin{background: #f9f7fd;border:1px solid #999;border-radius:5px;width:499px;margin: 20px auto 0;position: relative;overflow: hidden;z-index: 2;}
-.userLogin .con{padding: 45px 0 0 40px;}
-.userLogin .con a{color:#2a608d;text-decoration: underline;font-size: 12px;}
-.userLogin .title{padding: 0 0 0 40px;height: 40px;background: #0a263c;color:#fff;line-height: 40px;}
+.userLogin{border:1px solid #999;width:400px;margin: 20px auto 0;position: relative;overflow: hidden;z-index: 2;}
+.userLogin .title{width:100px;text-align: center;border: 1px solid #999;margin: 20px auto 0;height: 40px;line-height: 40px;}
+.userLogin .con{padding: 20px;}
+.userLogin .con .box{padding: 10px 0;color:#999;display: flex;}
+.userLogin .con .line{width: 100%;height: 1px;background: #999;font-size: 0;}
+.userLogin .con select{padding:3px;border-radius: 3px;font-size: 12px;}
+.userLogin .con input{border: 1px solid #999;padding:5px;font-size: 12px;width:100%;}
+.userLogin .con .code{width:40%;text-align: right;font-size: 12px;text-decoration: underline;color:#0b8bd4;line-height: 26px;}
+.userLogin .con .btn{padding: 20px 0;}
+.userLogin .con p{font-size: 12px;color:#0b8bd4;text-align: center;}
+.userLogin .con .btn a{width:100%;height: 30px;font-size: 14px;line-height:30px;color:#fff;background: #48b8c3;display: inline-block;border-radius: 3px;text-align: center;}
+.userLogin .reg{height: 40px;background: #ccc;width:100%;}
+.userLogin .reg a{text-align: center;display: inline-block;width:100%;height: 40px;line-height: 40px;font-size: 12px;text-decoration: underline;color:#0b8bd4;}
+
+@media screen and (max-width:414px){
+    .userLogin{width:100%;border: none;}
+    .process span{display: block;}
+}

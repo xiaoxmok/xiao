@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>注册</title>
-    <link rel="stylesheet" href="../public/css/common.css">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="keywords" content="" />
     <meta name="description" content=""/>
     <link rel="stylesheet" href="./../public/css/reset.css">
     <link rel="stylesheet" href="./../public/css/include.css">
+    <link rel="stylesheet" href="./../public/css/common.css">
     <script src="./../public/js/lib/jquery-3.1.0.js"></script>
-    <title>index</title>
     <script src="../public/js/common.js"></script>
-    <link rel="stylesheet" href="../public/css/swiper-4.2.2.min.css">
+    <title>index</title>
 </head>
 <body>
 <!--header页面-->
@@ -23,35 +22,74 @@
         </div>
         <div class="nav">
             <ul>
-                <li><a href="javascript:;" class="i18n" data-name="aboutMe">关于我们</a></li>
-                <li><a href="javascript:;" class="i18n" data-name="solution">解决方案</a></li>
-                <li><a href="javascript:;" class="i18n" data-name="educationalSoftware">教育软件推荐</a></li>
-                <li><a href="javascript:;" class="i18n" data-name="informationCentre">资讯中心</a></li>
-                <li><a href="./index.html" class="i18n active" data-name="BYODPlatform">BYOD平台</a></li>
+                <li><a href="javascript:;">关于我们</a></li>
+                <li><a href="javascript:;">解决方案</a></li>
+                <li><a href="javascript:;">教育软件推荐</a></li>
+                <li><a href="javascript:;">资讯中心</a></li>
+                <li><a href="./index.html" class="active">BYOD平台</a></li>
             </ul>
         </div>
         <div class="other">
-            <div class="service"><a href="#" class="i18n" data-name="service">维修</a></div>
+            <div class="service">
+                <a href="#">维修</a>
+                <ul>
+                    <li><a href="javascript:;">维修记录</a></li>
+                    <li><a href="javascript:;">维修申请</a></li>
+                </ul>
+            </div>
             <div class="lan">
                 <a href="./../en/index.html">EN</a>
             </div>
         </div>
     </div>
 </div>
+
+<div class="media-header">
+    <div class="icon">
+        ≡
+    </div>
+    <div class="address">
+        <a class="madd" href="javascript:;">深圳</a><span>^</span>
+        <ul>
+            <li data-name="shenzhen">深圳</li>
+            <li data-name="shanghai">上海</li>
+        </ul>
+    </div>
+    <div class="logo">
+        <img src="./../public/img/logo.jpg" alt="logo">
+    </div>
+    <div class="cart"><a href="javascript:;">购物车</a></div>
+    <div class="user"><a href="javascript:;">人</a></div>
+
+
+    <div class="nav">
+        <ul>
+            <li class="selc"><a href="javascript:;">关于我们</a></li>
+            <li class="selc"><a href="javascript:;">解决方案</a></li>
+            <li class="selc"><a href="javascript:;">教育软件推荐</a></li>
+            <li class="selc"><a href="javascript:;">资讯中心</a></li>
+            <li class="selc"><a href="./index.html">BYOD平台</a></li>
+            <li class="selc"><a href="javascript:;">维修</a></li>
+            <li class="selc"><a href="javascript:;">当前语言：中文</a></li>
+        </ul>
+    </div>
+</div>
 <!--头部登录信息-->
 <div class="header-bar">
     <div class="content">
+        <span class="welcome">Dear XXX,欢迎访问协同学校专属页面。</span>
+        <div class="login"><a href="./center.html">个人中心</a></div>
+        <div class="cart"><a href="javascript:;"><span></span>购物车</a></div>
         <div class="address">
-            <a href="javascript:;">深圳</a>
+            <span></span>
+            <a class="add" href="javascript:;">深圳</a>
             <ul>
                 <li data-name="shenzhen">深圳</li>
                 <li data-name="shanghai">上海</li>
             </ul>
         </div>
-        <div class="cart"><a href="javascript:;">购物车</a></div>
-        <div class="login"><a href="./registered.html">登录/注册</a></div>
         <!--<div class="login"><a href="javascript:;" data-name="personalCenter">个人中心</a></div>-->
-        <div class="welcome">Dear XXX,欢迎访问协同学校专属页面。</div>
+
     </div>
 </div>
 <div class="main">
@@ -60,68 +98,46 @@
         <a href="javascript:;" class="i18n" data-name="registered">注册</a>
     </div>
 
-    <div class="reg">
-        <ul>
-            <li class="phone focus"><em class="i18n" data-name="phone">手机注册</em><span class="span_focus"></span></li>
-            <li class="mail"><em class="i18n" data-name="emailReg">邮箱注册</em><span></span></li>
-        </ul>
-        <div class="con">
-            <div class="reg_phone txt">
-                <div class="box">
-                    <div class="input">
-                        <span class="i18n" data-name="phoneNumber">手机号码：</span><input name="username" type="text" size="45" maxlength="32" tabindex="1" class="Error" style="width: 161px;">
-                    </div>
-                    <p class="i18n" data-name="pleaseInterYouPhoneNumber">请输入您的手机号码。</p>
-                </div>
-                <div class="box">
-                    <div class="input">
-                        <span class="i18n" data-name="password">密码：</span><input name="username" type="text" size="45" maxlength="32" tabindex="1" class="Error" style="width: 161px;">
-                    </div>
-                    <p class="i18n" data-name="pleaseInterYouPassword">请输入您的密码。</p>
-                </div>
-                <div class="box">
-                    <div class="input">
-                        <span class="i18n" data-name="confirmPassword">确认密码：</span><input name="username" type="text" size="45" maxlength="32" tabindex="1" class="Error" style="width: 161px;">
-                    </div>
-                    <p class="i18n" data-name="pleaseAgainInterYouPassword">请确认您的密码。</p>
-                </div>
-                <div class="box">
-                    <div class="input">
-                        <span class="i18n" data-name="code">验证码：</span><input name="Captcha" id="Captcha" type="text" size="45" maxlength="4" tabindex="2" class="Warning" style="width: 161px;">
-                    </div>
-                    <p><a href="javascript:;" class="i18n" data-name="verificationCode">获取短信验证码</a></p>
-                </div>
-                <div class="btn">
-                    <input type="submit" value="注册" class="btn1 i18n-input" selectattr="value" data-name="registered">
-                </div>
-            </div>
-            <div class="reg_mail txt">
-                <div class="box">
-                    <div class="input">
-                        <span class="i18n" data-name="email">邮箱：</span><input name="username" type="text" size="45" maxlength="32" tabindex="1" class="Error" style="width: 161px;">
-                    </div>
-                    <p class="i18n" data-name="pleaseInterYouEmail">请输入您的邮箱。</p>
-                </div>
-                <div class="box">
-                    <div class="input">
-                        <span class="i18n" data-name="password">密码：</span><input name="username" type="text" size="45" maxlength="32" tabindex="1" class="Error" style="width: 161px;">
-                    </div>
-                    <p class="i18n" data-name="pleaseInterYouPassword">请输入您的密码。</p>
-                </div>
-                <div class="box">
-                    <div class="input">
-                        <span class="i18n" data-name="confirmPassword">确认密码：</span><input name="username" type="text" size="45" maxlength="32" tabindex="1" class="Error" style="width: 161px;">
-                    </div>
-                    <p class="i18n" data-name="pleaseAgainInterYouPassword">请确认您的密码。</p>
-                </div>
-                <div class="btn">
-                    <input type="submit" value="注册" class="btn1 i18n-input" selectattr="value" data-name="registered">
-                </div>
-            </div>
+    <div class="userLogin">
+        <div class="title">
+            <p>账号注册</p>
         </div>
-        <div class="other">
-            <a href="javascript:;" target="_blank" class="i18n protocol" data-name="agreementIsAgreed">注册即代表同意《用户协议》</a>
-            <a href="./login.html" class="i18n login" data-name="ExistingAccount">已有账号，登录</a>
+        <div class="con">
+
+            <div class="box">
+                <select>
+                    <option value="">手机</option>
+                    <option value="">邮箱</option>
+                </select>
+                &nbsp;|&nbsp;
+                <input type="text" placeholder="请输入账户">
+            </div>
+            <div class="line"></div>
+            <div class="box">
+                <input type="text" placeholder="验证码">
+                <a class="code" href="javascript:;">获取验证码</a>
+            </div>
+            <div class="line"></div>
+            <div class="box">
+                <input type="text" placeholder="请输入密码">
+            </div>
+            <div class="line"></div>
+            <div class="box">
+                <select>
+                    <option value="">学校1</option>
+                    <option value="">学校1</option>
+                    <option value="">学校1</option>
+                    <option value="">学校1</option>
+                </select>
+            </div>
+            <div class="line"></div>
+            <div class="btn">
+                <a href="javascript:;">注册</a>
+            </div>
+            <p>注册即代表同意《用户协议》</p>
+        </div>
+        <div class="reg">
+            <a href="./login.html">已有账户，去登录</a>
         </div>
     </div>
 
