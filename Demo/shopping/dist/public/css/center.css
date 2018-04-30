@@ -89,5 +89,13 @@
     .userName .dizhi{margin: 0;}
     .userName .dizhi .img{display: none;}
     .userName .dizhi p{color:#50b7b4;}
+
+    .orderNav ul{margin-left:0;width: 100%;}
+    .orderNav li{font-size:12px;margin-right: 5px;width:18%;}
+    .orderNav li:first-child{margin-left: 10px;}
+
+    .order{font-size: 12px;}
+    .order thead{display: none;}
+    .order td .img img{width:50px;height:50px;}
 }
 
