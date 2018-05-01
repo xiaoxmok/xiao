@@ -51,6 +51,7 @@
     .media-header .icon{padding: 0 20px;}
     .media-header .logo{width:100px;position: absolute;left:50%;margin-left: -50px;}
     .media-header .logo img{width:100px;height: 35px;}
+    .media-header .cart a{background: url(../img/2.png) no-repeat;width:15px;height:16px;display: inline-block;margin-top: 10px;}
     .media-header .user,.media-header .cart{float:right;color:#fff;line-height: 35px;padding-right: 20px;}
 
     .media-header .address{position: relative;}

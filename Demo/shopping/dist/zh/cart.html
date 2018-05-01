@@ -58,8 +58,8 @@
     <div class="logo">
         <img src="./../public/img/logo.jpg" alt="logo">
     </div>
-    <div class="cart"><a href="javascript:;">购物车</a></div>
-    <div class="user"><a href="javascript:;">人</a></div>
+    <div class="cart"><a href="./cart.html"></a></div>
+    <div class="user"><a href="./center.html">人</a></div>
 
 
     <div class="nav">
@@ -102,7 +102,7 @@
             <tr>
                 <th><input type="checkbox" name="selectAll">全选</th>
                 <th>商品</th>
-                <th>数量</th>
+                <th class="td3">数量</th>
                 <th>小计</th>
                 <th>操作</th>
             </tr>
@@ -130,7 +130,7 @@
                     <div class="img"><img src="../public/img/order.png" alt=""></div>
                     <div class="con">
                         <p class="title">21.5寸iMac-Retina 4k Display</p>
-                        <span class="price">￥<em>5200.66</em></span>
+                        <span class="price">￥<em>5200.00</em></span>
                         <input type="text" value="1" class="amountM">
                     </div>
                 </td>
@@ -150,7 +150,76 @@
         </div>
 
     </div>
-    <div class="recommend"></div>
+    <div class="recommend">
+        <div class="box">
+            <p>推荐配件</p>
+        </div>
+        <div class="content">
+            <ul>
+                <li>
+                    <img src="../public/img/goods2.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
+                        <p class="price"><span>常规价格：</span>
+                            <del>￥999.00</del>
+                        </p>
+                        <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
+                        <a class="apply" href="javascript:;">加入购物车</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="../public/img/goods2.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
+                        <p class="price"><span>常规价格：</span>
+                            <del>￥999.00</del>
+                        </p>
+                        <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
+                        <a class="apply" href="javascript:;">加入购物车</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="../public/img/goods2.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
+                        <p class="price"><span>常规价格：</span>
+                            <del>￥999.00</del>
+                        </p>
+                        <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
+                        <a class="apply" href="javascript:;">加入购物车</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="../public/img/goods2.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
+                        <p class="price"><span>常规价格：</span>
+                            <del>￥999.00</del>
+                        </p>
+                        <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
+                        <a class="apply" href="javascript:;">加入购物车</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="../public/img/goods2.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
+                        <p class="price"><span>常规价格：</span>
+                            <del>￥999.00</del>
+                        </p>
+                        <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
+                        <a class="apply" href="javascript:;">加入购物车</a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
 </div>
 
 <!--尾部-->
@@ -160,18 +229,18 @@
     </div>
 </div>
 <script>
-    $(function(){
-        $('.cartDetail input[name="selectAll"]').click(function(){
+    $(function () {
+        $('.cartDetail input[name="selectAll"]').click(function () {
             //alert(this.checked);
-            if($(this).is(':checked')){
+            if ($(this).is(':checked')) {
                 console.log('111');
-                $('input[name="select"]').each(function(){
+                $('input[name="select"]').each(function () {
                     //此处如果用attr，会出现第三次失效的情况
-                    $(this).prop("checked",true);
+                    $(this).prop("checked", true);
                 });
-            }else{
-                $('input[name="select"]').each(function(){
-                    $(this).prop("checked",false);
+            } else {
+                $('input[name="select"]').each(function () {
+                    $(this).prop("checked", false);
                 });
                 //$(this).removeAttr("checked");
             }
@@ -186,25 +255,25 @@
 
         //已选中的
 
-        $('input[type="checkbox"]').click(function(){
-            var checkedList=[];
-            var allAmount=0;
-            $("input[name='select']:checked").each(function() {
-                var list ={
-                    title:$(this).parent().parent().find('.title').html(),
-                    price:parseFloat($(this).parent().parent().find('.price em').html()),
-                    amount:$(this).parent().parent().find('.amount').val()||$(this).parent().parent().find('.amountM').val()
+        $('input[type="checkbox"]').click(function () {
+            var checkedList = [];
+            var allAmount = 0;
+            $("input[name='select']:checked").each(function () {
+                var list = {
+                    title: $(this).parent().parent().find('.title').html(),
+                    price: parseFloat($(this).parent().parent().find('.price em').html()),
+                    amount: $(this).parent().parent().find('.amount').val() || $(this).parent().parent().find('.amountM').val()
                 }
                 //console.log($(this).parent().parent().html());
                 checkedList.push(list);
-                allAmount+=list.price;
-                $('.Clearing .all em').html(allAmount);
+                allAmount += list.price;
+                $('.Clearing .all em').html(allAmount.toFixed(2));
             });
             console.log(checkedList);
             $('.Clearing .amount em').html(checkedList.length);
-            if(checkedList.length===0){
+            if (checkedList.length === 0) {
                 $('.Clearing .all em').html("0.00");
-                $('.cartDetail input[name="selectAll"]').prop("checked",false);
+                $('.cartDetail input[name="selectAll"]').prop("checked", false);
             }
         });
 
