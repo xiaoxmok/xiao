@@ -49,6 +49,8 @@
 .order .status p{color:#50b7b4;display: block;font-size: 14px;line-height: 30px;}
 .order .status span{color:#999;font-size: 12px;}
 
+.mOrder,.mService{display: none;}
+
 .goods .content li .time{font-size: 12px;color:#999;padding-bottom: 5px;line-height: 20px;}
 .goods .content li .apply{display: block;width: 100px;height: 30px;background: #50b7b4;color:#fff;line-height: 30px;text-align: center;margin: 0 auto;}
 
@@ -97,5 +99,27 @@
     .order{font-size: 12px;}
     .order thead{display: none;}
     .order td .img img{width:50px;height:50px;}
+
+    .pcOrder{display: none;}
+    .mOrder{display: block;font-size: 12px;}
+    .mOrder li{padding: 10px;border: 1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;margin-top: 10px;}
+    .mOrder .up{border-bottom: 1px solid #999;overflow: hidden;padding-bottom: 10px;}
+    .mOrder .up div{float:left;}
+    .mOrder .up img{width:60px;height:60px;}
+    .mOrder .up .con{line-height: 30px;padding: 0 10px;}
+    .mOrder .up .status{line-height: 30px;padding: 0 10px;color:#50b7b4;}
+    .mOrder .down{clear:left;padding-top: 10px;}
+    .mOrder .down a{padding-right:20px;text-align: center;color:#3f51b5;}
+
+    .pcService{display: none;}
+    .mService{display: block;}
+    .mService li{padding: 10px;border: 1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;margin-top: 10px;}
+    .mService .up{border-bottom: 1px solid #999;overflow: hidden;padding-bottom: 10px;}
+    .mService .up .text{font-size: 12px;}
+    .mService .up .text div{line-height: 20px;padding-bottom: 10px;}
+    .mService .up .operate .status{float: left;color:#50b7b4;font-size: 12px;}
+    .mService .up .operate .time{float: right;color:#999;font-size: 12px;}
+    .mService .down{clear:left;padding-top: 10px;width: 100%;text-align: center;}
+    .mService .down a{padding-right:20px;text-align: center;color:#3f51b5;font-size: 12px;display: block;}
 }
 
