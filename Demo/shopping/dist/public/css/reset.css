@@ -61,9 +61,6 @@ input, button, textarea, select {
     line-height: 1.2
 }
 input{
-    -webkit-appearance: textfield;
-    -webkit-rtl-ordering: logical;
-    cursor: text;
     text-shadow: none;
     outline:0
 }

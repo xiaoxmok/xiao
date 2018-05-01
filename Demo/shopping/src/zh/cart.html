@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    @@include('./view/meta.html')
+    <link rel="stylesheet" href="../public/css/cart.css">
+</head>
+<body>
+@@include('./view/header.html')
+@@include('./view/header-bar.html')
+<div class="main">
+    <div class="process">
+        <a href="./index.html" class="i18n" data-name="byod">BYOD平台</a> >
+        <a href="javascript:;" class="i18n" data-name="registered">购物车</a>
+    </div>
+    <div class="cartDetail">
+        <table>
+            <tr>
+                <th><input type="checkbox" name="selectAll">全选</th>
+                <th>商品</th>
+                <th>数量</th>
+                <th>小计</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="select"></td>
+                <td>
+                    <div class="img"><img src="../public/img/order.png" alt=""></div>
+                    <div class="con">
+                        <p class="title">21.5寸iMac-Retina 4k Display</p>
+                        <span class="price">￥<em>5288.00</em></span>
+                        <input type="text" value="1" class="amountM">
+                    </div>
+                </td>
+                <td class="td3">
+                    <input type="text" value="1" class="amount">
+                </td>
+                <td>￥5288.00</td>
+                <td class="operate">
+                    <a href="javascript:;">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="select"></td>
+                <td>
+                    <div class="img"><img src="../public/img/order.png" alt=""></div>
+                    <div class="con">
+                        <p class="title">21.5寸iMac-Retina 4k Display</p>
+                        <span class="price">￥<em>5200.66</em></span>
+                        <input type="text" value="1" class="amountM">
+                    </div>
+                </td>
+                <td class="td3">
+                    <input type="text" value="1" class="amount">
+                </td>
+                <td>￥5288.00</td>
+                <td class="operate">
+                    <a href="javascript:;">删除</a>
+                </td>
+            </tr>
+        </table>
+        <div class="Clearing">
+            <a href="javascript:;">去结算</a>
+            <span class="all">总价：<em>￥0.00</em></span>
+            <span class="amount">已选择<em>0</em>件商品</span>
+        </div>
+
+    </div>
+    <div class="recommend"></div>
+</div>
+
+@@include('./view/footer.html')
+<script>
+    $(function(){
+        $('.cartDetail input[name="selectAll"]').click(function(){
+            //alert(this.checked);
+            if($(this).is(':checked')){
+                console.log('111');
+                $('input[name="select"]').each(function(){
+                    //此处如果用attr，会出现第三次失效的情况
+                    $(this).prop("checked",true);
+                });
+            }else{
+                $('input[name="select"]').each(function(){
+                    $(this).prop("checked",false);
+                });
+                //$(this).removeAttr("checked");
+            }
+
+        });
+
+        /*//没被选中的
+        var checkedList = new Array();
+        $("input[name='id']:not(:checked)").each(function() {
+            checkedList.push($(this).val());
+        });*/
+
+        //已选中的
+
+        $('input[type="checkbox"]').click(function(){
+            var checkedList=[];
+            var allAmount=0;
+            $("input[name='select']:checked").each(function() {
+                var list ={
+                    title:$(this).parent().parent().find('.title').html(),
+                    price:parseFloat($(this).parent().parent().find('.price em').html()),
+                    amount:$(this).parent().parent().find('.amount').val()||$(this).parent().parent().find('.amountM').val()
+                }
+                //console.log($(this).parent().parent().html());
+                checkedList.push(list);
+                allAmount+=list.price;
+                $('.Clearing .all em').html(allAmount);
+            });
+            console.log(checkedList);
+            $('.Clearing .amount em').html(checkedList.length);
+            if(checkedList.length===0){
+                $('.Clearing .all em').html("0.00");
+                $('.cartDetail input[name="selectAll"]').prop("checked",false);
+            }
+        });
+
+
+    })
+</script>
+</body>
+</html>

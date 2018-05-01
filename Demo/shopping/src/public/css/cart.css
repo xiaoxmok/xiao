@@ -1,0 +1,24 @@
+.cartDetail{width: 100%;}
+.cartDetail table{width: 100%;}
+.cartDetail tr{border-bottom: 1px solid #eee;}
+.cartDetail th{padding: 10px 0;text-align: center;}
+
+.cartDetail td{padding: 30px;text-align: center;color:#666;font-size: 14px;}
+.cartDetail td .img,.cartDetail td .con{float:left;}
+.cartDetail td .con{text-align: left;margin-left: 20px;font-size: 14px;}
+.cartDetail td .con p{color:#666;margin: 15px 0;}
+.cartDetail td .con span{color:#50b7b4;font-size: 16px;}
+.cartDetail td .amount{width: 40px;text-align: center;border: 1px solid #999;}
+.cartDetail td .amountM{width: 40px;text-align: center;border: 1px solid #999;margin-left: 20px;display: none;}
+.cartDetail .operate a{color:#50b7b4;display: block;font-size: 14px;line-height: 30px;}
+.cartDetail .status p{color:#50b7b4;display: block;font-size: 14px;line-height: 30px;}
+.cartDetail .status span{color:#999;font-size: 12px;}
+
+
+.Clearing{width:100%;overflow: hidden;border: 1px solid #eee;}
+.Clearing a{display: inline-block;font-size:20px;color:#fff;text-align:center;float: right;width:90px;height:50px;line-height: 50px;background: #50b7b4;}
+.Clearing span{float:right;line-height: 50px;margin-right: 20px;}
+.Clearing .all{color:#666;font-size: 14px;}
+.Clearing .all em{color:#50b7b4;font-size: 18px;}
+.Clearing .amount{color: #666;font-size: 14px;}
+.Clearing .amount em{}

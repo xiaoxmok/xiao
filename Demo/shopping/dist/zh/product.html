@@ -12,6 +12,7 @@
     <script src="./../public/js/lib/jquery-3.1.0.js"></script>
     <script src="../public/js/common.js"></script>
     <link rel="stylesheet" href="../public/css/product.css">
+    <link rel="stylesheet" href="../public/css/swiper-4.2.2.min.css">
 </head>
 <body>
 <!--header页面-->
@@ -79,7 +80,7 @@
     <div class="content">
         <span class="welcome">Dear XXX,欢迎访问协同学校专属页面。</span>
         <div class="login"><a href="./center.html">个人中心</a></div>
-        <div class="cart"><a href="javascript:;"><span></span>购物车</a></div>
+        <div class="cart"><a href="./cart.html"><span></span>购物车</a></div>
         <div class="address">
             <span></span>
             <a class="add" href="javascript:;">深圳</a>
@@ -92,12 +93,166 @@
 
     </div>
 </div>
+<div class="main">
+    <div class="process">
+        <a href="./index.html" class="i18n" data-name="byod">BYOD平台</a> >
+        <a href="javascript:;" class="i18n" data-name="registered">商品详情</a>
+    </div>
+    <div class="product">
+        <div class="image">
+            <!--轮播图-->
+            <div class="swiper-container product-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="../public/img/goods1.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide"><img src="../public/img/goods2.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="../public/img/goods3.jpg" alt=""></div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="small">
+                <a href="javascript:;" class="active"><img src="../public/img/goods1.jpg" alt=""></a>
+                <a href="javascript:;"><img src="../public/img/goods2.jpg" alt=""></a>
+                <a href="javascript:;"><img src="../public/img/goods3.jpg" alt=""></a>
+                <a href="javascript:;"><img src="../public/img/goods4.jpg" alt=""></a>
+            </div>
+        </div>
+        <div class="con">
+            <div class="title">
+                <p>21.5寸iMac-Retina 4k Display</p>
+                <span>21.5-inch iMac -Retina 4K Display-3.0GHz Processor- 1TB Storage</span>
+            </div>
+            <div class="detail">
+                <table>
+                    <tr>
+                        <td class="td1">常规价格:</td>
+                        <td class="td2"><del>￥10,688.00</del></td>
+                    </tr>
+                    <tr>
+                        <td class="td1">学校优惠价：</td>
+                        <td class="td2 offer">￥9,888.00</td>
+                    </tr>
+                    <tr>
+                        <td class="td1">可用性：</td>
+                        <td class="td2">现货</td>
+                    </tr>
+                    <tr>
+                        <td class="td1">颜色：</td>
+                        <td class="td2 color">
+                            <a href="javascript:;" class="active">银色</a>
+                            <a href="javascript:;">黑色</a>
+                            <a href="javascript:;">红色</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1">规格：</td>
+                        <td class="td2 norm">
+                            <a href="javascript:;" class="active">21.5寸</a>
+                            <a href="javascript:;">27寸</a>
+                            <a href="javascript:;">29寸</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1">购买数量：</td>
+                        <td class="td2 btn">
+                            <input type="button" value="-" class="less">
+                            <input type="text" value="1" class="text">
+                            <input type="button" value="+" class="plus">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="btn">
+                <a href="javascript:;" class="collect"><span></span>收藏</a>
+                <a href="javascript:;" class="add">加入购物车</a>
+                <a href="javascript:;" class="buy">立即购买</a>
+            </div>
+            <div class="callMe">
+                <a href="javascript:;">联系我们</a>
+            </div>
+        </div>
+    </div>
+    <div class="productNav">
+        <ul>
+            <li class="active">详情</li>
+            <li>常见问题</li>
+        </ul>
+    </div>
+    <div class="productDetail" style="display: block;">商品详情</div>
+    <div class="productDetail">常见问题</div>
 
+    <div class="contact">
+        <a href="javascript:;"><em></em><span>联系我们</span></a>
+    </div>
+
+</div>
 <!--尾部-->
 <div class="footer">
     <div class="content">
         <p>ICP备案：XXXXXX</p>
     </div>
 </div>
+<script src="./../public/js/lib/swiper-4.2.2.min.js"></script>
+<script>
+    $(function(){
+        var mySwiper = new Swiper ('.swiper-container', {
+            speed:1000,
+            autoplay:{
+                delay: 3000,//1秒切换一次
+            },
+            loop: true,
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        })
+
+
+        var value = $('.btn .text').val();
+        console.log(value);
+        if(value<=1){
+            $('.btn .less').css({'background':'#eee'});
+        }else{
+            $('.btn .less').css({'background':'none'});
+        }
+        $('.btn .less').click(function(){
+            if(value>1){
+                value--;
+                $('.btn .text').val(value)
+                if(value===1){
+                    $('.btn .less').css({'background':'#eee'});
+                }
+            }
+        });
+        $('.btn .plus').click(function(){
+            value++;
+            $('.btn .text').val(value)
+            if(value>1){
+                $('.btn .less').css({'background':'none'});
+            }
+        });
+
+        $('.norm a').click(function(){
+            $('.norm a').removeClass('active');
+            $(this).addClass('active');
+        });
+        $('.color a').click(function(){
+            $('.color a').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        $(function(){
+            $('.productNav li').click(function(){
+                var index = $(this).index();
+
+                $('.productDetail').hide().eq(index).show();
+                $('.productNav li').removeClass('active');
+                $(this).addClass('active');
+            })
+        })
+    })
+</script>
 </body>
 </html>
