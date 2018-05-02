@@ -10,3 +10,5 @@
 网站PC端：https://pro.modao.cc/app/JDafqMO1ydF1aQS3tvkOl3FRMGQhT5o
 
 网站移动端：https://pro.modao.cc/app/mCAsur8b0vsxyeOfvGys5RmFRc7h9cF
+
+https://xiaoxmok.github.io/xiao/Demo/shopping/dist/zh/index.html
