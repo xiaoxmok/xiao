@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提交订单</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="./../public/css/reset.css">
+    <link rel="stylesheet" href="./../public/css/include.css">
+    <link rel="stylesheet" href="./../public/css/common.css">
+    <script src="./../public/js/lib/jquery-3.1.0.js"></script>
+    <script src="../public/js/common.js"></script>
+    <link rel="stylesheet" href="../public/css/submitOrder.css">
+</head>
+<body>
+<!--header页面-->
+<div class="header">
+    <div class="content">
+        <div class="logo">
+            <img src="./../public/img/logo.jpg" alt="logo">
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="javascript:;">关于我们</a></li>
+                <li><a href="javascript:;">解决方案</a></li>
+                <li><a href="javascript:;">教育软件推荐</a></li>
+                <li><a href="javascript:;">资讯中心</a></li>
+                <li><a href="./index.html" class="active">BYOD平台</a></li>
+            </ul>
+        </div>
+        <div class="other">
+            <div class="service">
+                <a href="#">维修</a>
+                <ul>
+                    <li><a href="javascript:;">维修记录</a></li>
+                    <li><a href="javascript:;">维修申请</a></li>
+                </ul>
+            </div>
+            <div class="lan">
+                <a href="./../en/index.html">EN</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="media-header">
+    <div class="icon">
+        ≡
+    </div>
+    <div class="address">
+        <a class="madd" href="javascript:;">深圳</a><span>^</span>
+        <ul>
+            <li data-name="shenzhen">深圳</li>
+            <li data-name="shanghai">上海</li>
+        </ul>
+    </div>
+    <div class="logo">
+        <img src="./../public/img/logo.jpg" alt="logo">
+    </div>
+    <div class="cart"><a href="./cart.html"></a></div>
+    <div class="user"><a href="./center.html">人</a></div>
+
+
+    <div class="nav">
+        <ul>
+            <li class="selc"><a href="javascript:;">关于我们</a></li>
+            <li class="selc"><a href="javascript:;">解决方案</a></li>
+            <li class="selc"><a href="javascript:;">教育软件推荐</a></li>
+            <li class="selc"><a href="javascript:;">资讯中心</a></li>
+            <li class="selc"><a href="./index.html">BYOD平台</a></li>
+            <li class="selc"><a href="javascript:;">维修</a></li>
+            <li class="selc"><a href="javascript:;">当前语言：中文</a></li>
+        </ul>
+    </div>
+</div>
+<!--头部登录信息-->
+<div class="header-bar">
+    <div class="content">
+        <span class="welcome">Dear XXX,欢迎访问协同学校专属页面。</span>
+        <div class="login"><a href="./center.html">个人中心</a></div>
+        <div class="cart"><a href="./cart.html"><span></span>购物车</a></div>
+        <div class="address">
+            <span></span>
+            <a class="add" href="javascript:;">深圳</a>
+            <ul>
+                <li data-name="shenzhen">深圳</li>
+                <li data-name="shanghai">上海</li>
+            </ul>
+        </div>
+        <!--<div class="login"><a href="javascript:;" data-name="personalCenter">个人中心</a></div>-->
+
+    </div>
+</div>
+<div class="main">
+    <div class="process">
+        <a href="./index.html">BYOD平台</a> >
+        <a href="javascript:;">提交订单</a>
+    </div>
+    <!--收货地址-->
+    <div class="shipping">
+        <div class="box">
+            <p>收货地址</p>
+            <a href="./address.html">新增收货地址</a>
+        </div>
+        <div class="con">
+            <p>
+                <input type="radio" name="addr" id="addr1" checked><label for="addr1"><span>小明</span><span>广东深圳福田华强路101号</span><span>1388888888</span>(默认)<span></span></label>
+            </p>
+            <p>
+                <input type="radio" name="addr" id="addr2"><label for="addr2"><span>小明</span><span>广东深圳福田华强路101号</span><span>1388888888</span></label>
+            </p>
+            <p>
+                <input type="radio" name="addr" id="addr3"><label for="addr3"><span>小明</span><span>广东深圳福田华强路101号</span><span>1388888888</span></label>
+            </p>
+        </div>
+    </div>
+    <!--确认订单信息-->
+    <div class="confirm">
+        <div class="box">
+            <p>确认订单信息</p>
+        </div>
+        <div class="con">
+            <table>
+                <tr>
+                    <td>
+                        <div class="img"><img src="../public/img/order.png" alt=""></div>
+                        <div class="con">
+                            <p class="title">21.5寸iMac-Retina 4k Display</p>
+                            <span class="price">￥<em>5288.00</em></span>
+                            <span class="amountM">X1</span>
+                        </div>
+                    </td>
+                    <td class="td3">
+                        X1
+                    </td>
+                    <td>￥5288.00</td>
+                    <td class="operate">
+                        <a href="javascript:;">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="img"><img src="../public/img/order.png" alt=""></div>
+                        <div class="con">
+                            <p class="title">21.5寸iMac-Retina 4k Display</p>
+                            <span class="price">￥<em>5288.00</em></span>
+                            <span class="amountM">X1</span>
+                        </div>
+                    </td>
+                    <td class="td3">
+                        X1
+                    </td>
+                    <td>￥5288.00</td>
+                    <td class="operate">
+                        <a href="javascript:;">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="img"><img src="../public/img/order.png" alt=""></div>
+                        <div class="con">
+                            <p class="title">21.5寸iMac-Retina 4k Display</p>
+                            <span class="price">￥<em>5288.00</em></span>
+                            <span class="amountM">X1</span>
+                        </div>
+                    </td>
+                    <td class="td3">
+                        X1
+                    </td>
+                    <td>￥5288.00</td>
+                    <td class="operate">
+                        <a href="javascript:;">删除</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--确认发票信息-->
+    <div class="invoice">
+        <div class="box">
+            <p>确认发票信息</p>
+        </div>
+        <div class="con">
+            <div>
+                <span>开票信息：</span><span><input type="radio" id=""><label for="">普通发票</label></span><span><input type="radio" id="" checked><label for="">电子发票</label></span>
+            </div>
+            <div>
+                <span>发票类型：</span><span><input type="radio" id=""><label for="">个人</label></span><span><input type="radio" id="" checked><label for="">企业</label></span>
+            </div>
+            <div>
+                <span>发票抬头：</span><input type="text" placeholder="请输入发票抬头">
+            </div>
+            <div>
+                <span>企业纳税号：</span><input type="text" placeholder="请输入企业纳税号">
+            </div>
+        </div>
+    </div>
+    <!--确认留言-->
+    <div class="message">
+        <div class="box">
+            <p>确认留言</p>
+        </div>
+        <div class="con">
+            <span>留言内容：</span>
+            <textarea name="" cols="30" rows="5" placeholder="留言吧"></textarea>
+        </div>
+    </div>
+    <!--提交-->
+    <div class="Clearing">
+        <a href="./payment.html">提交订单</a>
+        <span class="all">应付金额：<em>￥0.00</em></span>
+        <span class="amount"><em>3</em>件商品</span>
+    </div>
+</div>
+
+<!--尾部-->
+<div class="footer">
+    <div class="content">
+        <p>ICP备案：XXXXXX</p>
+    </div>
+</div>
+</body>
+</html>

@@ -30,7 +30,9 @@
     padding: 9px;
     border: 1px solid #eee;
     float: left;
-    margin: 15px 10px;}
+    margin: 15px 10px;
+    box-shadow: 2px 2px 5px #e4f4f3;
+}
 .recommend .content li img {
     width: 210px;
     height: 176px;
