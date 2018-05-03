@@ -5,6 +5,7 @@
 .newAddress .con td{padding: 10px 0;}
 .newAddress .con td:first-child{width:100px;}
 .newAddress .con td span{color:red;}
+.newAddress .con td input{border: 1px solid #eee;height:25px;}
 .newAddress .con td .area{width:40px;}
 
 .newAddress .con .btn{margin-top: 20px;}

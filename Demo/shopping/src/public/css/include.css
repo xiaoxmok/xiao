@@ -42,7 +42,7 @@
 
 @media screen and (max-width:414px){
     .header{display: none;}
-    .header-bar .content .welcome{font-size: 12px;}
+    .header-bar .content .welcome{font-size: 12px;margin-left: 15px;}
     .header-bar.header-bar .content .address,.header-bar .content .login,.header-bar .content .cart{display: none;}
 
     .media-header{display: block;position: relative;width:100%;background:#b9d7df;height: 35px;}
@@ -60,10 +60,15 @@
     .media-header .address li{background: #b9d7df;border-top:1px solid #ccc;cursor:pointer;}
     .media-header .address li:hover{color: #ff7238;}
 
-    .media-header .nav{display:none;position: absolute;top:35px;left:0;z-index: 99;background: #b9d7df;width: 50%;}
-    .media-header .nav li{clear:both;line-height: 30px;border-top:1px solid #ccc;color:#fff;font-size: 14px;padding-left: 10px;position: relative;}
+    .media-header .nav{font-size:12px;display:none;position: absolute;top:35px;left:0;z-index: 99;background: #b9d7df;width: 38%;}
+    .media-header .nav li{clear:both;line-height: 30px;border-top:1px solid #eee;color:#fff;font-size: 14px;padding-left: 10px;position: relative;}
+    .media-header .nav li a{display: inline-block;width: 100%;font-size:12px;}
     .media-header .nav li a:hover{border-bottom: none;}
     .media-header .nav li .active{border-bottom: none;}
+
+    .media-header .nav .service ul{position: absolute;top:0;right:-90%;z-index: 99;background: #b9d7df;width: 90%;}
+    .media-header .nav li a{display: inline-block;width: 100%;font-size:12px;}
+
 
     .selc:after {
         content: "";

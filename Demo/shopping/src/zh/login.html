@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>登录</title>
     @@include('./view/meta.html')
+    <link rel="stylesheet" href="../public/css/login.css">
 </head>
 <body>
 @@include('./view/header.html')
@@ -19,26 +20,24 @@
         <div class="title">
             <p>账号登录</p>
         </div>
+        <div class="logo"></div>
         <div class="con">
             <div class="box">
-                <select>
+                <select class="mr10">
                     <option value="">手机</option>
                     <option value="">邮箱</option>
                 </select>
-                &nbsp;|&nbsp;
                 <input type="text" placeholder="请输入账户">
             </div>
-            <div class="line"></div>
             <div class="box">
                 <input type="text" placeholder="请输入密码">
             </div>
-            <div class="line"></div>
-            <div class="btn">
-                <a href="javascript:;">登录</a>
+            <div class="reg">
+                <a href="./registered.html">没有账户?去注册</a>
             </div>
-        </div>
-        <div class="reg">
-            <a href="./registered.html">没有账户，去注册</a>
+            <div class="btn">
+                <a href="./index.html">登录</a>
+            </div>
         </div>
     </div>
 
