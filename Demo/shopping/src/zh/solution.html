@@ -19,20 +19,20 @@
             <tr>
                 <td class="td1">选择维修方式：</td>
                 <td class="td2">
-                    <span><input type="radio" id="ser1"><label for="ser1">上门</label></span>
-                    <span><input type="radio" id="ser2"><label for="ser2">自行维修</label></span>
+                    <span class="mr20"><input type="radio" id="ser1" name="ser" checked><label for="ser1">上门</label></span>
+                    <span class="mr20"><input type="radio" id="ser2" name="ser"><label for="ser2">自行维修</label></span>
                 </td>
             </tr>
             <tr>
                 <td class="td1">故障分类：</td>
                 <td class="td2">
-                    <select>
+                    <select class="select">
                         <option value="">分类1</option>
                         <option value="">分类2</option>
                         <option value="">分类3</option>
                         <option value="">分类4</option>
                     </select>
-                    <select>
+                    <select class="select">
                         <option value="">分类1</option>
                         <option value="">分类2</option>
                         <option value="">分类3</option>
@@ -43,19 +43,38 @@
             <tr>
                 <td class="td1">上传照片：</td>
                 <td class="td2">
-
+                    <div class="img">
+                        <span>+</span>
+                        <img src="" alt="" class="imgshow">
+                        <input type="file" class="file" accept="image/*" >
+                    </div>
+                    <div class="img">
+                        <span>+</span>
+                        <img src="" alt="" class="imgshow">
+                        <input type="file" class="file" accept="image/*" >
+                    </div>
+                    <div class="img">
+                        <span>+</span>
+                        <img src="" alt="" class="imgshow">
+                        <input type="file" class="file" accept="image/*" >
+                    </div>
+                    <div class="img">
+                        <span>+</span>
+                        <img src="" alt="" class="imgshow">
+                        <input type="file" class="file" accept="image/*" >
+                    </div>
                 </td>
             </tr>
             <tr>
                 <td class="td1">邮箱：</td>
                 <td class="td2">
-                    <input type="text">
+                    <input type="text" class="email">
                 </td>
             </tr>
             <tr>
                 <td class="td1">手机：</td>
                 <td class="td2">
-
+                    <input type="text" class="phone">
                 </td>
             </tr>
             <tr>
@@ -84,5 +103,13 @@
     </div>
 </div>
 @@include('./view/footer.html')
+<script>
+    //在input file内容改变的时候触发事件
+    $('.file').change(function(){
+        if(URL.createObjectURL($(this)[0].files[0])){
+            $(this).parent().find('.imgshow').attr("src",URL.createObjectURL($(this)[0].files[0]));
+        }
+    })
+</script>
 </body>
 </html>

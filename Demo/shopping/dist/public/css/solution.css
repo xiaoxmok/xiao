@@ -11,7 +11,26 @@
 .solution .text{font-size: 14px;color:#666;width: 80%;margin: 0 auto;border: 1px solid #eee;padding: 10px;text-align: left;}
 .solution .service{width:80%;margin: 0 auto;}
 
+.solution .service .title {
+    width: auto;
+    font-size: 14px;
+    color:#50b7b4;
+    border: none;
+    margin: 30px;
+    display: inline-block;
+    font-weight: normal;
+}
+.solution .service table{font-size: 14px;color:#666;text-align: left;}
+.solution .service table td{line-height: 35px;padding: 10px 0;}
+.solution .service table .td1{}
+.solution .service table .td2 .select{width:150px!important;border: 1px solid #eee;height: 30px;}
 
+.solution .service table .td2 .img{float:left;width:70px;height:70px;border: 1px solid #eee;text-align: center;padding: 0;position: relative;margin-right: 10px;}
+.solution .service table .td2 .img .file{width:70px;height:70px;opacity: 0;z-index: 999;position: absolute;top:0;left:0;}
+.solution .service table .td2 .img span{line-height: 66px;font-size: 45px;font-weight:normal;color:#eee;}
+.solution .service table .td2 .img img{position: absolute;top:0;left:0;width:70px;height:70px;z-index: 99;}
+
+.solution .service table .td2 .email,.solution .service table .td2 .phone{border:1px solid #eee;height: 30px;width:200px!important;}
 
 
 
