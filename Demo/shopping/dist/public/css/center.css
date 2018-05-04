@@ -62,7 +62,7 @@
 .ticket li .down{background: #f9f9f9;height:50px;padding-top: 20px;}
 .ticket li .down a{border: 1px solid #74d2d4;color:#74d2d4;width: 100px;height:20px;margin: 0 auto;display: block;text-align: center;border-radius: 3px;}
 .ticket .ticket1 .up{background: url(../img/8.png) no-repeat;width:282px;height:203px;}
-.ticket .ticket2 .up{background: url(../img/9.png) no-repeat;width:282px;height:203px;}
+.ticket .ticket2 .up{background: url(../img/10.png) no-repeat;width:282px;height:203px;}
 
 .ticket .ticket2 .up p{color:#986420;}
 .ticket .ticket2 .down a{color:#eda547;border: 1px solid #eda547;}
