@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>完善资料</title>
+    @@include('./view/meta.html')
+</head>
+<body>
+@@include('./view/header.html')
+@@include('./view/header-bar.html')
+<div class="main">
+
+    <div class="process">
+        <a href="./index.html">BYOD平台</a> >
+        <a href="javascript:;">完善资料</a>
+    </div>
+
+    <div class="userLogin prefect">
+        <div class="title">
+            <p>完善资料</p>
+        </div>
+        <div class="con">
+            <div class="box">
+                <select class="select">
+                    <option value="">选择学校...</option>
+                    <option value="">学校1</option>
+                    <option value="">学校2</option>
+                    <option value="">学校3</option>
+                </select>
+            </div>
+            <div class="line"></div>
+            <div class="box">
+                请选择性别：<span><input type="radio" id="male"><label for="male">男</label></span><span><input type="radio" id="female"><label for="female">女</label></span>
+            </div>
+            <div class="line"></div>
+            <div class="box">
+                <select class="select">
+                    <option value="">选择身份...</option>
+                    <option value="">身份1</option>
+                    <option value="">身份2</option>
+                    <option value="">身份3</option>
+                </select>
+            </div>
+            <div class="line"></div>
+            <div class="box">
+                <input class="input" type="text" placeholder="请输入姓名">
+            </div>
+            <div class="line"></div>
+            <div class="box">
+                <input class="input" type="text" placeholder="请输入学号">
+            </div>
+            <div class="line"></div>
+            <div class="btn">
+                <a href="javascript:;">完成</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+@@include('./view/footer.html')
+</body>
+</html>

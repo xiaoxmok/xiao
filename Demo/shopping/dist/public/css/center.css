@@ -7,14 +7,14 @@
 .school .con span{font-size: 12px;line-height: 20px;color:#999;}
 
 .school .device{margin-left: 60px;margin-top: 20px;color:#999;font-size: 14px;}
-.school .device .img{background: url(../img/icon.png) -78px -58px no-repeat;width:56px;height:55px;margin-bottom: 5px;margin-left: 5px;}
+.school .device .img{background: url(../img/5.png) no-repeat;width:41px;height:42px;margin-bottom: 5px;margin-left: 5px;}
 
 .school .data{margin-left: 70px;margin-top: 20px;color:#999;font-size: 14px;}
-.school .data .img{background: url(../img/icon.png) -164px -58px no-repeat;width:59px;height:58px;margin-left: 15px;margin-bottom: 5px;}
+.school .data .img{background: url(../img/6.png) no-repeat;width:44px;height:44px;margin-left: 15px;margin-bottom: 5px;}
 .school .data p{clear: left;}
 
 .school .question{margin-left: 70px;margin-top: 20px;color:#999;font-size: 14px;}
-.school .question .img{background: url(../img/icon.png) -238px -58px no-repeat;width:57px;height:57px;margin-bottom: 5px;margin-left: 5px;}
+.school .question .img{background: url(../img/7.png) no-repeat;width:43px;height:43px;margin-bottom: 5px;margin-left: 5px;}
 
 
 
@@ -24,11 +24,11 @@
 .userName .person div{margin-bottom: 10px;}
 .userName .person span{margin-right: 40px;color:#999;font-size: 14px;}
 .userName .person .name{font-size: 18px;font-weight: bold;color: #000;}
-.userName .person .tuijian em{background: url(../img/icon.png) -84px 0 no-repeat;display: inline-block;width:39px;height:41px;}
+.userName .person .tuijian em{background: url(../img/3.png) no-repeat;display: inline-block;width:30px;height:31px;}
 .userName .person .tuijian a{color:#50b7b4;}
 
 .userName .dizhi{margin-left: 70px;margin-top: 20px;color:#999;font-size: 14px;}
-.userName .dizhi .img{background: url(../img/icon.png) 0 -58px no-repeat;width:56px;height:56px;margin-bottom: 5px;margin-left: 15px;}
+.userName .dizhi .img{background: url(../img/4.png) no-repeat;width:42px;height:43px;margin-bottom: 5px;margin-left: 15px;}
 .userName .dizhi p{clear: left;}
 
 .orderNav{margin-top:20px;height: 40px;border-bottom: 2px solid #eee;}
@@ -61,40 +61,43 @@
 .ticket li .up p{color:#348284;font-size: 24px;line-height: 54px;padding-top: 70px;}
 .ticket li .down{background: #f9f9f9;height:50px;padding-top: 20px;}
 .ticket li .down a{border: 1px solid #74d2d4;color:#74d2d4;width: 100px;height:20px;margin: 0 auto;display: block;text-align: center;border-radius: 3px;}
-.ticket .ticket1 .up{background: url(../img/icon.png) 0 -133px no-repeat;width:282px;height:204px;}
-.ticket .ticket2 .up{background: url(../img/icon.png) -288px -133px no-repeat;width:282px;height:203px;}
+.ticket .ticket1 .up{background: url(../img/8.png) no-repeat;width:282px;height:203px;}
+.ticket .ticket2 .up{background: url(../img/10.png) no-repeat;width:282px;height:203px;}
 
 .ticket .ticket2 .up p{color:#986420;}
 .ticket .ticket2 .down a{color:#eda547;border: 1px solid #eda547;}
 
 
 @media screen and (max-width:414px){
-    .school{height: 60px;}
+    .school{height: auto;overflow: hidden;}
     .school .img img{width:50px;height:50px;}
-    .school .con span{display: none;}
-    .school .con{margin-left: 10px;}
-    .school .device .img,.school .data .img,.school .question .img{display: none;}
-    .school .device,.school .data,.school .question{
-         margin-top: 0px;margin-right: 5px;margin-left: 0;margin-bottom: 10px;
-    }
+    .school .con span{display: block;}
+    .school .con .title{margin-bottom: 8px;font-size: 14px;line-height: 20px;}
+    .school .con{margin-left: 10px;width: 80%;}
+    .school .right{display: flex;width: 100%;margin-top: 15px;}
+    .school .right div{clear: both;float:none;align-items: center;justify-content: center;}
+    .school .device,.school .data,.school .question{flex:1;margin: 0;display:flex;align-items: center;justify-content: center;flex-direction: column;}
+    .school .data .img{margin: 0;}
     .school .device a,.school .data a,.school .question a{
-        border: 1px solid #999;
+        color:#b9d7df;font-size: 12px;
     }
 
-    .userName .person{width:100%;}
+    .userName .person{width:100%;font-size: 12px;}
     .userName .person span{
         margin-right: 10px;
         word-wrap:break-word;
         white-space:nowrap;
+        font-size: 12px;
+        line-height: 25px;
     }
-    .userName .person .tuijian em{display: none;}
+    .userName .person .tuijian em{display: inline-block;}
     .userName .dizhi{margin: 0;}
     .userName .dizhi .img{display: none;}
     .userName .dizhi p{color:#50b7b4;}
 
-    .orderNav ul{margin-left:0;width: 100%;}
-    .orderNav li{font-size:12px;margin-right: 5px;width:18%;}
-    .orderNav li:first-child{margin-left: 10px;}
+    .orderNav ul{display: flex;margin: 0;}
+    .orderNav li{flex:1;background: none;margin-right: 0;font-size: 12px;}
+    .orderNav li:hover,.orderNav .active{background: none;border-bottom:1px solid #50b7b4;color:#50b7b4;}
 
     .order{font-size: 12px;}
     .order thead{display: none;}
@@ -103,23 +106,23 @@
     .pcOrder{display: none;}
     .mOrder{display: block;font-size: 12px;}
     .mOrder li{padding: 10px;border: 1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;margin-top: 10px;}
-    .mOrder .up{border-bottom: 1px solid #999;overflow: hidden;padding-bottom: 10px;}
+    .mOrder .up{border-bottom: 1px solid #eee;overflow: hidden;padding-bottom: 10px;}
     .mOrder .up div{float:left;}
     .mOrder .up img{width:60px;height:60px;}
     .mOrder .up .con{line-height: 30px;padding: 0 10px;}
     .mOrder .up .status{line-height: 30px;padding: 0 10px;color:#50b7b4;}
-    .mOrder .down{clear:left;padding-top: 10px;}
-    .mOrder .down a{padding-right:20px;text-align: center;color:#3f51b5;}
+    .mOrder .down{clear:left;display: flex;padding-top: 5px;}
+    .mOrder .down a{flex:1;text-align: center;color:#50b7b4;}
 
     .pcService{display: none;}
     .mService{display: block;}
     .mService li{padding: 10px;border: 1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;margin-top: 10px;}
-    .mService .up{border-bottom: 1px solid #999;overflow: hidden;padding-bottom: 10px;}
+    .mService .up{border-bottom: 1px solid #eee;overflow: hidden;padding-bottom: 10px;}
     .mService .up .text{font-size: 12px;}
     .mService .up .text div{line-height: 20px;padding-bottom: 10px;}
     .mService .up .operate .status{float: left;color:#50b7b4;font-size: 12px;}
     .mService .up .operate .time{float: right;color:#999;font-size: 12px;}
     .mService .down{clear:left;padding-top: 10px;width: 100%;text-align: center;}
-    .mService .down a{padding-right:20px;text-align: center;color:#3f51b5;font-size: 12px;display: block;}
+    .mService .down a{padding-right:20px;text-align: center;color:#50b7b4;font-size: 12px;display: block;}
 }
 

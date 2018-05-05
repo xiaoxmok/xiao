@@ -1,0 +1,67 @@
+
+.shipping .box{height:40px;border: 1px solid #eee;margin-top: 10px;line-height: 40px;padding-left: 10px;background:#eee;font-size: 14px;}
+.shipping .box p{float:left;}
+.shipping .box a{float:right;display: inline-block;margin-right: 10px;color:#50b7b4;}
+
+.shipping .con{font-size:14px;border: 1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;padding: 20px 30px;margin-top: 20px;}
+.shipping .con p{line-height: 30px;}
+.shipping .con span{margin-right: 20px;}
+.shipping .con input{margin-right: 30px;}
+
+.confirm .box{height:40px;border: 1px solid #eee;margin-top: 10px;line-height: 40px;padding-left: 10px;background:#eee;font-size: 14px;}
+.confirm table{overflow: hidden;width: 100%;}
+.confirm tr{border-bottom: 1px solid #eee;}
+.confirm th{padding: 10px 0;text-align: center;}
+
+.confirm td{padding: 30px;text-align: center;color:#666;font-size: 14px;}
+.confirm td .img,.confirm td .con{float:left;}
+.confirm td .con{text-align: left;padding-left: 20px;font-size: 14px;}
+.confirm td .con p{color:#666;margin: 15px 0;}
+.confirm td .con span{color:#50b7b4;font-size: 16px;}
+.confirm td .amount{width: 40px;text-align: center;border: 1px solid #999;}
+.confirm td .amountM{width: 40px;text-align: center;margin-left: 20px;display: none;}
+.confirm .operate a{color:#50b7b4;display: block;font-size: 14px;line-height: 30px;}
+
+.invoice .box{height:40px;border: 1px solid #eee;margin-top: 10px;line-height: 40px;padding-left: 10px;background:#eee;font-size: 14px;}
+.invoice .con{font-size:14px;border: 1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;padding: 20px 30px;margin-top: 20px;}
+.invoice .con div{padding: 5px 0;}
+.invoice .con span{margin-right: 20px;}
+.invoice .con label{margin-left: 10px;}
+.invoice .con input[type="text"]{border: 1px solid #eee;height:25px;}
+
+.message .box{height:40px;border: 1px solid #eee;margin-top: 10px;line-height: 40px;padding-left: 10px;background:#eee;font-size: 14px;}
+.message .con{overflow:hidden;font-size:14px;border: 1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;padding: 20px 30px;margin-top: 20px;}
+.message .con span{display: inline-block;float:left;}
+.message .con textarea{display: inline-block;float:left;    border: 1px solid #eee;}
+
+.Clearing{overflow: hidden;border: 1px solid #eee;margin-top: 20px;}
+.Clearing a{display: inline-block;font-size:20px;color:#fff;text-align:center;float: right;width:90px;height:50px;line-height: 50px;background: #50b7b4;}
+.Clearing span{float:right;line-height: 50px;margin-right: 20px;}
+.Clearing .all{color:#666;font-size: 14px;}
+.Clearing .all em{color:#50b7b4;font-size: 18px;}
+.Clearing .amount{color: #666;font-size: 14px;}
+.Clearing .amount em{}
+
+@media screen and (max-width:414px){
+
+    .shipping .con span{margin-right: 10px;}
+    .shipping .con input{margin-right: 10px;}
+
+
+    .confirm .td3{display: none;}
+    .confirm td .amountM{display: block;}
+    .confirm td:nth-child(2),.cartDetail th:nth-child(2){width: 60%;}
+
+
+
+    .confirm td{padding:10px 0;}
+
+    .confirm td .img{padding-left: 5px;}
+    .confirm td .img img{width:60px;height:60px;}
+
+
+    .confirm td .con{padding-left: 10px;}
+    .confirm td .con p{margin: 0;width: 150px;}
+    .confirm td .amountM{margin: 0;float:right;}
+}
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增地址</title>
+    @@include('./view/meta.html')
+    <link rel="stylesheet" href="../public/css/newAddress.css">
+</head>
+<body>
+@@include('./view/header.html')
+@@include('./view/header-bar.html')
+<div class="main">
+    <div class="process">
+        <a href="./index.html">BYOD平台</a> >
+        <a href="javascript:;">新增地址</a>
+    </div>
+
+    <div class="newAddress">
+        <div class="box">
+            <p>新增地址</p>
+        </div>
+        <div class="con">
+            <table>
+                <tr>
+                    <td><span>*</span>收货人：</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td><span>*</span>详细地址：</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td><span>*</span>手机号：</td>
+                    <td><input type="text" placeholder="010" class="area">-<input type="text"></td>
+                </tr>
+            </table>
+            <div class="btn">
+                <a href="javascript:;">保存收货人信息</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@@include('./view/footer.html')
+</body>
+</html>

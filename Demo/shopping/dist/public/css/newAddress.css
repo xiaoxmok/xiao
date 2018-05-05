@@ -1,0 +1,19 @@
+.main{min-height: 500px;}
+
+.newAddress .box{height:40px;border: 1px solid #eee;margin-top: 10px;line-height: 40px;padding-left: 10px;background:#eee;font-size: 14px;}
+.newAddress .con{overflow:hidden;font-size:14px;border: 1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;padding: 20px 30px;margin-top: 20px;}
+.newAddress .con td{padding: 10px 0;}
+.newAddress .con td:first-child{width:100px;}
+.newAddress .con td span{color:red;}
+.newAddress .con td input{border: 1px solid #eee;height:25px;}
+.newAddress .con td .area{width:40px;}
+
+.newAddress .con .btn{margin-top: 20px;}
+.newAddress .con .btn a{display: inline-block;float:left;width:150px;height:30px;background:#50b7b4;text-align: center;line-height: 30px;color:#fff;margin-right: 30px; }
+
+
+@media screen and (max-width:414px){
+    .newAddress .con td .area{margin-bottom: 5px;}
+}
+
+
