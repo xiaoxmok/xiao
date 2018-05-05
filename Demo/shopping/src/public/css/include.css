@@ -4,6 +4,7 @@
 .header .content{width:1000px;margin: 0 auto;clear: both;}
 .header .logo,.header .nav{float:left;}
 .header .logo{height: 98px;}
+.header .logo img{margin-top: 20px;}
 .header .nav li{float:left;line-height: 95px;color:#fff;padding:0 20px;}
 .header .nav li a{display: inline-block;color:#fff;}
 .header .nav li a:hover{border-bottom: 3px solid #367d49;}
@@ -48,14 +49,16 @@
     .media-header{display: block;position: relative;width:100%;background:#b9d7df;height: 35px;}
     .media-header .icon,.media-header .address,.media-header .logo{line-height: 35px;float:left;color:#fff;font-size: 14px;}
 
-    .media-header .icon{padding: 0 20px;}
+    .media-header .icon{padding: 0 10px;}
+    .media-header .icon img{width:30px;height:20px; margin-top: 5px;}
     .media-header .logo{width:100px;position: absolute;left:50%;margin-left: -50px;}
-    .media-header .logo img{width:100px;height: 35px;}
-    .media-header .cart a{background: url(../img/2.png) no-repeat;width:15px;height:16px;display: inline-block;margin-top: 10px;}
+    .media-header .logo img{width:70px;height: 35px;}
+    .media-header .cart a{background-image: url(../img/app_cart.png);width:42px;height:44px;display: inline-block;margin-top: 10px;}
     .media-header .user,.media-header .cart{float:right;color:#fff;line-height: 35px;padding-right: 20px;}
 
     .media-header .address{position: relative;}
     .media-header .address a{display: inline-block;}
+    .media-header .address span{display: block;background: url(../img/byod_sec.png) no-repeat;width:12px;height: 7px;float: right;margin-top: 15px;margin-left: 5px;}
     .media-header .address ul{z-index:99;background: #b9d7df;width: 90px;position: absolute;left:0px;text-align: center;display: none;}
     .media-header .address li{background: #b9d7df;border-top:1px solid #ccc;cursor:pointer;}
     .media-header .address li:hover{color: #ff7238;}

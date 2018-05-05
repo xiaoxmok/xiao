@@ -23,6 +23,7 @@
 .solution .service table{font-size: 14px;color:#666;text-align: left;}
 .solution .service table td{line-height: 35px;padding: 10px 0;}
 .solution .service table .td1{}
+.solution .service table .td_strong{color:red;font-size: 12px;}
 .solution .service table .td2 .select{width:150px!important;border: 1px solid #eee;height: 30px;}
 
 .solution .service table .td2 .img{float:left;width:70px;height:70px;border: 1px solid #eee;text-align: center;padding: 0;position: relative;margin-right: 10px;}
@@ -32,5 +33,15 @@
 
 .solution .service table .td2 .email,.solution .service table .td2 .phone{border:1px solid #eee;height: 30px;width:200px!important;}
 
+.solution .service table .td2 .ticket1{display: inline-block;margin-right: 20px;}
 
 
+@media screen and (max-width:414px){
+    .solution .service{width: 95%;}
+    .solution .service table .td1{width: 30%;font-weight: bold;}
+
+    .solution .service table .td2 .select{width:100px!important;}
+    .solution .service table .td2 .img .file{width:50px;height:50px;}
+    .solution .service table .td2 .img{width:50px;height:50px;}
+    .solution .service table .td2 .img span{line-height: 43px;}
+}
