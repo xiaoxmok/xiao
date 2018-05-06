@@ -71,8 +71,8 @@
 @media screen and (max-width:414px){
     .school{height: auto;overflow: hidden;}
     .school .img img{width:50px;height:50px;}
-    .school .con span{display: block;}
-    .school .con .title{margin-bottom: 8px;font-size: 14px;line-height: 20px;}
+    .school .con span{display: none;}
+    .school .con .title{margin-bottom: 8px;line-height: 20px;margin-top: 10px;}
     .school .con{margin-left: 10px;width: 80%;}
     .school .right{display: flex;width: 100%;margin-top: 15px;}
     .school .right div{clear: both;float:none;align-items: center;justify-content: center;}
