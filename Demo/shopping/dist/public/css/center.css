@@ -28,7 +28,7 @@
 .userName .person .tuijian a{color:#50b7b4;}
 
 .userName .dizhi{margin-left: 70px;margin-top: 20px;color:#999;font-size: 14px;}
-.userName .dizhi .img{background: url(../img/4.png) no-repeat;width:42px;height:43px;margin-bottom: 5px;margin-left: 15px;}
+.userName .dizhi .img{background: url(../img/4.png) no-repeat;width:42px;height:43px;margin-bottom: 5px;margin-left: 24px;}
 .userName .dizhi p{clear: left;}
 
 .orderNav{margin-top:20px;height: 40px;border-bottom: 2px solid #eee;}
@@ -102,6 +102,15 @@
     .order{font-size: 12px;}
     .order thead{display: none;}
     .order td .img img{width:50px;height:50px;}
+
+    .ticket li{width:115px;}
+    .ticket li .up .img{background: url(../img/9_1.png) no-repeat;width:20px;height:20px;margin: 34px 10px 0 28px;}
+    .ticket .ticket1 .up{background: url(../img/8_1.png) no-repeat;width:115px;height:83px;}
+    .ticket .ticket2 .up{background: url(../img/10_1.png) no-repeat;width:115px;height:83px;}
+    .ticket li .up p{font-size: 14px;padding-top: 28px;float:left;line-height: 33px;}
+    .ticket li{padding: 0 10px;}
+    .ticket .ticket2 .down a{font-size: 12px;line-height: 20px;}
+    .ticket .ticket1 .down a{font-size: 12px;line-height: 20px;}
 
     .pcOrder{display: none;}
     .mOrder{display: block;font-size: 12px;}

@@ -50,6 +50,7 @@
 
 @media screen and (max-width:414px){
     .cartDetail .td3{display: none;}
+    .cartDetail th{font-size: 12px;}
     .cartDetail td .amountM{display: block;}
     .cartDetail td:nth-child(2),.cartDetail th:nth-child(2){width: 60%;}
 
@@ -60,7 +61,7 @@
     .cartDetail td .img img{width:60px;height:60px;}
 
 
-    .cartDetail td .con{padding-left: 10px;}
+    .cartDetail td .con{padding-left: 10px;font-size: 12px;}
     .cartDetail td .con p{margin: 0;width: 150px;}
     .cartDetail td .amountM{margin: 0;float:right;}
 

@@ -35,7 +35,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     .media-header,.header-bar,.footer{display: none;}
 
     .userLogin{width:100%;border: none;}
-    .userLogin .logo{background: url(../img/logo.jpg) no-repeat;width:173px;height:98px;margin: 0 auto;}
+    .userLogin .logo{background: url(../img/web_logo.png) no-repeat;width:84px;height:54px;margin: 60px auto;}
     .userLogin .title{display: none;}
     .process{display: none;}
     .userLogin{border: none;box-shadow: none;}
