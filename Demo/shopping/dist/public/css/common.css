@@ -105,7 +105,7 @@ rigistered.html*/
 
 /*prefectData.html*/
 
-.select,.input{width:100%!important;}
+.select,.input{width:100%!important;background: none;}
 .prefect .con .box{font-size: 14px;color:#000;}
 .prefect .con .box input{width:auto;border: 1px solid #eee;border-radius: 5px;}
 .prefect .con .box select{width:auto;border: 1px solid #eee;border-radius: 5px;}
