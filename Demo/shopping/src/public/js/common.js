@@ -135,3 +135,15 @@ $(function () {
     });
 
 });
+
+
+/*常见问题*/
+$(function(){
+    $('.problem .title').click(function(){
+        if($(this).parent().find('.text').is(":hidden")){
+            $(this).parent().find('.text').slideDown();
+        }else{
+            $(this).parent().find('.text').slideUp();
+        };
+    });
+});
