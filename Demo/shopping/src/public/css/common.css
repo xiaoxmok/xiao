@@ -8,21 +8,22 @@
 
 .main{width:1000px;margin: 0 auto;clear: both;position: relative;}
 
+
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     /* WebKit browsers */
-    color: #666;
+    color: #eee;
 }
 input:-moz-placeholder, textarea:-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
-    color: #666;
+    color: #eee;
 }
 input::-moz-placeholder, textarea::-moz-placeholder {
     /* Mozilla Firefox 19+ */
-    color: #666;
+    color: #eee;
 }
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     /* Internet Explorer 10+ */
-    color: #666;
+    color: #eee;
 }
 
 
@@ -105,14 +106,27 @@ rigistered.html*/
 
 /*prefectData.html*/
 
+
 .select,.input{width:100%!important;background: none;}
 .prefect .con .box{font-size: 14px;color:#000;}
-.prefect .con .box input{width:auto;border: 1px solid #eee;border-radius: 5px;}
-.prefect .con .box select{width:auto;border: 1px solid #eee;border-radius: 5px;}
+.prefect .con .box .input{    border: 1px solid #eee;
+    padding: 5px;
+    font-size: 14px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+.prefect .con .box select{width:auto;border: 1px solid #eee;border-radius: 5px;height: 42px;}
+.prefect .con .box strong{color:#ff5821;margin-right: 5px;}
 .prefect .con .box span{margin-right: 20px;}
 .prefect .con .btn a{width:100%;height: 30px;font-size: 14px;line-height:30px;color:#fff;background: #50b7b4;display: inline-block;border-radius: 3px;text-align: center;}
 
+.prefect .con .text{margin: 20px 0;overflow: hidden;}
+.prefect .con .text p{float:left;font-size: 14px;color:#666;}
+.prefect .con .text a{display: inline-block;float:right;color:#61bbb9;font-size: 12px;}
+
 @media screen and (max-width:414px){
     .process span{display: block;}
-
+    .userLogin{width:auto;}
 }

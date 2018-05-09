@@ -23,6 +23,7 @@
 .solution .service table{font-size: 14px;color:#666;text-align: left;}
 .solution .service table td{line-height: 21px;padding: 10px 0;}
 .solution .service table .td1{}
+.solution .service table .td1 strong{color: #ff5821;}
 .solution .service table .td_strong{color:red;font-size: 12px;}
 .solution .service table .td2 .select{width:150px!important;border: 1px solid #eee;height: 30px;}
 
@@ -42,7 +43,7 @@
 .solution .service table .td2 .ticket1 .down{background: #f9f9f9;height:50px;padding-top: 20px;}
 .solution .service table .td2 .ticket1 .down a{border: 1px solid #74d2d4;color:#74d2d4;width: 100px;height:20px;margin: 0 auto;display: block;text-align: center;border-radius: 3px;line-height: 20px;}
 
-
+.solution .service .btn a{display: inline-block;width:100px;height:30px;line-height: 30px;text-align: center;color:#fff;font-size: 14px;background: #50b7b4;}
 
 
 
