@@ -144,3 +144,24 @@ rigistered.html*/
 @media screen and (max-width:414px){
     .problem{padding:0 20px;}
 }
+
+
+/*
+修改密码*/
+.modify{border:1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;width:400px;margin: 20px auto 0;position: relative;overflow: hidden;z-index: 2;}
+.modify .title{width:100px;text-align: center;margin: 20px auto 0;height: 40px;line-height: 40px;font-size: 25px;color:#666;}
+.modify .con{padding: 20px;}
+.modify .con .box{padding: 10px 0;color:#999;display: flex;}
+.modify .con .line{width: 100%;height: 1px;background: #999;font-size: 0;}
+.modify .con select{padding:10px;color:#666;border-radius: 3px;font-size: 12px;border: 1px solid #eee;background: none;height:42px;}
+.modify .con input{border: 1px solid #eee;padding:5px;font-size: 14px;width:100%;height: 30px;line-height: 30px;border-radius: 5px;}
+.modify .con .code{width:40%;text-align: right;font-size: 12px;text-decoration: underline;color:#50b7b4;line-height: 26px;}
+.modify .con .btn{padding: 20px 0;}
+.modify .con p{font-size: 12px;color:#50b7b4;text-align: center;}
+.modify .con .btn a{width:100%;height: 30px;font-size: 14px;line-height:30px;color:#fff;background: #50b7b4;display: inline-block;border-radius: 3px;text-align: center;}
+.modify .reg{}
+.modify .reg a{display: inline-block;width:100%;height: 20px;font-size: 12px;text-decoration: underline;color:#61bbb9;text-align: right;}
+
+@media screen and (max-width:414px){
+    .modify{width:100%;border: 0;box-shadow:none;}
+}

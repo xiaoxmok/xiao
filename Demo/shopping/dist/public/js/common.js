@@ -142,8 +142,10 @@ $(function(){
     $('.problem .title').click(function(){
         if($(this).parent().find('.text').is(":hidden")){
             $(this).parent().find('.text').slideDown();
+            $(this).find('span').html("-")
         }else{
             $(this).parent().find('.text').slideUp();
+            $(this).find('span').html("+")
         };
     });
 });
