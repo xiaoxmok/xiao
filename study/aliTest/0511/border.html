@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>等腰三角形</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*用css,实现一个底边长为 10px 高为 12px 的等腰三角形*/
+        .border {
+            border-left: 10px dotted transparent;
+            border-right: 10px dotted transparent;
+            border-bottom: 12px solid #f00;
+            width: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="border"></div>
+<script>
+
+    /*编写一个函数，持久性，它接受一个正参数num并返回它的乘法持久性，
+    这就是你必须将数字中的数字乘上数字直到你到达一个数字的次数。*/
+
+    /*方法1：*/
+    function persistence(num) {
+
+        var times = 0;
+
+        num = num.toString();
+
+        while (num.length > 1) {
+
+            times++;
+
+            num = num.split('').map(Number).reduce((a, b) => a * b).toString();
+
+        }
+
+        return times;
+
+    }
+    /*方法2：*/
+    function fun(num) {
+        var i = 0;
+        //num = num.toString();
+        for (i; num.toString().length > 1; i++) {
+            /*num = num.split('').map(Number).reduce(function(x,y){
+                return x * y}
+            ).toString();*/
+
+            num = num.toString().split('').reduce(function(x,y){
+                return x * y}
+            );
+
+            console.log('num',num);
+        }
+        return i;
+    }
+
+    console.log(persistence(39));
+    console.log(fun(39));
+
+
+
+    /*解析对象*/
+    var object={
+        b:{
+            c:4
+        },
+        d:[{
+            e:5
+        },
+            {
+                e:6
+            }
+        ]
+    };
+
+    function parse(obj, str) {
+        str = str.replace(/[\[\]]/g,".").replace(/\.{2,10}/g,".")
+            .split(".");;
+        console.log('str',str);
+        var ans = obj;
+        for(var i = 0; i < str.length; i++) {
+            if(ans[str[i]] !== undefined) {
+                ans = ans[str[i]];
+                console.log('ans',ans);
+            } else {
+                return undefined;
+            }
+        }
+        return ans;
+    }
+
+    console.log(parse(object,'b.c')==4)//true
+    console.log(parse(object,'d[0].e')==5)//true
+    console.log(parse(object,'d.0.e')==5)//true
+    console.log(parse(object,'d[1].e')==6)//true
+    console.log(parse(object,'d.1.e')==6)//true
+    console.log(typeof parse(object,'f')=='undefined')//true
+</script>
+</body>
+</html>

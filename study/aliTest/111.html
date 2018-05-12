@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="dataInput" type="text">
+<p id="inputShow">{{value}}</p>
+<script>
+    let obj = {
+        inputVal: 'aaa'
+    }
+    // code
+    Object.defineProperty(obj,'inputVal',{
+        get:function(){
+            return obj;
+        },
+        set:function(newVal){
+            //document.getElementById('dataInput').value = newVal;
+            document.getElementById('inputShow').innerText = newVal;
+        }
+    });
+
+    document.getElementById('dataInput').addEventListener('keyup',function(){
+        obj.inputVal= this.value;
+    })
+
+
+
+</script>
+</body>
+</html>

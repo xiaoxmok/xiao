@@ -10,13 +10,15 @@
         <p id="txt"></p>
     </div>
     <script>
-        var obj = {}
+        var obj = {
+            txt:'aaa'
+        }
         Object.defineProperty(obj,'txt',{
             get:function(){
                 return obj;
             },
             set:function(newVal){
-                document.getElementById('text').value = newVal;
+                //document.getElementById('text').value = newVal;
                 document.getElementById('txt').innerText = newVal;
             }
         })
