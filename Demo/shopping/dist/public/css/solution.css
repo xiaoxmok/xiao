@@ -21,8 +21,9 @@
     font-weight: normal;
 }
 .solution .service table{font-size: 14px;color:#666;text-align: left;}
-.solution .service table td{line-height: 35px;padding: 10px 0;}
+.solution .service table td{line-height: 21px;padding: 10px 0;}
 .solution .service table .td1{}
+.solution .service table .td1 strong{color: #ff5821;}
 .solution .service table .td_strong{color:red;font-size: 12px;}
 .solution .service table .td2 .select{width:150px!important;border: 1px solid #eee;height: 30px;}
 
@@ -33,7 +34,17 @@
 
 .solution .service table .td2 .email,.solution .service table .td2 .phone{border:1px solid #eee;height: 30px;width:200px!important;}
 
-.solution .service table .td2 .ticket1{display: inline-block;margin-right: 20px;}
+.solution .service table .td2 .ticket1{display: inline-block;}
+
+.solution .service table .td2 .ticket1{width:115px;margin-top: 40px;float:left;padding: 0 5px;}
+.solution .service table .td2 .ticket1 .up{background: url(../img/8_1.png) no-repeat;width:115px;height:83px;}
+.solution .service table .td2 .ticket1 .up .img{background: url(../img/9_1.png) no-repeat;width:20px;height:20px;float:left;margin: 34px 10px 0 28px;border: 0;}
+.solution .service table .td2 .ticket1 .up p{color:#348284;font-size: 14px;padding-top: 27px;float:left;}
+.solution .service table .td2 .ticket1 .down{background: #f9f9f9;height:50px;padding-top: 20px;}
+.solution .service table .td2 .ticket1 .down a{border: 1px solid #74d2d4;color:#74d2d4;width: 100px;height:20px;margin: 0 auto;display: block;text-align: center;border-radius: 3px;line-height: 20px;}
+
+.solution .service .btn a{display: inline-block;width:100px;height:30px;line-height: 30px;text-align: center;color:#fff;font-size: 14px;background: #50b7b4;}
+
 
 
 @media screen and (max-width:414px){

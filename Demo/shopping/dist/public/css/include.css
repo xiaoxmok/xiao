@@ -43,18 +43,22 @@
 
 @media screen and (max-width:414px){
     .header{display: none;}
-    .header-bar .content .welcome{font-size: 12px;margin-left: 15px;}
+    .header-bar .content .welcome{font-size: 12px;margin-left: 15px;float:right;}
     .header-bar.header-bar .content .address,.header-bar .content .login,.header-bar .content .cart{display: none;}
 
+    .header-bar .content{width:100%;}
+
     .media-header{display: block;position: relative;width:100%;background:#b9d7df;height: 35px;}
-    .media-header .icon,.media-header .address,.media-header .logo{line-height: 35px;float:left;color:#fff;font-size: 14px;}
+    .media-header .address,.media-header .logo{line-height: 35px;float:left;color:#fff;font-size: 14px;}
+    .media-header .icon{float:left;}
 
     .media-header .icon{padding: 0 10px;}
     .media-header .icon img{width:30px;height:20px; margin-top: 5px;}
     .media-header .logo{width:100px;position: absolute;left:50%;margin-left: -50px;}
     .media-header .logo img{width:70px;height: 35px;}
-    .media-header .cart a{background-image: url(../img/app_cart.png);width:42px;height:44px;display: inline-block;margin-top: 10px;}
-    .media-header .user,.media-header .cart{float:right;color:#fff;line-height: 35px;padding-right: 20px;}
+    .media-header .cart a{background-image: url(../img/app_cart.png);background-repeat:no-repeat;width:20px;height:21px;display: inline-block;margin-top: 9px;}
+    .media-header .user,.media-header .cart{float:right;color:#fff;margin-right: 14px;}
+    .media-header .user a{background-image: url(../img/ren.png);background-repeat:no-repeat;width:20px;height:23px;display: inline-block;margin-top: 7px;}
 
     .media-header .address{position: relative;}
     .media-header .address a{display: inline-block;}
@@ -69,7 +73,7 @@
     .media-header .nav li a:hover{border-bottom: none;}
     .media-header .nav li .active{border-bottom: none;}
 
-    .media-header .nav .service ul{position: absolute;top:0;right:-90%;z-index: 99;background: #b9d7df;width: 90%;}
+    .media-header .nav .service ul{z-index: 99;background: #b9d7df;}
     .media-header .nav li a{display: inline-block;width: 100%;font-size:12px;}
 
 

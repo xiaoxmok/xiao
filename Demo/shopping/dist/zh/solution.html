@@ -59,7 +59,7 @@
         <img src="./../public/img/web_logo.png" alt="logo">
     </div>
     <div class="cart"><a href="./cart.html"></a></div>
-    <div class="user"><a href="./center.html">人</a></div>
+    <div class="user"><a href="./center.html"></a></div>
 
 
     <div class="nav">
@@ -69,10 +69,10 @@
             <li class="selc"><a href="./eduSoftware.html">教育软件推荐</a></li>
             <li class="selc"><a href="./information.html">资讯中心</a></li>
             <li class="selc"><a href="./index.html">BYOD平台</a></li>
-            <li class="selc service"><a href="javascript:;">维修</a>
+            <li class="service"><a href="javascript:;">维修</a>
                 <ul>
                     <li class="selc"><a href="./center.html">维修记录</a></li>
-                    <li class="selc"><a href="javascript:;">维修申请</a></li>
+                    <li class="selc"><a href="./solution.html">维修申请</a></li>
                 </ul>
             </li>
             <li class="selc"><a href="javascript:;">当前语言：中文</a></li>
@@ -90,7 +90,7 @@
         <h4 class="title">苹果维修政策</h4>
         <table>
             <tr>
-                <td class="td1">选择维修方式：</td>
+                <td class="td1"><strong>*</strong>选择维修方式：</td>
                 <td class="td2">
                     <span class="mr20"><input type="radio" id="ser1" name="ser" checked><label for="ser1">上门</label></span>
                     <span class="mr20"><input type="radio" id="ser2" name="ser"><label for="ser2">自行维修</label></span>
@@ -100,7 +100,30 @@
                 <td colspan="2" class="td_strong">温馨提示：上门送修会收取一定费用，请提前准备好需要上门维修的设备</td>
             </tr>
             <tr>
-                <td class="td1">故障分类：</td>
+                <td class="td1"><strong>*</strong>设备分类：</td>
+                <td class="td2">
+                    <select class="select">
+                        <option value="">分类1</option>
+                        <option value="">分类2</option>
+                        <option value="">分类3</option>
+                        <option value="">分类4</option>
+                    </select>
+                    <select class="select">
+                        <option value="">分类1</option>
+                        <option value="">分类2</option>
+                        <option value="">分类3</option>
+                        <option value="">分类4</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">设备型号：</td>
+                <td class="td2">
+                    <input type="text" class="email" placeholder="请输入设备型号">
+                </td>
+            </tr>
+            <tr>
+                <td class="td1"><strong>*</strong>故障分类：</td>
                 <td class="td2">
                     <select class="select">
                         <option value="">分类1</option>
@@ -148,13 +171,13 @@
                 </td>
             </tr>
             <tr>
-                <td class="td1">手机：</td>
+                <td class="td1"><strong>*</strong>手机：</td>
                 <td class="td2">
                     <input type="text" class="phone">
                 </td>
             </tr>
             <tr>
-                <td class="td1">你的设备：</td>
+                <td class="td1"><strong>*</strong>你的设备：</td>
                 <td class="td2">
                     <p><input type="radio" name="addr" id="device1" checked=""><label for="device1"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
                     <p><input type="radio" name="addr" id="device2" checked=""><label for="device2"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
@@ -164,18 +187,39 @@
             <tr>
                 <td class="td1">代维修券：</td>
                 <td class="td2">
-                    <a href="javascript:;" class="ticket1">
-                        <img src="../public/img/web_tijiaoquan.png" alt="">
-                    </a>
-                    <a href="javascript:;" class="ticket1">
-                        <img src="../public/img/web_tijiaoquan.png" alt="">
-                    </a>
-                    <a href="javascript:;" class="ticket1">
-                        <img src="../public/img/web_tijiaoquan.png" alt="">
-                    </a>
+                    <div class="ticket1">
+                        <div class="up">
+                            <div class="img"></div>
+                            <p>维修券</p>
+                        </div>
+                        <div class="down">
+                            <a href="javascript:;">未使用</a>
+                        </div>
+                    </div>
+                    <div class="ticket1">
+                        <div class="up">
+                            <div class="img"></div>
+                            <p>维修券</p>
+                        </div>
+                        <div class="down">
+                            <a href="javascript:;">未使用</a>
+                        </div>
+                    </div>
+                    <div class="ticket1">
+                        <div class="up">
+                            <div class="img"></div>
+                            <p>维修券</p>
+                        </div>
+                        <div class="down">
+                            <a href="javascript:;">未使用</a>
+                        </div>
+                    </div>
                 </td>
             </tr>
         </table>
+        <div class="btn">
+            <a href="javascript:;">提交</a>
+        </div>
     </div>
 </div>
 <!--尾部-->

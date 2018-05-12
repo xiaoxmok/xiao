@@ -58,7 +58,7 @@
         <img src="./../public/img/web_logo.png" alt="logo">
     </div>
     <div class="cart"><a href="./cart.html"></a></div>
-    <div class="user"><a href="./center.html">人</a></div>
+    <div class="user"><a href="./center.html"></a></div>
 
 
     <div class="nav">
@@ -68,10 +68,10 @@
             <li class="selc"><a href="./eduSoftware.html">教育软件推荐</a></li>
             <li class="selc"><a href="./information.html">资讯中心</a></li>
             <li class="selc"><a href="./index.html">BYOD平台</a></li>
-            <li class="selc service"><a href="javascript:;">维修</a>
+            <li class="service"><a href="javascript:;">维修</a>
                 <ul>
                     <li class="selc"><a href="./center.html">维修记录</a></li>
-                    <li class="selc"><a href="javascript:;">维修申请</a></li>
+                    <li class="selc"><a href="./solution.html">维修申请</a></li>
                 </ul>
             </li>
             <li class="selc"><a href="javascript:;">当前语言：中文</a></li>
@@ -111,35 +111,21 @@
         </div>
         <div class="con">
             <div class="box">
-                <select class="select">
-                    <option value="">选择学校...</option>
-                    <option value="">学校1</option>
-                    <option value="">学校2</option>
-                    <option value="">学校3</option>
-                </select>
+                <strong>*</strong><span><input name="sex" type="radio" id="male" checked><label for="male">男</label></span><span><input name="sex" type="radio" id="female"><label for="female">女</label></span>
             </div>
-            <div class="line"></div>
             <div class="box">
-                请选择性别：<span><input type="radio" id="male"><label for="male">男</label></span><span><input type="radio" id="female"><label for="female">女</label></span>
+                <strong>*</strong><span><input name="job" type="radio" id="student" checked><label for="student">学生</label></span><span><input name="job" type="radio" id="teacher"><label for="teacher">老师</label></span><span><input name="job" type="radio" id="worker"><label for="worker">教职员工</label></span>
             </div>
-            <div class="line"></div>
-            <div class="box">
-                <select class="select">
-                    <option value="">选择身份...</option>
-                    <option value="">身份1</option>
-                    <option value="">身份2</option>
-                    <option value="">身份3</option>
-                </select>
-            </div>
-            <div class="line"></div>
             <div class="box">
                 <input class="input" type="text" placeholder="请输入姓名">
             </div>
-            <div class="line"></div>
             <div class="box">
                 <input class="input" type="text" placeholder="请输入学号">
             </div>
-            <div class="line"></div>
+            <div class="text">
+                <p>默认配送地址：上海协合学校</p>
+                <a href="javascript:;">配送地址管理</a>
+            </div>
             <div class="btn">
                 <a href="javascript:;">完成</a>
             </div>

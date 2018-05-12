@@ -60,7 +60,7 @@
         <img src="./../public/img/web_logo.png" alt="logo">
     </div>
     <div class="cart"><a href="./cart.html"></a></div>
-    <div class="user"><a href="./center.html">人</a></div>
+    <div class="user"><a href="./center.html"></a></div>
 
 
     <div class="nav">
@@ -70,10 +70,10 @@
             <li class="selc"><a href="./eduSoftware.html">教育软件推荐</a></li>
             <li class="selc"><a href="./information.html">资讯中心</a></li>
             <li class="selc"><a href="./index.html">BYOD平台</a></li>
-            <li class="selc service"><a href="javascript:;">维修</a>
+            <li class="service"><a href="javascript:;">维修</a>
                 <ul>
                     <li class="selc"><a href="./center.html">维修记录</a></li>
-                    <li class="selc"><a href="javascript:;">维修申请</a></li>
+                    <li class="selc"><a href="./solution.html">维修申请</a></li>
                 </ul>
             </li>
             <li class="selc"><a href="javascript:;">当前语言：中文</a></li>
@@ -184,7 +184,28 @@
         </ul>
     </div>
     <div class="productDetail" style="display: block;">商品详情</div>
-    <div class="productDetail">常见问题</div>
+    <div class="productDetail">
+        <div class="problem">
+            <div class="pro">
+                <div class="title">
+                    <p>这是个问题？这是个问题？</p>
+                    <span>+</span>
+                </div>
+                <div class="text" >
+                    这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，
+                </div>
+            </div>
+            <div class="pro">
+                <div class="title">
+                    <p>这是个问题？这是个问题？</p>
+                    <span>+</span>
+                </div>
+                <div class="text" >
+                    这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="contact">
         <a href="javascript:;"><em></em><span>联系我们</span></a>
@@ -214,27 +235,16 @@
 
 
         var value = $('.btnNum .text').val();
-        console.log(value);
-        if(value<=1){
-            $('.btnNum .less').css({'background':'#eee'});
-        }else{
-            $('.btnNum .less').css({'background':'none'});
-        }
+        //console.log(value);
         $('.btnNum .less').click(function(){
             if(value>1){
                 value--;
                 $('.btnNum .text').val(value)
-                if(value===1){
-                    $('.btnNum .less').css({'background':'#eee'});
-                }
             }
         });
         $('.btnNum .plus').click(function(){
             value++;
             $('.btnNum .text').val(value)
-            if(value>1){
-                $('.btnNum .less').css({'background':'none'});
-            }
         });
 
         $('.norm a').click(function(){
