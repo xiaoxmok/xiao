@@ -35,6 +35,11 @@
 .solution .service table .td2 .email,.solution .service table .td2 .phone{border:1px solid #eee;height: 30px;width:200px!important;}
 
 .solution .service table .td2 .ticket1{display: inline-block;}
+.solution .service table .td2 textarea{    display: inline-block;
+    float: left;
+    border: 1px solid #eee;
+    width:80%;
+}
 
 .solution .service table .td2 .ticket1{width:115px;margin-top: 40px;float:left;padding: 0 5px;}
 .solution .service table .td2 .ticket1 .up{background: url(../img/8_1.png) no-repeat;width:115px;height:83px;}
