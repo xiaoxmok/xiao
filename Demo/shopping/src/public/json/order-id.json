@@ -1,0 +1,25 @@
+{
+  "success": "0",
+  "detail": "",
+  "data": {
+    "id": "10001",
+    "no": "2009119291",
+    "status": "已支付",
+    "price": "12001.00",
+    "goods": [{
+      "id": "1001",
+      "desc": "21.5寸iMac-Retina 4k Display",
+      "price": "9888.00",
+      "num": "1",
+      "total_price": "9888.00",
+      "pic": "../public/img/order.png"
+    }, {
+      "id": "1001",
+      "desc": "21.5寸iMac-Retina 3k Display",
+      "price": "9888.00",
+      "num": "1",
+      "total_price": "9888.00",
+      "pic": "../public/img/order.png"
+    }]
+  }
+}

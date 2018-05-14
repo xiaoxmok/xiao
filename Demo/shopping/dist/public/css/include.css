@@ -8,7 +8,11 @@
 .header .nav li{float:left;line-height: 95px;color:#fff;padding:0 20px;}
 .header .nav li a{display: inline-block;color:#fff;}
 .header .nav li a:hover{border-bottom: 3px solid #367d49;}
-.header .nav li .active{border-bottom: 3px solid #367d49;}
+body.on1 .header .nav li .on1{border-bottom: 3px solid #367d49;}
+body.on2 .header .nav li .on2{border-bottom: 3px solid #367d49;}
+body.on3 .header .nav li .on3{border-bottom: 3px solid #367d49;}
+body.on4 .header .nav li .on4{border-bottom: 3px solid #367d49;}
+body.on5 .header .nav li .on5{border-bottom: 3px solid #367d49;}
 
 .header .other{float:right;line-height: 95px;}
 .header .other .service{float:left;padding-right: 30px;color:#fff;position: relative;}

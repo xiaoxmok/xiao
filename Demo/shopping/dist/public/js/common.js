@@ -149,3 +149,25 @@ $(function(){
         };
     });
 });
+
+
+/*判断是否登录*/
+function login(){
+    if(getCookie("token")){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+$(function(){
+    if(login()){
+        $('.login').hide();
+        $('.logined').show();
+        $('.welcome').html("Dear XXX,欢迎访问协同学校专属页面。");
+    }else{
+        $('.login').hide();
+        $('.loging').show();
+        $('.welcome').html("Dear ,请先登录。");
+    }
+});

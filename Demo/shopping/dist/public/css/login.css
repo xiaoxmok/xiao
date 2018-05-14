@@ -12,6 +12,8 @@
 .userLogin .con .btn a{width:100%;height: 30px;font-size: 14px;line-height:30px;color:#fff;background: #50b7b4;display: inline-block;border-radius: 3px;text-align: center;}
 .userLogin .reg{}
 .userLogin .reg a{display: inline-block;width:100%;height: 20px;font-size: 12px;text-decoration: underline;color:#61bbb9;text-align: right;}
+.userLogin .con .error{color: #C4080A;}
+
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     /* WebKit browsers */

@@ -1,0 +1,17 @@
+{
+  "success": "0",
+  "detail": "",
+  "data": [{
+    "id": "001",
+    "name": "小明",
+    "phone": "130000000",
+    "address": "深圳南山区",
+    "default": "0"
+  }, {
+    "id": "001",
+    "name": "小明",
+    "phone": "130000000",
+    "address": "深圳福田区",
+    "default": "1"
+  }]
+}
