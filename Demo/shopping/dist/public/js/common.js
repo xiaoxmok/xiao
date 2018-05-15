@@ -160,10 +160,18 @@ function login(){
     }
 }
 
+// 判断是否移动端
+var ua = navigator.userAgent.toLocaleLowerCase();
+var isMobile = /iPhone|iPad|iPod|android|Windows Phone/ig.test(ua);
+
 $(function(){
     if(login()){
+
+
         $('.login').hide();
-        $('.logined').show();
+        if(!isMobile){
+            $('.logined').show();
+        }
         var username = getCookie("username");
         var school = getCookie("school");
 

@@ -8,8 +8,39 @@ $(function(){
     var defalutAddress = getCookie('school');
     $('.defalutAddress span').html(defalutAddress);
 
+    // 获取个人信息
+    $.ajax({
+        type:'GET',
+        //url:'/web/get_user_info',
+        url:'/public/json/get_user_info.json',
+        dataType:'json',
+        beforeSend: function (request) {
+            var time = new Date().getTime();
+            var secure_token = $.md5(token+'shop'+time);
+
+            request.setRequestHeader("token", token);
+            request.setRequestHeader("time", time);
+            request.setRequestHeader("secure_token", secure_token);
+        },
+        success:function(data){
+            if(data.success === '0'){
+                $('.sex[value="'+data.data.sex+'"]').attr('checked','true');
+                $('.role[value="'+data.data.role+'"]').attr('checked','true');
+                $('.name').val(data.data.name);
+                $('.no').val(data.data.no);
+                $('.defalutAddress span').html(data.data.address);
+
+            }else{
+                $('.error').html(data.detail);
+            }
+        },
+        error:function(xhr,status,error){
+
+        }
+    });
 
 
+    // 更新个人信息
     $('.submit').click(function(){
         var sex,role,name,no;
 
