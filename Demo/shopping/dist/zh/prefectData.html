@@ -50,8 +50,8 @@
     <div class="address">
         <a class="madd" href="javascript:;">深圳</a><span></span>
         <ul>
-            <li data-name="shenzhen">深圳</li>
-            <li data-name="shanghai">上海</li>
+            <li data-name="1">深圳</li>
+            <li data-name="0">上海</li>
         </ul>
     </div>
     <div class="logo">
@@ -91,8 +91,8 @@
             <span></span>
             <a class="add" href="javascript:;">深圳</a>
             <ul>
-                <li data-name="shenzhen">深圳</li>
-                <li data-name="shanghai">上海</li>
+                <li data-name="1">深圳</li>
+                <li data-name="0">上海</li>
             </ul>
         </div>
         <!--<div class="login"><a href="javascript:;" data-name="personalCenter">个人中心</a></div>-->
@@ -112,23 +112,24 @@
         </div>
         <div class="con">
             <div class="box">
-                <strong>*</strong><span><input name="sex" type="radio" id="male" checked><label for="male">男</label></span><span><input name="sex" type="radio" id="female"><label for="female">女</label></span>
+                <strong>*</strong><span><input name="sex" type="radio" id="male" checked value="0" class="sex"><label for="male">男</label></span><span><input name="sex" type="radio" id="female" value="1" class="sex"><label for="female">女</label></span>
             </div>
             <div class="box">
-                <strong>*</strong><span><input name="job" type="radio" id="student" checked><label for="student">学生</label></span><span><input name="job" type="radio" id="teacher"><label for="teacher">老师</label></span><span><input name="job" type="radio" id="worker"><label for="worker">教职员工</label></span>
+                <strong>*</strong><span><input name="role" type="radio" id="student" checked value="0" class="role"><label for="student">学生</label></span><span><input name="role" type="radio" id="teacher" value="1" class="role"><label for="teacher">老师</label></span><span><input name="role" type="radio" id="worker" value="2" class="role"><label for="worker">教职员工</label></span>
             </div>
             <div class="box">
-                <input class="input" type="text" placeholder="请输入姓名">
+                <input class="input name" type="text" placeholder="请输入姓名">
             </div>
             <div class="box">
-                <input class="input" type="text" placeholder="请输入学号">
+                <input class="input no" type="text" placeholder="请输入学号">
             </div>
             <div class="text">
-                <p>默认配送地址：上海协合学校</p>
+                <p class="defalutAddress">默认配送地址：<span></span></p>
                 <a href="javascript:;">配送地址管理</a>
             </div>
+            <p class="error"></p>
             <div class="btn">
-                <a href="javascript:;">完成</a>
+                <a class="submit" href="javascript:;">完成</a>
             </div>
         </div>
     </div>
@@ -141,5 +142,7 @@
         <p>ICP备案：XXXXXX</p>
     </div>
 </div>
+<script src="../public/js/lib/jquery.md5.js"></script>
+<script src="../public/js/set_user_info.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 .mr10{margin-right: 10px;}
 .mr20{margin-right: 20px;}
 
-
+.error{color: #C4080A;font-size: 12px;text-align: center;}
 
 
 
@@ -120,6 +120,7 @@ rigistered.html*/
 .prefect .con .box select{width:auto;border: 1px solid #eee;border-radius: 5px;height: 42px;}
 .prefect .con .box strong{color:#ff5821;margin-right: 5px;}
 .prefect .con .box span{margin-right: 20px;}
+.prefect .con .btn{margin: 10px 0;}
 .prefect .con .btn a{width:100%;height: 30px;font-size: 14px;line-height:30px;color:#fff;background: #50b7b4;display: inline-block;border-radius: 3px;text-align: center;}
 
 .prefect .con .text{margin: 20px 0;overflow: hidden;}

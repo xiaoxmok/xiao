@@ -1,0 +1,35 @@
+{
+  "success": "0",
+  "detail": "",
+  "page_count": "1",
+  "data": [{
+    "id": "10001",
+    "name": "Apple care",
+    "detail": "hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.",
+    "origin_price": "999.00",
+    "pic": "../public/img/goods1.jpg",
+    "edu_price": "700.00"
+  }, {
+    "id": "10001",
+    "name": "Apple care",
+    "detail": "hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.",
+    "origin_price": "999.00",
+    "pic": "../public/img/goods2.jpg",
+    "edu_price": "700.00"
+  },{
+    "id": "10001",
+    "name": "Apple care",
+    "detail": "hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.",
+    "origin_price": "999.00",
+    "pic": "../public/img/goods3.jpg",
+    "edu_price": "700.00"
+  },{
+    "id": "10001",
+    "name": "Apple care",
+    "detail": "hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.",
+    "origin_price": "999.00",
+    "pic": "../public/img/goods4.jpg",
+    "edu_price": "700.00"
+  },]
+}
+}

@@ -23,21 +23,19 @@
         <div class="logo"></div>
         <div class="con">
             <div class="box">
-                <select class="mr10">
-                    <option value="">手机</option>
-                    <option value="">邮箱</option>
+                <select class="mr10" id="select">
+                    <option value="phone">手机</option>
+                    <option value="email">邮箱</option>
                 </select>
-                <input type="text" placeholder="请输入账户">
+                <input type="text" class="account" placeholder="请输入账户">
             </div>
             <div class="box">
-                <input type="text" placeholder="请输入密码">
+                <input type="password" class="password" placeholder="请输入密码">
             </div>
             <div class="reg">
                 <a href="./registered.html">没有账户?去注册</a>
             </div>
-            <p class="error">
-                错误信息
-            </p>
+            <p class="error"></p>
             <div class="btn">
                 <a href="javascript:;" class="loging">登录</a>
             </div>
@@ -47,5 +45,7 @@
 
 </div>
 @@include('./view/footer.html')
+<script src="../public/js/lib/jquery.md5.js"></script>
+<script src="../public/js/login.js"></script>
 </body>
 </html>

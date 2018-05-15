@@ -62,8 +62,8 @@ if (getCookie("userLanguage")) {
 
 /*城市选择*/
 $(function () {
-    // 默认城市
-    var address = 'shenzhen';
+    // 默认城市 0表示上海，1表示深圳
+    var address = '1';
 
     /*
       首先获取用户浏览器设备之前选择过的城市
@@ -71,7 +71,7 @@ $(function () {
     if (getCookie("address")) {
         address = getCookie("address");
         if (i18nLanguage === 'zh') {
-            if (address === 'shenzhen') {
+            if (address === '1') {
                 $('.address a').html('深圳');
             } else {
                 $('.address a').html('上海');
@@ -164,10 +164,45 @@ $(function(){
     if(login()){
         $('.login').hide();
         $('.logined').show();
-        $('.welcome').html("Dear XXX,欢迎访问协同学校专属页面。");
+        var username = getCookie("username");
+        var school = getCookie("school");
+
+        $('.welcome').html('Dear '+username+',欢迎访问'+school+'专属页面。');
     }else{
         $('.login').hide();
         $('.loging').show();
         $('.welcome').html("Dear ,请先登录。");
     }
 });
+
+
+
+//验证手机号码
+function CheckMobile(Str) {
+    if(Str.search("^1(3|5|8)\\d{9}$")!=0){
+        return false;
+    }
+    return true;
+}
+
+//验证验证码
+function CheckCode(Str) {
+    if(Str.search("^\\d{4}$")!=0){
+        return false;
+    }
+    return true;
+}
+
+//是否Email格式
+function CheckEmail(EmailText) {
+
+    var re=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    return re.test(EmailText);
+}
+
+//密码合法性
+function CheckPwd(Pwd){
+    var filter=/^\s*[.A-Za-z0-9_-]{5,15}\s*$/;
+    if(!filter.test(Pwd)) return false;
+    return true;
+}
