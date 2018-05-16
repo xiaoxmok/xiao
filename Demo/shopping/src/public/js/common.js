@@ -53,7 +53,7 @@ if (getCookie("userLanguage")) {
     i18nLanguage = getCookie("userLanguage");
     //console.log('i18nLanguage:',i18nLanguage)
 } else {
-    i18nLanguage = "zh";
+    i18nLanguage = "0";
     getCookie("userLanguage", i18nLanguage, {
         expires: 30,
         path: '/'
@@ -70,7 +70,7 @@ $(function () {
        */
     if (getCookie("address")) {
         address = getCookie("address");
-        if (i18nLanguage === 'zh') {
+        if (i18nLanguage === '0') {
             if (address === '1') {
                 $('.address a').html('深圳');
             } else {

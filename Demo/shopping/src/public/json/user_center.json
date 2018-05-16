@@ -5,7 +5,7 @@
     "school": {
       "id": "10001",
       "name": "清华大学",
-      "logo": "../public/img/school.png",
+      "pic": "../public/img/school.png",
       "detail": "如果你无法简洁的表达你的想法，那说明你还不够了解它。   ——————阿尔伯特爱因斯坦"
     },
     "sex": "0",
@@ -13,6 +13,7 @@
     "name": "小明",
     "no": "XM10102",
     "address": "深圳市南山区149号",
-    "email":"youxiang@163.com"
+    "email":"youxiang@163.com",
+    "phone":"13812345678"
   }
 }

@@ -6,7 +6,15 @@
 .newAddress .con td{padding: 10px 0;}
 .newAddress .con td:first-child{width:100px;}
 .newAddress .con td span{color:red;}
-.newAddress .con td input{border: 1px solid #eee;height:25px;}
+.newAddress .con td input{border: 1px solid #eee;height:25px;padding: 2px;}
+.newAddress .con td input[type=checkbox]{
+    display: block;
+    float: left;
+    margin-top: -3px;
+    margin-right: 5px;
+}
+.newAddress .con td label{color:#666;}
+.newAddress .con td textarea{border: 1px solid #eee;height:50px;padding: 2px;}
 .newAddress .con td .area{width:40px;}
 
 .newAddress .con .btn{margin-top: 20px;}
