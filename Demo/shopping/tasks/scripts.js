@@ -26,7 +26,7 @@ gulp.task('scripts', () => {
             extname: '.min.js'
         }))
         //压缩
-        .pipe(uglify({compress: {properties: false}, output: {'quote_keys': true}}))
+        .pipe(uglify({mangle: true,compress: {properties: true}, output: {'quote_keys': true}}))
         //保存文件，存在两个文件，一个压缩，一个未压缩
         .pipe(gulp.dest('dist'))
         // 文件热更新

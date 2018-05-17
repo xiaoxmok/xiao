@@ -13,5 +13,5 @@
 
 https://xiaoxmok.github.io/xiao/Demo/shopping/dist/zh/index.html
 
-
+图片上传jdk:https://developer.qiniu.com/kodo/sdk/1283/javascript
 
