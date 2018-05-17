@@ -106,9 +106,9 @@ $(function () {
                                 '                <td>'+item.status+'</td>\n' +
                                 '                <td>￥'+item.price+'</td>\n' +
                                 '                <td class="operate">\n' +
-                                '                    <a href="javascript:;">查看详情</a>\n' +
+                                '                    <a href="./ordersDetail.html?id='+item.no+'">查看详情</a>\n' +
                                 '                    <a href="javascript:;">开具发票</a>\n' +
-                                '                    <a href="javascript:;">退换货</a>\n' +
+                                '                    <a href="./returns.html?id='+item.no+'">退换货</a>\n' +
                                 '                </td>\n' +
                                 '            </tr>';
                             $('.pcOrder').append(pc_hmtl);
@@ -123,9 +123,9 @@ $(function () {
                                 '                        <div class="status">订单状态：'+item.status+'</div>\n' +
                                 '                    </div>\n' +
                                 '                    <div class="down">\n' +
-                                '                        <a href="javascript:;">查看详情</a>\n' +
+                                '                        <a href="./ordersDetail.html">查看详情</a>\n' +
                                 '                        <a href="javascript:;">开具发票</a>\n' +
-                                '                        <a href="javascript:;">退换货</a>\n' +
+                                '                        <a href="./returns.html?id='+item.no+'">退换货</a>\n' +
                                 '                    </div>\n' +
                                 '                </li>';
                             $('.mOrder ul').append(m_html);

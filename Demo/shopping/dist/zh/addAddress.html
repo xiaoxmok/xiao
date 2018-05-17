@@ -114,23 +114,24 @@
             <table>
                 <tr>
                     <td><span>*</span>收货人：</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" id="name"></td>
                 </tr>
                 <tr>
                     <td><span>*</span>详细地址：</td>
-                    <td><textarea cols="30" rows="10" ></textarea></td>
+                    <td><textarea cols="30" rows="10" id="address"></textarea></td>
                 </tr>
                 <tr>
                     <td><span>*</span>手机号：</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" id="phone"></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><input type="checkbox" id="defalut"><label for="defalut">是否默认</label></td>
                 </tr>
             </table>
+            <p class="error tl"></p>
             <div class="btn">
-                <a href="javascript:;">保存收货人信息</a>
+                <a href="javascript:;" class="submit">保存收货人信息</a>
             </div>
         </div>
     </div>
@@ -142,5 +143,7 @@
         <p>ICP备案：XXXXXX</p>
     </div>
 </div>
+<script src="../public/js/lib/jquery.md5.js"></script>
+<script src="../public/js/addAddress.js"></script>
 </body>
 </html>

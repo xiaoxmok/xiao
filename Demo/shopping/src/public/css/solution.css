@@ -44,7 +44,7 @@
 .solution .service table .td2 .ticket1{width:115px;margin-top: 40px;float:left;padding: 0 5px;}
 .solution .service table .td2 .ticket1 .up{background: url(../img/8_1.png) no-repeat;width:115px;height:83px;}
 .solution .service table .td2 .ticket1 .up .img{background: url(../img/9_1.png) no-repeat;width:20px;height:20px;float:left;margin: 34px 10px 0 28px;border: 0;}
-.solution .service table .td2 .ticket1 .up p{color:#348284;font-size: 14px;padding-top: 27px;float:left;}
+.solution .service table .td2 .ticket1 .up p{color:#348284;font-size: 14px;padding-top: 33px;float:left;}
 .solution .service table .td2 .ticket1 .down{background: #f9f9f9;height:50px;padding-top: 20px;}
 .solution .service table .td2 .ticket1 .down a{border: 1px solid #74d2d4;color:#74d2d4;width: 100px;height:20px;margin: 0 auto;display: block;text-align: center;border-radius: 3px;line-height: 20px;}
 
@@ -53,6 +53,7 @@
 
 
 @media screen and (max-width:414px){
+    .solution .title{font-size: 18px;margin: 15px;}
     .solution .service{width: 95%;}
     .solution .service table .td1{width: 30%;font-weight: bold;}
 
@@ -60,4 +61,7 @@
     .solution .service table .td2 .img .file{width:50px;height:50px;}
     .solution .service table .td2 .img{width:50px;height:50px;}
     .solution .service table .td2 .img span{line-height: 43px;}
+
+    .solution .text{font-size: 12px;}
+    .solution .service table{font-size: 12px;}
 }

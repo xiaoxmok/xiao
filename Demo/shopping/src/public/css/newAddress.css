@@ -65,6 +65,8 @@ addressManagement.html*/
 
 
 @media screen and (max-width:414px){
+    .management h3{font-size: 18px;margin: 15px;}
+
     .management ul{width:100%;}
     .management .text{padding:10px;font-size: 12px;}
     .management .operate{float: none;display: flex;clear: both;font-size: 12px;}

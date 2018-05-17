@@ -40,7 +40,7 @@ $(function () {
                             '                </div>\n' +
                             '                <div class="operate">\n' +
                             setDefault +
-                            '                    <a href="javascript:;" class="edit">编辑</a>\n' +
+                            '                    <a href="./addAddress.html?id='+item.id+'" class="edit">编辑</a>\n' +
                             '                    <a href="javascript:;" class="delete">删除</a>\n' +
                             '                </div>\n' +
                             '            </li>';

@@ -3,8 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>订单详情</title>
+    @@include('./view/meta.html')
+    <link rel="stylesheet" href="../public/css/ordersDetail.css">
 </head>
-<body>
+<body class="on5">
+@@include('./view/header.html')
+@@include('./view/header-bar.html')
+<div class="main">
+    <div class="process">
+        <a href="./index.html">BYOD平台</a> >
+        <a href="javascript:;">订单详情</a>
+    </div>
+    <div class="ordersDetail">
+        <h3>订单详情</h3>
+    </div>
+    <div class="shipping">
+        <div class="con">
+            <p class="orderStatus"><span>订单状态：</span><em></em></p>
+            <p class="logisticsStatus"><span>物流状态：</span><em></em></p>
+            <p class="addressee"><span>收件人：</span><em></em></p>
+        </div>
+    </div>
+    <div class="confirm">
+        <div class="box">
+            <p>确认订单信息</p>
+            <p class="total">总额：<em>￥12520.00</em></p>
+        </div>
+        <div class="con">
+            <table></table>
+        </div>
+    </div>
 
+    <div class="shipping">
+        <div class="con">
+            <p class="invoiceType"><span>发票类型：</span><em></em></p>
+            <p class="invoiceTitle"><span>发票抬头：</span><em></em></p>
+            <p class="invoiceContent"><span>发票内容：</span><em></em></p>
+            <p class="taxId"><span>税号：</span><em></em></p>
+        </div>
+    </div>
+    <div class="shipping">
+        <div class="con">
+            <p class="orderNumber"><span>订单编号：</span><em></em></p>
+            <p class="orderTime"><span>下单时间：</span><em></em></p>
+            <p class="deliveryMethod"><span>配送方式：</span><em></em></p>
+            <p class="trackingNumber"><span>快递单号：</span><em></em></p>
+        </div>
+    </div>
+</div>
+
+@@include('./view/footer.html')
+<script src="../public/js/lib/jquery.md5.js"></script>
+<script src="../public/js/ordersDetail.js"></script>
 </body>
 </html>
