@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填写退货运单号</title>
+    @@include('./view/meta.html')
+    <link rel="stylesheet" href="../public/css/solution.css">
+</head>
+<body class="on5">
+@@include('./view/header.html')
+<div class="main solution">
+    <div class="process">
+        <a href="./index.html">BYOD平台</a> &gt;
+        <a href="javascript:;">填写退货运单号</a>
+    </div>
+    <h3 class="title">填写运单号</h3>
+    <div class="content">
+        <table style="display: block;" class="serCon">
+            <tr>
+                <td class="td1"><strong>*</strong>快递类型：</td>
+                <td class="td2">
+                    <select class="select">
+                        <option value="">请选择快递类型：</option>
+                        <option value="">顺丰快递</option>
+                        <option value="">中通</option>
+                        <option value="">申通</option>
+                        <option value="">圆通</option>
+                        <option value="">邮政</option>
+                        <option value="">韵达</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1"><strong>*</strong>运单号：</td>
+                <td class="td2">
+                    <input type="text" class="trackingNumber" placeholder="最多12888">
+                </td>
+            </tr>
+        </table>
+        <div class="btn">
+            <a href="javascript:;">提交</a>
+        </div>
+    </div>
+</div>
+@@include('./view/footer.html')
+</body>
+</html>

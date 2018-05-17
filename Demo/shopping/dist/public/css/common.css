@@ -81,7 +81,6 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
         -webkit-appearance:radio;
     }
 
-
     .main{width:100%;margin: 0 auto;clear: both;}
     .swiper-container {
         width: 100%;
@@ -105,7 +104,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 
 /*
 rigistered.html*/
-.process{border-bottom: 1px solid #b7b7b7;line-height: 40px;height: 40px;padding-left: 15px;color:#7a7b82;}
+.process{border-bottom: 1px solid #b7b7b7;line-height: 40px;height: 40px;padding-left: 15px;color:#7a7b82;text-align: left;}
 .process a{font-size: 12px;}
 .process span{font-size: 12px;float: right;display: none;}
 

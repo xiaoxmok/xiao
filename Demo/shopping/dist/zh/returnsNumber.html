@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>退换货</title>
+    <title>填写退货运单号</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="keywords" content="" />
     <meta name="description" content=""/>
@@ -84,78 +84,29 @@
 <div class="main solution">
     <div class="process">
         <a href="./index.html">BYOD平台</a> &gt;
-        <a href="javascript:;">退换货</a>
+        <a href="javascript:;">填写退货运单号</a>
     </div>
-    <h3 class="title">退换货</h3>
+    <h3 class="title">填写运单号</h3>
     <div class="content">
         <table style="display: block;" class="serCon">
             <tr>
-                <td class="td1"><strong>*</strong>选择商品：</td>
+                <td class="td1"><strong>*</strong>快递类型：</td>
                 <td class="td2">
                     <select class="select">
-                        <option value="">商品1</option>
-                        <option value="">商品2</option>
-                        <option value="">商品3</option>
-                        <option value="">商品4</option>
+                        <option value="">请选择快递类型：</option>
+                        <option value="">顺丰快递</option>
+                        <option value="">中通</option>
+                        <option value="">申通</option>
+                        <option value="">圆通</option>
+                        <option value="">邮政</option>
+                        <option value="">韵达</option>
                     </select>
                 </td>
             </tr>
             <tr>
-                <td class="td1"><strong>*</strong>申请类型：</td>
+                <td class="td1"><strong>*</strong>运单号：</td>
                 <td class="td2">
-                    <select class="select">
-                        <option value="">退货</option>
-                        <option value="">换货</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td class="td1"><strong>*</strong>申请原因：</td>
-                <td class="td2">
-                    <select class="select">
-                        <option value="">拍错了</option>
-                        <option value="">出问题了</option>
-                        <option value="">七天无理由退货</option>
-                        <option value="">不想要了</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td class="td1"><strong>*</strong>退款金额：</td>
-                <td class="td2">
-                    <input type="text" class="price" placeholder="最多12888">
-                </td>
-            </tr>
-            <tr>
-                <td class="td1">申请原因：</td>
-                <td class="td2">
-                    <textarea cols="30" rows="5" placeholder="描述。。。(最多170个字)" maxlength="170"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td class="td1"><strong>*</strong>联系电话：</td>
-                <td class="td2">
-                    <input type="text" class="phone">
-                </td>
-            </tr>
-            <tr>
-                <td class="td1">上传凭证：</td>
-                <td class="td2">
-                    <div class="img">
-                        <span>+</span>
-                        <img src="" alt="" class="imgshow">
-                        <input type="file" class="file" accept="image/*" >
-                    </div>
-                    <div class="img">
-                        <span>+</span>
-                        <img src="" alt="" class="imgshow">
-                        <input type="file" class="file" accept="image/*" >
-                    </div>
-                    <div class="img">
-                        <span>+</span>
-                        <img src="" alt="" class="imgshow">
-                        <input type="file" class="file" accept="image/*" >
-                    </div>
+                    <input type="text" class="trackingNumber" placeholder="最多12888">
                 </td>
             </tr>
         </table>
@@ -170,13 +121,5 @@
         <p>ICP备案：XXXXXX</p>
     </div>
 </div>
-<script>
-    //在input file内容改变的时候触发事件
-    $('.file').change(function(){
-        if(URL.createObjectURL($(this)[0].files[0])){
-            $(this).parent().find('.imgshow').attr("src",URL.createObjectURL($(this)[0].files[0]));
-        }
-    })
-</script>
 </body>
 </html>
