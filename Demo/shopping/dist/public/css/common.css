@@ -70,6 +70,18 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 
 
 @media screen and (max-width:414px){
+    input[type="submit"], input[type="reset"], input[type="button"], input,select{
+        -webkit-appearance: none;
+        resize: none;
+    }
+    input[type="checkbox"]{
+        -webkit-appearance:checkbox;
+    }
+    input[type="radio"]{
+        -webkit-appearance:radio;
+    }
+
+
     .main{width:100%;margin: 0 auto;clear: both;}
     .swiper-container {
         width: 100%;
