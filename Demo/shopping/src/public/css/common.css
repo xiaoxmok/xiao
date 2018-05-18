@@ -11,7 +11,7 @@
 
 
 
-.main{width:1000px;margin: 0 auto;clear: both;position: relative;}
+.main{width:1000px;margin: 0 auto;clear: both;position: relative;min-height: 540px;}
 
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {

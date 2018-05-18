@@ -99,17 +99,92 @@
             <p>确认发票信息</p>
         </div>
         <div class="con">
-            <div>
-                <span>开票信息：</span><span><input type="radio" id=""><label for="">普通发票</label></span><span><input type="radio" id="" checked><label for="">电子发票</label></span>
+            <div class="invoiceInfo">
+                <span class="title">开票信息：</span><span><input type="radio" id="general" name="info" value="0" checked><label for="general">普通发票</label></span><span><input type="radio" id="eletron" name="info" value="1"><label for="eletron">电子发票</label></span></span><span><input type="radio" id="added" name="info" value="2"><label for="added">增值专用税发票</label></span>
             </div>
-            <div>
-                <span>发票类型：</span><span><input type="radio" id=""><label for="">个人</label></span><span><input type="radio" id="" checked><label for="">企业</label></span>
+            <div class="invoiceType" style="display: block;">
+                <div>
+                    <span class="title">发票类型：</span><span><input type="radio" id="person1" name="type1" checked><label for="person1">个人</label></span><span><input type="radio" id="company1" name="type1"><label for="company1">企业</label></span>
+                </div>
+                <div>
+                    <span class="title">发票抬头：</span><input type="text" placeholder="请输入发票抬头">
+                </div>
+                <div>
+                    <span class="title">企业纳税号：</span><input type="text" placeholder="请输入企业纳税号">
+                </div>
+                <div>
+                    <span class="title">发票内容：</span><span><input type="radio" id="goodsDetail1" name="content1" checked><label for="goodsDetail1">商品明细</label></span><span><input type="radio" id="goodsType1" name="content1"><label for="goodsType1">商品类别</label></span>
+                </div>
             </div>
-            <div>
-                <span>发票抬头：</span><input type="text" placeholder="请输入发票抬头">
+            <div class="invoiceType" style="display: none;">
+                <div>
+                    <span class="title">发票类型：</span><span><input type="radio" id="person2" name="type2" checked><label for="person2">个人</label></span><span><input type="radio" id="company2" name="type2"><label for="company2">企业</label></span>
+                </div>
+                <div>
+                    <span class="title">发票抬头：</span><input type="text" placeholder="请输入发票抬头">
+                </div>
+                <div>
+                    <span class="title">企业纳税号：</span><input type="text" placeholder="请输入企业纳税号">
+                </div>
+                <div>
+                    <span class="title">发票内容：</span><span><input type="radio" id="goodsDetail2" name="content2" checked><label for="goodsDetail2">商品明细</label></span><span><input type="radio" id="goodsType2" name="content2" checked><label for="goodsType2">商品类别</label></span>
+                </div>
             </div>
-            <div>
-                <span>企业纳税号：</span><input type="text" placeholder="请输入企业纳税号">
+            <div class="invoiceType" style="display: none;">
+                <div>
+                    <span class="title">发票类型：</span><span>企业</span>
+                </div>
+                <div>
+                    <span class="title">发票内容：</span><span>商品明细</span>
+                </div>
+                <div>
+                    <span class="title">单位名称：</span><input type="text" placeholder="请输入发票抬头">
+                </div>
+                <div>
+                    <span class="title">纳税号：</span><input type="text" placeholder="请输入纳税号">
+                </div>
+                <div>
+                    <span class="title">注册地址：</span><input type="text" placeholder="请输入注册地址">
+                </div>
+                <div>
+                    <span class="title">注册电话：</span><input type="text" placeholder="请输入注册电话">
+                </div>
+                <div>
+                    <span class="title">开户银行：</span><input type="text" placeholder="请输入开户银行">
+                </div>
+                <div>
+                    <span class="title">收票人姓名：</span><input type="text" placeholder="请输入收票人姓名">
+                </div>
+                <div>
+                    <span class="title">收票人手机：</span><input type="text" placeholder="请输入收票人手机">
+                </div>
+                <div>
+                    <span class="title">收票人省份：</span>
+                    <select >
+                        <option value="">选择省份</option>
+                        <option value="">广东省</option>
+                        <option value="">北京</option>
+                        <option value="">上海</option>
+                        <option value="">天津</option>
+                        <option value="">重庆</option>
+                    </select>
+                    <select >
+                        <option value="">选择城市</option>
+                        <option value="">深圳</option>
+                        <option value="">广州</option>
+                    </select>
+                    <select >
+                        <option value="">选择区</option>
+                        <option value="">南山区</option>
+                        <option value="">福田区</option>
+                        <option value="">宝安区</option>
+                        <option value="">龙岗区</option>
+                        <option value="">罗湖区</option>
+                    </select>
+                </div>
+                <div>
+                    <span class="title">详细地址：</span><input type="text" placeholder="请输入详细地址">
+                </div>
             </div>
         </div>
     </div>
@@ -132,5 +207,24 @@
 </div>
 
 @@include('./view/footer.html')
+<script>
+    $(function(){
+        $('.invoiceInfo input[name="info"]').click(function(){
+            var index = $(this).val();
+            if(index == 0){
+                $('.invoiceType').hide();
+                $('.invoiceType').eq(0).show();
+            }else if(index == 1){
+                $('.invoiceType').hide();
+                $('.invoiceType').eq(1).show();
+            }else if(index == 2){
+                $('.invoiceType').hide();
+                $('.invoiceType').eq(2).show();
+            }
+
+        });
+
+    })
+</script>
 </body>
 </html>
