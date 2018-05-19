@@ -35,9 +35,6 @@ $(function(){
             return;
         }
 
-
-
-
         $.ajax({
             type:'GET',
             url:'/'+url+'public/json/returns.json?goods='+goods+'&type='+type+'&reason='+reason+'&price='+price+'&description='+description+'&phone='+phone,
