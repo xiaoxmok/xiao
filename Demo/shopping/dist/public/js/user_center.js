@@ -9,7 +9,7 @@ $(function () {
     $.ajax({
         type: 'GET',
         //url:'/web/user_center',
-        url: '/public/json/user_center.json',
+        url: '/'+url+'public/json/user_center.json',
         dataType: 'json',
         beforeSend: function (request) {
             var time = new Date().getTime();
@@ -80,7 +80,7 @@ $(function () {
         $.ajax({
             type: 'GET',
             //url:'/web/orders?page_size=10&page_num=1',
-            url: '/public/json/orders.json?page_size=10&page_num=1',
+            url: '/'+url+'public/json/orders.json?page_size=10&page_num=1',
             dataType: 'json',
             beforeSend: function (request) {
                 var time = new Date().getTime();
@@ -177,7 +177,7 @@ $(function () {
         $.ajax({
             type:'GET',
             //url:'/web/collect?page_size=10&page_num=1',
-            url:'/public/json/collect.json?page_size=10&page_num=1',
+            url:'/'+url+'public/json/collect.json?page_size=10&page_num=1',
             dataType:'json',
             beforeSend:function(request){
                 var time = new Date().getTime();

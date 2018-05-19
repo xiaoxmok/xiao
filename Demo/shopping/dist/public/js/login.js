@@ -35,7 +35,7 @@ $(function(){
         $.ajax({
             type:'GET',
             //url:'/web/login?'+value+'='+account+'&password='+password,
-            url:'/public/json/login.json?'+value+'='+account+'&password='+password,
+            url:'/'+url+'public/json/login.json?'+value+'='+account+'&password='+password,
             dataType:'json',
             //jsonp:"callback",
             //callback:"pmJson",

@@ -12,7 +12,7 @@ $(function(){
     $.ajax({
         type:'GET',
         //url:'/web/get_user_info',
-        url:'/public/json/get_user_info.json',
+        url:'/'+url+'public/json/get_user_info.json',
         dataType:'json',
         beforeSend: function (request) {
             var time = new Date().getTime();
@@ -52,7 +52,7 @@ $(function(){
         $.ajax({
             type:'GET',
             //url:'/web/set_user_info?sex='+sex+'&role='+role+'&name='+name+'&no='+no,
-            url:'/public/json/set_user_info.json?sex='+sex+'&role='+role+'&name='+name+'&no='+no,
+            url:'/'+url+'public/json/set_user_info.json?sex='+sex+'&role='+role+'&name='+name+'&no='+no,
             dataType:'json',
             beforeSend: function (request) {
                 var time = new Date().getTime();

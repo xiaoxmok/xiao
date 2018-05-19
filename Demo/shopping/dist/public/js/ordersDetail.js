@@ -13,7 +13,7 @@ $(function(){
     $.ajax({
         type:'GET',
         //url:'/web/orders/:'+hash.id,
-        url:'/public/json/order-id.json?id='+hash.id,
+        url:'/'+url+'public/json/order-id.json?id='+hash.id,
         dataType:'json',
         beforeSend:function(request){
             var time = new Date().getTime();

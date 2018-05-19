@@ -137,6 +137,9 @@ $(function () {
 });
 
 
+var url = 'xiao/Demo/shopping/dist/';
+
+
 /*常见问题*/
 $(function(){
     $('.problem .title').click(function(){

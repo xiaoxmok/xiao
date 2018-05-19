@@ -11,7 +11,7 @@ $(function () {
         $.ajax({
             type: 'GET',
             //url:'/web/addresses',
-            url: '/public/json/address.json',
+            url: '/'+url+'public/json/address.json',
             dataType: 'json',
             beforeSend: function (request) {
                 var time = new Date().getTime();
@@ -68,7 +68,7 @@ $(function () {
         $.ajax({
             type:'GET',
             //url:'/web/address/:'+id+'/update?defalut=0',
-            url:'/public/json/address-update.json?defalut=0',
+            url:'/'+url+'public/json/address-update.json?defalut=0',
             dataType:'json',
             beforeSend:function(request){
                 var time = new Date().getTime();
@@ -101,7 +101,7 @@ $(function () {
         $.ajax({
             type:'GET',
             //url:'/web/address/:'+id+'/delete?defalut=0',
-            url:'/public/json/address-delete.json?defalut=0',
+            url:'/'+url+'public/json/address-delete.json?defalut=0',
             dataType:'json',
             beforeSend:function(request){
                 var time = new Date().getTime();

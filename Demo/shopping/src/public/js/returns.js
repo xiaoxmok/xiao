@@ -40,7 +40,7 @@ $(function(){
 
         $.ajax({
             type:'GET',
-            url:'/public/json/returns.json?goods='+goods+'&type='+type+'&reason='+reason+'&price='+price+'&description='+description+'&phone='+phone,
+            url:'/'+url+'public/json/returns.json?goods='+goods+'&type='+type+'&reason='+reason+'&price='+price+'&description='+description+'&phone='+phone,
             //url:'http://ustbhuangyi.com/music/api/getDiscList?g_tk=1928093487&inCharset=utf-8&outCharset=utf-8&notice=0&format=json&platform=yqq&hostUin=0&sin=0&ein=29&sortId=5&needNewCode=0&categoryId=10000000&rnd=0.952841328122435',
             dataType:'json',
             beforeSend:function(request){

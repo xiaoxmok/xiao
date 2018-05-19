@@ -9,7 +9,7 @@ $(function () {
     $.ajax({
         type: 'GET',
         //url:'/web/school/search?keyword=',
-        url: '/public/json/school-search.json',
+        url: '/'+url+'public/json/school-search.json',
         dataType: 'json',
         //jsonp:"callback",
         //callback:"pmJson",
@@ -79,7 +79,7 @@ $(function () {
         $.ajax({
             type:'GET',
             //url:'/public/json/phone_valid_code.json?phone='+phone,
-            url:'/public/json/phone_valid_code.json?phone='+phone,
+            url:'/'+url+'public/json/phone_valid_code.json?phone='+phone,
             dataType:'json',
             success:function(data){
                 if(data.success === '0'){
@@ -140,7 +140,7 @@ $(function () {
         $.ajax({
             type:'GET',
             //url:'/web/register?'+value+'='+account+'&password='+password+'&school_id'+school_id+'&valid_code='+valid_code,
-            url:'/public/json/register.json?'+value+'='+account+'&password='+password+'&school_id='+school_id+'&valid_code='+valid_code,
+            url:'/'+url+'public/json/register.json?'+value+'='+account+'&password='+password+'&school_id='+school_id+'&valid_code='+valid_code,
             dataType:'json',
             success:function(data){
                 if(data.success === '0'){

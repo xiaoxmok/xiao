@@ -35,7 +35,7 @@ $(function(){
         $.ajax({
             type:'GET',
             //url:'/web/address/add?name='+name+'&phone='+phone+'&address='+address+'&defalut='+defalut,
-            url:'/public/json/address-add.json?name='+name+'&phone='+phone+'&address='+address+'&defalut='+defalut,
+            url:'/'+url+'public/json/address-add.json?name='+name+'&phone='+phone+'&address='+address+'&defalut='+defalut,
             dataType:'json',
             beforeSend:function(request){
                 var time = new Date().getTime();
