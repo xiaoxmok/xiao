@@ -83,21 +83,114 @@
 </div>
 <div class="main solution">
     <h3 class="title">提交维修申请</h3>
-    <div class="text">
+    <!--<div class="text">
         根据苹果更新后的维修政策，随着使用时间的推移，Apple Watch 2手表会出现无法开机或者电池鼓包的情况。针对这一情况，苹果决定为这些手表提供免费维修，而维修的有效期是购买后的三年。
-    </div>
+    </div>-->
     <div class="content">
-        <h4 class="title">苹果维修政策</h4>
+        <!--<h4 class="title">苹果维修政策</h4>-->
         <table>
             <tr>
                 <td class="td1"><strong>*</strong>选择维修方式：</td>
                 <td class="td2">
-                    <span class="mr20"><input type="radio" id="ser1" class="radio" value="0" name="ser" checked><label for="ser1">上门</label></span>
-                    <span class="mr20"><input type="radio" id="ser2" class="radio" value="1" name="ser"><label for="ser2">自行维修</label></span>
+                    <span class="mr20"><input type="radio" id="ser1" class="radio" value="0" name="ser" checked><label for="ser1">自行维修</label></span>
+                    <span class="mr20"><input type="radio" id="ser2" class="radio" value="1" name="ser"><label for="ser2">上门</label></span>
                 </td>
             </tr>
         </table>
         <table style="display: block;" class="serCon">
+            <tr>
+                <td class="td1"><strong>*</strong>设备分类：</td>
+                <td class="td2">
+                    <select class="select">
+                        <option value="">分类1</option>
+                        <option value="">分类2</option>
+                        <option value="">分类3</option>
+                        <option value="">分类4</option>
+                    </select>
+                    <select class="select">
+                        <option value="">分类1</option>
+                        <option value="">分类2</option>
+                        <option value="">分类3</option>
+                        <option value="">分类4</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">设备型号：</td>
+                <td class="td2">
+                    <input type="text" class="email" placeholder="请输入设备型号">
+                </td>
+            </tr>
+            <tr>
+                <td class="td1"><strong>*</strong>故障分类：</td>
+                <td class="td2">
+                    <select class="select">
+                        <option value="">分类1</option>
+                        <option value="">分类2</option>
+                        <option value="">分类3</option>
+                        <option value="">分类4</option>
+                    </select>
+                    <select class="select">
+                        <option value="">分类1</option>
+                        <option value="">分类2</option>
+                        <option value="">分类3</option>
+                        <option value="">分类4</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="td2">
+                    <textarea name="" id="" cols="30" rows="5" placeholder="描述。。。"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">上传照片：</td>
+                <td class="td2">
+                    <div class="img">
+                        <span>+</span>
+                        <img src="" alt="" class="imgshow">
+                        <input type="file" class="file" accept="image/*" >
+                    </div>
+                    <div class="img">
+                        <span>+</span>
+                        <img src="" alt="" class="imgshow">
+                        <input type="file" class="file" accept="image/*" >
+                    </div>
+                    <div class="img">
+                        <span>+</span>
+                        <img src="" alt="" class="imgshow">
+                        <input type="file" class="file" accept="image/*" >
+                    </div>
+                    <div class="img">
+                        <span>+</span>
+                        <img src="" alt="" class="imgshow">
+                        <input type="file" class="file" accept="image/*" >
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">邮箱：</td>
+                <td class="td2">
+                    <input type="text" class="email">
+                </td>
+            </tr>
+            <tr>
+                <td class="td1"><strong>*</strong>手机：</td>
+                <td class="td2">
+                    <input type="text" class="phone">
+                </td>
+            </tr>
+            <tr>
+                <td class="td1"><strong>*</strong>你的设备：</td>
+                <td class="td2">
+                    <p><input type="radio" name="addr" id="device1" checked=""><label for="device1"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
+                    <p><input type="radio" name="addr" id="device2" checked=""><label for="device2"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
+                    <p><input type="radio" name="addr" id="device3" checked=""><label for="device3"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
+                </td>
+            </tr>
+        </table>
+        <table style="display: none;" class="serCon">
             <tr>
                 <td colspan="2" class="td_strong">温馨提示：上门送修会收取一定费用，请提前准备好需要上门维修的设备</td>
             </tr>
@@ -190,131 +283,6 @@
                     <p><input type="radio" name="addr" id="device4" checked=""><label for="device4"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
                     <p><input type="radio" name="addr" id="device5" checked=""><label for="device5"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
                     <p><input type="radio" name="addr" id="device6" checked=""><label for="device6"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
-                </td>
-            </tr>
-            <tr>
-                <td class="td1">代维修券：</td>
-                <td class="td2">
-                    <div class="ticket1">
-                        <div class="up">
-                            <div class="img"></div>
-                            <p>维修券</p>
-                        </div>
-                        <div class="down">
-                            <a href="javascript:;">未使用</a>
-                        </div>
-                    </div>
-                    <div class="ticket1">
-                        <div class="up">
-                            <div class="img"></div>
-                            <p>维修券</p>
-                        </div>
-                        <div class="down">
-                            <a href="javascript:;">未使用</a>
-                        </div>
-                    </div>
-                    <div class="ticket1">
-                        <div class="up">
-                            <div class="img"></div>
-                            <p>维修券</p>
-                        </div>
-                        <div class="down">
-                            <a href="javascript:;">未使用</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <table style="display: none;" class="serCon">
-            <tr>
-                <td class="td1"><strong>*</strong>设备分类：</td>
-                <td class="td2">
-                    <select class="select">
-                        <option value="">分类1</option>
-                        <option value="">分类2</option>
-                        <option value="">分类3</option>
-                        <option value="">分类4</option>
-                    </select>
-                    <select class="select">
-                        <option value="">分类1</option>
-                        <option value="">分类2</option>
-                        <option value="">分类3</option>
-                        <option value="">分类4</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td class="td1">设备型号：</td>
-                <td class="td2">
-                    <input type="text" class="email" placeholder="请输入设备型号">
-                </td>
-            </tr>
-            <tr>
-                <td class="td1"><strong>*</strong>故障分类：</td>
-                <td class="td2">
-                    <select class="select">
-                        <option value="">分类1</option>
-                        <option value="">分类2</option>
-                        <option value="">分类3</option>
-                        <option value="">分类4</option>
-                    </select>
-                    <select class="select">
-                        <option value="">分类1</option>
-                        <option value="">分类2</option>
-                        <option value="">分类3</option>
-                        <option value="">分类4</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="td2">
-                    <textarea name="" id="" cols="30" rows="5" placeholder="描述。。。"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td class="td1">上传照片：</td>
-                <td class="td2">
-                    <div class="img">
-                        <span>+</span>
-                        <img src="" alt="" class="imgshow">
-                        <input type="file" class="file" accept="image/*" >
-                    </div>
-                    <div class="img">
-                        <span>+</span>
-                        <img src="" alt="" class="imgshow">
-                        <input type="file" class="file" accept="image/*" >
-                    </div>
-                    <div class="img">
-                        <span>+</span>
-                        <img src="" alt="" class="imgshow">
-                        <input type="file" class="file" accept="image/*" >
-                    </div>
-                    <div class="img">
-                        <span>+</span>
-                        <img src="" alt="" class="imgshow">
-                        <input type="file" class="file" accept="image/*" >
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="td1">邮箱：</td>
-                <td class="td2">
-                    <input type="text" class="email">
-                </td>
-            </tr>
-            <tr>
-                <td class="td1"><strong>*</strong>手机：</td>
-                <td class="td2">
-                    <input type="text" class="phone">
-                </td>
-            </tr>
-            <tr>
-                <td class="td1"><strong>*</strong>你的设备：</td>
-                <td class="td2">
-                    <p><input type="radio" name="addr" id="device1" checked=""><label for="device1"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
-                    <p><input type="radio" name="addr" id="device2" checked=""><label for="device2"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
-                    <p><input type="radio" name="addr" id="device3" checked=""><label for="device3"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
                 </td>
             </tr>
             <tr>

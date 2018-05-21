@@ -71,6 +71,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .goods .page div input{margin-right: 10px;border: 1px #eee solid;text-align: center;width:50px;}
 .goods .page div a:hover,.goods .page div .active{color:#50b7b4;}
 
+.zhezhao{display:none;width:100%;height:100%;position:fixed;top:0;left:0;background: #000;opacity: .5;z-index: 2;}
 
 @media screen and (max-width:414px){
     input[type="submit"], input[type="reset"], input[type="button"], input,select{
@@ -159,7 +160,9 @@ rigistered.html*/
 .problem .pro .text{padding: 20px;font-size: 13px;line-height: 20px;color:#666;display: none;}
 
 @media screen and (max-width:414px){
-    .problem{padding:0 20px;}
+    .problem{padding:0 20px;font-size: 12px;}
+    .problem .pro .text{font-size: 12px;}
+    .problem .pro .title p{margin-left: 10px;}
 }
 
 

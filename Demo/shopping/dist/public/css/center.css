@@ -90,7 +90,7 @@
         font-size: 12px;
         line-height: 25px;
     }
-    .userName .person .tuijian em{display: inline-block;}
+    .userName .person .tuijian em{display: inline-block;background: url(../img/3_1.png) no-repeat;width: 15px;height: 16px;}
     .userName .dizhi{margin: 0;}
     .userName .dizhi .img{display: none;}
     .userName .dizhi p{color:#50b7b4;}
