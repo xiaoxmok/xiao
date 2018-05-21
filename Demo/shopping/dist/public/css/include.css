@@ -59,7 +59,7 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #367d49;}
 
     .media-header .icon{padding: 0 10px;}
     .media-header .icon img{width:30px;height:20px; margin-top: 16px;}
-    .media-header .logo{width:100px;position: absolute;left:50%;margin-left: -50px;}
+    .media-header .logo{width:100px;position: absolute;left:50%;margin-left: -38px;}
     .media-header .logo img{width: 72px;height: 40px;margin-top: 8px;}
     .media-header .cart a{background-image: url(../img/app_cart.png);background-repeat:no-repeat;width:20px;height:21px;display: inline-block;margin-top: 19px;}
     .media-header .user,.media-header .cart{float:right;color:#fff;margin-right: 14px;}
