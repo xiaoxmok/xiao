@@ -329,13 +329,15 @@
         <p>ICP备案：XXXXXX</p>
     </div>
 </div>
+<script src="../public/js/lib/qiniu.min.js"></script>
+<script src="../public/js/upImg.js"></script>
 <script>
     //在input file内容改变的时候触发事件
-    $('.file').change(function(){
+    /*$('.file').change(function(){
         if(URL.createObjectURL($(this)[0].files[0])){
             $(this).parent().find('.imgshow').attr("src",URL.createObjectURL($(this)[0].files[0]));
         }
-    })
+    })*/
 
     $(function(){
         $('.radio[name="ser"]').click(function(){
