@@ -144,6 +144,13 @@ rigistered.html*/
 .prefect .con .text p{float:left;font-size: 14px;color:#666;}
 .prefect .con .text a{display: inline-block;float:right;color:#61bbb9;font-size: 12px;}
 
+.info_text{padding: 5px 0;font-size: 14px;color: #666;clear: both;overflow: hidden;}
+.info_text .switch{float:right;}
+.info_text .sw{float:left;}
+.switch_on{background-size: contain;background: url(../img/switch_on.png) no-repeat;width:40px;height:20px;display: inline-block;cursor:pointer;}
+.switch_off{background-size: contain;background: url(../img/switch_off.png) no-repeat;width:40px;height:20px;display: inline-block;cursor:pointer;}
+.switch input[type="checkbox"]{display: none;}
+
 @media screen and (max-width:414px){
     .process span{display: block;}
     .userLogin{width:auto;}

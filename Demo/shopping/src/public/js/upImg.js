@@ -22,8 +22,6 @@ $(function(){
         }
     });*/
 
-    //upQiniu();
-
     var token = 'anEC5u_72gw1kZPSy3Dsq1lo_DPXyvuPDaj4ePkN:RICQM2v2Du8Znqmf2MskzuczBok=:eyJkZWxldGVBZnRlckRheXMiOjcsInJldHVybkJvZHkiOiJ7XCJrZXlcIjpcIiQoa2V5KVwiLFwiaGFzaFwiOlwiJChldGFnKVwiLFwiZnNpemVcIjokKGZzaXplKSxcImJ1Y2tldFwiOlwiJChidWNrZXQpXCIsXCJuYW1lXCI6XCIkKHg6bmFtZSlcIn0iLCJzY29wZSI6Impzc2RrIiwiZGVhZGxpbmUiOjE1MjY5NzA2ODl9';
     var domain = 'http://7j1xky.com1.z0.glb.clouddn.com/';
     var config = {

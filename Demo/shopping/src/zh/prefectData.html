@@ -36,6 +36,20 @@
                 <p class="defalutAddress">默认配送地址：<span></span></p>
                 <a href="./addressManagement.html">配送地址管理</a>
             </div>
+            <div class="info_text">
+                <p class="sw">订单邮件通知：</p>
+                <i class="switch">
+                    <label class="switch_on" for="check-1"></label>
+                    <input type="checkbox" id="check-1" checked="checked">
+                </i>
+            </div>
+            <div class="info_text">
+                <span class="sw">订单短信通知：</span>
+                <i class="switch">
+                    <label class="switch_off" for="check-2"></label>
+                    <input type="checkbox" id="check-2" checked="checked">
+                </i>
+            </div>
             <p class="error"></p>
             <div class="btn">
                 <a class="submit" href="javascript:;">完成</a>
@@ -48,5 +62,21 @@
 @@include('./view/footer.html')
 <script src="../public/js/lib/jquery.md5.js"></script>
 <script src="../public/js/set_user_info.js"></script>
+<script>
+    $(function(){
+        /*  switch按钮的切换事件 */
+        $(".switch label").on("click",function(){
+            var labelclass = $(this).attr("class");
+            var check = $(this).siblings("input");
+            if(labelclass == "switch_on"){
+                check.attr("checked",false);
+                $(this).attr("class","switch_off");
+            }else{
+                check.attr("checked",true);
+                $(this).attr("class","switch_on");
+            }
+        });
+    })
+</script>
 </body>
 </html>
