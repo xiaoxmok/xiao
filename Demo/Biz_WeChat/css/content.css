@@ -127,6 +127,10 @@
 .info_section table th{color:#000;height: 1.49rem;text-align: left;}
 .info_section table td{color:#666;text-align: center;padding:0.4rem 0;}
 
+.info_section .table_clear td:first-child{width:15%!important;text-align: left;}
+.info_section .table_clear td:last-child{width:30%!important;text-align: left;}
+.info_section .table_clear td{text-align: left;word-break:break-all;word-wrap:break-word;}
+
 .mar{padding:0 .64rem .3rem;margin-bottom: .20rem;margin-top: .64rem;}
 
 .info_con{overflow: hidden;border-bottom: 1px dashed #e4e4e4;font-size: .554rem;line-height: .955rem;padding-bottom: .64rem;}
@@ -418,3 +422,52 @@ TA流程图*/
     line-height: 1.49333rem;
 }
 .info_con strong{color:#fb5c5f;}
+
+
+.delete{display: block;width: 0;}
+.delete button {
+    display: inline-block;
+    width: 1.5rem;height: 100%;
+    line-height: 100%;
+    background: #fb5c5f;
+    text-align: center;
+    border: none;
+    font-size: .554rem;
+    color: #fff;
+    /*transition: all 2s ease;transform-origin:0 0 ;*/
+}
+.dis_info3{color:#666;padding: 0 0 0 .64rem ;font-size: .554rem;border-bottom:1px solid #efefef;}
+.dis_info3 p{padding: .426rem 0;word-break:break-all;word-wrap:break-word;}
+.dis_info3 p:last-child{padding:0;}
+
+
+
+
+/*垫资清款额度使用查询*/
+.search_channel{padding: .54rem .64rem;margin-top: .54rem;background: #fff;display: flex;}
+.search_channel .left{}
+.search_channel .right{}
+.search_channel .right{overflow-y: scroll;}
+.search_channel .right table{min-width: 600px;}
+.search_channel .right table td{    border-collapse: collapse;border: 1px solid #f3f3f3;}
+.search_channel .left table tr:first-child,.search_channel .right tr:first-child{background: #f8f8f8;}
+.search_channel .left table tr:first-child td,.search_channel .right tr:first-child td{font-size: .54rem;}
+
+
+.search_channel .left td{font-size: .59rem;line-height: 1rem;text-overflow:ellipsis;white-space:nowrap;border: 1px solid #f3f3f3;border-collapse: collapse;padding: .2rem ;}
+.search_channel .right td{font-size: .59rem;line-height: 1rem;text-overflow: ellipsis;white-space: nowrap;padding: .2rem ;text-align: center;}
+
+.search_channel .right td:first-child{border-left: none!important;}
+
+.channel_text{padding: .54rem .64rem;background: #fff;}
+.channel_text p{line-height: 1.0rem;font-size: .54rem;color:#949494;}
+
+.info_text select option:first-child{color:#949494;}
+
+
+
+
+
+
+
+
