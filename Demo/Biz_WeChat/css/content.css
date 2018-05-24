@@ -122,6 +122,10 @@
 /*.info_section table td{display: flex;flex: 1;justify-content: center;align-items: center;}*/
 .info_section table .str{font-weight: bold;}
 
+.search1 table td:first-child{width:auto!important;text-align: center!important;}
+.search1 table td:last-child{width:auto!important;text-align: center!important;}
+.search1 table th{text-align: center!important;}
+
 .info_section table{font-size: .512rem;width: 100%;border: none;}
 .info_section table tr{border-bottom: 1px solid #efefef;border-top:none;border-collapse: collapse;}
 .info_section table th{color:#000;height: 1.49rem;text-align: left;}
@@ -448,7 +452,7 @@ TA流程图*/
 .search_channel .left{}
 .search_channel .right{}
 .search_channel .right{overflow-y: scroll;}
-.search_channel .right table{min-width: 600px;}
+.search_channel .right table{min-width: 300px;}
 .search_channel .right table td{    border-collapse: collapse;border: 1px solid #f3f3f3;}
 .search_channel .left table tr:first-child,.search_channel .right tr:first-child{background: #f8f8f8;}
 .search_channel .left table tr:first-child td,.search_channel .right tr:first-child td{font-size: .54rem;}

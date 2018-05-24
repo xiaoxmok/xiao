@@ -19,6 +19,10 @@
             <input id="startTime" placeholder="请选择开始时间"></input>
         </div>
         <div class="info_text selc">
+            <span>结束时间:</span>
+            <input id="endTime" placeholder="请选择结束时间"></input>
+        </div>
+        <div class="info_text selc">
             <span>渠道:</span>
             <!--<input id="bank_demo" placeholder="请选择"></input>-->
             <select name="bank" id="channel">
@@ -29,7 +33,7 @@
             </select>
         </div>
         <div class="info_text selc">
-            <span>银行:</span>
+            <span>垫资银行:</span>
             <!--<input id="bank_demo" placeholder="请选择"></input>-->
             <select name="bank" id="bank">
                 <option value="1">请选择</option>
@@ -45,66 +49,45 @@
         </div>
         <button class="inqu">查询</button>
     </div>
-    <div class="search_channel">
-        <div class="left">
-            <table>
-                <tr>
-                    <td>渠道</td>
-                    <td>垫资银行</td>
-                </tr>
-                <tr>
-                    <td>财付通</td>
-                    <td>华夏</td>
-                </tr>
-                <tr>
-                    <td>财付通</td>
-                    <td>光大</td>
-                </tr>
-                <tr>
-                    <td>平安付</td>
-                    <td>光大</td>
-                </tr>
-                <tr>
-                    <td>上海银行</td>
-                    <td>光大</td>
-                </tr>
-            </table>
-        </div>
-        <div class="right">
-            <table>
-                <tr>
-                    <td>已清款金额</td>
-                    <td>剩余授信额度</td>
-                    <td>垫资户余额</td>
-                </tr>
-                <tr>
-                    <td>2400000</td>
-                    <td>1000000</td>
-                    <td>1000000</td>
-                </tr>
-                <tr>
-                    <td>65000600</td>
-                    <td>1000000</td>
-                    <td>1000000</td>
-                </tr>
-                <tr>
-                    <td>2100000</td>
-                    <td>1000000</td>
-                    <td>1000000</td>
-                </tr>
-                <tr>
-                    <td>2058000</td>
-                    <td>1000000</td>
-                    <td>1000000</td>
-                </tr>
-            </table>
-        </div>
+    <div class="info_section mar search1">
+        <table>
+            <tr>
+                <th>时间</th>
+                <th>渠道</th>
+                <th>垫资银行</th>
+                <th>请款金额</th>
+            </tr>
+            <tr>
+                <td>2018/4/10</td>
+                <td>财付通</td>
+                <td>华夏</td>
+                <td>20000</td>
+            </tr>
+            <tr>
+                <td>2018/4/10</td>
+                <td>财付通</td>
+                <td>光大</td>
+                <td>20000</td>
+            </tr>
+            <tr>
+                <td>2018/4/10</td>
+                <td>平安付</td>
+                <td>华夏</td>
+                <td>20000</td>
+            </tr>
+            <tr>
+                <td>2018/4/10</td>
+                <td>财付通</td>
+                <td>华夏</td>
+                <td>20000</td>
+            </tr>
+        </table>
     </div>
     <div class="channel_text">
         <p>温馨提示：</p>
         <p>1、按自然日15点到15点统计</p>
-        <p>2、垫资户余额通过银企接口查询，可能存在延迟</p>
-        <p>3、授信额度按渠道分配不同额度，工作日还款额度恢复上个工作日的请款金额</p>
+        <!--<p>2、垫资户余额通过银企接口查询，可能存在延迟</p>
+        <p>3、授信额度按渠道分配不同额度，工作日还款额度恢复上个工作日的请款金额</p>-->
     </div>
 
 
