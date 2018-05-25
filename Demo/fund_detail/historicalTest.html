@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>历史收益回测</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <link rel="stylesheet" type="text/css" href="./css/content.css">
+    <link rel="stylesheet" type="text/css" href="./css/mobiscroll.custom-3.0.0-beta6.min.css">
+    <script type="text/javascript" src="./js/fontresize.js"></script>
+</head>
+<body class="bg">
+<header>
+    <a href="javascript:history.back();" class="back"></a><span>历史收益回测</span>
+</header>
+<div class="mt17"></div>
+<div class="info_section">
+    <div class="info_text selc">
+        <span>产品名称</span>
+        <!--<input id="bank_demo" placeholder="请选择"></input>-->
+        <select name="product" id="product">
+            <option value="1">请选择</option>
+            <option value="2">汇添富高端制造股票</option>
+            <option value="3">汇添富高端制造股票</option>
+            <option value="4">汇添富高端制造股票</option>
+            <option value="5">汇添富高端制造股票</option>
+            <option value="6">汇添富高端制造股票</option>
+            <option value="7">汇添富高端制造股票</option>
+            <option value="8">汇添富高端制造股票</option>
+            <option value="9">汇添富高端制造股票</option>
+        </select>
+    </div>
+    <div class="info_text">
+        <span>目标收益率</span>
+        <p class="target">
+            <a href="javascript:;" class="active">6%</a>
+            <a href="javascript:;">10%</a>
+            <a href="javascript:;">15%</a>
+            <a href="javascript:;" class="customize">自定义</a>
+            <!--<span class="text_cus"><input type="text" placeholder="请输入">%</span>-->
+        </p>
+        <!--<input placeholder="请输入您的真实姓名" onkeyup="value=value.replace(/[\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))"、>-->
+    </div>
+    <div class="info_text card text_cus">
+        <span>自定义收益率（%）</span>
+        <input placeholder="请输入收益率">
+    </div>
+    <div class="info_text selc">
+        <span>投资周期</span>
+        <!--<input id="bank_demo" placeholder="请选择"></input>-->
+        <select name="date" id="date">
+            <option value="1">请选择</option>
+            <option value="2">月</option>
+            <option value="3">周</option>
+            <option value="4">日</option>
+        </select>
+    </div>
+    <div class="info_text info_text_card">
+        <span>投资金额（元）</span>
+        <input type="text" placeholder="1000">
+    </div>
+    <div class="info_text selc">
+        <span>定投策略设置</span>
+        <!--<input id="bank_demo" placeholder="请选择"></input>-->
+        <select name="ploy" id="ploy">
+            <option value="1">请选择</option>
+            <option value="2">进取策略</option>
+            <option value="3">稳健策略</option>
+            <option value="4">自定义</option>
+        </select>
+    </div>
+    <div class="ploy_text">
+        <div class="info_text">
+            <span>底于单位平均成本</span>
+            <input placeholder="请输入百分比值">
+        </div>
+        <div class="info_text">
+            <span>扣款金额为（元）</span>
+            <input placeholder="请输入扣款金额">
+        </div>
+        <div class="info_text">
+            <span>高于单位平均成本</span>
+            <input placeholder="请输入百分比值">
+        </div>
+        <div class="info_text">
+            <span>扣款金额为（元）</span>
+            <input placeholder="请输入扣款金额">
+        </div>
+    </div>
+</div>
+<div class="info_p">
+    <p>低于单位平均成本0.5%，扣款金额为2400，估算费用10元；</p>
+    <p>介于单位平均成本0.5%-4.0%，扣款金额为2000，估算费用10元；</p>
+    <p>高于单位平均成本4.0%，扣款金额为240，估算费用10元；</p>
+</div>
+<div class="info_section">
+    <div class="info_text selc">
+        <span>起投时间</span>
+        <input id="startTime" placeholder="请选择日期"></input>
+    </div>
+</div>
+<div class="info_bottom">
+    <a href="result.html" class="submit">确定</a>
+</div>
+<script src="./js/jquery-2.2.2.min.js"></script>
+<script src="./js/mobiscroll.custom-3.0.0-beta6.min.js"></script>
+<script>
+    $(function () {
+        var now = new Date(),
+            max = new Date(now.getFullYear() + 100, now.getMonth(), now.getDate());
+
+        $('#startTime').mobiscroll().date({
+            theme: 'ios',
+            lang: 'zh',
+            display: 'bottom',
+            dateFormat: 'yyyy-mm-dd',
+            max: max,
+            onSet:function(valueText,inst){
+                console.log("2222");
+            }
+        });
+    });
+    $(function () {
+        $('#product,#date,#ploy').mobiscroll().select({
+            theme: 'ios',
+            lang: 'zh',
+            display: 'bottom',
+            minWidth: 200
+        });
+    });
+
+    $(function(){
+        $('.target a').click(function(){
+            $('.target a').removeClass('active');
+            $(this).addClass('active');
+            if($(this).hasClass('customize')){
+                $('.text_cus').css({display:'flex'});
+            }else{
+                $('.text_cus').hide();
+            }
+        });
+
+        $('#ploy').bind('change',function(){
+            var value = $(this).children('option:selected').val();
+            if(value == 4){
+                location.href = "ploy.html"
+            }
+        })
+    });
+
+</script>
+
+</body>
+</html>

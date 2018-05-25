@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定投策略</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <link rel="stylesheet" type="text/css" href="./css/content.css">
+    <link rel="stylesheet" type="text/css" href="./css/mobiscroll.custom-3.0.0-beta6.min.css">
+    <script type="text/javascript" src="./js/fontresize.js"></script>
+</head>
+<body class="bg">
+<header>
+    <a href="javascript:history.back();" class="back"></a><span>定投策略</span>
+</header>
+<div class="mt17"></div>
+<div class="info_section ">
+
+    <div class="info_text">
+        <span>进取策略</span>
+        <input type="radio" name="ploy">
+    </div>
+    <div class="info_text">
+        <span>稳健策略</span>
+        <input type="radio" name="ploy">
+    </div>
+    <div class="info_text">
+        <span>自定义</span>
+        <input type="radio" name="ploy" checked>
+    </div>
+    <div class="ploy_text">
+        <div class="info_text">
+            <span>底于单位平均成本</span>
+            <input placeholder="请输入百分比值">
+        </div>
+        <div class="info_text">
+            <span>扣款金额为（元）</span>
+            <input placeholder="请输入扣款金额">
+        </div>
+        <div class="info_text">
+            <span>高于单位平均成本</span>
+            <input placeholder="请输入百分比值">
+        </div>
+        <div class="info_text">
+            <span>扣款金额为（元）</span>
+            <input placeholder="请输入扣款金额">
+        </div>
+    </div>
+</div>
+
+<!--<div class="info_bottom">
+    <a href="result.html" class="submit">确定</a>
+</div>-->
+<script src="./js/jquery-2.2.2.min.js"></script>
+<script>
+
+    $(function(){
+        $('#ploy').bind('change',function(){
+            var value = $(this).children('option:selected').val();
+            if(value == 4){
+                $('.ploy_text').show();
+            }else{
+                $('.ploy_text').hide();
+            }
+        })
+    });
+
+</script>
+
+</body>
+</html>

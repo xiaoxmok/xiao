@@ -17,13 +17,15 @@
         data: [],          //数据
         date: [],          //日期
         lastValue: '0',     //当前数据最后一个值
-        cycle: '30'          //周期，近1月，近3月，近6月，近1年，具体的天数
+        cycle: '30'         //周期，近1月，近3月，近6月，近1年，具体的天数
     };
     var opts = {};
+
 
     lineEcharts.init = function (domId, options) {
 
         var myChart = echarts.init(document.getElementById(domId));
+        var dom = document.getElementById(domId);
 
         myChart.showLoading({
             text: '加载中...',
@@ -35,6 +37,13 @@
 
 
         opts = extend(defaults, options);
+
+        //x轴的数据
+
+        if(Object.prototype.toString.call(opts.date[0]) === '[object String]'){
+            opts.date.splice(0, 1, {value: opts.date[0] ,textStyle:{padding: [0, 0, 0, 45]}});
+            opts.date.splice(opts.date.length - 1, 1, {value:opts.date[opts.date.length - 1] ,textStyle:{padding: [0, 45, 0, 0]}});
+        }
 
         //myChart.hideLoading();
         setTimeout(function () {
@@ -102,20 +111,10 @@
                         color: "#f1f1f1"
                     }
                 },
-                data: opts.date,
+                data:opts.date,
                 axisLabel: {
                     interval: opts.cycle - 2,
-                    color: '#7d7d7d',
-                    //align:'right',
-                    //padding:[0,0,0,43],
-                    rich: {
-                        a: {
-                            padding: [0, 0, 0, 45]
-                        },
-                        b: {
-                            padding: [0, 45, 0, 0]
-                        }
-                    }
+                    color: '#7d7d7d'
                 }
             },
             yAxis: {
@@ -197,9 +196,9 @@
         };
         myChart.setOption(option);
 
+        dom.addEventListener( 'touchmove',function(event){
+            //如果这个元素的位置内只有一个手指的话
 
-        myChart.on('mouseover', function (params) {
-            //console.log(params.name);
             myChart.setOption({
                 series: [
                     {
@@ -209,8 +208,16 @@
                     }
                 ]
             });
-        })
+        }, false );
+
+
+        /*myChart.on('mousemove', function (params) {
+
+        });*/
+
     };
+
+
 
 
 // 合并对象
