@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测算结果</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <link rel="stylesheet" type="text/css" href="./css/content.css">
+    <link rel="stylesheet" type="text/css" href="./css/mobiscroll.custom-3.0.0-beta6.min.css">
+    <script type="text/javascript" src="./js/fontresize.js"></script>
+</head>
+<body class="bg">
+<header>
+    <a href="javascript:history.back();" class="back"></a><span>测算结果</span>
+</header>
+<div class="mt17"></div>
+<div class="info_top">
+    <p>2017-04-06开始智能定投计划，耗时4.50月共投资<span class="textColor2">50000.00</span>元， 收益<span class="textColor2">3000.65</span>元；2017-08-21达到目标收益<span class="textColor2">6%</span></p>
+
+</div>
+<div class="info_section">
+    <div class="echarts_details" id="line"></div>
+</div>
+<div class="info_bottom">
+    <a href="javascript:;" class="submit">确定</a>
+</div>
+<script src="./js/jquery-2.2.2.min.js"></script>
+<script src="./js/echarts.common.min.js"></script>
+<script src="./js/echartsLine.js"></script>
+<script>
+    /**
+     * 测试数据
+     * @param month
+     * @returns {{data: Array, date: Array, lastValue: *}}
+     */
+    function data(month) {
+
+        var oneDay = 24 * 3600 * 1000;
+        var date = [];
+
+        var data = [];
+        var now = +new Date(2017, 10, 10);
+        for (var i = 0; i < month; i++) {
+            now = new Date(+now + oneDay);
+            data.push((Math.random().toFixed(5) / 10 + 4.2).toFixed(3));
+            //console.log(data);
+            date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('-'));
+
+        }
+
+        var value = data[data.length - 1];
+
+        return {
+            data: data,          //数据
+            date: date,          //日期
+            lastValue: value     //当前数据最后一个值
+        }
+    }
+
+    //模拟的数据
+    var testData30 = data(30);
+
+    lineEcharts.init('line', {
+        data: testData30.data,          //数据
+        date: testData30.date,          //日期
+        lastValue: testData30.lastValue,     //当前数据最后一个值
+        cycle: testData30.data.length,
+        title: ''
+    });
+
+</script>
+
+</body>
+</html>

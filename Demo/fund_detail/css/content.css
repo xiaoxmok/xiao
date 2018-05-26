@@ -70,7 +70,8 @@
 .flex_2{flex:2;-webkit-flex: 2;}
 .flex_3{flex:3;-webkit-flex: 3;}
 .flex_4{flex:4;-webkit-flex: 4;}
-.dis_info{color:#666;padding: .426rem .64rem;font-size: .59rem;border-bottom:1px solid #efefef;}
+.dis_info,.dis_info2{color:#666;padding: .426rem .64rem;font-size: .58rem;border-bottom:1px solid #efefef;}
+.fund_title{color:#000!important;}
 .dis_title,.dis_pr:last-child{color:#000!important;background:#fff!important;}
 .dis_title.pd{padding: .2rem .64rem;}
 .dis_info.pd{padding: .2rem .64rem;}
@@ -99,7 +100,7 @@
 .mana_text{padding:0 .64rem .30rem ;background:#fff;font-size: .59rem;line-height: 1rem;color:#666;}
 .b_t_n{border-top:none;}
 .p_add{color:#f8575d;}
-
+.p_drop{color:#009944;}
 /*
 投资组合*/
 .data_text{font-size: .59rem;color:#666;text-align: center;height: 1.4933rem;line-height: 1.49333rem;}
@@ -238,3 +239,49 @@
 .title_br .st1{line-height:1.1rem;font-size: 13px;}
 .title_br .st2{line-height:.5rem;}
 
+
+
+
+/*
+历史收益回测*/
+.info_p{padding:0 .5rem .5rem .5rem;color:#666666;font-size: .45rem;line-height: .75rem;}
+.info_top{padding: .5rem;color: #666666;font-size: .512rem;}
+.info_section{padding: 0 .64rem;margin-bottom:.64rem;background:#fff;}
+.info_text{position:relative;padding: .60rem 0;font-size: .59rem;color:#000;border-bottom: 1px solid #eee;display: flex;display: -webkit-flex;}
+.info_text_card p{flex:3;-webkit-flex:3;color:#666666;}
+.info_text span{flex: 1;-webkit-flex:1;text-overflow:ellipsis;white-space:nowrap;}
+.info_text .flex{flex: 1;-webkit-flex:1;position: relative;margin-right: .7rem;}
+.info_text input{font-size: .59rem;flex:3;-webkit-flex:3;text-align: right;}
+.info_text2 input{font-size: .59rem;flex:2;-webkit-flex:2;}
+.info_text3 input{font-size: .59rem;flex:2;-webkit-flex:2;}
+
+.info_text input[name='ploy']{flex: none;-webkit-flex:none;}
+
+.info_text input.mbsc-control,.info_text input.mbsc-comp{padding-right: .645rem;}
+
+.info_text p{font-size: .512rem;}
+.info_text p a{background: #eee;color:#333;border-radius: 3rem;padding:.1rem .2rem;margin-left: .20rem;}
+.info_text p a.active{background: #fe7e01;color:#fff;}
+
+.text_cus{display: none;}
+
+.ploy_text{display: block;}
+.ploy_text .info_text{color:#666;padding:.4rem 0;font-size: .512rem;}
+.ploy_text .info_text input{font-size: .512rem;}
+
+.selc:after{
+    content: "";
+    position: absolute;
+    right: 0.305rem;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-left: 1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+    -webkit-transform: translateY(-50%) rotate(-135deg);
+    -ms-transform: translateY(-50%) rotate(-135deg);
+    -o-transform: translateY(-50%) rotate(-135deg);
+    transform: translateY(-50%) rotate(-135deg);
+}
+.info_bottom{margin: .69rem .64rem;}
+.submit{display:inline-block;text-align: center;width:100%;height:1.92rem;line-height: 1.92rem;font-size: .64rem;background-color: #ff6d2e;color:#fff;}

@@ -43,6 +43,7 @@
                 <td>越长越好越长越好越长越好越长越好越长越好越长越好长越好越</td>
             </tr>
         </table>
+<!--
 
         <table class="table3">
             <tr>
@@ -54,6 +55,7 @@
                 <td>恒丰银行上海分行营业部</td>
                 <td>102012012</td>
                 <td>102012012</td>
+                <td class="delete"><button>删除</button></td>
             </tr>
             <tr>
                 <td>恒丰银行上海分行营业部</td>
@@ -71,6 +73,40 @@
                 <td>102012012</td>
             </tr>
         </table>
+-->
+    </div>
+    <div class="comp_section"><button class="add">add</button></div>
+    <div class="comp_section mt17 add_abc">
+        <div class="dis_flex dis_info2">
+            <p class="flex_2 tl">账户</p>
+            <p class="flex_1 tl">初始额度</p>
+            <p class="flex_1 tc">剩余额度</p>
+        </div>
+        <div class="dis_flex dis_info3">
+            <p class="flex_2 tl">恒丰银行上海分行营业部</p>
+            <p class="flex_1 tl">102012012</p>
+            <p class="flex_1 tc">102012012</p>
+            <p class="tr delete"><button>删除</button></p>
+        </div>
+        <div class="dis_flex dis_info3">
+            <p class="flex_2 tl">恒丰银行上海分行22</p>
+            <p class="flex_1 tl">102012012</p>
+            <p class="flex_1 tc">102012012</p>
+            <p class="tr delete"><button>删除</button></p>
+        </div>
+        <div class="dis_flex dis_info3">
+            <p class="flex_2 tl">恒丰银行上海分行33</p>
+            <p class="flex_1 tl">102012012</p>
+            <p class="flex_1 tc">102012012</p>
+            <p class="tr delete"><button>删除</button></p>
+        </div>
+        <div class="dis_flex dis_info3">
+            <p class="flex_2 tl">恒丰银行上海分行44</p>
+            <p class="flex_1 tl">102012012</p>
+            <p class="flex_1 tc">102012012</p>
+            <p class="tr delete"><button>删除</button></p>
+        </div>
+
 
     </div>
     <script src="./js/jquery-2.2.2.min.js"></script>
@@ -104,6 +140,86 @@
                 minWidth: 200
             });
         });
+
+        $(function(){
+            $('.add').click(function(){
+                var html = '<div class="dis_flex dis_info3">\n' +
+                    '            <p class="flex_2 tl">恒丰银行上海分行44</p>\n' +
+                    '            <p class="flex_1 tl">102012012</p>\n' +
+                    '            <p class="flex_1 tc">102012012</p>\n' +
+                    '            <p class="tr delete"><button>删除</button></p>\n' +
+                    '        </div>';
+
+                $('.add_abc').append(html);
+                deleteDom();
+            });
+            deleteDom();
+            function deleteDom(){
+                // 获取所有行，对每一行设置监听
+                var lines = $(".dis_info3");
+                var len = lines.length;
+                var lastX, lastXForMobile;
+                // 用于记录被按下的对象
+                var pressedObj;  // 当前左滑的对象
+                var lastLeftObj; // 上一个左滑的对象
+                // 用于记录按下的点
+                var start;
+                // 网页在移动端运行时的监听
+                for (var i = 0; i < len; ++i) {
+                    lines[i].addEventListener('touchstart', function(e){
+                        lastXForMobile = e.changedTouches[0].pageX;
+                        pressedObj = this; // 记录被按下的对象
+                        // 记录开始按下时的点
+                        var touches = event.touches[0];
+                        start = {
+                            x: touches.pageX, // 横坐标
+                            y: touches.pageY  // 纵坐标
+                        };
+                    });
+                    lines[i].addEventListener('touchmove',function(e){
+                        // 计算划动过程中x和y的变化量
+                        var touches = event.touches[0];
+                        delta = {
+                            x: touches.pageX - start.x,
+                            y: touches.pageY - start.y
+                        };
+                        // 横向位移大于纵向位移，阻止纵向滚动
+                        if (Math.abs(delta.x) > Math.abs(delta.y)) {
+                            event.preventDefault();
+                        }
+                    });
+                    lines[i].addEventListener('touchend', function(e){
+                        if (lastLeftObj && pressedObj != lastLeftObj) { // 点击除当前左滑对象之外的任意其他位置
+                            $(lastLeftObj).animate({marginLeft:"0"}, 500); // 右滑
+                            $(lastLeftObj).find('.delete').animate({width:'0'});
+                            lastLeftObj = null; // 清空上一个左滑的对象
+                        }
+                        var diffX = e.changedTouches[0].pageX - lastXForMobile;
+                        if (diffX < -15) {
+                            $(pressedObj).animate({marginLeft:"-2rem"}, 500); // 左滑
+                            $(pressedObj).find('.delete').css({height:$(pressedObj).height()}).animate({width:'1.5rem'});
+                            lastLeftObj && lastLeftObj != pressedObj &&
+                            $(lastLeftObj).animate({marginLeft:"0"}, 500); // 已经左滑状态的按钮右滑
+                            lastLeftObj = pressedObj; // 记录上一个左滑的对象
+                        } else if (diffX > 15) {
+                            if (pressedObj == lastLeftObj) {
+                                $(pressedObj).animate({marginLeft:"0"}, 500); // 右滑
+                                $(pressedObj).find('.delete').animate({width:'0'});
+                                lastLeftObj = null; // 清空上一个左滑的对象
+                            }
+                        }
+                    });
+                }
+
+
+                $('.delete').click(function(){
+                    $(this).parent().remove();
+                });
+            }
+
+
+        })
+
 
     </script>
 

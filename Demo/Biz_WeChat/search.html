@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垫资清款额度使用查询</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <link rel="stylesheet" type="text/css" href="./css/content.css">
+    <link rel="stylesheet" type="text/css" href="./css/mobiscroll.custom-3.0.0-beta6.min.css">
+    <script type="text/javascript" src="./js/fontresize.js"></script>
+</head>
+    <body class="bg">
+    <header class="skin">
+        <a href="javascript:;" class="go_back">返回</a><span>垫资清款额度使用查询</span>
+    </header>
+    <div class="info_section">
+        <div class="info_text selc">
+            <span>开始时间:</span>
+            <input id="startTime" placeholder="请选择开始时间"></input>
+        </div>
+        <div class="info_text selc">
+            <span>渠道:</span>
+            <!--<input id="bank_demo" placeholder="请选择"></input>-->
+            <select name="bank" id="channel">
+                <option value="1">请选择</option>
+                <option value="2">财付通</option>
+                <option value="3">平安付</option>
+                <option value="4">上海银行</option>
+            </select>
+        </div>
+        <div class="info_text selc">
+            <span>银行:</span>
+            <!--<input id="bank_demo" placeholder="请选择"></input>-->
+            <select name="bank" id="bank">
+                <option value="1">请选择</option>
+                <option value="2">招商银行</option>
+                <option value="3">中国银行</option>
+                <option value="4">建设银行</option>
+                <option value="5">平安银行</option>
+                <option value="6">花旗银行</option>
+                <option value="7">华夏银行</option>
+                <option value="8">工商银行</option>
+                <option value="9">农业银行</option>
+            </select>
+        </div>
+        <button class="inqu">查询</button>
+    </div>
+    <div class="search_channel">
+        <div class="left">
+            <table>
+                <tr>
+                    <td>渠道</td>
+                    <td>垫资银行</td>
+                </tr>
+                <tr>
+                    <td>财付通</td>
+                    <td>华夏</td>
+                </tr>
+                <tr>
+                    <td>财付通</td>
+                    <td>光大</td>
+                </tr>
+                <tr>
+                    <td>平安付</td>
+                    <td>光大</td>
+                </tr>
+                <tr>
+                    <td>上海银行</td>
+                    <td>光大</td>
+                </tr>
+            </table>
+        </div>
+        <div class="right">
+            <table>
+                <tr>
+                    <td>已清款金额</td>
+                    <td>剩余授信额度</td>
+                    <td>垫资户余额</td>
+                </tr>
+                <tr>
+                    <td>2400000</td>
+                    <td>1000000</td>
+                    <td>1000000</td>
+                </tr>
+                <tr>
+                    <td>65000600</td>
+                    <td>1000000</td>
+                    <td>1000000</td>
+                </tr>
+                <tr>
+                    <td>2100000</td>
+                    <td>1000000</td>
+                    <td>1000000</td>
+                </tr>
+                <tr>
+                    <td>2058000</td>
+                    <td>1000000</td>
+                    <td>1000000</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="channel_text">
+        <p>温馨提示：</p>
+        <p>1、按自然日15点到15点统计</p>
+        <p>2、垫资户余额通过银企接口查询，可能存在延迟</p>
+        <p>3、授信额度按渠道分配不同额度，工作日还款额度恢复上个工作日的请款金额</p>
+    </div>
+
+
+    <script src="./js/jquery-2.2.2.min.js"></script>
+    <script src="./js/mobiscroll.custom-3.0.0-beta6.min.js"></script>
+    <script>
+        $(function () {
+            var now = new Date(),
+                max = new Date(now.getFullYear() + 100, now.getMonth(), now.getDate());
+
+            $('#startTime,#endTime').mobiscroll().date({
+                theme: 'ios',
+                lang: 'zh',
+                display: 'bottom',
+                dateFormat: 'yyyy-mm-dd',
+                max: max
+            });
+        });
+        $(function () {
+            $('#bank,#channel').mobiscroll().select({
+                theme: 'ios',
+                lang: 'zh',
+                display: 'bottom',
+                minWidth: 200
+            });
+        });
+    </script>
+    </body>
+</html>

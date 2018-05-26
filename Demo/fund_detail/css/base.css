@@ -123,6 +123,9 @@ header a:active{
 
 .tc { text-align: center; }
 
+header strong{
+	font-size: 13px;
+}
 
 
 

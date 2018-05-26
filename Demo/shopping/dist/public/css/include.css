@@ -53,26 +53,26 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #367d49;}
 
     .header-bar .content{width:100%;}
 
-    .media-header{display: block;position: relative;width:100%;background:#b9d7df;height: 35px;}
-    .media-header .address,.media-header .logo{line-height: 35px;float:left;color:#fff;font-size: 14px;}
+    .media-header{display: block;position: relative;width:100%;background:#b9d7df;height: 56px;}
+    .media-header .address,.media-header .logo{line-height: 51px;float:left;color:#fff;font-size: 14px;}
     .media-header .icon{float:left;}
 
     .media-header .icon{padding: 0 10px;}
-    .media-header .icon img{width:30px;height:20px; margin-top: 5px;}
-    .media-header .logo{width:100px;position: absolute;left:50%;margin-left: -50px;}
-    .media-header .logo img{width:70px;height: 35px;}
-    .media-header .cart a{background-image: url(../img/app_cart.png);background-repeat:no-repeat;width:20px;height:21px;display: inline-block;margin-top: 9px;}
+    .media-header .icon img{width:30px;height:20px; margin-top: 16px;}
+    .media-header .logo{width:100px;position: absolute;left:50%;margin-left: -38px;}
+    .media-header .logo img{width: 72px;height: 40px;margin-top: 8px;}
+    .media-header .cart a{background-image: url(../img/app_cart.png);background-repeat:no-repeat;width:20px;height:21px;display: inline-block;margin-top: 19px;}
     .media-header .user,.media-header .cart{float:right;color:#fff;margin-right: 14px;}
-    .media-header .user a{background-image: url(../img/ren.png);background-repeat:no-repeat;width:20px;height:23px;display: inline-block;margin-top: 7px;}
+    .media-header .user a{background-image: url(../img/ren.png);background-repeat:no-repeat;width:20px;height:23px;display: inline-block;margin-top: 17px;}
 
     .media-header .address{position: relative;}
     .media-header .address a{display: inline-block;}
-    .media-header .address span{display: block;background: url(../img/byod_sec.png) no-repeat;width:12px;height: 7px;float: right;margin-top: 15px;margin-left: 5px;}
+    .media-header .address span{display: block;background: url(../img/byod_sec.png) no-repeat;width:12px;height: 7px;float: right;margin-top: 24px;margin-left: 5px;}
     .media-header .address ul{z-index:99;background: #b9d7df;width: 90px;position: absolute;left:0px;text-align: center;display: none;}
-    .media-header .address li{background: #b9d7df;border-top:1px solid #ccc;cursor:pointer;}
+    .media-header .address li{background: #b9d7df;border-top:1px solid #ccc;cursor:pointer;line-height: 35px;}
     .media-header .address li:hover{color: #ff7238;}
 
-    .media-header .nav{font-size:12px;display:none;position: absolute;top:35px;left:0;z-index: 99;background: #b9d7df;width: 38%;}
+    .media-header .nav{font-size:12px;display:none;position: absolute;top:56px;left:0;z-index: 99;background: #b9d7df;width: 38%;}
     .media-header .nav li{clear:both;line-height: 30px;border-top:1px solid #eee;color:#fff;font-size: 14px;padding-left: 10px;position: relative;}
     .media-header .nav li a{display: inline-block;width: 100%;font-size:12px;}
     .media-header .nav li a:hover{border-bottom: none;}

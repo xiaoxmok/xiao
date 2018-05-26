@@ -122,6 +122,17 @@
     </div>
 
 </div>
+
+<div class="zhezhao"></div>
+<div class="pop">
+    <h3>联系我们</h3>
+    <a href="javascript:;" class="cls">X</a>
+    <div class="con">
+        <p>联系邮箱：byodgoods@byod.com</p>
+        <p>联系电话：13813212121</p>
+    </div>
+</div>
+
 @@include('./view/footer.html')
 <script src="./../public/js/lib/swiper-4.2.2.min.js"></script>
 <script>
@@ -136,7 +147,16 @@
             pagination: {
                 el: '.swiper-pagination',
             },
-        })
+        });
+
+        $('.contact ').click(function(){
+            $('.zhezhao').show();
+            $('.pop').show();
+        });
+        $('.cls ').click(function(){
+            $('.zhezhao').hide();
+            $('.pop').hide();
+        });
 
 
         var value = $('.btnNum .text').val();
