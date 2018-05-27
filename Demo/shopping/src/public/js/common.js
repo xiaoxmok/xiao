@@ -137,7 +137,7 @@ $(function () {
 });
 
 
-var url = '';
+//var url = '';
 var url = 'xiao/Demo/shopping/dist/';
 
 

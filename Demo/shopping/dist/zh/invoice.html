@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>提交订单</title>
+    <title>打印发票</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="keywords" content="" />
     <meta name="description" content=""/>
@@ -13,7 +13,7 @@
     <script src="../public/js/common.js"></script>
     <link rel="stylesheet" href="../public/css/submitOrder.css">
 </head>
-<body class="on5">
+<body>
 <!--header页面-->
 <div class="header">
     <div class="content">
@@ -103,91 +103,11 @@
 <div class="main">
     <div class="process">
         <a href="./index.html">BYOD平台</a> >
-        <a href="javascript:;">提交订单</a>
+        <a href="javascript:;">打印发票</a>
     </div>
-    <!--收货地址-->
-    <div class="shipping">
-        <div class="box">
-            <p>收货地址</p>
-            <a href="addAddress.html">新增收货地址</a>
-        </div>
-        <div class="con">
-            <p>
-                <input type="radio" name="addr" id="addr1" checked><label for="addr1"><span>小明</span><span>广东深圳福田华强路101号</span><span>1388888888</span>(默认)<span></span></label>
-            </p>
-            <p>
-                <input type="radio" name="addr" id="addr2"><label for="addr2"><span>小明</span><span>广东深圳福田华强路101号</span><span>1388888888</span></label>
-            </p>
-            <p>
-                <input type="radio" name="addr" id="addr3"><label for="addr3"><span>小明</span><span>广东深圳福田华强路101号</span><span>1388888888</span></label>
-            </p>
-        </div>
-    </div>
-    <!--确认订单信息-->
-    <div class="confirm">
-        <div class="box">
-            <p>确认订单信息</p>
-        </div>
-        <div class="con">
-            <table>
-                <tr>
-                    <td>
-                        <div class="img"><img src="../public/img/order.png" alt=""></div>
-                        <div class="con">
-                            <p class="title">21.5寸iMac-Retina 4k Display</p>
-                            <span class="price">￥<em>5288.00</em></span>
-                            <span class="amountM">X1</span>
-                        </div>
-                    </td>
-                    <td class="td3">
-                        X1
-                    </td>
-                    <td>￥5288.00</td>
-                    <td class="operate">
-                        <a href="javascript:;">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="img"><img src="../public/img/order.png" alt=""></div>
-                        <div class="con">
-                            <p class="title">21.5寸iMac-Retina 4k Display</p>
-                            <span class="price">￥<em>5288.00</em></span>
-                            <span class="amountM">X1</span>
-                        </div>
-                    </td>
-                    <td class="td3">
-                        X1
-                    </td>
-                    <td>￥5288.00</td>
-                    <td class="operate">
-                        <a href="javascript:;">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="img"><img src="../public/img/order.png" alt=""></div>
-                        <div class="con">
-                            <p class="title">21.5寸iMac-Retina 4k Display</p>
-                            <span class="price">￥<em>5288.00</em></span>
-                            <span class="amountM">X1</span>
-                        </div>
-                    </td>
-                    <td class="td3">
-                        X1
-                    </td>
-                    <td>￥5288.00</td>
-                    <td class="operate">
-                        <a href="javascript:;">删除</a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <!--确认发票信息-->
     <div class="invoice">
         <div class="box">
-            <p>确认发票信息</p>
+            <p>打印发票</p>
         </div>
         <div class="con">
             <div class="invoiceInfo">
@@ -263,26 +183,13 @@
                     <span class="title">详细地址：</span><input type="text" placeholder="请输入详细地址">
                 </div>
             </div>
+            <div class="btn">
+                <a href="javascript:;" class="submit">打印发票</a>
+            </div>
         </div>
-    </div>
-    <!--确认留言-->
-    <div class="message">
-        <div class="box">
-            <p>确认留言</p>
-        </div>
-        <div class="con">
-            <span>留言内容：</span>
-            <textarea name="" cols="30" rows="5" placeholder="留言吧"></textarea>
-        </div>
-    </div>
-    <!--提交-->
-    <div class="Clearing">
-        <a href="./payment.html">提交订单</a>
-        <span class="all">应付金额：<em>￥0.00</em></span>
-        <span class="amount"><em>3</em>件商品</span>
+
     </div>
 </div>
-
 <!--尾部-->
 <div class="footer">
     <div class="content">

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>完善资料</title>
+    <title>调查问券</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="keywords" content="" />
     <meta name="description" content=""/>
@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="./../public/css/common.css">
     <script src="./../public/js/lib/jquery-3.1.0.js"></script>
     <script src="../public/js/common.js"></script>
+    <link rel="stylesheet" href="../public/css/questionnaire.css">
 </head>
-<body class="on5">
+<body>
 <!--header页面-->
 <div class="header">
     <div class="content">
@@ -99,63 +100,35 @@
 
     </div>
 </div>
-<div class="main">
-
+<div class="main questionnaire">
     <div class="process">
         <a href="./index.html">BYOD平台</a> >
-        <a href="javascript:;">完善资料</a>
+        <a href="javascript:;">调查问券</a>
+    </div>
+    <h3 class="title">调查问券</h3>
+    <div class="question">
+        <h4>请选择您的预算范围</h4>
+        <p><input type="radio" id="radio1_1" name="radio1" checked><label for="radio1_1">7000到8000</label></p>
+        <p><input type="radio" id="radio1_2" name="radio1"><label for="radio1_2">8000到10000</label></p>
+        <p><input type="radio" id="radio1_3" name="radio1"><label for="radio1_3">10000到12000</label></p>
+        <p><input type="radio" id="radio1_4" name="radio1"><label for="radio1_4">12000到15000</label></p>
+    </div>
+    <div class="question">
+        <h4>请选择您预计的使用年限</h4>
+        <p><input type="radio" id="radio2_1" name="radio2" checked><label for="radio2_1">1到2年</label></p>
+        <p><input type="radio" id="radio2_2" name="radio2"><label for="radio2_2">3到5年</label></p>
+        <p><input type="radio" id="radio2_3" name="radio2"><label for="radio2_3">5到10年</label></p>
+    </div>
+    <div class="question">
+        <h4>请选择您想要的便携度</h4>
+        <p><input type="radio" id="radio3_1" name="radio3" checked><label for="radio3_1">很便携</label></p>
+        <p><input type="radio" id="radio3_2" name="radio3"><label for="radio3_2">较便携</label></p>
+        <p><input type="radio" id="radio3_3" name="radio3"><label for="radio3_3">不便携</label></p>
     </div>
 
-    <div class="userLogin prefect">
-        <div class="title">
-            <p>完善资料</p>
-        </div>
-        <div class="con">
-            <div class="box">
-                <strong>*</strong><span><input name="sex" type="radio" id="male" checked value="0" class="sex"><label for="male">男</label></span><span><input name="sex" type="radio" id="female" value="1" class="sex"><label for="female">女</label></span>
-            </div>
-            <div class="box">
-                <strong>*</strong><span><input name="role" type="radio" id="student" checked value="0" class="role"><label for="student">学生</label></span><span><input name="role" type="radio" id="teacher" value="1" class="role"><label for="teacher">老师</label></span><span><input name="role" type="radio" id="worker" value="2" class="role"><label for="worker">教职员工</label></span>
-            </div>
-            <div class="box">
-                <select class="select" id="schoolSearch">
-                    <option value="">东校区</option>
-                    <option value="">西校区</option>
-                    <option value="">南校区</option>
-                    <option value="">北校区</option>
-                </select>
-            </div>
-            <div class="box">
-                <input class="input name" type="text" placeholder="请输入姓名">
-            </div>
-            <div class="box">
-                <input class="input no" type="text" placeholder="请输入学号">
-            </div>
-            <div class="text">
-                <p class="defalutAddress">默认配送地址：<span></span></p>
-                <a href="./addressManagement.html">配送地址管理</a>
-            </div>
-            <div class="info_text">
-                <p class="sw">订单邮件通知：</p>
-                <i class="switch">
-                    <label class="switch_on" for="check-1"></label>
-                    <input type="checkbox" id="check-1" checked="checked">
-                </i>
-            </div>
-            <div class="info_text">
-                <span class="sw">订单短信通知：</span>
-                <i class="switch">
-                    <label class="switch_off" for="check-2"></label>
-                    <input type="checkbox" id="check-2" checked="checked">
-                </i>
-            </div>
-            <p class="error"></p>
-            <div class="btn">
-                <a class="submit" href="javascript:;">完成</a>
-            </div>
-        </div>
+    <div class="btn">
+        <a href="javascript:;">提交</a>
     </div>
-
 
 </div>
 <!--尾部-->
@@ -164,23 +137,5 @@
         <p>ICP备案：XXXXXX</p>
     </div>
 </div>
-<script src="../public/js/lib/jquery.md5.js"></script>
-<script src="../public/js/set_user_info.js"></script>
-<script>
-    $(function(){
-        /*  switch按钮的切换事件 */
-        $(".switch label").on("click",function(){
-            var labelclass = $(this).attr("class");
-            var check = $(this).siblings("input");
-            if(labelclass == "switch_on"){
-                check.attr("checked",false);
-                $(this).attr("class","switch_off");
-            }else{
-                check.attr("checked",true);
-                $(this).attr("class","switch_on");
-            }
-        });
-    })
-</script>
 </body>
 </html>

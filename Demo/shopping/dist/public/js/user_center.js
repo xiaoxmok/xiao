@@ -107,7 +107,7 @@ $(function () {
                                 '                <td>￥'+item.price+'</td>\n' +
                                 '                <td class="operate">\n' +
                                 '                    <a href="./ordersDetail.html?id='+item.no+'">查看详情</a>\n' +
-                                '                    <a href="javascript:;">开具发票</a>\n' +
+                                '                    <a href="./invoice.html">开具发票</a>\n' +
                                 '                    <a href="./returns.html?id='+item.no+'">退换货</a>\n' +
                                 '                </td>\n' +
                                 '            </tr>';
@@ -124,7 +124,7 @@ $(function () {
                                 '                    </div>\n' +
                                 '                    <div class="down">\n' +
                                 '                        <a href="./ordersDetail.html">查看详情</a>\n' +
-                                '                        <a href="javascript:;">开具发票</a>\n' +
+                                '                        <a href="./invoice.html">开具发票</a>\n' +
                                 '                        <a href="./returns.html?id='+item.no+'">退换货</a>\n' +
                                 '                    </div>\n' +
                                 '                </li>';
