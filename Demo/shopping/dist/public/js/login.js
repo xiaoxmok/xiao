@@ -4,16 +4,30 @@ $(function(){
     }
 
     $('.loging').click(function(){
-        var account,password;
+        var account,password,phone,email,loginData;
         $('.error').html('');
 
         var value = $('#select').children('option:selected').val();
+
+        password= $('.password').val();
+        if(!CheckPwd(password)){
+            $('.error').html('密码不合法，输入5-15位数！');
+            return;
+        }
+        //password = $.md5(value+'shop'+password);
+        //console.log(password);
 
         if(value === 'phone'){
             account = $('.account').val();
             if(!CheckMobile(account)){
                 $('.error').html('账号格式不正确！');
                 return;
+            }
+            loginData = {
+                verify_type:value,
+                phone:account,
+                password:password
+
             }
 
         }else if(value === 'email'){
@@ -22,22 +36,12 @@ $(function(){
                 $('.error').html('邮箱格式不正确！');
                 return;
             }
-        }
+            loginData = {
+                verify_type:value,
+                email:account,
+                password:password
 
-        password= $('.password').val();
-        if(!CheckPwd(password)){
-            $('.error').html('密码不合法，输入5-15位数！');
-            return;
-        }
-        //password = $.md5(value+'shop'+password);
-        console.log(password);
-
-        var loginData = {
-            verify_type:value,
-            phone:account,
-            email:account,
-            password:password
-
+            }
         }
 
         $.ajax({
@@ -47,7 +51,7 @@ $(function(){
             data:loginData,
             success:function(data){
                 console.log(data);
-                if(data.success === '200'){
+                if(data.code === 200){
                     // cookie记录token
                     getCookie("token", data.token, {
                         expires: 30,

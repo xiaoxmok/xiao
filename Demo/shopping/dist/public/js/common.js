@@ -137,7 +137,7 @@ $(function () {
 });
 
 
-//var url = '';
+var urlL = '';
 //var url = 'xiao/Demo/shopping/dist/';
 var url = 'http://byod.1o24.com';
 

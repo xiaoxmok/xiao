@@ -9,7 +9,7 @@ $(function () {
     $.ajax({
         type: 'GET',
         //url:'/web/school/search?keyword=',
-        url: '/'+url+'public/json/school-search.json',
+        url: '/'+urlL+'public/json/school-search.json',
         dataType: 'json',
         //jsonp:"callback",
         //callback:"pmJson",
@@ -45,7 +45,7 @@ $(function () {
     $('.code').click(function(){
 
         $('.error').html('');
-        var account;
+        var account,verifyData;
         var value = $('#select').children('option:selected').val();
 
         if(value === 'phone'){
@@ -54,6 +54,10 @@ $(function () {
                 $('.error').html('账号格式不正确！');
                 return;
             }
+            verifyData={
+                verify_type:value,
+                phone:account
+            };
 
         }else if(value === 'email'){
             account = $('.account').val();
@@ -61,6 +65,10 @@ $(function () {
                 $('.error').html('邮箱格式不正确！');
                 return;
             }
+            verifyData={
+                verify_type:value,
+                email:account
+            };
         }
 
 
@@ -81,7 +89,7 @@ $(function () {
 
         var verifyData={
             verify_type:value,
-            email:account,
+            //email:account,
             phone:account
         };
 
@@ -112,25 +120,10 @@ $(function () {
 
     // 注册
     $('.register').click(function(){
-        var account,password,valid_code,school_id;
+        var account,password,valid_code,school_id,registeData;
         $('.error').html('');
 
         var value = $('#select').children('option:selected').val();
-
-        if(value === 'phone'){
-            account = $('.account').val();
-            if(!CheckMobile(account)){
-                $('.error').html('账号格式不正确！');
-                return;
-            }
-
-        }else if(value === 'email'){
-            account = $('.account').val();
-            if(!CheckEmail(account)){
-                $('.error').html('邮箱格式不正确！');
-                return;
-            }
-        }
 
         valid_code = $('.valid_code').val();
         if(!CheckCode(valid_code)){
@@ -146,13 +139,43 @@ $(function () {
 
         school_id = $('#schoolSearch').children('option:selected').val();
 
+        if(value === 'phone'){
+            account = $('.account').val();
+            if(!CheckMobile(account)){
+                $('.error').html('账号格式不正确！');
+                return;
+            }
+            registeData={
+                verify_type:value,
+                phone:account,
+                verify_code:valid_code,
+                password:password,
+                school_region_id:school_id
+            }
+
+        }else if(value === 'email'){
+            account = $('.account').val();
+            if(!CheckEmail(account)){
+                $('.error').html('邮箱格式不正确！');
+                return;
+            }
+            registeData={
+                verify_type:value,
+                email:account,
+                verify_code:valid_code,
+                password:password,
+                school_region_id:school_id
+            }
+        }
+
         $.ajax({
-            type:'GET',
-            //url:'/web/register?'+value+'='+account+'&password='+password+'&school_id'+school_id+'&valid_code='+valid_code,
-            url:'/'+url+'public/json/register.json?'+value+'='+account+'&password='+password+'&school_id='+school_id+'&valid_code='+valid_code,
+            type:'POST',
+            url:url+'/api/v1/user/register',
             dataType:'json',
+            data:registeData,
             success:function(data){
-                if(data.success === '0'){
+                //console.log(data.code,typeof data.code);
+                if(data.code === 200){
                     // console.log('注册成功。');
                     $('.error').html('注册成功，自动跳转登录页面。');
                     setTimeout(function () {
