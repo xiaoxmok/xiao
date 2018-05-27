@@ -29,19 +29,25 @@ $(function(){
             $('.error').html('密码不合法，输入5-15位数！');
             return;
         }
-        password = $.md5(value+'shop'+password);
+        //password = $.md5(value+'shop'+password);
         console.log(password);
 
+        var loginData = {
+            verify_type:value,
+            phone:account,
+            email:account,
+            password:password
+
+        }
+
         $.ajax({
-            type:'GET',
-            //url:'/web/login?'+value+'='+account+'&password='+password,
-            url:'/'+url+'public/json/login.json?'+value+'='+account+'&password='+password,
+            type:'POST',
+            url:url+'/api/v1/user/login',
             dataType:'json',
-            //jsonp:"callback",
-            //callback:"pmJson",
+            data:loginData,
             success:function(data){
-                //console.log(data);
-                if(data.success === '0'){
+                console.log(data);
+                if(data.success === '200'){
                     // cookie记录token
                     getCookie("token", data.token, {
                         expires: 30,

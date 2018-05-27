@@ -137,8 +137,9 @@ $(function () {
 });
 
 
-var url = '';
-var url = 'xiao/Demo/shopping/dist/';
+//var url = '';
+//var url = 'xiao/Demo/shopping/dist/';
+var url = 'http://byod.1o24.com';
 
 
 /*常见问题*/

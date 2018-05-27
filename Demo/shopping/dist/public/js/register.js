@@ -45,19 +45,22 @@ $(function () {
     $('.code').click(function(){
 
         $('.error').html('');
-        var phone;
+        var account;
         var value = $('#select').children('option:selected').val();
 
         if(value === 'phone'){
-            phone = $('.account').val();
-            if(!CheckMobile(phone)){
-                $('.error').html('手机号码不正确！');
+            account = $('.account').val();
+            if(!CheckMobile(account)){
+                $('.error').html('账号格式不正确！');
                 return;
             }
 
         }else if(value === 'email'){
-            $('.error').html('请选择手机');
-            return;
+            account = $('.account').val();
+            if(!CheckEmail(account)){
+                $('.error').html('邮箱格式不正确！');
+                return;
+            }
         }
 
 
@@ -76,11 +79,17 @@ $(function () {
             }
         }
 
+        var verifyData={
+            verify_type:value,
+            email:account,
+            phone:account
+        };
+
         $.ajax({
-            type:'GET',
-            //url:'/public/json/phone_valid_code.json?phone='+phone,
-            url:'/'+url+'public/json/phone_valid_code.json?phone='+phone,
+            type:'POST',
+            url:url+'/api/v1/user/send-verify-code',
             dataType:'json',
+            data:verifyData,
             success:function(data){
                 if(data.success === '0'){
                     console.log('获取验证码成功！');
