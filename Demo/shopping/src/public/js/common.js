@@ -43,6 +43,26 @@ var getCookie = function (name, value, options) {
     }
 };
 
+//删除cookies
+function delAllCookie(){
+    var myDate=new Date();
+    myDate.setTime(-1000);//设置时间
+    var data=document.cookie;
+    var dataArray=data.split("; ");
+    for(var i=0;i<dataArray.length;i++){
+        var varName=dataArray[i].split("=");
+        document.cookie=varName[0]+"=''; expires="+myDate.toGMTString();
+        console.log(myDate.toGMTString())
+    }
+
+}
+function delCookie(name) {                   //删除一个cookie
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval=getCookie(name);
+    if(cval!=null)
+        document.cookie= name + "="+cval+";expires="+exp.toUTCString();
+}
 
 /**
  * 设置语言类型： 默认为中文

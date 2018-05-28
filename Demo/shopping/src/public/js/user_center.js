@@ -9,7 +9,7 @@ $(function () {
     $.ajax({
         type: 'GET',
         //url:'/web/user_center',
-        url: '/'+url+'public/json/user_center.json',
+        url: '/'+urlL+'public/json/user_center.json',
         dataType: 'json',
         beforeSend: function (request) {
             var time = new Date().getTime();
@@ -80,7 +80,7 @@ $(function () {
         $.ajax({
             type: 'GET',
             //url:'/web/orders?page_size=10&page_num=1',
-            url: '/'+url+'public/json/orders.json?page_size=10&page_num=1',
+            url: '/'+urlL+'public/json/orders.json?page_size=10&page_num=1',
             dataType: 'json',
             beforeSend: function (request) {
                 var time = new Date().getTime();
@@ -177,7 +177,7 @@ $(function () {
         $.ajax({
             type:'GET',
             //url:'/web/collect?page_size=10&page_num=1',
-            url:'/'+url+'public/json/collect.json?page_size=10&page_num=1',
+            url:'/'+urlL+'public/json/collect.json?page_size=10&page_num=1',
             dataType:'json',
             beforeSend:function(request){
                 var time = new Date().getTime();
@@ -261,4 +261,30 @@ $(function () {
                 break;
         }
     })
+
+    // 退出登录
+    $('.signOut').click(function(){
+        var signOutData = {
+            token:token,
+        }
+        delCookie('token');
+        $.ajax({
+            type:'POST',
+            url:url+'/api/v1/user/logout',
+            dataType:'json',
+            data:signOutData,
+            success:function(data){
+                if(data.code === 200){
+                    //delAllCookie();
+                    setTimeout(function () {
+                        //location.href = "index.html"
+                    }, 2000);
+                }
+            },
+            error:function(xhr,status,error){
+
+            }
+        })
+
+    });
 });

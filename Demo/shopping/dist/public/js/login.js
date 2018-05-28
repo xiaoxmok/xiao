@@ -53,36 +53,36 @@ $(function(){
                 console.log(data);
                 if(data.code === 200){
                     // cookie记录token
-                    getCookie("token", data.token, {
+                    getCookie("token", data.data.token, {
                         expires: 30,
                         path: '/'
                     });
 
                     // cookie记录用户名
-                    getCookie("username", data.userinfo.name, {
+                    /*getCookie("username", data.userinfo.name, {
                         expires: 30,
                         path: '/'
-                    });
+                    });*/
 
                     // cookie记录学校
-                    getCookie("school", data.userinfo.school.name, {
+                    /*getCookie("school", data.userinfo.school.name, {
                         expires: 30,
                         path: '/'
-                    });
+                    });*/
 
                     // cookie记录城市
-                    getCookie("address", data.userinfo.school.city_id, {
+                    /*getCookie("address", data.userinfo.school.city_id, {
                         expires: 30,
                         path: '/'
-                    });
+                    });*/
 
                     // cookie记录语言
-                    getCookie("address", data.userinfo.lang, {
+                    /*getCookie("address", data.userinfo.lang, {
                         expires: 30,
                         path: '/'
-                    });
+                    });*/
 
-                    $('.welcome').html('Dear '+data.userinfo.name+',欢迎访问'+data.userinfo.school.name+'专属页面。');
+                    //$('.welcome').html('Dear '+data.userinfo.name+',欢迎访问'+data.userinfo.school.name+'专属页面。');
 
                     $('.error').html('登录成功，2秒后进入首页。');
 
