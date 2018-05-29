@@ -51,8 +51,7 @@ function delAllCookie(){
     var dataArray=data.split("; ");
     for(var i=0;i<dataArray.length;i++){
         var varName=dataArray[i].split("=");
-        document.cookie=varName[0]+"=''; expires="+myDate.toGMTString();
-        console.log(myDate.toGMTString())
+        document.cookie=varName[0]+"=''; expires="+myDate.toUTCString()+';path=/';
     }
 
 }
@@ -61,7 +60,7 @@ function delCookie(name) {                   //删除一个cookie
     exp.setTime(exp.getTime() - 1);
     var cval=getCookie(name);
     if(cval!=null)
-        document.cookie= name + "="+cval+";expires="+exp.toUTCString();
+        document.cookie= name + "="+cval+";expires="+exp.toUTCString()+';path=/';
 }
 
 /**
@@ -73,7 +72,7 @@ if (getCookie("userLanguage")) {
     i18nLanguage = getCookie("userLanguage");
     //console.log('i18nLanguage:',i18nLanguage)
 } else {
-    i18nLanguage = "0";
+    i18nLanguage = "zh";
     getCookie("userLanguage", i18nLanguage, {
         expires: 30,
         path: '/'
@@ -90,7 +89,7 @@ $(function () {
        */
     if (getCookie("address")) {
         address = getCookie("address");
-        if (i18nLanguage === '0') {
+        if (i18nLanguage === 'zh') {
             if (address === '1') {
                 $('.address a').html('深圳');
             } else {

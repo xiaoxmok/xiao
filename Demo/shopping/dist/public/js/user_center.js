@@ -267,7 +267,6 @@ $(function () {
         var signOutData = {
             token:token,
         }
-        delCookie('token');
         $.ajax({
             type:'POST',
             url:url+'/api/v1/user/logout',
@@ -275,9 +274,9 @@ $(function () {
             data:signOutData,
             success:function(data){
                 if(data.code === 200){
-                    //delAllCookie();
+                    delAllCookie();
                     setTimeout(function () {
-                        //location.href = "index.html"
+                        location.href = "index.html"
                     }, 2000);
                 }
             },
