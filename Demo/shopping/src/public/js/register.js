@@ -9,30 +9,20 @@ $(function () {
     $.ajax({
         type: 'GET',
         //url:'/web/school/search?keyword=',
-        url: '/'+urlL+'public/json/school-search.json',
+        url: url+'/api/v1/school/index',
         dataType: 'json',
-        //jsonp:"callback",
-        //callback:"pmJson",
-        beforeSend: function (request) {
-            var time = new Date().getTime();
-            var secure_token = $.md5(token+'shop'+time);
-
-            request.setRequestHeader("token", token);
-            request.setRequestHeader("time", time);
-            request.setRequestHeader("secure_token", secure_token);
-        },
         success: function (data) {
             //console.log("data", data);
-            if (data.success === '0') {
+            if (data.code === 200) {
                 for (var i = 0; i < data.data.length; i++) {
                     var html = '<option value="' + data.data[i].id + '">' + data.data[i].name + '</option>';
                     $('#schoolSearch').append(html);
                 }
 
             } else {
-                var html = '<option value="error">' + data.detail + '</option>';
+                var html = '<option value="error">' + data.msg + '</option>';
                 $('#schoolSearch').append(html);
-                $('.error').html(data.detail);
+                $('.error').html(data.msg);
             }
         },
         error: function (xhr, status, error) {
