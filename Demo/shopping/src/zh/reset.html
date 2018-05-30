@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重置密码</title>
+    @@include('./view/meta.html')
+    <link rel="stylesheet" href="../public/css/login.css">
+</head>
+<body class="on5">
+@@include('./view/header.html')
+@@include('./view/header-bar.html')
+<div class="main">
+    <div class="process">
+        <a href="./index.html" class="i18n" data-name="byod">BYOD平台</a> >
+        <a href="javascript:;" class="i18n" data-name="registered">重置密码</a>
+    </div>
+
+    <div class="userLogin">
+        <div class="title">
+            <p>重置密码</p>
+        </div>
+        <div class="logo"></div>
+        <div class="con">
+
+            <div class="box">
+                <select class="mr10" id="select">
+                    <option value="phone">手机</option>
+                    <option value="email">邮箱</option>
+                </select>
+                <input type="text" class="account" placeholder="请输入账户">
+            </div>
+            <div class="box">
+                <input type="text" class="valid_code" placeholder="验证码">
+                <a class="code" href="javascript:;">获取验证码</a>
+                <a class="countDown" href="javascript:;" style="display: none;">(<span class="timeOut"></span>s)重新发送</a>
+            </div>
+            <div class="box">
+                <input type="password" class="password" placeholder="请输入密码">
+            </div>
+            <div class="box">
+                <input type="password" class="confirmation" placeholder="请确认密码">
+            </div>
+            <p class="error"></p>
+            <div class="btn">
+                <a class="reset" href="javascript:;">提交</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+@@include('./view/footer.html')
+<script src="../public/js/reset.js"></script>
+</body>
+</html>

@@ -21,17 +21,17 @@
         </div>
         <div class="con">
             <div class="box">
-                <strong>*</strong><span><input name="sex" type="radio" id="male" checked value="0" class="sex"><label for="male">男</label></span><span><input name="sex" type="radio" id="female" value="1" class="sex"><label for="female">女</label></span>
+                <strong>*</strong><span><input name="sex" type="radio" id="male" checked value="male" class="sex"><label for="male">男</label></span><span><input name="sex" type="radio" id="female" value="female" class="sex"><label for="female">女</label></span>
             </div>
             <div class="box">
-                <strong>*</strong><span><input name="role" type="radio" id="student" checked value="0" class="role"><label for="student">学生</label></span><span><input name="role" type="radio" id="teacher" value="1" class="role"><label for="teacher">老师</label></span><span><input name="role" type="radio" id="worker" value="2" class="role"><label for="worker">教职员工</label></span>
+                <strong>*</strong><span><input name="role" type="radio" id="student" checked value="student" class="role"><label for="student">学生</label></span><span><input name="role" type="radio" id="teacher" value="teacher" class="role"><label for="teacher">老师</label></span><span><input name="role" type="radio" id="staff" value="staff" class="role"><label for="staff">教职员工</label></span>
             </div>
             <div class="box">
                 <select class="select" id="schoolSearch">
-                    <option value="">东校区</option>
+                    <!--<option value="">东校区</option>
                     <option value="">西校区</option>
                     <option value="">南校区</option>
-                    <option value="">北校区</option>
+                    <option value="">北校区</option>-->
                 </select>
             </div>
             <div class="box">
@@ -72,18 +72,7 @@
 <script src="../public/js/set_user_info.js"></script>
 <script>
     $(function(){
-        /*  switch按钮的切换事件 */
-        $(".switch label").on("click",function(){
-            var labelclass = $(this).attr("class");
-            var check = $(this).siblings("input");
-            if(labelclass == "switch_on"){
-                check.attr("checked",false);
-                $(this).attr("class","switch_off");
-            }else{
-                check.attr("checked",true);
-                $(this).attr("class","switch_on");
-            }
-        });
+
     })
 </script>
 </body>

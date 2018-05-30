@@ -105,7 +105,7 @@ $(function () {
                     }, 2000);
 
                 } else {
-                    $('.error').html('登录失败');
+                    $('.error').html(data.msg);
                 }
             },
             error: function (xhr, status, error) {

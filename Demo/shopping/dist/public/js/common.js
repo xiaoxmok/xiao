@@ -196,10 +196,11 @@ $(function(){
         if(!isMobile){
             $('.logined').show();
         }
-        var username = getCookie("username");
-        var school = getCookie("school");
 
-        $('.welcome').html('Dear '+username+',欢迎访问'+school+'专属页面。');
+        var token = getCookie("token");
+        var getUser = api.getUser(token);
+
+        $('.welcome').html('Dear '+getUser.name+',欢迎访问'+getUser.school_no+'专属页面。');
     }else{
         $('.login').hide();
         $('.loging').show();

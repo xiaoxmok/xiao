@@ -77,28 +77,20 @@ $(function () {
             }
         }
 
-        var verifyData={
-            verify_type:value,
-            //email:account,
-            phone:account
-        };
-
         $.ajax({
             type:'POST',
             url:url+'/api/v1/user/send-verify-code',
             dataType:'json',
             data:verifyData,
             success:function(data){
-                if(data.success === '0'){
+                if(data.code === 200){
                     console.log('获取验证码成功！');
                     $('.timeOut').html(time);
                     time1=setInterval(timeOut,1000);
                     $('.code').hide();
                     $('.countDown').show();
-
-
                 }else{
-                   $('.error').html(data.detail);
+                   $('.error').html(data.msg);
                 }
             },
             error:function(xhr, status, error){

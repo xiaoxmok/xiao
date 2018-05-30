@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>完善资料</title>
+    <title>重置密码</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="keywords" content="" />
     <meta name="description" content=""/>
@@ -12,6 +12,7 @@
     <script src="./../public/js/lib/jquery-3.1.0.js"></script>
     <script src="../public/js/common.js"></script>
     <script src="../public/js/api.js"></script>
+    <link rel="stylesheet" href="../public/css/login.css">
 </head>
 <body class="on5">
 <!--header页面-->
@@ -101,62 +102,42 @@
     </div>
 </div>
 <div class="main">
-
     <div class="process">
-        <a href="./index.html">BYOD平台</a> >
-        <a href="javascript:;">完善资料</a>
+        <a href="./index.html" class="i18n" data-name="byod">BYOD平台</a> >
+        <a href="javascript:;" class="i18n" data-name="registered">重置密码</a>
     </div>
 
-    <div class="userLogin prefect">
+    <div class="userLogin">
         <div class="title">
-            <p>完善资料</p>
+            <p>重置密码</p>
         </div>
+        <div class="logo"></div>
         <div class="con">
+
             <div class="box">
-                <strong>*</strong><span><input name="sex" type="radio" id="male" checked value="male" class="sex"><label for="male">男</label></span><span><input name="sex" type="radio" id="female" value="female" class="sex"><label for="female">女</label></span>
-            </div>
-            <div class="box">
-                <strong>*</strong><span><input name="role" type="radio" id="student" checked value="student" class="role"><label for="student">学生</label></span><span><input name="role" type="radio" id="teacher" value="teacher" class="role"><label for="teacher">老师</label></span><span><input name="role" type="radio" id="staff" value="staff" class="role"><label for="staff">教职员工</label></span>
-            </div>
-            <div class="box">
-                <select class="select" id="schoolSearch">
-                    <!--<option value="">东校区</option>
-                    <option value="">西校区</option>
-                    <option value="">南校区</option>
-                    <option value="">北校区</option>-->
+                <select class="mr10" id="select">
+                    <option value="phone">手机</option>
+                    <option value="email">邮箱</option>
                 </select>
+                <input type="text" class="account" placeholder="请输入账户">
             </div>
             <div class="box">
-                <input class="input name" type="text" placeholder="请输入姓名">
+                <input type="text" class="valid_code" placeholder="验证码">
+                <a class="code" href="javascript:;">获取验证码</a>
+                <a class="countDown" href="javascript:;" style="display: none;">(<span class="timeOut"></span>s)重新发送</a>
             </div>
             <div class="box">
-                <input class="input no" type="text" placeholder="请输入学号">
+                <input type="password" class="password" placeholder="请输入密码">
             </div>
-            <div class="text">
-                <p class="defalutAddress">默认配送地址：<span></span></p>
-                <a href="./addressManagement.html">配送地址管理</a>
-            </div>
-            <div class="info_text">
-                <p class="sw">订单邮件通知：</p>
-                <i class="switch">
-                    <label class="switch_on" for="check-1"></label>
-                    <input type="checkbox" id="check-1" checked="checked">
-                </i>
-            </div>
-            <div class="info_text">
-                <span class="sw">订单短信通知：</span>
-                <i class="switch">
-                    <label class="switch_off" for="check-2"></label>
-                    <input type="checkbox" id="check-2" checked="checked">
-                </i>
+            <div class="box">
+                <input type="password" class="confirmation" placeholder="请确认密码">
             </div>
             <p class="error"></p>
             <div class="btn">
-                <a class="submit" href="javascript:;">完成</a>
+                <a class="reset" href="javascript:;">提交</a>
             </div>
         </div>
     </div>
-
 
 </div>
 <!--尾部-->
@@ -165,12 +146,6 @@
         <p>ICP备案：XXXXXX</p>
     </div>
 </div>
-<script src="../public/js/lib/jquery.md5.js"></script>
-<script src="../public/js/set_user_info.js"></script>
-<script>
-    $(function(){
-
-    })
-</script>
+<script src="../public/js/reset.js"></script>
 </body>
 </html>
