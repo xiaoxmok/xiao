@@ -22,7 +22,7 @@
 .userName div{float:left;}
 .userName .person{width:80%;}
 .userName .person div{margin-bottom: 10px;}
-.userName .person span{margin-right: 40px;color:#999;font-size: 14px;}
+.userName .person span{margin-right: 20px;color:#999;font-size: 14px;}
 .userName .person .name{font-size: 18px;font-weight: bold;color: #000;}
 .userName .person .tuijian em{background: url(../img/3.png) no-repeat;display: inline-block;width:30px;height:31px;}
 .userName .person .tuijian a{color:#50b7b4;}

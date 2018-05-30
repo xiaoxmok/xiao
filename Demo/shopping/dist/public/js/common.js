@@ -13,7 +13,9 @@ var getCookie = function (name, value, options) {
             var date;
             if (typeof options.expires == 'number') {
                 date = new Date();
-                date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
+                date.setTime(date.getTime() + (options.expires * 60 * 60 * 1000));
+                console.log(date.getTime());
+                console.log(options.expires * 60 * 60 * 1000);
             } else {
                 date = options.expires;
             }
@@ -199,8 +201,9 @@ $(function(){
 
         var token = getCookie("token");
         var getUser = api.getUser(token);
+        var getSchool = api.getSchool(getUser.id,i18nLanguage);
 
-        $('.welcome').html('Dear '+getUser.name+',欢迎访问'+getUser.school_no+'专属页面。');
+        $('.welcome').html('Dear '+getUser.name+',欢迎访问'+getSchool.name+'专属页面。');
     }else{
         $('.login').hide();
         $('.loging').show();

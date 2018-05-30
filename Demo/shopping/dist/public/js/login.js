@@ -59,7 +59,7 @@ $(function () {
 
                     // cookie记录token
                     getCookie("token", data.data.token, {
-                        expires: 30,
+                        expires: 1,
                         path: '/'
                     });
 
@@ -73,16 +73,16 @@ $(function () {
                     }
 
                     // cookie记录用户名
-                    getCookie("username", getUser.name, {
+                   /* getCookie("username", getUser.name, {
                         expires: 30,
                         path: '/'
-                    });
+                    });*/
 
                     // cookie记录学校
-                    getCookie("school", getUser.school_no, {
+                    /*getCookie("school", getUser.school_no, {
                         expires: 30,
                         path: '/'
-                    });
+                    });*/
 
                     // cookie记录城市
                     /*getCookie("address", data.userinfo.school.city_id, {
@@ -96,7 +96,9 @@ $(function () {
                         path: '/'
                     });*/
 
-                    $('.welcome').html('Dear '+getUser.name+',欢迎访问'+getUser.school_no+'专属页面。');
+                    var getSchool = api.getSchool(getUser.id,i18nLanguage);
+
+                    $('.welcome').html('Dear '+getUser.name+',欢迎访问'+getSchool.name+'专属页面。');
 
                     $('.error').html('登录成功，2秒后进入首页。');
 

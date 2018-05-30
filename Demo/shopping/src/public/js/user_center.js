@@ -5,71 +5,55 @@ $(function () {
 
     var token = getCookie('token');
 
-    // 获取个人中心信息
-    $.ajax({
-        type: 'GET',
-        //url:'/web/user_center',
-        url: '/'+urlL+'public/json/user_center.json',
-        dataType: 'json',
-        beforeSend: function (request) {
-            var time = new Date().getTime();
-            var secure_token = $.md5(token + 'shop' + time);
+    // 获取个人信息
+    var getUser = api.getUser(token);
 
-            request.setRequestHeader("token", token);
-            request.setRequestHeader("time", time);
-            request.setRequestHeader("secure_token", secure_token);
-        },
-        success: function (data) {
-            if (data.success === '0') {
-                $('.school .img img').attr('src', data.data.school.pic);
-                $('.school .con .title').html(data.data.school.name);
-                $('.school .con span').html(data.data.school.detail);
-
-                var sex, role;
-                if (getCookie("userLanguage") === '0') {
-                    if (data.data.sex === '0') {
-                        sex = '男';
-                    } else if (data.data.sex === '1') {
-                        sex = '女';
-                    }
-                    if (data.data.role === '0') {
-                        role = '学生';
-                    } else if (data.data.role === '1') {
-                        role = '家长';
-                    } else if (data.data.role === '1') {
-                        role = '教职员工';
-                    }
-                } else if (getCookie("userLanguage") === '1') {
-                    if (data.data.sex === '0') {
-                        sex = 'Male';
-                    } else if (data.data.sex === '1') {
-                        sex = 'Female';
-                    }
-                    if (data.data.role === '0') {
-                        role = 'Student';
-                    } else if (data.data.role === '1') {
-                        role = 'Parents';
-                    } else if (data.data.role === '1') {
-                        role = 'Staff';
-                    }
-                }
-
-                $('.userName .person .name').html(data.data.name);
-                $('.userName .person .sex').html(sex);
-                $('.userName .person .role').html(role);
-                $('.userName .person .no em').html(data.data.no);
-                $('.userName .person .address em').html(data.data.address);
-                $('.userName .person .email em').html(data.data.email);
-                $('.userName .person .phone em').html(data.data.phone);
-
-            } else {
-
-            }
-        },
-        error: function (xhr, status, error) {
-
+    var sex, role;
+    if (getCookie("userLanguage") === 'zh') {
+        if (getUser.sex === 'male') {
+            sex = '男';
+        } else if (getUser.sex === 'female') {
+            sex = '女';
         }
-    })
+        if (getUser.type === 'student') {
+            role = '学生';
+        } else if (getUser.type === 'teacher') {
+            role = '老师';
+        } else if (getUser.type === 'staff') {
+            role = '教职员工';
+        }
+    } else if (getCookie("userLanguage") === 'en') {
+        if (getUser.sex === 'male') {
+            sex = 'male';
+        } else if (getUser.sex === 'female') {
+            sex = 'female';
+        }
+        if (getUser.type === 'student') {
+            role = 'student';
+        } else if (getUser.type === 'teacher') {
+            role = 'teacher';
+        } else if (getUser.type === 'staff') {
+            role = 'staff';
+        }
+    }
+
+    $('.userName .person .name').html(getUser.name);
+    $('.userName .person .sex').html(sex);
+    $('.userName .person .role').html(role);
+    $('.userName .person .no em').html(getUser.school_no);
+
+    $('.userName .person .email em').html(getUser.email);
+    $('.userName .person .phone em').html(getUser.phone);
+
+    // 获取默认地址
+    $('.userName .person .address em').html(getUser.address);
+
+
+    // 获取学校信息
+    var getSchool = api.getSchool(getUser.id,i18nLanguage);
+    $('.school .img img').attr('src', getSchool.logo_info);
+    $('.school .con .title').html(getSchool.name);
+    $('.school .con span').html(getSchool.description);
 
 
     // 获取我的订单
