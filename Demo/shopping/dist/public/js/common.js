@@ -83,26 +83,30 @@ if (getCookie("userLanguage")) {
 
 /*城市选择*/
 $(function () {
-    // 默认城市 0表示上海，1表示深圳
-    var address = '1';
+    // 默认城市 sz表示上海，sh表示深圳
+    var address = 'sz';
 
     /*
       首先获取用户浏览器设备之前选择过的城市
        */
-    if (getCookie("address")) {
-        address = getCookie("address");
+    if (getCookie("city")) {
+        address = getCookie("city");
         if (i18nLanguage === 'zh') {
-            if (address === '1') {
+            if (address === 'sz') {
                 $('.address a').html('深圳');
             } else {
                 $('.address a').html('上海');
             }
         } else {
-            $('.address a').html(address);
+            if (address === 'sz') {
+                $('.address a').html('shenzhen');
+            } else {
+                $('.address a').html('shanghai');
+            }
         }
         //console.log('address:',address)
     } else {
-        getCookie("address", address, {
+        getCookie("city", address, {
             expires: 30,
             path: '/'
         });
@@ -136,7 +140,7 @@ $(function () {
         var value = $(this).html();
         var dataName = $(this).attr('data-name');
         // console.log(value);
-        getCookie("address", dataName, {
+        getCookie("city", dataName, {
             expires: 30,
             path: '/'
         });

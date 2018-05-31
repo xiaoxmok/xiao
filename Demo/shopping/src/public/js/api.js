@@ -95,4 +95,124 @@ var api = {
 
         return result;
     },
+    /**
+     * 获取商品子分类列表
+     * @param id
+     * @param lang
+     */
+    getDoodsCategory:function(id, lang){
+        var result;
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/goods-category/index?id='+id+'&lang='+lang,
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = {
+                        id: data.data.id,
+                        parent_id: data.data.parent_id,
+                        name: data.data.name
+                    }
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+    },
+    /**
+     * 获取商品列表
+     * @param category_id
+     * @param page
+     * @param count
+     * @param sort
+     * @param lang
+     * @returns {*}
+     */
+    getGoodsList:function(category_id,page,count,sort,lang){
+        var result;
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/goods/index?category_id='+category_id+'&page='+page+'&count='+count+'&sort='+sort+'&lang='+lang,
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = {
+                        data:{
+
+                        },
+                        extra:{
+                            total:data.extra.total,
+                            count:data.extra.count,
+                            page:data.extra.page,
+                            last:data.extra.last
+                        }
+                    }
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+
+    },
+    /**
+     * 获取商品信息
+     * @param id
+     * @param lang
+     * @returns {*}
+     */
+    getGoods:function(id,lang){
+        var result;
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/goods-category/index?id='+id+'&lang='+lang,
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = {
+                        id:data.data.id,
+                        name:data.data.name,
+                        summary:data.data.summary,
+                        introduce:data.data.introduce,
+                        faq:data.data.faq,
+                        price:data.data.price,
+                        school_price:data.data.school_price,
+                        education_price:data.data.education_price,
+                        stock:data.data.stock,
+                        category_id:data.data.category_id,
+                        category_info:{
+                            id:data.data.category_info.id,
+                            parent_id:data.data.category_info.parent_id,
+                            name:data.data.category_info.name
+                        },
+                        status:data.data.status,
+                        img_ids:data.data.img_ids,
+                        img_infos:img_infos,
+                        param:{
+                            
+                        }
+                    }
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+    }
 }

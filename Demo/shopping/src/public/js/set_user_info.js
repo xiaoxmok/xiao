@@ -23,7 +23,7 @@ $(function () {
     // 获取校区
     $.ajax({
         type: 'GET',
-        url: url + '/api/v1/school-region/index',
+        url: url + '/api/v1/school-region/index?lang='+i18nLanguage+'&city='+getCookie('city'),
         dataType: 'json',
         data: {lang: i18nLanguage},
         async:false,
@@ -85,6 +85,7 @@ $(function () {
         var updataData = {
             token: token,
             id: getUser.id,
+            name:$('.name').val(),
             sex: $('.sex[name="sex"]:checked').val(),
             type: $('.role[name="role"]:checked').val(),
             school_region_id: $('#schoolSearch').children('option:selected').val(),

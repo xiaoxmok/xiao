@@ -1,4 +1,16 @@
 $(function(){
+    var mySwiper = new Swiper ('.swiper-container', {
+        speed:1000,
+        autoplay:{
+            delay: 3000,//1秒切换一次
+        },
+        loop: true,
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    })
+
 
     $.ajax({
         type:'GET',
@@ -11,7 +23,7 @@ $(function(){
                 $('.swiper-wrapper').html('');
                 imgArr.forEach(function(item,index){
                     var html = '<div class="swiper-slide">\n' +
-                        '                <img src="'+item.img_info.url+'" alt="">\n' +
+                        '                <a href="'+item.link+'"><img src="'+item.img_info.url+'" alt=""></a>\n' +
                         '            </div>'
                     $('.swiper-wrapper').append(html);
                     console.log(item.img_info.url);

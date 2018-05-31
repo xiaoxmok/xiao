@@ -73,7 +73,7 @@ $(function () {
                     }
 
                     // cookie记录用户名
-                   /* getCookie("username", getUser.name, {
+                   /*getCookie("username", getUser.name, {
                         expires: 30,
                         path: '/'
                     });*/
