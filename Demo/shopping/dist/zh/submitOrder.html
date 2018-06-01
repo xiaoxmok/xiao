@@ -199,13 +199,13 @@
                     <span class="title">发票类型：</span><span><input type="radio" id="person1" name="type1" value="personal" checked><label for="person1">个人</label></span><span><input type="radio" value="company" id="company1" name="type1"><label for="company1">企业</label></span>
                 </div>
                 <div>
-                    <span class="title">发票抬头：</span><input type="text" placeholder="请输入发票抬头">
+                    <span class="title">发票抬头：</span><input id="normal_title" type="text" placeholder="请输入发票抬头">
                 </div>
                 <div>
-                    <span class="title">企业纳税号：</span><input type="text" placeholder="请输入企业纳税号">
+                    <span class="title">企业纳税号：</span><input id="normal_tax_no" type="text" placeholder="请输入企业纳税号">
                 </div>
                 <div>
-                    <span class="title">发票内容：</span><span><input type="radio" id="goodsDetail1" name="content1" checked><label for="goodsDetail1">商品明细</label></span><span><input type="radio" id="goodsType1" name="content1"><label for="goodsType1">商品类别</label></span>
+                    <span class="title">发票内容：</span><span><input type="radio" id="goodsDetail1" name="content1" value="detail" checked><label for="goodsDetail1">商品明细</label></span><span><input type="radio" id="goodsType1" value="category" name="content1"><label for="goodsType1">商品类别</label></span>
                 </div>
             </div>
             <div class="invoiceType" style="display: none;">
@@ -216,25 +216,28 @@
                     <span class="title">发票内容：</span><span>商品明细</span>
                 </div>
                 <div>
-                    <span class="title">单位名称：</span><input type="text" placeholder="请输入发票抬头">
+                    <span class="title">单位名称：</span><input id="vat_company" type="text" placeholder="请输入单位名称">
                 </div>
                 <div>
-                    <span class="title">纳税号：</span><input type="text" placeholder="请输入纳税号">
+                    <span class="title">纳税号：</span><input id="vat_tax_no" type="text" placeholder="请输入纳税号">
                 </div>
                 <div>
-                    <span class="title">注册地址：</span><input type="text" placeholder="请输入注册地址">
+                    <span class="title">注册地址：</span><input id="vat_address" type="text" placeholder="请输入注册地址">
                 </div>
                 <div>
-                    <span class="title">注册电话：</span><input type="text" placeholder="请输入注册电话">
+                    <span class="title">注册电话：</span><input id="vat_phone" type="text" placeholder="请输入注册电话">
                 </div>
                 <div>
-                    <span class="title">开户银行：</span><input type="text" placeholder="请输入开户银行">
+                    <span class="title">开户银行：</span><input id="vat_bank" type="text" placeholder="请输入开户银行">
                 </div>
                 <div>
-                    <span class="title">收票人姓名：</span><input type="text" placeholder="请输入收票人姓名">
+                    <span class="title">银行账号：</span><input id="vat_bank_no" type="text" placeholder="请输入银行账号">
                 </div>
                 <div>
-                    <span class="title">收票人手机：</span><input type="text" placeholder="请输入收票人手机">
+                    <span class="title">收票人姓名：</span><input id="receiver_name" type="text" placeholder="请输入收票人姓名">
+                </div>
+                <div>
+                    <span class="title">收票人手机：</span><input id="receiver_phone" type="text" placeholder="请输入收票人手机">
                 </div>
                 <div>
                     <span class="title">收票人省份：</span>
@@ -261,7 +264,7 @@
                     </select>
                 </div>
                 <div>
-                    <span class="title">详细地址：</span><input type="text" placeholder="请输入详细地址">
+                    <span class="title">详细地址：</span><input id="receiver_address" type="text" placeholder="请输入详细地址">
                 </div>
             </div>
         </div>

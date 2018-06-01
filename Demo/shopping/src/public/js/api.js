@@ -493,12 +493,158 @@ var api = {
 
         return result;
     },
+    /**
+     * 获取订单列表
+     * @param user_id
+     * @param status
+     * @returns {*}
+     */
     getOrderList:function(user_id,status){
         var result;
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
             url: url + '/api/v1/order/index?user_id=' + user_id + '&status=' + status + '&token=' + token,
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = data.data
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+    },
+    /**
+     * 订单支付
+     * @param order_no
+     * @param price
+     * @returns {*}
+     */
+    postOrderPlay:function(order_no,price){
+        var result;
+        var token = getCookie("token");
+        $.ajax({
+            type: 'POST',
+            url: url + '/api/v1/order/pay',
+            dataType: 'json',
+            data:{
+                order_no:order_no,
+                price:price,
+                token:token
+            },
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = data.data
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+    },
+    /**
+     * 取消订单
+     * @param order_no
+     * @returns {*}
+     */
+    getOrderCancel:function(order_no){
+        var result;
+        var token = getCookie("token");
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/order/cancel?order_no='+order_no+'&token='+token,
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = data.data
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+    },
+    /**
+     * 获取地址列表
+     * @param user_id
+     * @returns {*}
+     */
+    getAddressList:function(user_id){
+        var result;
+        var token = getCookie("token");
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/address/index?user_id='+user_id+'&token='+token,
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = data.data
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+    },
+    /**
+     * 删除收货地址
+     * @param id
+     * @returns {*}
+     */
+    getAddressDelete:function(id){
+        var result;
+        var token = getCookie("token");
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/address/delete?id='+id+'&token='+token,
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = data.data
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+    },
+    /**
+     * 获取收货地址信息
+     * @param id
+     */
+    getAddressId:function(id){
+        var result;
+        var token = getCookie("token");
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/address/delete?id='+id+'&token='+token,
             dataType: 'json',
             async: false,
             success: function (data) {

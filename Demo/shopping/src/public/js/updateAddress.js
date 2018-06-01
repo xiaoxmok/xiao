@@ -1,11 +1,27 @@
-$(function () {
+$(function(){
     if (!login()) {
         location.href = "login.html"
     }
 
     var token = getCookie('token');
 
-    $('.submit').click(function () {
+    var urlInfo = GetRequest();
+
+    // 获取地址信息
+    var getAddressId = api.getAddressId(urlInfo.id);
+
+    $('#name').val(getAddressId.name);
+    $('#address').val(getAddressId.address);
+    $('#phone').val(getAddressId.phone);
+    if(getAddressId.is_default === 'y'){
+        $('#defalut').prop("checked", true);
+    }else{
+        $('#defalut').prop("checked", false);
+    }
+
+
+    // 更新地址
+    $('.submit').click(function(){
         var name, phone, address, defalut = 1;
 
         name = $('#name').val();
@@ -34,7 +50,7 @@ $(function () {
 
         var addreesData = {
             token: token,
-            user_id: api.getUser(token).id,
+            id:urlInfo.id,
             reciever_name: name,
             country_code: '',
             reciever_phone: phone,
@@ -42,10 +58,9 @@ $(function () {
             is_default: defalut
         };
 
-        // 添加收货地址
         $.ajax({
             type: 'POST',
-            url: url + '/api/v1/address/create',
+            url: url + '/api/v1/address/update',
             dataType: 'json',
             data: addreesData,
             success: function (data) {
@@ -62,8 +77,6 @@ $(function () {
 
             }
         })
-
     });
-
 
 })
