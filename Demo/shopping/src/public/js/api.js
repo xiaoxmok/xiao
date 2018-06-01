@@ -492,5 +492,27 @@ var api = {
         });
 
         return result;
+    },
+    getOrderList:function(user_id,status){
+        var result;
+        var token = getCookie("token");
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/order/index?user_id=' + user_id + '&status=' + status + '&token=' + token,
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = data.data
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
     }
 }

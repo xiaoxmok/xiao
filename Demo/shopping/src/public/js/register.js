@@ -8,9 +8,12 @@ $(function () {
     // 获取学校信息
     $.ajax({
         type: 'GET',
-        //url:'/web/school/search?keyword=',
         url: url+'/api/v1/school/index',
         dataType: 'json',
+        data:{
+            city:getCookie('city'),
+            lang:i18nLanguage
+        },
         success: function (data) {
             //console.log("data", data);
             if (data.code === 200) {

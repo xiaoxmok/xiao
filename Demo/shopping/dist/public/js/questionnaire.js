@@ -5,7 +5,7 @@ $(function () {
 
     var token = getCookie('token');
 
-
+    // 提交调查问卷
     $('.questionSubmit').click(function () {
 
         $.ajax({

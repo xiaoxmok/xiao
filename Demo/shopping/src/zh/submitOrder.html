@@ -22,13 +22,13 @@
         </div>
         <div class="con">
             <p>
-                <input type="radio" name="addr" id="addr1" checked><label for="addr1"><span>小明</span><span>广东深圳福田华强路101号</span><span>1388888888</span>(默认)<span></span></label>
+                <input type="radio" name="addr" id="addr1" value="1001" checked><label for="addr1"><span>小明</span><span>广东深圳福田华强路101号</span><span>1388888888</span>(默认)<span></span></label>
             </p>
             <p>
-                <input type="radio" name="addr" id="addr2"><label for="addr2"><span>小明</span><span>广东深圳福田华强路101号</span><span>1388888888</span></label>
+                <input type="radio" name="addr" id="addr2" value="1002"><label for="addr2"><span>小明</span><span>广东深圳福田华强路101号</span><span>1388888888</span></label>
             </p>
             <p>
-                <input type="radio" name="addr" id="addr3"><label for="addr3"><span>小明</span><span>广东深圳福田华强路101号</span><span>1388888888</span></label>
+                <input type="radio" name="addr" id="addr3" value="1003"><label for="addr3"><span>小明</span><span>广东深圳福田华强路101号</span><span>1388888888</span></label>
             </p>
         </div>
     </div>
@@ -51,7 +51,7 @@
                     <td class="td3">
                         X1
                     </td>
-                    <td>￥5288.00</td>
+                    <td class="totalPrice">￥<em>5288.00</em></td>
                     <td class="operate">
                         <a href="javascript:;">删除</a>
                     </td>
@@ -68,7 +68,7 @@
                     <td class="td3">
                         X1
                     </td>
-                    <td>￥5288.00</td>
+                    <td class="totalPrice">￥<em>5288.00</em></td>
                     <td class="operate">
                         <a href="javascript:;">删除</a>
                     </td>
@@ -85,7 +85,7 @@
                     <td class="td3">
                         X1
                     </td>
-                    <td>￥5288.00</td>
+                    <td class="totalPrice">￥<em>5288.00</em></td>
                     <td class="operate">
                         <a href="javascript:;">删除</a>
                     </td>
@@ -100,11 +100,11 @@
         </div>
         <div class="con">
             <div class="invoiceInfo">
-                <span class="title">开票信息：</span><span><input type="radio" id="general" name="info" value="0" checked><label for="general">普通发票</label></span><span><input type="radio" id="added" name="info" value="1"><label for="added">增值专用税发票</label></span>
+                <span class="title">开票信息：</span><span><input type="radio" id="general" name="info" value="normal" checked><label for="general">普通发票</label></span><span><input type="radio" id="added" name="info" value="vat"><label for="added">增值专用税发票</label></span>
             </div>
             <div class="invoiceType" style="display: block;">
                 <div>
-                    <span class="title">发票类型：</span><span><input type="radio" id="person1" name="type1" checked><label for="person1">个人</label></span><span><input type="radio" id="company1" name="type1"><label for="company1">企业</label></span>
+                    <span class="title">发票类型：</span><span><input type="radio" id="person1" name="type1" value="personal" checked><label for="person1">个人</label></span><span><input type="radio" value="company" id="company1" name="type1"><label for="company1">企业</label></span>
                 </div>
                 <div>
                     <span class="title">发票抬头：</span><input type="text" placeholder="请输入发票抬头">
@@ -186,31 +186,13 @@
     </div>
     <!--提交-->
     <div class="Clearing">
-        <a href="./payment.html">提交订单</a>
-        <span class="all">应付金额：<em>￥0.00</em></span>
+        <a href="javascript:;" class="submitOrder">提交订单</a>
+        <span class="all">应付金额：￥<em>0.00</em></span>
         <span class="amount"><em>3</em>件商品</span>
     </div>
 </div>
 
 @@include('./view/footer.html')
-<script>
-    $(function(){
-        $('.invoiceInfo input[name="info"]').click(function(){
-            var index = $(this).val();
-            if(index == 0){
-                $('.invoiceType').hide();
-                $('.invoiceType').eq(0).show();
-            }else if(index == 1){
-                $('.invoiceType').hide();
-                $('.invoiceType').eq(1).show();
-            }else if(index == 2){
-                $('.invoiceType').hide();
-                $('.invoiceType').eq(2).show();
-            }
-
-        });
-
-    })
-</script>
+<script src="../public/js/subminOrder.js"></script>
 </body>
 </html>
