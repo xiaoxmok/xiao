@@ -8,18 +8,16 @@ $(function () {
     // 获取学校信息
     $.ajax({
         type: 'GET',
-        url: url+'/api/v1/school/index',
+        url: url+'/api/v1/school/index?city='+''+'&lang='+i18nLanguage,
         dataType: 'json',
-        data:{
-            city:getCookie('city'),
-            lang:i18nLanguage
-        },
         success: function (data) {
             //console.log("data", data);
             if (data.code === 200) {
                 for (var i = 0; i < data.data.length; i++) {
                     var html = '<option value="' + data.data[i].id + '">' + data.data[i].name + '</option>';
                     $('#schoolSearch').append(html);
+
+
                 }
 
             } else {

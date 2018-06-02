@@ -53,6 +53,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 
 .goods .nav .right{float:right;}
 .goods .nav .right li{float:left;color:#999;font-size: 12px;margin-left:30px;text-align: right;line-height: 40px;cursor:pointer;}
+.goods .nav .right li.active{color:#50b7b4!important;}
 
 .goods .content{}
 .goods .content li{width:210px;padding: 9px;border: 1px solid #eee;float:left;margin: 15px 10px;box-shadow: 2px 2px 5px #e4f4f3;}

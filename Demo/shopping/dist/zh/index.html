@@ -121,23 +121,23 @@
         <div class="nav">
             <div class="left">
                 <ul>
-                    <li class="i18n active">全部</li>
-                    <li>macbook</li>
-                    <li>Ipad</li>
-                    <li>Iphone</li>
+                    <li class="all active" data-name="0">全部</li>
+                    <li class="mac" data-name="1">macbook</li>
+                    <li class="ipad" data-name="2">Ipad</li>
+                    <li class="iphone" data-name="3">Iphone</li>
                 </ul>
             </div>
             <div class="right">
                 <ul>
-                    <li>销量</li>
-                    <li>价格</li>
-                    <li>上架时间</li>
+                    <li class="sales active">销量</li>
+                    <li class="price">价格</li>
+                    <li class="addedTime">上架时间</li>
                 </ul>
             </div>
         </div>
         <div class="content">
             <ul>
-                <li>
+                <!--<li>
                     <a href="./product.html">
                         <img src="../public/img/goods3.jpg" alt="">
                         <div class="con">
@@ -147,82 +147,16 @@
                             <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
                         </div>
                     </a>
-                </li>
-                <li>
-                    <a href="./product.html">
-                        <img src="../public/img/goods1.jpg" alt="">
-                        <div class="con">
-                            <p class="Title">Apple care</p>
-                            <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
-                            <p class="price"><span>常规价格：</span><del>￥999.00</del></p>
-                            <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./product.html">
-                        <img src="../public/img/goods2.jpg" alt="">
-                        <div class="con">
-                            <p class="Title">Apple care</p>
-                            <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
-                            <p class="price"><span>常规价格：</span><del>￥999.00</del></p>
-                            <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./product.html">
-                        <img src="../public/img/goods1.jpg" alt="">
-                        <div class="con">
-                            <p class="Title">Apple care</p>
-                            <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
-                            <p class="price"><span>常规价格：</span><del>￥999.00</del></p>
-                            <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./product.html">
-                        <img src="../public/img/goods2.jpg" alt="">
-                        <div class="con">
-                            <p class="Title">Apple care</p>
-                            <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
-                            <p class="price"><span>常规价格：</span><del>￥999.00</del></p>
-                            <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./product.html">
-                        <img src="../public/img/goods3.jpg" alt="">
-                        <div class="con">
-                            <p class="Title">Apple care</p>
-                            <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
-                            <p class="price"><span>常规价格：</span><del>￥999.00</del></p>
-                            <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./product.html">
-                        <img src="../public/img/goods4.jpg" alt="">
-                        <div class="con">
-                            <p class="Title">Apple care</p>
-                            <p class="description">hello, 未来. 现 RMB 8,388 起售. 立刻购买可享免息分期. 免费送货与退货.</p>
-                            <p class="price"><span>常规价格：</span><del>￥999.00</del></p>
-                            <p class="price"><span>学校优惠价：</span><em>￥999.00</em></p>
-                        </div>
-                    </a>
-                </li>
+                </li>-->
             </ul>
         </div>
         <div class="page">
             <div>
-                <a href="javascript:;">首页</a>
-                <a href="javascript:;"><</a>
-                <input type="text" value="1/2">
-                <a href="javascript:;">></a>
-                <a href="javascript:;">尾页</a>
+                <a href="javascript:;" id="first">首页</a>
+                <a href="javascript:;" id="left"><</a>
+                <input type="text" value="1/1" id="page">
+                <a href="javascript:;" id="right">></a>
+                <a href="javascript:;" id="last">尾页</a>
             </div>
         </div>
     </div>

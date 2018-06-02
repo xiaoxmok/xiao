@@ -1,7 +1,7 @@
-$(function(){
-    var mySwiper = new Swiper ('.swiper-container', {
-        speed:1000,
-        autoplay:{
+$(function () {
+    var mySwiper = new Swiper('.swiper-container', {
+        speed: 1000,
+        autoplay: {
             delay: 3000,//1秒切换一次
         },
         loop: true,
@@ -11,30 +11,170 @@ $(function(){
         },
     })
 
-
+    // 获取banner
     $.ajax({
-        type:'GET',
-        url:url+'/api/v1/banner/index',
-        dataType:'json',
-        success:function(data){
-            console.log(data);
-            if(data.code == 200){
+        type: 'GET',
+        url: url + '/api/v1/banner/index',
+        dataType: 'json',
+        success: function (data) {
+            //console.log(data);
+            if (data.code == 200) {
                 var imgArr = data.data;
                 $('.swiper-wrapper').html('');
-                imgArr.forEach(function(item,index){
+                imgArr.forEach(function (item, index) {
                     var html = '<div class="swiper-slide">\n' +
-                        '                <a href="'+item.link+'"><img src="'+item.img_info.url+'" alt=""></a>\n' +
+                        '                <a href="' + item.link + '"><img src="' + item.img_info.url + '" alt=""></a>\n' +
                         '            </div>'
                     $('.swiper-wrapper').append(html);
-                    console.log(item.img_info.url);
+                    //console.log(item.img_info.url);
                 })
 
             }
         },
-        error:function(xhr,status,error){
-            console.log(xhr,status,error);
+        error: function (xhr, status, error) {
+            console.log(xhr, status, error);
         }
 
     })
 
-})
+
+    // 获取商品列表
+
+    var getAllGoods = api.getGoodsList(0, 1, 20, '%2Bsale', i18nLanguage);
+
+    //console.log(getAllGoods);
+
+
+    function redraw(arr) {
+        $('.goods .content ul').html('');
+        var goodsArr = arr.data;
+        var extra = arr.extra;
+
+        goodsArr.forEach(function (item, index) {
+            var loginPrice;
+            if (login()) {
+                loginPrice = '<p class="price"><span>学校优惠价：</span><em>￥' + item.school_price + '</em></p>'
+            } else {
+                loginPrice = '<p class="price"><span>教育优惠价：</span><em>￥' + item.education_price + '</em></p>'
+            }
+            var html = '<li>\n' +
+                '                    <a href="./product.html?id=' + item.id + '">\n' +
+                '                        <img src="' + item.img_infos[0].url + '" alt="">\n' +
+                '                        <div class="con">\n' +
+                '                            <p class="Title">' + item.name + '</p>\n' +
+                '                            <p class="description">' + item.summary + '</p>\n' +
+                '                            <p class="price"><span>常规价格：</span><del>￥' + item.price + '</del></p>\n' +
+                loginPrice +
+                '                        </div>\n' +
+                '                    </a>\n' +
+                '                </li>';
+
+            $('.goods .content ul').append(html);
+        });
+
+        $('.goods .page #page').val(extra.page + '/' + extra.total)
+    }
+
+    // 全部
+    redraw(getAllGoods);
+
+
+    // nav切换
+    $('.nav .left li').click(function () {
+        $('.nav .left li').removeClass('active');
+        $(this).addClass('active');
+        var category_id = $(this).attr('data-name');
+
+        redraw(api.getGoodsList(category_id, 1, 20, '%2Bsale', i18nLanguage))
+    })
+
+
+    // 排序 销量
+    $('.nav .right .sales').click(function () {
+        var category_id = $('.nav .left .active').attr('data-name');
+        var sort;
+        if ($(this).hasClass('active')) {
+            sort = '-sale';
+            $(this).removeClass('active');
+        } else {
+            sort = '%2Bsale';
+            $('.nav .right li').removeClass('active');
+            $(this).addClass('active');
+        }
+        // console.log(category_id);
+        redraw(api.getGoodsList(category_id, 1, 20, sort, i18nLanguage))
+    });
+
+    // 排序 价格
+    $('.nav .right .price').click(function () {
+        var category_id = $('.nav .left .active').attr('data-name');
+        var sort;
+        if ($(this).hasClass('active')) {
+            sort = '-price';
+            $(this).removeClass('active');
+        } else {
+            sort = '%2Bprice';
+            $('.nav .right li').removeClass('active');
+            $(this).addClass('active');
+        }
+        // console.log(category_id);
+        redraw(api.getGoodsList(category_id, 1, 20, sort, i18nLanguage))
+    })
+
+    // 排序 上架时间
+    $('.nav .right .addedTime').click(function () {
+        var category_id = $('.nav .left .active').attr('data-name');
+        var sort;
+        if ($(this).hasClass('active')) {
+            sort = '-created_at';
+            $(this).removeClass('active');
+        } else {
+            sort = '%2Bcreated_at';
+            $('.nav .right li').removeClass('active');
+            $(this).addClass('active');
+        }
+        // console.log(category_id);
+        redraw(api.getGoodsList(category_id, 1, 20, sort, i18nLanguage))
+    })
+
+
+    //翻页 首页
+    $('.goods .page #first').click(function () {
+        var category_id = $('.nav .left .active').attr('data-name');
+
+        redraw(api.getGoodsList(category_id, 1, 20, '%2Bprice', i18nLanguage))
+    });
+
+    //翻页 尾页
+    $('.goods .page #last').click(function () {
+        var category_id = $('.nav .left .active').attr('data-name');
+        var page = $('.goods .page #page').val();
+        var pageArr = page.split('/');
+
+        redraw(api.getGoodsList(category_id, pageArr[1], 20, '%2Bprice', i18nLanguage))
+    });
+
+    //翻页 上一页
+    $('.goods .page #left').click(function () {
+        var category_id = $('.nav .left .active').attr('data-name');
+        var page = $('.goods .page #page').val();
+        var pageArr = page.split('/');
+        if (pageArr[0] === '1') {
+            redraw(api.getGoodsList(category_id, 1, 20, '%2Bprice', i18nLanguage))
+        } else {
+            redraw(api.getGoodsList(category_id, pageArr[0] - 1, 20, '%2Bprice', i18nLanguage))
+        }
+    });
+
+    //翻页 下一页
+    $('.goods .page #right').click(function () {
+        var category_id = $('.nav .left .active').attr('data-name');
+        var page = $('.goods .page #page').val();
+        var pageArr = page.split('/');
+        if (pageArr[0] + 1 > pageArr[1]) {
+            redraw(api.getGoodsList(category_id, pageArr[1], 20, '%2Bprice', i18nLanguage))
+        } else {
+            redraw(api.getGoodsList(category_id, pageArr[0] + 1, 20, '%2Bprice', i18nLanguage))
+        }
+    })
+});

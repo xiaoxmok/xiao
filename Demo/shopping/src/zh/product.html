@@ -20,35 +20,35 @@
             <!--轮播图-->
             <div class="swiper-container product-swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="../public/img/web_xiangqing.png" alt=""></div>
+                   <!-- <div class="swiper-slide"><img src="../public/img/web_xiangqing.png" alt=""></div>
                     <div class="swiper-slide"><img src="../public/img/web_suo01.png" alt=""></div>
                     <div class="swiper-slide"><img src="../public/img/web_suo02.png" alt=""></div>
-                    <div class="swiper-slide"><img src="../public/img/web_suo03.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../public/img/web_suo03.png" alt=""></div>-->
                 </div>
                 <!-- 如果需要分页器 -->
                 <div class="swiper-pagination"></div>
             </div>
             <div class="small">
-                <a href="javascript:;" class="active"><img src="../public/img/web_xiangqing.png" alt=""></a>
+                <!--<a href="javascript:;" class="active"><img src="../public/img/web_xiangqing.png" alt=""></a>
                 <a href="javascript:;"><img src="../public/img/web_suo01.png" alt=""></a>
                 <a href="javascript:;"><img src="../public/img/web_suo02.png" alt=""></a>
-                <a href="javascript:;"><img src="../public/img/web_suo03.png" alt=""></a>
+                <a href="javascript:;"><img src="../public/img/web_suo03.png" alt=""></a>-->
             </div>
         </div>
         <div class="con">
             <div class="title">
-                <p>21.5寸iMac-Retina 4k Display</p>
-                <span>21.5-inch iMac -Retina 4K Display-3.0GHz Processor- 1TB Storage</span>
+                <p id="name">21.5寸iMac-Retina 4k Display</p>
+                <span id="summary">21.5-inch iMac -Retina 4K Display-3.0GHz Processor- 1TB Storage</span>
             </div>
             <div class="detail">
                 <table>
                     <tr>
                         <td class="td1">常规价格:</td>
-                        <td class="td2"><del>￥10,688.00</del></td>
+                        <td class="td2"><del>￥<em id="price"></em></del></td>
                     </tr>
                     <tr>
                         <td class="td1">学校优惠价：</td>
-                        <td class="td2 offer">￥9,888.00</td>
+                        <td class="td2 offer">￥<em id="school_price"></em></td>
                     </tr>
                     <tr>
                         <td class="td1">可用性：</td>
@@ -135,6 +135,7 @@
 
 @@include('./view/footer.html')
 <script src="./../public/js/lib/swiper-4.2.2.min.js"></script>
+<script src="../public/js/goods.js"></script>
 <script>
     $(function(){
         var mySwiper = new Swiper ('.swiper-container', {
@@ -181,14 +182,12 @@
             $(this).addClass('active');
         });
 
-        $(function(){
-            $('.productNav li').click(function(){
-                var index = $(this).index();
+        $('.productNav li').click(function(){
+            var index = $(this).index();
 
-                $('.productDetail').hide().eq(index).show();
-                $('.productNav li').removeClass('active');
-                $(this).addClass('active');
-            })
+            $('.productDetail').hide().eq(index).show();
+            $('.productNav li').removeClass('active');
+            $(this).addClass('active');
         })
     })
 </script>

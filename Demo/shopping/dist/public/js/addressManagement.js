@@ -68,7 +68,7 @@ $(function () {
 
     })
 
-    // 删除
+    // 删除地址
     $('.management').on('click', '.delete', function () {
         var id = $(this).attr('data-name');
         api.getAddressDelete(id);

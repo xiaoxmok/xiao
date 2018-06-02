@@ -14,8 +14,8 @@ var getCookie = function (name, value, options) {
             if (typeof options.expires == 'number') {
                 date = new Date();
                 date.setTime(date.getTime() + (options.expires * 60 * 60 * 1000));
-                console.log(date.getTime());
-                console.log(options.expires * 60 * 60 * 1000);
+                //console.log(date.getTime());
+                //console.log(options.expires * 60 * 60 * 1000);
             } else {
                 date = options.expires;
             }
