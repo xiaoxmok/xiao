@@ -359,7 +359,10 @@ var api = {
             success: function (data) {
                 //console.log(data);
                 if (data.code === 200) {
-                    result = data.data
+                    result = {
+                        data:data.data,
+                        extra:data.extra
+                    }
                 } else {
                     result = data.msg;
                 }
@@ -391,7 +394,10 @@ var api = {
             success: function (data) {
                 //console.log(data);
                 if (data.code === 200) {
-                    result = data.data
+                    result = {
+                        data:data.data,
+                        extra:data.extra
+                    }
                 } else {
                     result = data.msg;
                 }
@@ -417,13 +423,16 @@ var api = {
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/recommend/accessory-for-goods?goods_ids=' + goods_ids + '&category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang + '&token=' + token,
+            url: url + '/api/v1/recommend/accessory-for-goods?goods_ids%5B%5D=' + goods_ids + '&category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang + '&token=' + token,
             dataType: 'json',
             async: false,
             success: function (data) {
                 //console.log(data);
                 if (data.code === 200) {
-                    result = data.data
+                    result = {
+                        data:data.data,
+                        
+                    }
                 } else {
                     result = data.msg;
                 }
@@ -592,7 +601,7 @@ var api = {
             success: function (data) {
                 //console.log(data);
                 if (data.code === 200) {
-                    result = data.data
+                    result = data
                 } else {
                     result = data.msg;
                 }
@@ -612,7 +621,7 @@ var api = {
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/address/delete?id='+id+'&token='+token,
+            url: url + '/api/v1/address/get?id='+id+'&token='+token,
             dataType: 'json',
             async: false,
             success: function (data) {

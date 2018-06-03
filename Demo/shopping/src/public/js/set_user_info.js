@@ -41,7 +41,15 @@ $(function () {
         }
     });
 
+    var getAddressList = api.getAddressList(getCookie('userId'));
+
     var defalutAddress;
+
+    getAddressList.forEach(function(item,index){
+       if(item.is_default === 'y'){
+           defalutAddress = item.address;
+       }
+    });
     $('.defalutAddress span').html(defalutAddress);
 
     // 获取个人信息

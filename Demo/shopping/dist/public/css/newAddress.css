@@ -15,7 +15,7 @@
 }
 .newAddress .con td label{color:#666;}
 .newAddress .con td textarea{border: 1px solid #eee;height:50px;padding: 2px;}
-.newAddress .con td .area{width:40px;}
+.newAddress .con td .area{width:40px;margin-right: 5px;}
 
 .newAddress .con .btn{margin-top: 20px;}
 .newAddress .con .btn a{display: inline-block;float:left;width:150px;height:30px;background:#50b7b4;text-align: center;line-height: 30px;color:#fff;margin-right: 30px; }

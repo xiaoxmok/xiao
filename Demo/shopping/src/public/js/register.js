@@ -133,7 +133,7 @@ $(function () {
                 phone:account,
                 verify_code:valid_code,
                 password:password,
-                school_region_id:school_id
+                school_id:school_id
             }
 
         }else if(value === 'email'){

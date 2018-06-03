@@ -6,7 +6,7 @@ $(function () {
     var token = getCookie('token');
 
     $('.submit').click(function () {
-        var name, phone, address, defalut = 1;
+        var name, phone, address,country_code, defalut = 1;
 
         name = $('#name').val();
         if (name.length <= 0) {
@@ -25,6 +25,11 @@ $(function () {
             $('.error').html('手机号格式不正确');
             return;
         }
+        country_code = $('#country_code').val();
+        if (!CheckNum(country_code)) {
+            $('.error').html('区号格式不正确');
+            return;
+        }
 
         if ($('#defalut').is(':checked')) {
             defalut = 'y';
@@ -36,7 +41,7 @@ $(function () {
             token: token,
             user_id: api.getUser(token).id,
             reciever_name: name,
-            country_code: '',
+            country_code: country_code,
             reciever_phone: phone,
             address: address,
             is_default: defalut
@@ -49,10 +54,10 @@ $(function () {
             dataType: 'json',
             data: addreesData,
             success: function (data) {
-                if (data.success === '0') {
+                if (data.code === 200) {
                     $('.error').html('提交成功');
                     setTimeout(function () {
-                        //location.href = "addressManagement.html"
+                        location.href = "addressManagement.html"
                     }, 1000);
                 } else {
 

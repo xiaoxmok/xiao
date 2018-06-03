@@ -2,6 +2,7 @@
 
 .school{border:1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;padding: 20px;height: 120px;}
 .school div{float:left;}
+.school .img img{width:106px;height:106px;}
 .school .con{width: 35%;margin-left: 20px;}
 .school .con .title{font-size: 18px;font-weight: bold;line-height: 30px;color:#333;margin-bottom: 20px;}
 .school .con span{font-size: 12px;line-height: 20px;color:#999;}

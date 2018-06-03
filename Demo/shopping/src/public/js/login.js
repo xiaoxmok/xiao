@@ -63,6 +63,34 @@ $(function () {
                         path: '/'
                     });
 
+                    // cookie记录用户名
+                   getCookie("username", getUser.name, {
+                        expires: 30,
+                        path: '/'
+                    });
+
+                    // cookie记录用户名ID
+                    getCookie("userId", getUser.id, {
+                        expires: 30,
+                        path: '/'
+                    });
+
+                    var getSchool = api.getSchool(getUser.id,i18nLanguage);
+
+                    // cookie记录学校
+                    getCookie("school", getSchool.name, {
+                        expires: 30,
+                        path: '/'
+                    });
+
+                    // cookie记录学校ID
+                    getCookie("schoolId", getSchool.id, {
+                        expires: 30,
+                        path: '/'
+                    });
+
+
+
                     if(getUser.name == null){
                         $('.error').html('首次登录，请完善资料');
 
@@ -72,38 +100,12 @@ $(function () {
                         return;
                     }
 
-                    // cookie记录用户名
-                   /*getCookie("username", getUser.name, {
-                        expires: 30,
-                        path: '/'
-                    });*/
-
-                    // cookie记录学校
-                    /*getCookie("school", getUser.school_no, {
-                        expires: 30,
-                        path: '/'
-                    });*/
-
-                    // cookie记录城市
-                    /*getCookie("address", data.userinfo.school.city_id, {
-                        expires: 30,
-                        path: '/'
-                    });*/
-
-                    // cookie记录语言
-                    /*getCookie("address", data.userinfo.lang, {
-                        expires: 30,
-                        path: '/'
-                    });*/
-
-                    var getSchool = api.getSchool(getUser.id,i18nLanguage);
-
                     $('.welcome').html('Dear '+getUser.name+',欢迎访问'+getSchool.name+'专属页面。');
 
                     $('.error').html('登录成功，2秒后进入首页。');
 
                     setTimeout(function () {
-                        //location.href = "index.html"
+                        location.href = "index.html"
                     }, 2000);
 
                 } else {

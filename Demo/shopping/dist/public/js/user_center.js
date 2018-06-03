@@ -46,12 +46,22 @@ $(function () {
     $('.userName .person .phone em').html(getUser.phone);
 
     // 获取默认地址
-    $('.userName .person .address em').html(getUser.address);
+
+    var getAddressList = api.getAddressList(getCookie('userId'));
+
+    var defalutAddress;
+
+    getAddressList.forEach(function(item,index){
+        if(item.is_default === 'y'){
+            defalutAddress = item.address;
+        }
+    });
+    $('.userName .person .address em').html(defalutAddress);
 
 
     // 获取学校信息
     var getSchool = api.getSchool(getUser.id,i18nLanguage);
-    $('.school .img img').attr('src', getSchool.logo_info);
+    $('.school .img img').attr('src', getSchool.logo_info.url);
     $('.school .con .title').html(getSchool.name);
     $('.school .con span').html(getSchool.description);
 
@@ -64,16 +74,8 @@ $(function () {
         $.ajax({
             type: 'GET',
             //url:'/web/orders?page_size=10&page_num=1',
-            url: '/'+urlL+'public/json/orders.json?page_size=10&page_num=1',
+            url: '/'+urlL+'public/json/orders.json',
             dataType: 'json',
-            beforeSend: function (request) {
-                var time = new Date().getTime();
-                var secure_token = $.md5(token + 'shop' + time);
-
-                request.setRequestHeader("token", token);
-                request.setRequestHeader("time", time);
-                request.setRequestHeader("secure_token", secure_token);
-            },
             success: function (data) {
                 if (data.success === '0') {
                     if (data.data.length > 0) {

@@ -204,10 +204,9 @@ $(function(){
         }
 
         var token = getCookie("token");
-        var getUser = api.getUser(token);
-        var getSchool = api.getSchool(getUser.id,i18nLanguage);
 
-        $('.welcome').html('Dear '+getUser.name+',欢迎访问'+getSchool.name+'专属页面。');
+
+        $('.welcome').html('Dear '+getCookie('username')+',欢迎访问'+getCookie('school')+'专属页面。');
     }else{
         $('.login').hide();
         $('.loging').show();
@@ -220,6 +219,14 @@ $(function(){
 //验证手机号码
 function CheckMobile(Str) {
     if(Str.search("^1(3|5|8)\\d{9}$")!=0){
+        return false;
+    }
+    return true;
+}
+
+//验证数字
+function CheckNum(Str) {
+    if(Str.search("^[0-9]*$")!=0){
         return false;
     }
     return true;

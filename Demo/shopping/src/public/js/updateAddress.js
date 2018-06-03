@@ -10,9 +10,10 @@ $(function(){
     // 获取地址信息
     var getAddressId = api.getAddressId(urlInfo.id);
 
-    $('#name').val(getAddressId.name);
+    $('#name').val(getAddressId.reciever_name);
     $('#address').val(getAddressId.address);
-    $('#phone').val(getAddressId.phone);
+    $('#phone').val(getAddressId.reciever_phone);
+    $('#country_code').val(getAddressId.country_code);
     if(getAddressId.is_default === 'y'){
         $('#defalut').prop("checked", true);
     }else{
@@ -22,7 +23,7 @@ $(function(){
 
     // 更新地址
     $('.submit').click(function(){
-        var name, phone, address, defalut = 1;
+        var name, phone, address,country_code, defalut = 1;
 
         name = $('#name').val();
         if (name.length <= 0) {
@@ -41,6 +42,11 @@ $(function(){
             $('.error').html('手机号格式不正确');
             return;
         }
+        country_code = $('#country_code').val();
+        if (!CheckNum(country_code)) {
+            $('.error').html('区号格式不正确');
+            return;
+        }
 
         if ($('#defalut').is(':checked')) {
             defalut = 'y';
@@ -52,7 +58,7 @@ $(function(){
             token: token,
             id:urlInfo.id,
             reciever_name: name,
-            country_code: '',
+            country_code: country_code,
             reciever_phone: phone,
             address: address,
             is_default: defalut
@@ -64,10 +70,10 @@ $(function(){
             dataType: 'json',
             data: addreesData,
             success: function (data) {
-                if (data.success === '0') {
+                if (data.code === 200) {
                     $('.error').html('提交成功');
                     setTimeout(function () {
-                        //location.href = "addressManagement.html"
+                        location.href = "addressManagement.html"
                     }, 1000);
                 } else {
 

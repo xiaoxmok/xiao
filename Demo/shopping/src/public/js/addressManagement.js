@@ -5,14 +5,16 @@ $(function () {
 
     var token = getCookie('token');
 
+    // 获取个人信息
+    //var getUser = api.getUser(token);
+
     // 获取地址列表
     function searchAddress() {
         $('.management ul').html('');
-        var getAddressList = api.getAddressList(getUser.id);
-        var arr = getAddressList.address;
-        arr.forEach(function (item, index) {
+        var getAddressList = api.getAddressList(getCookie('userId'));
+        getAddressList.forEach(function (item, index) {
             var setDefault
-            if (item.default === 'y') {
+            if (item.is_default === 'y') {
                 setDefault = '<a href="javascript:;" class="defalut">默认地址</a>';
             } else {
                 setDefault = '<a href="javascript:;" data-name="' + item.id + '" class="setDefalut">设置默认</a>';
@@ -20,14 +22,14 @@ $(function () {
 
             var html = '<li>\n' +
                 '                <div class="text">\n' +
-                '                    <span>' + item.name + '</span>\n' +
+                '                    <span>' + item.reciever_name + '</span>\n' +
                 '                    <span>' + item.address + '</span>\n' +
-                '                    <span>' + item.phone + '</span>\n' +
+                '                    <span>' + item.country_code+'-'+item.reciever_phone + '</span>\n' +
                 '                </div>\n' +
                 '                <div class="operate">\n' +
                 setDefault +
                 '                    <a href="./updateAddress.html?id=' + item.id + '" class="edit">编辑</a>\n' +
-                '                    <a href="javascript:;" class="delete">删除</a>\n' +
+                '                    <a href="javascript:;" class="delete" data-name="'+item.id+'">删除</a>\n' +
                 '                </div>\n' +
                 '            </li>';
 
@@ -71,8 +73,10 @@ $(function () {
     // 删除地址
     $('.management').on('click', '.delete', function () {
         var id = $(this).attr('data-name');
-        api.getAddressDelete(id);
-        searchAddress();
+        if(api.getAddressDelete(id).code === 200){
+            searchAddress();
+        }
+
     })
 
 })
