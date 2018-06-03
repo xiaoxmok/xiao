@@ -431,7 +431,7 @@ var api = {
                 if (data.code === 200) {
                     result = {
                         data:data.data,
-                        
+                        extra:data.extra
                     }
                 } else {
                     result = data.msg;
