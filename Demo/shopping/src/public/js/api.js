@@ -637,5 +637,57 @@ var api = {
         });
 
         return result;
+    },
+    /**
+     * 常见问题清单
+     * @returns {*}
+     */
+    getFaqPage:function(){
+        var result;
+        var token = getCookie("token");
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/system/faq-page',
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = data.data
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+    },
+    /**
+     * 设备配置清单
+     * @returns {*}
+     */
+    getDeviceConfigPage:function(){
+        var result;
+        var token = getCookie("token");
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/system/device-config-page',
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = data.data
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
     }
 }
