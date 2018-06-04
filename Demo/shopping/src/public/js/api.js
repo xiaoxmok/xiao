@@ -135,10 +135,13 @@ var api = {
      * @returns {*}
      */
     getGoodsList: function (category_id, page, count, sort, lang) {
-        var result;
+        var result,token;
+        if(login()){
+            token = getCookie('token');
+        }
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/goods/index?category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang,
+            url: url + '/api/v1/goods/index?category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang+'&token='+token,
             dataType: 'json',
             async: false,
             success: function (data) {
@@ -170,6 +173,60 @@ var api = {
         $.ajax({
             type: 'GET',
             url: url + '/api/v1/goods/get?id=' + id + '&lang=' + lang,
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = data.data;
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+    },
+    /**
+     * SKU列表
+     * @param goods_id
+     * @param lang
+     * @returns {*}
+     */
+    getSkuList:function(goods_id, lang){
+        var result;
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/sku/index?goods_id=' + goods_id + '&lang=' + lang,
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = data.data;
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+    },
+    /**
+     * 获取sku信息
+     * @param id
+     * @param lang
+     * @returns {*}
+     */
+    getSkuInfo:function(id,lang){
+        var result;
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/sku/get?id=' + id + '&lang=' + lang,
             dataType: 'json',
             async: false,
             success: function (data) {

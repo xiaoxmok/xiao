@@ -129,8 +129,8 @@
         </div>
         <div class="con">
             <div class="title">
-                <p id="name">21.5寸iMac-Retina 4k Display</p>
-                <span id="summary">21.5-inch iMac -Retina 4K Display-3.0GHz Processor- 1TB Storage</span>
+                <p id="name"></p>
+                <span id="summary"></span>
             </div>
             <div class="detail">
                 <table>
@@ -149,17 +149,19 @@
                     <tr>
                         <td class="td1">颜色：</td>
                         <td class="td2 color">
-                            <a href="javascript:;" class="active">银色</a>
-                            <a href="javascript:;">黑色</a>
-                            <a href="javascript:;">红色</a>
+                            <a href="javascript:;" class="active" id="k1"></a>
                         </td>
                     </tr>
                     <tr>
                         <td class="td1">规格：</td>
                         <td class="td2 norm">
-                            <a href="javascript:;" class="active">21.5寸</a>
-                            <a href="javascript:;">27寸</a>
-                            <a href="javascript:;">29寸</a>
+                            <a href="javascript:;" class="active" id="k2"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1">系列：</td>
+                        <td class="td2 series">
+
                         </td>
                     </tr>
                     <tr>
@@ -276,6 +278,10 @@
         });
         $('.color a').click(function(){
             $('.color a').removeClass('active');
+            $(this).addClass('active');
+        });
+        $('.series a').click(function(){
+            $('.series a').removeClass('active');
             $(this).addClass('active');
         });
 

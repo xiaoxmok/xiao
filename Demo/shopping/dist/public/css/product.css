@@ -42,6 +42,9 @@
 .product .con .detail td.td2.norm a{color:#929292;font-size: 14px;border: 1px solid #eee;padding: 0 3px;border-radius: 3px;}
 .product .con .detail td.td2.norm .active{border: 1px solid #50b7b4;color:#50b7b4;}
 
+.product .con .detail td.td2.series a{color:#929292;font-size: 14px;border: 1px solid #eee;padding: 0 3px;border-radius: 3px;margin-right: 3px;}
+.product .con .detail td.td2.series .active{border: 1px solid #50b7b4;color:#50b7b4;}
+
 .product .con .detail td.td2 .less{background: none;border: 1px solid #eee;cursor:pointer;}
 .product .con .detail td.td2 .plus{background: none;border: 1px solid #eee;cursor:pointer;}
 .product .con .detail td.td2 .text{background: none;border: 1px solid #eee;width:40px;text-align: center;}
