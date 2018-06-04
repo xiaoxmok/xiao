@@ -17,8 +17,29 @@
         <div class="take_title">
             <span></span><p>绑卡成功</p>
         </div>
-        <p>您之前已经注册汇添富现金宝账户，可直接进行登录、充值、赎回等交易请使用<a href="javascript:;" class="link_color">汇添富基金交易密码</a>进行操作。</p>
+        <!--<p>您之前已经注册汇添富现金宝账户，可直接进行登录、充值、赎回等交易请使用<a href="javascript:;" class="link_color">汇添富基金交易密码</a>进行操作。</p>-->
         <a href="javascript:;" class="submit skin">确定</a>
     </div>
+
+    <div class="zhezhao"></div>
+    <div class="info_tan">
+        <div class="info_tan_top tc pb20">
+            <p>请点击左上角关闭按钮</p>
+        </div>
+        <div class="know_btn">
+            <a href="javascript:;" class="forget know">我知道了</a>
+        </div>
+    </div>
+    <script src="js/jquery-2.2.2.min.js"></script>
+    <script>
+        $(function(){
+            $('.know').click(function(){
+                $('.zhezhao,.info_tan').hide();
+            })
+            $('.submit').click(function(){
+                $('.zhezhao,.info_tan').show();
+            })
+        });
+    </script>
 </body>
 </html>

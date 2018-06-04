@@ -24,6 +24,9 @@ window.onload=function(){
 
     // 解决:active在ios系统没效果的问题
 	document.body.addEventListener('touchstart', function () { });
+
+    
+    
 };
 
 
