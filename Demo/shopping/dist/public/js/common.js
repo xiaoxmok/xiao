@@ -1,1 +1,271 @@
-var i18nLanguage,getCookie=function(e,i,t){if(void 0===i){var n=null;if(document.cookie&&""!=document.cookie)for(var o=document.cookie.split(";"),s=0;s<o.length;s++){if((u=jQuery.trim(o[s])).substring(0,e.length+1)==e+"="){n=decodeURIComponent(u.substring(e.length+1));break}}return n}t=t||{},null===i&&(i="",t.expires=-1);var a,r="";t.expires&&("number"==typeof t.expires||t.expires.toUTCString)&&("number"==typeof t.expires?(a=new Date).setTime(a.getTime()+60*t.expires*60*1e3):a=t.expires,r="; expires="+a.toUTCString());var d=t.path?"; path="+t.path:"",l=t.domain?"; domain="+t.domain:"",c=([u,r,d,l,c].join(""),t.secure?"; secure":""),u=[[e,"=",encodeURIComponent(i)].join(""),r,d,l,c].join("");document.cookie=u};function delAllCookie(){var e=new Date;e.setTime(-1e3);for(var i=document.cookie.split("; "),t=0;t<i.length;t++){var n=i[t].split("=");document.cookie=n[0]+"=''; expires="+e.toUTCString()+";path=/"}}function delCookie(e){var i=new Date;i.setTime(i.getTime()-1);var t=getCookie(e);null!=t&&(document.cookie=e+"="+t+";expires="+i.toUTCString()+";path=/")}getCookie("userLanguage")?i18nLanguage=getCookie("userLanguage"):getCookie("userLanguage",i18nLanguage="zh",{"expires":30,"path":"/"}),$(function(){var e="sz";getCookie("city")?(e=getCookie("city"),"zh"===i18nLanguage?"sz"===e?$(".address a").html("深圳"):$(".address a").html("上海"):"sz"===e?$(".address a").html("shenzhen"):$(".address a").html("shanghai")):getCookie("city",e,{"expires":30,"path":"/"}),$(document).bind("click",function(){$(".media-header .nav").slideUp(),$(".address ul").slideUp(),$(".service ul").slideUp()}),$(".address a").click(function(e){e.stopPropagation(e),$(".address ul").is(":hidden")?$(".address ul").slideDown():$(".address ul").slideUp()}),$(".service a").click(function(e){e.stopPropagation(e),$(".service ul").is(":hidden")?$(".service ul").slideDown():$(".service ul").slideUp()}),$(".address li").click(function(){var e=$(this).html(),i=$(this).attr("data-name");getCookie("city",i,{"expires":30,"path":"/"}),$(".address a").html(e),$(".address ul").hide()}),$(".media-header .icon").click(function(e){e.stopPropagation(),$(".media-header .nav").is(":hidden")?$(".media-header .nav").slideDown():$(".media-header .nav").slideUp()})});var urlL="",url="http://byod.1o24.com";function login(){return!!getCookie("token")}$(function(){$(".problem .title").click(function(){$(this).parent().find(".text").is(":hidden")?($(this).parent().find(".text").slideDown(),$(this).find("span").html("-")):($(this).parent().find(".text").slideUp(),$(this).find("span").html("+"))})});var ua=navigator.userAgent.toLocaleLowerCase(),isMobile=/iPhone|iPad|iPod|android|Windows Phone/gi.test(ua);function CheckMobile(e){return 0==e.search("^1(3|5|8)\\d{9}$")}function CheckNum(e){return 0==e.search("^[0-9]*$")}function CheckCode(e){return 0==e.search("^\\d{4}$")}function CheckEmail(e){return/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(e)}function CheckPwd(e){return!!/^\s*[.A-Za-z0-9_-]{5,15}\s*$/.test(e)}function GetRequest(){var e=location.search,i=new Object;if(-1!=e.indexOf("?")){var t=e.substr(1);strs=t.split("&");for(var n=0;n<strs.length;n++)i[strs[n].split("=")[0]]=unescape(strs[n].split("=")[1])}return i}$(function(){if(login()){$(".login").hide(),isMobile||$(".logined").show();getCookie("token");$(".welcome").html("Dear "+getCookie("username")+",欢迎访问"+getCookie("school")+"专属页面。")}else $(".login").hide(),$(".loging").show(),$(".welcome").html("Dear ,请先登录。")});
+/**
+ * cookie操作
+ */
+var getCookie = function (name, value, options) {
+    if (typeof value != 'undefined') { // name and value given, set cookie
+        options = options || {};
+        if (value === null) {
+            value = '';
+            options.expires = -1;
+        }
+        var expires = '';
+        if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
+            var date;
+            if (typeof options.expires == 'number') {
+                date = new Date();
+                date.setTime(date.getTime() + (options.expires * 60 * 60 * 1000));
+                //console.log(date.getTime());
+                //console.log(options.expires * 60 * 60 * 1000);
+            } else {
+                date = options.expires;
+            }
+            expires = '; expires=' + date.toUTCString(); // use expires attribute, max-age is not supported by IE
+        }
+        var path = options.path ? '; path=' + options.path : '';
+        var domain = options.domain ? '; domain=' + options.domain : '';
+        var s = [cookie, expires, path, domain, secure].join('');
+        var secure = options.secure ? '; secure' : '';
+        var c = [name, '=', encodeURIComponent(value)].join('');
+        var cookie = [c, expires, path, domain, secure].join('')
+        document.cookie = cookie;
+    } else { // only name given, get cookie
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+};
+
+//删除cookies
+function delAllCookie(){
+    var myDate=new Date();
+    myDate.setTime(-1000);//设置时间
+    var data=document.cookie;
+    var dataArray=data.split("; ");
+    for(var i=0;i<dataArray.length;i++){
+        var varName=dataArray[i].split("=");
+        document.cookie=varName[0]+"=''; expires="+myDate.toUTCString()+';path=/';
+    }
+
+}
+function delCookie(name) {                   //删除一个cookie
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval=getCookie(name);
+    if(cval!=null)
+        document.cookie= name + "="+cval+";expires="+exp.toUTCString()+';path=/';
+}
+
+/**
+ * 设置语言类型： 默认为中文
+ */
+var i18nLanguage;
+
+if (getCookie("userLanguage")) {
+    i18nLanguage = getCookie("userLanguage");
+    //console.log('i18nLanguage:',i18nLanguage)
+} else {
+    i18nLanguage = "zh";
+    getCookie("userLanguage", i18nLanguage, {
+        expires: 30,
+        path: '/'
+    });
+}
+
+/*城市选择*/
+$(function () {
+    // 默认城市 sz表示上海，sh表示深圳
+    var address = 'sz';
+
+    /*
+      首先获取用户浏览器设备之前选择过的城市
+       */
+    if (getCookie("city")) {
+        address = getCookie("city");
+        if (i18nLanguage === 'zh') {
+            if (address === 'sz') {
+                $('.address a').html('深圳');
+            } else {
+                $('.address a').html('上海');
+            }
+        } else {
+            if (address === 'sz') {
+                $('.address a').html('shenzhen');
+            } else {
+                $('.address a').html('shanghai');
+            }
+        }
+        //console.log('address:',address)
+    } else {
+        getCookie("city", address, {
+            expires: 30,
+            path: '/'
+        });
+    }
+
+    $(document).bind('click',function(){
+        $('.media-header .nav').slideUp();
+        $('.address ul').slideUp();
+        $('.service ul').slideUp();
+        //e.stopPropagation();
+    });
+
+    $('.address a').click(function (e) {
+        e.stopPropagation(e);
+        if ($('.address ul').is(":hidden")) {
+            $('.address ul').slideDown();
+        } else {
+            $('.address ul').slideUp();
+        }
+    });
+    $('.service a').click(function (e) {
+        e.stopPropagation(e);
+        if ($('.service ul').is(":hidden")) {
+            $('.service ul').slideDown();
+        } else {
+            $('.service ul').slideUp();
+        }
+    });
+
+    $('.address li').click(function () {
+        var value = $(this).html();
+        var dataName = $(this).attr('data-name');
+        // console.log(value);
+        getCookie("city", dataName, {
+            expires: 30,
+            path: '/'
+        });
+        $('.address a').html(value);
+        $('.address ul').hide();
+
+    });
+
+    // 移动端
+    $('.media-header .icon').click(function (e) {
+        e.stopPropagation();
+        if ($('.media-header .nav').is(":hidden")) {
+            $('.media-header .nav').slideDown();
+        } else {
+            $('.media-header .nav').slideUp();
+        }
+    });
+
+});
+
+
+var urlL = '';
+//var url = 'xiao/Demo/shopping/dist/';
+var url = 'http://byod.1o24.com';
+
+
+/*常见问题*/
+$(function(){
+    $('.problem .title').click(function(){
+        if($(this).parent().find('.text').is(":hidden")){
+            $(this).parent().find('.text').slideDown();
+            $(this).find('span').html("-")
+        }else{
+            $(this).parent().find('.text').slideUp();
+            $(this).find('span').html("+")
+        };
+    });
+});
+
+
+/*判断是否登录*/
+function login(){
+    if(getCookie("token")){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+// 判断是否移动端
+var ua = navigator.userAgent.toLocaleLowerCase();
+var isMobile = /iPhone|iPad|iPod|android|Windows Phone/ig.test(ua);
+
+$(function(){
+    if(login()){
+
+
+        $('.login').hide();
+        if(!isMobile){
+            $('.logined').show();
+        }
+
+        var token = getCookie("token");
+
+
+        $('.welcome').html('Dear '+getCookie('username')+',欢迎访问'+getCookie('school')+'专属页面。');
+    }else{
+        $('.login').hide();
+        $('.loging').show();
+        $('.welcome').html("Dear ,请先登录。");
+    }
+});
+
+
+
+//验证手机号码
+function CheckMobile(Str) {
+    if(Str.search("^1(3|5|8)\\d{9}$")!=0){
+        return false;
+    }
+    return true;
+}
+
+//验证数字
+function CheckNum(Str) {
+    if(Str.search("^[0-9]*$")!=0){
+        return false;
+    }
+    return true;
+}
+
+//验证验证码
+function CheckCode(Str) {
+    if(Str.search("^\\d{4}$")!=0){
+        return false;
+    }
+    return true;
+}
+
+//是否Email格式
+function CheckEmail(EmailText) {
+
+    var re=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    return re.test(EmailText);
+}
+
+//密码合法性
+function CheckPwd(Pwd){
+    var filter=/^\s*[.A-Za-z0-9_-]{5,15}\s*$/;
+    if(!filter.test(Pwd)) return false;
+    return true;
+}
+
+//js获取url？号后面的参数
+function GetRequest() {
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for(var i = 0; i < strs.length; i ++) {
+            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+
+
