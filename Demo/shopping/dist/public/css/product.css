@@ -33,9 +33,10 @@
 .product .con .title{margin-bottom: 30px;}
 .product .con .title p{color:#333;font-size: 24px;font-weight: bold;}
 .product .con .title span{color:#929292;font-size: 14px;}
-.product .con .detail td.td1{color:#666;font-size: 16px;line-height: 40px;}
+.product .con .detail td.td1{color:#666;font-size: 16px;line-height: 40px;width:96px;}
 .product .con .detail td.td2{color:#929292;font-size: 16px;}
 .product .con .detail td.td2.offer{color:#50b7b4;font-size: 26px;}
+
 .product .con .detail td.td2.color a{color:#929292;font-size: 14px;border: 1px solid #eee;padding: 0 3px;border-radius: 3px;}
 .product .con .detail td.td2.color .active{border: 1px solid #50b7b4;color:#50b7b4;}
 
@@ -44,6 +45,10 @@
 
 .product .con .detail td.td2.series a{color:#929292;font-size: 14px;border: 1px solid #eee;padding: 0 3px;border-radius: 3px;margin-right: 3px;}
 .product .con .detail td.td2.series .active{border: 1px solid #50b7b4;color:#50b7b4;}
+
+.product .con .param td.td2 a{color:#929292;font-size: 14px;border: 1px solid #eee;padding: 0 3px;border-radius: 3px;margin-right: 3px;}
+.product .con .param td.td2 .active{border: 1px solid #50b7b4;color:#50b7b4;}
+
 
 .product .con .detail td.td2 .less{background: none;border: 1px solid #eee;cursor:pointer;}
 .product .con .detail td.td2 .plus{background: none;border: 1px solid #eee;cursor:pointer;}
@@ -96,6 +101,7 @@
     .product .con .btn .buy{font-size: 14px;flex:1;width: auto;height: 30px;line-height: 30px;}
 
     .product .con .detail td.td1,.product .con .detail td.td2{font-size: 12px;line-height: 30px;}
+    .product .con .detail td.td1{width:74px;}
 
     .productNav ul{display: flex;}
     .productNav li{flex:1;margin-right: 0;background: none;}

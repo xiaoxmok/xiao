@@ -148,31 +148,14 @@
                     </tr>
                 </table>
                 <table class="param">
-                    <tr>
-                        <td class="td1">颜色：</td>
-                        <td class="td2 color">
-                            <a href="javascript:;" class="active" id="k1"></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td1">规格：</td>
-                        <td class="td2 norm">
-                            <a href="javascript:;" class="active" id="k2"></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td1">系列：</td>
-                        <td class="td2 series">
 
-                        </td>
-                    </tr>
                 </table>
                 <table>
                     <tr>
                         <td class="td1">购买数量：</td>
                         <td class="td2 btnNum">
                             <input type="button" value="-" class="less">
-                            <input type="text" value="1" class="text">
+                            <input type="text" value="1" class="text" id="quantity">
                             <input type="button" value="+" class="plus">
                         </td>
                     </tr>
@@ -222,12 +205,18 @@
 </div>
 
 <div class="zhezhao"></div>
-<div class="pop">
+<div class="pop tan1">
     <h3>联系我们</h3>
     <a href="javascript:;" class="cls">X</a>
     <div class="con">
         <p>联系邮箱：byodgoods@byod.com</p>
         <p>联系电话：13813212121</p>
+    </div>
+</div>
+<div class="pop tan2">
+    <h3>提示</h3>
+    <div class="con">
+        <p>提示</p>
     </div>
 </div>
 
@@ -241,61 +230,7 @@
 <script src="../public/js/goods.js"></script>
 <script>
     $(function(){
-        var mySwiper = new Swiper ('.swiper-container', {
-            speed:1000,
-            autoplay:{
-                delay: 3000,//1秒切换一次
-            },
-            loop: true,
-            // 如果需要分页器
-            pagination: {
-                el: '.swiper-pagination',
-            },
-        });
 
-        $('.contact ').click(function(){
-            $('.zhezhao').show();
-            $('.pop').show();
-        });
-        $('.cls ').click(function(){
-            $('.zhezhao').hide();
-            $('.pop').hide();
-        });
-
-
-        var value = $('.btnNum .text').val();
-        //console.log(value);
-        $('.btnNum .less').click(function(){
-            if(value>1){
-                value--;
-                $('.btnNum .text').val(value)
-            }
-        });
-        $('.btnNum .plus').click(function(){
-            value++;
-            $('.btnNum .text').val(value)
-        });
-
-        $('.norm a').click(function(){
-            $('.norm a').removeClass('active');
-            $(this).addClass('active');
-        });
-        $('.color a').click(function(){
-            $('.color a').removeClass('active');
-            $(this).addClass('active');
-        });
-        $('.series a').click(function(){
-            $('.series a').removeClass('active');
-            $(this).addClass('active');
-        });
-
-        $('.productNav li').click(function(){
-            var index = $(this).index();
-
-            $('.productDetail').hide().eq(index).show();
-            $('.productNav li').removeClass('active');
-            $(this).addClass('active');
-        })
     })
 </script>
 </body>

@@ -297,11 +297,7 @@ var api = {
             async: false,
             success: function (data) {
                 //console.log(data);
-                if (data.code === 200) {
-                    result = data.data
-                } else {
-                    result = data.msg;
-                }
+                result = data
             },
             error: function () {
             }

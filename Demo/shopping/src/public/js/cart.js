@@ -58,12 +58,14 @@ $(function () {
 
     // 获取购物车列表
     var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
+    var getCartInfo = api.getCartInfo(1, i18nLanguage);
+
 
 
     // 获取推荐配件
-    var goods_ids = [1, 2];
+    //var goods_ids = [1, 2];
 
-    var getRecommendAccessoryForGoods = api.getRecommendAccessoryForGoods(goods_ids, 0, 1, 20, '%2Bsale', i18nLanguage);
+    //var getRecommendAccessoryForGoods = api.getRecommendAccessoryForGoods(goods_ids, 0, 1, 20, '%2Bsale', i18nLanguage);
 
 
 });
