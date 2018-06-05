@@ -1,5 +1,5 @@
 $(function(){
-    if (login()) {
+    if (!login()) {
         location.href = "index.html"
     }
 
@@ -103,8 +103,11 @@ $(function(){
             data:orderData,
             success:function(data){
                 if(data.code === 200){
-
+                    setTimeout(function () {
+                        location.href = "bank.html"
+                    }, 2000);
                 }
+                location.href = "payment.html"
             },
             error:function(){}
         })
