@@ -1,15 +1,5 @@
 $(function () {
-    var mySwiper = new Swiper('.swiper-container', {
-        speed: 1000,
-        autoplay: {
-            delay: 3000,//1秒切换一次
-        },
-        loop: true,
-        // 如果需要分页器
-        pagination: {
-            el: '.swiper-pagination',
-        },
-    })
+
 
     // 获取banner
     $.ajax({
@@ -28,7 +18,17 @@ $(function () {
                     $('.swiper-wrapper').append(html);
                     //console.log(item.img_info.url);
                 })
-
+                var mySwiper = new Swiper('.swiper-container', {
+                    speed: 1000,
+                    autoplay: {
+                        delay: 3000,//1秒切换一次
+                    },
+                    loop: true,
+                    // 如果需要分页器
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+                })
             }
         },
         error: function (xhr, status, error) {

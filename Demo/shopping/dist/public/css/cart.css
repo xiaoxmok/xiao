@@ -9,10 +9,15 @@
 .cartDetail td .con p{color:#666;margin: 15px 0;}
 .cartDetail td .con span{color:#50b7b4;font-size: 16px;}
 .cartDetail td .amount{width: 40px;text-align: center;border: 1px solid #eee;}
-.cartDetail td .amountM{width: 40px;text-align: center;border: 1px solid #eee;margin-left: 20px;display: none;}
+.cartDetail td .amountM{text-align: center;margin-left: 20px;display: none;}
 .cartDetail .operate a{color:#50b7b4;display: block;font-size: 14px;line-height: 30px;}
 .cartDetail .status p{color:#50b7b4;display: block;font-size: 14px;line-height: 30px;}
 .cartDetail .status span{color:#999;font-size: 12px;}
+
+.cartDetail .less{background: none;border: 1px solid #eee;cursor:pointer;}
+.cartDetail .plus{background: none;border: 1px solid #eee;cursor:pointer;}
+.cartDetail .text{background: none;border: 1px solid #eee;width:40px;text-align: center;}
+
 
 
 .Clearing{overflow: hidden;border: 1px solid #eee;}
@@ -59,7 +64,7 @@
     .cartDetail td{padding:10px 0;}
 
     .cartDetail td .img img{width:60px;height:60px;}
-
+    .cartDetail .text{width: 20px;}
 
     .cartDetail td .con{padding-left: 10px;font-size: 12px;}
     .cartDetail td .con p{margin: 0;width: 150px;}
@@ -67,7 +72,8 @@
 
     .recommend .content li{width:39%;}
     .recommend .content li img{width:100%;height:133px;}
+}
 
-
-
+@media screen and (max-width:320px){
+    .cartDetail td .img{display: none}
 }
