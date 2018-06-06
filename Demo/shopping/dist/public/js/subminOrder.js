@@ -1,18 +1,55 @@
 $(function(){
     if (!login()) {
-        location.href = "index.html"
+        location.href = "login.html"
     }
 
     var token = getCookie('token');
 
     // 获取收货地址
+    var getAddressList = api.getAddressList(getCookie('userId'));
+    getAddressList.forEach(function(item,index){
+        var html
+        if (item.is_default === 'y') {
+            html = '<p><input type="radio" name="addr" id="addr1" value="'+item.id+'" checked><label for="addr1"><span>'+item.reciever_name+'</span><span>'+item.address+'</span><span>'+item.reciever_phone+'</span>(默认)<span></span></label></p>';
+        } else {
+            html = '<p><input type="radio" name="addr" id="addr2" value="'+item.id+'"><label for="addr2"><span>'+item.reciever_name+'</span><span>'+item.address+'</span><span>'+item.reciever_phone+'</span></label></p>';
+        }
 
-
+        $('.shipping .con').append(html);
+    })
 
 
 
     // 获取订单列表
-    var getOrderList = api.getOrderList(api.getUser(token).id,'paying');
+    //var getOrderList = api.getOrderList(api.getUser(token).id,'paying');
+    var getUrl = GetRequest();
+    console.log(getUrl);
+    var order_items = JSON.parse(getUrl.order_items);
+    $('.confirm table ul').html('');
+    order_items.forEach(function(item,index){
+        var getSkuInfo = api.getSkuInfo(item.sku_id,i18nLanguage);
+        var price = (getSkuInfo.school_price * item.quantity).toFixed(2);
+        var html = '<tr>\n' +
+            '                    <td>\n' +
+            '                        <div class="img"><img src="'+getSkuInfo.img_infos[0].url+'" alt=""></div>\n' +
+            '                        <div class="con">\n' +
+            '                            <p class="title">'+getSkuInfo.goods_name+'</p>\n' +
+            '                            <span class="price">￥<em>'+getSkuInfo.school_price+'</em></span>\n' +
+            '                            <span class="amountM">X'+item.quantity+'</span>\n' +
+            '                        </div>\n' +
+            '                    </td>\n' +
+            '                    <td class="td3">\n' +
+            '                        X'+item.quantity+'\n' +
+            '                    </td>\n' +
+            '                    <td class="totalPrice">￥<em>'+price+'</em></td>\n' +
+            '                    <td class="operate">\n' +
+            '                        <a href="javascript:;">删除</a>\n' +
+            '                    </td>\n' +
+            '                </tr>';
+
+        $('.confirm table').append(html);
+
+    });
 
 
 
@@ -36,7 +73,8 @@ $(function(){
     $('.totalPrice').each(function(){
         allPrice += parseFloat($(this).find('em').html());
         $('.Clearing .all em').html(allPrice.toFixed(2));
-    })
+    });
+    $('.Clearing .amount em').html(order_items.length);
 
 
     // 提交订单

@@ -50,12 +50,12 @@ $(function () {
             dataType: 'json',
             data: loginData,
             success: function (data) {
-                console.log(data);
+                //console.log(data);
                 if (data.code === 200) {
 
                     var getUser = api.getUser(data.data.token);
 
-                    console.log(getUser,getUser.name,);
+                    //console.log(getUser,getUser.name,);
 
                     // cookie记录token
                     getCookie("token", data.data.token, {

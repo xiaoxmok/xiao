@@ -328,3 +328,19 @@ function isEqual(a,b){
         return false;
     }
 }
+
+
+// 判断数组是否存在某个值
+Array.prototype.in_array = function (element) {
+
+    for (var i = 0; i < this.length; i++) {
+
+        if (this[i] == element) {
+
+            return true;
+
+        }
+
+    } return false;
+
+}

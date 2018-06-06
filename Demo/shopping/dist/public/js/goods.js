@@ -17,12 +17,12 @@ $(function () {
     $('.btnNum .less').click(function () {
         if (value > 1) {
             value--;
-            $('.btnNum .text').val(value)
+            $('.btnNum .text').attr('value',value);
         }
     });
     $('.btnNum .plus').click(function () {
         value++;
-        $('.btnNum .text').val(value)
+        $('.btnNum .text').attr('value',value);
     });
 
     $('.productNav li').click(function () {
@@ -157,6 +157,7 @@ $(function () {
             }
         });
         if(flag){
+            console.log('quantity',quantity);
             var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
             if (createCart.code === 200) {
                 $('.zhezhao').show();

@@ -5,6 +5,7 @@
 
 .cartDetail td{padding: 30px;text-align: center;color:#666;font-size: 14px;}
 .cartDetail td .img,.cartDetail td .con{float:left;}
+.cartDetail td .img img{width:98px;height:98px;}
 .cartDetail td .con{text-align: left;padding-left: 20px;font-size: 14px;}
 .cartDetail td .con p{color:#666;margin: 15px 0;}
 .cartDetail td .con span{color:#50b7b4;font-size: 16px;}
@@ -68,7 +69,8 @@
 
     .cartDetail td .con{padding-left: 10px;font-size: 12px;}
     .cartDetail td .con p{margin: 0;width: 150px;}
-    .cartDetail td .amountM{margin: 0;float:right;}
+    .cartDetail td .amountM{margin: 0;float:left;}
+    .cartDetail td .con span{color:#50b7b4;font-size: 16px;display: block;}
 
     .recommend .content li{width:39%;}
     .recommend .content li img{width:100%;height:133px;}

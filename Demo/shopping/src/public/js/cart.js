@@ -39,7 +39,7 @@ $(function () {
     function changeCart() {
         var allAmount = 0;
         var checkedList = [];
-        var order_items = [];
+        order_items = [];
         $("input[name='select']:checked").each(function () {
             //console.log($(this));
             var list = {
@@ -54,15 +54,10 @@ $(function () {
             //console.log($(this).parent().parent().html());
             checkedList.push(list);
             order_items.push(orderList);
-
+            allAmount += list.price;
         });
         //console.log(order_items);
-        checkedList.forEach(function(item,index){
-            allAmount += item.price;
-            $('.Clearing .all em').html(allAmount.toFixed(2));
-        });
-
-
+        $('.Clearing .all em').html(allAmount.toFixed(2));
         $('.Clearing .amount em').html(checkedList.length);
         if (checkedList.length === 0) {
             $('.Clearing .all em').html("0.00");
@@ -74,18 +69,23 @@ $(function () {
 
     // 获取购物车列表
     var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
-    var getCartInfo = api.getCartInfo(1, i18nLanguage);
+    //var getCartInfo = api.getCartInfo(1, i18nLanguage);
 
+    // goods_ids 用于获得推荐列表；
+    var goods_ids=[];
     function shoCart() {
         //$('.cartDetail tbody').html('');
         getCartList.forEach(function (item, index) {
             var price = (item.sku_info.school_price * item.quantity).toFixed(2);
+            if(!goods_ids.in_array(item.sku_info.goods_id)){
+                goods_ids.push(item.sku_info.goods_id);
+            }
             var html = '<tr class="skuId">\n' +
                 '                <td><input type="checkbox" name="select" data-name="' + item.id + '" value="' + item.sku_id + '"></td>\n' +
                 '                <td>\n' +
-                '                    <div class="img"><img src="../public/img/order.png" alt=""></div>\n' +
+                '                    <div class="img"><img src="'+item.sku_info.img_infos[0].url+'" alt=""></div>\n' +
                 '                    <div class="con">\n' +
-                '                        <p class="title">' + item.name + '</p>\n' +
+                '                        <p class="title">' + item.sku_info.goods_name + '</p>\n' +
                 '                        <span class="unit_price">￥<em>' + item.sku_info.school_price + '</em></span>\n' +
                 '                        <div class="amountM btnNum">' +
                 '                           <input type="button" value="-" class="less">' +
@@ -149,16 +149,48 @@ $(function () {
 
 
     // 删除购物车订单
+    $('.cartDetail table').on('click','#delete',function(){
+        var id = $(this).attr('data-name');
+        var getCartDelete = api.getCartDelete(id);
+        if(getCartDelete.code === 200){
+            $(this).parent().parent().remove();
+            changeCart();
+        }
+    })
+
+
 
 
     // 去结算
+    //submitOrder.html
 
-
+    $('#settle').click(function(){
+        //console.log('22',order_items);
+        location.href = "submitOrder.html?order_items="+JSON.stringify(order_items);
+    });
 
     // 获取推荐配件
-    //var goods_ids = [1, 2];
+    // console.log(goods_ids);
+    goods_ids=[1,2]
 
-    //var getRecommendAccessoryForGoods = api.getRecommendAccessoryForGoods(goods_ids, 0, 1, 20, '%2Bsale', i18nLanguage);
+    var getRecommendAccessoryForGoods = api.getRecommendAccessoryForGoods(goods_ids, 0, 1, 20, '%2Bsale', i18nLanguage);
+    var accessoryDataArr = getRecommendAccessoryForGoods.data;
+    //$('.recommend ul').html('');
+    accessoryDataArr.forEach(function(item,index){
+        var html = '<li>\n' +
+            '                    <img src="'+item.img_infos[0].url+'" alt="">\n' +
+            '                    <div class="con">\n' +
+            '                        <p class="Title">'+item.name+'</p>\n' +
+            '                        <p class="description">'+item.summary+'</p>\n' +
+            '                        <p class="price"><span>常规价格：</span>\n' +
+            '                            <del>￥'+item.price+'</del>\n' +
+            '                        </p>\n' +
+            '                        <p class="price"><span>学校优惠价：</span><em>￥'+item.school_price+'</em></p>\n' +
+            '                        <a class="apply" href="javascript:;">加入购物车</a>\n' +
+            '                    </div>\n' +
+            '                </li>';
 
+        $('.recommend ul').append(html);
+    })
 
 });
