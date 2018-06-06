@@ -23,7 +23,7 @@ $(function(){
     // 获取订单列表
     //var getOrderList = api.getOrderList(api.getUser(token).id,'paying');
     var getUrl = GetRequest();
-    console.log(getUrl);
+    //console.log(getUrl);
     var order_items = JSON.parse(getUrl.order_items);
     $('.confirm table ul').html('');
     order_items.forEach(function(item,index){
@@ -42,9 +42,6 @@ $(function(){
             '                        X'+item.quantity+'\n' +
             '                    </td>\n' +
             '                    <td class="totalPrice">￥<em>'+price+'</em></td>\n' +
-            '                    <td class="operate">\n' +
-            '                        <a href="javascript:;">删除</a>\n' +
-            '                    </td>\n' +
             '                </tr>';
 
         $('.confirm table').append(html);
@@ -80,21 +77,17 @@ $(function(){
     // 提交订单
     $('.submitOrder').click(function(){
         var orderData;
+
         // 普通发票
         if($('.invoiceInfo input[name="info"]:checked').val() === 'normal'){
             orderData = {
                 token:token,
                 price:parseFloat($('.Clearing .all em').html()),
-                pay_type:'pay_type',
+                pay_type:$('.payInfo input[name="payInfo"]:checked').val(),
                 order_type:'goods',
                 address_id:$('.shipping input[name="addr"]:checked').val(),
                 message:$('.message textarea').val(),
-                order_items:[
-                    {
-                        sku_id:'sku_id',
-                        quantity:'quantity'
-                    }
-                ],
+                order_items:JSON.stringify(order_items),
                 billing_type:'normal',
                 normal_invoice_type:$('.invoiceType input[name="type1"]:checked').val(),
                 normal_title:$('#normal_title').val(),
@@ -106,16 +99,11 @@ $(function(){
             orderData = {
                 token:token,
                 price:parseFloat($('.Clearing .all em').html()),
-                pay_type:'pay_type',
+                pay_type:$('.payInfo input[name="payInfo"]:checked').val(),
                 order_type:'goods',
                 address_id:$('.shipping input[name="addr"]:checked').val(),
                 message:$('.message textarea').val(),
-                order_items:[
-                    {
-                        sku_id:'sku_id',
-                        quantity:'quantity'
-                    }
-                ],
+                order_items:JSON.stringify(order_items),
                 billing_type:'vat',
                 vat_invoice_type:'company',
                 vat_tax_no:$('#vat_tax_no').val(),
@@ -133,7 +121,7 @@ $(function(){
                 receiver_address:$('#receiver_address').val(),
             }
         }
-        //console.log(orderData);
+        console.log(orderData);
         $.ajax({
             type:'POST',
             url:url+'/api/v1/order/create',
@@ -141,17 +129,16 @@ $(function(){
             data:orderData,
             success:function(data){
                 if(data.code === 200){
-                    setTimeout(function () {
-                        location.href = "bank.html"
-                    }, 2000);
+                    // 删除购物车
+                    /*order_items.forEach(function(item,index){
+                        var getCartDelete = api.getCartDelete(item.sku_id);
+                    });*/
+                    location.href = "payment.html?orderNo="+data.data.orderNo;
                 }
-                location.href = "payment.html"
+                //location.href = "payment.html"
             },
             error:function(){}
         })
-
-
-
 
     })
 

@@ -61,6 +61,27 @@ var api = {
         });
     },
     /**
+     * 获取验证码
+     * @returns {*}
+     */
+    getCaptcha:function(){
+        var result;
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/system/get-captcha',
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                result = data;
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+    },
+    /**
      * 获取学校信息
      * @param id
      * @param lang
@@ -532,6 +553,28 @@ var api = {
         $.ajax({
             type: 'GET',
             url: url + '/api/v1/order/index?user_id=' + user_id + '&status=' + status + '&token=' + token,
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    result = data.data
+                } else {
+                    result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+    },
+    getOrderInfo:function(id){
+        var result;
+        var token = getCookie("token");
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/order/get?id='+ id + '&token=' + token,
             dataType: 'json',
             async: false,
             success: function (data) {

@@ -29,10 +29,17 @@ $(function () {
         error: function (xhr, status, error) {
             console.log(xhr, status, error);
         }
-    })
+    });
 
+    // 获取图片验证码
+    var getCaptcha = api.getCaptcha();
+    $('#Captcha').attr('src','http://byod.1o24.com/api/v1/system/get-captcha');
+    $('#Captcha').click(function(){
+        //$('#Captcha').attr('src','');
+        $('#Captcha').attr('src','http://byod.1o24.com/api/v1/system/get-captcha?t='+Math.random());
+    });
 
-    // 获取验证码
+    // 获取手机验证码
     $('.code').click(function(){
 
         $('.error').html('');
@@ -61,6 +68,12 @@ $(function () {
                 email:account
             };
         }
+        var captcha=$('.Captcha_code').val();
+        if(captcha.length === 0){
+            $('.error').html('图形验证码不能为空');
+            return;
+        }
+        verifyData.captcha=captcha;
 
 
         /*获取验证码倒记时*/
