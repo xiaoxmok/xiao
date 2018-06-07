@@ -6,7 +6,7 @@ $(function(){
     var token = getCookie('token');
 
     var getUrl = GetRequest();
-    console.log(getUrl.orderNo);
+    console.log(getUrl);
 
     var getOrderInfo = api.getOrderInfo(getUrl.orderNo);
     $('#order_no').html(getOrderInfo.order_no);
@@ -41,26 +41,38 @@ $(function(){
     if(isPhone()){
         agent = 'phone';
     }
+
+    var payData = {
+        order_no:getUrl.orderNo,
+        price:0.01,
+        pay_type:getOrderInfo.pay_type,
+        agent:agent,
+        token:token
+    }
+
     $.ajax({
         type: 'POST',
         url: url + '/api/v1/order/pay',
         dataType: 'json',
-        data:{
-            order_no:getUrl.orderNo,
-            price:0.01,
-            pay_type:getOrderInfo.pay_type,
-            agent:agent,
-            token:token
-        },
+        data:payData,
         success: function (data) {
             if(data.code === 200){
                 if(getOrderInfo.pay_type === 'alipay'){
                     $('.alipayPc').html(data.data["raw-html"]);
                 }else{
                     $('.qrCode img').attr('src',data.data.url);
-
-
                 }
+
+                var time = setInterval(function(){
+                    var orderInfo = api.getOrderInfo(getUrl.orderNo);
+                    if(orderInfo.status === 'paid'){
+                        clearInterval(time);
+                        $('.success').show();
+                        setTimeout(function () {
+                            //location.href = "center.html"
+                        }, 2000);
+                    }
+                },3000)
             }
         },
         error: function () {
