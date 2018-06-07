@@ -547,12 +547,12 @@ var api = {
      * @param status
      * @returns {*}
      */
-    getOrderList:function(user_id,status){
+    getOrderList:function(status){
         var result;
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/order/index?user_id=' + user_id + '&status=' + status + '&token=' + token,
+            url: url + '/api/v1/order/index?status=' + status + '&token=' + token,
             dataType: 'json',
             async: false,
             success: function (data) {
@@ -569,12 +569,12 @@ var api = {
 
         return result;
     },
-    getOrderInfo:function(id){
+    getOrderInfo:function(order_no){
         var result;
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/order/get?id='+ id + '&token=' + token,
+            url: url + '/api/v1/order/get?order_no='+ order_no + '&token=' + token,
             dataType: 'json',
             async: false,
             success: function (data) {

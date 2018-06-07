@@ -344,3 +344,24 @@ Array.prototype.in_array = function (element) {
     } return false;
 
 }
+
+
+// 判断是否手机登录
+function isPhone(){
+    var ua = navigator.userAgent.toLocaleLowerCase();
+    var isMobile = /iPhone|iPad|iPod|android|Windows Phone/ig.test(ua);
+    if(isMobile){
+        return true;
+    }
+    return false;
+}
+
+// 获取存在对象的值
+function getObjVal(obj,str){
+    for(var i in obj){
+        if(i === str){
+            return obj[i];
+        }
+    }
+    return null;
+}

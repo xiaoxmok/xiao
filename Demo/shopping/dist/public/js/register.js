@@ -8,7 +8,7 @@ $(function () {
     // 获取学校信息
     $.ajax({
         type: 'GET',
-        url: url+'/api/v1/school/index?city='+''+'&lang='+i18nLanguage,
+        url: url + '/api/v1/school/index?city=' + '' + '&lang=' + i18nLanguage,
         dataType: 'json',
         success: function (data) {
             //console.log("data", data);
@@ -33,81 +33,82 @@ $(function () {
 
     // 获取图片验证码
     var getCaptcha = api.getCaptcha();
-    $('#Captcha').attr('src','http://byod.1o24.com/api/v1/system/get-captcha');
-    $('#Captcha').click(function(){
+    $('#Captcha').attr('src', 'http://byod.1o24.com/api/v1/system/get-captcha');
+    $('#Captcha').click(function () {
         //$('#Captcha').attr('src','');
-        $('#Captcha').attr('src','http://byod.1o24.com/api/v1/system/get-captcha?t='+Math.random());
+        $('#Captcha').attr('src', 'http://byod.1o24.com/api/v1/system/get-captcha?t=' + Math.random());
     });
 
     // 获取手机验证码
-    $('.code').click(function(){
+    $('.code').click(function () {
 
         $('.error').html('');
-        var account,verifyData;
+        var account, verifyData;
         var value = $('#select').children('option:selected').val();
 
-        if(value === 'phone'){
+        if (value === 'phone') {
             account = $('.account').val();
-            if(!CheckMobile(account)){
+            if (!CheckMobile(account)) {
                 $('.error').html('账号格式不正确！');
                 return;
             }
-            verifyData={
-                verify_type:value,
-                phone:account
+            verifyData = {
+                verify_type: value,
+                phone: account
             };
 
-        }else if(value === 'email'){
+        } else if (value === 'email') {
             account = $('.account').val();
-            if(!CheckEmail(account)){
+            if (!CheckEmail(account)) {
                 $('.error').html('邮箱格式不正确！');
                 return;
             }
-            verifyData={
-                verify_type:value,
-                email:account
+            verifyData = {
+                verify_type: value,
+                email: account
             };
         }
-        var captcha=$('.Captcha_code').val();
-        if(captcha.length === 0){
+        var captcha = $('.Captcha_code').val();
+        if (captcha.length === 0) {
             $('.error').html('图形验证码不能为空');
             return;
         }
-        verifyData.captcha=captcha;
+        verifyData.captcha = captcha;
 
 
         /*获取验证码倒记时*/
-        var time=60;
+        var time = 60;
         var time1;
-        function timeOut(){
+
+        function timeOut() {
             time--;
             $('.timeOut').html(time);
             //console.log(time);
-            if(time < 0){
+            if (time < 0) {
                 clearInterval(time1);
                 $('.code').show();
                 $('.countDown').hide();
-                time=10;
+                time = 10;
             }
         }
 
         $.ajax({
-            type:'POST',
-            url:url+'/api/v1/user/send-verify-code',
-            dataType:'json',
-            data:verifyData,
-            success:function(data){
-                if(data.code === 200){
+            type: 'POST',
+            url: url + '/api/v1/user/send-verify-code',
+            dataType: 'json',
+            data: verifyData,
+            success: function (data) {
+                if (data.code === 200) {
                     console.log('获取验证码成功！');
                     $('.timeOut').html(time);
-                    time1=setInterval(timeOut,1000);
+                    time1 = setInterval(timeOut, 1000);
                     $('.code').hide();
                     $('.countDown').show();
-                }else{
-                   $('.error').html(data.msg);
+                } else {
+                    $('.error').html(data.msg);
                 }
             },
-            error:function(xhr, status, error){
+            error: function (xhr, status, error) {
                 console.log(xhr, status, error);
             }
         });
@@ -115,73 +116,73 @@ $(function () {
     });
 
     // 注册
-    $('.register').click(function(){
-        var account,password,valid_code,school_id,registeData;
+    $('.register').click(function () {
+        var account, password, valid_code, school_id, registeData;
         $('.error').html('');
 
         var value = $('#select').children('option:selected').val();
 
         valid_code = $('.valid_code').val();
-        if(!CheckCode(valid_code)){
+        if (!CheckCode(valid_code)) {
             $('.error').html('验证码格式不正确。');
             return;
         }
 
-        password= $('.password').val();
-        if(!CheckPwd(password)){
+        password = $('.password').val();
+        if (!CheckPwd(password)) {
             $('.error').html('密码不合法，输入5-15位数！');
             return;
         }
 
         school_id = $('#schoolSearch').children('option:selected').val();
 
-        if(value === 'phone'){
+        if (value === 'phone') {
             account = $('.account').val();
-            if(!CheckMobile(account)){
+            if (!CheckMobile(account)) {
                 $('.error').html('账号格式不正确！');
                 return;
             }
-            registeData={
-                verify_type:value,
-                phone:account,
-                verify_code:valid_code,
-                password:password,
-                school_id:school_id
+            registeData = {
+                verify_type: value,
+                phone: account,
+                verify_code: valid_code,
+                password: password,
+                school_id: school_id
             }
 
-        }else if(value === 'email'){
+        } else if (value === 'email') {
             account = $('.account').val();
-            if(!CheckEmail(account)){
+            if (!CheckEmail(account)) {
                 $('.error').html('邮箱格式不正确！');
                 return;
             }
-            registeData={
-                verify_type:value,
-                email:account,
-                verify_code:valid_code,
-                password:password,
-                school_region_id:school_id
+            registeData = {
+                verify_type: value,
+                email: account,
+                verify_code: valid_code,
+                password: password,
+                school_region_id: school_id
             }
         }
 
         $.ajax({
-            type:'POST',
-            url:url+'/api/v1/user/register',
-            dataType:'json',
-            data:registeData,
-            success:function(data){
+            type: 'POST',
+            url: url + '/api/v1/user/register',
+            dataType: 'json',
+            data: registeData,
+            success: function (data) {
                 //console.log(data.code,typeof data.code);
-                if(data.code === 200){
+                if (data.code === 200) {
                     // console.log('注册成功。');
                     $('.error').html('注册成功，自动跳转登录页面。');
                     setTimeout(function () {
                         location.href = "login.html"
                     }, 2000);
-                }else{
+                } else {
                     $('.error').html(data.detail);
                 }
             },
-            error:function(xhr,status,error){
+            error: function (xhr, status, error) {
 
             }
         })

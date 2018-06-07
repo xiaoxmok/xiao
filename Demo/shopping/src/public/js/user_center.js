@@ -67,7 +67,7 @@ $(function () {
 
 
     // 获取我的订单
-    var getOrderList = api.getOrderList(getCookie('userId'),'paying');
+    var getOrderList = api.getOrderList('');
 
 
 
