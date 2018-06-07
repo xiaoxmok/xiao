@@ -72,7 +72,7 @@ $(function () {
             $('.goods .content ul').append(html);
         });
 
-        $('.goods .page #page').val(extra.page + '/' + extra.total)
+        $('.goods .page #page').val(extra.page + '/' + extra.last_page)
     }
 
     // 全部

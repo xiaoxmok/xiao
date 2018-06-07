@@ -67,95 +67,81 @@ $(function () {
 
 
     // 获取我的订单
-    var getOrderList = api.getOrderList('');
-
-
-
     function getOrders() {
         $('.pcOrder').html('');
         $('.mOrder li').html('');
 
-        $.ajax({
-            type: 'GET',
-            //url:'/web/orders?page_size=10&page_num=1',
-            url: '/'+urlL+'public/json/orders.json',
-            dataType: 'json',
-            success: function (data) {
-                if (data.success === '0') {
-                    if (data.data.length > 0) {
-                        var dataArr = data.data;
-                        dataArr.forEach(function(item,index){
-                            var pc_hmtl = '<tr>\n' +
-                                '                <td>\n' +
-                                '                    <div class="img"><img src="'+item.pic+'" alt=""></div>\n' +
-                                '                    <div class="con">\n' +
-                                '                        <p>订单号：'+item.no+'</p>\n' +
-                                '                        <span>下单时间：'+item.time+'</span>\n' +
-                                '                    </div>\n' +
-                                '                </td>\n' +
-                                '                <td>'+item.status+'</td>\n' +
-                                '                <td>￥'+item.price+'</td>\n' +
-                                '                <td class="operate">\n' +
-                                '                    <a href="./ordersDetail.html?id='+item.no+'">查看详情</a>\n' +
-                                '                    <a href="./invoice.html">开具发票</a>\n' +
-                                '                    <a href="./returns.html?id='+item.no+'">退换货</a>\n' +
-                                '                </td>\n' +
-                                '            </tr>';
-                            $('.pcOrder').append(pc_hmtl);
-
-                            var m_html = '<li>\n' +
-                                '                    <div class="up">\n' +
-                                '                        <div class="img"><img src="'+item.pic+'" alt=""></div>\n' +
-                                '                        <div class="con">\n' +
-                                '                            <p>订单号：'+item.no+'</p>\n' +
-                                '                            <span>下单时间：'+item.time+'</span>\n' +
-                                '                        </div>\n' +
-                                '                        <div class="status">订单状态：'+item.status+'</div>\n' +
-                                '                    </div>\n' +
-                                '                    <div class="down">\n' +
-                                '                        <a href="./ordersDetail.html">查看详情</a>\n' +
-                                '                        <a href="./invoice.html">开具发票</a>\n' +
-                                '                        <a href="./returns.html?id='+item.no+'">退换货</a>\n' +
-                                '                    </div>\n' +
-                                '                </li>';
-                            $('.mOrder ul').append(m_html);
-
-                        });
-                    }else{
-                        var pc_tr = '<tr>\n' +
-                            '                <td colspan="5">\n' +
-                            '                    <p>暂无数据</p>\n' +
-                            '                </td>\n' +
-                            '            </tr>';
-                        $('.pcOrder').append(pc_tr);
-
-                        var m_li = '<li>\n' +
-                            '                    <div>\n' +
-                            '                        <p>暂无数据</p>\n' +
-                            '                    </div>\n' +
-                            '                </li>';
-                        $('.mOrder ul').append(m_li);
-                    }
-                } else {
-                    var pcerror = '<tr>\n' +
-                        '                <td colspan="5">\n' +
-                        '                    <p>获取失败</p>\n' +
+        var getOrderList = api.getOrderList('');
+        if (getOrderList.code === 200) {
+            if (getOrderList.data.length > 0) {
+                var dataArr = getOrderList.data;
+                dataArr.forEach(function(item,index){
+                    var pc_hmtl = '<tr>\n' +
+                        '                <td>\n' +
+                        '                    <div class="img"><img src="../public/img/order.png" alt=""></div>\n' +
+                        '                    <div class="con">\n' +
+                        '                        <p>订单号：'+item.order_no+'</p>\n' +
+                        '                        <span>下单时间：'+item.time+'</span>\n' +
+                        '                    </div>\n' +
                         '                </td>\n' +
-                        '            </tr>'
-                    $('.pcOrder').append(pcerror);
+                        '                <td>'+item.status+'</td>\n' +
+                        '                <td>￥'+item.price+'</td>\n' +
+                        '                <td class="operate">\n' +
+                        '                    <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n' +
+                        '                    <a href="./invoice.html">开具发票</a>\n' +
+                        '                    <a href="./returns.html?id='+item.no+'">退换货</a>\n' +
+                        '                </td>\n' +
+                        '            </tr>';
+                    $('.pcOrder').append(pc_hmtl);
 
-                    var m_li = '<li>\n' +
-                        '                    <div>\n' +
-                        '                        <p>获取失败</p>\n' +
+                    var m_html = '<li>\n' +
+                        '                    <div class="up">\n' +
+                        '                        <div class="img"><img src="../public/img/order.png" alt=""></div>\n' +
+                        '                        <div class="con">\n' +
+                        '                            <p>订单号：'+item.no+'</p>\n' +
+                        '                            <span>下单时间：'+item.time+'</span>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="status">订单状态：'+item.status+'</div>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="down">\n' +
+                        '                        <a href="./ordersDetail.html">查看详情</a>\n' +
+                        '                        <a href="./invoice.html">开具发票</a>\n' +
+                        '                        <a href="./returns.html?id='+item.no+'">退换货</a>\n' +
                         '                    </div>\n' +
                         '                </li>';
-                    $('.mOrder li').append(m_li);
-                }
-            },
-            error: function (xhr, status, error) {
+                    $('.mOrder ul').append(m_html);
 
+                });
+            }else{
+                var pc_tr = '<tr>\n' +
+                    '                <td colspan="5">\n' +
+                    '                    <p>暂无数据</p>\n' +
+                    '                </td>\n' +
+                    '            </tr>';
+                $('.pcOrder').append(pc_tr);
+
+                var m_li = '<li>\n' +
+                    '                    <div>\n' +
+                    '                        <p>暂无数据</p>\n' +
+                    '                    </div>\n' +
+                    '                </li>';
+                $('.mOrder ul').append(m_li);
             }
-        })
+        } else {
+            var pcerror = '<tr>\n' +
+                '                <td colspan="5">\n' +
+                '                    <p>获取失败</p>\n' +
+                '                </td>\n' +
+                '            </tr>'
+            $('.pcOrder').append(pcerror);
+
+            var m_li = '<li>\n' +
+                '                    <div>\n' +
+                '                        <p>获取失败</p>\n' +
+                '                    </div>\n' +
+                '                </li>';
+            $('.mOrder li').append(m_li);
+        }
     }
     getOrders();
 

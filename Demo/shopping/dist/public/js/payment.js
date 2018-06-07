@@ -48,13 +48,19 @@ $(function(){
         data:{
             order_no:getUrl.orderNo,
             price:0.01,
-            pay_type:'wechat',
+            pay_type:getOrderInfo.pay_type,
             agent:agent,
             token:token
         },
         success: function (data) {
             if(data.code === 200){
-                $('.qrCode img').attr('src',data.data.url);
+                if(getOrderInfo.pay_type === 'alipay'){
+                    $('.alipayPc').html(data.data["raw-html"]);
+                }else{
+                    $('.qrCode img').attr('src',data.data.url);
+
+
+                }
             }
         },
         error: function () {

@@ -1,37 +1,5 @@
 $(function () {
-    // 页面的操作
 
-
-    $('.contact ').click(function () {
-        $('.zhezhao').show();
-        $('.tan1').show();
-    });
-    $('.cls ').click(function () {
-        $('.zhezhao').hide();
-        $('.tan1').hide();
-    });
-
-
-    var value = $('.btnNum .text').val();
-    //console.log(value);
-    $('.btnNum .less').click(function () {
-        if (value > 1) {
-            value--;
-            $('.btnNum .text').attr('value',value);
-        }
-    });
-    $('.btnNum .plus').click(function () {
-        value++;
-        $('.btnNum .text').attr('value',value);
-    });
-
-    $('.productNav li').click(function () {
-        var index = $(this).index();
-
-        $('.productDetail').hide().eq(index).show();
-        $('.productNav li').removeClass('active');
-        $(this).addClass('active');
-    })
 
     // start
     if (!login()) {
@@ -89,6 +57,11 @@ $(function () {
     showSku(0);
     var sku_id = getSkuListData[0].id;
 
+    var order_items = [{
+        sku_id: sku_id,
+        quantity: $('#quantity').val()
+    }]
+
     // 显示param值，颜色、尺寸、形状、规格等
     for (var i in getSkuListExtra) {
         //console.log(i,getSkuListExtra[i]);
@@ -142,8 +115,12 @@ $(function () {
         });
         showSku(i);
 
-        console.log(param_value);
-        console.log(sku_id);
+        order_items = [{
+            sku_id: sku_id,
+            quantity: $('#quantity').val()
+        }]
+        //console.log(param_value);
+        //console.log(sku_id);
     });
 
     // 加入购物车
@@ -151,13 +128,13 @@ $(function () {
         var quantity = $('#quantity').val();
         var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
         var flag = true;
-        getCartList.forEach(function(item,index){
-            if(item.sku_id === sku_id){
+        getCartList.forEach(function (item, index) {
+            if (item.sku_id === sku_id) {
                 flag = false;
             }
         });
-        if(flag){
-            console.log('quantity',quantity);
+        if (flag) {
+            console.log('quantity', quantity);
             var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
             if (createCart.code === 200) {
                 $('.zhezhao').show();
@@ -169,7 +146,7 @@ $(function () {
                     $('.tan2').hide();
                 }, 1000);
             }
-        }else{
+        } else {
             $('.zhezhao').show();
             $('.tan2 .con p').html('该商品已经加入购物，请去购物车下单');
             $('.tan2').show();
@@ -184,7 +161,8 @@ $(function () {
 
     // 立即购买
     $('.buy').click(function () {
-
+        //console.log(order_items);
+        location.href = "submitOrder.html?order_items="+JSON.stringify(order_items);
     });
 
     // 加入收藏
@@ -192,5 +170,44 @@ $(function () {
 
     });
 
+    // 页面的操作
 
+    $('.contact ').click(function () {
+        $('.zhezhao').show();
+        $('.tan1').show();
+    });
+    $('.cls ').click(function () {
+        $('.zhezhao').hide();
+        $('.tan1').hide();
+    });
+
+
+    var value = $('.btnNum .text').val();
+    //console.log(value);
+    $('.btnNum .less').click(function () {
+        if (value > 1) {
+            value--;
+            $('.btnNum .text').attr('value', value);
+        }
+        order_items = [{
+            sku_id: sku_id,
+            quantity: $('#quantity').val()
+        }]
+    });
+    $('.btnNum .plus').click(function () {
+        value++;
+        $('.btnNum .text').attr('value', value);
+        order_items = [{
+            sku_id: sku_id,
+            quantity: $('#quantity').val()
+        }]
+    });
+
+    $('.productNav li').click(function () {
+        var index = $(this).index();
+
+        $('.productDetail').hide().eq(index).show();
+        $('.productNav li').removeClass('active');
+        $(this).addClass('active');
+    })
 })
