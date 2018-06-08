@@ -649,6 +649,29 @@ var api = {
         return result;
     },
     /**
+     * 获取订单的sku信息
+     * @param order_no
+     * @returns {*}
+     */
+    getOrderItems:function(order_no){
+        var result;
+        var token = getCookie("token");
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/order/items?order_no='+order_no+'&token='+token,
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                //console.log(data);
+                result = data
+            },
+            error: function () {
+            }
+        });
+
+        return result;
+    },
+    /**
      * 获取地址列表
      * @param user_id
      * @returns {*}

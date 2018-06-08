@@ -9,6 +9,8 @@ $(function(){
     var hash = GetRequest();
     var getOrderInfo = api.getOrderInfo(hash.id);
 
+    var getOrderItems = api.getOrderItems(hash.id);
+
     var status = {
         waitingForPay:"待支付",
         paying:"支付中",
@@ -30,6 +32,7 @@ $(function(){
     $('.logisticsStatus em').html(getOrderInfo.express_info);
     $('.addressee em').html(getOrderInfo.address_info);
     $('.message em').html(getOrderInfo.message);
+    $('.price em').html(getOrderInfo.price);
 
     $('.invoiceType em').html(getOrderInfo.invoiceType);
     $('.invoiceTitle em').html(getOrderInfo.invoiceTitle);
