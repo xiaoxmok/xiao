@@ -43,6 +43,7 @@
 
 .order td{padding: 30px;text-align: center;color:#666;font-size: 14px;}
 .order td .img,.order td .con{float:left;}
+.order td .img img{width:98px;height:98px;}
 .order td .con{text-align: left;margin-left: 20px;font-size: 14px;}
 .order td .con p{color:#666;margin: 15px 0;}
 .order td .con span{color:#929292;}

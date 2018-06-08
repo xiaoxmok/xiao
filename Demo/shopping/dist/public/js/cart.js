@@ -171,9 +171,9 @@ $(function () {
 
     // 获取推荐配件
     // console.log(goods_ids);
-    goods_ids=[1,2]
+    goods_ids=''
 
-    var getRecommendAccessoryForGoods = api.getRecommendAccessoryForGoods(goods_ids, 0, 1, 20, '%2Bsale', i18nLanguage);
+    var getRecommendAccessoryForGoods = api.getRecommendAccessoryForGoods(0, 1, 20, '%2Bsale', i18nLanguage);
     var accessoryDataArr = getRecommendAccessoryForGoods.data;
     //$('.recommend ul').html('');
     accessoryDataArr.forEach(function(item,index){

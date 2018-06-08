@@ -123,10 +123,10 @@ $(function () {
 
                     var pc_hmtl = '<tr>\n' +
                         '                <td>\n' +
-                        '                    <div class="img"><img src="../public/img/order.png" alt=""></div>\n' +
+                        '                    <div class="img"><img src="'+item.goods_cover_url+'" alt=""></div>\n' +
                         '                    <div class="con">\n' +
                         '                        <p>订单号：'+item.order_no+'</p>\n' +
-                        '                        <span>下单时间：'+item.time+'</span>\n' +
+                        '                        <span>下单时间：'+item.create_at+'</span>\n' +
                         '                    </div>\n' +
                         '                </td>\n' +
                         '                <td>'+item.status+'</td>\n' +
@@ -139,10 +139,10 @@ $(function () {
 
                     var m_html = '<li>\n' +
                         '                    <div class="up">\n' +
-                        '                        <div class="img"><img src="../public/img/order.png" alt=""></div>\n' +
+                        '                        <div class="img"><img src="'+item.goods_cover_url+'" alt=""></div>\n' +
                         '                        <div class="con">\n' +
                         '                            <p>订单号：'+item.no+'</p>\n' +
-                        '                            <span>下单时间：'+item.time+'</span>\n' +
+                        '                            <span>下单时间：'+item.create_at+'</span>\n' +
                         '                        </div>\n' +
                         '                        <div class="status">订单状态：'+item.status+'</div>\n' +
                         '                    </div>\n' +

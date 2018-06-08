@@ -30,6 +30,7 @@
 
 .confirm td{padding: 30px;text-align: center;color:#666;font-size: 14px;}
 .confirm td .img,.confirm td .con{float:left;}
+.confirm td .img img{width:98px;height:98px;}
 .confirm td .con{text-align: left;padding-left: 20px;font-size: 14px;}
 .confirm td .con p{color:#666;margin: 15px 0;}
 .confirm td .con span{color:#50b7b4;font-size: 16px;}
@@ -37,6 +38,7 @@
 .confirm td .amountM{width: 40px;text-align: center;margin-left: 20px;display: none;}
 .confirm .operate a{color:#50b7b4;display: block;font-size: 14px;line-height: 30px;}
 
+.normal,.vat{display: none;}
 
 @media screen and (max-width:414px){
     .ordersDetail h3{font-size: 18px;margin: 15px;}

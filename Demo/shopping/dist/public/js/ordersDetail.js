@@ -27,41 +27,78 @@ $(function(){
         exchanged:"已换货"
     };
 
+
+
     $('.confirm table').html('');
     $('.orderStatus em').html(status[getOrderInfo.status]);
-    $('.logisticsStatus em').html(getOrderInfo.express_info);
+    $('.logisticsStatus em').html(status[getOrderInfo.status]);
     $('.addressee em').html(getOrderInfo.address_info);
     $('.message em').html(getOrderInfo.message);
     $('.price em').html(getOrderInfo.price);
 
-    $('.invoiceType em').html(getOrderInfo.invoiceType);
-    $('.invoiceTitle em').html(getOrderInfo.invoiceTitle);
-    $('.invoiceContent em').html(getOrderInfo.invoiceContent);
-    $('.taxId em').html(getOrderInfo.taxId);
+    var billing_type= {
+        normal:'普通',
+        vat:'增值税'
+    };
+    var normal_invoice_type = {
+        personal:'个人',
+        company:'公司'
+    };
+    var normal_content ={
+        details:'商品明细',
+        category:'商品类别'
+    };
+
+    $('#billing_type em').html(billing_type[getOrderInfo.invoice_info.billing_type]);
+    $('#normal_invoice_type em').html(normal_invoice_type[getOrderInfo.invoice_info.normal_invoice_type]);
+    $('#normal_title em').html(getOrderInfo.invoice_info.normal_title);
+    $('#normal_tax_no em').html(getOrderInfo.invoice_info.normal_tax_no);
+    $('#normal_content em').html(normal_content[getOrderInfo.invoice_info.normal_content]);
+    $('#vat_invoice_type em').html(getOrderInfo.invoice_info.vat_invoice_type);
+    $('#vat_content em').html(getOrderInfo.invoice_info.vat_content);
+    $('#vat_company em').html(getOrderInfo.invoice_info.vat_company);
+    $('#vat_tax_no em').html(getOrderInfo.invoice_info.vat_tax_no);
+    $('#vat_address em').html(getOrderInfo.invoice_info.vat_address);
+    $('#vat_phone em').html(getOrderInfo.invoice_info.vat_phone);
+    $('#vat_bank em').html(getOrderInfo.invoice_info.vat_bank);
+    $('#vat_bank_no em').html(getOrderInfo.invoice_info.vat_bank_no);
+    $('#receiver_name em').html(getOrderInfo.invoice_info.receiver_name);
+    $('#receiver_phone em').html(getOrderInfo.invoice_info.receiver_phone);
+    $('#receiver_province em').html(getOrderInfo.invoice_info.receiver_province);
+    $('#receiver_city em').html(getOrderInfo.invoice_info.receiver_city);
+    $('#receiver_area em').html(getOrderInfo.invoice_info.receiver_area);
+    $('#receiver_address em').html(getOrderInfo.invoice_info.receiver_address);
+
+    if(getOrderInfo.invoice_info.billing_type === 'normal'){
+        $('.normal').show();
+    }else{
+        $('.vat').show();
+    }
+
 
     $('.orderNumber em').html(getOrderInfo.order_no);
-    $('.orderTime em').html(getOrderInfo.time);
-    $('.deliveryMethod em').html(getOrderInfo.deliveryMethod);
-    $('.trackingNumber em').html(getOrderInfo.express_id);
+    $('.orderTime em').html(getOrderInfo.create_at);
+    /*$('.deliveryMethod em').html(getOrderInfo.express_info.company_name);
+    $('.trackingNumber em').html(getOrderInfo.express_info.express_no);*/
 
-    var goodsArr = getOrderInfo.goods;
+    var goodsArr = getOrderItems.data;
     goodsArr.forEach(function(item,index){
         var html = '<tr>\n' +
             '                    <td>\n' +
-            '                        <div class="img"><img src="'+item.pic+'" alt=""></div>\n' +
+            '                        <div class="img"><img src="'+item.sku_info.img_infos[0].url+'" alt=""></div>\n' +
             '                        <div class="con">\n' +
-            '                            <p class="title">'+item.desc+'</p>\n' +
-            '                            <span class="price">￥<em>'+item.price+'</em></span>\n' +
-            '                            <span class="amountM">X'+item.num+'</span>\n' +
+            '                            <p class="title">'+item.sku_info.goods_name+'</p>\n' +
+            '                            <span class="price">￥<em>'+item.sku_info.education_price+'</em></span>\n' +
+            '                            <span class="amountM">X'+item.quantity+'</span>\n' +
             '                        </div>\n' +
             '                    </td>\n' +
             '                    <td class="td3">\n' +
-            '                        X'+item.num+'\n' +
+            '                        X'+item.quantity+'\n' +
             '                    </td>\n' +
-            '                    <td>￥'+item.total_price+'</td>\n' +
+            '                    <td>￥'+item.price+'</td>\n' +
             '                </tr>';
 
-        $('.confirm table').append(html);
+        $('.confirm .con table').append(html);
     });
 
 });
