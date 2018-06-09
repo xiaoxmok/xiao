@@ -69,7 +69,7 @@ $(function(){
                         clearInterval(time);
                         $('.success').show();
                         setTimeout(function () {
-                            //location.href = "center.html"
+                            location.href = "center.html"
                         }, 2000);
                     }
                 },3000)

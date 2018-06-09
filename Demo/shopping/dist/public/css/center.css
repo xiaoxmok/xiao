@@ -27,10 +27,11 @@
 .userName .person .name{font-size: 18px;font-weight: bold;color: #000;}
 .userName .person .tuijian em{background: url(../img/3.png) no-repeat;display: inline-block;width:30px;height:31px;}
 .userName .person .tuijian a{color:#50b7b4;}
+.userName .person .dizhi a{color:#50b7b4;}
 
-.userName .dizhi{margin-left: 70px;margin-top: 20px;color:#999;font-size: 14px;}
+/*.userName .dizhi{margin-left: 70px;margin-top: 20px;color:#999;font-size: 14px;}
 .userName .dizhi .img{background: url(../img/4.png) no-repeat;width:42px;height:43px;margin-bottom: 5px;margin-left: 24px;}
-.userName .dizhi p{clear: left;}
+.userName .dizhi p{clear: left;}*/
 
 .orderNav{margin-top:20px;height: 40px;border-bottom: 2px solid #eee;}
 .orderNav ul{margin:0 140px;}
@@ -44,6 +45,8 @@
 .order td{padding: 30px;text-align: center;color:#666;font-size: 14px;}
 .order td .img,.order td .con{float:left;}
 .order td .img img{width:98px;height:98px;}
+.order td .img{position: relative;}
+.order td .img p{position: absolute;bottom: 0;left:0;background: #eda547;color:#fff;width: 98px;}
 .order td .con{text-align: left;margin-left: 20px;font-size: 14px;}
 .order td .con p{color:#666;margin: 15px 0;}
 .order td .con span{color:#929292;}
@@ -93,9 +96,9 @@
         line-height: 25px;
     }
     .userName .person .tuijian em{display: inline-block;background: url(../img/3_1.png) no-repeat;width: 15px;height: 16px;}
-    .userName .dizhi{margin: 0;font-size: 12px;}
+    /*.userName .dizhi{margin: 0;font-size: 12px;}
     .userName .dizhi .img{display: none;}
-    .userName .dizhi p{color:#50b7b4;}
+    .userName .dizhi p{color:#50b7b4;}*/
 
     .orderNav ul{display: flex;margin: 0;}
     .orderNav li{flex:1;background: none;margin-right: 0;font-size: 12px;}
@@ -120,6 +123,9 @@
     .mOrder .up{border-bottom: 1px solid #eee;overflow: hidden;padding-bottom: 10px;}
     .mOrder .up div{float:left;}
     .mOrder .up img{width:60px;height:60px;}
+    .mOrder .up .img{position: relative;}
+    .mOrder .up .img p{position: absolute;text-align:center;bottom: 0;left:0;background: #eda547;color:#fff;width: 60px;}
+
     .mOrder .up .con{line-height: 30px;padding: 0 10px;}
     .mOrder .up .status{line-height: 30px;padding: 0 10px;color:#50b7b4;}
     .mOrder .down{clear:left;display: flex;padding-top: 5px;}

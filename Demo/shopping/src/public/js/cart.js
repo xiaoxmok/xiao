@@ -75,6 +75,7 @@ $(function () {
     var goods_ids=[];
     function showCart() {
         var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
+        $('.cart .count').html(getCartList.length);
 
         $('.cartDetail table').html('');
         var head = '<tr>\n' +
@@ -96,6 +97,7 @@ $(function () {
             var html = '<tr class="skuId">\n' +
                 '                <td><input type="checkbox" name="select" data-name="' + item.id + '" value="' + item.sku_id + '"></td>\n' +
                 '                <td>\n' +
+                '                    <a href="./product.html?id=' + item.sku_info.goods_id + '">'+
                 '                    <div class="img"><img src="'+item.sku_info.img_infos[0].url+'" alt=""></div>\n' +
                 '                    <div class="con">\n' +
                 '                        <p class="title">' + item.sku_info.goods_name + '</p>\n' +
@@ -106,6 +108,7 @@ $(function () {
                 '                           <input type="button" value="+" class="plus">\n' +
                 '                        </div>' +
                 '                    </div>\n' +
+                '                    </a>'+
                 '                </td>\n' +
                 '                <td class="td3 btnNum">\n' +
                 '                    <input type="button" value="-" class="less">' +
@@ -167,6 +170,8 @@ $(function () {
         var getCartDelete = api.getCartDelete(id);
         if(getCartDelete.code === 200){
             $(this).parent().parent().remove();
+            var v = parseFloat($('.cart .count').html());
+            $('.cart .count').html(v -1);
             changeCart();
         }
     })
@@ -179,7 +184,16 @@ $(function () {
 
     $('#settle').click(function(){
         //console.log('22',order_items);
-        location.href = "submitOrder.html?order_items="+JSON.stringify(order_items);
+        var param = ''
+        order_items.forEach(function(item,index){
+            if(index === 0){
+                param += 'goods'+index+'='+item.sku_id+'_'+item.quantity
+            }else{
+                param += '&goods'+index+'='+item.sku_id+'_'+item.quantity
+            }
+        });
+        //location.href = "submitOrder.html?order_items="+JSON.stringify(order_items);
+        location.href = "submitOrder.html?"+param;
     });
 
     // 获取推荐配件
@@ -193,7 +207,8 @@ $(function () {
         //var getSkuList = api.getSkuList(item.id, i18nLanguage);
 
         var html = '<li>\n' +
-            '                    <img src="'+item.img_infos[0].url+'" alt="">\n' +
+            '                    <a href="./product.html?id=' + item.id + '">'+
+            '                    <img src="'+item.img_infos[0].url+'" alt=""></a>\n' +
             '                    <div class="con">\n' +
             '                        <p class="Title">'+item.name+'</p>\n' +
             '                        <p class="description">'+item.summary+'</p>\n' +

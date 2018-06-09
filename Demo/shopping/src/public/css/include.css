@@ -7,12 +7,12 @@
 .header .logo img{margin-top: 20px;}
 .header .nav li{float:left;line-height: 95px;color:#fff;padding:0 20px;}
 .header .nav li a{display: inline-block;color:#fff;}
-.header .nav li a:hover{border-bottom: 3px solid #367d49;}
-body.on1 .header .nav li .on1{border-bottom: 3px solid #367d49;}
-body.on2 .header .nav li .on2{border-bottom: 3px solid #367d49;}
-body.on3 .header .nav li .on3{border-bottom: 3px solid #367d49;}
-body.on4 .header .nav li .on4{border-bottom: 3px solid #367d49;}
-body.on5 .header .nav li .on5{border-bottom: 3px solid #367d49;}
+.header .nav li a:hover{border-bottom: 3px solid #fff;}
+body.on1 .header .nav li .on1{border-bottom: 3px solid #fff;}
+body.on2 .header .nav li .on2{border-bottom: 3px solid #fff;}
+body.on3 .header .nav li .on3{border-bottom: 3px solid #fff;}
+body.on4 .header .nav li .on4{border-bottom: 3px solid #fff;}
+body.on5 .header .nav li .on5{border-bottom: 3px solid #fff;}
 
 .header .other{float:right;line-height: 95px;}
 .header .other .service{float:left;padding-right: 30px;color:#fff;position: relative;}
@@ -21,7 +21,9 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #367d49;}
 .header .other .lan{float:left;padding-right: 10px;}
 .header .other .lan a{border: 1px solid #fff;background: none;color:#fff;cursor:pointer;padding: 0 2px;}
 
-.media-header{display: none;}
+.media-header,.mlogined{display: none;}
+
+
 
 
 /*header-bar.html*/
@@ -37,6 +39,12 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #367d49;}
 .header-bar .address li{background: #eee;border-top:1px solid #ccc;cursor:pointer;}
 .header-bar .address li:hover{color: #ff7238;}
 .header-bar .content .welcome{line-height: 30px;color:#999;font-size: 14px;float: left;}
+
+.header-bar .logined{position: relative;}
+.header-bar .logined a{display: inline-block;width: 64px!important;}
+.header-bar .logined ul{z-index:99;background: #eee;width: 104px!important;position: absolute;left:0px;text-align: center;display: none;}
+.header-bar .logined li{background: #eee;border-top:1px solid #ccc;cursor:pointer;}
+.header-bar .logined li:hover{color: #ff7238;}
 
 /*footer.html*/
 .footer{height:100px;background: #b9d7df;margin-top: 40px;min-width: 1000px;}
@@ -64,6 +72,15 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #367d49;}
     .media-header .cart a{background-image: url(../img/app_cart.png);background-repeat:no-repeat;width:20px;height:21px;display: inline-block;margin-top: 19px;}
     .media-header .user,.media-header .cart{float:right;color:#fff;margin-right: 14px;}
     .media-header .user a{background-image: url(../img/ren.png);background-repeat:no-repeat;width:20px;height:23px;display: inline-block;margin-top: 17px;}
+
+    .media-header .cart .count{
+        line-height: 20px;
+        display: block;
+        float: right;
+        margin-top: 20px;
+        margin-left: 5px;
+        color: #ff7238;
+    }
 
     .media-header .address{position: relative;}
     .media-header .address a{display: inline-block;}

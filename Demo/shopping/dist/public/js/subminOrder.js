@@ -19,12 +19,22 @@ $(function(){
     })
 
 
-
     // 获取订单列表
     //var getOrderList = api.getOrderList(api.getUser(token).id,'paying');
     var getUrl = GetRequest();
     //console.log(getUrl);
-    var order_items = JSON.parse(getUrl.order_items);
+    //var order_items = JSON.parse(getUrl.order_items);
+    var order_items = [];
+    for(var i in getUrl){
+        var value = getUrl[i].split('_');
+        var list = {
+            sku_id:value[0],
+            quantity:value[1]
+        }
+        order_items.push(list)
+    }
+    //console.log(order_items);
+
     $('.confirm table ul').html('');
     order_items.forEach(function(item,index){
         var getSkuInfo = api.getSkuInfo(item.sku_id,i18nLanguage);
@@ -122,23 +132,18 @@ $(function(){
             }
         }
         console.log(orderData);
-        /*$.ajax({
+        $.ajax({
             type:'POST',
             url:url+'/api/v1/order/create',
             dataType:'json',
             data:orderData,
             success:function(data){
                 if(data.code === 200){
-                    // 删除购物车
-                    /!*order_items.forEach(function(item,index){
-                        var getCartDelete = api.getCartDelete(item.sku_id);
-                    });*!/
                     location.href = "payment.html?orderNo="+data.data.orderNo;
                 }
-                //location.href = "payment.html"
             },
             error:function(){}
-        })*/
+        })
 
     })
 

@@ -65,11 +65,33 @@ $(function () {
     $('.school .con .title').html(getSchool.name);
     $('.school .con span').html(getSchool.description);
 
+    var status = {
+        waitingForPay:"待支付",
+        paying:"支付中",
+        paid:"已支付",
+        waitingForInstall:"待安装",
+        installing:"安装中",
+        installed:"已安装",
+        dispatching:"配送中",
+        dispatched:"已配送",
+        waitingForSign:"待签收",
+        signed:"已签收",
+        canceled:"已取消",
+        returned:"已退货",
+        exchanged:"已换货"
+    };
 
     // 获取我的订单
     function getOrders() {
         $('.pcOrder').html('');
         $('.mOrder li').html('');
+        var head = '<tr>\n' +
+            '                <th>订单号</th>\n' +
+            '                <th>订单状态</th>\n' +
+            '                <th>订单金额</th>\n' +
+            '                <th>操作</th>\n' +
+            '            </tr>';
+        $('.pcOrder').append(head);
 
         var getOrderList = api.getOrderList('');
         if (getOrderList.code === 200) {
@@ -123,13 +145,13 @@ $(function () {
 
                     var pc_hmtl = '<tr>\n' +
                         '                <td>\n' +
-                        '                    <div class="img"><img src="'+item.goods_cover_url+'" alt=""></div>\n' +
+                        '                    <div class="img"><img src="'+item.goods_cover_url+'" alt=""><p>共'+item.goods_sum+'件</p></div>\n' +
                         '                    <div class="con">\n' +
                         '                        <p>订单号：'+item.order_no+'</p>\n' +
                         '                        <span>下单时间：'+item.create_at+'</span>\n' +
                         '                    </div>\n' +
                         '                </td>\n' +
-                        '                <td>'+item.status+'</td>\n' +
+                        '                <td>'+status[item.status]+'</td>\n' +
                         '                <td>￥'+item.price+'</td>\n' +
                         '                <td class="operate">\n' +
                                             operate+
@@ -139,19 +161,18 @@ $(function () {
 
                     var m_html = '<li>\n' +
                         '                    <div class="up">\n' +
-                        '                        <div class="img"><img src="'+item.goods_cover_url+'" alt=""></div>\n' +
+                        '                        <div class="img"><img src="'+item.goods_cover_url+'" alt=""><p>共'+item.goods_sum+'件</p></div>\n' +
                         '                        <div class="con">\n' +
-                        '                            <p>订单号：'+item.no+'</p>\n' +
+                        '                            <p>订单号：'+item.order_no+'</p>\n' +
                         '                            <span>下单时间：'+item.create_at+'</span>\n' +
                         '                        </div>\n' +
-                        '                        <div class="status">订单状态：'+item.status+'</div>\n' +
+                        '                        <div class="status">订单状态：'+status[item.status]+'</div>\n' +
                         '                    </div>\n' +
                         '                    <div class="down">\n' +
                                                 operate +
                         '                    </div>\n' +
                         '                </li>';
                     $('.mOrder ul').append(m_html);
-
                 });
             }else{
                 var pc_tr = '<tr>\n' +
@@ -290,29 +311,5 @@ $(function () {
         }
     })
 
-    // 退出登录
-    $('.signOut').click(function(){
-        var signOutData = {
-            token:token,
-        }
-        delAllCookie();
-        $.ajax({
-            type:'POST',
-            url:url+'/api/v1/user/logout',
-            dataType:'json',
-            data:signOutData,
-            success:function(data){
-                if(data.code === 200){
-                    delAllCookie();
-                    setTimeout(function () {
-                        location.href = "index.html"
-                    }, 1000);
-                }
-            },
-            error:function(xhr,status,error){
 
-            }
-        })
-
-    });
 });

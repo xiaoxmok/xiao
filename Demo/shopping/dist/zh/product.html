@@ -60,7 +60,7 @@
     <div class="logo">
         <img src="./../public/img/web_logo.png" alt="logo">
     </div>
-    <div class="cart"><a href="./cart.html"></a></div>
+    <div class="cart"><a href="./cart.html"></a><em class="count"></em></div>
     <div class="user"><a href="./center.html"></a></div>
 
 
@@ -78,7 +78,13 @@
                 </ul>
             </li>
             <li class="selc"><a href="javascript:;">当前语言：中文</a></li>
-            <li class="selc"><a href="./login.html">登录</a></li>
+            <li class="selc loging"><a href="./login.html" >登录</a></li>
+            <li class="service mlogined"><a href="javascript:;">个人中心</a>
+                <ul>
+                    <li class="selc"><a href="./center.html">个人中心</a></li>
+                    <li class="selc"><a href="javascript:;" class="signOut">退出登录</a></li>
+                </ul>
+            </li>
             <li class="selc"><a href="./prefectData.html">完善资料</a></li>
         </ul>
     </div>
@@ -87,7 +93,13 @@
 <div class="header-bar">
     <div class="content">
         <span class="welcome">Dear XXX,欢迎访问协同学校专属页面。</span>
-        <div class="login logined" style="display: none;"><a href="./center.html">个人中心</a></div>
+        <div class="login logined" style="display: none;">
+            <a href="javascript:;">个人中心</a>
+            <ul>
+                <li><a href="./center.html">个人中心</a></li>
+                <li><a href="javascript:;" class="signOut">退出登陆</a></li>
+            </ul>
+        </div>
         <div class="login loging"><a href="./login.html">登录/注册</a></div>
         <div class="cart"><a href="./cart.html"><span></span>购物车</a></div>
         <div class="address">

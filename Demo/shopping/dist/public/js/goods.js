@@ -30,7 +30,7 @@ $(function () {
             var html = '<div class="swiper-slide"><img src="' + item.url + '" alt=""></div>';
             $('.swiper-wrapper').append(html);
 
-            var small = '<a href="javascript:;"><img src="' + item.url + '" alt=""></a>'
+            var small = '<a href="javascript:;" class="link"  data-name="'+index+'"><img src="' + item.url + '" alt=""></a>'
             $('.product .small').append(small);
         });
 
@@ -50,6 +50,12 @@ $(function () {
                 el: '.swiper-pagination',
             },
         });
+
+        $('.small').on('click','.link',function(){
+            var i = parseInt($(this).attr('data-name'))+1;
+            // $('.swiper-pagination span').eq(i).trigger('click');
+            mySwiper.slideTo(i, 1000, false);
+        })
 
     };
 
@@ -162,7 +168,17 @@ $(function () {
     // 立即购买
     $('.buy').click(function () {
         //console.log(order_items);
-        location.href = "submitOrder.html?order_items="+JSON.stringify(order_items);
+        //location.href = "submitOrder.html?order_items="+JSON.stringify(order_items);
+
+        var param = ''
+        order_items.forEach(function(item,index){
+            if(index === 0){
+                param += 'goods'+index+'='+item.sku_id+'_'+item.quantity
+            }else{
+                param += '&goods'+index+'='+item.sku_id+'_'+item.quantity
+            }
+        });
+        location.href = "submitOrder.html?"+param;
     });
 
     // 加入收藏

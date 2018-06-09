@@ -116,15 +116,24 @@ $(function () {
         $('.media-header .nav').slideUp();
         $('.address ul').slideUp();
         $('.service ul').slideUp();
+        $('.logined ul').slideUp();
         //e.stopPropagation();
+    });
+    $('.logined a').click(function (e) {
+        e.stopPropagation(e);
+        if ($('.logined ul').is(":hidden")) {
+            $('.logined ul').slideDown();
+        } else {
+            $('.logined ul').slideUp();
+        }
     });
 
     $('.address a').click(function (e) {
         e.stopPropagation(e);
-        if ($('.address ul').is(":hidden")) {
-            $('.address ul').slideDown();
+        if ($(this).parent().find('ul').is(":hidden")) {
+            $(this).parent().find('ul').slideDown();
         } else {
-            $('.address ul').slideUp();
+            $(this).parent().find('ul').slideUp();
         }
     });
     $('.service a').click(function (e) {
@@ -190,21 +199,55 @@ function login(){
     }
 }
 
+
+
 // 判断是否移动端
 var ua = navigator.userAgent.toLocaleLowerCase();
 var isMobile = /iPhone|iPad|iPod|android|Windows Phone/ig.test(ua);
 
 $(function(){
+    // 退出登录
+    $('.signOut').click(function(){
+        var signOutData = {
+            token:token,
+        }
+        delAllCookie();
+        $.ajax({
+            type:'POST',
+            url:url+'/api/v1/user/logout',
+            dataType:'json',
+            data:signOutData,
+            success:function(data){
+                if(data.code === 200){
+                    delAllCookie();
+                    setTimeout(function () {
+                        location.href = "index.html"
+                    }, 1000);
+                }
+            },
+            error:function(xhr,status,error){
+
+            }
+        })
+
+    });
+
+
     if(login()){
 
 
         $('.login').hide();
+        $('.loging').hide();
+        $('.mlogined').show();
         if(!isMobile){
             $('.logined').show();
+        }else{
+            $('.logined').hide();
         }
 
         var token = getCookie("token");
-
+        var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
+        $('.cart .count').html(getCartList.length);
 
         $('.welcome').html('Dear '+getCookie('username')+',欢迎访问'+getCookie('school')+'专属页面。');
     }else{
