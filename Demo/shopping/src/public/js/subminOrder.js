@@ -115,14 +115,14 @@ $(function(){
                 vat_bank_no:$('#vat_bank_no').val(),
                 receiver_name:$('#receiver_name').val(),
                 receiver_phone:$('#receiver_phone').val(),
-                receiver_province:$('#receiver_phone').val(),
-                receiver_city:$('#receiver_phone').val(),
-                receiver_area:$('#receiver_phone').val(),
+                receiver_province:$('#receiver_province option:selected').val(),
+                receiver_city:$('#receiver_city option:selected').val(),
+                receiver_area:$('#receiver_area option:selected').val(),
                 receiver_address:$('#receiver_address').val(),
             }
         }
         console.log(orderData);
-        $.ajax({
+        /*$.ajax({
             type:'POST',
             url:url+'/api/v1/order/create',
             dataType:'json',
@@ -130,15 +130,15 @@ $(function(){
             success:function(data){
                 if(data.code === 200){
                     // 删除购物车
-                    /*order_items.forEach(function(item,index){
+                    /!*order_items.forEach(function(item,index){
                         var getCartDelete = api.getCartDelete(item.sku_id);
-                    });*/
+                    });*!/
                     location.href = "payment.html?orderNo="+data.data.orderNo;
                 }
                 //location.href = "payment.html"
             },
             error:function(){}
-        })
+        })*/
 
     })
 

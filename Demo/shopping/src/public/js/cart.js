@@ -7,7 +7,7 @@ $(function () {
 
 
     // 全选
-    $('.cartDetail input[name="selectAll"]').click(function () {
+    $('.cartDetail table').on('click','input[name="selectAll"]',function (){
         //alert(this.checked);
         if ($(this).is(':checked')) {
             $('input[name="select"]').each(function () {
@@ -68,18 +68,31 @@ $(function () {
     // =======================
 
     // 获取购物车列表
-    var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
+
     //var getCartInfo = api.getCartInfo(1, i18nLanguage);
 
     // goods_ids 用于获得推荐列表；
     var goods_ids=[];
-    function shoCart() {
-        //$('.cartDetail tbody').html('');
+    function showCart() {
+        var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
+
+        $('.cartDetail table').html('');
+        var head = '<tr>\n' +
+            '                <th><input type="checkbox" name="selectAll">全选</th>\n' +
+            '                <th>商品</th>\n' +
+            '                <th class="td3">数量</th>\n' +
+            '                <th>小计</th>\n' +
+            '                <th>操作</th>\n' +
+            '            </tr>';
+        $('.cartDetail table').append(head);
+
         getCartList.forEach(function (item, index) {
             var price = (item.sku_info.school_price * item.quantity).toFixed(2);
             if(!goods_ids.in_array(item.sku_info.goods_id)){
                 goods_ids.push(item.sku_info.goods_id);
             }
+
+
             var html = '<tr class="skuId">\n' +
                 '                <td><input type="checkbox" name="select" data-name="' + item.id + '" value="' + item.sku_id + '"></td>\n' +
                 '                <td>\n' +
@@ -108,7 +121,7 @@ $(function () {
             $('.cartDetail table').append(html);
         })
     };
-    shoCart();
+    showCart();
 
 
     // 修改商品数量
@@ -177,6 +190,8 @@ $(function () {
     var accessoryDataArr = getRecommendAccessoryForGoods.data;
     //$('.recommend ul').html('');
     accessoryDataArr.forEach(function(item,index){
+        //var getSkuList = api.getSkuList(item.id, i18nLanguage);
+
         var html = '<li>\n' +
             '                    <img src="'+item.img_infos[0].url+'" alt="">\n' +
             '                    <div class="con">\n' +
@@ -186,11 +201,29 @@ $(function () {
             '                            <del>￥'+item.price+'</del>\n' +
             '                        </p>\n' +
             '                        <p class="price"><span>学校优惠价：</span><em>￥'+item.school_price+'</em></p>\n' +
-            '                        <a class="apply" href="javascript:;">加入购物车</a>\n' +
+            '                        <a class="apply" href="javascript:;" data-name="'+item.sku_infos[0].id+'">加入购物车</a>\n' +
             '                    </div>\n' +
             '                </li>';
 
         $('.recommend ul').append(html);
+    })
+
+    // 推荐配件加入购物车
+    $('.recommend .content').on('click','.apply',function(){
+        var sku_id = $(this).attr('data-name');
+        var quantity = 1;
+        var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
+        if (createCart.code === 200) {
+            $('.zhezhao').show();
+            $('.tan2 .con p').html('加入购物车成功');
+            $('.tan2').show();
+            showCart();
+            setTimeout(function () {
+                //location.href = "cart.html"
+                $('.zhezhao').hide();
+                $('.tan2').hide();
+            }, 1000);
+        }
     })
 
 });
