@@ -11,9 +11,10 @@
 .cash .btn a{display: inline-block;float:left;width:100px;height:30px;background:#fff;text-align: center;line-height: 30px;color:#50b7b4;border:1px solid #50b7b4;margin-right: 30px; }
 .cash .btn a.active{display: inline-block;float:left;width:100px;height:30px;background:#50b7b4;text-align: center;line-height: 30px;color:#fff;margin-right: 30px; }
 
-.qrCode{text-align: center;}
+.qrCode{text-align: center;display: none;}
 .qrCode img{width:300px;height:300px;}
 .qrCode .success{color: #b75e57;display: none;}
+.qrCode a{color: #fff;display: block;border: 1px solid #666;width: 200px;margin: 0 auto;border-radius: 20px;background: #809981;}
 
 
 .unionpay{display:none;width:400px;margin: 10px auto;text-align: center;    border: 1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;padding: 0 20px;}
@@ -38,6 +39,9 @@
 .unionpay p{text-align: left;color:#000;font-size: 12px;line-height: 25px;}
 .unionpay p strong{color:#50b7b4;}
 .unionpay .p1{margin-left: 20px;}
+
+
+
 
 @media screen and (max-width:414px){
     .cash .con .p2{clear: both!important;float:none;margin-top: 10px;}

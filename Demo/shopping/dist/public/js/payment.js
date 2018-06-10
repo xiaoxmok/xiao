@@ -8,9 +8,9 @@ $(function(){
     var getUrl = GetRequest();
     console.log(getUrl);
 
-    api.getOrderInfo(getUrl.orderNo,getOrderInfo);
+    api.getOrderInfo(getUrl.orderNo,getOrder);
 
-    function getOrderInfo(getOrderInfo){
+    function getOrder(getOrderInfo){
         $('#order_no').html(getOrderInfo.order_no);
         $('#price').html(getOrderInfo.price);
 
@@ -52,7 +52,24 @@ $(function(){
             token:token
         }
 
-        if(getOrderInfo.pay_type !== 'unionpay'){
+        if(getOrderInfo.pay_type === 'unionpay'){
+            $('.unionpay').show();
+            payData.company = $('#company').val();
+            $.ajax({
+                type: 'POST',
+                url: url + '/api/v1/order/pay',
+                dataType: 'json',
+                data:payData,
+                success: function (data) {
+                    if(data.code === 200){
+
+                    }
+                },
+                error: function () {
+                }
+            });
+
+        }else if(getOrderInfo.pay_type === 'alipay'){
             $.ajax({
                 type: 'POST',
                 url: url + '/api/v1/order/pay',
@@ -82,7 +99,32 @@ $(function(){
                 }
             });
         }else{
-            $('.unionpay').show();
+            $.ajax({
+                type: 'POST',
+                url: url + '/api/v1/order/pay',
+                dataType: 'json',
+                data:payData,
+                success: function (data) {
+                    if(data.code === 200){
+                        $('.qrCode').show();
+                        $('.qrCode img').attr('src',data.data.url);
+
+                        $('.wechat').click(function(){
+                            api.getOrderInfo(getUrl.orderNo,function(orderInfo){
+                                if(orderInfo.status === 'paid'){
+                                    clearInterval(time);
+                                    $('.success').show();
+                                    setTimeout(function () {
+                                        location.href = "center.html"
+                                    }, 2000);
+                                }
+                            });
+                        })
+                    }
+                },
+                error: function () {
+                }
+            });
         }
     }
 });
