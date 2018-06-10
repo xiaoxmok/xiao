@@ -15,9 +15,38 @@
 .qrCode img{width:300px;height:300px;}
 .qrCode .success{color: #b75e57;display: none;}
 
+
+.unionpay{display:none;width:400px;margin: 10px auto;text-align: center;    border: 1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;padding: 0 20px;}
+.unionpay h2{width: auto;
+    font-size: 36px;
+    border-bottom: 2px solid #50b7b4;
+    margin: 30px;
+    display: inline-block;
+    font-weight: normal;}
+.unionpay input{display: block;    border: 1px solid #eee;height: 30px;width: 300px;padding-left: 10px;}
+
+.unionpay .submit{display: inline-block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    background: #50b7b4;
+    margin: 20px 0;
+}
+.unionpay p{text-align: left;color:#000;font-size: 12px;line-height: 25px;}
+.unionpay p strong{color:#50b7b4;}
+.unionpay .p1{margin-left: 20px;}
+
 @media screen and (max-width:414px){
     .cash .con .p2{clear: both!important;float:none;margin-top: 10px;}
     .cash .btn a{clear: both!important;margin-bottom: 20px;}
+    .unionpay{width:auto;}
+
+    .unionpay h2{    font-size: 18px;
+        margin: 15px;}
+
 }
 
 

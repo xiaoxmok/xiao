@@ -14,20 +14,7 @@ var api = {
             success: function (data) {
                 //console.log(data);
                 if (data.code === 200) {
-                    result = {
-                        created_at: data.data.created_at,
-                        email: data.data.email,
-                        id: data.data.id,
-                        name: data.data.name,
-                        order_email_notify: data.data.order_email_notify,
-                        order_sms_notify: data.data.order_sms_notify,
-                        phone: data.data.phone,
-                        school_no: data.data.school_no,
-                        school_region_id: data.data.school_region_id,
-                        sex: data.data.sex,
-                        type: data.data.type,
-                        updated_at: data.data.updated_at
-                    }
+                    result = data.data;
                 } else {
                     result = data.msg;
                 }
@@ -155,23 +142,24 @@ var api = {
      * @param lang
      * @returns {*}
      */
-    getGoodsList: function (category_id, page, count, sort, lang) {
-        var result,token;
+    getGoodsList: function (category_id, page, count, sort, lang,callback) {
+
+        var param;
         if(login()){
             token = getCookie('token');
+            param = 'category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang+'&token='+token;
+        }else{
+            param = 'category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang;
         }
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/goods/index?category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang+'&token='+token,
+            url: url + '/api/v1/goods/index?'+param,
             dataType: 'json',
-            async: false,
+            async: true,
             success: function (data) {
                 //console.log(data);
                 if (data.code === 200) {
-                    result = {
-                        data: data.data,
-                        extra: data.extra
-                    }
+                    callback(data)
                 } else {
                     result = data.msg;
                 }
@@ -180,7 +168,7 @@ var api = {
             }
         });
 
-        return result;
+        //return result;
 
     },
     /**
@@ -547,30 +535,31 @@ var api = {
      * @param status
      * @returns {*}
      */
-    getOrderList:function(status){
-        var result;
+    getOrderList:function(status,callback){
+        //var result;
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
             url: url + '/api/v1/order/index?status=' + status + '&token=' + token,
             dataType: 'json',
-            async: false,
+            async: true,
             success: function (data) {
                 //console.log(data);
-                result = data
+                //result = data
+                callback(data);
             },
             error: function () {
             }
         });
 
-        return result;
+        //return result;
     },
     /**
      * 获取订单信息
      * @param order_no
      * @returns {*}
      */
-    getOrderInfo:function(order_no){
+    getOrderInfo:function(order_no,callback){
         var result;
         var token = getCookie("token");
         $.ajax({
@@ -581,7 +570,7 @@ var api = {
             success: function (data) {
                 //console.log(data);
                 if (data.code === 200) {
-                    result = data.data
+                    callback(data.data);
                 } else {
                     result = data.msg;
                 }

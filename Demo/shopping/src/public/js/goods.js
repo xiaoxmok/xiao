@@ -2,10 +2,6 @@ $(function () {
 
 
     // start
-    if (!login()) {
-        location.href = "login.html"
-    }
-
     var token = getCookie('token');
 
     var urlInfo = GetRequest();
@@ -131,20 +127,44 @@ $(function () {
 
     // 加入购物车
     $('.add').click(function () {
-        var quantity = $('#quantity').val();
-        var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
-        var flag = true;
-        getCartList.forEach(function (item, index) {
-            if (item.sku_id === sku_id) {
-                flag = false;
-            }
-        });
-        if (flag) {
-            console.log('quantity', quantity);
-            var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
-            if (createCart.code === 200) {
+        if (!login()) {
+            $('.zhezhao').show();
+            $('.tan2 .con p').html('请登录。。。');
+            $('.tan2').show();
+            setTimeout(function () {
+                //location.href = "cart.html"
+                $('.zhezhao').hide();
+                $('.tan2').hide();
+                location.href = "login.html"
+            }, 1000);
+        }else{
+            var quantity = $('#quantity').val();
+            var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
+            var flag = true;
+            getCartList.forEach(function (item, index) {
+                if (item.sku_id === sku_id) {
+                    flag = false;
+                }
+            });
+            if (flag) {
+                console.log('quantity', quantity);
+                var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
+                if (createCart.code === 200) {
+                    $('.zhezhao').show();
+                    $('.tan2 .con p').html('加入购物车成功');
+                    $('.tan2').show();
+                    //优化 做成异步的方式
+                    /*var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
+                    $('.cart .count').html(getCartList.length);*/
+                    setTimeout(function () {
+                        //location.href = "cart.html"
+                        $('.zhezhao').hide();
+                        $('.tan2').hide();
+                    }, 1000);
+                }
+            } else {
                 $('.zhezhao').show();
-                $('.tan2 .con p').html('加入购物车成功');
+                $('.tan2 .con p').html('该商品已经加入购物，请去购物车下单');
                 $('.tan2').show();
                 setTimeout(function () {
                     //location.href = "cart.html"
@@ -152,15 +172,6 @@ $(function () {
                     $('.tan2').hide();
                 }, 1000);
             }
-        } else {
-            $('.zhezhao').show();
-            $('.tan2 .con p').html('该商品已经加入购物，请去购物车下单');
-            $('.tan2').show();
-            setTimeout(function () {
-                //location.href = "cart.html"
-                $('.zhezhao').hide();
-                $('.tan2').hide();
-            }, 1000);
         }
     });
 
@@ -170,15 +181,27 @@ $(function () {
         //console.log(order_items);
         //location.href = "submitOrder.html?order_items="+JSON.stringify(order_items);
 
-        var param = ''
-        order_items.forEach(function(item,index){
-            if(index === 0){
-                param += 'goods'+index+'='+item.sku_id+'_'+item.quantity
-            }else{
-                param += '&goods'+index+'='+item.sku_id+'_'+item.quantity
-            }
-        });
-        location.href = "submitOrder.html?"+param;
+        if (!login()) {
+            $('.zhezhao').show();
+            $('.tan2 .con p').html('请登录。。。');
+            $('.tan2').show();
+            setTimeout(function () {
+                //location.href = "cart.html"
+                $('.zhezhao').hide();
+                $('.tan2').hide();
+                location.href = "login.html"
+            }, 1000);
+        }else{
+            var param = ''
+            order_items.forEach(function(item,index){
+                if(index === 0){
+                    param += 'goods'+index+'='+item.sku_id+'_'+item.quantity
+                }else{
+                    param += '&goods'+index+'='+item.sku_id+'_'+item.quantity
+                }
+            });
+            location.href = "submitOrder.html?"+param;
+        }
     });
 
     // 加入收藏

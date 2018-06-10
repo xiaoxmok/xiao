@@ -249,6 +249,11 @@ $(function(){
         var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
         $('.cart .count').html(getCartList.length);
 
+        var userName = getCookie('username');
+        if(getCookie('username') == null){
+            userName = '';
+        }
+
         $('.welcome').html('Dear '+getCookie('username')+',欢迎访问'+getCookie('school')+'专属页面。');
     }else{
         $('.login').hide();

@@ -112,7 +112,7 @@ $(function () {
                 if (data.code === 200) {
                     $('.error').html('修改成功。');
                     setTimeout(function () {
-                        // location.href = "center.html"
+                        location.href = "center.html"
                     }, 1000);
                 } else {
                     $('.error').html(data.msg);

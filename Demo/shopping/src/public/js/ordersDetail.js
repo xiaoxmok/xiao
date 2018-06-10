@@ -7,79 +7,82 @@ $(function(){
 
     // 获取url参数
     var hash = GetRequest();
-    var getOrderInfo = api.getOrderInfo(hash.id);
+    api.getOrderInfo(hash.id,getOrderInfo);
 
-    var getOrderItems = api.getOrderItems(hash.id);
-
-    var status = {
-        waitingForPay:"待支付",
-        paying:"支付中",
-        paid:"已支付",
-        waitingForInstall:"待安装",
-        installing:"安装中",
-        installed:"已安装",
-        dispatching:"配送中",
-        dispatched:"已配送",
-        waitingForSign:"待签收",
-        signed:"已签收",
-        canceled:"已取消",
-        returned:"已退货",
-        exchanged:"已换货"
-    };
-
+    function getOrderInfo(getOrderInfo){
+        var status = {
+            waitingForPay:"待支付",
+            paying:"支付中",
+            paid:"已支付",
+            waitingForInstall:"待安装",
+            installing:"安装中",
+            installed:"已安装",
+            dispatching:"配送中",
+            dispatched:"已配送",
+            waitingForSign:"待签收",
+            signed:"已签收",
+            canceled:"已取消",
+            returned:"已退货",
+            exchanged:"已换货"
+        };
 
 
-    $('.confirm table').html('');
-    $('.orderStatus em').html(status[getOrderInfo.status]);
-    $('.logisticsStatus em').html(status[getOrderInfo.status]);
-    $('.addressee em').html(getOrderInfo.address_info);
-    $('.message em').html(getOrderInfo.message);
-    $('.price em').html(getOrderInfo.price);
 
-    var billing_type= {
-        normal:'普通',
-        vat:'增值税'
-    };
-    var normal_invoice_type = {
-        personal:'个人',
-        company:'公司'
-    };
-    var normal_content ={
-        details:'商品明细',
-        category:'商品类别'
-    };
+        $('.confirm table').html('');
+        $('.orderStatus em').html(status[getOrderInfo.status]);
+        $('.logisticsStatus em').html(status[getOrderInfo.status]);
+        $('.addressee em').html(getOrderInfo.address_info.reciever_name);
+        $('.message em').html(getOrderInfo.message);
+        $('.price em').html(getOrderInfo.price);
 
-    $('#billing_type em').html(billing_type[getOrderInfo.invoice_info.billing_type]);
-    $('#normal_invoice_type em').html(normal_invoice_type[getOrderInfo.invoice_info.normal_invoice_type]);
-    $('#normal_title em').html(getOrderInfo.invoice_info.normal_title);
-    $('#normal_tax_no em').html(getOrderInfo.invoice_info.normal_tax_no);
-    $('#normal_content em').html(normal_content[getOrderInfo.invoice_info.normal_content]);
-    $('#vat_invoice_type em').html(getOrderInfo.invoice_info.vat_invoice_type);
-    $('#vat_content em').html(getOrderInfo.invoice_info.vat_content);
-    $('#vat_company em').html(getOrderInfo.invoice_info.vat_company);
-    $('#vat_tax_no em').html(getOrderInfo.invoice_info.vat_tax_no);
-    $('#vat_address em').html(getOrderInfo.invoice_info.vat_address);
-    $('#vat_phone em').html(getOrderInfo.invoice_info.vat_phone);
-    $('#vat_bank em').html(getOrderInfo.invoice_info.vat_bank);
-    $('#vat_bank_no em').html(getOrderInfo.invoice_info.vat_bank_no);
-    $('#receiver_name em').html(getOrderInfo.invoice_info.receiver_name);
-    $('#receiver_phone em').html(getOrderInfo.invoice_info.receiver_phone);
-    $('#receiver_province em').html(getOrderInfo.invoice_info.receiver_province);
-    $('#receiver_city em').html(getOrderInfo.invoice_info.receiver_city);
-    $('#receiver_area em').html(getOrderInfo.invoice_info.receiver_area);
-    $('#receiver_address em').html(getOrderInfo.invoice_info.receiver_address);
+        var billing_type= {
+            normal:'普通',
+            vat:'增值税'
+        };
+        var normal_invoice_type = {
+            personal:'个人',
+            company:'公司'
+        };
+        var normal_content ={
+            details:'商品明细',
+            category:'商品类别'
+        };
 
-    if(getOrderInfo.invoice_info.billing_type === 'normal'){
-        $('.normal').show();
-    }else{
-        $('.vat').show();
+        $('#billing_type em').html(billing_type[getOrderInfo.invoice_info.billing_type]);
+        $('#normal_invoice_type em').html(normal_invoice_type[getOrderInfo.invoice_info.normal_invoice_type]);
+        $('#normal_title em').html(getOrderInfo.invoice_info.normal_title);
+        $('#normal_tax_no em').html(getOrderInfo.invoice_info.normal_tax_no);
+        $('#normal_content em').html(normal_content[getOrderInfo.invoice_info.normal_content]);
+        $('#vat_invoice_type em').html(getOrderInfo.invoice_info.vat_invoice_type);
+        $('#vat_content em').html(getOrderInfo.invoice_info.vat_content);
+        $('#vat_company em').html(getOrderInfo.invoice_info.vat_company);
+        $('#vat_tax_no em').html(getOrderInfo.invoice_info.vat_tax_no);
+        $('#vat_address em').html(getOrderInfo.invoice_info.vat_address);
+        $('#vat_phone em').html(getOrderInfo.invoice_info.vat_phone);
+        $('#vat_bank em').html(getOrderInfo.invoice_info.vat_bank);
+        $('#vat_bank_no em').html(getOrderInfo.invoice_info.vat_bank_no);
+        $('#receiver_name em').html(getOrderInfo.invoice_info.receiver_name);
+        $('#receiver_phone em').html(getOrderInfo.invoice_info.receiver_phone);
+        $('#receiver_province em').html(getOrderInfo.invoice_info.receiver_province);
+        $('#receiver_city em').html(getOrderInfo.invoice_info.receiver_city);
+        $('#receiver_area em').html(getOrderInfo.invoice_info.receiver_area);
+        $('#receiver_address em').html(getOrderInfo.invoice_info.receiver_address);
+
+        if(getOrderInfo.invoice_info.billing_type === 'normal'){
+            $('.normal').show();
+        }else{
+            $('.vat').show();
+        }
+
+
+        $('.orderNumber em').html(getOrderInfo.order_no);
+        $('.orderTime em').html(getOrderInfo.create_at);
+        /*$('.deliveryMethod em').html(getOrderInfo.express_info.company_name);
+        $('.trackingNumber em').html(getOrderInfo.express_info.express_no);*/
+
     }
 
-
-    $('.orderNumber em').html(getOrderInfo.order_no);
-    $('.orderTime em').html(getOrderInfo.create_at);
-    /*$('.deliveryMethod em').html(getOrderInfo.express_info.company_name);
-    $('.trackingNumber em').html(getOrderInfo.express_info.express_no);*/
+    var getOrderItems = api.getOrderItems(hash.id);
 
     var goodsArr = getOrderItems.data;
     goodsArr.forEach(function(item,index){

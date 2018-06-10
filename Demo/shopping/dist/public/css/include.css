@@ -31,6 +31,7 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #fff;}
 .header-bar .content{width:1000px;margin: 0 auto;}
 .header-bar .content .address,.header-bar .content .login,.header-bar .content .cart{float:right;line-height: 30px;color:#999;font-size: 14px;}
 .header-bar .content .cart span{display: inline-block;background: url(../img/2.png) no-repeat;width:15px;height:16px;float:left;margin-top: 6px;margin-right: -15px;}
+.header-bar .content .cart .count{color: #ff7238;}
 .header-bar .content .address span{display: inline-block;background: url(../img/1.png) no-repeat;width:11px;height:15px;float:left;margin-top: 7px;margin-right: -20px;}
 .header-bar .content div a{padding: 0 20px;width:50px;text-align: center;}
 .header-bar .address{position: relative;}

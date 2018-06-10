@@ -63,6 +63,10 @@ $(function () {
                         path: '/'
                     });
 
+                    if(getUser.name == null){
+                        getUser.name = ''
+                    }
+
                     // cookie记录用户名
                     getCookie("username", getUser.name, {
                         expires: 30,
@@ -75,8 +79,11 @@ $(function () {
                         path: '/'
                     });
 
-                    var getSchool = api.getSchool(getUser.id,i18nLanguage);
+                    var getSchool = api.getSchool(getUser.school_info.id,i18nLanguage);
 
+                    if(getSchool.name == null){
+                        getSchool.name = ''
+                    }
                     // cookie记录学校
                     getCookie("school", getSchool.name, {
                         expires: 30,
@@ -91,14 +98,14 @@ $(function () {
 
 
 
-                    if(getUser.name == null){
+                    /*if(getUser.name == null){
                         $('.error').html('首次登录，请完善资料');
 
                         setTimeout(function () {
                             location.href = "prefectData.html"
                         }, 2000);
                         return;
-                    }
+                    }*/
 
                     $('.welcome').html('Dear '+getUser.name+',欢迎访问'+getSchool.name+'专属页面。');
 

@@ -57,13 +57,13 @@ $(function () {
         }
     });
     $('.userName .person .address em').html(defalutAddress);
-
+    console.log('getUser.school_id',getUser);
 
     // 获取学校信息
-    var getSchool = api.getSchool(getUser.id,i18nLanguage);
+    var getSchool = api.getSchool(getUser.school_info.id,i18nLanguage);
     $('.school .img img').attr('src', getSchool.logo_info.url);
     $('.school .con .title').html(getSchool.name);
-    $('.school .con span').html(getSchool.description);
+    $('.school .con span').html(getSchool.description)
 
     var status = {
         waitingForPay:"待支付",
@@ -82,9 +82,10 @@ $(function () {
     };
 
     // 获取我的订单
-    function getOrders() {
+    function getOrders(getOrderList) {
         $('.pcOrder').html('');
-        $('.mOrder li').html('');
+        $('.mOrder ul').html('');
+
         var head = '<tr>\n' +
             '                <th>订单号</th>\n' +
             '                <th>订单状态</th>\n' +
@@ -93,7 +94,7 @@ $(function () {
             '            </tr>';
         $('.pcOrder').append(head);
 
-        var getOrderList = api.getOrderList('');
+        //var getOrderList = api.getOrderList('');
         if (getOrderList.code === 200) {
             if (getOrderList.data.length > 0) {
                 var dataArr = getOrderList.data;
@@ -205,7 +206,10 @@ $(function () {
             $('.mOrder li').append(m_li);
         }
     }
-    getOrders();
+    //getOrders();
+    $('.pcOrder').html('Loading...');
+    $('.mOrder ul').html('Loading...');
+    api.getOrderList('',getOrders);
 
 
     // 取消订单
@@ -294,7 +298,9 @@ $(function () {
 
         switch (index){
             case 0:
-                getOrders();
+                $('.pcOrder').html('Loading...');
+                $('.mOrder ul').html('Loading...');
+                api.getOrderList('',getOrders);
                 break;
             case 1:
                 getMyCollect();

@@ -39,8 +39,9 @@ $(function () {
 
 
     // 获取商品列表
-
-    var getAllGoods = api.getGoodsList(0, 1, 20, '%2Bsale', i18nLanguage);
+    var html = '<li>Loading...</li>'
+    $('.goods .content ul').html(html);
+    api.getGoodsList(0, 1, 20, '%2Bsale', i18nLanguage,redraw);
 
     //console.log(getAllGoods);
 
@@ -76,7 +77,7 @@ $(function () {
     }
 
     // 全部
-    redraw(getAllGoods);
+    //redraw(getAllGoods);
 
 
     // nav切换
@@ -84,8 +85,11 @@ $(function () {
         $('.nav .left li').removeClass('active');
         $(this).addClass('active');
         var category_id = $(this).attr('data-name');
+        var html = '<li>Loading...</li>'
+        $('.goods .content ul').html(html);
 
-        redraw(api.getGoodsList(category_id, 1, 20, '%2Bsale', i18nLanguage))
+        api.getGoodsList(category_id, 1, 20, '%2Bsale', i18nLanguage,redraw)
+
     })
 
 
@@ -102,7 +106,7 @@ $(function () {
             $(this).addClass('active');
         }
         // console.log(category_id);
-        redraw(api.getGoodsList(category_id, 1, 20, sort, i18nLanguage))
+        api.getGoodsList(category_id, 1, 20, sort, i18nLanguage,redraw)
     });
 
     // 排序 价格
@@ -118,7 +122,7 @@ $(function () {
             $(this).addClass('active');
         }
         // console.log(category_id);
-        redraw(api.getGoodsList(category_id, 1, 20, sort, i18nLanguage))
+        api.getGoodsList(category_id, 1, 20, sort, i18nLanguage,redraw)
     })
 
     // 排序 上架时间
@@ -134,7 +138,7 @@ $(function () {
             $(this).addClass('active');
         }
         // console.log(category_id);
-        redraw(api.getGoodsList(category_id, 1, 20, sort, i18nLanguage))
+        api.getGoodsList(category_id, 1, 20, sort, i18nLanguage,redraw)
     })
 
 
@@ -142,7 +146,7 @@ $(function () {
     $('.goods .page #first').click(function () {
         var category_id = $('.nav .left .active').attr('data-name');
 
-        redraw(api.getGoodsList(category_id, 1, 20, '%2Bprice', i18nLanguage))
+        api.getGoodsList(category_id, 1, 20, '%2Bprice', i18nLanguage,redraw)
     });
 
     //翻页 尾页
@@ -151,7 +155,7 @@ $(function () {
         var page = $('.goods .page #page').val();
         var pageArr = page.split('/');
 
-        redraw(api.getGoodsList(category_id, pageArr[1], 20, '%2Bprice', i18nLanguage))
+        api.getGoodsList(category_id, pageArr[1], 20, '%2Bprice', i18nLanguage,redraw)
     });
 
     //翻页 上一页
@@ -160,9 +164,9 @@ $(function () {
         var page = $('.goods .page #page').val();
         var pageArr = page.split('/');
         if (pageArr[0] === '1') {
-            redraw(api.getGoodsList(category_id, 1, 20, '%2Bprice', i18nLanguage))
+            api.getGoodsList(category_id, 1, 20, '%2Bprice', i18nLanguage,redraw)
         } else {
-            redraw(api.getGoodsList(category_id, pageArr[0] - 1, 20, '%2Bprice', i18nLanguage))
+            api.getGoodsList(category_id, pageArr[0] - 1, 20, '%2Bprice', i18nLanguage,redraw)
         }
     });
 
@@ -172,9 +176,9 @@ $(function () {
         var page = $('.goods .page #page').val();
         var pageArr = page.split('/');
         if (pageArr[0] + 1 > pageArr[1]) {
-            redraw(api.getGoodsList(category_id, pageArr[1], 20, '%2Bprice', i18nLanguage))
+            api.getGoodsList(category_id, pageArr[1], 20, '%2Bprice', i18nLanguage,redraw)
         } else {
-            redraw(api.getGoodsList(category_id, pageArr[0] + 1, 20, '%2Bprice', i18nLanguage))
+            api.getGoodsList(category_id, pageArr[0] + 1, 20, '%2Bprice', i18nLanguage,redraw)
         }
     })
 });
