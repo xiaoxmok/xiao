@@ -1,6 +1,5 @@
 $(function () {
 
-
     // 获取banner
     $.ajax({
         type: 'GET',
@@ -36,6 +35,31 @@ $(function () {
         }
 
     })
+
+    // 获取商品分类
+    $.ajax({
+        type: 'GET',
+        url: url + '/api/v1/goods-category/index?id=' +  + '&lang=' + i18nLanguage,
+        dataType: 'json',
+        async: false,
+        success: function (data) {
+            //console.log(data);
+            if (data.code === 200) {
+                var all ='<li class="all active" data-name="0">全部</li>';
+                $('.nav .left ul').append(all);
+                var category = data.data;
+                category.forEach(function(item,index){
+                    var html = '<li class="mac" data-name="'+item.id+'">'+item.name+'</li>'
+                    $('.nav .left ul').append(html);
+                })
+            } else {
+
+
+            }
+        },
+        error: function () {
+        }
+    });
 
 
     // 获取商品列表

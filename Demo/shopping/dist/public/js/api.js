@@ -118,11 +118,7 @@ var api = {
             success: function (data) {
                 //console.log(data);
                 if (data.code === 200) {
-                    result = {
-                        id: data.data.id,
-                        parent_id: data.data.parent_id,
-                        name: data.data.name
-                    }
+                    result = data.data;
                 } else {
                     result = data.msg;
                 }
@@ -261,7 +257,7 @@ var api = {
      * @param lang
      * @returns {*}
      */
-    getCartList: function (userId, lang) {
+    getCartList: function (userId, lang,callback) {
         var result;
         var token = getCookie("token");
         $.ajax({
@@ -272,7 +268,7 @@ var api = {
             success: function (data) {
                 //console.log(data);
                 if (data.code === 200) {
-                    result = data.data
+                    callback(data.data);
                 } else {
                     result = data.msg;
                 }

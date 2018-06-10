@@ -1,71 +1,9 @@
-$(function () {
+$(function(){
     if (login()) {
         location.href = "index.html"
     }
 
     var token = getCookie('token');
-
-    // 获取学校信息
-    $.ajax({
-        type: 'GET',
-        url: url + '/api/v1/school/index?city=' + '' + '&lang=' + i18nLanguage,
-        dataType: 'json',
-        success: function (data) {
-            //console.log("data", data);
-            if (data.code === 200) {
-                for (var i = 0; i < data.data.length; i++) {
-                    var html = '<option value="' + data.data[i].id + '">' + data.data[i].name + '</option>';
-                    $('#schoolSearch').append(html);
-
-
-                }
-
-            } else {
-                var html = '<option value="error">' + data.msg + '</option>';
-                $('#schoolSearch').append(html);
-                $('.error').html(data.msg);
-            }
-        },
-        error: function (xhr, status, error) {
-            console.log(xhr, status, error);
-        }
-    });
-
-    // 获取校区
-    $("#schoolSearch").bind('change', function() {
-        schoolRegion();
-    });
-    schoolRegion();
-    function schoolRegion(){
-        var school_id = $('#schoolSearch').children('option:selected').val();
-        if(school_id == null){
-            school_id = 1;
-        }
-        $('#schoolRegion').html('');
-
-        $.ajax({
-            type: 'GET',
-            url: url + '/api/v1/school-region/index?school_id=' + school_id + '&lang=' + i18nLanguage,
-            dataType: 'json',
-            success: function (data) {
-                //console.log("data", data);
-                if (data.code === 200) {
-                    for (var i = 0; i < data.data.length; i++) {
-                        var html = '<option value="' + data.data[i].id + '">' + data.data[i].name + '</option>';
-                        $('#schoolRegion').append(html);
-                    }
-
-                } else {
-                    var html = '<option value="error">' + data.msg + '</option>';
-                    $('#schoolRegion').append(html);
-                    $('.error').html(data.msg);
-                }
-            },
-            error: function (xhr, status, error) {
-                console.log(xhr, status, error);
-            }
-        });
-    }
 
     // 获取图片验证码
     var getCaptcha = api.getCaptcha();
@@ -79,7 +17,7 @@ $(function () {
     $('.code').click(function () {
 
         $('.error').html('');
-        var account, verifyData;
+        var account, verifyData={};
         var value = $('#select').children('option:selected').val();
 
         if (value === 'phone') {
@@ -109,8 +47,7 @@ $(function () {
             $('.error').html('图形验证码不能为空');
             return;
         }
-        verifyData.captcha = captcha;
-
+        verifyData.captcha = $('.Captcha_code').val();
 
 
         /*获取验证码倒记时*/
@@ -152,9 +89,9 @@ $(function () {
 
     });
 
-    // 注册
-    $('.register').click(function () {
-        var account, password, valid_code, school_id, registeData;
+    // 修改密码
+    $('.submitModify').click(function(){
+        var account, password, valid_code, school_id, registeData,password_confirmation;
         $('.error').html('');
 
         var value = $('#select').children('option:selected').val();
@@ -165,13 +102,17 @@ $(function () {
             return;
         }
 
-        password = $('.password').val();
+        password = $('#password').val();
         if (!CheckPwd(password)) {
             $('.error').html('密码不合法，输入5-15位数！');
             return;
         }
+        password_confirmation = $('#password').val();
+        if (password_confirmation !== password) {
+            $('.error').html('确认密码不正确');
+            return;
+        }
 
-        school_id = $('#schoolSearch').children('option:selected').val();
 
         if (value === 'phone') {
             account = $('.account').val();
@@ -184,7 +125,7 @@ $(function () {
                 phone: account,
                 verify_code: valid_code,
                 password: password,
-                school_id: school_id
+                password_confirmation: password_confirmation
             }
 
         } else if (value === 'email') {
@@ -198,22 +139,19 @@ $(function () {
                 email: account,
                 verify_code: valid_code,
                 password: password,
-                school_region_id: school_id
+                password_confirmation: password_confirmation
             }
         }
-
-        registeData.school_region_id = $('#schoolRegion').children('option:selected').val();
-
         $.ajax({
             type: 'POST',
-            url: url + '/api/v1/user/register',
+            url: url + '/api/v1/user/reset-password',
             dataType: 'json',
             data: registeData,
             success: function (data) {
                 //console.log(data.code,typeof data.code);
                 if (data.code === 200) {
                     // console.log('注册成功。');
-                    $('.error').html('注册成功，自动跳转登录页面。');
+                    $('.error').html('修改成功，自动跳转登录页面。');
                     setTimeout(function () {
                         location.href = "login.html"
                     }, 2000);
@@ -225,7 +163,5 @@ $(function () {
 
             }
         })
-
     });
-
 })

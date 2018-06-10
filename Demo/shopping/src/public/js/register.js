@@ -31,6 +31,42 @@ $(function () {
         }
     });
 
+    // 获取校区
+    $("#schoolSearch").bind('change', function() {
+        schoolRegion();
+    });
+    schoolRegion();
+    function schoolRegion(){
+        var school_id = $('#schoolSearch').children('option:selected').val();
+        if(school_id == null){
+            school_id = 1;
+        }
+        $('#schoolRegion').html('');
+
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/school-region/index?school_id=' + school_id + '&lang=' + i18nLanguage,
+            dataType: 'json',
+            success: function (data) {
+                //console.log("data", data);
+                if (data.code === 200) {
+                    for (var i = 0; i < data.data.length; i++) {
+                        var html = '<option value="' + data.data[i].id + '">' + data.data[i].name + '</option>';
+                        $('#schoolRegion').append(html);
+                    }
+
+                } else {
+                    var html = '<option value="error">' + data.msg + '</option>';
+                    $('#schoolRegion').append(html);
+                    $('.error').html(data.msg);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr, status, error);
+            }
+        });
+    }
+
     // 获取图片验证码
     var getCaptcha = api.getCaptcha();
     $('#Captcha').attr('src', 'http://byod.1o24.com/api/v1/system/get-captcha');
@@ -74,6 +110,7 @@ $(function () {
             return;
         }
         verifyData.captcha = captcha;
+
 
 
         /*获取验证码倒记时*/
@@ -164,6 +201,8 @@ $(function () {
                 school_region_id: school_id
             }
         }
+
+        registeData.school_region_id = $('#schoolRegion').children('option:selected').val();
 
         $.ajax({
             type: 'POST',

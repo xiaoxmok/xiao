@@ -6,7 +6,7 @@ $(function () {
     var token = getCookie('token');
 
     $('.submit').click(function () {
-        var name, phone, address,country_code, defalut = 1;
+        var name, phone, address,country_code, defalut = 1,is_from_school;
 
         name = $('#name').val();
         if (name.length <= 0) {
@@ -36,6 +36,11 @@ $(function () {
         } else {
             defalut = 'n';
         }
+        if ($('#is_from_school').is(':checked')) {
+            is_from_school = 'y';
+        } else {
+            is_from_school = 'n';
+        }
 
         var addreesData = {
             token: token,
@@ -44,7 +49,8 @@ $(function () {
             country_code: country_code,
             reciever_phone: phone,
             address: address,
-            is_default: defalut
+            is_default: defalut,
+            is_from_school:is_from_school
         };
 
         // 添加收货地址

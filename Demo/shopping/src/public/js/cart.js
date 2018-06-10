@@ -73,8 +73,9 @@ $(function () {
 
     // goods_ids 用于获得推荐列表；
     var goods_ids=[];
-    function showCart() {
-        var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
+    api.getCartList(getCookie('userId'), i18nLanguage,showCart);
+    function showCart(getCartList) {
+        //var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
         $('.cart .count').html(getCartList.length);
 
         $('.cartDetail table').html('');
@@ -124,7 +125,7 @@ $(function () {
             $('.cartDetail table').append(html);
         })
     };
-    showCart();
+    //showCart();
 
 
     // 修改商品数量
@@ -232,7 +233,7 @@ $(function () {
             $('.zhezhao').show();
             $('.tan2 .con p').html('加入购物车成功');
             $('.tan2').show();
-            showCart();
+            api.getCartList(getCookie('userId'), i18nLanguage,showCart);
             setTimeout(function () {
                 //location.href = "cart.html"
                 $('.zhezhao').hide();

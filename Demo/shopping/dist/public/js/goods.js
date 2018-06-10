@@ -16,6 +16,8 @@ $(function () {
     var getSkuListData = getSkuList.data;
     var getSkuListExtra = getSkuList.extra.param;
 
+    $('.introduce').html(getGoods.introduce);
+
 
     function showSku(i) {
         // 加载商品图片
@@ -139,39 +141,44 @@ $(function () {
             }, 1000);
         }else{
             var quantity = $('#quantity').val();
-            var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
             var flag = true;
-            getCartList.forEach(function (item, index) {
-                if (item.sku_id === sku_id) {
-                    flag = false;
-                }
-            });
-            if (flag) {
-                console.log('quantity', quantity);
-                var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
-                if (createCart.code === 200) {
+            api.getCartList(getCookie('userId'), i18nLanguage,function(getCartList){
+                getCartList.forEach(function (item, index) {
+                    if (item.sku_id === sku_id) {
+                        flag = false;
+                    }
+                });
+
+                if (flag) {
+                    console.log('quantity', quantity);
+                    var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
+                    if (createCart.code === 200) {
+                        $('.zhezhao').show();
+                        $('.tan2 .con p').html('加入购物车成功');
+                        $('.tan2').show();
+                        //优化 做成异步的方式
+                        api.getCartList(getCookie('userId'), i18nLanguage,function(getCartList){
+                            $('.cart .count').html(getCartList.length);
+                        });
+                        setTimeout(function () {
+                            //location.href = "cart.html"
+                            $('.zhezhao').hide();
+                            $('.tan2').hide();
+                        }, 1000);
+                    }
+                } else {
                     $('.zhezhao').show();
-                    $('.tan2 .con p').html('加入购物车成功');
+                    $('.tan2 .con p').html('该商品已经加入购物，请去购物车下单');
                     $('.tan2').show();
-                    //优化 做成异步的方式
-                    /*var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
-                    $('.cart .count').html(getCartList.length);*/
                     setTimeout(function () {
                         //location.href = "cart.html"
                         $('.zhezhao').hide();
                         $('.tan2').hide();
                     }, 1000);
                 }
-            } else {
-                $('.zhezhao').show();
-                $('.tan2 .con p').html('该商品已经加入购物，请去购物车下单');
-                $('.tan2').show();
-                setTimeout(function () {
-                    //location.href = "cart.html"
-                    $('.zhezhao').hide();
-                    $('.tan2').hide();
-                }, 1000);
-            }
+            });
+
+
         }
     });
 

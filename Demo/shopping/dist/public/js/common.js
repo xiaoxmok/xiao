@@ -246,8 +246,10 @@ $(function(){
         }
 
         var token = getCookie("token");
-        var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
-        $('.cart .count').html(getCartList.length);
+        api.getCartList(getCookie('userId'), i18nLanguage,function(getCartList){
+            $('.cart .count').html(getCartList.length);
+        });
+
 
         var userName = getCookie('username');
         if(getCookie('username') == null){

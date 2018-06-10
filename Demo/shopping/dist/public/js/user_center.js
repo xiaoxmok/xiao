@@ -149,7 +149,7 @@ $(function () {
                         '                    <div class="img"><img src="'+item.goods_cover_url+'" alt=""><p>共'+item.goods_sum+'件</p></div>\n' +
                         '                    <div class="con">\n' +
                         '                        <p>订单号：'+item.order_no+'</p>\n' +
-                        '                        <span>下单时间：'+item.create_at+'</span>\n' +
+                        '                        <span>下单时间：'+item.created_at+'</span>\n' +
                         '                    </div>\n' +
                         '                </td>\n' +
                         '                <td>'+status[item.status]+'</td>\n' +
@@ -158,6 +158,7 @@ $(function () {
                                             operate+
                         '                </td>\n' +
                         '            </tr>';
+
                     $('.pcOrder').append(pc_hmtl);
 
                     var m_html = '<li>\n' +
@@ -165,7 +166,7 @@ $(function () {
                         '                        <div class="img"><img src="'+item.goods_cover_url+'" alt=""><p>共'+item.goods_sum+'件</p></div>\n' +
                         '                        <div class="con">\n' +
                         '                            <p>订单号：'+item.order_no+'</p>\n' +
-                        '                            <span>下单时间：'+item.create_at+'</span>\n' +
+                        '                            <span>下单时间：'+item.created_at+'</span>\n' +
                         '                        </div>\n' +
                         '                        <div class="status">订单状态：'+status[item.status]+'</div>\n' +
                         '                    </div>\n' +
@@ -217,9 +218,7 @@ $(function () {
         //console.log('22');
         var orderId = $(this).attr('data-name');
         var getOrderCancel = api.getOrderCancel(orderId);
-        if(getOrderCancel.code === 200){
-            getOrders();
-        }
+        api.getOrderList('',getOrders);
     });
 
 
@@ -317,5 +316,14 @@ $(function () {
         }
     })
 
+
+    // 为我推荐
+    $('.forMe').click(function(){
+        if(getUser.questionnaire_option_id_group == null){
+            location.href = "questionnaire.html"
+        }else{
+            location.href = "recommendForMe.html"
+        }
+    })
 
 });

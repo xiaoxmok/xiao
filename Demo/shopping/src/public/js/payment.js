@@ -54,50 +54,51 @@ $(function(){
 
         if(getOrderInfo.pay_type === 'unionpay'){
             $('.unionpay').show();
-            payData.company = $('#company').val();
-            $.ajax({
-                type: 'POST',
-                url: url + '/api/v1/order/pay',
-                dataType: 'json',
-                data:payData,
-                success: function (data) {
-                    if(data.code === 200){
 
+            $('.unionpay .submit').click(function(){
+                payData.company = $('#company').val();
+                $.ajax({
+                    type: 'POST',
+                    url: url + '/api/v1/order/pay',
+                    dataType: 'json',
+                    data:payData,
+                    success: function (data) {
+                        if(data.code === 200){
+                            location.href = "center.html"
+                        }
+                    },
+                    error: function () {
                     }
-                },
-                error: function () {
-                }
-            });
+                });
+            })
 
         }else if(getOrderInfo.pay_type === 'alipay'){
-            $.ajax({
-                type: 'POST',
-                url: url + '/api/v1/order/pay',
-                dataType: 'json',
-                data:payData,
-                success: function (data) {
-                    if(data.code === 200){
-                        if(getOrderInfo.pay_type === 'alipay'){
-                            $('.alipayPc').html(data.data["raw-html"]);
-                        }else{
-                            $('.qrCode img').attr('src',data.data.url);
-                        }
+            $('.zhezhao').show();
+            $('.alipay').show();
 
-                        var time = setInterval(function(){
-                            var orderInfo = api.getOrderInfo(getUrl.orderNo);
-                            if(orderInfo.status === 'paid'){
-                                clearInterval(time);
-                                $('.success').show();
-                                setTimeout(function () {
-                                    location.href = "center.html"
-                                }, 2000);
-                            }
-                        },3000)
-                    }
-                },
-                error: function () {
-                }
+            $('.cls ').click(function () {
+                $('.zhezhao').hide();
+                $('.alipay').hide();
             });
+            $('body').append($('<a href="./alipay.html?orderNo='+getUrl.orderNo+'" target="_blank" id="openWin"></a>'))
+            document.getElementById("openWin").click();
+
+            //window.open("alipay.html?orderNo="+getUrl.orderNo,'_blank',);
+
+            $('.a1').click(function(){
+                api.getOrderInfo(getUrl.orderNo,function(orderInfo){
+                    if(orderInfo.status === 'paid'){
+                        //$('.success').show();
+                        location.href = "center.html"
+                    }else{
+                        $('.error').html('未支付成功！');
+                    }
+                });
+            })
+            $('.a2').click(function(){
+                location.href = "commonProblem.html"
+            })
+
         }else{
             $.ajax({
                 type: 'POST',
@@ -112,7 +113,6 @@ $(function(){
                         $('.wechat').click(function(){
                             api.getOrderInfo(getUrl.orderNo,function(orderInfo){
                                 if(orderInfo.status === 'paid'){
-                                    clearInterval(time);
                                     $('.success').show();
                                     setTimeout(function () {
                                         location.href = "center.html"
