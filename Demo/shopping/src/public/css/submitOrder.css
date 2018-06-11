@@ -61,6 +61,7 @@
 .Clearing .all em{color:#50b7b4;font-size: 18px;}
 .Clearing .amount{color: #666;font-size: 14px;}
 .Clearing .amount em{}
+.error{color: #C4080A!important;}
 
 @media screen and (max-width:414px){
 

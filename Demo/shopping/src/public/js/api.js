@@ -240,9 +240,10 @@ var api = {
      */
     getSkuInfo:function(id,lang){
         var result;
+        var token = getCookie('token');
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/sku/get?id=' + id + '&lang=' + lang,
+            url: url + '/api/v1/sku/get?id=' + id + '&lang=' + lang +'&token='+token,
             dataType: 'json',
             async: false,
             success: function (data) {

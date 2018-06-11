@@ -40,6 +40,8 @@
 .unionpay p strong{color:#50b7b4;}
 .unionpay .p1{margin-left: 20px;}
 
+.unionpay .success{color: #b75e57;display: none;}
+
 .pop{display:none;position: fixed;top:50%;left:50%;width:400px;margin-top:-60px;margin-left:-200px;background: #fff;z-index: 99;box-shadow: 1px 1px 2px #e4f4f3;}
 .pop h3{background: #f5f5f5;padding:5px 10px;font-size: 12px;font-weight: normal;color:#343434;line-height: 20px;}
 .pop .cls{display: inline-block;position:absolute;top:3px;right:10px;cursor:pointer;color:#343434;background: #f5f5f5;}
@@ -51,6 +53,9 @@
 .pop .con p{line-height: 25px;color:#343434;font-size: 14px;}
 
 .pop .con .error{color: #C4080A!important;}
+
+.alipayPc{width:100%;text-align: left;margin-top: 30px;margin-left: 20px;display: none;}
+.alipayPc a{width:100px;color:#fff;background: #50b7b4;padding: 10px;}
 
 @media screen and (max-width:414px){
     .cash .con .p2{clear: both!important;float:none;margin-top: 10px;}

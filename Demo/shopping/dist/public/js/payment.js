@@ -64,7 +64,10 @@ $(function(){
                     data:payData,
                     success: function (data) {
                         if(data.code === 200){
-                            location.href = "center.html"
+                            $('.unionpay .success').show();
+                            setTimeout(function () {
+                                location.href = "center.html"
+                            }, 2000);
                         }
                     },
                     error: function () {
@@ -73,15 +76,21 @@ $(function(){
             })
 
         }else if(getOrderInfo.pay_type === 'alipay'){
-            $('.zhezhao').show();
-            $('.alipay').show();
+            $('.alipayPc').show();
+
+            $('.payImmediately').attr('href','./alipay.html?orderNo='+getUrl.orderNo);
+            $('.payImmediately').click(function(){
+                $('.zhezhao').show();
+                $('.alipay').show();
+
+            });
 
             $('.cls ').click(function () {
                 $('.zhezhao').hide();
                 $('.alipay').hide();
             });
-            $('body').append($('<a href="./alipay.html?orderNo='+getUrl.orderNo+'" target="_blank" id="openWin"></a>'))
-            document.getElementById("openWin").click();
+            /*$('body').append('<a href="./alipay.html?orderNo='+getUrl.orderNo+'" target="_blank" id="openWin"></a>');
+            document.getElementById("openWin").click();*/
 
             //window.open("alipay.html?orderNo="+getUrl.orderNo,'_blank',);
 
@@ -94,7 +103,8 @@ $(function(){
                         $('.error').html('未支付成功！');
                     }
                 });
-            })
+            });
+
             $('.a2').click(function(){
                 location.href = "commonProblem.html"
             })
@@ -113,7 +123,7 @@ $(function(){
                         $('.wechat').click(function(){
                             api.getOrderInfo(getUrl.orderNo,function(orderInfo){
                                 if(orderInfo.status === 'paid'){
-                                    $('.success').show();
+                                    $('.qrCode .success').show();
                                     setTimeout(function () {
                                         location.href = "center.html"
                                     }, 2000);

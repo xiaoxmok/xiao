@@ -80,7 +80,7 @@ $(function () {
 
         $('.cartDetail table').html('');
         var head = '<tr>\n' +
-            '                <th><input type="checkbox" name="selectAll">全选</th>\n' +
+            '                <th><input type="checkbox" name="selectAll" id="selectAll"><label for="selectAll">全选</label></th>\n' +
             '                <th>商品</th>\n' +
             '                <th class="td3">数量</th>\n' +
             '                <th>小计</th>\n' +

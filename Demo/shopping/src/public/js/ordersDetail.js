@@ -27,11 +27,13 @@ $(function(){
         };
 
 
-
         $('.confirm table').html('');
         $('.orderStatus em').html(status[getOrderInfo.status]);
         $('.logisticsStatus em').html(status[getOrderInfo.status]);
-        $('.addressee em').html(getOrderInfo.address_info.reciever_name);
+        if(getOrderInfo.address_info !== null){
+            $('.addressee em').html(getOrderInfo.address_info.reciever_name);
+        }
+
         $('.message em').html(getOrderInfo.message);
         $('.price em').html(getOrderInfo.price);
 
@@ -79,29 +81,30 @@ $(function(){
         $('.orderTime em').html(getOrderInfo.create_at);
         /*$('.deliveryMethod em').html(getOrderInfo.express_info.company_name);
         $('.trackingNumber em').html(getOrderInfo.express_info.express_no);*/
-
     }
 
     var getOrderItems = api.getOrderItems(hash.id);
 
     var goodsArr = getOrderItems.data;
     goodsArr.forEach(function(item,index){
+        var price = (item.sku_info.school_price * item.quantity).toFixed(2);
         var html = '<tr>\n' +
             '                    <td>\n' +
             '                        <div class="img"><img src="'+item.sku_info.img_infos[0].url+'" alt=""></div>\n' +
             '                        <div class="con">\n' +
             '                            <p class="title">'+item.sku_info.goods_name+'</p>\n' +
-            '                            <span class="price">￥<em>'+item.sku_info.education_price+'</em></span>\n' +
+            '                            <span class="price">￥<em>'+item.sku_info.school_price+'</em></span>\n' +
             '                            <span class="amountM">X'+item.quantity+'</span>\n' +
             '                        </div>\n' +
             '                    </td>\n' +
             '                    <td class="td3">\n' +
             '                        X'+item.quantity+'\n' +
             '                    </td>\n' +
-            '                    <td>￥'+item.price+'</td>\n' +
+            '                    <td>￥'+price+'</td>\n' +
             '                </tr>';
 
         $('.confirm .con table').append(html);
     });
+
 
 });

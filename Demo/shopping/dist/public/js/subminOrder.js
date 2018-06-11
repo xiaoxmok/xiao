@@ -60,7 +60,6 @@ $(function(){
 
 
 
-
     // 发票信息的切换
     $('.invoiceInfo input[name="info"]').click(function(){
         var index = $(this).val();
@@ -132,18 +131,25 @@ $(function(){
             }
         }
         console.log(orderData);
-        $.ajax({
-            type:'POST',
-            url:url+'/api/v1/order/create',
-            dataType:'json',
-            data:orderData,
-            success:function(data){
-                if(data.code === 200){
-                    location.href = "payment.html?orderNo="+data.data.orderNo;
-                }
-            },
-            error:function(){}
-        })
+        if(orderData.address_id == null){
+            $('.error').html('请选择地址。');
+
+        }else{
+            $('.error').html('');
+            $.ajax({
+                type:'POST',
+                url:url+'/api/v1/order/create',
+                dataType:'json',
+                data:orderData,
+                success:function(data){
+                    if(data.code === 200){
+                        location.href = "payment.html?orderNo="+data.data.orderNo;
+                    }
+                },
+                error:function(){}
+            })
+        }
+
 
     })
 
