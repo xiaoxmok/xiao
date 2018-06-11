@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+</head>
+<body>
+    <canvas id="canvas" style="border:1px solid #ccc;display:block;margin: 20px auto;"></canvas>
+
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById('canvas');
+            canvas.width = 1024;
+            canvas.height = 768;
+
+            // 判断浏览器是否支持
+            if(canvas.getContext('2d')){
+                var context = canvas.getContext('2d');
+            }else{
+                console.log('浏览器不支持canvas。');
+            }
+
+            // 状态设置
+            context.beginPath();                // 启一个新的状态
+            context.moveTo(100,100);            // 设置起点
+            context.lineTo(700,700);            // 设置终点
+            context.lineTo(100,700);
+            context.lineTo(100,100);
+            context.closePath();
+
+            // 实心绘制
+            context.fillStyle = 'rbg(2,100,30)';
+            context.fill();
+
+            // 线条绘制
+            context.lineWidth = 5;              // 线条宽度
+            context.strokeStyle = '#005588';    // 样式 颜色
+            context.stroke();
+
+            context.beginPath();
+            context.moveTo(200,100);
+            context.lineTo(800,700);
+            context.closePath();
+
+            context.strokeStyle = 'red';    // 样式 颜色
+            context.stroke();
+
+        }
+    </script>
+</body>
+</html>
