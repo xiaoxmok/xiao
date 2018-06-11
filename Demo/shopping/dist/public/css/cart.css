@@ -57,6 +57,8 @@
 .pop .con{clear:both;padding: 20px;}
 .pop .con p{line-height: 25px;color:#343434;font-size: 14px;}
 
+.error{color: #C4080A!important;}
+
 @media screen and (max-width:414px){
     .cartDetail .td3{display: none;}
     .cartDetail th{font-size: 12px;}

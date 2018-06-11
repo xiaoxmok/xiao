@@ -20,12 +20,15 @@ $(function () {
 
     var token = getCookie('token');
 
+    // 获取个人信息
+    var getUser = api.getUser(token);
+
     // 获取校区
     $.ajax({
         type: 'GET',
-        url: url + '/api/v1/school-region/index?lang='+i18nLanguage+'&city='+getCookie('city'),
+        url: url + '/api/v1/school-region/index?school_id='+getUser.school_id+'&lang='+i18nLanguage+'&city='+getCookie('city'),
         dataType: 'json',
-        data: {lang: i18nLanguage},
+        //data: {lang: i18nLanguage},
         async:false,
         success: function (data) {
             if (data.code === 200) {
@@ -52,8 +55,8 @@ $(function () {
     });
     $('.defalutAddress span').html(defalutAddress);
 
-    // 获取个人信息
-    var getUser = api.getUser(token);
+    // 设置个人信息
+    //var getUser = api.getUser(token);
 
     $('.sex[value="' + getUser.sex + '"]').attr('checked', 'true');
     $('.role[value="' + getUser.type + '"]').attr('checked', 'true');

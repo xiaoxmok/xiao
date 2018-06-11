@@ -35,7 +35,11 @@ $(function () {
         // 加载sku商品信息
 
         $('#price').html(getSkuListData[i].price);
-        $('#school_price').html(getSkuListData[i].school_price);
+        if(login()){
+            $('#school_price').html(getSkuListData[i].school_price);
+        }else{
+            $('#school_price').html(getSkuListData[i].education_price);
+        }
 
         var mySwiper = new Swiper('.swiper-container', {
             speed: 1000,

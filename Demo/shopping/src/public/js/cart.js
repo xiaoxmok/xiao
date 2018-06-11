@@ -185,16 +185,21 @@ $(function () {
 
     $('#settle').click(function(){
         //console.log('22',order_items);
-        var param = ''
-        order_items.forEach(function(item,index){
-            if(index === 0){
-                param += 'goods'+index+'='+item.sku_id+'_'+item.quantity
-            }else{
-                param += '&goods'+index+'='+item.sku_id+'_'+item.quantity
-            }
-        });
-        //location.href = "submitOrder.html?order_items="+JSON.stringify(order_items);
-        location.href = "submitOrder.html?"+param;
+        if(order_items.length === 0){
+            $('.error').html('请选择商品下单');
+        }else{
+            $('.error').html('');
+            var param = ''
+            order_items.forEach(function(item,index){
+                if(index === 0){
+                    param += 'goods'+index+'='+item.sku_id+'_'+item.quantity
+                }else{
+                    param += '&goods'+index+'='+item.sku_id+'_'+item.quantity
+                }
+            });
+            //location.href = "submitOrder.html?order_items="+JSON.stringify(order_items);
+            location.href = "submitOrder.html?"+param;
+        }
     });
 
     // 获取推荐配件

@@ -140,7 +140,7 @@ var api = {
      */
     getGoodsList: function (category_id, page, count, sort, lang,callback) {
 
-        var param;
+        var param,token;
         if(login()){
             token = getCookie('token');
             param = 'category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang+'&token='+token;
@@ -201,10 +201,18 @@ var api = {
      * @returns {*}
      */
     getSkuList:function(goods_id, lang){
-        var result;
+        var result,token;
+        var param;
+        if(login()){
+            token = getCookie('token');
+            param = 'goods_id=' + goods_id + '&lang=' + lang+'&token='+token;
+        }else{
+            param = 'goods_id=' + goods_id + '&lang=' + lang;
+        }
+
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/sku/index?goods_id=' + goods_id + '&lang=' + lang,
+            url: url + '/api/v1/sku/index?'+param,
             dataType: 'json',
             async: false,
             success: function (data) {

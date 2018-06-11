@@ -268,7 +268,7 @@ $(function(){
 
 //验证手机号码
 function CheckMobile(Str) {
-    if(Str.search("^1(3|5|8)\\d{9}$")!=0){
+    if(Str.search("^1(3|4|5|7|8)\\d{9}$")!=0){
         return false;
     }
     return true;
