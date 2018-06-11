@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="./../public/css/reset.css">
+    <link rel="stylesheet" href="./../public/css/include.css">
+    <link rel="stylesheet" href="./../public/css/common.css">
+    <script src="./../public/js/lib/jquery-3.1.0.js"></script>
+    <script src="../public/js/common.js"></script>
+    <script src="../public/js/api.js"></script>
+    <link rel="stylesheet" href="../public/css/product.css">
+    <link rel="stylesheet" href="../public/css/swiper-4.2.2.min.css">
+</head>
+<body class="on5">
+<!--header页面-->
+<div class="header">
+    <div class="content">
+        <div class="logo">
+            <img src="./../public/img/web_logo.png" alt="logo">
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="./aboutUs.html" class="on1">关于我们</a></li>
+                <li><a href="./solution.html" class="on2">解决方案</a></li>
+                <li><a href="./eduSoftware.html" class="on3">教育软件推荐</a></li>
+                <li><a href="./information.html" class="on4">资讯中心</a></li>
+                <li><a href="./index.html" class="on5">BYOD平台</a></li>
+            </ul>
+        </div>
+        <div class="other">
+            <div class="service">
+                <a href="#">维修</a>
+                <ul>
+                    <li><a href="./center.html">维修记录</a></li>
+                    <li><a href="javascript:;">维修申请</a></li>
+                </ul>
+            </div>
+            <div class="lan">
+                <a href="./../zh/index.html">zh</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="media-header">
+    <div class="icon">
+        <img src="./../public/img/fenlei.png" alt="">
+    </div>
+    <div class="address">
+        <a class="madd" href="javascript:;">深圳</a><span></span>
+        <ul>
+            <li data-name="sz">深圳</li>
+            <li data-name="sh">上海</li>
+        </ul>
+    </div>
+    <div class="logo">
+        <img src="./../public/img/web_logo.png" alt="logo">
+    </div>
+    <div class="cart"><a href="./cart.html"></a><em class="count"></em></div>
+    <div class="user"><a href="./center.html"></a></div>
+
+
+    <div class="nav">
+        <ul>
+            <li class="selc"><a href="./aboutUs.html">关于我们</a></li>
+            <li class="selc"><a href="./solution.html">解决方案</a></li>
+            <li class="selc"><a href="./eduSoftware.html">教育软件推荐</a></li>
+            <li class="selc"><a href="./information.html">资讯中心</a></li>
+            <li class="selc"><a href="./index.html">BYOD平台</a></li>
+            <li class="service"><a href="javascript:;">维修</a>
+                <ul>
+                    <li class="selc"><a href="./center.html">维修记录</a></li>
+                    <li class="selc"><a href="./solution.html">维修申请</a></li>
+                </ul>
+            </li>
+            <li class="selc"><a href="javascript:;">当前语言：中文</a></li>
+            <li class="selc loging"><a href="./login.html" >登录</a></li>
+            <li class="service mlogined"><a href="javascript:;">个人中心</a>
+                <ul>
+                    <li class="selc"><a href="./center.html">个人中心</a></li>
+                    <li class="selc"><a href="javascript:;" class="signOut">退出登录</a></li>
+                </ul>
+            </li>
+            <li class="selc"><a href="./prefectData.html">完善资料</a></li>
+        </ul>
+    </div>
+</div>
+<!--头部登录信息-->
+<div class="header-bar">
+    <div class="content">
+        <span class="welcome">Dear XXX,欢迎访问协同学校专属页面。</span>
+        <div class="login logined" style="display: none;">
+            <a href="javascript:;">个人中心</a>
+            <ul>
+                <li><a href="./center.html">个人中心</a></li>
+                <li><a href="javascript:;" class="signOut">退出登陆</a></li>
+            </ul>
+        </div>
+        <div class="login loging"><a href="./login.html">登录/注册</a></div>
+        <div class="cart"><a href="./cart.html"><span></span>购物车<em class="count"></em></a></div>
+        <div class="address">
+            <span></span>
+            <a class="add" href="javascript:;">深圳</a>
+            <ul>
+                <li data-name="1">深圳</li>
+                <li data-name="0">上海</li>
+            </ul>
+        </div>
+        <!--<div class="login"><a href="javascript:;" data-name="personalCenter">个人中心</a></div>-->
+
+    </div>
+</div>
+<div class="main">
+    <div class="process">
+        <a href="./index.html" class="i18n" data-name="byod">BYOD平台</a> >
+        <a href="javascript:;" class="i18n" data-name="registered">商品详情</a>
+    </div>
+    <div class="product">
+        <div class="image">
+            <!--轮播图-->
+            <div class="swiper-container product-swiper">
+                <div class="swiper-wrapper">
+                   <!-- <div class="swiper-slide"><img src="../public/img/web_xiangqing.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../public/img/web_suo01.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../public/img/web_suo02.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../public/img/web_suo03.png" alt=""></div>-->
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="small">
+                <!--<a href="javascript:;" class="active"><img src="../public/img/web_xiangqing.png" alt=""></a>
+                <a href="javascript:;"><img src="../public/img/web_suo01.png" alt=""></a>
+                <a href="javascript:;"><img src="../public/img/web_suo02.png" alt=""></a>
+                <a href="javascript:;"><img src="../public/img/web_suo03.png" alt=""></a>-->
+            </div>
+        </div>
+        <div class="con">
+            <div class="title">
+                <p id="name"></p>
+                <span id="summary"></span>
+            </div>
+            <div class="detail">
+                <table>
+                    <tr>
+                        <td class="td1">常规价格:</td>
+                        <td class="td2"><del>￥<em id="price"></em></del></td>
+                    </tr>
+                    <tr>
+                        <td class="td1">教育优惠价：</td>
+                        <td class="td2 offer">￥<em id="school_price"></em></td>
+                    </tr>
+                    <tr>
+                        <td class="td1">可用性：</td>
+                        <td class="td2">现货</td>
+                    </tr>
+                </table>
+                <table class="param">
+
+                </table>
+                <table>
+                    <tr>
+                        <td class="td1">购买数量：</td>
+                        <td class="td2 btnNum">
+                            <input type="button" value="-" class="less">
+                            <input type="text" value="1" class="text" id="quantity">
+                            <input type="button" value="+" class="plus">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="btn">
+                <a href="javascript:;" class="collect"><span></span>收藏</a>
+                <a href="javascript:;" class="add">加入购物车</a>
+                <a href="javascript:;" class="buy">立即购买</a>
+            </div>
+        </div>
+    </div>
+    <div class="productNav">
+        <ul>
+            <li class="active">详情</li>
+            <li>常见问题</li>
+        </ul>
+    </div>
+    <div class="productDetail introduce" style="display: block;">商品详情</div>
+    <div class="productDetail">
+        <div class="problem">
+            <div class="pro">
+                <div class="title">
+                    <p>这是个问题？这是个问题？</p>
+                    <span>+</span>
+                </div>
+                <div class="text" >
+                    这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，
+                </div>
+            </div>
+            <div class="pro">
+                <div class="title">
+                    <p>这是个问题？这是个问题？</p>
+                    <span>+</span>
+                </div>
+                <div class="text" >
+                    这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，这是答案这是答案这是答案这是答案这是答案，
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact">
+        <a href="javascript:;"><em></em><span>联系我们</span></a>
+    </div>
+
+</div>
+
+<div class="zhezhao"></div>
+<div class="pop tan1">
+    <h3>联系我们</h3>
+    <a href="javascript:;" class="cls">X</a>
+    <div class="con">
+        <p>联系邮箱：byodgoods@byod.com</p>
+        <p>联系电话：13813212121</p>
+    </div>
+</div>
+<div class="pop tan2">
+    <h3>提示</h3>
+    <div class="con">
+        <p>提示</p>
+    </div>
+</div>
+
+<!--尾部-->
+<div class="footer">
+    <div class="content">
+        <p>ICP备案：XXXXXX</p>
+    </div>
+</div>
+<script src="./../public/js/lib/swiper-4.2.2.min.js"></script>
+<script src="../public/js/goods.js"></script>
+</body>
+</html>

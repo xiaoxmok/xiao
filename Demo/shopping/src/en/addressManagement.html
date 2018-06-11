@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>地址管理</title>
+    @@include('./view/meta.html')
+    <link rel="stylesheet" href="../public/css/newAddress.css">
+</head>
+<body class="on5">
+@@include('./view/header.html')
+@@include('./view/header-bar.html')
+<div class="main">
+    <div class="process">
+        <a href="./index.html">BYOD平台</a> >
+        <a href="javascript:;">地址管理</a>
+    </div>
+
+    <div class="management">
+        <h3>地址管理</h3>
+        <ul></ul>
+        <div class="btn">
+            <a href="./addAddress.html">新增收货地址</a>
+        </div>
+    </div>
+</div>
+
+@@include('./view/footer.html')
+<script src="../public/js/lib/jquery.md5.js"></script>
+<script src="../public/js/addressManagement.js"></script>
+</body>
+</html>

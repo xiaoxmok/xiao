@@ -1,16 +1,25 @@
 <!--头部登录信息-->
 <div class="header-bar">
     <div class="content">
-        <div class="address">
-            <a href="javascript:;">深圳</a>
+        <span class="welcome">Dear XXX,欢迎访问协同学校专属页面。</span>
+        <div class="login logined" style="display: none;">
+            <a href="javascript:;">个人中心</a>
             <ul>
-                <li data-name="shenzhen">shenzhen</li>
-                <li data-name="shanghai">shanghai</li>
+                <li><a href="./center.html">个人中心</a></li>
+                <li><a href="javascript:;" class="signOut">退出登陆</a></li>
             </ul>
         </div>
-        <div class="cart"><a href="javascript:;">购物车</a></div>
-        <div class="login"><a href="./registered.html">登录/注册</a></div>
+        <div class="login loging"><a href="./login.html">登录/注册</a></div>
+        <div class="cart"><a href="./cart.html"><span></span>购物车<em class="count"></em></a></div>
+        <div class="address">
+            <span></span>
+            <a class="add" href="javascript:;">深圳</a>
+            <ul>
+                <li data-name="1">深圳</li>
+                <li data-name="0">上海</li>
+            </ul>
+        </div>
         <!--<div class="login"><a href="javascript:;" data-name="personalCenter">个人中心</a></div>-->
-        <div class="welcome">Dear XXX,欢迎访问协同学校专属页面。</div>
+
     </div>
 </div>

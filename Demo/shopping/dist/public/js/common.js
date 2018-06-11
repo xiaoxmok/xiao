@@ -199,6 +199,14 @@ function login(){
     }
 }
 
+// 判断是否英文
+function isEnglish(){
+    if(getCookie("userLanguage") === 'en'){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 
 // 判断是否移动端

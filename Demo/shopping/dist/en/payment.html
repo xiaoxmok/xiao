@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线支付</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="./../public/css/reset.css">
+    <link rel="stylesheet" href="./../public/css/include.css">
+    <link rel="stylesheet" href="./../public/css/common.css">
+    <script src="./../public/js/lib/jquery-3.1.0.js"></script>
+    <script src="../public/js/common.js"></script>
+    <script src="../public/js/api.js"></script>
+    <link rel="stylesheet" href="../public/css/payment.css">
+</head>
+<body class="on5">
+<!--header页面-->
+<div class="header">
+    <div class="content">
+        <div class="logo">
+            <img src="./../public/img/web_logo.png" alt="logo">
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="./aboutUs.html" class="on1">关于我们</a></li>
+                <li><a href="./solution.html" class="on2">解决方案</a></li>
+                <li><a href="./eduSoftware.html" class="on3">教育软件推荐</a></li>
+                <li><a href="./information.html" class="on4">资讯中心</a></li>
+                <li><a href="./index.html" class="on5">BYOD平台</a></li>
+            </ul>
+        </div>
+        <div class="other">
+            <div class="service">
+                <a href="#">维修</a>
+                <ul>
+                    <li><a href="./center.html">维修记录</a></li>
+                    <li><a href="javascript:;">维修申请</a></li>
+                </ul>
+            </div>
+            <div class="lan">
+                <a href="./../zh/index.html">zh</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="media-header">
+    <div class="icon">
+        <img src="./../public/img/fenlei.png" alt="">
+    </div>
+    <div class="address">
+        <a class="madd" href="javascript:;">深圳</a><span></span>
+        <ul>
+            <li data-name="sz">深圳</li>
+            <li data-name="sh">上海</li>
+        </ul>
+    </div>
+    <div class="logo">
+        <img src="./../public/img/web_logo.png" alt="logo">
+    </div>
+    <div class="cart"><a href="./cart.html"></a><em class="count"></em></div>
+    <div class="user"><a href="./center.html"></a></div>
+
+
+    <div class="nav">
+        <ul>
+            <li class="selc"><a href="./aboutUs.html">关于我们</a></li>
+            <li class="selc"><a href="./solution.html">解决方案</a></li>
+            <li class="selc"><a href="./eduSoftware.html">教育软件推荐</a></li>
+            <li class="selc"><a href="./information.html">资讯中心</a></li>
+            <li class="selc"><a href="./index.html">BYOD平台</a></li>
+            <li class="service"><a href="javascript:;">维修</a>
+                <ul>
+                    <li class="selc"><a href="./center.html">维修记录</a></li>
+                    <li class="selc"><a href="./solution.html">维修申请</a></li>
+                </ul>
+            </li>
+            <li class="selc"><a href="javascript:;">当前语言：中文</a></li>
+            <li class="selc loging"><a href="./login.html" >登录</a></li>
+            <li class="service mlogined"><a href="javascript:;">个人中心</a>
+                <ul>
+                    <li class="selc"><a href="./center.html">个人中心</a></li>
+                    <li class="selc"><a href="javascript:;" class="signOut">退出登录</a></li>
+                </ul>
+            </li>
+            <li class="selc"><a href="./prefectData.html">完善资料</a></li>
+        </ul>
+    </div>
+</div>
+<!--头部登录信息-->
+<div class="header-bar">
+    <div class="content">
+        <span class="welcome">Dear XXX,欢迎访问协同学校专属页面。</span>
+        <div class="login logined" style="display: none;">
+            <a href="javascript:;">个人中心</a>
+            <ul>
+                <li><a href="./center.html">个人中心</a></li>
+                <li><a href="javascript:;" class="signOut">退出登陆</a></li>
+            </ul>
+        </div>
+        <div class="login loging"><a href="./login.html">登录/注册</a></div>
+        <div class="cart"><a href="./cart.html"><span></span>购物车<em class="count"></em></a></div>
+        <div class="address">
+            <span></span>
+            <a class="add" href="javascript:;">深圳</a>
+            <ul>
+                <li data-name="1">深圳</li>
+                <li data-name="0">上海</li>
+            </ul>
+        </div>
+        <!--<div class="login"><a href="javascript:;" data-name="personalCenter">个人中心</a></div>-->
+
+    </div>
+</div>
+<div class="main">
+    <div class="process">
+        <a href="./index.html">BYOD平台</a> >
+        <a href="javascript:;">在线支付</a>
+    </div>
+
+    <div class="cash">
+        <div class="box">
+            <p>收银台</p>
+        </div>
+        <div class="con">
+            <p class="p1">订单提交成功，请尽快付款！订单号：<span id="order_no"></span></p>
+            <p class="p2">应付金额：<span id="price"></span></p>
+        </div>
+        <div class="con">
+            <p class="p1">支付方式：<span id="pay_type"></span></p>
+            <p class="p1">状态：<span id="status"></span></p>
+        </div>
+        <!--<div class="con payType">
+            <p class="p1">请选择支付方式</p>
+        </div>
+        <div class="btn">
+            <a href="javascript:;" data-name="wechat">微信支付</a>
+            <a href="javascript:;" data-name="alipay">支付宝支付</a>
+            <a href="javascript:;" data-name="unionpay">银行转账</a>
+        </div>-->
+        <div class="unionpay">
+            <h2>银行转账</h2>
+            <input type="text" id="company" placeholder="付款公司名称">
+            <p>转账注意事项：</p>
+            <p>1.为了尽快处理您的订单，请在汇款凭证的用途／附言注上您W开头的订单号（提交订单后请记录订单号）</p>
+            <p>2.请将付款凭证扫描后以附件形式发送至：<strong>China_Receipts@apple.com</strong></p>
+            <p class="p1">Apple 银行账户详情：</p>
+            <p class="p1">开户行：花旗银行（中国）有限公司北京分行</p>
+            <p class="p1">户名：苹果电子产品商贸（北京）有限公司</p>
+            <p class="p1">帐号：1767147224000040 </p>
+            <p class="p1">电报号码：CITICNSXBJG</p>
+            <p class="p1">注意: 电子转帐一般需要一到两个工作日处理。</p>
+            <p>请注意:</p>
+            <p>申请增值税专用发票的订单, 银行汇款账户名称必须与索取发票的公司名称一致。</p>
+            <p class="success">提交成功，2秒后跳转个人中心页面。</p>
+            <a href="javascript:;" class="submit">提交</a>
+        </div>
+        <div class="qrCode">
+            <img src="" alt="">
+            <p class="success">恭喜您支付成功，2秒后跳转个人中心页面。</p>
+            <a href="javascript:;" class="wechat">若支付已完成，请点击！</a>
+        </div>
+
+        <div class="alipayPc">
+            <a href="" class="payImmediately" target="_blank">立即支付</a>
+        </div>
+
+    </div>
+</div>
+<div class="zhezhao"></div>
+<div class="pop alipay">
+    <h3>确认提示</h3>
+    <a href="javascript:;" class="cls">X</a>
+    <div class="con">
+        <h2>请在新打开的页面上完成付款。</h2>
+        <p>完成付款后请根据你的情况点击下面的按钮。</p>
+        <p class="error"></p>
+        <a href="javascript:;" class="a1">已完成支付</a>
+        <a href="javascript:;" class="a2">付款遇到问题</a>
+    </div>
+</div>
+
+<!--尾部-->
+<div class="footer">
+    <div class="content">
+        <p>ICP备案：XXXXXX</p>
+    </div>
+</div>
+<script src="../public/js/payment.js"></script>
+</body>
+</html>

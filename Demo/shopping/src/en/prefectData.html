@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>完善资料</title>
+    @@include('./view/meta.html')
+</head>
+<body class="on5">
+@@include('./view/header.html')
+@@include('./view/header-bar.html')
+<div class="main">
+
+    <div class="process">
+        <a href="./index.html">BYOD平台</a> >
+        <a href="javascript:;">完善资料</a>
+    </div>
+
+    <div class="userLogin prefect">
+        <div class="title">
+            <p>完善资料</p>
+        </div>
+        <div class="con">
+            <div class="box">
+                <strong>*</strong><span><input name="sex" type="radio" id="male" checked value="male" class="sex"><label for="male">男</label></span><span><input name="sex" type="radio" id="female" value="female" class="sex"><label for="female">女</label></span>
+            </div>
+            <div class="box">
+                <strong>*</strong><span><input name="role" type="radio" id="student" checked value="student" class="role"><label for="student">学生</label></span><span><input name="role" type="radio" id="teacher" value="teacher" class="role"><label for="teacher">老师</label></span><span><input name="role" type="radio" id="staff" value="staff" class="role"><label for="staff">教职员工</label></span>
+            </div>
+            <div class="box">
+                <select class="select" id="schoolSearch">
+                    <!--<option value="">东校区</option>
+                    <option value="">西校区</option>
+                    <option value="">南校区</option>
+                    <option value="">北校区</option>-->
+                </select>
+            </div>
+            <div class="box">
+                <input class="input name" type="text" placeholder="请输入姓名">
+            </div>
+            <div class="box">
+                <input class="input no" type="text" placeholder="请输入学号">
+            </div>
+            <div class="text">
+                <p class="defalutAddress">默认配送地址：<span></span></p>
+                <a href="./addressManagement.html">配送地址管理</a>
+            </div>
+            <div class="info_text">
+                <p class="sw">订单邮件通知：</p>
+                <i class="switch">
+                    <label class="switch_on" for="check-1"></label>
+                    <input type="checkbox" id="check-1" checked="checked">
+                </i>
+            </div>
+            <div class="info_text">
+                <span class="sw">订单短信通知：</span>
+                <i class="switch">
+                    <label class="switch_off" for="check-2"></label>
+                    <input type="checkbox" id="check-2" checked="checked">
+                </i>
+            </div>
+            <p class="error"></p>
+            <div class="btn">
+                <a class="submit" href="javascript:;">完成</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+@@include('./view/footer.html')
+<script src="../public/js/lib/jquery.md5.js"></script>
+<script src="../public/js/set_user_info.js"></script>
+<script>
+    $(function(){
+
+    })
+</script>
+</body>
+</html>

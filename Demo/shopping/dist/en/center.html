@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="./../public/css/reset.css">
+    <link rel="stylesheet" href="./../public/css/include.css">
+    <link rel="stylesheet" href="./../public/css/common.css">
+    <script src="./../public/js/lib/jquery-3.1.0.js"></script>
+    <script src="../public/js/common.js"></script>
+    <script src="../public/js/api.js"></script>
+    <link rel="stylesheet" href="../public/css/center.css">
+</head>
+<body class="on5">
+<!--header页面-->
+<div class="header">
+    <div class="content">
+        <div class="logo">
+            <img src="./../public/img/web_logo.png" alt="logo">
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="./aboutUs.html" class="on1">关于我们</a></li>
+                <li><a href="./solution.html" class="on2">解决方案</a></li>
+                <li><a href="./eduSoftware.html" class="on3">教育软件推荐</a></li>
+                <li><a href="./information.html" class="on4">资讯中心</a></li>
+                <li><a href="./index.html" class="on5">BYOD平台</a></li>
+            </ul>
+        </div>
+        <div class="other">
+            <div class="service">
+                <a href="#">维修</a>
+                <ul>
+                    <li><a href="./center.html">维修记录</a></li>
+                    <li><a href="javascript:;">维修申请</a></li>
+                </ul>
+            </div>
+            <div class="lan">
+                <a href="./../zh/index.html">zh</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="media-header">
+    <div class="icon">
+        <img src="./../public/img/fenlei.png" alt="">
+    </div>
+    <div class="address">
+        <a class="madd" href="javascript:;">深圳</a><span></span>
+        <ul>
+            <li data-name="sz">深圳</li>
+            <li data-name="sh">上海</li>
+        </ul>
+    </div>
+    <div class="logo">
+        <img src="./../public/img/web_logo.png" alt="logo">
+    </div>
+    <div class="cart"><a href="./cart.html"></a><em class="count"></em></div>
+    <div class="user"><a href="./center.html"></a></div>
+
+
+    <div class="nav">
+        <ul>
+            <li class="selc"><a href="./aboutUs.html">关于我们</a></li>
+            <li class="selc"><a href="./solution.html">解决方案</a></li>
+            <li class="selc"><a href="./eduSoftware.html">教育软件推荐</a></li>
+            <li class="selc"><a href="./information.html">资讯中心</a></li>
+            <li class="selc"><a href="./index.html">BYOD平台</a></li>
+            <li class="service"><a href="javascript:;">维修</a>
+                <ul>
+                    <li class="selc"><a href="./center.html">维修记录</a></li>
+                    <li class="selc"><a href="./solution.html">维修申请</a></li>
+                </ul>
+            </li>
+            <li class="selc"><a href="javascript:;">当前语言：中文</a></li>
+            <li class="selc loging"><a href="./login.html" >登录</a></li>
+            <li class="service mlogined"><a href="javascript:;">个人中心</a>
+                <ul>
+                    <li class="selc"><a href="./center.html">个人中心</a></li>
+                    <li class="selc"><a href="javascript:;" class="signOut">退出登录</a></li>
+                </ul>
+            </li>
+            <li class="selc"><a href="./prefectData.html">完善资料</a></li>
+        </ul>
+    </div>
+</div>
+<!--头部登录信息-->
+<div class="header-bar">
+    <div class="content">
+        <span class="welcome">Dear XXX,欢迎访问协同学校专属页面。</span>
+        <div class="login logined" style="display: none;">
+            <a href="javascript:;">个人中心</a>
+            <ul>
+                <li><a href="./center.html">个人中心</a></li>
+                <li><a href="javascript:;" class="signOut">退出登陆</a></li>
+            </ul>
+        </div>
+        <div class="login loging"><a href="./login.html">登录/注册</a></div>
+        <div class="cart"><a href="./cart.html"><span></span>购物车<em class="count"></em></a></div>
+        <div class="address">
+            <span></span>
+            <a class="add" href="javascript:;">深圳</a>
+            <ul>
+                <li data-name="1">深圳</li>
+                <li data-name="0">上海</li>
+            </ul>
+        </div>
+        <!--<div class="login"><a href="javascript:;" data-name="personalCenter">个人中心</a></div>-->
+
+    </div>
+</div>
+<div class="main">
+    <div class="process">
+        <a href="./index.html" class="i18n" data-name="byod">BYOD平台</a> >
+        <a href="javascript:;" class="i18n" data-name="registered">个人中心</a>
+    </div>
+    <div class="school">
+        <div class="img">
+            <img src="" alt="">
+        </div>
+        <div class="con">
+            <p class="title"></p>
+            <span></span>
+        </div>
+        <div class="right">
+            <div class="device">
+                <a href="javascript:;">
+                    <div class="img"></div>
+                    <p>设备验证</p>
+                </a>
+            </div>
+            <div class="data">
+                <a href="javascript:;">
+                    <div class="img"></div>
+                    <p>官方数据统计</p>
+                </a>
+            </div>
+            <div class="question">
+                <a href="./commonProblem.html">
+                    <div class="img"></div>
+                    <p>常见问题</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="userName">
+        <div class="person">
+            <div>
+                <span class="name"></span>
+                <span class="sex"></span>
+                <span class="no">学号：<em></em></span>
+                <span class="role"></span>
+                <span class="tuijian"><a href="javascript:;" class="forMe"><em></em>为我推荐</a></span>
+                <!--<span><a href="./questionnaire.html">调查问卷</a></span>
+                <span><a href="javascript:;" class="signOut">退出登录</a></span>
+                <span><a href="./reset.html">重置密码</a></span>-->
+            </div>
+            <div>
+                <span class="phone">手机号：<em></em></span>
+                <span class="email">邮箱：<em></em></span>
+                <span class="address">配送地址：<em></em></span>
+                <span class="dizhi"><a href="./prefectData.html">个人信息编辑</a></span>
+            </div>
+        </div>
+        <!--<div class="dizhi">
+            <div class="img"></div>
+            <p><a href="./prefectData.html">个人信息编辑</a></p>
+        </div>-->
+    </div>
+    <div class="orderNav">
+        <ul>
+            <li class="active">我的订单</li>
+            <li>我的收藏</li>
+            <li>我的设备</li>
+            <li>我的特权券</li>
+            <li>维修记录</li>
+        </ul>
+    </div>
+    <!--我的订单-->
+    <div class="list myOrder" style="display: block;">
+        <table class="order pcOrder">
+            <thead>
+
+            </thead>
+        </table>
+        <div class="mOrder">
+            <ul></ul>
+        </div>
+    </div>
+    <!--我的收藏-->
+    <div class="list goods" style="display: none;">
+        <div class="content collect">
+            <ul></ul>
+        </div>
+    </div>
+    <!--我的设备-->
+    <div class="list goods" style="display: none;">
+        <div class="content">
+            <ul>
+                <li>
+                    <img src="../public/img/goods1.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="time">购买时间：2018-01-01 15：00</p>
+                        <a class="apply" href="javascript:;">申请维修</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="../public/img/goods2.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="time">购买时间：2018-01-01 15：00</p>
+                        <a class="apply" href="javascript:;">申请维修</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="../public/img/goods1.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="time">购买时间：2018-01-01 15：00</p>
+                        <a class="apply" href="javascript:;">申请维修</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="../public/img/goods3.jpg" alt="">
+                    <div class="con">
+                        <p class="Title">Apple care</p>
+                        <p class="time">购买时间：2018-01-01 15：00</p>
+                        <a class="apply" href="javascript:;">申请维修</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--我的特权券-->
+    <div class="list ticket" style="display: none;">
+        <ul>
+            <li class="ticket1">
+                <div class="up">
+                    <div class="img"></div>
+                    <p>维修券</p>
+                </div>
+                <div class="down">
+                    <a href="javascript:;">未使用</a>
+                </div>
+            </li>
+            <li class="ticket1">
+                <div class="up">
+                    <div class="img"></div>
+                    <p>维修券</p>
+                </div>
+                <div class="down">
+                    <a href="javascript:;">未使用</a>
+                </div>
+            </li>
+            <li class="ticket2">
+                <div class="up">
+                    <div class="img"></div>
+                    <p>培训券</p>
+                </div>
+                <div class="down">
+                    <a href="javascript:;">未使用</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--维修记录-->
+    <div class="list" style="display: none;">
+        <table class="order pcService">
+            <thead>
+            <tr>
+                <th>故障描述</th>
+                <th>维修评估</th>
+                <th>操作</th>
+                <th>维修状态</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>
+                    <p>
+                        电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，
+                    </p>
+                </td>
+                <td><p>预计维修费用为800元，维修五个工作日。</p></td>
+                <td class="operate"><a href="javascript:;">领取备用机</a></td>
+                <td class="status">
+                    <p>维修中</p>
+                    <span>提交时间：2018-01-01 15：00</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，
+                    </p>
+                </td>
+                <td><p>预计维修费用为800元，维修五个工作日。</p></td>
+                <td class="operate"><a href="javascript:;">付款</a></td>
+                <td class="status">
+                    <p>维修已完成，待付款</p>
+                    <span>提交时间：2018-01-01 15：00</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，
+                    </p>
+                </td>
+                <td><p>预计维修费用为800元，维修五个工作日。</p></td>
+                <td class="operate"><a href="javascript:;">确认领取</a></td>
+                <td class="status">
+                    <p>待领取</p>
+                    <span>提交时间：2018-01-01 15：00</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，
+                    </p>
+                </td>
+                <td><p>预计维修费用为800元，维修五个工作日。</p></td>
+                <td class="operate"><a href="javascript:;">领取备用机</a></td>
+                <td class="status">
+                    <p>维修中</p>
+                    <span>提交时间：2018-01-01 15：00</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，
+                    </p>
+                </td>
+                <td><p>预计维修费用为800元，维修五个工作日。</p></td>
+                <td class="operate"><a href="javascript:;">领取备用机</a></td>
+                <td class="status">
+                    <p>维修中</p>
+                    <span>提交时间：2018-01-01 15：00</span>
+                </td>
+            </tr>
+        </table>
+        <div class="mService">
+            <ul>
+                <li>
+                    <div class="up">
+                        <div class="text">
+                            <div class="question">
+                                <span>问题描述：电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了。</span>
+                            </div>
+                            <div class="assess">
+                                <span>维修评估：电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了。</span>
+                            </div>
+                        </div>
+                        <div class="operate">
+                            <div class="status">维修中</div>
+                            <div class="time"><span>提交时间：2018-01-01 15:00</span></div>
+                        </div>
+                    </div>
+                    <div class="down">
+                        <a href="javascript:;">领备用机</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="up">
+                        <div class="text">
+                            <div class="question">
+                                <span>问题描述：电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了。</span>
+                            </div>
+                            <div class="assess">
+                                <span>维修评估：电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了，电脑进水了。</span>
+                            </div>
+                        </div>
+                        <div class="operate">
+                            <div class="status">维修已完成，待付款</div>
+                            <div class="time"><span>提交时间：2018-01-01 15:00</span></div>
+                        </div>
+                    </div>
+                    <div class="down">
+                        <a href="javascript:;">付款</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--尾部-->
+<div class="footer">
+    <div class="content">
+        <p>ICP备案：XXXXXX</p>
+    </div>
+</div>
+<script src="../public/js/lib/jquery.md5.js"></script>
+<script src="../public/js/user_center.js"></script>
+</body>
+</html>

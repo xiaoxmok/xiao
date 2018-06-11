@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线支付</title>
+    @@include('./view/meta.html')
+    <link rel="stylesheet" href="../public/css/payment.css">
+</head>
+<body class="on5">
+@@include('./view/header.html')
+@@include('./view/header-bar.html')
+<div class="main">
+    <div class="process">
+        <a href="./index.html">BYOD平台</a> >
+        <a href="javascript:;">在线支付</a>
+    </div>
+
+    <div class="cash">
+        <div class="box">
+            <p>收银台</p>
+        </div>
+        <div class="con">
+            <p class="p1">订单提交成功，请尽快付款！订单号：<span id="order_no"></span></p>
+            <p class="p2">应付金额：<span id="price"></span></p>
+        </div>
+        <div class="con">
+            <p class="p1">支付方式：<span id="pay_type"></span></p>
+            <p class="p1">状态：<span id="status"></span></p>
+        </div>
+        <!--<div class="con payType">
+            <p class="p1">请选择支付方式</p>
+        </div>
+        <div class="btn">
+            <a href="javascript:;" data-name="wechat">微信支付</a>
+            <a href="javascript:;" data-name="alipay">支付宝支付</a>
+            <a href="javascript:;" data-name="unionpay">银行转账</a>
+        </div>-->
+        <div class="unionpay">
+            <h2>银行转账</h2>
+            <input type="text" id="company" placeholder="付款公司名称">
+            <p>转账注意事项：</p>
+            <p>1.为了尽快处理您的订单，请在汇款凭证的用途／附言注上您W开头的订单号（提交订单后请记录订单号）</p>
+            <p>2.请将付款凭证扫描后以附件形式发送至：<strong>China_Receipts@apple.com</strong></p>
+            <p class="p1">Apple 银行账户详情：</p>
+            <p class="p1">开户行：花旗银行（中国）有限公司北京分行</p>
+            <p class="p1">户名：苹果电子产品商贸（北京）有限公司</p>
+            <p class="p1">帐号：1767147224000040 </p>
+            <p class="p1">电报号码：CITICNSXBJG</p>
+            <p class="p1">注意: 电子转帐一般需要一到两个工作日处理。</p>
+            <p>请注意:</p>
+            <p>申请增值税专用发票的订单, 银行汇款账户名称必须与索取发票的公司名称一致。</p>
+            <p class="success">提交成功，2秒后跳转个人中心页面。</p>
+            <a href="javascript:;" class="submit">提交</a>
+        </div>
+        <div class="qrCode">
+            <img src="" alt="">
+            <p class="success">恭喜您支付成功，2秒后跳转个人中心页面。</p>
+            <a href="javascript:;" class="wechat">若支付已完成，请点击！</a>
+        </div>
+
+        <div class="alipayPc">
+            <a href="" class="payImmediately" target="_blank">立即支付</a>
+        </div>
+
+    </div>
+</div>
+<div class="zhezhao"></div>
+<div class="pop alipay">
+    <h3>确认提示</h3>
+    <a href="javascript:;" class="cls">X</a>
+    <div class="con">
+        <h2>请在新打开的页面上完成付款。</h2>
+        <p>完成付款后请根据你的情况点击下面的按钮。</p>
+        <p class="error"></p>
+        <a href="javascript:;" class="a1">已完成支付</a>
+        <a href="javascript:;" class="a2">付款遇到问题</a>
+    </div>
+</div>
+
+@@include('./view/footer.html')
+<script src="../public/js/payment.js"></script>
+</body>
+</html>
