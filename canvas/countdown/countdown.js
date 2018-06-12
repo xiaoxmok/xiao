@@ -163,6 +163,7 @@ function render(cxt) {
 
     //clearInterval(time);
 
+    // 动画小球的绘制
     for (var i = 0; i < balls.length; i++) {
         cxt.fillStyle = balls[i].color;
 
