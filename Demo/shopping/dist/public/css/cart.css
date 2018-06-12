@@ -48,7 +48,7 @@
 .recommend .content li .Title{font-size: 14px;font-weight: bold;color:#666;padding: 10px 0;}
 .recommend .content li .description{font-size: 12px;color:#999;padding-bottom: 5px;line-height: 20px;}
 .recommend .content li .price{font-size: 14px;}
-.recommend .content li .price span{color:#000;font-family: "Microsoft YaHei";}
+.recommend .content li .price span{color:#000;}
 .recommend .content li .price em{color:#50b7b4;}
 .recommend .content li .price del{color:#999;}
 
