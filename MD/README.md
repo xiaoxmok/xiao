@@ -20,7 +20,7 @@
 - [Modules](Modules.md)
 - [performance-optimization](performance-optimization.md)
 - [PS](PS.md)
-- [SEO](SEO.md)
+- [SEO](../VuePress/docs/SEO.md)
 - [ES6](ES6.md)
 - [cross-domain](cross-domain.md)
 - [cookie](cookie.md)

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ajax | My VuePress</title>
+    <meta name="description" content="Just playing around">
+    
+    
+    <link rel="preload" href="/dist/assets/css/13.styles.2fee4d73.css" as="style"><link rel="preload" href="/dist/assets/js/app.5b3e3682.js" as="script"><link rel="preload" href="/dist/assets/js/7.4311a75c.js" as="script"><link rel="prefetch" href="/dist/assets/js/1.609ae69f.js"><link rel="prefetch" href="/dist/assets/js/2.64368a8f.js"><link rel="prefetch" href="/dist/assets/js/3.93b0a3ff.js"><link rel="prefetch" href="/dist/assets/js/4.92e4adbf.js"><link rel="prefetch" href="/dist/assets/js/5.812443dc.js"><link rel="prefetch" href="/dist/assets/js/6.76ce6a2f.js"><link rel="prefetch" href="/dist/assets/js/0.16673829.js"><link rel="prefetch" href="/dist/assets/js/8.ec9bc0fc.js"><link rel="prefetch" href="/dist/assets/js/9.bf9c2afa.js"><link rel="prefetch" href="/dist/assets/js/10.a591fa20.js"><link rel="prefetch" href="/dist/assets/js/11.2f8f08a9.js"><link rel="prefetch" href="/dist/assets/js/12.3559fd39.js">
+    <link rel="stylesheet" href="/dist/assets/css/13.styles.2fee4d73.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/dist/" class="home-link router-link-active"><!----><span class="site-name">
+      My VuePress
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/dist/JS/" class="nav-link router-link-active">JS</a></div><div class="nav-item"><a href="/dist/HTTP/" class="nav-link">HTTP</a></div><div class="nav-item"><a href="/dist/CSS/" class="nav-link">CSS</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/dist/JS/" class="nav-link router-link-active">JS</a></div><div class="nav-item"><a href="/dist/HTTP/" class="nav-link">HTTP</a></div><div class="nav-item"><a href="/dist/CSS/" class="nav-link">CSS</a></div><!----></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>JS</span><!----></p><ul class="sidebar-group-items"><li><a href="/dist/JS/Ajax.html" class="active sidebar-link">Ajax</a></li><li><a href="/dist/JS/ES6.html" class="sidebar-link">ES6</a></li><li><a href="/dist/JS/Front-end-frame-relative.html" class="sidebar-link">面试题</a></li><li><a href="/dist/JS/Front-end-Developer-Questions.html" class="sidebar-link">前端开发面试题</a></li><li><a href="/dist/JS/JavaScript.html" class="sidebar-link">JavaScript</a></li><li><a href="/dist/JS/jQuery.html" class="sidebar-link">Jquery</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="ajax"><a href="#ajax" aria-hidden="true" class="header-anchor">#</a> Ajax</h1><ul><li>什么是 Ajax? 如何创建一个Ajax？</li></ul><ul><li><p>AJAX(Asynchronous Javascript And XML) = 异步 JavaScript + XML 在后台与服务器进行异步数据交换，不用重载整个网页，实现局部刷新。</p></li><li><p>创建 ajax 步骤：</p><ul><li>1.创建 XMLHttpRequest 对象</li><li>2.创建一个新的 HTTP 请求，并指定该 HTTP 请求的类型、验证信息</li><li>3.设置响应 HTTP 请求状态变化的回调函数</li><li>4.发送 HTTP 请求</li><li>5.获取异步调用返回的数据</li><li>6.使用 JavaScript 和 DOM 实现局部刷新</li></ul></li></ul><div class="language- extra-class"><pre class="language-text"><code>var xhr = new XMLHttpRequest();
+xhr.open(&quot;POST&quot;, url, true);
+xhr.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 &amp;&amp; (xhr.status == 200 || xhr.status == 304)) {
+        fn.call(this, xhr.responseText);
+    }
+};
+xhr.send(data);
+</code></pre></div></div><div class="page-edit"><!----><!----></div><div class="page-nav"><p class="inner"><!----><span class="next"><a href="/dist/JS/ES6.html">
+          ES6
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/dist/assets/js/7.4311a75c.js" defer></script><script src="/dist/assets/js/app.5b3e3682.js" defer></script>
+  </body>
+</html>

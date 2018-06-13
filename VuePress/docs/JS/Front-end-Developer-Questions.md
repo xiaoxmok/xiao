@@ -1,6 +1,10 @@
+---
+pageClass: custom-page-class
+---
+
 # 前端开发面试题
 
-## <a name='preface'>前言</a> ##
+## 前言
 
 
 
@@ -82,11 +86,11 @@
 
 
 
-## <a name='html'>HTML</a>
+## HTML
 
 - Doctype作用？标准模式与兼容模式各有什么区别?
 
-		（1）、<!DOCTYPE>声明位于HTML文档中的第一行，处于 <html> 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
+		（1）、`<!DOCTYPE>`声明位于HTML文档中的第一行，处于`<html>`标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
 
 		（2）、标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
 
@@ -104,14 +108,12 @@
 		（2）块级元素有：div ul ol li dl dt dd h1 h2 h3 h4…p
 
 		（3）常见的空元素：
-			<br> <hr> <img> <input> <link> <meta>
+			`<br> <hr> <img> <input> <link> <meta>`
 			鲜为人知的是：
-			<area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>
+			`<area> <base> <col> <ommand> <embed> <keygen> <param> <source> <track> <wbr>`
 
 		不同浏览器（版本）、HTML4（5）、CSS2等实际略有差异
 		参考: http://stackoverflow.com/questions/6867254/browsers-default-css-for-html-elements
-
-
 
 - 页面导入样式时，使用link和@import有什么区别？
 
@@ -245,10 +247,10 @@
 
 		label标签来定义表单控制间的关系,当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。
 
-		<label for="Name">Number:</label>
-		<input type=“text“name="Name" id="Name"/>
+		`<label for="Name">Number:</label>`
+		`<input type=“text“name="Name" id="Name"/>`
 
-		<label>Date:<input type="text" name="B"/></label>
+		`<label>Date:<input type="text" name="B"/></label>`
 
 - HTML5的form如何关闭自动完成功能？
 
@@ -285,7 +287,7 @@
 
 - 实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。
 
-		<div style="height:1px;overflow:hidden;background:red"></div>
+		`<div style="height:1px;overflow:hidden;background:red"></div>`
 
 
 - 网页验证码是干嘛的，是为了解决什么安全问题。
@@ -297,7 +299,7 @@
 
 		title属性没有明确意义只表示是个标题，H1则表示层次明确的标题，对页面信息的抓取也有很大的影响；
 
-		strong是标明重点内容，有语气加强的含义，使用阅读设备阅读网络时：<strong>会重读，而<B>是展示强调内容。
+		strong是标明重点内容，有语气加强的含义，使用阅读设备阅读网络时：`<strong>`会重读，而`<B>`是展示强调内容。
 
 		i内容展示为斜体，em表示强调的文本；
 
@@ -308,7 +310,7 @@
 		应该准确使用语义样式标签, 但不能滥用, 如果不能确定时首选使用自然样式标签。
 
 
-## <a name='css'>CSS</a>
+## CSS
 
 - 介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？
 
@@ -702,19 +704,19 @@
 	当媒体查询为真时，相关的样式表或样式规则会按照正常的级联规被应用。
 	当媒体查询返回假， <link> 标签上带有媒体查询的样式表 仍将被下载 （只不过不会被应用）。
 
-	<link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
+	`<link rel="stylesheet" media="(max-width: 800px)" href="example.css" />`
 
 	<!-- 样式表中的CSS媒体查询 -->
 	包含了一个媒体类型和至少一个使用 宽度、高度和颜色等媒体属性来限制样式表范围的表达式。
 	CSS3加入的媒体查询使得无需修改内容便可以使样式应用于某些特定的设备范围。
 
-	<style>
+	`<style>
 		@media (min-width: 700px) and (orientation: landscape){
 		  .sidebar {
 		    display: none;
 		  }
 		}
-	</style>
+	</style>`
 
 
 
@@ -848,7 +850,7 @@
 
 
 
-## <a name='js'>JavaScript</a>
+## JavaScript
 
 
 -  介绍js的基本数据类型。
@@ -1724,7 +1726,7 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 
 - 什么是JS的函数防抖？
 
-#### <a name='other'>ECMAScript6 相关</a>
+## ECMAScript6 相关
 
 - Object.is() 与原来的比较操作符“ ===”、“ ==”的区别？
 
@@ -1741,7 +1743,7 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 - css-loader的原理？
 
 
-## <a name='other'>前端框架</a>
+## 前端框架
 
 - React 使用场景？
 
@@ -1838,7 +1840,7 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 - React与Vue，各自的组件更新进行对比，它们有哪些区别？
 
 
-## <a name='other'>其他问题</a>
+## 其他问题
 
 - 原来公司工作流程是怎么样的，如何与其他人协作的？如何跨部门合作的？
 
@@ -2185,7 +2187,7 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 - 最近在学什么？能谈谈你未来3，5年给自己的规划吗？
 
 
-## <a name='web'>前端学习网站推荐</a>
+## 前端学习网站推荐
 
 	1. 极客标签：     http://www.gbtags.com/
 
@@ -2211,7 +2213,7 @@ jQuery中没有提供这个功能，所以你需要先编写两个jQuery的扩�
 
 
 
-## <a name='web'>文档推荐</a>
+## 文档推荐
 
 
 1. [jQuery 基本原理](http://docs.huihoo.com/jquery/jquery-fundamentals/zh-cn/index.html "jQuery 基本原理")
