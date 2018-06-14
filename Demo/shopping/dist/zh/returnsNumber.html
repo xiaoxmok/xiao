@@ -91,7 +91,7 @@
 <div class="main solution">
     <div class="process">
         <a href="./index.html">BYOD平台</a> &gt;
-        <a href="javascript:;">填写退货运单号</a>
+        <a href="javascript:;" class="typeName">填写退货运单号</a>
     </div>
     <h3 class="title">填写运单号</h3>
     <div class="content">
@@ -100,13 +100,21 @@
                 <td class="td1"><strong>*</strong>快递类型：</td>
                 <td class="td2">
                     <select class="select">
-                        <option value="">请选择快递类型：</option>
-                        <option value="">顺丰快递</option>
-                        <option value="">中通</option>
-                        <option value="">申通</option>
-                        <option value="">圆通</option>
-                        <option value="">邮政</option>
-                        <option value="">韵达</option>
+                        <option value="">请选择：</option>
+                        <option value="顺丰快递">顺丰快递</option>
+                        <option value="中通快递">中通快递</option>
+                        <option value="申通快递">申通快递</option>
+                        <option value="圆通快递">圆通快递</option>
+                        <option value="EMS">EMS</option>
+                        <option value="韵达快递">韵达快递</option>
+                        <option value="百世汇通">百世汇通</option>
+                        <option value="天天快递">天天快递</option>
+                        <option value="全峰快递">全峰快递</option>
+                        <option value="德邦快递">德邦快递</option>
+                        <option value="速尔快递">速尔快递</option>
+                        <option value="优速快递">优速快递</option>
+                        <option value="跨越速运">跨越速运</option>
+                        <option value="宅急送">宅急送</option>
                     </select>
                 </td>
             </tr>
@@ -117,8 +125,9 @@
                 </td>
             </tr>
         </table>
-        <div class="btn">
-            <a href="javascript:;">提交</a>
+        <p class="error mt20"></p>
+        <div class="btn mt20">
+            <a href="javascript:;" class="submit">提交</a>
         </div>
     </div>
 </div>
@@ -128,5 +137,6 @@
         <p>ICP备案：XXXXXX</p>
     </div>
 </div>
+<script src="../public/js/returnsNumber.js"></script>
 </body>
 </html>

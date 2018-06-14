@@ -57,7 +57,7 @@ $(function () {
         }
     });
     $('.userName .person .address em').html(defalutAddress);
-    console.log('getUser.school_id',getUser);
+    //console.log('getUser.school_id',getUser);
 
     // 获取学校信息
     var getSchool = api.getSchool(getUser.school_info.id,i18nLanguage);
@@ -78,8 +78,10 @@ $(function () {
         signed:"已签收",
         canceled:"已取消",
         returned:"已退货",
-        exchanged:"已换货"
+        exchanged:"已换货",
+        waitingForReturn:"待退货"
     };
+
 
     // 获取我的订单
     function getOrders(getOrderList) {
@@ -108,41 +110,44 @@ $(function () {
                     }else if(item.status === 'paying'){
                         operate = '              <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n'
                     }else if(item.status === 'paid'){
-                        operate = '              <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n'
+                        operate = '              <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n' +
+                            '                    <a href="./invoice.html?order_no='+item.order_no+'">开具发票</a>\n' +
+                            '                    <a href="./returns.html?id='+item.order_no+'">退换货</a>';
                     }else if(item.status === 'waitingForInstall'){
                         operate = '              <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n' +
-                            '                    <a href="./invoice.html">开具发票</a>\n' +
+                            '                    <a href="./invoice.html?order_no='+item.order_no+'">开具发票</a>\n' +
                             '                    <a href="./returns.html?id='+item.order_no+'">退换货</a>\n';
                     }else if(item.status === 'installing'){
                         operate = '              <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n' +
-                            '                    <a href="./invoice.html">开具发票</a>\n' +
+                            '                    <a href="./invoice.html?order_no='+item.order_no+'">开具发票</a>\n' +
                             '                    <a href="./returns.html?id='+item.order_no+'">退换货</a>\n';
                     }else if(item.status === 'installed'){
                         operate = '              <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n' +
-                            '                    <a href="./invoice.html">开具发票</a>\n' +
+                            '                    <a href="./invoice.html?order_no='+item.order_no+'">开具发票</a>\n' +
                             '                    <a href="./returns.html?id='+item.order_no+'">退换货</a>\n';
                     }else if(item.status === 'dispatching'){
                         operate = '              <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n' +
-                            '                    <a href="./invoice.html">开具发票</a>\n' +
+                            '                    <a href="./invoice.html?order_no='+item.order_no+'">开具发票</a>\n' +
                             '                    <a href="./returns.html?id='+item.order_no+'">退换货</a>\n';
                     }else if(item.status === 'waitingForSign'){
                         operate = '              <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n' +
-                            '                    <a href="./invoice.html">开具发票</a>\n' +
+                            '                    <a href="./invoice.html?order_no='+item.order_no+'">开具发票</a>\n' +
                             '                    <a href="./returns.html?id='+item.no+'">退换货</a>\n';
                     }else if(item.status === 'signed'){
                         operate = '              <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n' +
-                            '                    <a href="./invoice.html">开具发票</a>\n' +
+                            '                    <a href="./invoice.html?order_no='+item.order_no+'">开具发票</a>\n' +
                             '                    <a href="./returns.html?id='+item.order_no+'">退换货</a>\n';
                     }else if(item.status === 'canceled'){
+                        operate = '              <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n'
+                    }else if(item.status === 'waitingForReturn'){
                         operate = '              <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n'
                     }else if(item.status === 'returned'){
                         operate = '              <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n'
                     }else if(item.status === 'exchanged'){
                         operate = '              <a href="./ordersDetail.html?id='+item.order_no+'">查看详情</a>\n' +
-                            '                    <a href="./invoice.html">开具发票</a>\n' +
+                            '                    <a href="./invoice.html?order_no='+item.order_no+'">开具发票</a>\n' +
                             '                    <a href="./returns.html?id='+item.order_no+'">退换货</a>\n';
                     }
-
 
                     var pc_hmtl = '<tr>\n' +
                         '                <td>\n' +

@@ -1,4 +1,23 @@
+
+
 $(function () {
+
+    if(login()){
+        var getUser = api.getUser(getCookie('token'));
+        var getSchool = api.getSchool(getUser.school_info.id,i18nLanguage);
+
+        // cookie记录学校
+        getCookie("school", getSchool.name, {
+            expires: 30,
+            path: '/'
+        });
+
+        if(isEnglish()){
+            $('.welcome').html('Dear '+getCookie('username')+',Welcome to'+getCookie('school')+' page.');
+        }else{
+            $('.welcome').html('Dear '+getCookie('username')+',欢迎访问'+getCookie('school')+'专属页面。');
+        }
+    }
 
     // 获取banner
     $.ajax({
@@ -36,10 +55,11 @@ $(function () {
 
     })
 
+
     // 获取商品分类
     $.ajax({
         type: 'GET',
-        url: url + '/api/v1/goods-category/index?id=' +  + '&lang=' + i18nLanguage,
+        url: url + '/api/v1/goods-category/index?id=' +''+ '&lang=' + i18nLanguage,
         dataType: 'json',
         async: false,
         success: function (data) {
@@ -69,7 +89,6 @@ $(function () {
 
     //console.log(getAllGoods);
 
-
     function redraw(arr) {
         $('.goods .content ul').html('');
         var goodsArr = arr.data;
@@ -77,22 +96,41 @@ $(function () {
 
         goodsArr.forEach(function (item, index) {
             var loginPrice;
-            if (login()) {
-                loginPrice = '<p class="price"><span>学校优惠价：</span><em>￥' + item.school_price + '</em></p>'
-            } else {
-                loginPrice = '<p class="price"><span>教育优惠价：</span><em>￥' + item.education_price + '</em></p>'
+            if(isEnglish()){
+                if (login()) {
+                    loginPrice = '<p class="price"><span>School Special Offer：</span><em>￥' + item.school_price + '</em></p>'
+                } else {
+                    loginPrice = '<p class="price"><span>Education Special Offer：</span><em>￥' + item.education_price + '</em></p>'
+                }
+                var html = '<li>\n' +
+                    '                    <a href="./product.html?id=' + item.id + '">\n' +
+                    '                        <img src="' + item.img_infos[0].url + '" alt="">\n' +
+                    '                        <div class="con">\n' +
+                    '                            <p class="Title">' + item.name + '</p>\n' +
+                    '                            <p class="description">' + item.summary + '</p>\n' +
+                    '                            <p class="price"><span>MSRP：</span><del>￥' + item.price + '</del></p>\n' +
+                    loginPrice +
+                    '                        </div>\n' +
+                    '                    </a>\n' +
+                    '                </li>';
+            }else{
+                if (login()) {
+                    loginPrice = '<p class="price"><span>学校优惠价：</span><em>￥' + item.school_price + '</em></p>'
+                } else {
+                    loginPrice = '<p class="price"><span>教育优惠价：</span><em>￥' + item.education_price + '</em></p>'
+                }
+                var html = '<li>\n' +
+                    '                    <a href="./product.html?id=' + item.id + '">\n' +
+                    '                        <img src="' + item.img_infos[0].url + '" alt="">\n' +
+                    '                        <div class="con">\n' +
+                    '                            <p class="Title">' + item.name + '</p>\n' +
+                    '                            <p class="description">' + item.summary + '</p>\n' +
+                    '                            <p class="price"><span>常规价格：</span><del>￥' + item.price + '</del></p>\n' +
+                    loginPrice +
+                    '                        </div>\n' +
+                    '                    </a>\n' +
+                    '                </li>';
             }
-            var html = '<li>\n' +
-                '                    <a href="./product.html?id=' + item.id + '">\n' +
-                '                        <img src="' + item.img_infos[0].url + '" alt="">\n' +
-                '                        <div class="con">\n' +
-                '                            <p class="Title">' + item.name + '</p>\n' +
-                '                            <p class="description">' + item.summary + '</p>\n' +
-                '                            <p class="price"><span>常规价格：</span><del>￥' + item.price + '</del></p>\n' +
-                loginPrice +
-                '                        </div>\n' +
-                '                    </a>\n' +
-                '                </li>';
 
             $('.goods .content ul').append(html);
         });

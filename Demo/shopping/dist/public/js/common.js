@@ -264,11 +264,19 @@ $(function(){
             userName = '';
         }
 
-        $('.welcome').html('Dear '+getCookie('username')+',欢迎访问'+getCookie('school')+'专属页面。');
+        if(isEnglish()){
+            $('.welcome').html('Dear '+getCookie('username')+',Welcome to'+getCookie('school')+' page.');
+        }else{
+            $('.welcome').html('Dear '+getCookie('username')+',欢迎访问'+getCookie('school')+'专属页面。');
+        }
     }else{
         $('.login').hide();
         $('.loging').show();
-        $('.welcome').html("Dear ,请先登录。");
+        if(isEnglish()){
+            $('.welcome').html("Welcome. Please log in");
+        }else{
+            $('.welcome').html("Dear ,请先登录。");
+        }
     }
 });
 

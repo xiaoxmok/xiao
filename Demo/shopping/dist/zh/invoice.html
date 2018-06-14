@@ -124,20 +124,20 @@
         </div>
         <div class="con">
             <div class="invoiceInfo">
-                <span class="title">开票信息：</span><span><input type="radio" id="general" name="info" value="0" checked><label for="general">普通发票</label></span><span><input type="radio" id="added" name="info" value="1"><label for="added">增值专用税发票</label></span>
+                <span class="title">开票信息：</span><span><input type="radio" id="general" name="info" value="normal" checked><label for="general">普通发票</label></span><span><input type="radio" id="added" name="info" value="vat"><label for="added">增值专用税发票</label></span>
             </div>
             <div class="invoiceType" style="display: block;">
                 <div>
-                    <span class="title">发票类型：</span><span><input type="radio" id="person1" name="type1" checked><label for="person1">个人</label></span><span><input type="radio" id="company1" name="type1"><label for="company1">企业</label></span>
+                    <span class="title">发票类型：</span><span><input type="radio" id="person1" name="type1" value="personal" checked><label for="person1">个人</label></span><span><input type="radio" value="company" id="company1" name="type1"><label for="company1">企业</label></span>
                 </div>
                 <div>
-                    <span class="title">发票抬头：</span><input type="text" placeholder="请输入发票抬头">
+                    <span class="title">发票抬头：</span><input id="normal_title" type="text" placeholder="请输入发票抬头">
                 </div>
                 <div>
-                    <span class="title">企业纳税号：</span><input type="text" placeholder="请输入企业纳税号">
+                    <span class="title">企业纳税号：</span><input id="normal_tax_no" type="text" placeholder="请输入企业纳税号">
                 </div>
                 <div>
-                    <span class="title">发票内容：</span><span><input type="radio" id="goodsDetail1" name="content1" checked><label for="goodsDetail1">商品明细</label></span><span><input type="radio" id="goodsType1" name="content1"><label for="goodsType1">商品类别</label></span>
+                    <span class="title">发票内容：</span><span><input type="radio" id="goodsDetail1" name="content1" value="detail" checked><label for="goodsDetail1">商品明细</label></span><span><input type="radio" id="goodsType1" value="category" name="content1"><label for="goodsType1">商品类别</label></span>
                 </div>
             </div>
             <div class="invoiceType" style="display: none;">
@@ -148,55 +148,45 @@
                     <span class="title">发票内容：</span><span>商品明细</span>
                 </div>
                 <div>
-                    <span class="title">单位名称：</span><input type="text" placeholder="请输入发票抬头">
+                    <span class="title">单位名称：</span><input id="vat_company" type="text" placeholder="请输入单位名称">
                 </div>
                 <div>
-                    <span class="title">纳税号：</span><input type="text" placeholder="请输入纳税号">
+                    <span class="title">纳税号：</span><input id="vat_tax_no" type="text" placeholder="请输入纳税号">
                 </div>
                 <div>
-                    <span class="title">注册地址：</span><input type="text" placeholder="请输入注册地址">
+                    <span class="title">注册地址：</span><input id="vat_address" type="text" placeholder="请输入注册地址">
                 </div>
                 <div>
-                    <span class="title">注册电话：</span><input type="text" placeholder="请输入注册电话">
+                    <span class="title">注册电话：</span><input id="vat_phone" type="text" placeholder="请输入注册电话">
                 </div>
                 <div>
-                    <span class="title">开户银行：</span><input type="text" placeholder="请输入开户银行">
+                    <span class="title">开户银行：</span><input id="vat_bank" type="text" placeholder="请输入开户银行">
                 </div>
                 <div>
-                    <span class="title">收票人姓名：</span><input type="text" placeholder="请输入收票人姓名">
+                    <span class="title">银行账号：</span><input id="vat_bank_no" type="text" placeholder="请输入银行账号">
                 </div>
                 <div>
-                    <span class="title">收票人手机：</span><input type="text" placeholder="请输入收票人手机">
+                    <span class="title">收票人姓名：</span><input id="receiver_name" type="text" placeholder="请输入收票人姓名">
                 </div>
                 <div>
+                    <span class="title">收票人手机：</span><input id="receiver_phone" type="text" placeholder="请输入收票人手机">
+                </div>
+                <div data-toggle="distpicker" id="distpicker">
                     <span class="title">收票人省份：</span>
-                    <select >
-                        <option value="">选择省份</option>
-                        <option value="">广东省</option>
-                        <option value="">北京</option>
-                        <option value="">上海</option>
-                        <option value="">天津</option>
-                        <option value="">重庆</option>
-                    </select>
-                    <select >
-                        <option value="">选择城市</option>
-                        <option value="">深圳</option>
-                        <option value="">广州</option>
-                    </select>
-                    <select >
-                        <option value="">选择区</option>
-                        <option value="">南山区</option>
-                        <option value="">福田区</option>
-                        <option value="">宝安区</option>
-                        <option value="">龙岗区</option>
-                        <option value="">罗湖区</option>
-                    </select>
+                    <select id="receiver_province" data-province="选择省"></select>
+                    <select id="receiver_city" data-city="选择市"></select>
+                    <select id="receiver_area" data-district="选择区"></select>
+
                 </div>
                 <div>
-                    <span class="title">详细地址：</span><input type="text" placeholder="请输入详细地址">
+                    <span class="title">详细地址：</span>
+                    <textarea id="receiver_address" placeholder="请输入详细地址"></textarea>
                 </div>
+
             </div>
+            <p class="error tl"></p>
             <div class="btn">
+
                 <a href="javascript:;" class="submit">打印发票</a>
             </div>
         </div>
@@ -209,19 +199,18 @@
         <p>ICP备案：XXXXXX</p>
     </div>
 </div>
+<script src="../public/js/lib/distpicker.js"></script>
+<script src="../public/js/invoice.js"></script>
 <script>
     $(function(){
         $('.invoiceInfo input[name="info"]').click(function(){
             var index = $(this).val();
-            if(index == 0){
+            if(index === 'normal'){
                 $('.invoiceType').hide();
                 $('.invoiceType').eq(0).show();
-            }else if(index == 1){
+            }else if(index === 'vat'){
                 $('.invoiceType').hide();
                 $('.invoiceType').eq(1).show();
-            }else if(index == 2){
-                $('.invoiceType').hide();
-                $('.invoiceType').eq(2).show();
             }
 
         });

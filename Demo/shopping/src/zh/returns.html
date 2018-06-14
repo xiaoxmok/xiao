@@ -16,7 +16,7 @@
     <h3 class="title">退换货</h3>
     <div class="content">
         <table style="display: block;" class="serCon">
-            <tr>
+            <!--<tr>
                 <td class="td1"><strong>*</strong>选择商品：</td>
                 <td class="td2">
                     <select class="select" id="goods">
@@ -26,13 +26,13 @@
                         <option value="4">商品4</option>
                     </select>
                 </td>
-            </tr>
+            </tr>-->
             <tr>
                 <td class="td1"><strong>*</strong>申请类型：</td>
                 <td class="td2">
                     <select class="select" id="type">
-                        <option value="0">退货</option>
-                        <option value="1">换货</option>
+                        <option value="return">退货</option>
+                        <option value="exchange">换货</option>
                     </select>
                 </td>
             </tr>
@@ -71,17 +71,17 @@
                     <div class="img">
                         <span>+</span>
                         <img src="" alt="" class="imgshow">
-                        <input type="file" class="file" accept="image/*" >
+                        <input type="file" class="file" name="file" accept="image/*" >
                     </div>
                     <div class="img">
                         <span>+</span>
                         <img src="" alt="" class="imgshow">
-                        <input type="file" class="file" accept="image/*" >
+                        <input type="file" class="file" name="file" accept="image/*" >
                     </div>
                     <div class="img">
                         <span>+</span>
                         <img src="" alt="" class="imgshow">
-                        <input type="file" class="file" accept="image/*" >
+                        <input type="file" class="file" name="file" accept="image/*" >
                     </div>
                 </td>
             </tr>
@@ -94,8 +94,8 @@
 </div>
 @@include('./view/footer.html')
 <script src="../public/js/lib/jquery.md5.js"></script>
-<script src="../public/js/lib/qiniu.min.js"></script>
-<script src="../public/js/upImg.js"></script>
+<!--<script src="../public/js/lib/qiniu.min.js"></script>
+<script src="../public/js/upImg.js"></script>-->
 <script src="../public/js/returns.js"></script>
 </body>
 </html>
