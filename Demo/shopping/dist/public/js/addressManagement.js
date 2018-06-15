@@ -14,24 +14,49 @@ $(function () {
         var getAddressList = api.getAddressList(getCookie('userId'));
         getAddressList.forEach(function (item, index) {
             var setDefault
-            if (item.is_default === 'y') {
-                setDefault = '<a href="javascript:;" class="defalut">默认地址</a>';
-            } else {
-                setDefault = '<a href="javascript:;" data-name="' + item.id + '" class="setDefalut">设置默认</a>';
+            if(isEnglish()){
+                if (item.is_default === 'y') {
+                    setDefault = '<a href="javascript:;" class="defalut">Default Address</a>';
+                } else {
+                    setDefault = '<a href="javascript:;" data-name="' + item.id + '" class="setDefalut">Set as default</a>';
+                }
+            }else{
+                if (item.is_default === 'y') {
+                    setDefault = '<a href="javascript:;" class="defalut">默认地址</a>';
+                } else {
+                    setDefault = '<a href="javascript:;" data-name="' + item.id + '" class="setDefalut">设置默认</a>';
+                }
             }
 
-            var html = '<li>\n' +
-                '                <div class="text">\n' +
-                '                    <span>' + item.reciever_name + '</span>\n' +
-                '                    <span>' + item.address + '</span>\n' +
-                '                    <span>' + item.country_code+'-'+item.reciever_phone + '</span>\n' +
-                '                </div>\n' +
-                '                <div class="operate">\n' +
-                setDefault +
-                '                    <a href="./updateAddress.html?id=' + item.id + '" class="edit">编辑</a>\n' +
-                '                    <a href="javascript:;" class="delete" data-name="'+item.id+'">删除</a>\n' +
-                '                </div>\n' +
-                '            </li>';
+
+            var html;
+            if(isEnglish()){
+                html = '<li>\n' +
+                    '                <div class="text">\n' +
+                    '                    <span>' + item.reciever_name + '</span>\n' +
+                    '                    <span>' + item.address + '</span>\n' +
+                    '                    <span>' + item.country_code+'-'+item.reciever_phone + '</span>\n' +
+                    '                </div>\n' +
+                    '                <div class="operate">\n' +
+                    setDefault +
+                    '                    <a href="./updateAddress.html?id=' + item.id + '" class="edit">Edit</a>\n' +
+                    '                    <a href="javascript:;" class="delete" data-name="'+item.id+'">Delete</a>\n' +
+                    '                </div>\n' +
+                    '            </li>';
+            }else{
+                html = '<li>\n' +
+                    '                <div class="text">\n' +
+                    '                    <span>' + item.reciever_name + '</span>\n' +
+                    '                    <span>' + item.address + '</span>\n' +
+                    '                    <span>' + item.country_code+'-'+item.reciever_phone + '</span>\n' +
+                    '                </div>\n' +
+                    '                <div class="operate">\n' +
+                    setDefault +
+                    '                    <a href="./updateAddress.html?id=' + item.id + '" class="edit">编辑</a>\n' +
+                    '                    <a href="javascript:;" class="delete" data-name="'+item.id+'">删除</a>\n' +
+                    '                </div>\n' +
+                    '            </li>';
+            }
 
             $('.management ul').append(html);
         })

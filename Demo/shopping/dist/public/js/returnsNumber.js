@@ -6,11 +6,25 @@ $(function () {
     var token = getCookie('token');
     var getUrl = GetRequest();
     if (getUrl.type === 'return') {
-        $('.typeName').html('填写退货运单号');
-        $('title').html('填写退货运单号');
+        if(isEnglish()){
+            $('.typeName').html('Enter Express Tracking Number');
+            $('title').html('Enter Express Tracking Number');
+            $('.title').html('Enter Express Tracking Number');
+        }else{
+            $('.typeName').html('填写退货运单号');
+            $('title').html('填写退货运单号');
+            $('.title').html('填写退货运单号');
+        }
     } else {
-        $('.typeName').html('填写换货运单号');
-        $('title').html('填写换货运单号');
+        if(isEnglish()){
+            $('.typeName').html('Enter Express Tracking Number');
+            $('title').html('Enter Express Tracking Number');
+            $('.title').html('Enter Express Tracking Number');
+        }else{
+            $('.typeName').html('填写换货运单号');
+            $('title').html('填写换货运单号');
+            $('.title').html('填写换货运单号');
+        }
     }
 
     $('.submit').click(function () {
@@ -18,11 +32,19 @@ $(function () {
         var express_no = $('.trackingNumber').val();
 
         if (company_name.length === 0) {
-            $('.error').html('请选择快递类型');
+            if(isEnglish()){
+                $('.error').html('Shipping Company');
+            }else{
+                $('.error').html('请选择快递类型');
+            }
             return;
         }
         if (express_no.length === 0) {
-            $('.error').html('请输入快递单号');
+            if(isEnglish()){
+                $('.error').html('Enter Express Tracking Number');
+            }else{
+                $('.error').html('请输入快递单号');
+            }
             return;
         }
 
@@ -40,7 +62,11 @@ $(function () {
             data: data,
             success: function (data) {
                 if (data.code === 200) {
-                    $('.error').html('提交成功');
+                    if(isEnglish()){
+                        $('.error').html('Submitted successfully');
+                    }else{
+                        $('.error').html('提交成功');
+                    }
                     setTimeout(function () {
                         location.href = "center.html";
                     }, 1000);

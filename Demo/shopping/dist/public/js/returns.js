@@ -41,7 +41,11 @@ $(function () {
     $('#price').keyup(function () {
         $(this).val($(this).val().replace(/[^\d.]/g, ''));
         if (Number($(this).val()) > 12888) {
-            $('.error').html('金额大了');
+            if(isEnglish()){
+                $('.error').html('Amount of money');
+            }else{
+                $('.error').html('金额大了');
+            }
         } else {
             $('.error').html('');
         }
@@ -63,7 +67,11 @@ $(function () {
 
         var phone = $('#phone').val();
         if (!CheckMobile(phone)) {
-            $('.error').html('联系电话格式不正确');
+            if(isEnglish()){
+                $('.error').html('Contact phone format is incorrect');
+            }else{
+                $('.error').html('联系电话格式不正确');
+            }
             return;
         }
 
@@ -94,7 +102,11 @@ $(function () {
                 if (data.code === 200) {
                     //location.href = "returnsNumber.html"
 
-                    $('.error').html('提交成功');
+                    if(isEnglish()){
+                        $('.error').html('Submitted successfully');
+                    }else{
+                        $('.error').html('提交成功');
+                    }
                     setTimeout(function () {
                         location.href = "returnsNumber.html?id="+getUrl.id+"&type="+type;
                     }, 1000);

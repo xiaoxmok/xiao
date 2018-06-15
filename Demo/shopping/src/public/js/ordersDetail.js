@@ -10,21 +10,42 @@ $(function(){
     api.getOrderInfo(hash.id,getOrderInfo);
 
     function getOrderInfo(getOrderInfo){
-        var status = {
-            waitingForPay:"待支付",
-            paying:"支付中",
-            paid:"已支付",
-            waitingForInstall:"待安装",
-            installing:"安装中",
-            installed:"已安装",
-            dispatching:"配送中",
-            dispatched:"已配送",
-            waitingForSign:"待签收",
-            signed:"已签收",
-            canceled:"已取消",
-            returned:"已退货",
-            exchanged:"已换货"
-        };
+        var status;
+        if(isEnglish()){
+            status = {
+                waitingForPay:"waitingForPay",
+                paying:"paying",
+                paid:"paid",
+                waitingForInstall:"waitingForInstall",
+                installing:"installing",
+                installed:"installed",
+                dispatching:"dispatching",
+                dispatched:"dispatched",
+                waitingForSign:"waitingForSign",
+                signed:"signed",
+                canceled:"canceled",
+                returned:"returned",
+                exchanged:"exchanged",
+                waitingForReturn:"waitingForReturn"
+            };
+        }else{
+            status = {
+                waitingForPay:"待支付",
+                paying:"支付中",
+                paid:"已支付",
+                waitingForInstall:"待安装",
+                installing:"安装中",
+                installed:"已安装",
+                dispatching:"配送中",
+                dispatched:"已配送",
+                waitingForSign:"待签收",
+                signed:"已签收",
+                canceled:"已取消",
+                returned:"已退货",
+                exchanged:"已换货",
+                waitingForReturn:"待退货"
+            };
+        }
 
 
         $('.confirm table').html('');
@@ -37,18 +58,34 @@ $(function(){
         $('.message em').html(getOrderInfo.message);
         $('.price em').html(getOrderInfo.price);
 
-        var billing_type= {
-            normal:'普通',
-            vat:'增值税'
-        };
-        var normal_invoice_type = {
-            personal:'个人',
-            company:'公司'
-        };
-        var normal_content ={
-            details:'商品明细',
-            category:'商品类别'
-        };
+        var billing_type,normal_invoice_type,normal_content;
+        if(isEnglish()){
+            billing_type= {
+                normal:'normal',
+                vat:'vat'
+            };
+            normal_invoice_type = {
+                personal:'personal',
+                company:'company'
+            };
+            normal_content ={
+                details:'details',
+                category:'category'
+            };
+        }else{
+            billing_type= {
+                normal:'普通',
+                vat:'增值税'
+            };
+            normal_invoice_type = {
+                personal:'个人',
+                company:'公司'
+            };
+            normal_content ={
+                details:'商品明细',
+                category:'商品类别'
+            };
+        }
 
         $('#billing_type em').html(billing_type[getOrderInfo.invoice_info.billing_type]);
         $('#normal_invoice_type em').html(normal_invoice_type[getOrderInfo.invoice_info.normal_invoice_type]);

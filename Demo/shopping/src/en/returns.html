@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>退换货</title>
+    <title>Return and Refund</title>
     @@include('./view/meta.html')
     <link rel="stylesheet" href="../public/css/solution.css">
 </head>
@@ -10,13 +10,13 @@
 @@include('./view/header.html')
 <div class="main solution">
     <div class="process">
-        <a href="./index.html">BYOD平台</a> &gt;
-        <a href="javascript:;">退换货</a>
+        <a href="./index.html">BYOD STORE</a> &gt;
+        <a href="javascript:;">Return and Refund</a>
     </div>
-    <h3 class="title">退换货</h3>
+    <h3 class="title">Return and Refund</h3>
     <div class="content">
         <table style="display: block;" class="serCon">
-            <tr>
+            <!--<tr>
                 <td class="td1"><strong>*</strong>选择商品：</td>
                 <td class="td2">
                     <select class="select" id="goods">
@@ -26,76 +26,76 @@
                         <option value="4">商品4</option>
                     </select>
                 </td>
-            </tr>
+            </tr>-->
             <tr>
-                <td class="td1"><strong>*</strong>申请类型：</td>
+                <td class="td1"><strong>*</strong>Please select service：</td>
                 <td class="td2">
                     <select class="select" id="type">
-                        <option value="0">退货</option>
-                        <option value="1">换货</option>
+                        <option value="return">Return</option>
+                        <option value="exchange">Refund</option>
                     </select>
                 </td>
             </tr>
             <tr>
-                <td class="td1"><strong>*</strong>申请原因：</td>
+                <td class="td1"><strong>*</strong>Reason：</td>
                 <td class="td2">
                     <select class="select" id="reason">
-                        <option value="0">拍错了</option>
-                        <option value="1">出问题了</option>
-                        <option value="2">七天无理由退货</option>
-                        <option value="3">不想要了</option>
+                        <option value="0">Make a mistake</option>
+                        <option value="1">There is a problem</option>
+                        <option value="2">Seven days no reason to return</option>
+                        <option value="3">Don't want it</option>
                     </select>
                 </td>
             </tr>
             <tr>
-                <td class="td1">退款金额：</td>
+                <td class="td1">Amount：</td>
                 <td class="td2">
-                    <input type="text" class="price" id="price" placeholder="最多12888" onkeyup="">
+                    <input type="text" class="price" id="price" placeholder="more12888" onkeyup="">
                 </td>
             </tr>
             <tr>
-                <td class="td1">申请原因：</td>
+                <td class="td1">Reason：</td>
                 <td class="td2">
-                    <textarea id="description" cols="30" rows="5" placeholder="描述。。。(最多170个字)" maxlength="170"></textarea>
+                    <textarea id="description" cols="30" rows="5" placeholder="description. . . (up to 170 words)" maxlength="170"></textarea>
                 </td>
             </tr>
             <tr>
-                <td class="td1"><strong>*</strong>联系电话：</td>
+                <td class="td1"><strong>*</strong>Mobile Phone：</td>
                 <td class="td2">
                     <input type="text" class="phone" id="phone">
                 </td>
             </tr>
             <tr>
-                <td class="td1">上传凭证：</td>
+                <td class="td1">Upload certificate：</td>
                 <td class="td2">
                     <div class="img">
                         <span>+</span>
                         <img src="" alt="" class="imgshow">
-                        <input type="file" class="file" accept="image/*" >
+                        <input type="file" class="file" name="file" accept="image/*" >
                     </div>
                     <div class="img">
                         <span>+</span>
                         <img src="" alt="" class="imgshow">
-                        <input type="file" class="file" accept="image/*" >
+                        <input type="file" class="file" name="file" accept="image/*" >
                     </div>
                     <div class="img">
                         <span>+</span>
                         <img src="" alt="" class="imgshow">
-                        <input type="file" class="file" accept="image/*" >
+                        <input type="file" class="file" name="file" accept="image/*" >
                     </div>
                 </td>
             </tr>
         </table>
         <p class="error mt20"></p>
         <div class="btn mt20">
-            <a href="javascript:;" class="submit">提交</a>
+            <a href="javascript:;" class="submit">Submit</a>
         </div>
     </div>
 </div>
 @@include('./view/footer.html')
 <script src="../public/js/lib/jquery.md5.js"></script>
-<script src="../public/js/lib/qiniu.min.js"></script>
-<script src="../public/js/upImg.js"></script>
+<!--<script src="../public/js/lib/qiniu.min.js"></script>
+<script src="../public/js/upImg.js"></script>-->
 <script src="../public/js/returns.js"></script>
 </body>
 </html>

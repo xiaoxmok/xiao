@@ -10,24 +10,40 @@ $(function () {
 
         name = $('#name').val();
         if (name.length <= 0) {
-            $('.error').html('收件人不为能空');
+            if(isEnglish()){
+                $('.error').html('Recipient information required');
+            }else{
+                $('.error').html('收件人不为能空');
+            }
             return;
         }
 
         address = $('#address').val();
         if (address.length <= 0) {
-            $('.error').html('地址不为能空');
+            if(isEnglish()){
+                $('.error').html('Address required');
+            }else{
+                $('.error').html('地址不为能空');
+            }
             return;
         }
 
         phone = $('#phone').val();
         if (!CheckMobile(phone)) {
-            $('.error').html('手机号格式不正确');
+            if(isEnglish()){
+                $('.error').html('Phone number format is incorrect');
+            }else{
+                $('.error').html('手机号格式不正确');
+            }
             return;
         }
         country_code = $('#country_code').val();
         if (!CheckNum(country_code)) {
-            $('.error').html('区号格式不正确');
+            if(isEnglish()){
+                $('.error').html('Area code is incorrectly formatted');
+            }else{
+                $('.error').html('区号格式不正确');
+            }
             return;
         }
 
@@ -61,7 +77,11 @@ $(function () {
             data: addreesData,
             success: function (data) {
                 if (data.code === 200) {
-                    $('.error').html('提交成功');
+                    if(isEnglish()){
+                        $('.error').html('Submitted successfully');
+                    }else{
+                        $('.error').html('提交成功');
+                    }
                     setTimeout(function () {
                         location.href = "addressManagement.html"
                     }, 1000);

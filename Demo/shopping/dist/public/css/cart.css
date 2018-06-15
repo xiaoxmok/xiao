@@ -63,17 +63,17 @@
     .cartDetail .td3{display: none;}
     .cartDetail th{font-size: 12px;}
     .cartDetail td .amountM{display: block;}
-    .cartDetail td:nth-child(2),.cartDetail th:nth-child(2){width: 60%;}
+    .cartDetail td:nth-child(2),.cartDetail th:nth-child(2){width: 50%;}
 
 
 
     .cartDetail td{padding:10px 0;}
 
-    .cartDetail td .img img{width:60px;height:60px;}
+    .cartDetail td .img img{width:50px;height:50px;}
     .cartDetail .text{width: 20px;}
 
     .cartDetail td .con{padding-left: 10px;font-size: 12px;}
-    .cartDetail td .con p{margin: 0;width: 150px;}
+    .cartDetail td .con p{margin: 0;}
     .cartDetail td .amountM{margin: 0;float:left;}
     .cartDetail td .con span{color:#50b7b4;font-size: 16px;display: block;}
 

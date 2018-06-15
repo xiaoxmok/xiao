@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>注册</title>
+    <title>Register</title>
     @@include('./view/meta.html')
     <link rel="stylesheet" href="../public/css/login.css">
 </head>
@@ -11,35 +11,35 @@
 @@include('./view/header-bar.html')
 <div class="main">
     <div class="process">
-        <a href="./index.html" class="i18n" data-name="byod">BYOD平台</a> >
-        <a href="javascript:;" class="i18n" data-name="registered">注册</a>
+        <a href="./index.html" class="i18n" data-name="byod">BYOD STORE</a> >
+        <a href="javascript:;" class="i18n" data-name="registered">Register</a>
     </div>
 
     <div class="userLogin">
         <div class="title">
-            <p>账号注册</p>
+            <p>Create a new account</p>
         </div>
         <div class="logo"></div>
         <div class="con">
 
             <div class="box">
                 <select class="mr10" id="select">
-                    <option value="phone">手机</option>
-                    <option value="email">邮箱</option>
+                    <option value="phone">Mobile Phone</option>
+                    <option value="email">Email</option>
                 </select>
-                <input type="text" class="account" placeholder="请输入账户">
+                <input type="text" class="account" placeholder="Please enter your username">
             </div>
             <div class="box">
-                <input type="text" class="Captcha_code" placeholder="图形验证码">
+                <input type="text" class="Captcha_code" placeholder="Verification code">
                 <img class="imgCode" id="Captcha" src="" alt="">
             </div>
             <div class="box">
-                <input type="text" class="valid_code" placeholder="验证码">
-                <a class="code" href="javascript:;">获取验证码</a>
+                <input type="text" class="valid_code" placeholder="Verification code">
+                <a class="code" href="javascript:;">Send verification</a>
                 <a class="countDown" href="javascript:;" style="display: none;">(<span class="timeOut"></span>s)重新发送</a>
             </div>
             <div class="box">
-                <input type="password" class="password" placeholder="请输入密码">
+                <input type="password" class="password" placeholder="Please enter your password">
             </div>
             <div class="box">
                 <select class="select" id="schoolSearch">
@@ -58,13 +58,13 @@
                 </select>
             </div>
             <div class="reg">
-                <a href="./login.html">已有账户，去登录</a>
+                <a href="./login.html">Already a member? Log in</a>
             </div>
             <p class="error"></p>
             <div class="btn">
-                <a class="register" href="javascript:;">注册</a>
+                <a class="register" href="javascript:;">Register</a>
             </div>
-            <p>注册即代表同意《用户协议》</p>
+            <p>By creating an account, you agree to our Conditions of Use and Privacy Notice.</p>
         </div>
     </div>
 

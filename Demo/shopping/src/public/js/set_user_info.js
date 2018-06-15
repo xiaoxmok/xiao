@@ -91,8 +91,6 @@ $(function () {
     // 更新个人信息
     $('.submit').click(function () {
 
-
-
         var updataData = {
             token: token,
             id: getUser.id,
@@ -113,7 +111,11 @@ $(function () {
             data:updataData,
             success: function (data) {
                 if (data.code === 200) {
-                    $('.error').html('修改成功。');
+                    if(isEnglish()){
+                        $('.error').html('Successfully modified.');
+                    }else{
+                        $('.error').html('修改成功。');
+                    }
                     setTimeout(function () {
                         location.href = "center.html"
                     }, 1000);
@@ -122,7 +124,6 @@ $(function () {
                 }
             },
             error: function (xhr, status, error) {
-
             }
         });
     });

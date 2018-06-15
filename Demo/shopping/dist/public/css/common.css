@@ -59,7 +59,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .goods .content li .Title{font-size: 14px;font-weight: bold;color:#666;padding: 10px 0;}
 .goods .content li .description{font-size: 12px;color:#999;padding-bottom: 5px;line-height: 20px;}
 .goods .content li .price{font-size: 14px;}
-.goods .content li .price span{color:#000;}
+.goods .content li .price span{color:#000;font-size: 12px;}
 .goods .content li .price em{color:#50b7b4;}
 .goods .content li .price del{color:#999;}
 
@@ -117,7 +117,7 @@ rigistered.html*/
 
 /*login.html*/
 .userLogin{border:1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;width:400px;margin: 20px auto 0;position: relative;overflow: hidden;z-index: 2;}
-.userLogin .title{width:100px;text-align: center;margin: 20px auto 0;height: 40px;line-height: 40px;font-size: 25px;color:#666;}
+.userLogin .title{text-align: center;margin: 20px auto 0;height: 40px;line-height: 40px;font-size: 25px;color:#666;}
 .userLogin .con{padding: 20px;}
 .userLogin .con .box{padding: 10px 0;color:#999;display: flex;}
 

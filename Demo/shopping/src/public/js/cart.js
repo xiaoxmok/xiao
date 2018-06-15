@@ -79,13 +79,24 @@ $(function () {
         $('.cart .count').html(getCartList.length);
 
         $('.cartDetail table').html('');
-        var head = '<tr>\n' +
-            '                <th><input type="checkbox" name="selectAll" id="selectAll"><label for="selectAll">全选</label></th>\n' +
-            '                <th>商品</th>\n' +
-            '                <th class="td3">数量</th>\n' +
-            '                <th>小计</th>\n' +
-            '                <th>操作</th>\n' +
-            '            </tr>';
+        var head;
+        if(isEnglish()){
+            head = '<tr>\n' +
+                '                <th><input type="checkbox" name="selectAll" id="selectAll"><label for="selectAll">Select All</label></th>\n' +
+                '                <th>Items</th>\n' +
+                '                <th class="td3">Numbers</th>\n' +
+                '                <th>Subtotal</th>\n' +
+                '                <th>Manage</th>\n' +
+                '            </tr>';
+        }else{
+            head = '<tr>\n' +
+                '                <th><input type="checkbox" name="selectAll" id="selectAll"><label for="selectAll">全选</label></th>\n' +
+                '                <th>商品</th>\n' +
+                '                <th class="td3">数量</th>\n' +
+                '                <th>小计</th>\n' +
+                '                <th>操作</th>\n' +
+                '            </tr>';
+        }
         $('.cartDetail table').append(head);
 
         getCartList.forEach(function (item, index) {
@@ -94,33 +105,62 @@ $(function () {
                 goods_ids.push(item.sku_info.goods_id);
             }
 
-
-            var html = '<tr class="skuId">\n' +
-                '                <td><input type="checkbox" name="select" data-name="' + item.id + '" value="' + item.sku_id + '"></td>\n' +
-                '                <td>\n' +
-                '                    <a href="./product.html?id=' + item.sku_info.goods_id + '">'+
-                '                    <div class="img"><img src="'+item.sku_info.img_infos[0].url+'" alt=""></div>\n' +
-                '                    <div class="con">\n' +
-                '                        <p class="title">' + item.sku_info.goods_name + '</p>\n' +
-                '                        <span class="unit_price">￥<em>' + item.sku_info.school_price + '</em></span>\n' +
-                '                        <div class="amountM btnNum">' +
-                '                           <input type="button" value="-" class="less">' +
-                '                           <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '">' +
-                '                           <input type="button" value="+" class="plus">\n' +
-                '                        </div>' +
-                '                    </div>\n' +
-                '                    </a>'+
-                '                </td>\n' +
-                '                <td class="td3 btnNum">\n' +
-                '                    <input type="button" value="-" class="less">' +
-                '                    <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '">' +
-                '                    <input type="button" value="+" class="plus">' +
-                '                </td>\n' +
-                '                <td class="price">￥<em>' + price + '</em></td>\n' +
-                '                <td class="operate">\n' +
-                '                    <a href="javascript:;" id="delete" data-name="' + item.id + '">删除</a>\n' +
-                '                </td>\n' +
-                '            </tr>';
+            var html;
+            if(isEnglish()){
+                html = '<tr class="skuId">\n' +
+                    '                <td><input type="checkbox" name="select" data-name="' + item.id + '" value="' + item.sku_id + '"></td>\n' +
+                    '                <td>\n' +
+                    '                    <a href="./product.html?id=' + item.sku_info.goods_id + '">'+
+                    '                    <div class="img"><img src="'+item.sku_info.img_infos[0].url+'" alt=""></div>\n' +
+                    '                    <div class="con">\n' +
+                    '                        <p class="title">' + item.sku_info.goods_name + '</p>\n' +
+                    '                        <span class="unit_price">￥<em>' + item.sku_info.school_price + '</em></span>\n' +
+                    '                        <div class="amountM btnNum">' +
+                    '                           <input type="button" value="-" class="less">' +
+                    '                           <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '">' +
+                    '                           <input type="button" value="+" class="plus">\n' +
+                    '                        </div>' +
+                    '                    </div>\n' +
+                    '                    </a>'+
+                    '                </td>\n' +
+                    '                <td class="td3 btnNum">\n' +
+                    '                    <input type="button" value="-" class="less">' +
+                    '                    <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '">' +
+                    '                    <input type="button" value="+" class="plus">' +
+                    '                </td>\n' +
+                    '                <td class="price">￥<em>' + price + '</em></td>\n' +
+                    '                <td class="operate">\n' +
+                    '                    <a href="javascript:;" id="delete" data-name="' + item.id + '">Delete</a>\n' +
+                    '                </td>\n' +
+                    '            </tr>';
+            }else{
+                html = '<tr class="skuId">\n' +
+                    '                <td><input type="checkbox" name="select" data-name="' + item.id + '" value="' + item.sku_id + '"></td>\n' +
+                    '                <td>\n' +
+                    '                    <a href="./product.html?id=' + item.sku_info.goods_id + '">'+
+                    '                    <div class="img"><img src="'+item.sku_info.img_infos[0].url+'" alt=""></div>\n' +
+                    '                    <div class="con">\n' +
+                    '                        <p class="title">' + item.sku_info.goods_name + '</p>\n' +
+                    '                        <span class="unit_price">￥<em>' + item.sku_info.school_price + '</em></span>\n' +
+                    '                        <div class="amountM btnNum">' +
+                    '                           <input type="button" value="-" class="less">' +
+                    '                           <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '">' +
+                    '                           <input type="button" value="+" class="plus">\n' +
+                    '                        </div>' +
+                    '                    </div>\n' +
+                    '                    </a>'+
+                    '                </td>\n' +
+                    '                <td class="td3 btnNum">\n' +
+                    '                    <input type="button" value="-" class="less">' +
+                    '                    <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '">' +
+                    '                    <input type="button" value="+" class="plus">' +
+                    '                </td>\n' +
+                    '                <td class="price">￥<em>' + price + '</em></td>\n' +
+                    '                <td class="operate">\n' +
+                    '                    <a href="javascript:;" id="delete" data-name="' + item.id + '">删除</a>\n' +
+                    '                </td>\n' +
+                    '            </tr>';
+            }
 
             $('.cartDetail table').append(html);
         })
@@ -186,7 +226,11 @@ $(function () {
     $('#settle').click(function(){
         //console.log('22',order_items);
         if(order_items.length === 0){
-            $('.error').html('请选择商品下单');
+            if(isEnglish()){
+                $('.error').html('Please select product order.');
+            }else{
+                $('.error').html('请选择商品下单。');
+            }
         }else{
             $('.error').html('');
             var param = ''
@@ -212,22 +256,40 @@ $(function () {
     accessoryDataArr.forEach(function(item,index){
         //var getSkuList = api.getSkuList(item.id, i18nLanguage);
 
-        var html = '<li>\n' +
-            '                    <a href="./product.html?id=' + item.id + '">'+
-            '                    <img src="'+item.img_infos[0].url+'" alt=""></a>\n' +
-            '                    <div class="con">\n' +
-            '                        <p class="Title">'+item.name+'</p>\n' +
-            '                        <p class="description">'+item.summary+'</p>\n' +
-            '                        <p class="price"><span>常规价格：</span>\n' +
-            '                            <del>￥'+item.price+'</del>\n' +
-            '                        </p>\n' +
-            '                        <p class="price"><span>学校优惠价：</span><em>￥'+item.school_price+'</em></p>\n' +
-            '                        <a class="apply" href="javascript:;" data-name="'+item.sku_infos[0].id+'">加入购物车</a>\n' +
-            '                    </div>\n' +
-            '                </li>';
+        var html;
+        if(isEnglish()){
+            html = '<li>\n' +
+                '                    <a href="./product.html?id=' + item.id + '">'+
+                '                    <img src="'+item.img_infos[0].url+'" alt=""></a>\n' +
+                '                    <div class="con">\n' +
+                '                        <p class="Title">'+item.name+'</p>\n' +
+                '                        <p class="description">'+item.summary+'</p>\n' +
+                '                        <p class="price"><span>MSRP：</span>\n' +
+                '                            <del>￥'+item.price+'</del>\n' +
+                '                        </p>\n' +
+                '                        <p class="price"><span>School Special Offer：</span><em>￥'+item.school_price+'</em></p>\n' +
+                '                        <a class="apply" href="javascript:;" data-name="'+item.sku_infos[0].id+'">Add to Cart</a>\n' +
+                '                    </div>\n' +
+                '                </li>';
+        }else{
+            html = '<li>\n' +
+                '                    <a href="./product.html?id=' + item.id + '">'+
+                '                    <img src="'+item.img_infos[0].url+'" alt=""></a>\n' +
+                '                    <div class="con">\n' +
+                '                        <p class="Title">'+item.name+'</p>\n' +
+                '                        <p class="description">'+item.summary+'</p>\n' +
+                '                        <p class="price"><span>常规价格：</span>\n' +
+                '                            <del>￥'+item.price+'</del>\n' +
+                '                        </p>\n' +
+                '                        <p class="price"><span>学校优惠价：</span><em>￥'+item.school_price+'</em></p>\n' +
+                '                        <a class="apply" href="javascript:;" data-name="'+item.sku_infos[0].id+'">加入购物车</a>\n' +
+                '                    </div>\n' +
+                '                </li>';
+        }
 
         $('.recommend ul').append(html);
     })
+
 
     // 推荐配件加入购物车
     $('.recommend .content').on('click','.apply',function(){
@@ -236,7 +298,11 @@ $(function () {
         var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
         if (createCart.code === 200) {
             $('.zhezhao').show();
-            $('.tan2 .con p').html('加入购物车成功');
+            if(isEnglish()){
+                $('.tan2 .con p').html('Add to Cart successful.');
+            }else{
+                $('.tan2 .con p').html('加入购物车成功。');
+            }
             $('.tan2').show();
             api.getCartList(getCookie('userId'), i18nLanguage,showCart);
             setTimeout(function () {

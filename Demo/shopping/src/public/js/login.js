@@ -11,7 +11,11 @@ $(function () {
 
         password = $('.password').val();
         if (!CheckPwd(password)) {
-            $('.error').html('密码不合法，输入5-15位数！');
+            if(isEnglish()){
+                $('.error').html('The password is illegal');
+            }else{
+                $('.error').html('密码不合法，输入5-15位数！');
+            }
             return;
         }
         //password = $.md5(value+'shop'+password);
@@ -20,7 +24,11 @@ $(function () {
         if (value === 'phone') {
             account = $('.account').val();
             if (!CheckMobile(account)) {
-                $('.error').html('账号格式不正确！');
+                if(isEnglish()){
+                    $('.error').html('Account format is incorrect.');
+                }else{
+                    $('.error').html('账号格式不正确.');
+                }
                 return;
             }
             loginData = {
@@ -33,7 +41,11 @@ $(function () {
         } else if (value === 'email') {
             account = $('.account').val();
             if (!CheckEmail(account)) {
-                $('.error').html('邮箱格式不正确！');
+                if(isEnglish()){
+                    $('.error').html('E-mail format is incorrect.');
+                }else{
+                    $('.error').html('邮箱格式不正确。');
+                }
                 return;
             }
             loginData = {
@@ -107,9 +119,15 @@ $(function () {
                         return;
                     }*/
 
-                    $('.welcome').html('Dear '+getUser.name+',欢迎访问'+getSchool.name+'专属页面。');
+                    if(isEnglish()){
+                        $('.welcome').html('Dear '+getUser.name+',Welcome to '+getSchool.name+' page.');
 
-                    $('.error').html('登录成功，2秒后进入首页。');
+                        $('.error').html('The login is successful, and the home page is entered after 2 seconds.');
+                    }else{
+                        $('.welcome').html('Dear '+getUser.name+',欢迎访问'+getSchool.name+'专属页面。');
+
+                        $('.error').html('登录成功，2秒后进入首页。');
+                    }
 
                     setTimeout(function () {
                         location.href = "index.html"
