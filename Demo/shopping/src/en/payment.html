@@ -2,30 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>在线支付</title>
+    <title>Online Payment</title>
     @@include('./view/meta.html')
     <link rel="stylesheet" href="../public/css/payment.css">
+    <style>
+        .pop .con a{width:auto;}
+    </style>
 </head>
 <body class="on5">
 @@include('./view/header.html')
 @@include('./view/header-bar.html')
 <div class="main">
     <div class="process">
-        <a href="./index.html">BYOD平台</a> >
-        <a href="javascript:;">在线支付</a>
+        <a href="./index.html">BYOD STORE</a> >
+        <a href="javascript:;">Online Payment</a>
     </div>
 
     <div class="cash">
         <div class="box">
-            <p>收银台</p>
+            <p>Cashier</p>
         </div>
         <div class="con">
-            <p class="p1">订单提交成功，请尽快付款！订单号：<span id="order_no"></span></p>
-            <p class="p2">应付金额：<span id="price"></span></p>
+            <p class="p1">Your order has been confirmed. Order Number:<span id="order_no"></span></p>
+            <p class="p2">Amount：<span id="price"></span></p>
         </div>
         <div class="con">
-            <p class="p1">支付方式：<span id="pay_type"></span></p>
-            <p class="p1">状态：<span id="status"></span></p>
+            <p class="p1">payment method：<span id="pay_type"></span></p>
+            <p class="p1">status：<span id="status"></span></p>
         </div>
         <!--<div class="con payType">
             <p class="p1">请选择支付方式</p>
@@ -36,44 +39,44 @@
             <a href="javascript:;" data-name="unionpay">银行转账</a>
         </div>-->
         <div class="unionpay">
-            <h2>银行转账</h2>
-            <input type="text" id="company" placeholder="付款公司名称">
-            <p>转账注意事项：</p>
-            <p>1.为了尽快处理您的订单，请在汇款凭证的用途／附言注上您W开头的订单号（提交订单后请记录订单号）</p>
-            <p>2.请将付款凭证扫描后以附件形式发送至：<strong>China_Receipts@apple.com</strong></p>
-            <p class="p1">Apple 银行账户详情：</p>
-            <p class="p1">开户行：花旗银行（中国）有限公司北京分行</p>
-            <p class="p1">户名：苹果电子产品商贸（北京）有限公司</p>
-            <p class="p1">帐号：1767147224000040 </p>
-            <p class="p1">电报号码：CITICNSXBJG</p>
-            <p class="p1">注意: 电子转帐一般需要一到两个工作日处理。</p>
-            <p>请注意:</p>
-            <p>申请增值税专用发票的订单, 银行汇款账户名称必须与索取发票的公司名称一致。</p>
-            <p class="success">提交成功，2秒后跳转个人中心页面。</p>
-            <a href="javascript:;" class="submit">提交</a>
+            <h2>Bank Transfer</h2>
+            <input type="text" id="company" placeholder="Payment company name">
+            <p>Transfer Notes:</p>
+            <p>1.In order to process your order as soon as possible, please note the order number at the beginning of your W in the purpose / postscript of the remittance certificate (please note the order number after submitting the order)</p>
+            <p>2.Please scan the payment voucher and send it as an attachment to：<strong>China_Receipts@apple.com</strong></p>
+            <p class="p1">Apple bank account details：</p>
+            <p class="p1">Bank Account：Citibank (China) Co., Ltd. Beijing Branch</p>
+            <p class="p1">Name：Apple Electronic Products Trading (Beijing) Co., Ltd.</p>
+            <p class="p1">Account：1767147224000040 </p>
+            <p class="p1">Telegram number：CITICNSXBJG</p>
+            <p class="p1">Attention: Electronic transfers generally take one to two business days to process.</p>
+            <p>Please note:</p>
+            <p>For an order for a VAT invoice, the name of the bank remittance account must be the same as the name of the company requesting the invoice.</p>
+            <p class="success">The submission is successful, and the personal center page is jumped after 2 seconds.</p>
+            <a href="javascript:;" class="submit">submit</a>
         </div>
         <div class="qrCode">
             <img src="" alt="">
-            <p class="success">恭喜您支付成功，2秒后跳转个人中心页面。</p>
-            <a href="javascript:;" class="wechat">若支付已完成，请点击！</a>
+            <p class="success">Congratulations on your successful payment. After 2 seconds, go to your personal center page.</p>
+            <a href="javascript:;" class="wechat">If payment has been completed, please click!</a>
         </div>
 
         <div class="alipayPc">
-            <a href="" class="payImmediately" target="_blank">立即支付</a>
+            <a href="" class="payImmediately" target="_blank">Pay immediately</a>
         </div>
 
     </div>
 </div>
 <div class="zhezhao"></div>
 <div class="pop alipay">
-    <h3>确认提示</h3>
+    <h3>Confirmation prompt</h3>
     <a href="javascript:;" class="cls">X</a>
     <div class="con">
-        <h2>请在新打开的页面上完成付款。</h2>
-        <p>完成付款后请根据你的情况点击下面的按钮。</p>
+        <h2>Please complete the payment on the newly opened page.</h2>
+        <p>After completing the payment, click the button below according to your situation.</p>
         <p class="error"></p>
-        <a href="javascript:;" class="a1">已完成支付</a>
-        <a href="javascript:;" class="a2">付款遇到问题</a>
+        <a href="javascript:;" class="a1">Completed</a>
+        <a href="javascript:;" class="a2">Encounter problems</a>
     </div>
 </div>
 

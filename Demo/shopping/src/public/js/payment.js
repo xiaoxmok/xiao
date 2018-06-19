@@ -14,26 +14,55 @@ $(function(){
         $('#order_no').html(getOrderInfo.order_no);
         $('#price').html(getOrderInfo.price);
 
-        var status = {
-            waitingForPay:"待支付",
-            paying:"支付中",
-            paid:"已支付",
-            waitingForInstall:"待安装",
-            installing:"安装中",
-            installed:"已安装",
-            dispatching:"配送中",
-            dispatched:"已配送",
-            waitingForSign:"待签收",
-            signed:"已签收",
-            canceled:"已取消",
-            returned:"已退货",
-            exchanged:"已换货"
-        };
-        var pay_type = {
-            wechat:"微信",
-            alipay:"支付宝",
-            unionpay:"银联"
+        var status,pay_type;
+        if(isEnglish()){
+            status = {
+                waitingForPay:"waitingForPay",
+                paying:"paying",
+                paid:"paid",
+                waitingForInstall:"waitingForInstall",
+                installing:"installing",
+                installed:"installed",
+                dispatching:"dispatching",
+                dispatched:"dispatched",
+                waitingForSign:"waitingForSign",
+                signed:"signed",
+                canceled:"canceled",
+                returned:"returned",
+                exchanged:"exchanged",
+                waitingForReturn:"waitingForReturn"
+            };
+
+            pay_type = {
+                wechat:"wechat",
+                alipay:"alipay",
+                unionpay:"unionpay"
+            };
+        }else{
+            status = {
+                waitingForPay:"待支付",
+                paying:"支付中",
+                paid:"已支付",
+                waitingForInstall:"待安装",
+                installing:"安装中",
+                installed:"已安装",
+                dispatching:"配送中",
+                dispatched:"已配送",
+                waitingForSign:"待签收",
+                signed:"已签收",
+                canceled:"已取消",
+                returned:"已退货",
+                exchanged:"已换货",
+                waitingForReturn:"待退货"
+            };
+
+            pay_type = {
+                wechat:"微信",
+                alipay:"支付宝",
+                unionpay:"银联"
+            }
         }
+
 
 
         $('#pay_type').html(pay_type[getOrderInfo.pay_type]);

@@ -135,7 +135,11 @@ $(function () {
     $('.add').click(function () {
         if (!login()) {
             $('.zhezhao').show();
-            $('.tan2 .con p').html('请登录。。。');
+            if(isEnglish()){
+                $('.tan2 .con p').html('please sign in....');
+            }else{
+                $('.tan2 .con p').html('请登录。。。');
+            }
             $('.tan2').show();
             setTimeout(function () {
                 //location.href = "cart.html"
@@ -158,7 +162,11 @@ $(function () {
                     var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
                     if (createCart.code === 200) {
                         $('.zhezhao').show();
-                        $('.tan2 .con p').html('加入购物车成功');
+                        if(isEnglish()){
+                            $('.tan2 .con p').html('Add to Cart successful.');
+                        }else{
+                            $('.tan2 .con p').html('加入购物车成功。');
+                        }
                         $('.tan2').show();
                         //优化 做成异步的方式
                         api.getCartList(getCookie('userId'), i18nLanguage,function(getCartList){
@@ -172,7 +180,11 @@ $(function () {
                     }
                 } else {
                     $('.zhezhao').show();
-                    $('.tan2 .con p').html('该商品已经加入购物，请去购物车下单');
+                    if(isEnglish()){
+                        $('.tan2 .con p').html('The item has been added to the shopping, please go to the shopping cart to place an order.');
+                    }else{
+                        $('.tan2 .con p').html('该商品已经加入购物，请去购物车下单。');
+                    }
                     $('.tan2').show();
                     setTimeout(function () {
                         //location.href = "cart.html"
@@ -194,7 +206,11 @@ $(function () {
 
         if (!login()) {
             $('.zhezhao').show();
-            $('.tan2 .con p').html('请登录。。。');
+            if(isEnglish()){
+                $('.tan2 .con p').html('please sign in....');
+            }else{
+                $('.tan2 .con p').html('请登录。。。');
+            }
             $('.tan2').show();
             setTimeout(function () {
                 //location.href = "cart.html"

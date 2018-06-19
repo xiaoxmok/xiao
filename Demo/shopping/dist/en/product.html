@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>商品详情</title>
+    <title>Details</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="keywords" content="" />
     <meta name="description" content=""/>
@@ -14,21 +14,29 @@
     <script src="../public/js/api.js"></script>
     <link rel="stylesheet" href="../public/css/product.css">
     <link rel="stylesheet" href="../public/css/swiper-4.2.2.min.css">
+    <style>
+        .product .con .btn .buy{width:150px!important;}
+        .product .con .btn .add{width:150px!important;}
+        .contact{top:578px!important;}
+        .product .con .detail td.td1{width:121px;}
+    </style>
 </head>
 <body class="on5">
 <!--header页面-->
 <div class="header">
     <div class="content">
         <div class="logo">
-            <img src="./../public/img/web_logo.png" alt="logo">
+            <a href="./index.html">
+                <img src="./../public/img/web_logo.png" alt="logo">
+            </a>
         </div>
         <div class="nav">
             <ul>
-                <li><a href="./aboutUs.html" class="on1">About Us</a></li>
+                <li><a href="./index.html" class="on5">BYOD STORE</a></li>
                 <li><a href="./solution.html" class="on2">SOLUTIONS</a></li>
                 <li><a href="./eduSoftware.html" class="on3">APPS FOR EDUCATION</a></li>
                 <li><a href="./information.html" class="on4">WHAT'S NEW</a></li>
-                <li><a href="./index.html" class="on5">BYOD STORE</a></li>
+                <li><a href="./aboutUs.html" class="on1">About Us</a></li>
             </ul>
         </div>
         <div class="other">
@@ -36,7 +44,7 @@
                 <a href="#">REPAIR</a>
                 <ul>
                     <li><a href="./center.html">HISTORY</a></li>
-                    <li><a href="javascript:;">REQUEST</a></li>
+                    <li><a href="./repairApplication.html">REQUEST</a></li>
                 </ul>
             </div>
             <div class="lan">
@@ -58,7 +66,9 @@
         </ul>
     </div>
     <div class="logo">
-        <img src="./../public/img/web_logo.png" alt="logo">
+        <a href="./index.html">
+            <img src="./../public/img/web_logo.png" alt="logo">
+        </a>
     </div>
     <div class="cart"><a href="./cart.html"></a><em class="count"></em></div>
     <div class="user"><a href="./center.html"></a></div>
@@ -66,11 +76,11 @@
 
     <div class="nav">
         <ul>
-            <li class="selc"><a href="./aboutUs.html">ABOUT US</a></li>
+            <li class="selc"><a href="./index.html">BYOD STORE</a></li>
             <li class="selc"><a href="./solution.html">SOLUTIONS</a></li>
             <li class="selc"><a href="./eduSoftware.html">APPS FOR EDUCATION</a></li>
             <li class="selc"><a href="./information.html">WHAT'S NEW</a></li>
-            <li class="selc"><a href="./index.html">BYOD STORE</a></li>
+            <li class="selc"><a href="./aboutUs.html">ABOUT US</a></li>
             <li class="service"><a href="javascript:;">REPAIR</a>
                 <ul>
                     <li class="selc"><a href="./center.html">REPAIR HISTORY</a></li>
@@ -115,8 +125,8 @@
 </div>
 <div class="main">
     <div class="process">
-        <a href="./index.html" class="i18n" data-name="byod">BYOD平台</a> >
-        <a href="javascript:;" class="i18n" data-name="registered">商品详情</a>
+        <a href="./index.html" class="i18n" data-name="byod">BYOD STORE</a> >
+        <a href="javascript:;" class="i18n" data-name="registered">Details</a>
     </div>
     <div class="product">
         <div class="image">
@@ -146,16 +156,16 @@
             <div class="detail">
                 <table>
                     <tr>
-                        <td class="td1">常规价格:</td>
+                        <td class="td1">MSRP:</td>
                         <td class="td2"><del>￥<em id="price"></em></del></td>
                     </tr>
                     <tr>
-                        <td class="td1">教育优惠价：</td>
+                        <td class="td1">School Special Offer：</td>
                         <td class="td2 offer">￥<em id="school_price"></em></td>
                     </tr>
                     <tr>
-                        <td class="td1">可用性：</td>
-                        <td class="td2">现货</td>
+                        <td class="td1">Availability：</td>
+                        <td class="td2">In Stock</td>
                     </tr>
                 </table>
                 <table class="param">
@@ -163,7 +173,7 @@
                 </table>
                 <table>
                     <tr>
-                        <td class="td1">购买数量：</td>
+                        <td class="td1">Quantity：</td>
                         <td class="td2 btnNum">
                             <input type="button" value="-" class="less">
                             <input type="text" value="1" class="text" id="quantity">
@@ -173,19 +183,19 @@
                 </table>
             </div>
             <div class="btn">
-                <a href="javascript:;" class="collect"><span></span>收藏</a>
-                <a href="javascript:;" class="add">加入购物车</a>
-                <a href="javascript:;" class="buy">立即购买</a>
+                <a href="javascript:;" class="collect"><span></span>Add to favorites</a>
+                <a href="javascript:;" class="add">Add to cart</a>
+                <a href="javascript:;" class="buy">Buy Now</a>
             </div>
         </div>
     </div>
     <div class="productNav">
         <ul>
-            <li class="active">详情</li>
-            <li>常见问题</li>
+            <li class="active">Details</li>
+            <li>FAQ</li>
         </ul>
     </div>
-    <div class="productDetail introduce" style="display: block;">商品详情</div>
+    <div class="productDetail introduce" style="display: block;">Details</div>
     <div class="productDetail">
         <div class="problem">
             <div class="pro">
@@ -210,24 +220,24 @@
     </div>
 
     <div class="contact">
-        <a href="javascript:;"><em></em><span>联系我们</span></a>
+        <a href="javascript:;"><em></em><span>Contact Us</span></a>
     </div>
 
 </div>
 
 <div class="zhezhao"></div>
 <div class="pop tan1">
-    <h3>联系我们</h3>
+    <h3>Contact Us</h3>
     <a href="javascript:;" class="cls">X</a>
     <div class="con">
-        <p>联系邮箱：byodgoods@byod.com</p>
-        <p>联系电话：13813212121</p>
+        <p>Email：byodgoods@byod.com</p>
+        <p>Phone：13813212121</p>
     </div>
 </div>
 <div class="pop tan2">
-    <h3>提示</h3>
+    <h3>prompt</h3>
     <div class="con">
-        <p>提示</p>
+        <p>prompt</p>
     </div>
 </div>
 

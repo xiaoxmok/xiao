@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>修改地址</title>
+    <title>update</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="keywords" content="" />
     <meta name="description" content=""/>
@@ -19,15 +19,17 @@
 <div class="header">
     <div class="content">
         <div class="logo">
-            <img src="./../public/img/web_logo.png" alt="logo">
+            <a href="./index.html">
+                <img src="./../public/img/web_logo.png" alt="logo">
+            </a>
         </div>
         <div class="nav">
             <ul>
-                <li><a href="./aboutUs.html" class="on1">About Us</a></li>
+                <li><a href="./index.html" class="on5">BYOD STORE</a></li>
                 <li><a href="./solution.html" class="on2">SOLUTIONS</a></li>
                 <li><a href="./eduSoftware.html" class="on3">APPS FOR EDUCATION</a></li>
                 <li><a href="./information.html" class="on4">WHAT'S NEW</a></li>
-                <li><a href="./index.html" class="on5">BYOD STORE</a></li>
+                <li><a href="./aboutUs.html" class="on1">About Us</a></li>
             </ul>
         </div>
         <div class="other">
@@ -35,7 +37,7 @@
                 <a href="#">REPAIR</a>
                 <ul>
                     <li><a href="./center.html">HISTORY</a></li>
-                    <li><a href="javascript:;">REQUEST</a></li>
+                    <li><a href="./repairApplication.html">REQUEST</a></li>
                 </ul>
             </div>
             <div class="lan">
@@ -57,7 +59,9 @@
         </ul>
     </div>
     <div class="logo">
-        <img src="./../public/img/web_logo.png" alt="logo">
+        <a href="./index.html">
+            <img src="./../public/img/web_logo.png" alt="logo">
+        </a>
     </div>
     <div class="cart"><a href="./cart.html"></a><em class="count"></em></div>
     <div class="user"><a href="./center.html"></a></div>
@@ -65,11 +69,11 @@
 
     <div class="nav">
         <ul>
-            <li class="selc"><a href="./aboutUs.html">ABOUT US</a></li>
+            <li class="selc"><a href="./index.html">BYOD STORE</a></li>
             <li class="selc"><a href="./solution.html">SOLUTIONS</a></li>
             <li class="selc"><a href="./eduSoftware.html">APPS FOR EDUCATION</a></li>
             <li class="selc"><a href="./information.html">WHAT'S NEW</a></li>
-            <li class="selc"><a href="./index.html">BYOD STORE</a></li>
+            <li class="selc"><a href="./aboutUs.html">ABOUT US</a></li>
             <li class="service"><a href="javascript:;">REPAIR</a>
                 <ul>
                     <li class="selc"><a href="./center.html">REPAIR HISTORY</a></li>
@@ -114,36 +118,40 @@
 </div>
 <div class="main">
     <div class="process">
-        <a href="./index.html">BYOD平台</a> >
-        <a href="javascript:;">修改地址</a>
+        <a href="./index.html">BYOD STORE</a> >
+        <a href="javascript:;">update</a>
     </div>
 
     <div class="newAddress">
         <div class="box">
-            <p>修改地址</p>
+            <p>update</p>
         </div>
         <div class="con">
             <table>
                 <tr>
-                    <td><span>*</span>收货人：</td>
+                    <td><span>*</span>Recipient：</td>
                     <td><input type="text" id="name"></td>
                 </tr>
                 <tr>
-                    <td><span>*</span>详细地址：</td>
+                    <td><span>*</span>Address：</td>
                     <td><textarea cols="30" rows="10" id="address"></textarea></td>
                 </tr>
                 <tr>
-                    <td><span>*</span>手机号：</td>
+                    <td><span>*</span>Mobile：</td>
                     <td><input type="text" id="country_code" placeholder="086" value="086" class="area"><input type="text" id="phone"></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="checkbox" id="defalut"><label for="defalut">是否默认</label></td>
+                    <td><input type="checkbox" id="defalut"><label for="defalut">Default Address</label></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="checkbox" id="is_from_school "><label for="is_from_school ">Is the school receipt address</label></td>
                 </tr>
             </table>
             <p class="error tl"></p>
             <div class="btn">
-                <a href="javascript:;" class="submit">保存收货人信息</a>
+                <a href="javascript:;" class="submit">Save</a>
             </div>
         </div>
     </div>

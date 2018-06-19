@@ -13,9 +13,9 @@ $(function () {
         });
 
         if(isEnglish()){
-            $('.welcome').html('Dear '+getCookie('username')+',Welcome to'+getCookie('school')+' page.');
+            $('.welcome').html('Dear '+getCookie('username')+' , Welcome to '+getCookie('school')+' page.');
         }else{
-            $('.welcome').html('Dear '+getCookie('username')+',欢迎访问'+getCookie('school')+'专属页面。');
+            $('.welcome').html('Dear '+getCookie('username')+'，欢迎访问'+getCookie('school')+'专属页面。');
         }
     }
 
@@ -64,8 +64,13 @@ $(function () {
         async: false,
         success: function (data) {
             //console.log(data);
+            var all;
             if (data.code === 200) {
-                var all ='<li class="all active" data-name="0">全部</li>';
+                if(isEnglish()){
+                    all ='<li class="all active" data-name="0">All</li>';
+                }else{
+                    all ='<li class="all active" data-name="0">全部</li>';
+                }
                 $('.nav .left ul').append(all);
                 var category = data.data;
                 category.forEach(function(item,index){

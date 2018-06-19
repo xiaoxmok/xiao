@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>打印发票</title>
+    <title>Request an invoice (Fapiao)</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="keywords" content="" />
     <meta name="description" content=""/>
@@ -13,21 +13,26 @@
     <script src="../public/js/common.js"></script>
     <script src="../public/js/api.js"></script>
     <link rel="stylesheet" href="../public/css/submitOrder.css">
+    <style>
+        .invoice .con .title,.pay .con .title{width:auto;}
+    </style>
 </head>
 <body>
 <!--header页面-->
 <div class="header">
     <div class="content">
         <div class="logo">
-            <img src="./../public/img/web_logo.png" alt="logo">
+            <a href="./index.html">
+                <img src="./../public/img/web_logo.png" alt="logo">
+            </a>
         </div>
         <div class="nav">
             <ul>
-                <li><a href="./aboutUs.html" class="on1">About Us</a></li>
+                <li><a href="./index.html" class="on5">BYOD STORE</a></li>
                 <li><a href="./solution.html" class="on2">SOLUTIONS</a></li>
                 <li><a href="./eduSoftware.html" class="on3">APPS FOR EDUCATION</a></li>
                 <li><a href="./information.html" class="on4">WHAT'S NEW</a></li>
-                <li><a href="./index.html" class="on5">BYOD STORE</a></li>
+                <li><a href="./aboutUs.html" class="on1">About Us</a></li>
             </ul>
         </div>
         <div class="other">
@@ -35,7 +40,7 @@
                 <a href="#">REPAIR</a>
                 <ul>
                     <li><a href="./center.html">HISTORY</a></li>
-                    <li><a href="javascript:;">REQUEST</a></li>
+                    <li><a href="./repairApplication.html">REQUEST</a></li>
                 </ul>
             </div>
             <div class="lan">
@@ -57,7 +62,9 @@
         </ul>
     </div>
     <div class="logo">
-        <img src="./../public/img/web_logo.png" alt="logo">
+        <a href="./index.html">
+            <img src="./../public/img/web_logo.png" alt="logo">
+        </a>
     </div>
     <div class="cart"><a href="./cart.html"></a><em class="count"></em></div>
     <div class="user"><a href="./center.html"></a></div>
@@ -65,11 +72,11 @@
 
     <div class="nav">
         <ul>
-            <li class="selc"><a href="./aboutUs.html">ABOUT US</a></li>
+            <li class="selc"><a href="./index.html">BYOD STORE</a></li>
             <li class="selc"><a href="./solution.html">SOLUTIONS</a></li>
             <li class="selc"><a href="./eduSoftware.html">APPS FOR EDUCATION</a></li>
             <li class="selc"><a href="./information.html">WHAT'S NEW</a></li>
-            <li class="selc"><a href="./index.html">BYOD STORE</a></li>
+            <li class="selc"><a href="./aboutUs.html">ABOUT US</a></li>
             <li class="service"><a href="javascript:;">REPAIR</a>
                 <ul>
                     <li class="selc"><a href="./center.html">REPAIR HISTORY</a></li>
@@ -114,79 +121,79 @@
 </div>
 <div class="main">
     <div class="process">
-        <a href="./index.html">BYOD平台</a> >
-        <a href="javascript:;">打印发票</a>
+        <a href="./index.html">BYOD STORE</a> >
+        <a href="javascript:;">Request an invoice (Fapiao)</a>
     </div>
     <div class="invoice">
         <div class="box">
-            <p>打印发票</p>
+            <p>Request an invoice (Fapiao)</p>
         </div>
         <div class="con">
             <div class="invoiceInfo">
-                <span class="title">开票信息：</span><span><input type="radio" id="general" name="info" value="normal" checked><label for="general">普通发票</label></span><span><input type="radio" id="added" name="info" value="vat"><label for="added">增值专用税发票</label></span>
+                <span class="title">Invoice (Fapiao) Category：</span><span><input type="radio" id="general" name="info" value="normal" checked><label for="general">General Invoice</label></span><span><input type="radio" id="added" name="info" value="vat"><label for="added">Special VAT Invoice (Fapiao)</label></span>
             </div>
             <div class="invoiceType" style="display: block;">
                 <div>
-                    <span class="title">发票类型：</span><span><input type="radio" id="person1" name="type1" value="personal" checked><label for="person1">个人</label></span><span><input type="radio" value="company" id="company1" name="type1"><label for="company1">企业</label></span>
+                    <span class="title">General Invoice:</span><span><input type="radio" id="person1" name="type1" value="personal" checked><label for="person1">Individual</label></span><span><input type="radio" value="company" id="company1" name="type1"><label for="company1">Enterprise</label></span>
                 </div>
                 <div>
-                    <span class="title">发票抬头：</span><input id="normal_title" type="text" placeholder="请输入发票抬头">
+                    <span class="title">Invoice (Fapiao) title:</span><input id="normal_title" type="text" placeholder="Please enter your Invoice title">
                 </div>
                 <div>
-                    <span class="title">企业纳税号：</span><input id="normal_tax_no" type="text" placeholder="请输入企业纳税号">
+                    <span class="title">Enterprise Taxpayer ID:</span><input id="normal_tax_no" type="text" placeholder="Please enter your Enterprise Taxpayer ID">
                 </div>
                 <div>
-                    <span class="title">发票内容：</span><span><input type="radio" id="goodsDetail1" name="content1" value="detail" checked><label for="goodsDetail1">商品明细</label></span><span><input type="radio" id="goodsType1" value="category" name="content1"><label for="goodsType1">商品类别</label></span>
+                    <span class="title">Invoice Item Description:</span><span><input type="radio" id="goodsDetail1" name="content1" value="detail" checked><label for="goodsDetail1">Item</label></span><span><input type="radio" id="goodsType1" value="category" name="content1"><label for="goodsType1">Item Category</label></span>
                 </div>
             </div>
             <div class="invoiceType" style="display: none;">
                 <div>
-                    <span class="title">发票类型：</span><span>企业</span>
+                    <span class="title">Invoice (Fapiao) Category:</span><span>Enterprise</span>
                 </div>
                 <div>
-                    <span class="title">发票内容：</span><span>商品明细</span>
+                    <span class="title">Invoice Item Description:</span><span>Item</span>
                 </div>
                 <div>
-                    <span class="title">单位名称：</span><input id="vat_company" type="text" placeholder="请输入单位名称">
+                    <span class="title">Enterprise's Name:</span><input id="vat_company" type="text" placeholder="Please enter your Enterprise's Name">
                 </div>
                 <div>
-                    <span class="title">纳税号：</span><input id="vat_tax_no" type="text" placeholder="请输入纳税号">
+                    <span class="title">Taxpayer's ID:</span><input id="vat_tax_no" type="text" placeholder="Please enter your Taxpayer's ID">
                 </div>
                 <div>
-                    <span class="title">注册地址：</span><input id="vat_address" type="text" placeholder="请输入注册地址">
+                    <span class="title">Address:</span><input id="vat_address" type="text" placeholder="Please enter your Address">
                 </div>
                 <div>
-                    <span class="title">注册电话：</span><input id="vat_phone" type="text" placeholder="请输入注册电话">
+                    <span class="title">Phone Number:</span><input id="vat_phone" type="text" placeholder="Please enter your Phone Number">
                 </div>
                 <div>
-                    <span class="title">开户银行：</span><input id="vat_bank" type="text" placeholder="请输入开户银行">
+                    <span class="title">Bank Name:</span><input id="vat_bank" type="text" placeholder="Please enter your Bank Name">
                 </div>
                 <div>
-                    <span class="title">银行账号：</span><input id="vat_bank_no" type="text" placeholder="请输入银行账号">
+                    <span class="title">Bank Account:</span><input id="vat_bank_no" type="text" placeholder="Please enter your Bank Account">
                 </div>
                 <div>
-                    <span class="title">收票人姓名：</span><input id="receiver_name" type="text" placeholder="请输入收票人姓名">
+                    <span class="title">Recipient:</span><input id="receiver_name" type="text" placeholder="Please enter your Recipient">
                 </div>
                 <div>
-                    <span class="title">收票人手机：</span><input id="receiver_phone" type="text" placeholder="请输入收票人手机">
+                    <span class="title">Mobile Phone:</span><input id="receiver_phone" type="text" placeholder="Please enter your Mobile Phone">
                 </div>
                 <div data-toggle="distpicker" id="distpicker">
-                    <span class="title">收票人省份：</span>
-                    <select id="receiver_province" data-province="选择省"></select>
-                    <select id="receiver_city" data-city="选择市"></select>
-                    <select id="receiver_area" data-district="选择区"></select>
+                    <span class="title">Province:</span>
+                    <select id="receiver_province" data-province="Select Province"></select>
+                    <select id="receiver_city" data-city="Select City"></select>
+                    <select id="receiver_area" data-district="Select District"></select>
 
                 </div>
                 <div>
-                    <span class="title">详细地址：</span>
-                    <textarea id="receiver_address" placeholder="请输入详细地址"></textarea>
+                    <span class="title">Address details:</span>
+                    <textarea id="receiver_address" placeholder="Please enter your Address details"></textarea>
                 </div>
 
             </div>
             <p class="error tl"></p>
             <div class="btn">
 
-                <a href="javascript:;" class="submit">打印发票</a>
+                <a href="javascript:;" class="submit">Request an invoice (Fapiao)</a>
             </div>
         </div>
 

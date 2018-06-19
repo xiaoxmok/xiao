@@ -1,9 +1,9 @@
 @font-face {
-    font-family: 'PingFang SC Regular';
-    src:url('./PingFang SC Regular.ttf');
+    font-family: 'Msyh';
+    src:url('./msyh.ttc');
 }
 body {
-    font-family:'PingFang SC Regular', "Microsoft YaHei",SimSun, Tahoma, Arial, sans-serif;
+    font-family:'Msyh', "Microsoft YaHei",SimSun, Tahoma, Arial, sans-serif;
     color: #000;
     background-color: #fff;
 }

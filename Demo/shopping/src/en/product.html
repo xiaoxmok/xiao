@@ -2,18 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>商品详情</title>
+    <title>Details</title>
     @@include('./view/meta.html')
     <link rel="stylesheet" href="../public/css/product.css">
     <link rel="stylesheet" href="../public/css/swiper-4.2.2.min.css">
+    <style>
+        .product .con .btn .buy{width:150px!important;}
+        .product .con .btn .add{width:150px!important;}
+        .contact{top:578px!important;}
+        .product .con .detail td.td1{width:121px;}
+    </style>
 </head>
 <body class="on5">
 @@include('./view/header.html')
 @@include('./view/header-bar.html')
 <div class="main">
     <div class="process">
-        <a href="./index.html" class="i18n" data-name="byod">BYOD平台</a> >
-        <a href="javascript:;" class="i18n" data-name="registered">商品详情</a>
+        <a href="./index.html" class="i18n" data-name="byod">BYOD STORE</a> >
+        <a href="javascript:;" class="i18n" data-name="registered">Details</a>
     </div>
     <div class="product">
         <div class="image">
@@ -43,16 +49,16 @@
             <div class="detail">
                 <table>
                     <tr>
-                        <td class="td1">常规价格:</td>
+                        <td class="td1">MSRP:</td>
                         <td class="td2"><del>￥<em id="price"></em></del></td>
                     </tr>
                     <tr>
-                        <td class="td1">教育优惠价：</td>
+                        <td class="td1">School Special Offer：</td>
                         <td class="td2 offer">￥<em id="school_price"></em></td>
                     </tr>
                     <tr>
-                        <td class="td1">可用性：</td>
-                        <td class="td2">现货</td>
+                        <td class="td1">Availability：</td>
+                        <td class="td2">In Stock</td>
                     </tr>
                 </table>
                 <table class="param">
@@ -60,7 +66,7 @@
                 </table>
                 <table>
                     <tr>
-                        <td class="td1">购买数量：</td>
+                        <td class="td1">Quantity：</td>
                         <td class="td2 btnNum">
                             <input type="button" value="-" class="less">
                             <input type="text" value="1" class="text" id="quantity">
@@ -70,19 +76,19 @@
                 </table>
             </div>
             <div class="btn">
-                <a href="javascript:;" class="collect"><span></span>收藏</a>
-                <a href="javascript:;" class="add">加入购物车</a>
-                <a href="javascript:;" class="buy">立即购买</a>
+                <a href="javascript:;" class="collect"><span></span>Add to favorites</a>
+                <a href="javascript:;" class="add">Add to cart</a>
+                <a href="javascript:;" class="buy">Buy Now</a>
             </div>
         </div>
     </div>
     <div class="productNav">
         <ul>
-            <li class="active">详情</li>
-            <li>常见问题</li>
+            <li class="active">Details</li>
+            <li>FAQ</li>
         </ul>
     </div>
-    <div class="productDetail introduce" style="display: block;">商品详情</div>
+    <div class="productDetail introduce" style="display: block;">Details</div>
     <div class="productDetail">
         <div class="problem">
             <div class="pro">
@@ -107,24 +113,24 @@
     </div>
 
     <div class="contact">
-        <a href="javascript:;"><em></em><span>联系我们</span></a>
+        <a href="javascript:;"><em></em><span>Contact Us</span></a>
     </div>
 
 </div>
 
 <div class="zhezhao"></div>
 <div class="pop tan1">
-    <h3>联系我们</h3>
+    <h3>Contact Us</h3>
     <a href="javascript:;" class="cls">X</a>
     <div class="con">
-        <p>联系邮箱：byodgoods@byod.com</p>
-        <p>联系电话：13813212121</p>
+        <p>Email：byodgoods@byod.com</p>
+        <p>Phone：13813212121</p>
     </div>
 </div>
 <div class="pop tan2">
-    <h3>提示</h3>
+    <h3>prompt</h3>
     <div class="con">
-        <p>提示</p>
+        <p>prompt</p>
     </div>
 </div>
 

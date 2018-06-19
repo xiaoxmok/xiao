@@ -23,7 +23,11 @@ $(function(){
         if (value === 'phone') {
             account = $('.account').val();
             if (!CheckMobile(account)) {
-                $('.error').html('账号格式不正确！');
+                if(isEnglish()){
+                    $('.error').html('Account format is incorrect.');
+                }else{
+                    $('.error').html('账号格式不正确.');
+                }
                 return;
             }
             verifyData = {
@@ -34,7 +38,11 @@ $(function(){
         } else if (value === 'email') {
             account = $('.account').val();
             if (!CheckEmail(account)) {
-                $('.error').html('邮箱格式不正确！');
+                if(isEnglish()){
+                    $('.error').html('E-mail format is incorrect.');
+                }else{
+                    $('.error').html('邮箱格式不正确。');
+                }
                 return;
             }
             verifyData = {
@@ -44,7 +52,11 @@ $(function(){
         }
         var captcha = $('.Captcha_code').val();
         if (captcha.length === 0) {
-            $('.error').html('图形验证码不能为空');
+            if(isEnglish()){
+                $('.error').html('Graphic verification code cannot be empty');
+            }else{
+                $('.error').html('图形验证码不能为空');
+            }
             return;
         }
         verifyData.captcha = $('.Captcha_code').val();
@@ -73,7 +85,7 @@ $(function(){
             data: verifyData,
             success: function (data) {
                 if (data.code === 200) {
-                    console.log('获取验证码成功！');
+                    //console.log('获取验证码成功！');
                     $('.timeOut').html(time);
                     time1 = setInterval(timeOut, 1000);
                     $('.code').hide();
@@ -98,18 +110,30 @@ $(function(){
 
         valid_code = $('.valid_code').val();
         if (!CheckCode(valid_code)) {
-            $('.error').html('验证码格式不正确。');
+            if(isEnglish()){
+                $('.error').html('The verification code is not in the correct format.');
+            }else{
+                $('.error').html('验证码格式不正确。');
+            }
             return;
         }
 
         password = $('#password').val();
         if (!CheckPwd(password)) {
-            $('.error').html('密码不合法，输入5-15位数！');
+            if(isEnglish()){
+                $('.error').html('The password is illegal');
+            }else{
+                $('.error').html('密码不合法，输入5-15位数！');
+            }
             return;
         }
         password_confirmation = $('#password').val();
         if (password_confirmation !== password) {
-            $('.error').html('确认密码不正确');
+            if(isEnglish()){
+                $('.error').html('Confirm password is incorrect');
+            }else{
+                $('.error').html('确认密码不正确');
+            }
             return;
         }
 
@@ -117,7 +141,11 @@ $(function(){
         if (value === 'phone') {
             account = $('.account').val();
             if (!CheckMobile(account)) {
-                $('.error').html('账号格式不正确！');
+                if(isEnglish()){
+                    $('.error').html('Account format is incorrect.');
+                }else{
+                    $('.error').html('账号格式不正确.');
+                }
                 return;
             }
             registeData = {
@@ -131,7 +159,11 @@ $(function(){
         } else if (value === 'email') {
             account = $('.account').val();
             if (!CheckEmail(account)) {
-                $('.error').html('邮箱格式不正确！');
+                if(isEnglish()){
+                    $('.error').html('E-mail format is incorrect.');
+                }else{
+                    $('.error').html('邮箱格式不正确。');
+                }
                 return;
             }
             registeData = {
@@ -151,7 +183,11 @@ $(function(){
                 //console.log(data.code,typeof data.code);
                 if (data.code === 200) {
                     // console.log('注册成功。');
-                    $('.error').html('修改成功，自动跳转登录页面。');
+                    if(isEnglish()){
+                        $('.error').html('Modify is successful, automatically jump to the login page.');
+                    }else{
+                        $('.error').html('修改成功，自动跳转登录页面。');
+                    }
                     setTimeout(function () {
                         location.href = "login.html"
                     }, 2000);

@@ -45,7 +45,11 @@ $(function () {
             },
             success: function (data) {
                 if (data.code === 200) {
-                    $('.error').html('提交成功！');
+                    if(isEnglish()){
+                        $('.error').html('Submitted successfully!');
+                    }else{
+                        $('.error').html('提交成功！');
+                    }
                     setTimeout(function () {
                         location.href = "center.html"
                     }, 1000);
