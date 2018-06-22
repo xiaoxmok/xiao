@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制星空</title>
+</head>
+<body>
+<canvas id="canvas" style="border:1px solid #ccc;display: block;margin:0 auto;"></canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById('canvas');
+        canvas.width = 800;
+        canvas.height = 800;
+        var context = canvas.getContext('2d');
+
+        context.fillStyle = 'black';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        for (var i = 0; i < 200; i++) {
+            var r = Math.random() * 10 + 10;    //10-20的随机数
+            var x = Math.random() * canvas.width;       // 0到整个画布宽度之间的值
+            var y = Math.random() * canvas.height;       // 0到整个画布高度之间的值
+            var a = Math.random() * 360;        // 0 - 360度角之间；
+
+            drawStar(context, x, y, r, r / 2.0, a);
+        }
+
+
+
+    }
+
+    function drawStar(cxt, x, y, outerR, innerR, rot) {
+
+        cxt.beginPath();
+        for (var i = 0; i < 5; i++) {
+            cxt.lineTo(Math.cos((18 + i * 72 - rot) / 180 * Math.PI) * outerR + x, -Math.sin((18 + i * 72 - rot) / 180 * Math.PI) * outerR + y);
+            cxt.lineTo(Math.cos((54 + i * 72 - rot) / 180 * Math.PI) * innerR + x, -Math.sin((54 + i * 72 - rot) / 180 * Math.PI) * innerR + y);
+        }
+        cxt.closePath();
+
+        cxt.fillStyle = '#fb3';
+        cxt.strokeStyle = '#fb5';
+        cxt.lineWidth = 3;
+        cxt.lineJoin = 'round';
+
+        cxt.fill();
+        cxt.stroke();
+
+
+    }
+</script>
+</body>
+</html>

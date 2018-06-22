@@ -13,6 +13,9 @@ H5单页面手势滑屏切换示例
 ## /gulpDemo
 gulp构建工具的使用
 
+## /canvas
+时间动画: [演示](https://xiaoxmok.github.io/xiao/canvas/countdown/index.html)
+
 ## /goBangAI
 js编写五子棋，人机对战。
 [演示](https://xiaoxmok.github.io/xiao/goBangAI/index.html)
