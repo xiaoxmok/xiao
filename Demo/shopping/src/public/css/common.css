@@ -35,6 +35,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     width: 1000px;
     height: 400px;
     clear:both;
+    margin: 30px auto 0!important;
 }
 .goods{position: relative;overflow: hidden;}
 .goods .title{
