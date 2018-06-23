@@ -344,45 +344,39 @@ $(function () {
 
         $.ajax({
             type:'GET',
-            //url:'/web/collect?page_size=10&page_num=1',
-            url:'/'+urlL+'public/json/collect.json?page_size=10&page_num=1',
+            url:url+'/api/v1/fav/index?token='+token+'&lang='+i18nLanguage,
             dataType:'json',
-            beforeSend:function(request){
-                var time = new Date().getTime();
-                var secure_token = $.md5(token + 'shop' + time);
-
-                request.setRequestHeader("token", token);
-                request.setRequestHeader("time", time);
-                request.setRequestHeader("secure_token", secure_token);
-            },
             success:function(data){
-                if(data.success === '0'){
+                if(data.code === 200){
                     if(data.data.length >0){
                         var dataArr = data.data;
                         dataArr.forEach(function(item,index){
                             var html;
                             if(isEnglish()){
                                 var html = '<li>\n' +
-                                    '                    <img src="'+item.pic+'" alt="">\n' +
+                                    '                    <a href="./product.html?id=' + item.id + '">\n' +
+                                    '                    <img src="'+item.img_infos[0].url+'" alt="">\n' +
                                     '                    <div class="con">\n' +
                                     '                        <p class="Title">'+item.name+'</p>\n' +
-                                    '                        <p class="description">'+item.detail+'</p>\n' +
-                                    '                        <p class="price"><span>MSRP：</span><del>￥'+item.origin_price+'</del></p>\n' +
-                                    '                        <p class="price"><span>School Special Offer：</span><em>￥'+item.edu_price+'</em></p>\n' +
+                                    '                        <p class="description">'+item.introduce+'</p>\n' +
+                                    '                        <p class="price"><span>MSRP：</span><del>￥'+toPrice(item.price)+'</del></p>\n' +
+                                    '                        <p class="price"><span>School Special Offer：</span><em>￥'+toPrice(item.school_price)+'</em></p>\n' +
                                     '                    </div>\n' +
+                                    '                    </a>\n' +
                                     '                </li>';
                             }else{
                                 var html = '<li>\n' +
-                                    '                    <img src="'+item.pic+'" alt="">\n' +
+                                    '                    <a href="./product.html?id=' + item.id + '">\n' +
+                                    '                    <img src="'+item.img_infos[0].url+'" alt="">\n' +
                                     '                    <div class="con">\n' +
                                     '                        <p class="Title">'+item.name+'</p>\n' +
-                                    '                        <p class="description">'+item.detail+'</p>\n' +
-                                    '                        <p class="price"><span>常规价格：</span><del>￥'+item.origin_price+'</del></p>\n' +
-                                    '                        <p class="price"><span>学校优惠价：</span><em>￥'+item.edu_price+'</em></p>\n' +
+                                    '                        <p class="description">'+item.introduce+'</p>\n' +
+                                    '                        <p class="price"><span>常规价格：</span><del>￥'+toPrice(item.price)+'</del></p>\n' +
+                                    '                        <p class="price"><span>学校优惠价：</span><em>￥'+toPrice(item.school_price)+'</em></p>\n' +
                                     '                    </div>\n' +
+                                    '                    </a>\n' +
                                     '                </li>';
                             }
-
                             $('.collect ul').append(html);
 
                         })
@@ -411,7 +405,23 @@ $(function () {
     function getMyDevice(){}
 
     // 获取我的特权券
-    function getMyTicket(){}
+    function getMyTicket(){
+
+        $.ajax({
+            type:'GET',
+            url:url+'/api/v1/coupon/index?token='+token+'&type=repair ',
+            dataType:'json',
+            success:function(data){
+                if(data.code === 200){
+
+                }
+            },
+            error:function(xhr,status,error){
+
+            }
+        })
+
+    }
 
     // 获取维修记录
     function getMaintenanceRecords(){}

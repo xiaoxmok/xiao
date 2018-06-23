@@ -74,12 +74,12 @@ $(function () {
                 $('.nav .left ul').append(all);
                 var category = data.data;
                 category.forEach(function(item,index){
-                    var html = '<li class="mac" data-name="'+item.id+'">'+item.name+'</li>'
-                    $('.nav .left ul').append(html);
+                    if(item.parent_id === 0){
+                        var html = '<li class="mac" data-name="'+item.id+'">'+item.name+'</li>'
+                        $('.nav .left ul').append(html);
+                    }
                 })
             } else {
-
-
             }
         },
         error: function () {
@@ -103,9 +103,9 @@ $(function () {
             var loginPrice;
             if(isEnglish()){
                 if (login()) {
-                    loginPrice = '<p class="price"><span>School Special Offer：</span><em>￥' + item.school_price + '</em></p>'
+                    loginPrice = '<p class="price"><span>School Special Offer：</span><em>￥' + toPrice(item.school_price) + '</em></p>'
                 } else {
-                    loginPrice = '<p class="price"><span>Education Special Offer：</span><em>￥' + item.education_price + '</em></p>'
+                    loginPrice = '<p class="price"><span>Education Special Offer：</span><em>￥' + toPrice(item.education_price) + '</em></p>'
                 }
                 var html = '<li>\n' +
                     '                    <a href="./product.html?id=' + item.id + '">\n' +
@@ -113,16 +113,16 @@ $(function () {
                     '                        <div class="con">\n' +
                     '                            <p class="Title">' + item.name + '</p>\n' +
                     '                            <p class="description">' + item.summary + '</p>\n' +
-                    '                            <p class="price"><span>MSRP：</span><del>￥' + item.price + '</del></p>\n' +
+                    '                            <p class="price"><span>MSRP：</span><del>￥' + toPrice(item.price) + '</del></p>\n' +
                     loginPrice +
                     '                        </div>\n' +
                     '                    </a>\n' +
                     '                </li>';
             }else{
                 if (login()) {
-                    loginPrice = '<p class="price"><span>学校优惠价：</span><em>￥' + item.school_price + '</em></p>'
+                    loginPrice = '<p class="price"><span>学校优惠价：</span><em>￥' + toPrice(item.school_price) + '</em></p>'
                 } else {
-                    loginPrice = '<p class="price"><span>教育优惠价：</span><em>￥' + item.education_price + '</em></p>'
+                    loginPrice = '<p class="price"><span>教育优惠价：</span><em>￥' + toPrice(item.education_price) + '</em></p>'
                 }
                 var html = '<li>\n' +
                     '                    <a href="./product.html?id=' + item.id + '">\n' +
@@ -130,7 +130,7 @@ $(function () {
                     '                        <div class="con">\n' +
                     '                            <p class="Title">' + item.name + '</p>\n' +
                     '                            <p class="description">' + item.summary + '</p>\n' +
-                    '                            <p class="price"><span>常规价格：</span><del>￥' + item.price + '</del></p>\n' +
+                    '                            <p class="price"><span>常规价格：</span><del>￥' + toPrice(item.price) + '</del></p>\n' +
                     loginPrice +
                     '                        </div>\n' +
                     '                    </a>\n' +

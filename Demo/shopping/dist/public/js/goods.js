@@ -34,11 +34,11 @@ $(function () {
 
         // 加载sku商品信息
 
-        $('#price').html(getSkuListData[i].price);
+        $('#price').html(toPrice(getSkuListData[i].price));
         if(login()){
-            $('#school_price').html(getSkuListData[i].school_price);
+            $('#school_price').html(toPrice(getSkuListData[i].school_price));
         }else{
-            $('#school_price').html(getSkuListData[i].education_price);
+            $('#school_price').html(toPrice(getSkuListData[i].education_price));
         }
 
         var mySwiper = new Swiper('.swiper-container', {
@@ -234,6 +234,32 @@ $(function () {
     // 加入收藏
     $('.collect').click(function () {
 
+        $.ajax({
+            type:'POST',
+            url:url+'/api/v1/fav/create',
+            dataType:'json',
+            data:{
+                token:token,
+                goods_id:urlInfo.id
+            },
+            success:function(data){
+                if(data.code === 200){
+                    $('.zhezhao').show();
+                    if(isEnglish()){
+                        $('.tan2 .con p').html('Collection success.');
+                    }else{
+                        $('.tan2 .con p').html('收藏成功。');
+                    }
+                    $('.tan2').show();
+                    setTimeout(function () {
+                        //location.href = "cart.html"
+                        $('.zhezhao').hide();
+                        $('.tan2').hide();
+                    }, 1000);
+                }
+            },
+            error:function(){}
+        })
     });
 
     // 页面的操作

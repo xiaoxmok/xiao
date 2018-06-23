@@ -6,6 +6,7 @@
 .header .logo{height: 98px;}
 .header .logo img{margin-top: 20px;}
 .header .nav li{float:left;line-height: 95px;color:#fff;padding:0 20px;}
+.header .nav li:first-child{padding-left: 40px;}
 .header .nav li a{display: inline-block;color:#fff;}
 .header .nav li a:hover{border-bottom: 3px solid #fff;}
 body.on1 .header .nav li .on1{border-bottom: 3px solid #fff;}
@@ -26,20 +27,22 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #fff;}
 
 
 
+
+
 /*header-bar.html*/
-.header-bar{background: #eee;height: 30px;min-width: 1000px;}
+.header-bar{background: #eee;height: 60px;min-width: 1000px;margin-bottom: 30px;}
 .header-bar .content{width:1000px;margin: 0 auto;}
-.header-bar .content .address,.header-bar .content .login,.header-bar .content .cart{float:right;line-height: 30px;color:#999;font-size: 14px;margin-right: 10px;}
-.header-bar .content .cart span{display: inline-block;background: url(../img/2.png) no-repeat;width:15px;height:16px;float:left;margin-top: 6px;margin-right: -15px;}
+.header-bar .content .address,.header-bar .content .login,.header-bar .content .cart{float:right;line-height: 60px;color:#999;font-size: 14px;margin-right: 10px;}
+.header-bar .content .cart span{display: inline-block;background: url(../img/2.png) no-repeat;width:15px;height:16px;float:left;margin-top: 21px;margin-right: -15px;}
 .header-bar .content .cart .count{color: #ff7238;}
-.header-bar .content .address span{display: inline-block;background: url(../img/1.png) no-repeat;width:11px;height:15px;float:left;margin-top: 7px;margin-right: -20px;}
+.header-bar .content .address span{display: inline-block;background: url(../img/1.png) no-repeat;width:11px;height:15px;float:left;margin-top: 23px;margin-right: -20px;}
 .header-bar .content div a{padding: 0 20px;text-align: center;}
 .header-bar .address{position: relative;}
-.header-bar .address a{display: inline-block;}
+.header-bar .address a{display: inline-block;text-align: left!important;padding-left: 13px!important;}
 .header-bar .address ul{z-index:99;background: #eee;width: 90px;position: absolute;left:0px;text-align: center;display: none;}
 .header-bar .address li{background: #eee;border-top:1px solid #ccc;cursor:pointer;}
 .header-bar .address li:hover{color: #ff7238;}
-.header-bar .content .welcome{line-height: 30px;color:#999;font-size: 14px;float: left;}
+.header-bar .content .welcome{line-height: 60px;color:#999;font-size: 14px;float: left;}
 
 .header-bar .logined{position: relative;}
 .header-bar .logined a{display: inline-block;}
@@ -55,9 +58,10 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #fff;}
 
 
 @media screen and (max-width:414px){
+    .header-bar{height:30px;margin-bottom: 0}
     .header-bar,.footer{width: 100%!important;min-width:100%;}
     .header{display: none;}
-    .header-bar .content .welcome{font-size: 12px;margin-left: 15px;float:right;}
+    .header-bar .content .welcome{font-size: 12px;margin-left: 15px;float:right;line-height: 30px;}
     .header-bar.header-bar .content .address,.header-bar .content .login,.header-bar .content .cart{display: none;}
 
     .header-bar .content{width:100%;}
