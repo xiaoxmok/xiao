@@ -28,17 +28,17 @@
             <tr>
                 <td class="td1"><strong>*</strong>设备分类：</td>
                 <td class="td2">
-                    <select class="select">
-                        <option value="">分类1</option>
+                    <select class="select device">
+                        <!--<option value="">分类1</option>
                         <option value="">分类2</option>
                         <option value="">分类3</option>
-                        <option value="">分类4</option>
+                        <option value="">分类4</option>-->
                     </select>
-                    <select class="select">
-                        <option value="">分类1</option>
+                    <select class="select deviceChild">
+                        <!--<option value="">分类1</option>
                         <option value="">分类2</option>
                         <option value="">分类3</option>
-                        <option value="">分类4</option>
+                        <option value="">分类4</option>-->
                     </select>
                 </td>
             </tr>
@@ -51,17 +51,17 @@
             <tr>
                 <td class="td1"><strong>*</strong>故障分类：</td>
                 <td class="td2">
-                    <select class="select">
-                        <option value="">分类1</option>
+                    <select class="select fault">
+                        <!--<option value="">分类1</option>
                         <option value="">分类2</option>
                         <option value="">分类3</option>
-                        <option value="">分类4</option>
+                        <option value="">分类4</option>-->
                     </select>
-                    <select class="select">
-                        <option value="">分类1</option>
+                    <select class="select faultChild">
+                        <!--<option value="">分类1</option>
                         <option value="">分类2</option>
                         <option value="">分类3</option>
-                        <option value="">分类4</option>
+                        <option value="">分类4</option>-->
                     </select>
                 </td>
             </tr>
@@ -124,17 +124,17 @@
             <tr>
                 <td class="td1"><strong>*</strong>设备分类：</td>
                 <td class="td2">
-                    <select class="select">
-                        <option value="">分类1</option>
+                    <select class="select device">
+                        <!--<option value="">分类1</option>
                         <option value="">分类2</option>
                         <option value="">分类3</option>
-                        <option value="">分类4</option>
+                        <option value="">分类4</option>-->
                     </select>
-                    <select class="select">
-                        <option value="">分类1</option>
+                    <select class="select deviceChild">
+                        <!--<option value="">分类1</option>
                         <option value="">分类2</option>
                         <option value="">分类3</option>
-                        <option value="">分类4</option>
+                        <option value="">分类4</option>-->
                     </select>
                 </td>
             </tr>
@@ -147,17 +147,17 @@
             <tr>
                 <td class="td1"><strong>*</strong>故障分类：</td>
                 <td class="td2">
-                    <select class="select">
-                        <option value="">分类1</option>
+                    <select class="select fault">
+                        <!--<option value="">分类1</option>
                         <option value="">分类2</option>
                         <option value="">分类3</option>
-                        <option value="">分类4</option>
+                        <option value="">分类4</option>-->
                     </select>
-                    <select class="select">
-                        <option value="">分类1</option>
+                    <select class="select faultChild">
+                        <!--<option value="">分类1</option>
                         <option value="">分类2</option>
                         <option value="">分类3</option>
-                        <option value="">分类4</option>
+                        <option value="">分类4</option>-->
                     </select>
                 </td>
             </tr>
@@ -246,33 +246,11 @@
             </tr>
         </table>
         <div class="btn">
-            <a href="javascript:;">提交</a>
+            <a href="javascript:;" class="submit">提交</a>
         </div>
     </div>
 </div>
 @@include('./view/footer.html')
 <script src="../public/js/repairApplication.js"></script>
-<script>
-    //在input file内容改变的时候触发事件
-    /*$('.file').change(function(){
-        if(URL.createObjectURL($(this)[0].files[0])){
-            $(this).parent().find('.imgshow').attr("src",URL.createObjectURL($(this)[0].files[0]));
-        }
-    })*/
-
-    $(function(){
-        $('.radio[name="ser"]').click(function(){
-            var value = $(this).val();
-            console.log(value);
-            if(value == 0){
-                $('.serCon').hide();
-                $('.serCon').eq(0).show();
-            }else if(value == 1){
-                $('.serCon').hide();
-                $('.serCon').eq(1).show();
-            }
-        })
-    })
-</script>
 </body>
 </html>
