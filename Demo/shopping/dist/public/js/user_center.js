@@ -413,7 +413,38 @@ $(function () {
             dataType:'json',
             success:function(data){
                 if(data.code === 200){
+                    var dataArr = data.data;
+                    $('.ticket ul').html('');
 
+                    dataArr.forEach(function(item,index){
+                        var html;
+                        var type = {
+                            repair: '维修券'
+                        }
+                        if(isEnglish()){
+                            html = '<li class="ticket1">\n' +
+                                '                <div class="up">\n' +
+                                '                    <div class="img"></div>\n' +
+                                '                    <p>'+item.type+'</p>\n' +
+                                '                </div>\n' +
+                                '                <div class="down">\n' +
+                                '                    <a href="javascript:;">Unused</a>\n' +
+                                '                </div>\n' +
+                                '            </li>';
+                        }else{
+                            html = '<li class="ticket1">\n' +
+                                '                <div class="up">\n' +
+                                '                    <div class="img"></div>\n' +
+                                '                    <p>'+type[item.type]+'</p>\n' +
+                                '                </div>\n' +
+                                '                <div class="down">\n' +
+                                '                    <a href="javascript:;">未使用</a>\n' +
+                                '                </div>\n' +
+                                '            </li>';
+                        }
+
+                        $('.ticket ul').append(html);
+                    })
                 }
             },
             error:function(xhr,status,error){
@@ -424,7 +455,21 @@ $(function () {
     }
 
     // 获取维修记录
-    function getMaintenanceRecords(){}
+    function getMaintenanceRecords(){
+        $.ajax({
+            type:'GET',
+            url:url+'/api/v1/repair/index?token='+token,
+            dataType:'json',
+            success:function(data){
+                if(data.code === 200){
+
+                }
+            },
+            error:function(xhr,status,error){
+
+            }
+        })
+    }
 
 
     $('.orderNav li').click(function () {

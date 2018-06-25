@@ -157,7 +157,7 @@ var api = {
                 if (data.code === 200) {
                     callback(data)
                 } else {
-                    result = data.msg;
+                    //result = data.msg;
                 }
             },
             error: function () {
@@ -267,26 +267,26 @@ var api = {
      * @returns {*}
      */
     getCartList: function (userId, lang,callback) {
-        var result;
+        //var result;
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
             url: url + '/api/v1/cart/index?user_id=' + userId + '&lang=' + lang + '&token=' + token,
             dataType: 'json',
-            async: false,
+            async: true,
             success: function (data) {
                 //console.log(data);
                 if (data.code === 200) {
                     callback(data.data);
                 } else {
-                    result = data.msg;
+                    //result = data.msg;
                 }
             },
             error: function () {
             }
         });
 
-        return result;
+        //return result;
     },
     /**
      * 向购物车添加一条记录
@@ -565,26 +565,26 @@ var api = {
      * @returns {*}
      */
     getOrderInfo:function(order_no,callback){
-        var result;
+        //var result;
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
             url: url + '/api/v1/order/get?order_no='+ order_no + '&token=' + token,
             dataType: 'json',
-            async: false,
+            async: true,
             success: function (data) {
                 //console.log(data);
                 if (data.code === 200) {
                     callback(data.data);
                 } else {
-                    result = data.msg;
+                    //result = data.msg;
                 }
             },
             error: function () {
             }
         });
 
-        return result;
+        //return result;
     },
     /**
      * 订单支付
@@ -796,5 +796,33 @@ var api = {
         });
 
         return result;
-    }
+    },
+    /**
+     * 获取设备特权券清单
+     * @param phone
+     * @param callback
+     * @returns {*}
+     */
+    getRepairInfo:function(phone,callback){
+        //var result;
+        //var token = getCookie("token");
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/repair/user-info?phone='+ phone + '&lang=' + i18nLanguage,
+            dataType: 'json',
+            async: true,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    callback(data.data);
+                } else {
+                    //result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        //return result;
+    },
 }

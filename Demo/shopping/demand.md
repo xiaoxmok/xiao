@@ -1,6 +1,7 @@
 
 
 - [api](http://byod.1o24.com/docs/index.html#/)
+- [api](http://byod.mc2edu.com/docs/index.html#/)
 - [接口文件](./index.yaml)
 - [原型图](https://pro.modao.cc/app/JDafqMO1ydF1aQS3tvkOl3FRMGQhT5o?#screen=s18A8F9204A1524160880477)
 - [链接](http://byod.chumi.cn/web/zh/registered.html)
