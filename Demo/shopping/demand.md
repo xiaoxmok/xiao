@@ -4,7 +4,7 @@
 - [api](http://byod.mc2edu.com/docs/index.html#/)
 - [接口文件](./index.yaml)
 - [原型图](https://pro.modao.cc/app/JDafqMO1ydF1aQS3tvkOl3FRMGQhT5o?#screen=s18A8F9204A1524160880477)
-- [链接](http://byod.chumi.cn/web/zh/registered.html)
+- [链接](http://byod.mc2edu.com/web/zh/index.html)
 
 网站PC端：https://pro.modao.cc/app/JDafqMO1ydF1aQS3tvkOl3FRMGQhT5o
 
