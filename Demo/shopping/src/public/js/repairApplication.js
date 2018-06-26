@@ -283,24 +283,28 @@ $(function () {
                 return;
             }
 
-            if(self_img_ids.length === 0){
-                if (isEnglish()) {
-                    $('.error').html('Please upload pictures.');
-                } else {
-                    $('.error').html('请上传图片.');
-                }
+            if(self_img_ids.length > 0){
+                repairData.img_ids = self_img_ids.join(',');
+            }
+
+            if($('#self .param').val().length > 0){
+                repairData.param = $('#self .param').val()
+            }
+            if($('#self .sn').val().length > 0){
+                repairData.sn = $('#self .sn').val()
+            }
+            if($('#self .description').val().length > 0){
+                repairData.description = $('#self .description').val()
+            }
+            if($('#self .email').val().length > 0){
+                repairData.email = $('#self .email').val()
             }
 
             repairData = {
                 type:type,
                 device_category: device_category.join(','),
                 fault_category: fault_category.join(','),
-                img_ids: self_img_ids.join(','),
-                param: $('#self .param').val(),
-                sn: $('#self .sn').val(),
-                description: $('#self .description').val(),
                 phone: phone,
-                email: $('#self .email').val(),
                 lang:i18nLanguage
             }
         } else {
@@ -319,26 +323,31 @@ $(function () {
                 return;
             }
 
-            if(door_img_ids.length === 0){
-                if (isEnglish()) {
-                    $('.error').html('Please upload pictures.');
-                } else {
-                    $('.error').html('请上传图片.');
-                }
+            if(self_img_ids.length > 0){
+                repairData.img_ids = self_img_ids.join(',');
+            }
+
+            if($('#door .param').val().length > 0){
+                repairData.param = $('#self .param').val()
+            }
+            if($('#door .description').val().length > 0){
+                repairData.description = $('#self .description').val()
+            }
+            if($('#door .email').val().length > 0){
+                repairData.email = $('#self .email').val()
+            }
+            if(user_coupon_id.length > 0){
+                repairData.user_coupon_id = user_coupon_id.join(',');
+            }
+            if($('#sku_id').has('input')){
+                //repairData.sku_id = $('#sku_id').attr('data-name')
             }
 
             repairData = {
                 type:type,
                 device_category: device_category.join(','),
                 fault_category: fault_category.join(','),
-                img_ids: door_img_ids.join(','),
-                param: $('#door .param').val(),
-                sn: $('#door .sn').val(),
-                description: $('#door .description').val(),
                 phone: phone,
-                email: $('#door .email').val(),
-                sku_id:$('#sku_id').attr('data-name'),
-                user_coupon_id:user_coupon_id.join(','),
                 lang:i18nLanguage
             }
         }

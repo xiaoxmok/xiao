@@ -51,7 +51,7 @@ var api = {
      * 获取验证码
      * @returns {*}
      */
-    getCaptcha:function(){
+    getCaptcha: function () {
         var result;
         $.ajax({
             type: 'GET',
@@ -138,18 +138,18 @@ var api = {
      * @param lang
      * @returns {*}
      */
-    getGoodsList: function (category_id, page, count, sort, lang,callback) {
+    getGoodsList: function (category_id, page, count, sort, lang, callback) {
 
-        var param,token;
-        if(login()){
+        var param, token;
+        if (login()) {
             token = getCookie('token');
-            param = 'category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang+'&token='+token;
-        }else{
+            param = 'category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang + '&token=' + token;
+        } else {
             param = 'category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang;
         }
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/goods/index?'+param,
+            url: url + '/api/v1/goods/index?' + param,
             dataType: 'json',
             async: true,
             success: function (data) {
@@ -200,19 +200,19 @@ var api = {
      * @param lang
      * @returns {*}
      */
-    getSkuList:function(goods_id, lang){
-        var result,token;
+    getSkuList: function (goods_id, lang) {
+        var result, token;
         var param;
-        if(login()){
+        if (login()) {
             token = getCookie('token');
-            param = 'goods_id=' + goods_id + '&lang=' + lang+'&token='+token;
-        }else{
+            param = 'goods_id=' + goods_id + '&lang=' + lang + '&token=' + token;
+        } else {
             param = 'goods_id=' + goods_id + '&lang=' + lang;
         }
 
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/sku/index?'+param,
+            url: url + '/api/v1/sku/index?' + param,
             dataType: 'json',
             async: false,
             success: function (data) {
@@ -238,12 +238,12 @@ var api = {
      * @param lang
      * @returns {*}
      */
-    getSkuInfo:function(id,lang){
+    getSkuInfo: function (id, lang) {
         var result;
         var token = getCookie('token');
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/sku/get?id=' + id + '&lang=' + lang +'&token='+token,
+            url: url + '/api/v1/sku/get?id=' + id + '&lang=' + lang + '&token=' + token,
             dataType: 'json',
             async: false,
             success: function (data) {
@@ -266,7 +266,7 @@ var api = {
      * @param lang
      * @returns {*}
      */
-    getCartList: function (userId, lang,callback) {
+    getCartList: function (userId, lang, callback) {
         //var result;
         var token = getCookie("token");
         $.ajax({
@@ -424,8 +424,8 @@ var api = {
                 //console.log(data);
                 if (data.code === 200) {
                     result = {
-                        data:data.data,
-                        extra:data.extra
+                        data: data.data,
+                        extra: data.extra
                     }
                 } else {
                     result = data.msg;
@@ -459,8 +459,8 @@ var api = {
                 //console.log(data);
                 if (data.code === 200) {
                     result = {
-                        data:data.data,
-                        extra:data.extra
+                        data: data.data,
+                        extra: data.extra
                     }
                 } else {
                     result = data.msg;
@@ -494,8 +494,8 @@ var api = {
                 //console.log(data);
                 if (data.code === 200) {
                     result = {
-                        data:data.data,
-                        extra:data.extra
+                        data: data.data,
+                        extra: data.extra
                     }
                 } else {
                     result = data.msg;
@@ -540,7 +540,7 @@ var api = {
      * @param status
      * @returns {*}
      */
-    getOrderList:function(status,callback){
+    getOrderList: function (status, callback) {
         //var result;
         var token = getCookie("token");
         $.ajax({
@@ -564,12 +564,12 @@ var api = {
      * @param order_no
      * @returns {*}
      */
-    getOrderInfo:function(order_no,callback){
+    getOrderInfo: function (order_no, callback) {
         //var result;
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/order/get?order_no='+ order_no + '&token=' + token,
+            url: url + '/api/v1/order/get?order_no=' + order_no + '&token=' + token,
             dataType: 'json',
             async: true,
             success: function (data) {
@@ -592,17 +592,17 @@ var api = {
      * @param price
      * @returns {*}
      */
-    postOrderPlay:function(order_no,price){
+    postOrderPlay: function (order_no, price) {
         var result;
         var token = getCookie("token");
         $.ajax({
             type: 'POST',
             url: url + '/api/v1/order/pay',
             dataType: 'json',
-            data:{
-                order_no:order_no,
-                price:price,
-                token:token
+            data: {
+                order_no: order_no,
+                price: price,
+                token: token
             },
             async: false,
             success: function (data) {
@@ -624,12 +624,12 @@ var api = {
      * @param order_no
      * @returns {*}
      */
-    getOrderCancel:function(order_no){
+    getOrderCancel: function (order_no) {
         var result;
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/order/cancel?order_no='+order_no+'&token='+token,
+            url: url + '/api/v1/order/cancel?order_no=' + order_no + '&token=' + token,
             dataType: 'json',
             async: false,
             success: function (data) {
@@ -647,12 +647,12 @@ var api = {
      * @param order_no
      * @returns {*}
      */
-    getOrderItems:function(order_no){
+    getOrderItems: function (order_no) {
         var result;
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/order/items?order_no='+order_no+'&token='+token,
+            url: url + '/api/v1/order/items?order_no=' + order_no + '&token=' + token,
             dataType: 'json',
             async: false,
             success: function (data) {
@@ -670,12 +670,12 @@ var api = {
      * @param user_id
      * @returns {*}
      */
-    getAddressList:function(user_id){
+    getAddressList: function (user_id) {
         var result;
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/address/index?user_id='+user_id+'&token='+token,
+            url: url + '/api/v1/address/index?user_id=' + user_id + '&token=' + token,
             dataType: 'json',
             async: false,
             success: function (data) {
@@ -697,12 +697,12 @@ var api = {
      * @param id
      * @returns {*}
      */
-    getAddressDelete:function(id){
+    getAddressDelete: function (id) {
         var result;
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/address/delete?id='+id+'&token='+token,
+            url: url + '/api/v1/address/delete?id=' + id + '&token=' + token,
             dataType: 'json',
             async: false,
             success: function (data) {
@@ -723,12 +723,12 @@ var api = {
      * 获取收货地址信息
      * @param id
      */
-    getAddressId:function(id){
+    getAddressId: function (id) {
         var result;
         var token = getCookie("token");
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/address/get?id='+id+'&token='+token,
+            url: url + '/api/v1/address/get?id=' + id + '&token=' + token,
             dataType: 'json',
             async: false,
             success: function (data) {
@@ -749,7 +749,7 @@ var api = {
      * 常见问题清单
      * @returns {*}
      */
-    getFaqPage:function(){
+    getFaqPage: function () {
         var result;
         var token = getCookie("token");
         $.ajax({
@@ -775,7 +775,7 @@ var api = {
      * 设备配置清单
      * @returns {*}
      */
-    getDeviceConfigPage:function(){
+    getDeviceConfigPage: function () {
         var result;
         var token = getCookie("token");
         $.ajax({
@@ -803,12 +803,12 @@ var api = {
      * @param callback
      * @returns {*}
      */
-    getRepairInfo:function(phone,callback){
+    getRepairInfo: function (phone, callback) {
         //var result;
         //var token = getCookie("token");
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/repair/user-info?phone='+ phone + '&lang=' + i18nLanguage,
+            url: url + '/api/v1/repair/user-info?phone=' + phone + '&lang=' + i18nLanguage,
             dataType: 'json',
             async: true,
             success: function (data) {
@@ -824,5 +824,69 @@ var api = {
         });
 
         //return result;
+    },
+    /**
+     * 获取文章列表
+     * @param category_id
+     * @param page
+     * @param count
+     * @param lang
+     * @param callback
+     */
+    getArticleList: function (category_id, page, count, lang, callback) {
+
+        var param = 'category_id=' + category_id + '&page=' + page + '&count=' + count + '&lang=' + lang;
+
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/article/index?' + param,
+            dataType: 'json',
+            async: true,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    callback(data)
+                } else {
+                    //result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
+
+        //return result;
+
+    },
+    /**
+     * 获取文章详情
+     * @param id
+     * @param alias
+     * @param lang
+     * @param callback
+     */
+    getArticleInfo: function (id, alias, lang, callback) {
+        var param;
+        if(alias !== 'undefined'){
+            param = 'id=' + id + '&page=' + page + '&count=' + count + '&lang=' + lang;
+        }else{
+            param = 'id=' + id + '&page=' + page + '&count=' + count + '&lang=' + lang;
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/article/index?' + param,
+            dataType: 'json',
+            async: true,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    callback(data)
+                } else {
+                    //result = data.msg;
+                }
+            },
+            error: function () {
+            }
+        });
     },
 }
