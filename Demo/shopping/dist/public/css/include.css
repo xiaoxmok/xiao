@@ -62,7 +62,7 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #fff;}
     .header-bar,.footer{width: 100%!important;min-width:100%;}
     .header{display: none;}
     .header-bar .content .welcome{font-size: 12px;margin-left: 15px;float:right;line-height: 30px;}
-    .header-bar.header-bar .content .address,.header-bar .content .login,.header-bar .content .cart{display: none;}
+    .header-bar.header-bar .content .address,.header-bar .content .login,.header-bar .content .cart{display: none!important;}
 
     .header-bar .content{width:100%;}
 

@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Msyh';
-    src:url('./msyh.ttc');
+    src:url('./msyh.ttf');
 }
 body {
     font-family:'Msyh', "Microsoft YaHei",SimSun, Tahoma, Arial, sans-serif;

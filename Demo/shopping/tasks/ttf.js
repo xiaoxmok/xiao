@@ -7,7 +7,7 @@ import csso from 'gulp-csso';
 import minifyCss from 'gulp-minify-css';        // 压缩处理成一行
 
 gulp.task('ttf', () => {
-    return gulp.src('src/**/*.ttc')
+    return gulp.src('src/**/*.ttf')
     //.pipe(csso())                 // 多个文件时，csso压缩有问题，需要使用minify
     //.pipe(minifyCss())
         .pipe(gulp.dest('dist'))
