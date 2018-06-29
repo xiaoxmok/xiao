@@ -2,6 +2,7 @@
  * Created by xiaoxiangmin on 2017/11/30.
  */
 require.config({
+    //baseUrl:'./',
     paths:{
         jquery:'jquery-2.2.2.min',
         jqueryUI:'jquery-ui.min'
