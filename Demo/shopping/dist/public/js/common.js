@@ -279,6 +279,19 @@ $(function(){
             $('.welcome').html("欢迎。");
         }
     }
+
+
+    // 临时购物车
+    function localCart(){
+        if(getCookie("localCart")) {
+            var str = getCookie("localCart");
+            var localCart = str.split(',');
+            $('.cart .count').html(localCart.length);
+        }
+    }
+    localCart();
+
+
 });
 
 

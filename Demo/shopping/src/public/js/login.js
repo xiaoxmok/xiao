@@ -129,6 +129,10 @@ $(function () {
                         $('.error').html('登录成功，2秒后进入首页。');
                     }
 
+                    if(getCookie("localCart")){
+                        $('.error').html('临时购物车存在商品，将批量加入本账户。');
+                    }
+
                     setTimeout(function () {
                         location.href = "index.html"
                     }, 2000);

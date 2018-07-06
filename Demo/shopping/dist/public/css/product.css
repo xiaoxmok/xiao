@@ -81,6 +81,8 @@
 .pop .con{clear:both;padding: 20px;}
 .pop .con p{line-height: 25px;color:#343434;font-size: 14px;}
 
+.exclusive{color:#C4080A;font-size: 14px;margin-left: 20px;}
+
 
 @media screen and (max-width:414px){
     .product .small{display: none;}

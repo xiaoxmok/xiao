@@ -47,6 +47,7 @@ $(function () {
         $('#price').html(toPrice(getSkuListData[i].price));
         if(login()){
             $('#school_price').html(toPrice(getSkuListData[i].school_price));
+            $('.exclusive').hide();
         }else{
             $('#school_price').html(toPrice(getSkuListData[i].education_price));
         }
@@ -141,22 +142,76 @@ $(function () {
         //console.log(sku_id);
     });
 
+    function showTan(text){
+        $('.zhezhao').show();
+        $('.tan2 .con p').html(text);
+
+        $('.tan2').show();
+        setTimeout(function () {
+            //location.href = "cart.html"
+            $('.zhezhao').hide();
+            $('.tan2').hide();
+        }, 1000);
+    }
+
     // 加入购物车
     $('.add').click(function () {
         if (!login()) {
-            $('.zhezhao').show();
-            if(isEnglish()){
-                $('.tan2 .con p').html('please sign in....');
-            }else{
-                $('.tan2 .con p').html('请登录。。。');
+
+            var quantity = $('#quantity').val();
+            console.log(sku_id,quantity);
+            var localCart = [];
+            var flag = true;
+            if(getCookie("localCart")){
+                var str = getCookie("localCart");
+                localCart = str.split(',');
+                localCart.forEach(function(item,index){
+                    if(item.split('-')[0] == sku_id){
+                        flag = false;
+                    }
+                });
+
+                if(flag){
+                    localCart.push(sku_id+'-'+quantity);
+                    getCookie("localCart", localCart, {
+                        expires: 30,
+                        path: '/'
+                    });
+                    if(isEnglish()){
+                        showTan('Join the temporary shopping cart successfully!');
+                    }else{
+                        showTan('加入临时购物车成功！')
+                    }
+
+                }else{
+                    if(isEnglish()){
+                        showTan('Already in a temporary shopping cart');
+                    }else{
+                        showTan('已经在临时购物车')
+                    }
+                }
+
+
+            }else {
+                localCart.push(sku_id+'-'+quantity);
+                getCookie("localCart", localCart, {
+                    expires: 30,
+                    path: '/'
+                });
+                if(isEnglish()){
+                    showTan('Join the temporary shopping cart successfully!');
+                }else{
+                    showTan('加入临时购物车成功！')
+                }
             }
-            $('.tan2').show();
-            setTimeout(function () {
-                //location.href = "cart.html"
-                $('.zhezhao').hide();
-                $('.tan2').hide();
-                location.href = "login.html"
-            }, 1000);
+
+            // 更新购物车数据
+            if(getCookie("localCart")) {
+                var str = getCookie("localCart");
+                localCart = str.split(',');
+                $('.cart .count').html(localCart.length);
+            }
+
         }else{
             var quantity = $('#quantity').val();
             var flag = true;
