@@ -55,11 +55,11 @@ $(function () {
 
     })
 
-
     // 获取商品分类
     $.ajax({
         type: 'GET',
-        url: url + '/api/v1/goods-category/index?id=' +''+ '&lang=' + i18nLanguage,
+        url: url + '/api/v1/category/index?type=goods'+ '&lang=' + i18nLanguage,
+        //url: url + '/api/v1/goods-category/index?id=' +''+ '&lang=' + i18nLanguage,
         dataType: 'json',
         async: false,
         success: function (data) {
@@ -75,7 +75,14 @@ $(function () {
                 var category = data.data;
                 category.forEach(function(item,index){
                     if(item.parent_id === 0){
-                        var html = '<li class="mac" data-name="'+item.id+'">'+item.name+'</li>'
+                        var category_id=[];
+                        category_id.push(item.id);
+                        var categoryArr=item.children;
+                        categoryArr.forEach(function(item,index){
+                            category_id.push(item.id);
+                        })
+
+                        var html = '<li class="mac" data-name="'+category_id.join(',')+'">'+item.name+'</li>'
                         $('.nav .left ul').append(html);
                     }
                 })
@@ -83,6 +90,7 @@ $(function () {
             }
         },
         error: function () {
+
         }
     });
 

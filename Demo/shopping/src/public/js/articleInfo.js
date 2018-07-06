@@ -7,10 +7,26 @@ $(function () {
     news：咨询中心
     */
 
+    var pathname = window.location.pathname;
+    var urlArr = pathname.split('/');
+    var name = urlArr[2].slice(0, -5);
+    //console.log(name);
+    var alias;
+    if(name === 'aboutUs'){
+        alias = 'about';
+    }else if(name === 'eduSoftware'){
+        alias = 'soft';
+    }else if(name === 'solution'){
+        alias = 'solution';
+    }else if(name === 'information'){
+        alias = 'news';
+    }
+
+
     // 获取分类
     $.ajax({
         type: 'GET',
-        url: url + '/api/v1/category/get?alias=about&lang='+i18nLanguage,
+        url: url + '/api/v1/category/get?alias='+alias+'&lang=' + i18nLanguage,
         dataType: 'json',
         success: function (data) {
             if (data.code === 200) {
@@ -33,32 +49,33 @@ $(function () {
                 api.getArticleList(allId.join(','), 1, 20, i18nLanguage, redraw);
             }
         },
-        error: function () {}
+        error: function () {
+        }
     });
 
     function redraw(data) {
         $('.goods .content ul').html('');
         var dataArr = data.data;
-        if(dataArr.length > 0){
+        if (dataArr.length > 0) {
             dataArr.forEach(function (item, index) {
                 var html = '<li>\n' +
-                    '                    <a href="javascript:;">\n' +
+                    '                    <a href="./articleDetails.html?id='+item.id+'">\n' +
                     '                        <div class="img">\n' +
-                    '                            <img src="'+item.poster_info.url+'" alt="">\n' +
+                    '                            <img src="' + item.poster_info.url + '" alt="">\n' +
                     '                        </div>\n' +
                     '                        <div class="con">\n' +
-                    '                            <p class="Title">'+item.title+'</p>\n' +
-                    '                            <p class="description">'+item.summary+'</p>\n' +
+                    '                            <p class="Title">' + item.title + '</p>\n' +
+                    '                            <p class="description">' + item.summary + '</p>\n' +
                     '                        </div>\n' +
                     '                    </a>\n' +
                     '                </li>';
 
                 $('.goods .content ul').append(html);
             })
-        }else{
-            if(isEnglish()){
+        } else {
+            if (isEnglish()) {
                 $('.goods .content ul').html('No data');
-            }else{
+            } else {
                 $('.goods .content ul').html('无数据');
             }
         }
@@ -83,7 +100,7 @@ $(function () {
     $('.goods .page #first').click(function () {
         var category_id = $('.nav .left .active').attr('data-name');
 
-        api.getArticleList(category_id, 1, 20, i18nLanguage,redraw)
+        api.getArticleList(category_id, 1, 20, i18nLanguage, redraw)
     });
 
     //翻页 尾页
@@ -92,7 +109,7 @@ $(function () {
         var page = $('.goods .page #page').val();
         var pageArr = page.split('/');
 
-        api.getArticleList(category_id, pageArr[1], 20, i18nLanguage,redraw)
+        api.getArticleList(category_id, pageArr[1], 20, i18nLanguage, redraw)
     });
 
     //翻页 上一页
@@ -101,9 +118,9 @@ $(function () {
         var page = $('.goods .page #page').val();
         var pageArr = page.split('/');
         if (pageArr[0] === '1') {
-            api.getArticleList(category_id, 1, 20, i18nLanguage,redraw)
+            api.getArticleList(category_id, 1, 20, i18nLanguage, redraw)
         } else {
-            api.getArticleList(category_id, pageArr[0] - 1, 20, i18nLanguage,redraw)
+            api.getArticleList(category_id, pageArr[0] - 1, 20, i18nLanguage, redraw)
         }
     });
 
@@ -113,9 +130,9 @@ $(function () {
         var page = $('.goods .page #page').val();
         var pageArr = page.split('/');
         if (pageArr[0] + 1 > pageArr[1]) {
-            api.getArticleList(category_id, pageArr[1], 20, i18nLanguage,redraw)
+            api.getArticleList(category_id, pageArr[1], 20, i18nLanguage, redraw)
         } else {
-            api.getArticleList(category_id, pageArr[0] + 1, 20, i18nLanguage,redraw)
+            api.getArticleList(category_id, pageArr[0] + 1, 20, i18nLanguage, redraw)
         }
     })
 

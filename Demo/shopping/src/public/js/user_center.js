@@ -456,9 +456,9 @@ $(function () {
 
     }
 
-    var status,backup_status;
+    var repairStatus,backup_status;
     if(isEnglish()){
-        status = {
+        repairStatus = {
             uSubmited: 'uSubmited',
             pReceived: 'pReceived',
             pEvaluated: 'pEvaluated',
@@ -478,7 +478,7 @@ $(function () {
             pConfirmReturned: 'pConfirmReturned'
         }
     }else{
-        status = {
+        repairStatus = {
             uSubmited: '用户已提交',
             pReceived: '平台确认收到机器',
             pEvaluated: '平台已评估',
@@ -526,6 +526,7 @@ $(function () {
                             '                <th>维修状态</th>\n' +
                             '            </tr>';
                     }
+
                     $('.pcService').append(head);
 
                     dataArr.forEach(function (item, index) {
@@ -536,7 +537,7 @@ $(function () {
                                 '                <td><p>'+item.evaluation+'</p></td>\n' +
                                 '                <td class="operate"><a href="javascript:;">'+backup_status[item.backup_status]+'</a></td>\n' +
                                 '                <td class="status">\n' +
-                                '                    <p>'+status[item.status]+'</p>\n' +
+                                '                    <p>'+repairStatus[item.status]+'</p>\n' +
                                 '                    <span>Created time：'+item.created_at+'</span>\n' +
                                 '                </td>\n' +
                                 '            </tr>';
@@ -552,7 +553,7 @@ $(function () {
                                 '                            </div>\n' +
                                 '                        </div>\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div class="status">'+status[item.status]+'</div>\n' +
+                                '                            <div class="status">'+repairStatus[item.status]+'</div>\n' +
                                 '                            <div class="time"><span>Created time：'+item.created_at+'</span></div>\n' +
                                 '                        </div>\n' +
                                 '                    </div>\n' +
@@ -567,7 +568,7 @@ $(function () {
                                 '                <td><p>'+item.evaluation+'</p></td>\n' +
                                 '                <td class="operate"><a href="javascript:;">'+backup_status[item.backup_status]+'</a></td>\n' +
                                 '                <td class="status">\n' +
-                                '                    <p>'+status[item.status]+'</p>\n' +
+                                '                    <p>'+repairStatus[item.status]+'</p>\n' +
                                 '                    <span>提交时间：'+item.created_at+'</span>\n' +
                                 '                </td>\n' +
                                 '            </tr>';
@@ -583,7 +584,7 @@ $(function () {
                                 '                            </div>\n' +
                                 '                        </div>\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div class="status">'+status[item.status]+'</div>\n' +
+                                '                            <div class="status">'+repairStatus[item.status]+'</div>\n' +
                                 '                            <div class="time"><span>提交时间：'+item.created_at+'</span></div>\n' +
                                 '                        </div>\n' +
                                 '                    </div>\n' +

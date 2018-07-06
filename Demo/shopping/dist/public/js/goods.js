@@ -19,9 +19,19 @@ $(function () {
     $('.introduce').html(getGoods.introduce);
 
 
+
     function showSku(i) {
         // 加载商品图片
-        var imgArr = getSkuListData[i].img_infos;
+        var imgArr;
+        if(i === 999){
+            imgArr = getGoods.img_infos;
+            i=0;
+        }else{
+            imgArr = getSkuListData[i].img_infos;
+            if(imgArr.length === 0){
+                imgArr = getGoods.img_infos;
+            }
+        }
         $('.swiper-wrapper').html('');
         $('.product .small').html('');
         imgArr.forEach(function (item, index) {
@@ -61,8 +71,8 @@ $(function () {
 
     };
 
-    // 默认显示sku_id的第一条数据;
-    showSku(0);
+    // 默认显示商品图片;
+    showSku(999);
     var sku_id = getSkuListData[0].id;
 
     var order_items = [{

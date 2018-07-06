@@ -154,7 +154,7 @@
                 showDate:showDate
             });
         }
-        //console.log(ret);
+        console.log(ret);
 
         return {
             year:year,

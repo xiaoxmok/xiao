@@ -866,15 +866,15 @@ var api = {
      */
     getArticleInfo: function (id, alias, lang, callback) {
         var param;
-        if(alias !== 'undefined'){
-            param = 'id=' + id + '&page=' + page + '&count=' + count + '&lang=' + lang;
+        if(alias !== ''){
+            param = 'id=' + id + '&alias=' + alias + '&lang=' + lang;
         }else{
-            param = 'id=' + id + '&page=' + page + '&count=' + count + '&lang=' + lang;
+            param = 'id=' + id + '&lang=' + lang;
         }
 
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/article/index?' + param,
+            url: url + '/api/v1/article/get?' + param,
             dataType: 'json',
             async: true,
             success: function (data) {

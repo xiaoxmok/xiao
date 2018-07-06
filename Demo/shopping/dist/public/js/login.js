@@ -110,14 +110,14 @@ $(function () {
 
 
 
-                    /*if(getUser.name == null){
+                    if(getUser.name == null){
                         $('.error').html('首次登录，请完善资料');
 
                         setTimeout(function () {
                             location.href = "prefectData.html"
                         }, 2000);
                         return;
-                    }*/
+                    }
 
                     if(isEnglish()){
                         $('.welcome').html('Dear '+getUser.name+' , Welcome to '+getSchool.name+' page.');
