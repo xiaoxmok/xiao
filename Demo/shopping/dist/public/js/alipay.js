@@ -6,7 +6,7 @@ $(function(){
     var token = getCookie('token');
 
     var getUrl = GetRequest();
-    console.log(getUrl);
+    //console.log(getUrl);
 
     var agent = 'pc';
     if(isPhone()){

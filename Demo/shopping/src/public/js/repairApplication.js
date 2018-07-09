@@ -1,9 +1,7 @@
 $(function () {
-    if (!login()) {
-        //location.href = "login.html"
-    }
 
-    var token = getCookie('token');
+
+
 
     $('.radio[name="type"]').click(function () {
         var value = $(this).val();
@@ -16,6 +14,17 @@ $(function () {
             $('#door').show();
         }
     })
+
+    if(login()){
+        var token = getCookie('token');
+
+        // 获取个人信息
+        var getUser = api.getUser(token);
+
+        $('#door #address').html(getUser.school_region_info.address);
+
+    }
+
 
     var self_img_ids = []
     var door_img_ids = []

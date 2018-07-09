@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>解决方案</title>
+    <title>REPAIR REQUEST</title>
     @@include('./view/meta.html')
     <link rel="stylesheet" href="../public/css/solution.css">
 </head>
 <body class="on2">
 @@include('./view/header.html')
+@@include('./view/header-bar.html')
 <div class="main solution">
-    <h3 class="title">提交维修申请</h3>
+    <h3 class="title">Request Repair</h3>
     <!--<div class="text">
         根据苹果更新后的维修政策，随着使用时间的推移，Apple Watch 2手表会出现无法开机或者电池鼓包的情况。针对这一情况，苹果决定为这些手表提供免费维修，而维修的有效期是购买后的三年。
     </div>-->
@@ -17,16 +18,16 @@
         <!--<h4 class="title">苹果维修政策</h4>-->
         <table>
             <tr>
-                <td class="td1"><strong>*</strong>选择维修方式：</td>
+                <td class="td1"><strong>*</strong>I would like to：</td>
                 <td class="td2" id="type">
-                    <span class="mr20"><input type="radio" id="ser1" class="radio" value="self" name="type" checked><label for="ser1">自行维修</label></span>
-                    <span class="mr20"><input type="radio" id="ser2" class="radio" value="door" name="type"><label for="ser2">上门</label></span>
+                    <span class="mr20"><input type="radio" id="ser1" class="radio" value="self" name="type" checked><label for="ser1">personally bring it in for repair</label></span>
+                    <span class="mr20"><input type="radio" id="ser2" class="radio" value="door" name="type"><label for="ser2">have someone pick it up in school</label></span>
                 </td>
             </tr>
         </table>
         <table style="display: block;" class="serCon" id="self">
             <tr>
-                <td class="td1"><strong>*</strong>设备分类：</td>
+                <td class="td1"><strong>*</strong>Choose a device：</td>
                 <td class="td2">
                     <select class="select device">
                         <!--<option value="">分类1</option>
@@ -43,13 +44,13 @@
                 </td>
             </tr>
             <tr>
-                <td class="td1">设备型号：</td>
+                <td class="td1">Device Model：</td>
                 <td class="td2">
-                    <input type="text" class="input param" placeholder="请输入设备型号">
+                    <input type="text" class="input param" placeholder="Enter your device model">
                 </td>
             </tr>
             <tr>
-                <td class="td1"><strong>*</strong>故障分类：</td>
+                <td class="td1"><strong>*</strong>Malfunction Cause：</td>
                 <td class="td2">
                     <select class="select fault">
                         <!--<option value="">分类1</option>
@@ -68,11 +69,11 @@
             <tr>
                 <td></td>
                 <td class="td2">
-                    <textarea name="" class="description" cols="30" rows="5" placeholder="描述。。。"></textarea>
+                    <textarea name="" class="description" cols="30" rows="5" placeholder="description。。。"></textarea>
                 </td>
             </tr>
             <tr>
-                <td class="td1">上传照片：</td>
+                <td class="td1">Upload photos：</td>
                 <td class="td2">
                     <div class="img">
                         <span>+</span>
@@ -97,19 +98,19 @@
                 </td>
             </tr>
             <tr>
-                <td class="td1">邮箱：</td>
+                <td class="td1">Email：</td>
                 <td class="td2">
                     <input type="text" class="email">
                 </td>
             </tr>
             <tr>
-                <td class="td1"><strong>*</strong>手机：</td>
+                <td class="td1"><strong>*</strong>Mobile：</td>
                 <td class="td2">
                     <input type="text" class="phone">
                 </td>
             </tr>
             <tr>
-                <td class="td1">设备序列号：</td>
+                <td class="td1">Devise serial number：</td>
                 <td class="td2">
                     <input type="text" class="input sn">
                 </td>
@@ -117,10 +118,10 @@
         </table>
         <table style="display: none;" class="serCon" id="door">
             <tr>
-                <td colspan="2" class="td_strong">温馨提示：上门送修会收取一定费用，请提前准备好需要上门维修的设备</td>
+                <td colspan="2" class="td_strong">Please note, service fee might apply to pick-up service.</td>
             </tr>
             <tr>
-                <td class="td1"><strong>*</strong>设备分类：</td>
+                <td class="td1"><strong>*</strong>Choose a device：</td>
                 <td class="td2">
                     <select class="select device">
                         <!--<option value="">分类1</option>
@@ -137,13 +138,13 @@
                 </td>
             </tr>
             <tr>
-                <td class="td1">设备型号：</td>
+                <td class="td1">Device Model：</td>
                 <td class="td2">
-                    <input type="text" class="input param" placeholder="请输入设备型号">
+                    <input type="text" class="input param" placeholder="Enter your device model">
                 </td>
             </tr>
             <tr>
-                <td class="td1"><strong>*</strong>故障分类：</td>
+                <td class="td1"><strong>*</strong>Malfunction Cause：</td>
                 <td class="td2">
                     <select class="select fault">
                         <!--<option value="">分类1</option>
@@ -162,11 +163,11 @@
             <tr>
                 <td></td>
                 <td class="td2">
-                    <textarea cols="30" rows="5" placeholder="描述。。。" class="description"></textarea>
+                    <textarea cols="30" rows="5" placeholder="description。。。" class="description"></textarea>
                 </td>
             </tr>
             <tr>
-                <td class="td1">上传照片：</td>
+                <td class="td1">Upload photos：</td>
                 <td class="td2">
                     <div class="img">
                         <span>+</span>
@@ -191,19 +192,20 @@
                 </td>
             </tr>
             <tr>
-                <td class="td1">邮箱：</td>
+                <td class="td1">Email：</td>
                 <td class="td2">
                     <input type="text" class="email">
                 </td>
             </tr>
             <tr>
-                <td class="td1"><strong>*</strong>手机：</td>
+                <td class="td1"><strong>*</strong>Mobile：</td>
                 <td class="td2">
                     <input type="text" class="phone">
                 </td>
             </tr>
+
             <tr>
-                <td class="td1">你的设备：</td>
+                <td class="td1">Your device：</td>
                 <td class="td2" id="sku_id">
                     <!--<p><input type="radio" name="addr" id="device4" checked=""><label for="device4"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
                     <p><input type="radio" name="addr" id="device5" checked=""><label for="device5"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
@@ -211,7 +213,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="td1">代维修券：</td>
+                <td class="td1">Repair-Errand Voucher：</td>
                 <td class="td2" id="user_coupon_id">
                     <!--<a href="javascript:;" class="ticket1" data-name="">
                         <div class="up">
@@ -227,7 +229,7 @@
         </table>
         <div class="btn">
             <p class="error mb20"></p>
-            <a href="javascript:;" class="submit">提交</a>
+            <a href="javascript:;" class="submit">Submit</a>
         </div>
     </div>
 </div>

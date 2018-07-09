@@ -8,6 +8,7 @@
 </head>
 <body class="on2">
 @@include('./view/header.html')
+@@include('./view/header-bar.html')
 <div class="main solution">
     <h3 class="title">提交维修申请</h3>
     <!--<div class="text">
@@ -201,6 +202,10 @@
                 <td class="td2">
                     <input type="text" class="phone">
                 </td>
+            </tr>
+            <tr>
+                <td class="td1"><strong>*</strong>详细地址：</td>
+                <td class="td2"><textarea cols="30" rows="5" id="address"></textarea></td>
             </tr>
             <tr>
                 <td class="td1">你的设备：</td>

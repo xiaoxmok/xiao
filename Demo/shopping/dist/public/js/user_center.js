@@ -611,9 +611,14 @@ $(function () {
     $('.orderNav li').click(function () {
         var index = $(this).index();
 
+        orderNav(index);
+
+    })
+
+    function orderNav(index){
         $('.list').hide().eq(index).show();
         $('.orderNav li').removeClass('active');
-        $(this).addClass('active');
+        $('.orderNav li').eq(index).addClass('active');
 
         switch (index) {
             case 0:
@@ -636,7 +641,12 @@ $(function () {
                 getMaintenanceRecords();
                 break;
         }
-    })
+    }
+
+    var getUrl = GetRequest();
+    if(getUrl.nav){
+        orderNav(parseInt(getUrl.nav));
+    }
 
     // 为我推荐
     $('.forMe').click(function () {

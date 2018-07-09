@@ -134,7 +134,10 @@ $(function () {
                     }
 
                     setTimeout(function () {
-                        location.href = "index.html"
+                        //location.href = "index.html"
+
+                        //window.location.go(-1);
+                        window.history.go(-1);
                     }, 2000);
 
                 } else {
