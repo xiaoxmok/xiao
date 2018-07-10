@@ -1,8 +1,5 @@
 $(function () {
 
-
-
-
     $('.radio[name="type"]').click(function () {
         var value = $(this).val();
         console.log(value);
@@ -15,7 +12,7 @@ $(function () {
         }
     })
 
-    if(login()){
+    /*if(login()){
         var token = getCookie('token');
 
         // 获取个人信息
@@ -23,7 +20,8 @@ $(function () {
 
         $('#door #address').html(getUser.school_region_info.address);
 
-    }
+    }*/
+
 
 
     var self_img_ids = []

@@ -1,9 +1,1 @@
-$(function(){
-    var urlInfo = GetRequest();
-
-    api.getArticleInfo(urlInfo.id,'',i18nLanguage,function(data){
-        $('.articleTitle').html(data.data.title);
-        $('.articleDetails').html(data.data.content);
-    })
-
-});
+$(function(){var t=GetRequest();api.getArticleInfo(t.id,"",i18nLanguage,function(t){$(".articleTitle").html(t.data.title),$(".articleDetails").html(t.data.content)})});

@@ -22,7 +22,7 @@
 }
 .solution .content table{font-size: 14px;color:#666;text-align: left;}
 .solution .content table td{line-height: 21px;padding: 10px 0;}
-.solution .content table .td1{text-align: right;}
+.solution .content table .td1{text-align: right;width:120px;}
 .solution .content table .td1 strong{color: #ff5821;padding-right: 5px;}
 .solution .content table .td_strong{color:red;font-size: 12px;}
 .solution .content table .td2 .select{width:150px!important;border: 1px solid #eee;height: 30px;padding-left: 5px;}
@@ -60,7 +60,7 @@
 @media screen and (max-width:414px){
     .solution .title{font-size: 18px;margin: 15px;}
     .solution .content{width: 95%;}
-    .solution .content table .td1{width: auto;font-weight: bold;white-space: nowrap;
+    .solution .content table .td1{width: auto!important;font-weight: bold;white-space: nowrap;
         text-overflow: ellipsis;}
 
     .solution .content table .td2 .select{width:100px!important;}

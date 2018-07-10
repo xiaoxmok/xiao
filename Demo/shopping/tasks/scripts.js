@@ -34,18 +34,16 @@ gulp.task('scripts', () => {
         }))
         .pipe(named())
         //将处理后的js文件写入指定文件中
-        //.pipe(uglify({mangle: true,compress: {properties: true}, output: {'quote_keys': true}}))
+        .pipe(uglify({mangle: true,compress: {properties: true}, output: {'quote_keys': true}}))
         .pipe(gulp.dest('dist'))
         //重命名xxx.min.js
-        .pipe(rename({
-            extname: '.min.js'
-        }))
+        //.pipe(rename({extname: '.min.js'}))
         //压缩
         //.pipe(jsFilter)
         //.pipe(gulpif(condition,uglify({mangle: true,compress: {properties: true}, output: {'quote_keys': true}})))
-        .pipe(uglify({mangle: true,compress: {properties: true}, output: {'quote_keys': true}}))
+        //.pipe(uglify({mangle: true,compress: {properties: true}, output: {'quote_keys': true}}))
         //保存文件，存在两个文件，一个压缩，一个未压缩
-        .pipe(gulp.dest('dist'))
+        //.pipe(gulp.dest('dist'))
         // 文件热更新
         .pipe(gulpif(args.watch, livereload()))
 });
