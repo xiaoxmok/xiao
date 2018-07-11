@@ -19,7 +19,7 @@ module.exports = function (app) {
         page = page.slice(0, -4);
         var path = page;
         var map = {
-            "index": "Express"
+            "index": "Express1"
         };
         res.render(page, { title: page , header_title: map[path]});
     });

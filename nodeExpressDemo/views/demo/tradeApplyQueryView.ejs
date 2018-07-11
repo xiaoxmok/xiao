@@ -1,0 +1,563 @@
+<link href="${rc.contextPath}/js/bui/css/page-min.css" rel="stylesheet" type="text/css" />
+<style>
+	.span6 {
+		width: 260px;
+		margin-left: 0;
+		height: 27px;
+		background-color: #fff;
+		margin-top: 3px;
+	}
+	.bui-select .bui-select-input {
+		_border: 1px solid #c3c3d6;
+		border-right: none;
+		vertical-align: middle;
+		outline: none;
+		_height: 22px;
+		_padding: 1px 4px;
+		width: 96px;
+	}
+	.form-horizontal .control-label{
+		float:left;
+		text-align:right;
+		width:98px;
+	}
+	.bui-select-list {
+	  overflow: auto;
+	  max-height: 220px;
+	}
+	.span10 {
+		width: 523px;
+		float: left;
+		margin-left: 0;
+		height: 27px;
+		background-color: #fff;
+		margin-top: 2px;
+		margin-right: 8px;
+	}
+	.span1 {
+		width: 1085px;
+		float: left;
+		margin-left: 10px;
+		height: 1px;
+		background-color: lightgray;
+	}
+	.span0 {
+		width: 1px;
+		float: left;
+		height: 30px;
+		background-color: lightgray;
+	}
+	.span2 {
+		width: 1px;
+		float: left;
+		height: 29px;
+		margin-left: 575px;
+		background-color: lightgray;
+	}
+	.span8 {
+  		width: 310px;
+  		margin-top: 8px;
+	}
+	.controls-multi{
+		float:left;
+		text-align:right;
+		width:98px;
+	}
+	select.input-normal {
+    	width: 74px;
+    	margin-left: 33px;
+    	font-family: inherit;
+	}
+	input[type="text"] {
+		width: 117px;
+	}
+	input[type="text_fundid"] {
+		width: 392px;
+	}
+	.bui-tree-list {
+    	background-color: #fff;
+    	border: 1px solid #c3c3d6;
+    	height: 220px;
+    	overflow: auto;
+    	width: 396px;
+	}	
+	button, input[type="button"], input[type="reset"], input[type="submit"] {
+    	cursor: pointer;
+    	font-size: 100%;
+	}
+</style>
+<div class="container">
+	<div class="search-grid-container">
+      	<div id="grid" style="margin-top: 10px;width:100%;"></div>
+    </div>		
+</div>
+<script type="text/javascript" src="./js/bui/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="./js/bui/bui.js"></script>
+<script type="text/javascript" src="./js/bui/config.js"></script>
+<script type="text/javascript">
+BUI.use('common/page');
+BUI.use(['common/search','bui/overlay','bui/form','bui/uploader','bui/select','bui/data','bui/grid','bui/extensions/treepicker','bui/tree','bui/calendar'],function (Search,Overlay,Form,Uploader,Select,Data,Grid,TreePicker,Tree,Calendar) {
+	
+		var a = 1;
+		var datepicker = new Calendar.DatePicker({
+          	trigger :'.calendar',
+         autoRender : true
+        });
+   
+    	var Mask = BUI.Mask;
+    	var loadMask = new Mask.LoadMask({
+       		el : 'body',
+       		msg : 'loading ....'
+    	});
+    
+		var columns = [
+          	{title:'基金账号',dataIndex:'r_fundacct',width:60,elCls:'center'},
+          	{title:'交易账号',dataIndex:'r_tradeacco',width:60,elCls:'center'},
+          	{title:'客户姓名',dataIndex:'r_invnm',width:60,elCls:'center'},
+          	{title:'资金渠道',dataIndex:'r_banknm',width:60,elCls:'center'},
+		  	{title:'资金来源',dataIndex:'r_cashfromNm',width:60,elCls:'center'},
+          	{title:'资金模式',dataIndex:'r_capitalmodeNm',width:60,elCls:'center'},
+          	{title:'委托方式',dataIndex:'r_accptmdNm',width:60,elCls:'center'},
+          	{title:'托管网点',dataIndex:'r_branchcodeNm',width:60,elCls:'center'},
+          	{title:'客户类型',dataIndex:'r_custstNm',width:60,elCls:'center'},
+          	{title:'基金简称',dataIndex:'r_fundidNm',width:60,elCls:'center'},
+          	{title:'收费方式',dataIndex:'r_sharetypeNm',width:60,elCls:'center'},
+          	{title:'业务类型',dataIndex:'r_apkindNm',width:60,elCls:'center'},
+          	{title:'具体业务类型',dataIndex:'r_subapkindNm',width:90,elCls:'center'},
+          	{title:'目标基金',dataIndex:'r_ofundidNm',width:60,elCls:'center'},
+          	{title:'申请日期',dataIndex:'r_workdate',width:60,elCls:'center'},
+          	{title:'下单日期',dataIndex:'r_apdt',width:60,elCls:'center'},
+          	{title:'下单时间',dataIndex:'r_aptm',width:60,elCls:'center'},
+          	{title:'申请金额',dataIndex:'r_subamt',width:60,elCls:'right',summary:true},
+          	{title:'申请份额',dataIndex:'r_subquty',width:60,elCls:'right',summary:true},
+          	{title:'确认金额',dataIndex:'r_ackamt',width:60,elCls:'right',summary:true},
+          	{title:'申请状态',dataIndex:'r_applystNm',width:60,elCls:'center'},
+          	{title:'支付状态',dataIndex:'r_paystNm',width:60,elCls:'center'},
+          	{title:'RTTA状态',dataIndex:'r_transstNm',width:80,elCls:'center'},
+          	{title:'折扣率',dataIndex:'r_commro',width:50,elCls:'center'},                  
+          	{title:'是否追加质押',dataIndex:'r_isaddNm',width:90,elCls:'center'},
+          	{title:'申请流水号',dataIndex:'r_serialno',width:80,elCls:'center'},
+          	{title:'银行卡号',dataIndex:'r_bankacco',width:60,elCls:'center'}
+        ];
+		var store = new Data.Store({
+            url : 'eccBiz/tradeInfoQuery/TradeInfoQueryController/List/tradeApplyQuery.htm',
+            pageSize:10,
+            autoLoad:false,
+            proxy : {
+                method : 'post'
+              }
+        });
+		if(store.data.length !== 0){
+            $('#grid').css({overflow:'auto'});
+		}
+        var grid = new Grid.Grid({
+            render:'#grid',
+            columns : columns,
+			width: '825',
+            loadMask: true, //加载数据时显示屏蔽层
+            emptyDataTpl:'<div class="centered" style="padding:20px;"><h2>无数据</h2></div>',//空数据模板
+            plugins : [Grid.Plugins.Summary],
+            store : store,
+            // 底部工具栏
+            bbar:{
+                pagingBar:true,
+				width: '100%'
+            }
+        });
+
+		function searchAction(){
+			var form = $('#searchForm');
+			var show = $("#show3").val();
+			var show11 = $("#show11").val();
+			if(show.length>0 && show.length<6) {
+        		BUI.Message.Alert("请准确输入6位基金代码！",'error');
+        	}
+        	
+    		$("#hide3").attr("value", show);
+    		$("#hide11").attr("value", show11);
+    		//$("#show3").attr("value", "");
+        	
+        	var dataObj = BUI.FormHelper.serializeToObject(form);
+        	grid.render();
+        	store.load(dataObj);
+		}
+		  	
+		function exportCheck(){
+			loadMask.show();
+			$.ajax({
+				type:'POST',
+				url:'eccBiz/tradeInfoQuery/TradeInfoQueryController/exportCheck.htm',
+				dataType:'json',
+				success:function(data){
+					if(data.success){
+					 	exportAction();
+				 	}
+	             	else {
+	                 	BUI.Message.Alert(data.info,'error');
+	             	}            
+	             	loadMask.hide();  
+				},
+				error:function(XMLHttpRequest, textStatus, errorThrown){
+					//session过期处理代码 
+                	window.location = '${rc.contextPath}/index.jsp' ;//返回首页
+				} 
+			}) 
+    	}
+			  
+		function exportAction(){
+	  		var columns = [
+		  		{title:'申请流水号',dataIndex:'r_serialno',width:130},
+          		{title:'基金账号',dataIndex:'r_fundacct'},
+          		{title:'交易账号',dataIndex:'r_tradeacco'},
+         		{title:'客户姓名',dataIndex:'r_invnm',width:90},
+          		{title:'资金渠道',dataIndex:'r_banknm',width:70},
+		  		{title:'资金来源',dataIndex:'r_cashfromNm',width:70},
+          		{title:'资金模式',dataIndex:'r_capitalmodeNm',width:70},
+          		{title:'委托方式',dataIndex:'r_accptmdNm',width:70},
+          		{title:'托管网点',dataIndex:'r_branchcodeNm',width:70},
+          		{title:'客户类型',dataIndex:'r_custstNm',width:60},
+          		{title:'基金简称',dataIndex:'r_fundidNm',width:130},
+          		{title:'银行卡号',dataIndex:'r_bankacco',width:150},
+          		{title:'收费方式',dataIndex:'r_sharetypeNm',width:60},
+          		{title:'业务类型',dataIndex:'r_apkindNm',width:100},
+          		{title:'具体业务类型',dataIndex:'r_subapkindNm',width:130},
+          		{title:'目标基金',dataIndex:'r_ofundidNm',width:70},
+          		{title:'申请日期',dataIndex:'r_workdate',width:80},
+          		{title:'下单日期',dataIndex:'r_apdt',width:80},
+          		{title:'下单时间',dataIndex:'r_aptm',width:80},
+          		{title:'申请金额',dataIndex:'e_subamt',width:90},
+          		{title:'申请份额',dataIndex:'e_subquty',width:90},
+          		{title:'确认金额',dataIndex:'e_ackamt',width:90},
+          		{title:'申请状态',dataIndex:'r_applystNm',width:60},
+          		{title:'支付状态',dataIndex:'r_paystNm',width:60},
+          		{title:'RTTA状态',dataIndex:'r_transstNm',width:60},
+          		{title:'折扣率',dataIndex:'r_commro',width:50},                  
+          		{title:'是否追加质押',dataIndex:'r_isaddNm',width:80}
+        	];	
+	  		
+	  		var aa = document.getElementById("hide11").value;
+			var show = $("#show3").val();
+			var show11 = $("#show11").val();
+			
+			$("#hide3").attr("value", show);
+    		$("#hide11").attr("value", show11);
+         	
+    		var title = "";
+    		var dataIndex = "";
+         	//var dataParam = $('#searchForm').serialize();
+         	for(var i = 0; i < columns.length; i++){
+         		title += columns[i].title+",";
+         		dataIndex += columns[i].dataIndex+",";
+         	}
+         	//赋值 
+         	$("#title").val(title);
+         	$("#dataIndex").val(dataIndex);
+
+		 	/* window.location.href='${rc.contextPath}/eccBiz/tradeInfoQuery/TradeInfoQueryController/exportAction.htm?'
+				 +dataParam, $('#searchForm').serialize(); */
+		 	
+			$('#searchForm').submit();
+		 	
+		}
+	    
+	    $('#btnProcessing').click(function(){
+			if(a%2 == 1){
+				$('#IfHide1').show();
+				$('#IfHide2').show();
+				$('#IfHide3').show();
+				$('#IfHide4').show();
+				$('#IfHide5').show();
+				$('#IfHide6').show();
+				$('#IfHide7').show();
+				$('#IfHide8').show();
+				a = a+1;
+			}
+			else
+			{
+				$('#IfHide1').hide();
+				$('#IfHide2').hide();
+				$('#IfHide3').hide();
+				$('#IfHide4').hide();
+				$('#IfHide5').hide();
+				$('#IfHide6').hide();
+				$('#IfHide7').hide();
+				$('#IfHide8').hide();				
+				a = a+1;
+			}
+	    });
+	   
+	   	$('#btnSearch').click(searchAction);
+		$('#btnExport').click(exportCheck);
+	   
+		//客户类型
+		var selectitemo1 = $!{invtp};
+		var selecto1 = new Select.Select({
+			render:'#o1',
+			valueField:'#h1',
+			items:selectitemo1
+		});
+		selecto1.render();
+		
+		//所属TA
+	    var selectitems1 = $!{tano};
+	    var select1 = new Select.Select({  
+	        render:'#s1',
+	        valueField:'#hide1',
+	        multipleSelect:true,
+	        items:selectitems1,
+	        tpl:'<input type="text" readonly="readonly" class="bui-select-input"/><button id="sbtn1" status="clear" class="selectBtn">全选</button>'
+	        });
+	    select1.render();
+	    $('#sbtn1').click(function(ev){
+	    	ev.preventDefault();
+	    	selector(ev,select1);
+	    });
+	    
+	    //原属TA
+	    var selectitems1 = $!{tano};
+	    var select11 = new Select.Select({  
+	        render:'#o11',
+	        valueField:'#ohide1',
+	        multipleSelect:true,
+	        items:selectitems1,
+	        tpl:'<input type="text" readonly="readonly" class="bui-select-input"/><button id="osbtn1" status="clear" class="selectBtn">全选</button>'
+	        });
+	    select11.render();
+	    $('#osbtn1').click(function(ev){
+	    	ev.preventDefault();
+	    	selector(ev,select11);
+	    });
+		
+		//业务类型
+		var selectitems2 = $!{apkind};
+		var select2 = new Select.Select({
+			render:'#s2',
+			valueField:'#hide2',
+			multipleSelect:true,
+			items:selectitems2,
+	        tpl:'<input type="text" readonly="readonly" class="bui-select-input"/><button id="sbtn2" status="clear" class="selectBtn">全选</button>'
+		});
+		select2.render();
+		$('#sbtn2').click(function(ev){
+			ev.preventDefault();
+			selector(ev,select2);
+		});
+		
+		//基金名称
+		var treeitem3 = [
+			{text:'公募',id:'1',children:$!{pubOffering}},
+			{text:'专户',id:'2',children:$!{specialAccu}},
+			{text:'子公司',id:'3',children:$!{subCompany}},
+			{text:'代销',id:'4',children:$!{proxySale}}
+		];
+		var tree3 = new Tree.TreeList({
+			nodes:treeitem3,
+			checkType:'all',
+			showLine:true
+		});
+		
+		var picker = new TreePicker({
+	        trigger:'#show3',
+	        valueField:'#hide3',
+	        selectStatus:'checked',
+	        filter:function(node){
+	        	return node.leaf;
+	        },
+	        width:400,
+	        children:[tree3]
+	    });
+	    picker.render();
+	   
+	  	//T-N
+	  	var treeitem11 = new Array();
+	  	for(var i=0; i<$!{tn}.length-1;i++){
+	  		if($!{fundInfo}[i].length != 0){
+		  		treeitem11.push({text:'T-'+(i+1),id:i+1,children:$!{fundInfo}[i]});
+	  		}
+	  	};
+	  	
+		var tree11 = new Tree.TreeList({
+			nodes:treeitem11,
+			checkType:'all',
+			showLine:true
+		});
+		
+		var picker = new TreePicker({
+	        trigger:'#show11',
+	        valueField:'#hide11',
+	        selectStatus:'checked',
+	        filter:function(node){
+	        	return node.leaf;
+	        },
+	        width:400,
+	        children:[tree11]
+	    });
+	    picker.render();
+			    
+		//支付状态
+		var selectitemo2 = $!{payst};
+		var selecto2 = new Select.Select({
+			render:'#o2',
+			valueField:'#h2',
+			items:selectitemo2
+		});
+		selecto2.render();
+		
+		//具体业务类型
+		var selectitems4 = $!{subapkinda};
+		var select4 = new Select.Select({
+			render:'#s4',
+			valueField:'#hide4',
+			multipleSelect:true,
+			items:selectitems4,
+	        tpl:'<input type="text" readonly="readonly" class="bui-select-input"/><button id="sbtn4" status="clear" class="selectBtn">全选</button>'
+		});
+		select4.render();
+		$('#sbtn4').click(function(ev){
+			ev.preventDefault();
+			selector(ev,select4);
+		});
+		
+		//资金模式
+		var selectitems5 = $!{capitalmode};
+		var select5 = new Select.Select({
+			render:'#s5',
+			valueField:'#hide5',
+			multipleSelect:true,
+			items:selectitems5,
+	        tpl:'<input type="text" readonly="readonly" class="bui-select-input"/><button id="sbtn5" status="clear" class="selectBtn">全选</button>'
+		});
+		select5.render();
+		$('#sbtn5').click(function(ev){
+			ev.preventDefault();
+			selector(ev,select5);
+		});
+		
+		//rtta状态
+		var selectitemo3 = $!{transst};
+		var selecto3 = new Select.Select({
+			render:'#o3',
+			valueField:'#h3',
+			items:selectitemo3
+		});
+		selecto3.render();
+		
+		//申请状态
+		var selectitemo4 = $!{applyst};
+		var selecto4 = new Select.Select({
+			render:'#o4',
+			valueField:'#h4',
+			items:selectitemo4
+		});
+		selecto4.render();
+		
+		//银行渠道
+		var selectitems6 = $!{bankno};
+		var select6 = new Select.Select({
+			render:'#s6',
+			valueField:'#hide6',
+			multipleSelect:true,
+			items:selectitems6,
+	        tpl:'<input type="text" readonly="readonly" class="bui-select-input"/><button id="sbtn6" status="clear" class="selectBtn">全选</button>'
+		});
+		select6.render();
+		$('#sbtn6').click(function(ev){
+			ev.preventDefault();
+			selector(ev,select6);
+		});
+		
+		//资金来源
+		var selectitems7 = $!{cashfrom};
+		var select7 = new Select.Select({
+			render:'#s7',
+			valueField:'#hide7',
+			multipleSelect:true,
+			items:selectitems7,
+	        tpl:'<input type="text" readonly="readonly" class="bui-select-input"/><button id="sbtn7" status="clear" class="selectBtn">全选</button>'
+		});
+		select7.render();
+		$('#sbtn7').click(function(ev){
+			ev.preventDefault();
+			selector(ev,select7);
+		});
+		
+		//到账日期
+		var selectitemo6 = $!{transferdays};
+		var selecto6 = new Select.Select({
+			render:'#o6',
+			valueField:'#h6',
+			items:selectitemo6
+		});
+		selecto6.render();
+		
+		//委托方式
+		var selectitems8 = $!{accptmd};
+		var select8 = new Select.Select({
+			render:'#s8',
+			valueField:'#hide8',
+			multipleSelect:true,
+			items:selectitems8,
+	        tpl:'<input type="text" readonly="readonly" class="bui-select-input"/><button id="sbtn8" status="clear" class="selectBtn">全选</button>'
+		});
+		select8.render();
+		$('#sbtn8').click(function(ev){
+			ev.preventDefault();
+			selector(ev,select8);
+		});
+		
+		//托管网点
+		var selectitems9 = $!{branchCode};
+		var select9 = new Select.Select({
+			render:'#s9',
+			valueField:'#hide9',
+			multipleSelect:true,
+			items:selectitems9,
+	        tpl:'<input type="text" readonly="readonly" class="bui-select-input"/><button id="sbtn9" status="clear" class="selectBtn">全选</button>'
+		});
+		select9.render();
+		$('#sbtn9').click(function(ev){
+			ev.preventDefault();
+			selector(ev,select9);
+		});
+		
+		//份额类别
+		var selectitems10 = [
+			{"text": "前端收费", "value": "A"},
+			{"text": "后端收费", "value": "B"},
+			{"text": "全部", "value": ""}
+			];
+		var select10 = new Select.Select({
+			render:'#o5',
+			valueField:'#h5',
+			items:selectitems10
+		});
+		select10.render();
+
+		//下拉框通用方法 
+	    function selector(ev,select){  
+	        var selectObj = eval(select);
+	        var selectBtn = ev.target;
+	        if($(selectBtn).attr('status') == 'clear'){
+	         	selectObj.setSelectedValue(getKeyStr(selectObj.get('items')));
+	         	$(selectBtn).attr('status','all');
+	         	$(selectBtn).text('全否');
+	        }
+	        else
+	        {
+	         	selectObj.setSelectedValue('');
+	         	$(selectBtn).attr('status','clear');
+	         	$(selectBtn).text('全选');
+	         }
+	    }
+		
+		function getKeyStr(items){
+	        var str = "";
+	        for(var i=0;i<items.length;i++){
+	        	var item = items[i];
+	        	str = str + item.value + ",";
+	        }
+	        return str;
+	    }
+		
+	});
+</script>
