@@ -17,6 +17,7 @@ module.exports = function (app) {
             return;
         }
         page = page.slice(0, -4);
+
         var path = page;
         var map = {
             "index": "Express1"

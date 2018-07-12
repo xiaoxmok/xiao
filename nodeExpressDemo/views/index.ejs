@@ -7,5 +7,85 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= header_title %></p>
+    <a href="/about">22</a>
+    <a href="/goto">echarts</a>
+    <span class="span"></span>
+    <input type="button" id="inp" value="测试">
+
+  <div>
+    <label for="name">name:<input type="text" id="name"></label>
+    <label for="age">age:<input type="text" id="age"></label>
+    <input type="button" id="subInfo" value="get提交">
+    <input type="button" id="postInfo" value="post提交">
+  </div>
+  <div>
+    <input type="file" accept="image/*" class="file">
+    <input type="button" id="upload" value="上传图片">
+    <img src="" alt="预览" class="showImg">
+  </div>
+
   </body>
+  <script src="/js/jquery-1.11.0.min.js"></script>
+  <script>
+
+    $('#inp').click(function(){
+        $.ajax({
+            type:'get',
+            url:'/users/get',
+            typeData:'json',
+            success:function(data){
+              console.log(data);
+            },
+            error:function(){}
+        })
+    })
+    $('#subInfo').click(function(){
+        var name = $('#name').val();
+        var age = $('#age').val();
+        $.ajax({
+            type:'get',
+            url:'/users/setInfo?name='+name+'&age='+age,
+            typeData:'json',
+            success:function(data){
+                console.log(data);
+            },
+            error:function(){}
+        })
+    })
+    $('#postInfo').click(function(){
+        var name = $('#name').val();
+        var age = $('#age').val();
+        $.ajax({
+            type:'post',
+            url:'/users/postInfo',
+            typeData:'json',
+            data:{name:name,age:age},
+            success:function(data){
+                console.log(data);
+            },
+            error:function(){}
+        })
+    });
+    $('#upload').click(function(){
+        var formData = new FormData();
+
+        formData.append('file', $('.file').get(0).files[0]);
+
+        $.ajax({
+            type:'post',
+            url:'/upload_file',
+            //typeData:'json',
+            //cache: false,
+            contentType: false,
+            processData: false,
+            data:formData,
+            success:function(data){
+                console.log(data);
+                $('.showImg').attr('src',data.url);
+            },
+            error:function(){}
+        })
+    })
+
+  </script>
 </html>
