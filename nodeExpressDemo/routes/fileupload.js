@@ -24,3 +24,18 @@ var upload = multer({
 
 //导出对象
 module.exports = upload;
+
+
+/*
+https://github.com/expressjs/multer/blob/master/doc/README-zh-cn.md
+
+multer是express官方推荐的文件上传中间件。
+
+文件上传有以下方法
+upload.single(‘file’), //适用于单文件上传。
+upload.array(‘file’,num), //适用于多文件上传，num为最多上传个数，上传文件的数量可以小于num。
+同时还提供了混合上传，比如A类文件1个，B类文件2个。官方API有详细说明。
+
+file为上传字段名称，当使用form表单submit方式上传时，必须与表单上传的name属性保持一致。
+
+对上传文件大小限制，名称限制等均可在limits中加上，具体可加属性，请参考官方api。*/
