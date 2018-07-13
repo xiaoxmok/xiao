@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>充值中心</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <link rel="stylesheet" type="text/css" href="./css/content.css">
+    <script type="text/javascript" src="./js/fontresize.js"></script>
+
+</head>
+<body class="bg">
+<header>
+    <a href="javascript:history.back();" class="back"></a>
+    <span>充值中心</span>
+    <a href="javascript:;" class="detail">消费明细</a>
+</header>
+<div class="mt17"></div>
+<div class="nav">
+    <a class="tab active" href="javascirpt:;">充值智造点</a>
+    <a class="tab" href="javascirpt:;">成为VIP</a>
+</div>
+
+<div class="con" style="display: block;">
+    <h3>选择充值额度 1元=10智造币</h3>
+    <div class="zizaobi">
+        <p class="p1">880</p>
+        <p class="p2">智造点</p>
+        <p class="p3">RMB:￥88</p>
+    </div>
+</div>
+
+<div class="con">
+    <h3>选择服务</h3>
+    <div class="zhiVip">
+        <p class="p1">智造好伙伴VIP</p>
+        <p class="p2">RMB:￥800/年</p>
+    </div>
+    <div class="interest"></div>
+    <div class="detail">
+        <div><span></span><p>所有订单联系信息免费查看</p></div>
+        <div><span></span><p>免费发布承接加工信息</p></div>
+        <div><span></span><p>一年24次免费置顶</p></div>
+        <div><span></span><p>免费编辑企业资料</p></div>
+    </div>
+    
+
+    <a href="javascript:;" class="submit pay">立即付款</a>
+</div>
+
+
+
+<script src="js/zepto.min.js"></script>
+<script>
+    $(function(){
+        $('.nav a').click(function(){
+            $('.nav a').removeClass('active');
+            $(this).addClass('active');
+
+            var index = $(this).index();
+            $('.con').hide().eq(index).show();
+        })
+    })
+
+</script>
+</body>
+</html>
