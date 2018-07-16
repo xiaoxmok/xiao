@@ -69,7 +69,7 @@
 
 .product .callMe{display: none;}
 
-.contact{position: absolute;top:500px;right: 0;}
+.contact{position: fixed;bottom:150px;right: 20px;}
 .contact a{background: #50b7b4;font-size: 14px;width:120px;height:40px;text-align: center;line-height: 40px;display: inline-block;margin-top: 10px;border-radius: 5px;color: #fff;}
 .contact a em{background: url(../img/phone.png) no-repeat;width:25px;height: 24px;display: inline-block;margin-top: 9px;float: left;margin-left: 9px;}
 
@@ -109,7 +109,7 @@
     .productNav li{flex:1;margin-right: 0;background: none;}
     .productNav li:hover,.productNav .active{background: none;border-bottom:1px solid #50b7b4;color:#50b7b4;}
 
-    .contact{top:600px;}
+    .contact{}
     .contact a{font-size: 12px;height:30px;line-height: 30px;width: 100px;}
     .contact a em{margin-top: 3px;}
 
