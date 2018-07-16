@@ -187,6 +187,7 @@ $(function () {
             }
         }
     });
+    
     $('.btnNum').on('click', '.plus', function () {
         var value = $(this).parent().find('.text').val();
         var id = $(this).parent().find('.text').attr('data-name');
