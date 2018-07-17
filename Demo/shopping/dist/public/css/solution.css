@@ -57,6 +57,12 @@
 
 .solution .content table label{padding-left: 10px;}
 
+.success{
+    margin-top: 160px;display: none;
+}
+.success p{font-size: 14px;}
+
+
 @media screen and (max-width:414px){
     .solution .title{font-size: 18px;margin: 15px;}
     .solution .content{width: 95%;}

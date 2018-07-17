@@ -1,4 +1,12 @@
 $(function () {
+    if (!login()) {
+        location.href = "login.html"
+    }
+
+    var token = getCookie('token');
+    // 获取个人信息
+    var getUser = api.getUser(token);
+
 
     $('.radio[name="type"]').click(function () {
         var value = $(this).val();
@@ -183,7 +191,60 @@ $(function () {
     }
 
     // 获取用户设备和卡券信息
-    $('#door .phone').on('change', function () {
+    api.getRepairInfo(getUser.phone, function (data) {
+        var device_infos = data.device_infos;
+        var coupon_infos = data.coupon_infos;
+
+        //你的设备
+        if (device_infos.length !== 0) {
+            device_infos.forEach(function (item, index) {
+                var html = '<p><input type="radio" name="addr" id="device4" checked=""><label for="device4"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>';
+
+                $('.sku_id').append(html);
+            })
+        } else {
+            // $('#sku_id').html('<p>none</p>');
+        }
+
+        // 代金券
+        if (coupon_infos.length !== 0) {
+            $('#user_coupon_id').html('');
+            coupon_infos.forEach(function (item, index) {
+                var html;
+                var type = {
+                    repair: '维修券'
+                }
+
+                if (isEnglish()) {
+                    html = '<a href="javascript:;" class="ticket1" data-name="' + item.id + '">\n' +
+                        '                        <div class="up">\n' +
+                        '                            <div class="img"></div>\n' +
+                        '                            <p>' + item.type + '</p>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="down">\n' +
+                        '                            <p>Unused</p>\n' +
+                        '                        </div>\n' +
+                        '                    </a>';
+                } else {
+                    html = '<a href="javascript:;" class="ticket1" data-name="' + item.id + '">\n' +
+                        '                        <div class="up">\n' +
+                        '                            <div class="img"></div>\n' +
+                        '                            <p>' + type[item.type] + '</p>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="down">\n' +
+                        '                            <p>未使用</p>\n' +
+                        '                        </div>\n' +
+                        '                    </a>';
+                }
+
+                $('#user_coupon_id').append(html);
+            })
+        } else {
+            // $('#user_coupon_id').html('<p>none</p>');
+        }
+    });
+
+    /*$('#door .phone').on('change', function () {
         var phone = $(this).val();
         if (!CheckMobile(phone)) {
             if (isEnglish()) {
@@ -203,7 +264,7 @@ $(function () {
                     device_infos.forEach(function (item, index) {
                         var html = '<p><input type="radio" name="addr" id="device4" checked=""><label for="device4"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>';
 
-                        $('#sku_id').append(html);
+                        $('.sku_id').append(html);
                     })
                 } else {
                     // $('#sku_id').html('<p>none</p>');
@@ -248,7 +309,7 @@ $(function () {
             });
         }
 
-    });
+    });*/
 
     var user_coupon_id = [];
     $('#user_coupon_id').on('click', '.ticket1', function () {
@@ -270,7 +331,7 @@ $(function () {
 
     // 提交
     $('.submit').click(function () {
-        var repairData;
+        var repairData={};
         var device_category = [];
         var fault_category = [];
         var type = $('#type input[name="type"]:checked').val();
@@ -297,9 +358,9 @@ $(function () {
             if($('#self .param').val().length > 0){
                 repairData.param = $('#self .param').val()
             }
-            if($('#self .sn').val().length > 0){
+            /*if($('#self .sn').val().length > 0){
                 repairData.sn = $('#self .sn').val()
-            }
+            }*/
             if($('#self .description').val().length > 0){
                 repairData.description = $('#self .description').val()
             }
@@ -308,6 +369,7 @@ $(function () {
             }
 
             repairData = {
+                token:token,
                 type:type,
                 device_category: device_category.join(','),
                 fault_category: fault_category.join(','),
@@ -351,6 +413,7 @@ $(function () {
             }
 
             repairData = {
+                token:token,
                 type:type,
                 device_category: device_category.join(','),
                 fault_category: fault_category.join(','),
@@ -360,6 +423,7 @@ $(function () {
         }
 
         // console.log(repairData);
+
 
         $.ajax({
             type: 'POST',
@@ -374,7 +438,11 @@ $(function () {
                         $('.error').html('提交成功。');
                     }
                     setTimeout(function () {
-                        location.href = "index.html"
+                        //location.href = "index.html"
+                        $('.solution .content,.solution .title').hide();
+                        $('.success').show();
+                        $('.success .order_no span').html(data.data.repair_no);
+
                     }, 1000);
                 }
             },

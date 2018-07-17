@@ -7,10 +7,13 @@
 .mb20{margin-bottom: 20px;}
 
 .error{color: #C4080A;font-size: 12px;text-align: center;}
+.red{color: #C4080A!important;font-size: 12px;}
 
 .tl{text-align: left;}
 
 .main{width:1000px;margin: 0 auto;clear: both;position: relative;min-height: 540px;}
+
+label{margin-left: 10px;}
 
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
@@ -56,10 +59,10 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .goods .nav .right li.active{color:#50b7b4!important;}
 
 .goods .content{}
-.goods .content li{width:210px;padding: 9px;border: 1px solid #eee;float:left;margin: 15px 10px;box-shadow: 2px 2px 5px #e4f4f3;height:326px;}
+.goods .content li{width:210px;padding: 9px;border: 1px solid #eee;float:left;margin: 15px 10px;box-shadow: 2px 2px 5px #e4f4f3;}
 .goods .content li img{width:210px;height:176px;}
 .goods .content li .Title{font-size: 14px;font-weight: bold;color:#666;padding: 10px 0;}
-.goods .content li .description{font-size: 12px;color:#999;padding-bottom: 5px;line-height: 20px;}
+.goods .content li .description{font-size: 12px;color:#999;padding-bottom: 5px;line-height: 20px;text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
 .goods .content li .price{font-size: 14px;}
 .goods .content li .price span{color:#000;font-size: 12px;}
 .goods .content li .price em{color:#50b7b4;}

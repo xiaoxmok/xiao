@@ -1,1 +1,5 @@
-$(function(){var a=api.getFaqPage();console.log(a)});
+$(function(){
+
+    var getFaqPage = api.getFaqPage();
+    console.log(getFaqPage);
+});

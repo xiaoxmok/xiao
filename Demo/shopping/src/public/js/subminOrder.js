@@ -100,7 +100,7 @@ $(function(){
                 billing_type:'normal',
                 normal_invoice_type:$('.invoiceType input[name="type1"]:checked').val(),
                 normal_title:$('#normal_title').val(),
-                normal_tax_no:$('#normal_tax_no').val(),
+                //normal_tax_no:$('#normal_tax_no').val(),
                 normal_content:$('.invoiceType input[name="content1"]:checked').val()
             }
         }else{

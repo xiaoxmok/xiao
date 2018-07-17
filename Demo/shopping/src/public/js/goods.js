@@ -48,6 +48,11 @@ $(function () {
         if(login()){
             $('#school_price').html(toPrice(getSkuListData[i].school_price));
             $('.exclusive').hide();
+            if(isEnglish()){
+                $('.OfferPrice').html('Exclusive offer');
+            }else{
+                $('.OfferPrice').html('专属优惠');
+            }
         }else{
             $('#school_price').html(toPrice(getSkuListData[i].education_price));
         }

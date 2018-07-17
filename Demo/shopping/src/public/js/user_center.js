@@ -40,10 +40,45 @@ $(function () {
     $('.userName .person .name').html(getUser.name);
     $('.userName .person .sex').html(sex);
     $('.userName .person .role').html(role);
-    $('.userName .person .no em').html(getUser.school_no);
 
-    $('.userName .person .email em').html(getUser.email);
-    $('.userName .person .phone em').html(getUser.phone);
+    var school_no,school_info;
+    if(getUser.type === 'student'){
+        if(isEnglish()){
+            school_info = 'Student ID No.: '
+        }else{
+            school_info = '学号: '
+        }
+    }else{
+        if(isEnglish()){
+            school_info = 'Faculty number: ';
+        }else{
+            school_info = '教职员工号: ';
+        }
+    }
+    if(getUser.school_no !== null){
+        school_no = getUser.school_no
+    }else{
+        if(isEnglish()){
+            school_no = 'unfilled';
+        }else{
+            school_no = '未填写';
+        }
+    }
+
+    $('.userName .person .no em').html(school_info + school_no);
+    var email;
+    if(getUser.email !== null){
+        email = getUser.email.split('@')[0].slice(0,-4) + '****@' +getUser.email.split('@')[1];
+    }else{
+        if(isEnglish()){
+            email = 'unfilled';
+        }else{
+            email = '未填写';
+        }
+    }
+
+    $('.userName .person .email em').html(email);
+    $('.userName .person .phone em').html(getUser.phone.slice(0,3)+'****'+getUser.phone.slice(-4));
 
     // 获取默认地址
 
@@ -237,7 +272,7 @@ $(function () {
                             '                    </div>\n' +
                             '                </td>\n' +
                             '                <td>' + status[item.status] + '</td>\n' +
-                            '                <td>￥' + item.price + '</td>\n' +
+                            '                <td>￥' + toPrice(item.price) + '</td>\n' +
                             '                <td class="operate">\n' +
                             operate +
                             '                </td>\n' +
@@ -252,7 +287,7 @@ $(function () {
                             '                    </div>\n' +
                             '                </td>\n' +
                             '                <td>' + status[item.status] + '</td>\n' +
-                            '                <td>￥' + item.price + '</td>\n' +
+                            '                <td>￥' + toPrice(item.price) + '</td>\n' +
                             '                <td class="operate">\n' +
                             operate +
                             '                </td>\n' +
@@ -404,6 +439,21 @@ $(function () {
 
     // 获取我的设备
     function getMyDevice() {
+
+        $.ajax({
+            type:'post',
+            url: url + '/api/v1/user/device-list',
+            dataType:'json',
+            data:{token:token,lang:i18nLanguage},
+            success:function(data){
+                if(data.code === 200){
+
+
+                }
+            },
+            error:function(){}
+        });
+
     }
 
     // 获取我的特权券

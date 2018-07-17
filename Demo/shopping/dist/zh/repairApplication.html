@@ -41,7 +41,7 @@
                 </ul>
             </div>
             <div class="lan">
-                <a href="./../en/index.html">en</a>
+                <a href="./../en/index.html">English</a>
             </div>
         </div>
     </div>
@@ -58,6 +58,9 @@
             <li data-name="sh">上海</li>
         </ul>
     </div>-->
+    <div class="gotoLang">
+        <a href="./../en/index.html">English</a>
+    </div>
     <div class="logo">
         <a href="./index.html">
             <img src="./../public/img/web_logo.png" alt="logo">
@@ -80,7 +83,7 @@
                     <li class="selc"><a href="./solution.html">维修申请</a></li>
                 </ul>
             </li>
-            <li class="selc"><a href="./../en/index.html">en</a></li>
+            <!--<li class="selc"><a href="./../en/index.html">English</a></li>-->
             <li class="selc loging"><a href="./login.html" >登录</a></li>
             <li class="service mlogined"><a href="javascript:;">个人中心</a>
                 <ul>
@@ -218,9 +221,11 @@
                 </td>
             </tr>
             <tr>
-                <td class="td1">设备序列号：</td>
-                <td class="td2">
-                    <input type="text" class="input sn">
+                <td class="td1">你的设备：</td>
+                <td class="td2 sku_id">
+                    <!--<p><input type="radio" name="addr" id="device4" checked=""><label for="device4"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
+                    <p><input type="radio" name="addr" id="device5" checked=""><label for="device5"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
+                    <p><input type="radio" name="addr" id="device6" checked=""><label for="device6"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>-->
                 </td>
             </tr>
         </table>
@@ -318,7 +323,7 @@
             </tr>-->
             <tr>
                 <td class="td1">你的设备：</td>
-                <td class="td2" id="sku_id">
+                <td class="td2 sku_id">
                     <!--<p><input type="radio" name="addr" id="device4" checked=""><label for="device4"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
                     <p><input type="radio" name="addr" id="device5" checked=""><label for="device5"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>
                     <p><input type="radio" name="addr" id="device6" checked=""><label for="device6"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>-->
@@ -344,11 +349,17 @@
             <a href="javascript:;" class="submit">提交</a>
         </div>
     </div>
+
+    <div class="success">
+        <div class="img"></div>
+        <p class="order_no">维修申请成功，维修单号为：<span></span></p>
+        <p>可在个人中心查看维修申请单</p>
+    </div>
 </div>
 <!--尾部-->
 <div class="footer">
     <div class="content">
-        <p>ICP备案：XXXXXX</p>
+        <p>ICP备案：粤ICP备16043917号-1</p>
     </div>
 </div>
 <script src="../public/js/repairApplication.js"></script>

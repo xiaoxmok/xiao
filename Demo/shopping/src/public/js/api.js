@@ -805,10 +805,10 @@ var api = {
      */
     getRepairInfo: function (phone, callback) {
         //var result;
-        //var token = getCookie("token");
+        var token = getCookie("token");
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/repair/user-info?phone=' + phone + '&lang=' + i18nLanguage,
+            url: url + '/api/v1/repair/user-info?token='+token+'&phone=' + phone + '&lang=' + i18nLanguage,
             dataType: 'json',
             async: true,
             success: function (data) {

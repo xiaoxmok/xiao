@@ -20,7 +20,7 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #fff;}
 .header .other .service ul{display:none;position: absolute;z-index:99;background: #b9d7df;width: 90px;top:66px;left:-26px;}
 .header .other .service li{height: 25px;line-height: 25px;border-top:1px solid #ccc;cursor:pointer;font-size: 14px;text-align: center;}
 .header .other .lan{float:left;padding-right: 10px;}
-.header .other .lan a{border: 1px solid #fff;background: none;color:#fff;cursor:pointer;padding: 0 2px;}
+.header .other .lan a{background: none;color:#fff;cursor:pointer;padding: 0 2px;}
 
 .media-header,.mlogined{display: none;}
 
@@ -67,7 +67,7 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #fff;}
     .header-bar .content{width:100%;}
 
     .media-header{display: block;position: relative;width:100%;background:#b9d7df;height: 56px;}
-    .media-header .address,.media-header .logo{line-height: 51px;float:left;color:#fff;font-size: 14px;}
+    .media-header .address,.media-header .logo,.media-header .gotoLang{line-height: 51px;float:left;color:#fff;font-size: 14px;}
     .media-header .icon{float:left;}
 
     .media-header .icon{padding: 0 10px;}
@@ -87,7 +87,7 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #fff;}
         color: #ff7238;
     }
 
-    .media-header .address{position: relative;}
+    .media-header .address,.media-header .gotoLang{position: relative;}
     .media-header .address a{display: inline-block;}
     .media-header .address span{display: block;background: url(../img/byod_sec.png) no-repeat;width:12px;height: 7px;float: right;margin-top: 24px;margin-left: 5px;}
     .media-header .address ul{z-index:99;background: #b9d7df;width: 90px;position: absolute;left:0px;text-align: center;display: none;}

@@ -109,14 +109,51 @@ $(function () {
                     });
 
 
-
+                    // 如果用户首次登录，添加学校默认地址；
                     if(getUser.name == null){
-                        $('.error').html('首次登录，请完善资料');
+                        /*$('.error').html('首次登录，请完善资料');
 
                         setTimeout(function () {
                             location.href = "prefectData.html"
                         }, 2000);
-                        return;
+                        return;*/
+
+                        var addreesData = {
+                            token: token,
+                            user_id: getUser.id,
+                            reciever_name: getUser.name,
+                            //country_code: '086',
+                            reciever_phone: getUser.phone,
+                            address: getUser.school_region_info.address,
+                            is_default: 'y',
+                            is_from_school:'y'
+                        };
+
+                        // 添加收货地址
+                        $.ajax({
+                            type: 'POST',
+                            url: url + '/api/v1/address/create',
+                            dataType: 'json',
+                            data: addreesData,
+                            success: function (data) {
+                                /*if (data.code === 200) {
+                                    if(isEnglish()){
+                                        $('.error').html('Submitted successfully');
+                                    }else{
+                                        $('.error').html('提交成功');
+                                    }
+                                    setTimeout(function () {
+                                        location.href = "addressManagement.html"
+                                    }, 1000);
+                                } else {
+
+                                }*/
+                            },
+                            error: function (xhr, status, error) {
+
+                            }
+                        })
+
                     }
 
                     if(isEnglish()){

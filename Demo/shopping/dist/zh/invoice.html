@@ -13,6 +13,9 @@
     <script src="../public/js/common.js"></script>
     <script src="../public/js/api.js"></script>
     <link rel="stylesheet" href="../public/css/submitOrder.css">
+    <style>
+        .invoice .con .title{display: inline;}
+    </style>
 </head>
 <body>
 <!--header页面-->
@@ -41,7 +44,7 @@
                 </ul>
             </div>
             <div class="lan">
-                <a href="./../en/index.html">en</a>
+                <a href="./../en/index.html">English</a>
             </div>
         </div>
     </div>
@@ -58,6 +61,9 @@
             <li data-name="sh">上海</li>
         </ul>
     </div>-->
+    <div class="gotoLang">
+        <a href="./../en/index.html">English</a>
+    </div>
     <div class="logo">
         <a href="./index.html">
             <img src="./../public/img/web_logo.png" alt="logo">
@@ -80,7 +86,7 @@
                     <li class="selc"><a href="./solution.html">维修申请</a></li>
                 </ul>
             </li>
-            <li class="selc"><a href="./../en/index.html">en</a></li>
+            <!--<li class="selc"><a href="./../en/index.html">English</a></li>-->
             <li class="selc loging"><a href="./login.html" >登录</a></li>
             <li class="service mlogined"><a href="javascript:;">个人中心</a>
                 <ul>
@@ -126,7 +132,7 @@
         <div class="box">
             <p>打印发票</p>
         </div>
-        <div class="con">
+        <!--<div class="con">
             <div class="invoiceInfo">
                 <span class="title">开票信息：</span><span><input type="radio" id="general" name="info" value="normal" checked><label for="general">普通发票</label></span><span><input type="radio" id="added" name="info" value="vat"><label for="added">增值专用税发票</label></span>
             </div>
@@ -193,14 +199,43 @@
 
                 <a href="javascript:;" class="submit">打印发票</a>
             </div>
+        </div>-->
+
+        <div class="con">
+            <div><span class="title" id="order_no">订单号：<em></em></span></div>
+            <div><span class="title" id="billing_type">开票类型：<em></em></span></div>
+            <div><span class="title" id="normal_invoice_type">发票类型：<em></em></span></div>
+            <div><span class="title" id="normal_title">发票抬头：<em></em></span></div>
+            <div><span class="title" id="normal_tax_no">纳税号：<em></em></span></div>
+            <div><span class="title" id="normal_content">发票内容：<em></em></span></div>
+            <div><span class="title" id="vat_invoice_type">发票类型：<em></em></span></div>
+            <div><span class="title" id="vat_tax_no">纳税号：<em></em></span></div>
+            <div><span class="title" id="vat_content">发票内容：<em></em></span></div>
+            <div><span class="title" id="vat_company">单位名称：<em></em></span></div>
+            <div><span class="title" id="vat_address">注册地址：<em></em></span></div>
+            <div><span class="title" id="vat_phone">注册电话：<em></em></span></div>
+            <div><span class="title" id="vat_bank">开户银行：<em></em></span></div>
+            <div><span class="title" id="vat_bank_no">银行账号：<em></em></span></div>
+            <div><span class="title" id="receiver_name">收货人姓名：<em></em></span></div>
+            <div><span class="title" id="receiver_phone">收货人电话：<em></em></span></div>
+            <div><span class="title" id="receiver_province">收货人省：<em></em></span></div>
+            <div><span class="title" id="receiver_city">收货人市：<em></em></span></div>
+            <div><span class="title" id="receiver_area">收货人区：<em></em></span></div>
+            <div><span class="title" id="receiver_address">收货人详细地址：<em></em></span></div>
+
+            <div class="btn">
+                <a href="javascript:;" class="submit">打印发票</a>
+            </div>
+
         </div>
+
 
     </div>
 </div>
 <!--尾部-->
 <div class="footer">
     <div class="content">
-        <p>ICP备案：XXXXXX</p>
+        <p>ICP备案：粤ICP备16043917号-1</p>
     </div>
 </div>
 <script src="../public/js/lib/distpicker.js"></script>

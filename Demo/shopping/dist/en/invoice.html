@@ -28,10 +28,10 @@
         </div>
         <div class="nav">
             <ul>
-                <li><a href="./index.html" class="on5">BYOD STORE</a></li>
-                <li><a href="./solution.html" class="on2">SOLUTIONS</a></li>
-                <li><a href="./eduSoftware.html" class="on3">APPS FOR EDUCATION</a></li>
-                <li><a href="./information.html" class="on4">WHAT'S NEW</a></li>
+                <li><a href="./index.html" class="on5">BYOD Store</a></li>
+                <li><a href="./solution.html" class="on2">Our Solutions</a></li>
+                <li><a href="./eduSoftware.html" class="on3">Apps for Education</a></li>
+                <li><a href="./information.html" class="on4">What's New</a></li>
                 <li><a href="./aboutUs.html" class="on1">About Us</a></li>
             </ul>
         </div>
@@ -44,7 +44,7 @@
                 </ul>
             </div>
             <div class="lan">
-                <a href="./../zh/index.html">zh</a>
+                <a href="./../zh/index.html">中文</a>
             </div>
         </div>
     </div>
@@ -61,6 +61,9 @@
             <li data-name="sh">SHANGHAI</li>
         </ul>
     </div>-->
+    <div class="gotoLang">
+        <a href="./../zh/index.html">中文</a>
+    </div>
     <div class="logo">
         <a href="./index.html">
             <img src="./../public/img/web_logo.png" alt="logo">
@@ -72,18 +75,18 @@
 
     <div class="nav">
         <ul>
-            <li class="selc"><a href="./index.html">BYOD STORE</a></li>
-            <li class="selc"><a href="./solution.html">SOLUTIONS</a></li>
-            <li class="selc"><a href="./eduSoftware.html">APPS FOR EDUCATION</a></li>
-            <li class="selc"><a href="./information.html">WHAT'S NEW</a></li>
-            <li class="selc"><a href="./aboutUs.html">ABOUT US</a></li>
+            <li class="selc"><a href="./index.html">BYOD Store</a></li>
+            <li class="selc"><a href="./solution.html">Our Solutions</a></li>
+            <li class="selc"><a href="./eduSoftware.html">Apps for Education</a></li>
+            <li class="selc"><a href="./information.html">What's New</a></li>
+            <li class="selc"><a href="./aboutUs.html">About Us</a></li>
             <li class="service"><a href="javascript:;">REPAIR</a>
                 <ul>
                     <li class="selc"><a href="./center.html">REPAIR HISTORY</a></li>
                     <li class="selc"><a href="./solution.html">REPAIR REQUEST</a></li>
                 </ul>
             </li>
-            <li class="selc"><a href="./../zh/index.html">zh</a></li>
+            <!--<li class="selc"><a href="./../zh/index.html">中文</a></li>-->
             <li class="selc loging"><a href="./login.html" >LOGIN/REGISTER</a></li>
             <li class="service mlogined"><a href="javascript:;">MY ACCOUNT</a>
                 <ul>
@@ -128,7 +131,7 @@
         <div class="box">
             <p>Request an invoice (Fapiao)</p>
         </div>
-        <div class="con">
+        <!--<div class="con">
             <div class="invoiceInfo">
                 <span class="title">Invoice (Fapiao) Category：</span><span><input type="radio" id="general" name="info" value="normal" checked><label for="general">General Invoice</label></span><span><input type="radio" id="added" name="info" value="vat"><label for="added">Special VAT Invoice (Fapiao)</label></span>
             </div>
@@ -195,6 +198,34 @@
 
                 <a href="javascript:;" class="submit">Request an invoice (Fapiao)</a>
             </div>
+        </div>-->
+
+        <div class="con">
+            <div><span class="title" id="order_no">order no：<em></em></span></div>
+            <div><span class="title" id="billing_type">Invoice (Fapiao) Info：<em></em></span></div>
+            <div><span class="title" id="normal_invoice_type">General Invoice：<em></em></span></div>
+            <div><span class="title" id="normal_title">Invoice (Fapiao) title：<em></em></span></div>
+            <div><span class="title" id="normal_tax_no">Enterprise Taxpayer ID：<em></em></span></div>
+            <div><span class="title" id="normal_content">Invoice Item Description：<em></em></span></div>
+            <div><span class="title" id="vat_invoice_type">Invoice (Fapiao) Category：<em></em></span></div>
+            <div><span class="title" id="vat_tax_no">Taxpayer's ID：<em></em></span></div>
+            <div><span class="title" id="vat_content">Invoice Item Description：<em></em></span></div>
+            <div><span class="title" id="vat_company">Enterprise's Name：<em></em></span></div>
+            <div><span class="title" id="vat_address">Address：<em></em></span></div>
+            <div><span class="title" id="vat_phone">Phone Number：<em></em></span></div>
+            <div><span class="title" id="vat_bank">Bank Name：<em></em></span></div>
+            <div><span class="title" id="vat_bank_no">Bank Account：<em></em></span></div>
+            <div><span class="title" id="receiver_name">Recipient：<em></em></span></div>
+            <div><span class="title" id="receiver_phone">Mobile Phone：<em></em></span></div>
+            <div><span class="title" id="receiver_province">Province：<em></em></span></div>
+            <div><span class="title" id="receiver_city">Province：<em></em></span></div>
+            <div><span class="title" id="receiver_area">City：<em></em></span></div>
+            <div><span class="title" id="receiver_address">Address details：<em></em></span></div>
+
+            <div class="btn">
+                <a href="javascript:;" class="submit">Request an invoice (Fapiao)</a>
+            </div>
+
         </div>
 
     </div>
@@ -202,7 +233,7 @@
 <!--尾部-->
 <div class="footer">
     <div class="content">
-        <p>ICP ：XXXXXX</p>
+        <p>ICP备案：粤ICP备16043917号-1</p>
     </div>
 </div>
 <script src="../public/js/lib/distpicker.js"></script>

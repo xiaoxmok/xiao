@@ -20,7 +20,7 @@
 
 
 .userName{border:1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;padding: 20px;overflow:hidden;margin-top: 10px;}
-.userName div{float:left;}
+.userName div{}
 .userName .person{width:80%;}
 .userName .person div{margin-bottom: 10px;}
 .userName .person span{margin-right: 20px;color:#999;font-size: 14px;}
@@ -34,7 +34,7 @@
 .userName .dizhi p{clear: left;}*/
 
 .orderNav{margin-top:20px;height: 40px;border-bottom: 2px solid #eee;}
-.orderNav ul{margin:0 140px;}
+.orderNav ul{margin:0 155px;}
 .orderNav li{color:#666;font-size:14px;float:left;width:126px;background: #eee;text-align: center;margin-right: 12px;height: 40px;line-height: 40px;border-radius: 5px 5px 0 0;cursor:pointer;}
 .orderNav li:hover,.orderNav .active{background: #50b7b4;color:#fff;}
 

@@ -108,7 +108,14 @@ $(function () {
         var extra = arr.extra;
 
         goodsArr.forEach(function (item, index) {
-            var loginPrice;
+            var loginPrice,summary;
+
+            if(item.summary !== null){
+                summary = item.summary;
+            }else{
+                summary = 'Not described';
+            }
+
             if(isEnglish()){
                 if (login()) {
                     loginPrice = '<p class="price"><span>School Special Offer：</span><em>￥' + toPrice(item.school_price) + '</em></p>'
@@ -120,7 +127,7 @@ $(function () {
                     '                        <img src="' + item.img_infos[0].url + '" alt="">\n' +
                     '                        <div class="con">\n' +
                     '                            <p class="Title">' + item.name + '</p>\n' +
-                    '                            <p class="description">' + item.summary + '</p>\n' +
+                    '                            <p class="description">' + summary + '</p>\n' +
                     '                            <p class="price"><span>MSRP：</span><del>￥' + toPrice(item.price) + '</del></p>\n' +
                     loginPrice +
                     '                        </div>\n' +
@@ -137,7 +144,7 @@ $(function () {
                     '                        <img src="' + item.img_infos[0].url + '" alt="">\n' +
                     '                        <div class="con">\n' +
                     '                            <p class="Title">' + item.name + '</p>\n' +
-                    '                            <p class="description">' + item.summary + '</p>\n' +
+                    '                            <p class="description">' + summary + '</p>\n' +
                     '                            <p class="price"><span>常规价格：</span><del>￥' + toPrice(item.price) + '</del></p>\n' +
                     loginPrice +
                     '                        </div>\n' +

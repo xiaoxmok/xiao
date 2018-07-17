@@ -1,1 +1,163 @@
-$(function(){login()||(location.href="index.html");var n=getCookie("token");$(".code").click(function(){var e,o;$(".error").html("");var r=$("#select").children("option:selected").val();if("phone"===r){if(e=$(".account").val(),!CheckMobile(e))return void $(".error").html("账号格式不正确！");o={"verify_type":r,"phone":e}}else if("email"===r){if(e=$(".account").val(),!CheckEmail(e))return void $(".error").html("邮箱格式不正确！");o={"verify_type":r,"email":e}}var t,i=60;function l(){i--,$(".timeOut").html(i),i<0&&(clearInterval(t),$(".code").show(),$(".countDown").hide(),i=10)}$.ajax({"type":"POST","url":url+"/api/v1/user/send-verify-code","dataType":"json","data":o,"success":function(e){200===e.code?(console.log("获取验证码成功！"),$(".timeOut").html(i),t=setInterval(l,1e3),$(".code").hide(),$(".countDown").show()):$(".error").html(e.msg)},"error":function(e,o,r){console.log(e,o,r)}})}),$(".reset").click(function(){var e,o,r,t,i;$(".error").html("");var l=$("#select").children("option:selected").val();if(r=$(".valid_code").val(),CheckCode(r))if(o=$(".password").val(),CheckPwd(o))if((t=$(".confirmation").val())===o){if("phone"===l){if(e=$(".account").val(),!CheckMobile(e))return void $(".error").html("账号格式不正确！");i={"token":n,"verify_type":l,"phone":e,"verify_code":r,"password":o,"password_confirmation":t}}else if("email"===l){if(e=$(".account").val(),!CheckEmail(e))return void $(".error").html("邮箱格式不正确！");i={"token":n,"verify_type":l,"email":e,"verify_code":r,"password":o,"password_confirmation":t}}$.ajax({"type":"POST","url":url+"/api/v1/user/reset-password","dataType":"json","data":i,"success":function(e){200===e.code?($(".error").html("重置密码成功，请重新登录。"),setTimeout(function(){delAllCookie(),location.href="login.html"},2e3)):$(".error").html(e.msg)},"error":function(e,o,r){}})}else $(".error").html("确认密码错误。");else $(".error").html("密码不合法，输入5-15位数！");else $(".error").html("验证码格式不正确。")})});
+$(function () {
+    if (!login()) {
+        location.href = "index.html"
+    }
+
+    var token = getCookie('token');
+
+    // 获取验证码
+    $('.code').click(function () {
+
+        $('.error').html('');
+        var account, verifyData;
+        var value = $('#select').children('option:selected').val();
+
+        if (value === 'phone') {
+            account = $('.account').val();
+            if (!CheckMobile(account)) {
+                $('.error').html('账号格式不正确！');
+                return;
+            }
+            verifyData = {
+                verify_type: value,
+                phone: account
+            };
+
+        } else if (value === 'email') {
+            account = $('.account').val();
+            if (!CheckEmail(account)) {
+                $('.error').html('邮箱格式不正确！');
+                return;
+            }
+            verifyData = {
+                verify_type: value,
+                email: account
+            };
+        }
+
+
+        /*获取验证码倒记时*/
+        var time = 60;
+        var time1;
+
+        function timeOut() {
+            time--;
+            $('.timeOut').html(time);
+            //console.log(time);
+            if (time < 0) {
+                clearInterval(time1);
+                $('.code').show();
+                $('.countDown').hide();
+                time = 10;
+            }
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: url + '/api/v1/user/send-verify-code',
+            dataType: 'json',
+            data: verifyData,
+            success: function (data) {
+                if (data.code === 200) {
+                    console.log('获取验证码成功！');
+                    $('.timeOut').html(time);
+                    time1 = setInterval(timeOut, 1000);
+                    $('.code').hide();
+                    $('.countDown').show();
+
+
+                } else {
+                    $('.error').html(data.msg);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr, status, error);
+            }
+        });
+
+    });
+
+
+    // 重置密码
+    $('.reset').click(function () {
+        var account, password, valid_code,confirmation, resetData;
+        $('.error').html('');
+
+        var value = $('#select').children('option:selected').val();
+
+        valid_code = $('.valid_code').val();
+        if (!CheckCode(valid_code)) {
+            $('.error').html('验证码格式不正确。');
+            return;
+        }
+
+        password = $('.password').val();
+        if (!CheckPwd(password)) {
+            $('.error').html('密码不合法，输入5-15位数！');
+            return;
+        }
+
+        confirmation = $('.confirmation').val();
+        if (confirmation !== password) {
+            $('.error').html('确认密码错误。');
+            return;
+        }
+
+
+        if (value === 'phone') {
+            account = $('.account').val();
+            if (!CheckMobile(account)) {
+                $('.error').html('账号格式不正确！');
+                return;
+            }
+            resetData = {
+                token:token,
+                verify_type: value,
+                phone: account,
+                verify_code: valid_code,
+                password: password,
+                password_confirmation: confirmation
+            }
+
+        } else if (value === 'email') {
+            account = $('.account').val();
+            if (!CheckEmail(account)) {
+                $('.error').html('邮箱格式不正确！');
+                return;
+            }
+            resetData = {
+                token:token,
+                verify_type: value,
+                email: account,
+                verify_code: valid_code,
+                password: password,
+                password_confirmation: confirmation
+            }
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: url + '/api/v1/user/reset-password',
+            dataType: 'json',
+            data: resetData,
+            success: function (data) {
+                //console.log(data.code,typeof data.code);
+                if (data.code === 200) {
+                    // console.log('注册成功。');
+                    $('.error').html('重置密码成功，请重新登录。');
+                    setTimeout(function () {
+                        delAllCookie();
+                        location.href = "login.html"
+                    }, 2000);
+                } else {
+                    $('.error').html(data.msg);
+                }
+            },
+            error: function (xhr, status, error) {
+
+            }
+        })
+
+    });
+
+})

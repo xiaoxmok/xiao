@@ -1,1 +1,390 @@
-$(function(){login()&&(location.href="index.html");getCookie("token");function e(){var e=$("#schoolSearch").children("option:selected").val();null==e&&(e=1),$("#schoolRegion").html(""),$.ajax({"type":"GET","url":url+"/api/v1/school-region/index?school_id="+e+"&lang="+i18nLanguage,"dataType":"json","success":function(e){if(200===e.code)for(var o=0;o<e.data.length;o++){var r='<option value="'+e.data[o].id+'">'+e.data[o].name+"</option>";$("#schoolRegion").append(r)}else{r='<option value="error">'+e.msg+"</option>";$("#schoolRegion").append(r),$(".error").html(e.msg)}},"error":function(e,o,r){console.log(e,o,r)}})}$.ajax({"type":"GET","url":url+"/api/v1/school/index?city=&lang="+i18nLanguage,"dataType":"json","success":function(e){if(200===e.code)for(var o=0;o<e.data.length;o++){var r='<option value="'+e.data[o].id+'">'+e.data[o].name+"</option>";$("#schoolSearch").append(r)}else{r='<option value="error">'+e.msg+"</option>";$("#schoolSearch").append(r),$(".error").html(e.msg)}},"error":function(e,o,r){console.log(e,o,r)}}),$("#schoolSearch").bind("change",function(){e()}),e();api.getCaptcha();$("#Captcha").attr("src","http://byod.1o24.com/api/v1/system/get-captcha"),$("#Captcha").click(function(){$("#Captcha").attr("src","http://byod.1o24.com/api/v1/system/get-captcha?t="+Math.random())}),$(".code").click(function(){var e,o;$(".error").html("");var r=$("#select").children("option:selected").val();if("phone"===r){if(e=$(".account").val(),!CheckMobile(e))return void(isEnglish()?$(".error").html("Account format is incorrect."):$(".error").html("账号格式不正确."));o={"verify_type":r,"phone":e}}else if("email"===r){if(e=$(".account").val(),!CheckEmail(e))return void(isEnglish()?$(".error").html("E-mail format is incorrect."):$(".error").html("邮箱格式不正确。"));o={"verify_type":r,"email":e}}var t=$(".Captcha_code").val();if(0!==t.length){o.captcha=t;var i,a=60;$.ajax({"type":"POST","url":url+"/api/v1/user/send-verify-code","dataType":"json","data":o,"success":function(e){200===e.code?($(".timeOut").html(a),i=setInterval(c,1e3),$(".code").hide(),$(".countDown").show()):$(".error").html(e.msg)},"error":function(e,o,r){console.log(e,o,r)}})}else isEnglish()?$(".error").html("Graphic verification code cannot be empty"):$(".error").html("图形验证码不能为空");function c(){a--,$(".timeOut").html(a),a<0&&(clearInterval(i),$(".code").show(),$(".countDown").hide(),a=10)}}),$(".register").click(function(){var e,o,r,t,i;$(".error").html("");var a=$("#select").children("option:selected").val();if(r=$(".valid_code").val(),CheckCode(r))if(o=$(".password").val(),CheckPwd(o)){if(t=$("#schoolSearch").children("option:selected").val(),"phone"===a){if(e=$(".account").val(),!CheckMobile(e))return void(isEnglish()?$(".error").html("Account format is incorrect."):$(".error").html("账号格式不正确."));i={"verify_type":a,"phone":e,"verify_code":r,"password":o,"school_id":t}}else if("email"===a){if(e=$(".account").val(),!CheckEmail(e))return void(isEnglish()?$(".error").html("E-mail format is incorrect."):$(".error").html("邮箱格式不正确。"));i={"verify_type":a,"email":e,"verify_code":r,"password":o,"school_region_id":t}}i.school_region_id=$("#schoolRegion").children("option:selected").val(),$.ajax({"type":"POST","url":url+"/api/v1/user/register","dataType":"json","data":i,"success":function(e){200===e.code?(isEnglish()?$(".error").html("Registration is successful, automatically jump to the login page."):$(".error").html("注册成功，自动跳转登录页面。"),setTimeout(function(){location.href="login.html"},2e3)):$(".error").html(e.detail)},"error":function(e,o,r){}})}else isEnglish()?$(".error").html("The password is illegal"):$(".error").html("密码不合法，输入5-15位数！");else isEnglish()?$(".error").html("The verification code is not in the correct format."):$(".error").html("验证码格式不正确。")})});
+$(function () {
+    if (login()) {
+        location.href = "index.html"
+    }
+
+    var token = getCookie('token');
+
+    // 获取学校信息
+    $.ajax({
+        type: 'GET',
+        url: url + '/api/v1/school/index?city=' + '' + '&lang=' + i18nLanguage,
+        dataType: 'json',
+        success: function (data) {
+            //console.log("data", data);
+            if (data.code === 200) {
+                for (var i = 0; i < data.data.length; i++) {
+                    var html = '<option value="' + data.data[i].id + '">' + data.data[i].name + '</option>';
+                    $('#schoolSearch').append(html);
+
+
+                }
+
+            } else {
+                var html = '<option value="error">' + data.msg + '</option>';
+                $('#schoolSearch').append(html);
+                $('.error').html(data.msg);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log(xhr, status, error);
+        }
+    });
+
+    // 获取校区
+    $("#schoolSearch").bind('change', function() {
+        schoolRegion();
+    });
+    schoolRegion();
+    function schoolRegion(){
+        var school_id = $('#schoolSearch').children('option:selected').val();
+        if(school_id == null){
+            school_id = 1;
+        }
+        $('#schoolRegion').html('');
+
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/school-region/index?school_id=' + school_id + '&lang=' + i18nLanguage,
+            dataType: 'json',
+            success: function (data) {
+                //console.log("data", data);
+                if (data.code === 200) {
+                    for (var i = 0; i < data.data.length; i++) {
+                        var html = '<option value="' + data.data[i].id + '">' + data.data[i].name + '</option>';
+                        $('#schoolRegion').append(html);
+                    }
+
+                } else {
+                    var html = '<option value="error">' + data.msg + '</option>';
+                    $('#schoolRegion').append(html);
+                    $('.error').html(data.msg);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr, status, error);
+            }
+        });
+    }
+
+    // 获取图片验证码
+    var getCaptcha = api.getCaptcha();
+    $('#Captcha').attr('src', 'http://byod.1o24.com/api/v1/system/get-captcha');
+    $('#Captcha').click(function () {
+        //$('#Captcha').attr('src','');
+        $('#Captcha').attr('src', 'http://byod.1o24.com/api/v1/system/get-captcha?t=' + Math.random());
+    });
+
+    // 获取手机验证码
+    $('.code').click(function () {
+
+        $('.error').html('');
+        var account, verifyData;
+        var value = $('#select').children('option:selected').val();
+
+        if (value === 'phone') {
+            account = $('.account').val();
+            if (!CheckMobile(account)) {
+                if(isEnglish()){
+                    $('.error').html('Account format is incorrect.');
+                }else{
+                    $('.error').html('账号格式不正确.');
+                }
+                return;
+            }
+            verifyData = {
+                verify_type: value,
+                phone: account
+            };
+
+        } else if (value === 'email') {
+            account = $('.account').val();
+            if (!CheckEmail(account)) {
+                if(isEnglish()){
+                    $('.error').html('E-mail format is incorrect.');
+                }else{
+                    $('.error').html('邮箱格式不正确。');
+                }
+                return;
+            }
+            verifyData = {
+                verify_type: value,
+                email: account
+            };
+        }
+        var captcha = $('.Captcha_code').val();
+        if (captcha.length === 0) {
+            if(isEnglish()){
+                $('.error').html('Graphic verification code cannot be empty');
+            }else{
+                $('.error').html('图形验证码不能为空');
+            }
+            return;
+        }
+        verifyData.captcha = captcha;
+
+
+
+        /*获取验证码倒记时*/
+        var time = 60;
+        var time1;
+
+        function timeOut() {
+            time--;
+            $('.timeOut').html(time);
+            //console.log(time);
+            if (time < 0) {
+                clearInterval(time1);
+                $('.code').show();
+                $('.countDown').hide();
+                time = 10;
+            }
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: url + '/api/v1/user/send-verify-code',
+            dataType: 'json',
+            data: verifyData,
+            success: function (data) {
+                if (data.code === 200) {
+                    //console.log('获取验证码成功！');
+                    $('.timeOut').html(time);
+                    time1 = setInterval(timeOut, 1000);
+                    $('.code').hide();
+                    $('.countDown').show();
+                } else {
+                    $('.error').html(data.msg);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr, status, error);
+            }
+        });
+
+    });
+
+    // 注册
+    $('.register').click(function () {
+        var account, password, valid_code, school_id, registeData,loginData;
+        $('.error').html('');
+
+        var value = $('#select').children('option:selected').val();
+
+        valid_code = $('.valid_code').val();
+        if (!CheckCode(valid_code)) {
+            if(isEnglish()){
+                $('.error').html('The verification code is not in the correct format.');
+            }else{
+                $('.error').html('验证码格式不正确。');
+            }
+            return;
+        }
+
+        password = $('.password').val();
+        if (!CheckPwd(password)) {
+            if(isEnglish()){
+                $('.error').html('The password is illegal');
+            }else{
+                $('.error').html('密码不合法，输入5-15位数！');
+            }
+            return;
+        }
+
+        school_id = $('#schoolSearch').children('option:selected').val();
+
+        if (value === 'phone') {
+            account = $('.account').val();
+            if (!CheckMobile(account)) {
+                if(isEnglish()){
+                    $('.error').html('Account format is incorrect.');
+                }else{
+                    $('.error').html('账号格式不正确.');
+                }
+                return;
+            }
+            registeData = {
+                verify_type: value,
+                phone: account,
+                verify_code: valid_code,
+                password: password,
+                school_id: school_id
+            }
+
+            loginData = {
+                verify_type: value,
+                phone: account,
+                password: password
+            }
+
+        } else if (value === 'email') {
+            account = $('.account').val();
+            if (!CheckEmail(account)) {
+                if(isEnglish()){
+                    $('.error').html('E-mail format is incorrect.');
+                }else{
+                    $('.error').html('邮箱格式不正确。');
+                }
+                return;
+            }
+            registeData = {
+                verify_type: value,
+                email: account,
+                verify_code: valid_code,
+                password: password,
+                school_region_id: school_id
+            }
+
+            loginData = {
+                verify_type: value,
+                email: account,
+                password: password
+            }
+        }
+
+        registeData.school_region_id = $('#schoolRegion').children('option:selected').val();
+
+        $.ajax({
+            type: 'POST',
+            url: url + '/api/v1/user/register',
+            dataType: 'json',
+            data: registeData,
+            success: function (data) {
+                //console.log(data.code,typeof data.code);
+                if (data.code === 200) {
+                    // console.log('注册成功。');
+                    if(isEnglish()){
+                        $('.error').html('Registration is successful, Automatic login.');
+                    }else{
+                        $('.error').html('注册成功，自动登录中。');
+                    }
+                    setTimeout(function () {
+                        $.ajax({
+                            type: 'POST',
+                            url: url + '/api/v1/user/login',
+                            dataType: 'json',
+                            data: loginData,
+                            success: function (data) {
+                                //console.log(data);
+                                if (data.code === 200) {
+
+                                    var getUser = api.getUser(data.data.token);
+
+                                    //console.log(getUser,getUser.name,);
+
+                                    // cookie记录token
+                                    getCookie("token", data.data.token, {
+                                        expires: 1,
+                                        path: '/'
+                                    });
+
+                                    if(getUser.name == null){
+                                        getUser.name = ''
+                                    }
+
+                                    // cookie记录用户名
+                                    getCookie("username", getUser.name, {
+                                        expires: 30,
+                                        path: '/'
+                                    });
+
+                                    // cookie记录用户名ID
+                                    getCookie("userId", getUser.id, {
+                                        expires: 30,
+                                        path: '/'
+                                    });
+
+                                    var getSchool = api.getSchool(getUser.school_info.id,i18nLanguage);
+
+                                    if(getSchool.name == null){
+                                        getSchool.name = ''
+                                    }
+                                    // cookie记录学校
+                                    getCookie("school", getSchool.name, {
+                                        expires: 30,
+                                        path: '/'
+                                    });
+
+                                    // cookie记录学校ID
+                                    getCookie("schoolId", getSchool.id, {
+                                        expires: 30,
+                                        path: '/'
+                                    });
+
+
+                                    // 如果用户首次登录，添加学校默认地址；
+                                    if(getUser.name == null){
+                                        var addreesData = {
+                                            token: token,
+                                            user_id: getUser.id,
+                                            reciever_name: getUser.name,
+                                            //country_code: '086',
+                                            reciever_phone: getUser.phone,
+                                            address: getUser.school_region_info.address,
+                                            is_default: 'y',
+                                            is_from_school:'y'
+                                        };
+
+                                        // 添加收货地址
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: url + '/api/v1/address/create',
+                                            dataType: 'json',
+                                            data: addreesData,
+                                            success: function (data) {
+                                                /*if (data.code === 200) {
+                                                    if(isEnglish()){
+                                                        $('.error').html('Submitted successfully');
+                                                    }else{
+                                                        $('.error').html('提交成功');
+                                                    }
+                                                    setTimeout(function () {
+                                                        location.href = "addressManagement.html"
+                                                    }, 1000);
+                                                } else {
+
+                                                }*/
+                                            },
+                                            error: function (xhr, status, error) {
+
+                                            }
+                                        })
+
+                                    }
+
+                                    if(isEnglish()){
+                                        $('.welcome').html('Dear '+getUser.name+' , Welcome to '+getSchool.name+' page.');
+
+                                        $('.error').html('The login is successful, and the home page is entered after 2 seconds.');
+                                    }else{
+                                        $('.welcome').html('Dear '+getUser.name+'，欢迎访问'+getSchool.name+'专属页面。');
+
+                                        $('.error').html('登录成功，2秒后进入首页。');
+                                    }
+
+                                    if(getCookie("localCart")){
+                                        $('.error').html('临时购物车存在商品，将批量加入本账户。');
+                                    }
+
+                                } else {
+                                    $('.error').html(data.msg);
+                                }
+                            },
+                            error: function (xhr, status, error) {
+
+                            }
+                        })
+
+                    }, 2000);
+                } else {
+                    $('.error').html(data.detail);
+                }
+            },
+            error: function (xhr, status, error) {
+
+            }
+        })
+
+    });
+
+})

@@ -84,6 +84,16 @@ $(function () {
     }
 
 
+    // 手机注册用户只能修改邮箱，邮箱注册用户只能修改手机
+    if(getUser.verify_type === 'phone'){
+        $('.phone').parent().hide();
+        $('.email').val(getUser.email);
+    }else{
+        $('.email').parent().hide();
+        $('.phone').val(getUser.phone);
+    }
+
+
     // 获取默认地址
 
 
@@ -102,6 +112,12 @@ $(function () {
             order_sms_notify:$('#check-2').attr('dataName'),
             school_no: $('.no').val(),
             default_address: $('.defalutAddress span').html()
+        }
+
+        if(getUser.verify_type === 'phone'){
+            updataData.email=$('.email').val();
+        }else{
+            updataData.phone=$('.phone').val();
         }
 
         $.ajax({

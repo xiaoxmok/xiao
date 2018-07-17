@@ -166,7 +166,7 @@ $(function () {
 
     // 注册
     $('.register').click(function () {
-        var account, password, valid_code, school_id, registeData;
+        var account, password, valid_code, school_id, registeData,loginData;
         $('.error').html('');
 
         var value = $('#select').children('option:selected').val();
@@ -211,6 +211,12 @@ $(function () {
                 school_id: school_id
             }
 
+            loginData = {
+                verify_type: value,
+                phone: account,
+                password: password
+            }
+
         } else if (value === 'email') {
             account = $('.account').val();
             if (!CheckEmail(account)) {
@@ -228,6 +234,12 @@ $(function () {
                 password: password,
                 school_region_id: school_id
             }
+
+            loginData = {
+                verify_type: value,
+                email: account,
+                password: password
+            }
         }
 
         registeData.school_region_id = $('#schoolRegion').children('option:selected').val();
@@ -242,12 +254,127 @@ $(function () {
                 if (data.code === 200) {
                     // console.log('注册成功。');
                     if(isEnglish()){
-                        $('.error').html('Registration is successful, automatically jump to the login page.');
+                        $('.error').html('Registration is successful, Automatic login.');
                     }else{
-                        $('.error').html('注册成功，自动跳转登录页面。');
+                        $('.error').html('注册成功，自动登录中。');
                     }
                     setTimeout(function () {
-                        location.href = "login.html"
+                        $.ajax({
+                            type: 'POST',
+                            url: url + '/api/v1/user/login',
+                            dataType: 'json',
+                            data: loginData,
+                            success: function (data) {
+                                //console.log(data);
+                                if (data.code === 200) {
+
+                                    var getUser = api.getUser(data.data.token);
+
+                                    //console.log(getUser,getUser.name,);
+
+                                    // cookie记录token
+                                    getCookie("token", data.data.token, {
+                                        expires: 1,
+                                        path: '/'
+                                    });
+
+                                    if(getUser.name == null){
+                                        getUser.name = ''
+                                    }
+
+                                    // cookie记录用户名
+                                    getCookie("username", getUser.name, {
+                                        expires: 30,
+                                        path: '/'
+                                    });
+
+                                    // cookie记录用户名ID
+                                    getCookie("userId", getUser.id, {
+                                        expires: 30,
+                                        path: '/'
+                                    });
+
+                                    var getSchool = api.getSchool(getUser.school_info.id,i18nLanguage);
+
+                                    if(getSchool.name == null){
+                                        getSchool.name = ''
+                                    }
+                                    // cookie记录学校
+                                    getCookie("school", getSchool.name, {
+                                        expires: 30,
+                                        path: '/'
+                                    });
+
+                                    // cookie记录学校ID
+                                    getCookie("schoolId", getSchool.id, {
+                                        expires: 30,
+                                        path: '/'
+                                    });
+
+
+                                    // 如果用户首次登录，添加学校默认地址；
+                                    if(getUser.name == null){
+                                        var addreesData = {
+                                            token: token,
+                                            user_id: getUser.id,
+                                            reciever_name: getUser.name,
+                                            //country_code: '086',
+                                            reciever_phone: getUser.phone,
+                                            address: getUser.school_region_info.address,
+                                            is_default: 'y',
+                                            is_from_school:'y'
+                                        };
+
+                                        // 添加收货地址
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: url + '/api/v1/address/create',
+                                            dataType: 'json',
+                                            data: addreesData,
+                                            success: function (data) {
+                                                /*if (data.code === 200) {
+                                                    if(isEnglish()){
+                                                        $('.error').html('Submitted successfully');
+                                                    }else{
+                                                        $('.error').html('提交成功');
+                                                    }
+                                                    setTimeout(function () {
+                                                        location.href = "addressManagement.html"
+                                                    }, 1000);
+                                                } else {
+
+                                                }*/
+                                            },
+                                            error: function (xhr, status, error) {
+
+                                            }
+                                        })
+
+                                    }
+
+                                    if(isEnglish()){
+                                        $('.welcome').html('Dear '+getUser.name+' , Welcome to '+getSchool.name+' page.');
+
+                                        $('.error').html('The login is successful, and the home page is entered after 2 seconds.');
+                                    }else{
+                                        $('.welcome').html('Dear '+getUser.name+'，欢迎访问'+getSchool.name+'专属页面。');
+
+                                        $('.error').html('登录成功，2秒后进入首页。');
+                                    }
+
+                                    if(getCookie("localCart")){
+                                        $('.error').html('临时购物车存在商品，将批量加入本账户。');
+                                    }
+
+                                } else {
+                                    $('.error').html(data.msg);
+                                }
+                            },
+                            error: function (xhr, status, error) {
+
+                            }
+                        })
+
                     }, 2000);
                 } else {
                     $('.error').html(data.detail);
