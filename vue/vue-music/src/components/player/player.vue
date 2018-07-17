@@ -127,7 +127,7 @@
       return {
         // 设置默认的url（因为爱情），如果初始化时，url为undefined，首次调用audio.play()时会报资源不存在。
         //url: 'http://zhangmenshiting.qianqian.com/data2/music/65626884/65626884.mp3?xcode=3b0331ab74d0303c7e919dd56dd3c83c',
-        url: 'http://dl.stream.qqmusic.qq.com/C4000026t6z61Gi86V.m4a?guid=202324981&vkey=D65F0E85D57E0B8B5476E0BF3CB652FAC95C8CFAC8B7C80B03D5BB8155D86843D1B70E742E3A0A45A25F7083C6257A38AB8EC181822D382F&uin=0&fromtag=999',
+        url: 'http://zhangmenshiting.qianqian.com/data2/music/06f89297f8342e8d5d9152459b62d12d/599125012/599125012.m4a?xcode=dbe4b66af9f04dac84da5601d869449c',
         songReady: false,
         // 当前时间
         currentTime: 0,
