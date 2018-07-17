@@ -772,32 +772,6 @@ var api = {
         return result;
     },
     /**
-     * 设备配置清单
-     * @returns {*}
-     */
-    getDeviceConfigPage: function () {
-        var result;
-        var token = getCookie("token");
-        $.ajax({
-            type: 'GET',
-            url: url + '/api/v1/system/device-config-page',
-            dataType: 'json',
-            async: false,
-            success: function (data) {
-                //console.log(data);
-                if (data.code === 200) {
-                    result = data.data
-                } else {
-                    result = data.msg;
-                }
-            },
-            error: function () {
-            }
-        });
-
-        return result;
-    },
-    /**
      * 获取设备特权券清单
      * @param phone
      * @param callback
@@ -888,5 +862,56 @@ var api = {
             error: function () {
             }
         });
+    },
+    /**
+     * 设备配置清单
+     * @returns {*}
+     */
+    getDeviceConfigPage: function (callback) {
+        //var result;
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/system/device-config-page?lang='+i18nLanguage,
+            dataType: 'json',
+            async: true,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    callback(data.data)
+                } else {
+                    callback(data.data)
+                }
+            },
+            error: function () {
+            }
+        });
+
+        //return result;
+    },
+    /**
+     * 设备官方统计数据
+     * @returns {*}
+     */
+    getStatistics: function (callback) {
+        //var result;
+        //var token = getCookie("token");
+        $.ajax({
+            type: 'GET',
+            url: url + '/api/v1/system/statistics?lang='+i18nLanguage,
+            dataType: 'json',
+            async: true,
+            success: function (data) {
+                //console.log(data);
+                if (data.code === 200) {
+                    callback(data.data)
+                } else {
+                    callback(data.data)
+                }
+            },
+            error: function () {
+            }
+        });
+
+        //return result;
     },
 }

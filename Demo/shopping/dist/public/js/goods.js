@@ -109,8 +109,15 @@ $(function () {
 
             $('.param').append(html);
         }
+    };
+
+
+    // 判断是否已收藏
+    if(getGoods.is_fav === 'y'){
+        $('.collect').html('<span></span>已收藏');
+    }else{
+        $('.collect').html('<span></span>收藏');
     }
-    ;
 
     // sku param值的切换,并且获得sku_id
 
@@ -219,7 +226,29 @@ $(function () {
 
         }else{
             var quantity = $('#quantity').val();
-            var flag = true;
+            console.log('quantity', quantity);
+            var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
+            if (createCart.code === 200) {
+                $('.zhezhao').show();
+                if(isEnglish()){
+                    $('.tan2 .con p').html('Add to Cart successful.');
+                }else{
+                    $('.tan2 .con p').html('加入购物车成功。');
+                }
+                $('.tan2').show();
+                //优化 做成异步的方式
+                api.getCartList(getCookie('userId'), i18nLanguage,function(getCartList){
+                    $('.cart .count').html(getCartList.length);
+                });
+                setTimeout(function () {
+                    //location.href = "cart.html"
+                    $('.zhezhao').hide();
+                    $('.tan2').hide();
+                }, 1000);
+            }
+
+
+           /* var flag = true;
             api.getCartList(getCookie('userId'), i18nLanguage,function(getCartList){
                 getCartList.forEach(function (item, index) {
                     if (item.sku_id === sku_id) {
@@ -262,7 +291,7 @@ $(function () {
                         $('.tan2').hide();
                     }, 1000);
                 }
-            });
+            });*/
 
 
         }
@@ -303,33 +332,47 @@ $(function () {
 
     // 加入收藏
     $('.collect').click(function () {
-
-        $.ajax({
-            type:'POST',
-            url:url+'/api/v1/fav/create',
-            dataType:'json',
-            data:{
-                token:token,
-                goods_id:urlInfo.id
-            },
-            success:function(data){
-                if(data.code === 200){
-                    $('.zhezhao').show();
-                    if(isEnglish()){
-                        $('.tan2 .con p').html('Collection success.');
-                    }else{
-                        $('.tan2 .con p').html('收藏成功。');
+        if(login()){
+            $.ajax({
+                type:'POST',
+                url:url+'/api/v1/fav/create',
+                dataType:'json',
+                data:{
+                    token:token,
+                    goods_id:urlInfo.id
+                },
+                success:function(data){
+                    if(data.code === 200){
+                        $('.zhezhao').show();
+                        if(isEnglish()){
+                            $('.tan2 .con p').html('Collection success.');
+                        }else{
+                            $('.tan2 .con p').html('收藏成功。');
+                        }
+                        $('.tan2').show();
+                        setTimeout(function () {
+                            //location.href = "cart.html"
+                            $('.zhezhao').hide();
+                            $('.tan2').hide();
+                        }, 1000);
                     }
-                    $('.tan2').show();
-                    setTimeout(function () {
-                        //location.href = "cart.html"
-                        $('.zhezhao').hide();
-                        $('.tan2').hide();
-                    }, 1000);
-                }
-            },
-            error:function(){}
-        })
+                },
+                error:function(){}
+            })
+        }else{
+            $('.zhezhao').show();
+            if(isEnglish()){
+                $('.tan2 .con p').html('please sign in.');
+            }else{
+                $('.tan2 .con p').html('请登录。');
+            }
+            $('.tan2').show();
+            setTimeout(function () {
+                //location.href = "cart.html"
+                $('.zhezhao').hide();
+                $('.tan2').hide();
+            }, 1000);
+        }
     });
 
     // 页面的操作

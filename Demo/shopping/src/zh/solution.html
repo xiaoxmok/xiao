@@ -5,12 +5,22 @@
     <title>解决方案</title>
     @@include('./view/meta.html')
     <link rel="stylesheet" href="../public/css/information.css">
+    <link rel="stylesheet" href="../public/css/swiper-4.2.2.min.css">
 </head>
 <body class="on2">
 @@include('./view/header.html')
 <div class="main info">
-    <div class="img">
-        <img src="../public/img/banner.jpg" alt="">
+    <!--轮播图-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--<div class="swiper-slide">
+                <img src="http://7xon9s.com1.z0.glb.clouddn.com/b3e759413bcaa00903058663da7bd917" alt="">
+            </div>
+            <div class="swiper-slide"><img src="../public/img/banner.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../public/img/banner.jpg" alt=""></div>-->
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
     </div>
     <!--供应商品-->
     <div class="goods">
@@ -53,6 +63,7 @@
 </div>
 
 @@include('./view/footer.html')
+<script src="./../public/js/lib/swiper-4.2.2.min.js"></script>
 <script src="../public/js/articleInfo.js"></script>
 </body>
 </html>

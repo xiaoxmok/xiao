@@ -105,27 +105,34 @@ $(function () {
                 goods_ids.push(item.sku_info.goods_id);
             }
 
-            var html;
+            var html,url;
+            if(item.sku_info.img_infos !== null){
+                url = item.sku_info.img_infos[0].url;
+            }else{
+                url = item.sku_info.goods_cover_url
+            }
+
             if(isEnglish()){
                 html = '<tr class="skuId">\n' +
                     '                <td><input type="checkbox" name="select" data-name="' + item.id + '" value="' + item.sku_id + '"></td>\n' +
                     '                <td>\n' +
                     '                    <a href="./product.html?id=' + item.sku_info.goods_id + '">'+
-                    '                    <div class="img"><img src="'+item.sku_info.img_infos[0].url+'" alt=""></div>\n' +
+                    '                       <div class="img"><img src="'+url+'" alt=""></div>\n' +
+                    '                    </a>'+
                     '                    <div class="con">\n' +
                     '                        <p class="title">' + item.sku_info.goods_name + '</p>\n' +
                     '                        <span class="unit_price">￥<em>' + item.sku_info.school_price + '</em></span>\n' +
                     '                        <div class="amountM btnNum">' +
                     '                           <input type="button" value="-" class="less">' +
-                    '                           <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '">' +
+                    '                           <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '" readonly>' +
                     '                           <input type="button" value="+" class="plus">\n' +
                     '                        </div>' +
                     '                    </div>\n' +
-                    '                    </a>'+
+
                     '                </td>\n' +
                     '                <td class="td3 btnNum">\n' +
                     '                    <input type="button" value="-" class="less">' +
-                    '                    <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '">' +
+                    '                    <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '" readonly>' +
                     '                    <input type="button" value="+" class="plus">' +
                     '                </td>\n' +
                     '                <td class="price">￥<em>' + price + '</em></td>\n' +
@@ -138,21 +145,22 @@ $(function () {
                     '                <td><input type="checkbox" name="select" data-name="' + item.id + '" value="' + item.sku_id + '"></td>\n' +
                     '                <td>\n' +
                     '                    <a href="./product.html?id=' + item.sku_info.goods_id + '">'+
-                    '                    <div class="img"><img src="'+item.sku_info.img_infos[0].url+'" alt=""></div>\n' +
+                    '                       <div class="img"><img src="'+ url+'" alt=""></div>\n' +
+                    '                    </a>'+
                     '                    <div class="con">\n' +
                     '                        <p class="title">' + item.sku_info.goods_name + '</p>\n' +
                     '                        <span class="unit_price">￥<em>' + item.sku_info.school_price + '</em></span>\n' +
                     '                        <div class="amountM btnNum">' +
                     '                           <input type="button" value="-" class="less">' +
-                    '                           <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '">' +
+                    '                           <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '" readonly>' +
                     '                           <input type="button" value="+" class="plus">\n' +
                     '                        </div>' +
                     '                    </div>\n' +
-                    '                    </a>'+
+
                     '                </td>\n' +
                     '                <td class="td3 btnNum">\n' +
                     '                    <input type="button" value="-" class="less">' +
-                    '                    <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '">' +
+                    '                    <input type="text" value="' + item.quantity + '" class="text" id="quantity" data-name="' + item.id + '" readonly>' +
                     '                    <input type="button" value="+" class="plus">' +
                     '                </td>\n' +
                     '                <td class="price">￥<em>' + price + '</em></td>\n' +
@@ -164,46 +172,50 @@ $(function () {
 
             $('.cartDetail table').append(html);
         })
-    };
-    //showCart();
 
 
-    // 修改商品数量
-    $('.btnNum').on('click', '.less', function () {
-        var value = $(this).parent().find('.text').val();
-        var id = $(this).parent().find('.text').attr('data-name');
-        if (value > 1) {
-            value--;
+        // 修改商品数量
+        $('.btnNum').on('click', '.less', function () {
+            var value = $(this).parent().find('.text').val();
+            var id = $(this).parent().find('.text').attr('data-name');
+            if (value > 1) {
+                value--;
+                $(this).parentsUntil('table','.skuId').find('#quantity').attr('value',value);
+                $(this).parent().find('#quantity').attr('value',value);
+                var getCartUpdate = api.getCartUpdate(id, value);
+
+                if(getCartUpdate.code === 200){
+                    //console.log($(this).parentsUntil('table','.skuId').html());
+                    var unit_price = parseFloat($(this).parentsUntil('table','.skuId').find('.unit_price em').html());
+                    var price = (unit_price * value).toFixed(2)
+                    $(this).parentsUntil('table','.skuId').find('.price em').html(price);
+                    changeCart();
+                }
+            }
+        });
+
+        $('.btnNum').on('click', '.plus', function () {
+            var value = $(this).parent().find('.text').val();
+            var id = $(this).parent().find('.text').attr('data-name');
+            value++;
             $(this).parentsUntil('table','.skuId').find('#quantity').attr('value',value);
             $(this).parent().find('#quantity').attr('value',value);
             var getCartUpdate = api.getCartUpdate(id, value);
-
             if(getCartUpdate.code === 200){
+
                 //console.log($(this).parentsUntil('table','.skuId').html());
                 var unit_price = parseFloat($(this).parentsUntil('table','.skuId').find('.unit_price em').html());
                 var price = (unit_price * value).toFixed(2)
                 $(this).parentsUntil('table','.skuId').find('.price em').html(price);
                 changeCart();
             }
-        }
-    });
-    
-    $('.btnNum').on('click', '.plus', function () {
-        var value = $(this).parent().find('.text').val();
-        var id = $(this).parent().find('.text').attr('data-name');
-        value++;
-        $(this).parentsUntil('table','.skuId').find('#quantity').attr('value',value);
-        $(this).parent().find('#quantity').attr('value',value);
-        var getCartUpdate = api.getCartUpdate(id, value);
-        if(getCartUpdate.code === 200){
+        });
 
-            //console.log($(this).parentsUntil('table','.skuId').html());
-            var unit_price = parseFloat($(this).parentsUntil('table','.skuId').find('.unit_price em').html());
-            var price = (unit_price * value).toFixed(2)
-            $(this).parentsUntil('table','.skuId').find('.price em').html(price);
-            changeCart();
-        }
-    });
+    };
+    //showCart();
+
+
+
 
 
     // 删除购物车订单

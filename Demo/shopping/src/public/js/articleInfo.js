@@ -22,7 +22,6 @@ $(function () {
         alias = 'news';
     }
 
-
     // 获取分类
     $.ajax({
         type: 'GET',
@@ -47,6 +46,43 @@ $(function () {
                 $('.nav .left ul').append(all + html);
 
                 api.getArticleList(allId.join(','), 1, 20, i18nLanguage, redraw);
+
+
+                // 获取banner
+                $.ajax({
+                    type: 'GET',
+                    url: url + '/api/v1/banner/index?category_id='+data.data.id,
+                    dataType: 'json',
+                    success: function (data) {
+                        //console.log(data);
+                        if (data.code == 200) {
+                            var imgArr = data.data;
+                            $('.swiper-wrapper').html('');
+                            imgArr.forEach(function (item, index) {
+                                var html = '<div class="swiper-slide">\n' +
+                                    '                <a href="' + item.link + '"><img src="' + item.img_info.url + '" alt=""></a>\n' +
+                                    '            </div>'
+                                $('.swiper-wrapper').append(html);
+                                //console.log(item.img_info.url);
+                            })
+                            var mySwiper = new Swiper('.swiper-container', {
+                                speed: 1000,
+                                autoplay: {
+                                    delay: 3000,//1秒切换一次
+                                },
+                                loop: true,
+                                // 如果需要分页器
+                                pagination: {
+                                    el: '.swiper-pagination',
+                                },
+                            })
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr, status, error);
+                    }
+
+                })
             }
         },
         error: function () {
@@ -58,10 +94,18 @@ $(function () {
         var dataArr = data.data;
         if (dataArr.length > 0) {
             dataArr.forEach(function (item, index) {
+                var url;
+                if(item.poster_info !== null){
+                    url = item.poster_info.url;
+                }else{
+                    url = ''
+                }
+
+
                 var html = '<li>\n' +
                     '                    <a href="./articleDetails.html?id='+item.id+'">\n' +
                     '                        <div class="img">\n' +
-                    '                            <img src="' + item.poster_info.url + '" alt="">\n' +
+                    '                            <img src="' + url + '" alt="">\n' +
                     '                        </div>\n' +
                     '                        <div class="con">\n' +
                     '                            <p class="Title">' + item.title + '</p>\n' +

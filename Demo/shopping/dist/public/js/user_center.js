@@ -388,13 +388,19 @@ $(function () {
                         var dataArr = data.data;
                         dataArr.forEach(function (item, index) {
                             var html;
+
+                            if(item.summary !== null){
+                                summary = item.summary;
+                            }else{
+                                summary = 'Not described';
+                            }
                             if (isEnglish()) {
                                 var html = '<li>\n' +
                                     '                    <a href="./product.html?id=' + item.id + '">\n' +
                                     '                    <img src="' + item.img_infos[0].url + '" alt="">\n' +
                                     '                    <div class="con">\n' +
                                     '                        <p class="Title">' + item.name + '</p>\n' +
-                                    '                        <p class="description">' + item.introduce + '</p>\n' +
+                                    '                        <p class="description">' + summary + '</p>\n' +
                                     '                        <p class="price"><span>MSRP：</span><del>￥' + toPrice(item.price) + '</del></p>\n' +
                                     '                        <p class="price"><span>School Special Offer：</span><em>￥' + toPrice(item.school_price) + '</em></p>\n' +
                                     '                    </div>\n' +
@@ -406,7 +412,7 @@ $(function () {
                                     '                    <img src="' + item.img_infos[0].url + '" alt="">\n' +
                                     '                    <div class="con">\n' +
                                     '                        <p class="Title">' + item.name + '</p>\n' +
-                                    '                        <p class="description">' + item.introduce + '</p>\n' +
+                                    '                        <p class="description">' + summary + '</p>\n' +
                                     '                        <p class="price"><span>常规价格：</span><del>￥' + toPrice(item.price) + '</del></p>\n' +
                                     '                        <p class="price"><span>学校优惠价：</span><em>￥' + toPrice(item.school_price) + '</em></p>\n' +
                                     '                    </div>\n' +
@@ -564,36 +570,61 @@ $(function () {
                     if(isEnglish()){
                         head = '<tr>\n' +
                             '                <th>Fault description</th>\n' +
+                            '                <th>Fault image</th>\n' +
+                            '                <th>no</th>\n' +
                             '                <th>Evaluation</th>\n' +
                             '                <th>operating</th>\n' +
                             '                <th>status</th>\n' +
+                            '                <th>backup status</th>\n' +
                             '            </tr>';
                     }else{
                         head = '<tr>\n' +
                             '                <th>故障描述</th>\n' +
+                            '                <th>故障照片</th>\n' +
+                            '                <th>设备型号</th>\n' +
                             '                <th>维修评估</th>\n' +
                             '                <th>操作</th>\n' +
                             '                <th>维修状态</th>\n' +
+                            '                <th>备用状态</th>\n' +
                             '            </tr>';
                     }
 
                     $('.pcService').append(head);
 
                     dataArr.forEach(function (item, index) {
-                        var pcHtml,mHtml;
+                        var pcHtml,mHtml,url;
+                        if(item.img_infos.length > 0){
+                            url = item.img_infos[0].url;
+                        }else{
+                            url = '';
+                        }
                         if(isEnglish()){
                             pcHtml = '<tr>\n' +
                                 '                <td><p>'+item.description+'</p></td>\n' +
+                                '                <td><div class="img"><img src="'+ url +'" alt=""></div></td>\n' +
+                                '                <td><p>'+item.order_no+'</p></td>\n' +
                                 '                <td><p>'+item.evaluation+'</p></td>\n' +
                                 '                <td class="operate"><a href="javascript:;">'+backup_status[item.backup_status]+'</a></td>\n' +
                                 '                <td class="status">\n' +
                                 '                    <p>'+repairStatus[item.status]+'</p>\n' +
+                                '                    <span>repair no：'+item.repair_no+'</span>\n' +
+                                '                </td>\n' +
+                                '                <td class="backup_status">\n' +
+                                '                    <p>'+backup_status[item.backup_status]+'</p>\n' +
                                 '                    <span>Created time：'+item.created_at+'</span>\n' +
                                 '                </td>\n' +
                                 '            </tr>';
 
                             mHtml = '<li>\n' +
                                 '                    <div class="up">\n' +
+                                '                        <div class="operate">\n' +
+                                '                            <div>repair no：<em>'+item.repair_no+'</em></div>\n' +
+                                '                            <div class="status">'+repairStatus[item.status]+'</div>\n' +
+                                '                        </div>\n' +
+                                '                        <div class="operate">\n' +
+                                '                            <div>order no：<em>'+item.order_no+'</em></div>\n' +
+                                '                            <div class="status">'+backup_status[item.backup_status]+'</div>\n' +
+                                '                        </div>' +
                                 '                        <div class="text">\n' +
                                 '                            <div class="question">\n' +
                                 '                                <span>'+item.description+'</span>\n' +
@@ -615,16 +646,30 @@ $(function () {
                         }else{
                             pcHtml = '<tr>\n' +
                                 '                <td><p>'+item.description+'</p></td>\n' +
+                                '                <td><div class="img"><img src="'+ url +'" alt=""></div></td>\n' +
+                                '                <td><p>'+item.order_no+'</p></td>\n' +
                                 '                <td><p>'+item.evaluation+'</p></td>\n' +
                                 '                <td class="operate"><a href="javascript:;">'+backup_status[item.backup_status]+'</a></td>\n' +
                                 '                <td class="status">\n' +
                                 '                    <p>'+repairStatus[item.status]+'</p>\n' +
-                                '                    <span>提交时间：'+item.created_at+'</span>\n' +
+                                '                    <span>单号：'+item.repair_no+'</span>\n' +
+                                '                </td>\n' +
+                                '                <td class="backup_status">\n' +
+                                '                    <p>'+backup_status[item.backup_status]+'</p>\n' +
+                                '                    <span>创建时间：'+item.created_at+'</span>\n' +
                                 '                </td>\n' +
                                 '            </tr>';
 
                             mHtml = '<li>\n' +
                                 '                    <div class="up">\n' +
+                                '                        <div class="operate">\n' +
+                                '                            <div>单号：<em>'+item.repair_no+'</em></div>\n' +
+                                '                            <div class="status">'+repairStatus[item.status]+'</div>\n' +
+                                '                        </div>\n' +
+                                '                        <div class="operate">\n' +
+                                '                            <div>设备型号：<em>'+item.order_no+'</em></div>\n' +
+                                '                            <div class="status">'+backup_status[item.backup_status]+'</div>\n' +
+                                '                        </div>' +
                                 '                        <div class="text">\n' +
                                 '                            <div class="question">\n' +
                                 '                                <span>'+item.description+'</span>\n' +

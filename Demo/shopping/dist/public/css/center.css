@@ -40,18 +40,18 @@
 
 .order{width: 100%;}
 .order tr{border-bottom: 1px solid #eee;}
-.order th{padding: 10px 0;text-align: center;}
+.order th{padding: 10px 0;text-align: center;font-size: 14px;}
 
-.order td{padding: 30px;text-align: center;color:#666;font-size: 14px;}
+.order td{padding: 30px;text-align: center;color:#666;font-size: 12px;}
 .order td .img,.order td .con{float:left;}
 .order td .img img{width:98px;height:98px;}
 .order td .img{position: relative;}
 .order td .img p{position: absolute;bottom: 0;left:0;background: #eda547;color:#fff;width: 98px;}
-.order td .con{text-align: left;margin-left: 20px;font-size: 14px;}
+.order td .con{text-align: left;margin-left: 20px;font-size: 12px;}
 .order td .con p{color:#666;margin: 15px 0;}
 .order td .con span{color:#929292;}
-.order .operate a{color:#50b7b4;display: block;font-size: 14px;line-height: 30px;}
-.order .status p{color:#50b7b4;display: block;font-size: 14px;line-height: 30px;}
+.order .operate a{color:#50b7b4;display: block;font-size: 12px;line-height: 30px;}
+.order .status p{color:#50b7b4;display: block;font-size: 12px;line-height: 30px;}
 .order .status span{color:#999;font-size: 12px;}
 
 .mOrder,.mService{display: none;}
@@ -101,7 +101,7 @@
     .userName .dizhi p{color:#50b7b4;}*/
 
     .orderNav ul{display: flex;margin: 0;}
-    .orderNav li{flex:1;background: none;margin-right: 0;font-size: 12px;}
+    .orderNav li{flex:1;background: none;margin-right: 0;font-size: 12px;white-space: nowrap;text-overflow: ellipsis;}
     .orderNav li:hover,.orderNav .active{background: none;border-bottom:1px solid #50b7b4;color:#50b7b4;}
 
     .order{font-size: 12px;}
@@ -135,9 +135,12 @@
     .mService{display: block;}
     .mService li{padding: 10px;border: 1px solid #eee;box-shadow: 2px 2px 5px #e4f4f3;margin-top: 10px;}
     .mService .up{border-bottom: 1px solid #eee;overflow: hidden;padding-bottom: 10px;}
-    .mService .up .text{font-size: 12px;}
+    .mService .up .text{font-size: 12px;clear:left;}
     .mService .up .text div{line-height: 20px;padding-bottom: 10px;}
-    .mService .up .operate .status{float: left;color:#50b7b4;font-size: 12px;}
+
+    .mService .up .operate{clear:left;padding-bottom: 25px;}
+    .mService .up .operate div{float:left;font-size: 12px;}
+    .mService .up .operate .status{float: right;color:#50b7b4;font-size: 12px;}
     .mService .up .operate .time{float: right;color:#999;font-size: 12px;}
     .mService .down{clear:left;padding-top: 10px;width: 100%;text-align: center;}
     .mService .down a{padding-right:20px;text-align: center;color:#50b7b4;font-size: 12px;display: block;}
