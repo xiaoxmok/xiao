@@ -195,7 +195,7 @@ $(function () {
             value++;
             $(this).parentsUntil('table','.skuId').find('#quantity').attr('value',value);
             $(this).parent().find('#quantity').attr('value',value);
-            
+
             var getCartUpdate = api.getCartUpdate(id, value);
             if(getCartUpdate.code === 200){
 
