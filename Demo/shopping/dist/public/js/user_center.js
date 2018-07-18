@@ -571,11 +571,11 @@ $(function () {
                         head = '<tr>\n' +
                             '                <th>Fault description</th>\n' +
                             '                <th>Fault image</th>\n' +
-                            '                <th>no</th>\n' +
+                            '                <th>No.</th>\n' +
                             '                <th>Evaluation</th>\n' +
-                            '                <th>operating</th>\n' +
-                            '                <th>status</th>\n' +
-                            '                <th>backup status</th>\n' +
+                            '                <th>Operating</th>\n' +
+                            '                <th>Status</th>\n' +
+                            '                <th>Backup Status</th>\n' +
                             '            </tr>';
                     }else{
                         head = '<tr>\n' +

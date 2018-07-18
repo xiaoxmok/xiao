@@ -1,10 +1,4 @@
 $(function () {
-    if (!login()) {
-        location.href = "login.html"
-    }
-
-    var token = getCookie('token');
-
 
     // 全选
     $('.cartDetail table').on('click','input[name="selectAll"]',function (){
@@ -23,11 +17,12 @@ $(function () {
 
     });
 
+
     /*//没被选中的
-    var checkedList = new Array();
-    $("input[name='id']:not(:checked)").each(function() {
-        checkedList.push($(this).val());
-    });*/
+        var checkedList = new Array();
+        $("input[name='id']:not(:checked)").each(function() {
+            checkedList.push($(this).val());
+        });*/
 
     //已选中的
     var order_items = [];
@@ -36,6 +31,9 @@ $(function () {
         changeCart();
     });
 
+    /**
+     * 购物车数量改变、删除、选择等操作时，改变购物车金额、内容等；
+     */
     function changeCart() {
         var allAmount = 0;
         var checkedList = [];
@@ -66,14 +64,10 @@ $(function () {
     }
 
     // =======================
-
-    // 获取购物车列表
-
-    //var getCartInfo = api.getCartInfo(1, i18nLanguage);
-
-    // goods_ids 用于获得推荐列表；
-    var goods_ids=[];
-    api.getCartList(getCookie('userId'), i18nLanguage,showCart);
+    /**
+     * 显示购物车列表内容
+     * @param getCartList
+     */
     function showCart(getCartList) {
         //var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
         $('.cart .count').html(getCartList.length);
@@ -182,6 +176,7 @@ $(function () {
                 value--;
                 $(this).parentsUntil('table','.skuId').find('#quantity').attr('value',value);
                 $(this).parent().find('#quantity').attr('value',value);
+
                 var getCartUpdate = api.getCartUpdate(id, value);
 
                 if(getCartUpdate.code === 200){
@@ -200,6 +195,7 @@ $(function () {
             value++;
             $(this).parentsUntil('table','.skuId').find('#quantity').attr('value',value);
             $(this).parent().find('#quantity').attr('value',value);
+            
             var getCartUpdate = api.getCartUpdate(id, value);
             if(getCartUpdate.code === 200){
 
@@ -212,118 +208,146 @@ $(function () {
         });
 
     };
-    //showCart();
+
+
+
+    if (!login()) {
+        // 用户未登录，显示临时购物车；
+
+
+        // location.href = "login.html"
+    }else{
+
+
+        var token = getCookie('token');
+
+
+
+
+        // 获取购物车列表
+
+        //var getCartInfo = api.getCartInfo(1, i18nLanguage);
+
+        // goods_ids 用于获得推荐列表；
+        var goods_ids=[];
+        api.getCartList(getCookie('userId'), i18nLanguage,showCart);
+
+        //showCart();
 
 
 
 
 
-    // 删除购物车订单
-    $('.cartDetail table').on('click','#delete',function(){
-        var id = $(this).attr('data-name');
-        var getCartDelete = api.getCartDelete(id);
-        if(getCartDelete.code === 200){
-            $(this).parent().parent().remove();
-            var v = parseFloat($('.cart .count').html());
-            $('.cart .count').html(v -1);
-            changeCart();
-        }
-    })
-
-
-
-
-    // 去结算
-    //submitOrder.html
-
-    $('#settle').click(function(){
-        //console.log('22',order_items);
-        if(order_items.length === 0){
-            if(isEnglish()){
-                $('.error').html('Please select product order.');
-            }else{
-                $('.error').html('请选择商品下单。');
+        // 删除购物车订单
+        $('.cartDetail table').on('click','#delete',function(){
+            var id = $(this).attr('data-name');
+            var getCartDelete = api.getCartDelete(id);
+            if(getCartDelete.code === 200){
+                $(this).parent().parent().remove();
+                var v = parseFloat($('.cart .count').html());
+                $('.cart .count').html(v -1);
+                changeCart();
             }
-        }else{
-            $('.error').html('');
-            var param = ''
-            order_items.forEach(function(item,index){
-                if(index === 0){
-                    param += 'goods'+index+'='+item.sku_id+'_'+item.quantity
+        })
+
+
+
+
+        // 去结算
+        //submitOrder.html
+
+        $('#settle').click(function(){
+            //console.log('22',order_items);
+            if(order_items.length === 0){
+                if(isEnglish()){
+                    $('.error').html('Please select product order.');
                 }else{
-                    param += '&goods'+index+'='+item.sku_id+'_'+item.quantity
+                    $('.error').html('请选择商品下单。');
                 }
-            });
-            //location.href = "submitOrder.html?order_items="+JSON.stringify(order_items);
-            location.href = "submitOrder.html?"+param;
-        }
-    });
-
-    // 获取推荐配件
-    // console.log(goods_ids);
-    //goods_ids=''
-
-    var getRecommendAccessoryForGoods = api.getRecommendAccessoryForGoods(goods_ids, 0, 1, 20, '%2Bsale', i18nLanguage);
-    var accessoryDataArr = getRecommendAccessoryForGoods.data;
-    //$('.recommend ul').html('');
-    accessoryDataArr.forEach(function(item,index){
-        //var getSkuList = api.getSkuList(item.id, i18nLanguage);
-
-        var html;
-        if(isEnglish()){
-            html = '<li>\n' +
-                '                    <a href="./product.html?id=' + item.id + '">'+
-                '                    <img src="'+item.img_infos[0].url+'" alt=""></a>\n' +
-                '                    <div class="con">\n' +
-                '                        <p class="Title">'+item.name+'</p>\n' +
-                '                        <p class="description">'+item.summary+'</p>\n' +
-                '                        <p class="price"><span>MSRP：</span>\n' +
-                '                            <del>￥'+item.price+'</del>\n' +
-                '                        </p>\n' +
-                '                        <p class="price"><span>School Special Offer：</span><em>￥'+item.school_price+'</em></p>\n' +
-                '                        <a class="apply" href="javascript:;" data-name="'+item.sku_infos[0].id+'">Add to Cart</a>\n' +
-                '                    </div>\n' +
-                '                </li>';
-        }else{
-            html = '<li>\n' +
-                '                    <a href="./product.html?id=' + item.id + '">'+
-                '                    <img src="'+item.img_infos[0].url+'" alt=""></a>\n' +
-                '                    <div class="con">\n' +
-                '                        <p class="Title">'+item.name+'</p>\n' +
-                '                        <p class="description">'+item.summary+'</p>\n' +
-                '                        <p class="price"><span>常规价格：</span>\n' +
-                '                            <del>￥'+item.price+'</del>\n' +
-                '                        </p>\n' +
-                '                        <p class="price"><span>学校优惠价：</span><em>￥'+item.school_price+'</em></p>\n' +
-                '                        <a class="apply" href="javascript:;" data-name="'+item.sku_infos[0].id+'">加入购物车</a>\n' +
-                '                    </div>\n' +
-                '                </li>';
-        }
-
-        $('.recommend ul').append(html);
-    })
-
-
-    // 推荐配件加入购物车
-    $('.recommend .content').on('click','.apply',function(){
-        var sku_id = $(this).attr('data-name');
-        var quantity = 1;
-        var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
-        if (createCart.code === 200) {
-            $('.zhezhao').show();
-            if(isEnglish()){
-                $('.tan2 .con p').html('Add to Cart successful.');
             }else{
-                $('.tan2 .con p').html('加入购物车成功。');
+                $('.error').html('');
+                var param = ''
+                order_items.forEach(function(item,index){
+                    if(index === 0){
+                        param += 'goods'+index+'='+item.sku_id+'_'+item.quantity
+                    }else{
+                        param += '&goods'+index+'='+item.sku_id+'_'+item.quantity
+                    }
+                });
+                //location.href = "submitOrder.html?order_items="+JSON.stringify(order_items);
+                location.href = "submitOrder.html?"+param;
             }
-            $('.tan2').show();
-            api.getCartList(getCookie('userId'), i18nLanguage,showCart);
-            setTimeout(function () {
-                //location.href = "cart.html"
-                $('.zhezhao').hide();
-                $('.tan2').hide();
-            }, 1000);
-        }
-    })
+        });
+
+        // 获取推荐配件
+        // console.log(goods_ids);
+        //goods_ids=''
+
+        var getRecommendAccessoryForGoods = api.getRecommendAccessoryForGoods(goods_ids, 0, 1, 20, '%2Bsale', i18nLanguage);
+        var accessoryDataArr = getRecommendAccessoryForGoods.data;
+        //$('.recommend ul').html('');
+        accessoryDataArr.forEach(function(item,index){
+            //var getSkuList = api.getSkuList(item.id, i18nLanguage);
+
+            var html;
+            if(isEnglish()){
+                html = '<li>\n' +
+                    '                    <a href="./product.html?id=' + item.id + '">'+
+                    '                    <img src="'+item.img_infos[0].url+'" alt=""></a>\n' +
+                    '                    <div class="con">\n' +
+                    '                        <p class="Title">'+item.name+'</p>\n' +
+                    '                        <p class="description">'+item.summary+'</p>\n' +
+                    '                        <p class="price"><span>MSRP：</span>\n' +
+                    '                            <del>￥'+item.price+'</del>\n' +
+                    '                        </p>\n' +
+                    '                        <p class="price"><span>School Special Offer：</span><em>￥'+item.school_price+'</em></p>\n' +
+                    '                        <a class="apply" href="javascript:;" data-name="'+item.sku_infos[0].id+'">Add to Cart</a>\n' +
+                    '                    </div>\n' +
+                    '                </li>';
+            }else{
+                html = '<li>\n' +
+                    '                    <a href="./product.html?id=' + item.id + '">'+
+                    '                    <img src="'+item.img_infos[0].url+'" alt=""></a>\n' +
+                    '                    <div class="con">\n' +
+                    '                        <p class="Title">'+item.name+'</p>\n' +
+                    '                        <p class="description">'+item.summary+'</p>\n' +
+                    '                        <p class="price"><span>常规价格：</span>\n' +
+                    '                            <del>￥'+item.price+'</del>\n' +
+                    '                        </p>\n' +
+                    '                        <p class="price"><span>学校优惠价：</span><em>￥'+item.school_price+'</em></p>\n' +
+                    '                        <a class="apply" href="javascript:;" data-name="'+item.sku_infos[0].id+'">加入购物车</a>\n' +
+                    '                    </div>\n' +
+                    '                </li>';
+            }
+
+            $('.recommend ul').append(html);
+        })
+
+
+        // 推荐配件加入购物车
+        $('.recommend .content').on('click','.apply',function(){
+            var sku_id = $(this).attr('data-name');
+            var quantity = 1;
+            var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
+            if (createCart.code === 200) {
+                $('.zhezhao').show();
+                if(isEnglish()){
+                    $('.tan2 .con p').html('Add to Cart successful.');
+                }else{
+                    $('.tan2 .con p').html('加入购物车成功。');
+                }
+                $('.tan2').show();
+                api.getCartList(getCookie('userId'), i18nLanguage,showCart);
+                setTimeout(function () {
+                    //location.href = "cart.html"
+                    $('.zhezhao').hide();
+                    $('.tan2').hide();
+                }, 1000);
+            }
+        })
+
+
+    }
+
 
 });
