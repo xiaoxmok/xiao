@@ -82,6 +82,14 @@ $(function(){
     });
     $('.Clearing .amount em').html(order_items.length);
 
+    $('.payInfo input').click(function(){
+        if($(this).val() === 'unionpay'){
+            $('.union_span').show();
+        }else{
+            $('.union_span').hide();
+        }
+    })
+
 
     // 提交订单
     $('.submitOrder').click(function(){

@@ -50,7 +50,7 @@ $(function () {
         }
     }else{
         if(isEnglish()){
-            school_info = 'Faculty number: ';
+            school_info = 'Staff: ';
         }else{
             school_info = '教职员工号: ';
         }
@@ -103,20 +103,23 @@ $(function () {
     var status;
     if (isEnglish()) {
         status = {
-            waitingForPay: "waitingForPay",
-            paying: "paying",
-            paid: "paid",
-            waitingForInstall: "waitingForInstall",
-            installing: "installing",
-            installed: "installed",
-            dispatching: "dispatching",
-            dispatched: "dispatched",
-            waitingForSign: "waitingForSign",
-            signed: "signed",
-            canceled: "canceled",
-            returned: "returned",
-            exchanged: "exchanged",
-            waitingForReturn: "waitingForReturn"
+            waitingForPay: "Waiting for payment",
+            paying: "Paying",
+            paid: "Paid",
+            waitingForInstall: "Waiting for Install",
+            installing: "Installation in Progress",
+            installed: "Installed",
+            dispatching: "Delivering",
+            dispatched: "Shipped to Destination",
+            waitingForSign: "Waiting For Sign",
+            signed: "Delivered",
+            canceled: "Canceled",
+            returning: "Returning",
+            waitingForExchange: "Waiting for Exchanging",
+            returned: "Returned",
+            exchanging: "Exchanging",
+            exchanged: "Exchanged",
+            waitingForReturn: "returnHandled"
         };
     } else {
         status = {
@@ -131,9 +134,14 @@ $(function () {
             waitingForSign: "待签收",
             signed: "已签收",
             canceled: "已取消",
+            returning: "退货中",
+            refuseForReturn: "退货处理完成",
+            waitingForExchange: "待换货",
             returned: "已退货",
+            exchanging: "换货中",
             exchanged: "已换货",
-            waitingForReturn: "待退货"
+            waitingForReturn: "待退货",
+            refuseForExchange: "拒绝换货"
         };
     }
 
@@ -265,7 +273,7 @@ $(function () {
                     if (isEnglish()) {
                         pc_hmtl = '<tr>\n' +
                             '                <td>\n' +
-                            '                    <div class="img"><img src="' + item.goods_cover_url + '" alt=""><p>共' + item.goods_sum + '件</p></div>\n' +
+                            '                    <div class="img"><img src="' + item.goods_cover_url + '" alt=""><p>' + item.goods_sum + ' Pieces</p></div>\n' +
                             '                    <div class="con">\n' +
                             '                        <p>Order No.: ' + item.order_no + '</p>\n' +
                             '                        <span>Order Created at: ' + item.created_at + '</span>\n' +

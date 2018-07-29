@@ -61,7 +61,7 @@
     margin-top: 160px;display: none;
 }
 .success p{font-size: 14px;}
-
+.success .img{background: url(../img/repair_success.png) no-repeat;width:158px;height:158px;margin: 0 auto 20px;}
 
 @media screen and (max-width:414px){
     .solution .title{font-size: 18px;margin: 15px;}

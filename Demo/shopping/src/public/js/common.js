@@ -260,15 +260,27 @@ $(function(){
 
 
         var userName = getCookie('username');
-        if(getCookie('username') == null){
+        if(getCookie('username').length <= 0){
             userName = '';
+            if(isEnglish()){
+                $('.welcome').html('Dear '+getCookie('account')+', Welcome to '+getCookie('school')+' page.');
+            }else{
+                $('.welcome').html('Dear '+getCookie('account')+', 欢迎访问'+getCookie('school')+'专属页面。');
+            }
+        }else{
+            if(isEnglish()){
+                $('.welcome').html('Dear '+userName+', Welcome to '+getCookie('school')+' page.');
+            }else{
+                $('.welcome').html('Dear '+userName+', 欢迎访问'+getCookie('school')+'专属页面。');
+            }
         }
 
-        if(isEnglish()){
-            $('.welcome').html('Dear, Welcome to '+getCookie('school')+' page.');
+
+        /*if(isEnglish()){
+            $('.welcome').html('Dear ,'+userName+', Welcome to '+getCookie('school')+' page.');
         }else{
             $('.welcome').html('Dear，欢迎访问'+getCookie('school')+'专属页面。');
-        }
+        }*/
 
     }else{
         $('.login').hide();

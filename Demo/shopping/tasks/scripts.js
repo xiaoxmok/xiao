@@ -34,7 +34,7 @@ gulp.task('scripts', () => {
         }))
         .pipe(named())
         //将处理后的js文件写入指定文件中
-        //.pipe(uglify({mangle: true,compress: {properties: true}, output: {'quote_keys': true}}))
+        .pipe(uglify({mangle: true,compress: {properties: true}, output: {'quote_keys': true}}))
         .pipe(gulp.dest('dist'))
         //重命名xxx.min.js
         //.pipe(rename({extname: '.min.js'}))

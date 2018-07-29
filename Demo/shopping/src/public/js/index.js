@@ -12,10 +12,20 @@ $(function () {
             path: '/'
         });
 
-        if(isEnglish()){
-            $('.welcome').html('Dear '+getCookie('username')+' , Welcome to '+getCookie('school')+' page.');
+        var userName = getCookie('username');
+        if(getCookie('username').length <= 0 ){
+            userName = '';
+            if(isEnglish()){
+                $('.welcome').html('Dear '+getCookie('account')+', Welcome to '+getCookie('school')+' page.');
+            }else{
+                $('.welcome').html('Dear '+getCookie('account')+', 欢迎访问'+getCookie('school')+'专属页面。');
+            }
         }else{
-            $('.welcome').html('Dear '+getCookie('username')+'，欢迎访问'+getCookie('school')+'专属页面。');
+            if(isEnglish()){
+                $('.welcome').html('Dear '+userName+', Welcome to '+getCookie('school')+' page.');
+            }else{
+                $('.welcome').html('Dear '+userName+', 欢迎访问'+getCookie('school')+'专属页面。');
+            }
         }
     }
 

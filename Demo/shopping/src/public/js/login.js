@@ -74,6 +74,11 @@ $(function () {
                         expires: 1,
                         path: '/'
                     });
+                    // cookie记录token
+                    getCookie("account", account, {
+                        expires: 1,
+                        path: '/'
+                    });
 
                     if(getUser.name == null){
                         getUser.name = ''
@@ -156,7 +161,27 @@ $(function () {
 
                     }
 
-                    if(isEnglish()){
+                    var userName = getCookie('username');
+                    if(getCookie('username').length <= 0){
+                        userName = '';
+                        if(isEnglish()){
+                            $('.welcome').html('Dear '+getCookie('account')+', Welcome to '+getCookie('school')+' page.');
+                            $('.error').html('The login is successful, and the home page is entered after 2 seconds.');
+                        }else{
+                            $('.welcome').html('Dear '+getCookie('account')+', 欢迎访问'+getCookie('school')+'专属页面。');
+                            $('.error').html('登录成功，2秒后进入首页。');
+                        }
+                    }else{
+                        if(isEnglish()){
+                            $('.welcome').html('Dear '+userName+', Welcome to '+getCookie('school')+' page.');
+                            $('.error').html('The login is successful, and the home page is entered after 2 seconds.');
+                        }else{
+                            $('.welcome').html('Dear '+userName+', 欢迎访问'+getCookie('school')+'专属页面。');
+                            $('.error').html('登录成功，2秒后进入首页。');
+                        }
+                    }
+
+                    /*if(isEnglish()){
                         $('.welcome').html('Dear '+getUser.name+' , Welcome to '+getSchool.name+' page.');
 
                         $('.error').html('The login is successful, and the home page is entered after 2 seconds.');
@@ -164,7 +189,7 @@ $(function () {
                         $('.welcome').html('Dear '+getUser.name+'，欢迎访问'+getSchool.name+'专属页面。');
 
                         $('.error').html('登录成功，2秒后进入首页。');
-                    }
+                    }*/
 
                     if(getCookie("localCart")){
                         $('.error').html('临时购物车存在商品，将批量加入本账户。');
