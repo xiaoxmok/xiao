@@ -118,13 +118,20 @@ $(function () {
         var extra = arr.extra;
 
         goodsArr.forEach(function (item, index) {
-            var loginPrice,summary;
+            var loginPrice,summary,imgUrl;
 
             if(item.summary !== null){
                 summary = item.summary;
             }else{
                 summary = 'Not described';
             }
+
+            if(item.img_infos.length > 0){
+                imgUrl = item.img_infos[0].url;
+            }else{
+                imgUrl = '';
+            }
+
 
             if(isEnglish()){
                 if (login()) {
@@ -134,7 +141,7 @@ $(function () {
                 }
                 var html = '<li>\n' +
                     '                    <a href="./product.html?id=' + item.id + '">\n' +
-                    '                        <img src="' + item.img_infos[0].url + '" alt="">\n' +
+                    '                        <img src="' + imgUrl + '" alt="">\n' +
                     '                        <div class="con">\n' +
                     '                            <p class="Title">' + item.name + '</p>\n' +
                     '                            <p class="description">' + summary + '</p>\n' +
@@ -151,7 +158,7 @@ $(function () {
                 }
                 var html = '<li>\n' +
                     '                    <a href="./product.html?id=' + item.id + '">\n' +
-                    '                        <img src="' + item.img_infos[0].url + '" alt="">\n' +
+                    '                        <img src="' + imgUrl + '" alt="">\n' +
                     '                        <div class="con">\n' +
                     '                            <p class="Title">' + item.name + '</p>\n' +
                     '                            <p class="description">' + summary + '</p>\n' +

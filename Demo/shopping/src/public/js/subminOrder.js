@@ -74,6 +74,18 @@ $(function(){
 
     });
 
+    // 纳税号切换
+    $('.invoiceType input[name="type1"]').click(function(){
+        var index = $(this).val();
+        console.log(index);
+        if(index === 'personal'){
+            $('.tax_no').hide();
+        }else if(index === 'company'){
+            $('.tax_no').show();
+        }
+
+    });
+
     // 计算总价
     var allPrice = 0;
     $('.totalPrice').each(function(){

@@ -63,7 +63,7 @@
 .Clearing .amount em{}
 .error{color: #C4080A!important;}
 
-.union_span{display: none;}
+.union_span,.tax_no{display: none;}
 
 @media screen and (max-width:414px){
 

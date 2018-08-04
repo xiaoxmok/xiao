@@ -104,7 +104,7 @@ $(function () {
     if (isEnglish()) {
         status = {
             waitingForPay: "Waiting for payment",
-            paying: "Paying",
+            paying: "Waiting for payment",
             paid: "Paid",
             waitingForInstall: "Waiting for Install",
             installing: "Installation in Progress",
@@ -124,7 +124,7 @@ $(function () {
     } else {
         status = {
             waitingForPay: "待支付",
-            paying: "支付中",
+            paying: "待支付",
             paid: "已支付",
             waitingForInstall: "待安装",
             installing: "安装中",
@@ -135,7 +135,7 @@ $(function () {
             signed: "已签收",
             canceled: "已取消",
             returning: "退货中",
-            refuseForReturn: "退货处理完成",
+            refuseForReturn: "退货完成",
             waitingForExchange: "待换货",
             returned: "已退货",
             exchanging: "换货中",
@@ -182,7 +182,9 @@ $(function () {
                                 '                    <a href="./payment.html?orderNo=' + item.order_no + '&center=true">Go to pay</a>\n' +
                                 '                    <a href="javascript:;" id="cancel" data-name="' + item.order_no + '">Cancel Order</a>\n';
                         } else if (item.status === 'paying') {
-                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n'
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n' +
+                                '                    <a href="./payment.html?orderNo=' + item.order_no + '&center=true">Go to pay</a>\n' +
+                                '                    <a href="javascript:;" id="cancel" data-name="' + item.order_no + '">Cancel Order</a>\n';
                         } else if (item.status === 'paid') {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n' +
                                 '                    <a href="./invoice.html?order_no=' + item.order_no + '">Request an invoice (Fapiao)</a>\n' +
@@ -217,10 +219,18 @@ $(function () {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n'
                         } else if (item.status === 'returned') {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n'
+                        } else if (item.status === 'returning') {
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n'
                         } else if (item.status === 'exchanged') {
-                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n' +
-                                '                    <a href="./invoice.html?order_no=' + item.order_no + '">Request an invoice (Fapiao)</a>\n' +
-                                '                    <a href="./returns.html?id=' + item.order_no + '">Return and Refund</a>\n';
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n'
+                        } else if (item.status === 'refuseForReturn') {
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n'
+                        } else if (item.status === 'waitingForExchange') {
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n'
+                        } else if (item.status === 'exchanging') {
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n'
+                        } else if (item.status === 'refuseForExchange') {
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n'
                         }
                     } else {
                         if (item.status === 'waitingForPay') {
@@ -228,7 +238,9 @@ $(function () {
                                 '                    <a href="./payment.html?orderNo=' + item.order_no + '&center=true">去支付</a>\n' +
                                 '                    <a href="javascript:;" id="cancel" data-name="' + item.order_no + '">取消订单</a>\n';
                         } else if (item.status === 'paying') {
-                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n'
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n' +
+                                '                    <a href="./payment.html?orderNo=' + item.order_no + '&center=true">去支付</a>\n' +
+                                '                    <a href="javascript:;" id="cancel" data-name="' + item.order_no + '">取消订单</a>\n';
                         } else if (item.status === 'paid') {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n' +
                                 '                    <a href="./invoice.html?order_no=' + item.order_no + '">开具发票</a>\n' +
@@ -261,12 +273,20 @@ $(function () {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n'
                         } else if (item.status === 'waitingForReturn') {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n'
+                        } else if (item.status === 'waitingForExchange') {
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n'
                         } else if (item.status === 'returned') {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n'
+                        } else if (item.status === 'returning') {
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n'
+                        } else if (item.status === 'refuseForReturn') {
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n'
+                        } else if (item.status === 'refuseForExchange') {
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n'
                         } else if (item.status === 'exchanged') {
-                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n' +
-                                '                    <a href="./invoice.html?order_no=' + item.order_no + '">开具发票</a>\n' +
-                                '                    <a href="./returns.html?id=' + item.order_no + '">退换货</a>\n';
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n'
+                        } else if (item.status === 'exchanging') {
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n'
                         }
                     }
                     var pc_hmtl

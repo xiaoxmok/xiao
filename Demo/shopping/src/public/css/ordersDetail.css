@@ -39,6 +39,7 @@
 .confirm .operate a{color:#50b7b4;display: block;font-size: 14px;line-height: 30px;}
 
 .normal,.vat{display: none;}
+.order-return{display: none;}
 
 @media screen and (max-width:414px){
     .ordersDetail h3{font-size: 18px;margin: 15px;}

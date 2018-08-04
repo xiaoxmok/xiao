@@ -38,24 +38,32 @@ $(function () {
     })
 
 
-    $('#price').keyup(function () {
-        $(this).val($(this).val().replace(/[^\d.]/g, ''));
-        if (Number($(this).val()) > 12888) {
-            if(isEnglish()){
-                $('.error').html('Amount of money');
-            }else{
-                $('.error').html('金额大了');
-            }
-        } else {
-            $('.error').html('');
-        }
-    });
+
 
 
     var token = getCookie('token');
     var getUrl = GetRequest();
+    api.getOrderInfo(getUrl.id,getOrderInfo);
 
+    var orderPrice ;
+    function getOrderInfo(data){
+        $('#price').val(data.price);
+        orderPrice = data.price;
+    }
 
+    $('#price').keyup(function () {
+        $(this).val($(this).val().replace(/[^\d.]/g, ''));
+
+        if($(this).val() > orderPrice){
+            if(isEnglish()){
+                $('.error').html('The return amount cannot exceed the order amount.');
+            }else{
+                $('.error').html('退货金额不能超过订单金额。');
+            }
+        }else{
+            $('.error').html('');
+        }
+    });
 
     $('.submit').click(function () {
 
@@ -74,7 +82,14 @@ $(function () {
             }
             return;
         }
-
+        if(price > orderPrice){
+            if(isEnglish()){
+                $('.error').html('The return amount cannot exceed the order amount.');
+            }else{
+                $('.error').html('退货金额不能超过订单金额。');
+            }
+            return;
+        }
 
         var returnsData = {
             token: token,
