@@ -10,7 +10,7 @@ $(function () {
 
     $('.radio[name="type"]').click(function () {
         var value = $(this).val();
-        console.log(value);
+        //console.log(value);
         if (value === 'self') {
             $('.serCon').hide();
             $('#self').show();
@@ -88,7 +88,7 @@ $(function () {
     // 设备分类
     $.ajax({
         type: 'GET',
-        url: url + '/api/v1/category/index?type=device',
+        url: url + '/api/v1/category/index?type=device&parent_id=0',
         dataType: 'json',
         success: function (data) {
             if (data.code === 200) {
@@ -140,7 +140,7 @@ $(function () {
     // 故障分类
     $.ajax({
         type: 'GET',
-        url: url + '/api/v1/category/index?type=fault',
+        url: url + '/api/v1/category/index?type=fault&parent_id=0',
         dataType: 'json',
         success: function (data) {
             if (data.code === 200) {
@@ -198,9 +198,11 @@ $(function () {
         //你的设备
         if (device_infos.length !== 0) {
             device_infos.forEach(function (item, index) {
-                var html = '<p><input type="radio" name="addr" id="device4" checked=""><label for="device4"><span>型号：macbook air 序列号：120000 购买时间：2018-05-25</span></label></p>';
+                var htmlSelf = '<p><input type="radio" name="addr" class="device4" id="s'+index+'" value="'+item.id+'" checked=""><label for="s'+index+'"><span>型号：'+item.goods_name+' 价格：'+item.school_price+' </span></label></p>';
+                var htmlDoor = '<p><input type="radio" name="addr" class="device4" id="d'+index+'" value="'+item.id+'" checked=""><label for="d'+index+'"><span>型号：'+item.goods_name+' 价格：'+item.school_price+' </span></label></p>';
 
-                $('.sku_id').append(html);
+                $('#self .sku_id').append(htmlSelf);
+                $('#door .sku_id').append(htmlDoor);
             })
         } else {
             // $('#sku_id').html('<p>none</p>');
@@ -350,6 +352,14 @@ $(function () {
                 }
                 return;
             }
+            repairData = {
+                token:token,
+                type:type,
+                device_category: device_category.join(','),
+                fault_category: fault_category.join(','),
+                phone: phone,
+                lang:i18nLanguage
+            }
 
             if(self_img_ids.length > 0){
                 repairData.img_ids = self_img_ids.join(',');
@@ -367,15 +377,11 @@ $(function () {
             if($('#self .email').val().length > 0){
                 repairData.email = $('#self .email').val()
             }
-
-            repairData = {
-                token:token,
-                type:type,
-                device_category: device_category.join(','),
-                fault_category: fault_category.join(','),
-                phone: phone,
-                lang:i18nLanguage
+            if($('#self .sku_id').has('input')){
+                repairData.sku_id = $('#self .sku_id input[name="addr"]:checked').val();
             }
+
+
         } else {
             device_category.push($('#door .device option:selected').val());
             device_category.push($('#door .deviceChild option:selected').val());
@@ -391,27 +397,6 @@ $(function () {
                 }
                 return;
             }
-
-            if(self_img_ids.length > 0){
-                repairData.img_ids = self_img_ids.join(',');
-            }
-
-            if($('#door .param').val().length > 0){
-                repairData.param = $('#self .param').val()
-            }
-            if($('#door .description').val().length > 0){
-                repairData.description = $('#self .description').val()
-            }
-            if($('#door .email').val().length > 0){
-                repairData.email = $('#self .email').val()
-            }
-            if(user_coupon_id.length > 0){
-                repairData.user_coupon_id = user_coupon_id.join(',');
-            }
-            if($('#sku_id').has('input')){
-                //repairData.sku_id = $('#sku_id').attr('data-name')
-            }
-
             repairData = {
                 token:token,
                 type:type,
@@ -420,9 +405,30 @@ $(function () {
                 phone: phone,
                 lang:i18nLanguage
             }
+
+            if(door_img_ids.length > 0){
+                repairData.img_ids = door_img_ids.join(',');
+            }
+
+            if($('#door .param').val().length > 0){
+                repairData.param = $('#door .param').val()
+            }
+            if($('#door .description').val().length > 0){
+                repairData.description = $('#door .description').val()
+            }
+            if($('#door .email').val().length > 0){
+                repairData.email = $('#door .email').val()
+            }
+            if(user_coupon_id.length > 0){
+                repairData.user_coupon_id = user_coupon_id.join(',');
+            }
+            if($('#door .sku_id').has('input')){
+                repairData.sku_id = $('#door .sku_id input[name="addr"]:checked').val();
+            }
+
         }
 
-        // console.log(repairData);
+        //console.log(repairData);
 
 
         $.ajax({
@@ -444,6 +450,12 @@ $(function () {
                         $('.success .order_no span').html(data.data.repair_no);
 
                     }, 1000);
+                }else{
+                    if (isEnglish()) {
+                        $('.error').html('The selected phone is invalid.');
+                    } else {
+                        $('.error').html('手机号码与用户信息不一致。');
+                    }
                 }
             },
             error: function () {

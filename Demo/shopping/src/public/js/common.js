@@ -173,7 +173,7 @@ $(function () {
 
 var urlL = '';
 //var url = 'xiao/Demo/shopping/dist/';
-var url = 'http://byod.mc2edu.com';
+var url = 'http://byod.mc2edu.com:8080';
 
 
 /*常见问题*/
@@ -255,7 +255,12 @@ $(function(){
 
         var token = getCookie("token");
         api.getCartList(getCookie('userId'), i18nLanguage,function(getCartList){
-            $('.cart .count').html(getCartList.length);
+
+            var count = 0;
+            getCartList.forEach(function(item,index){
+                count += item.quantity;
+            })
+            $('.cart .count').html(count);
         });
 
 
@@ -295,10 +300,15 @@ $(function(){
 
     // 临时购物车
     function localCart(){
-        if(getCookie("localCart")) {
+        if (getCookie("localCart")) {
             var str = getCookie("localCart");
-            var localCart = str.split(',');
-            $('.cart .count').html(localCart.length);
+            var localCartArr = str.split(',');
+            var count = 0;
+            localCartArr.forEach(function(item,index){
+                var itemId = item.split('-');
+                count += parseInt(itemId[1]);
+            })
+            $('.cart .count').html(count)
         }
     }
     localCart();

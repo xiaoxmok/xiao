@@ -55,13 +55,15 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #fff;}
 .footer .content{width:1000px;margin: 0 auto;}
 .footer .content p{color:#999;font-size: 14px;text-align: center;line-height: 100px;}
 
-
+.invoice-info,.invoice-submit,.invoice-normal,.invoice-vat{display: none;}
 
 @media screen and (max-width:414px){
     .header-bar{height:30px;margin-bottom: 0}
     .header-bar,.footer{width: 100%!important;min-width:100%;}
     .header{display: none;}
-    .header-bar .content .welcome{font-size: 12px;margin-left: 15px;float:right;line-height: 30px;}
+    .header-bar .content .welcome{font-size: 12px;margin-left: 15px;float:left;line-height: 30px;text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;}
     .header-bar.header-bar .content .address,.header-bar .content .login,.header-bar .content .cart{display: none!important;}
 
     .header-bar .content{width:100%;}

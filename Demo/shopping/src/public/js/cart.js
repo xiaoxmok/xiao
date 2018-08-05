@@ -1,7 +1,7 @@
 $(function () {
 
     // 全选
-    $('.cartDetail table').on('click','input[name="selectAll"]',function (){
+    $('.cartDetail table').on('click', 'input[name="selectAll"]', function () {
         //alert(this.checked);
         if ($(this).is(':checked')) {
             $('input[name="select"]').each(function () {
@@ -17,6 +17,31 @@ $(function () {
 
     });
 
+    // 更新购物车显示数量
+    function getCartCount(){
+        if(login()){
+            api.getCartList(getCookie('userId'), i18nLanguage,function(getCartList){
+
+                var count = 0;
+                getCartList.forEach(function(item,index){
+                    count += item.quantity;
+                })
+                $('.cart .count').html(count);
+            });
+        }else{
+            if (getCookie("localCart")) {
+                var str = getCookie("localCart");
+                var localCartArr = str.split(',');
+                var count = 0;
+                localCartArr.forEach(function(item,index){
+                    var itemId = item.split('-');
+                    count += parseInt(itemId[1]);
+                })
+                $('.cart .count').html(count)
+            }
+        }
+    }
+
 
     /*//没被选中的
         var checkedList = new Array();
@@ -26,10 +51,13 @@ $(function () {
 
     //已选中的
     var order_items = [];
-    $('.cartDetail table').on('click','input[type="checkbox"]',function () {
+    $('.cartDetail table').on('click', 'input[type="checkbox"]', function () {
 
         changeCart();
     });
+
+    // goods_ids 用于获得推荐列表；
+    var goods_ids = [];
 
     /**
      * 购物车数量改变、删除、选择等操作时，改变购物车金额、内容等；
@@ -45,7 +73,7 @@ $(function () {
                 price: parseFloat($(this).parent().parent().find('.price em').html())
                 //amount: $(this).parent().parent().find('.amount').val() || $(this).parent().parent().find('.amountM').val()
             };
-            var orderList={
+            var orderList = {
                 sku_id: $(this).val(),
                 quantity: $(this).parent().parent().find('#quantity').val()
             };
@@ -70,11 +98,11 @@ $(function () {
      */
     function showCart(getCartList) {
         //var getCartList = api.getCartList(getCookie('userId'), i18nLanguage);
-        $('.cart .count').html(getCartList.length);
+        //$('.cart .count').html(getCartList.length);
 
         $('.cartDetail table').html('');
         var head;
-        if(isEnglish()){
+        if (isEnglish()) {
             head = '<tr>\n' +
                 '                <th><input type="checkbox" name="selectAll" id="selectAll"><label for="selectAll">Select All</label></th>\n' +
                 '                <th>Items</th>\n' +
@@ -82,7 +110,7 @@ $(function () {
                 '                <th>Subtotal</th>\n' +
                 '                <th>Manage</th>\n' +
                 '            </tr>';
-        }else{
+        } else {
             head = '<tr>\n' +
                 '                <th><input type="checkbox" name="selectAll" id="selectAll"><label for="selectAll">全选</label></th>\n' +
                 '                <th>商品</th>\n' +
@@ -93,26 +121,27 @@ $(function () {
         }
         $('.cartDetail table').append(head);
 
+
         getCartList.forEach(function (item, index) {
             var price = (item.sku_info.school_price * item.quantity).toFixed(2);
-            if(!goods_ids.in_array(item.sku_info.goods_id)){
+            if (!goods_ids.in_array(item.sku_info.goods_id)) {
                 goods_ids.push(item.sku_info.goods_id);
             }
 
-            var html,url;
-            if(item.sku_info.img_infos !== null){
+            var html, url;
+            if (item.sku_info.img_infos.length > 0) {
                 url = item.sku_info.img_infos[0].url;
-            }else{
+            } else {
                 url = item.sku_info.goods_cover_url
             }
 
-            if(isEnglish()){
+            if (isEnglish()) {
                 html = '<tr class="skuId">\n' +
-                    '                <td><input type="checkbox" name="select" data-name="' + item.id + '" value="' + item.sku_id + '"></td>\n' +
+                    '                <td><input type="checkbox" class="select" name="select" data-name="' + item.id + '" value="' + item.sku_id + '"></td>\n' +
                     '                <td>\n' +
-                    '                    <a href="./product.html?id=' + item.sku_info.goods_id + '">'+
-                    '                       <div class="img"><img src="'+url+'" alt=""></div>\n' +
-                    '                    </a>'+
+                    '                    <a href="./product.html?id=' + item.sku_info.goods_id + '">' +
+                    '                       <div class="img"><img src="' + url + '" alt=""></div>\n' +
+                    '                    </a>' +
                     '                    <div class="con">\n' +
                     '                        <p class="title">' + item.sku_info.goods_name + '</p>\n' +
                     '                        <span class="unit_price">￥<em>' + item.sku_info.school_price + '</em></span>\n' +
@@ -134,13 +163,13 @@ $(function () {
                     '                    <a href="javascript:;" id="delete" data-name="' + item.id + '">Delete</a>\n' +
                     '                </td>\n' +
                     '            </tr>';
-            }else{
+            } else {
                 html = '<tr class="skuId">\n' +
-                    '                <td><input type="checkbox" name="select" data-name="' + item.id + '" value="' + item.sku_id + '"></td>\n' +
+                    '                <td><input type="checkbox" class="select" name="select" data-name="' + item.id + '" value="' + item.sku_id + '"></td>\n' +
                     '                <td>\n' +
-                    '                    <a href="./product.html?id=' + item.sku_info.goods_id + '">'+
-                    '                       <div class="img"><img src="'+ url+'" alt=""></div>\n' +
-                    '                    </a>'+
+                    '                    <a href="./product.html?id=' + item.sku_info.goods_id + '">' +
+                    '                       <div class="img"><img src="' + url + '" alt=""></div>\n' +
+                    '                    </a>' +
                     '                    <div class="con">\n' +
                     '                        <p class="title">' + item.sku_info.goods_name + '</p>\n' +
                     '                        <span class="unit_price">￥<em>' + item.sku_info.school_price + '</em></span>\n' +
@@ -167,115 +196,282 @@ $(function () {
             $('.cartDetail table').append(html);
         })
 
+        // 登录状态显示推荐配件
+        if(login()){
+            $('.recommend ul').html('');
+            var getRecommendAccessoryForGoods = api.getRecommendAccessoryForGoods(goods_ids, 0, 1, 20, '%2Bsale', i18nLanguage);
+            var accessoryDataArr = getRecommendAccessoryForGoods.data;
+            accessoryDataArr.forEach(function (item, index) {
+                //var getSkuList = api.getSkuList(item.id, i18nLanguage);
+                var skuIdRecommend;
+                if(item.sku_infos.length > 0){
+                    skuIdRecommend = item.sku_infos[0].id;
+                }else{
+                    skuIdRecommend = ''
+                }
 
-        // 修改商品数量
+                var html;
+                if (isEnglish()) {
+                    html = '<li>\n' +
+                        '                    <a href="./product.html?id=' + item.id + '">' +
+                        '                    <img src="' + item.img_infos[0].url + '" alt=""></a>\n' +
+                        '                    <div class="con">\n' +
+                        '                        <p class="Title">' + item.name + '</p>\n' +
+                        '                        <p class="description">' + item.summary + '</p>\n' +
+                        '                        <p class="price"><span>MSRP：</span>\n' +
+                        '                            <del>￥' + item.price + '</del>\n' +
+                        '                        </p>\n' +
+                        '                        <p class="price"><span>School Special Offer：</span><em>￥' + item.school_price + '</em></p>\n' +
+                        '                        <a class="apply" href="javascript:;" data-name="' + skuIdRecommend + '">Add to Cart</a>\n' +
+                        '                    </div>\n' +
+                        '                </li>';
+                } else {
+                    html = '<li>\n' +
+                        '                    <a href="./product.html?id=' + item.id + '">' +
+                        '                    <img src="' + item.img_infos[0].url + '" alt=""></a>\n' +
+                        '                    <div class="con">\n' +
+                        '                        <p class="Title">' + item.name + '</p>\n' +
+                        '                        <p class="description">' + item.summary + '</p>\n' +
+                        '                        <p class="price"><span>常规价格：</span>\n' +
+                        '                            <del>￥' + item.price + '</del>\n' +
+                        '                        </p>\n' +
+                        '                        <p class="price"><span>学校优惠价：</span><em>￥' + item.school_price + '</em></p>\n' +
+                        '                        <a class="apply" href="javascript:;" data-name="' + skuIdRecommend + '">加入购物车</a>\n' +
+                        '                    </div>\n' +
+                        '                </li>';
+                }
+
+                $('.recommend ul').append(html);
+            })
+        }
+
+        // 修改商品数量，减少
         $('.btnNum').on('click', '.less', function () {
             var value = $(this).parent().find('.text').val();
             var id = $(this).parent().find('.text').attr('data-name');
             if (value > 1) {
                 value--;
-                $(this).parentsUntil('table','.skuId').find('#quantity').attr('value',value);
-                $(this).parent().find('#quantity').attr('value',value);
+                $(this).parentsUntil('table', '.skuId').find('#quantity').attr('value', value);
+                $(this).parent().find('#quantity').attr('value', value);
 
-                var getCartUpdate = api.getCartUpdate(id, value);
+                if(!login()){
+                    if (getCookie("localCart")) {
+                        var str = getCookie("localCart");
+                        var sku_id = $(this).parent().parent().find('.select').val();
 
-                if(getCartUpdate.code === 200){
-                    //console.log($(this).parentsUntil('table','.skuId').html());
-                    var unit_price = parseFloat($(this).parentsUntil('table','.skuId').find('.unit_price em').html());
-                    var price = (unit_price * value).toFixed(2)
-                    $(this).parentsUntil('table','.skuId').find('.price em').html(price);
-                    changeCart();
+                        var itemIndex, itemArr;
+                        localCart = str.split(',');
+                        localCart.forEach(function (item, index) {
+                            if (item.split('-')[0] == sku_id) {
+                                flag = false;
+                                itemIndex = index;
+                                itemArr = item.split('-');
+                            }
+                        });
+
+                        localCart.splice(itemIndex, 1, sku_id + '-' + value);
+                        getCookie("localCart", localCart, {
+                            expires: 30,
+                            path: '/'
+                        });
+
+                        getCartCount()
+                    }
+
+                }else{
+                    var getCartUpdate = api.getCartUpdate(id, value);
+
+                    if (getCartUpdate.code === 200) {
+                        //console.log($(this).parentsUntil('table','.skuId').html());
+                        var unit_price = parseFloat($(this).parentsUntil('table', '.skuId').find('.unit_price em').html());
+                        var price = (unit_price * value).toFixed(2)
+                        $(this).parentsUntil('table', '.skuId').find('.price em').html(price);
+                        changeCart();
+                        getCartCount();
+                    }
                 }
             }
         });
 
+        // 修改商品数量，增加
         $('.btnNum').on('click', '.plus', function () {
             var value = $(this).parent().find('.text').val();
             var id = $(this).parent().find('.text').attr('data-name');
             value++;
-            $(this).parentsUntil('table','.skuId').find('#quantity').attr('value',value);
-            $(this).parent().find('#quantity').attr('value',value);
+            $(this).parentsUntil('table', '.skuId').find('#quantity').attr('value', value);
+            $(this).parent().find('#quantity').attr('value', value);
 
-            var getCartUpdate = api.getCartUpdate(id, value);
-            if(getCartUpdate.code === 200){
 
-                //console.log($(this).parentsUntil('table','.skuId').html());
-                var unit_price = parseFloat($(this).parentsUntil('table','.skuId').find('.unit_price em').html());
-                var price = (unit_price * value).toFixed(2)
-                $(this).parentsUntil('table','.skuId').find('.price em').html(price);
-                changeCart();
+            if(!login()){
+                if (getCookie("localCart")) {
+                    var str = getCookie("localCart");
+                    var sku_id = $(this).parent().parent().find('.select').val();
+
+                    var itemIndex, itemArr;
+                    localCart = str.split(',');
+                    localCart.forEach(function (item, index) {
+                        if (item.split('-')[0] == sku_id) {
+                            flag = false;
+                            itemIndex = index;
+                            itemArr = item.split('-');
+                        }
+                    });
+
+                    localCart.splice(itemIndex, 1, sku_id + '-' + value);
+                    getCookie("localCart", localCart, {
+                        expires: 30,
+                        path: '/'
+                    });
+                    getCartCount()
+                }
+            }else{
+
+
+                var getCartUpdate = api.getCartUpdate(id, value);
+                if (getCartUpdate.code === 200) {
+
+                    //console.log($(this).parentsUntil('table','.skuId').html());
+                    var unit_price = parseFloat($(this).parentsUntil('table', '.skuId').find('.unit_price em').html());
+                    var price = (unit_price * value).toFixed(2)
+                    $(this).parentsUntil('table', '.skuId').find('.price em').html(price);
+                    changeCart();
+                    getCartCount();
+                }
             }
         });
 
     };
 
 
-
     if (!login()) {
         // 用户未登录，显示临时购物车；
 
+        // 不显示推荐配件
+        $('.recommend').hide();
+
+
+        if(getCookie("localCart")){
+            var localCart = getCookie("localCart").split(',');
+
+            var skuId,skuArr=[];
+            localCart.forEach(function (item, index) {
+                skuId = item.split('-')[0];
+                var skuIndexArr = {
+                    id: index,
+                    quantity: item.split('-')[1],
+                    sku_id: skuId,
+                    sku_info: api.getSkuInfo(skuId, i18nLanguage)
+                }
+                skuArr.push(skuIndexArr);
+            });
+            console.log(skuArr);
+            showCart(skuArr)
+        }
+
+        // 删除购物车订单
+        $('.cartDetail table').on('click', '#delete', function () {
+            var str = getCookie("localCart");
+            var sku_id = $(this).parent().parent().find('.select').val();
+
+            var itemIndex, itemArr;
+            localCart = str.split(',');
+            localCart.forEach(function (item, index) {
+                if (item.split('-')[0] == sku_id) {
+                    flag = false;
+                    itemIndex = index;
+                    itemArr = item.split('-');
+                }
+            });
+
+            localCart.splice(itemIndex, 1);
+            getCookie("localCart", localCart, {
+                expires: 30,
+                path: '/'
+            });
+
+
+            // 重新显示列表
+            var skuId,skuArr=[];
+            localCart.forEach(function (item, index) {
+                skuId = item.split('-')[0];
+                var skuIndexArr = {
+                    id: index,
+                    quantity: item.split('-')[1],
+                    sku_id: skuId,
+                    sku_info: api.getSkuInfo(skuId, i18nLanguage)
+                }
+                skuArr.push(skuIndexArr);
+            });
+            //console.log(skuArr);
+            showCart(skuArr)
+            getCartCount();
+
+        })
+
+        // 去结算
+        $('#settle').click(function () {
+            //console.log('22',order_items);
+            if (isEnglish()) {
+                $('.error').html('Please sign in');
+            } else {
+                $('.error').html('请先登录。');
+            }
+        });
 
         // location.href = "login.html"
-    }else{
+    } else {
 
 
         var token = getCookie('token');
-
-
 
 
         // 获取购物车列表
 
         //var getCartInfo = api.getCartInfo(1, i18nLanguage);
 
-        // goods_ids 用于获得推荐列表；
-        var goods_ids=[];
-        api.getCartList(getCookie('userId'), i18nLanguage,showCart);
+
+        api.getCartList(getCookie('userId'), i18nLanguage, showCart);
 
         //showCart();
 
 
-
-
-
         // 删除购物车订单
-        $('.cartDetail table').on('click','#delete',function(){
+        $('.cartDetail table').on('click', '#delete', function () {
             var id = $(this).attr('data-name');
             var getCartDelete = api.getCartDelete(id);
-            if(getCartDelete.code === 200){
+            if (getCartDelete.code === 200) {
                 $(this).parent().parent().remove();
-                var v = parseFloat($('.cart .count').html());
-                $('.cart .count').html(v -1);
+
+                getCartCount();
+
                 changeCart();
             }
         })
 
 
-
-
         // 去结算
         //submitOrder.html
 
-        $('#settle').click(function(){
+        $('#settle').click(function () {
             //console.log('22',order_items);
-            if(order_items.length === 0){
-                if(isEnglish()){
+            if (order_items.length === 0) {
+                if (isEnglish()) {
                     $('.error').html('Please select product order.');
-                }else{
+                } else {
                     $('.error').html('请选择商品下单。');
                 }
-            }else{
+            } else {
                 $('.error').html('');
                 var param = ''
-                order_items.forEach(function(item,index){
-                    if(index === 0){
-                        param += 'goods'+index+'='+item.sku_id+'_'+item.quantity
-                    }else{
-                        param += '&goods'+index+'='+item.sku_id+'_'+item.quantity
+                order_items.forEach(function (item, index) {
+                    if (index === 0) {
+                        param += 'goods' + index + '=' + item.sku_id + '_' + item.quantity
+                    } else {
+                        param += '&goods' + index + '=' + item.sku_id + '_' + item.quantity
                     }
                 });
                 //location.href = "submitOrder.html?order_items="+JSON.stringify(order_items);
-                location.href = "submitOrder.html?"+param;
+                location.href = "submitOrder.html?" + param;
             }
         });
 
@@ -283,61 +479,22 @@ $(function () {
         // console.log(goods_ids);
         //goods_ids=''
 
-        var getRecommendAccessoryForGoods = api.getRecommendAccessoryForGoods(goods_ids, 0, 1, 20, '%2Bsale', i18nLanguage);
-        var accessoryDataArr = getRecommendAccessoryForGoods.data;
-        //$('.recommend ul').html('');
-        accessoryDataArr.forEach(function(item,index){
-            //var getSkuList = api.getSkuList(item.id, i18nLanguage);
-
-            var html;
-            if(isEnglish()){
-                html = '<li>\n' +
-                    '                    <a href="./product.html?id=' + item.id + '">'+
-                    '                    <img src="'+item.img_infos[0].url+'" alt=""></a>\n' +
-                    '                    <div class="con">\n' +
-                    '                        <p class="Title">'+item.name+'</p>\n' +
-                    '                        <p class="description">'+item.summary+'</p>\n' +
-                    '                        <p class="price"><span>MSRP：</span>\n' +
-                    '                            <del>￥'+item.price+'</del>\n' +
-                    '                        </p>\n' +
-                    '                        <p class="price"><span>School Special Offer：</span><em>￥'+item.school_price+'</em></p>\n' +
-                    '                        <a class="apply" href="javascript:;" data-name="'+item.sku_infos[0].id+'">Add to Cart</a>\n' +
-                    '                    </div>\n' +
-                    '                </li>';
-            }else{
-                html = '<li>\n' +
-                    '                    <a href="./product.html?id=' + item.id + '">'+
-                    '                    <img src="'+item.img_infos[0].url+'" alt=""></a>\n' +
-                    '                    <div class="con">\n' +
-                    '                        <p class="Title">'+item.name+'</p>\n' +
-                    '                        <p class="description">'+item.summary+'</p>\n' +
-                    '                        <p class="price"><span>常规价格：</span>\n' +
-                    '                            <del>￥'+item.price+'</del>\n' +
-                    '                        </p>\n' +
-                    '                        <p class="price"><span>学校优惠价：</span><em>￥'+item.school_price+'</em></p>\n' +
-                    '                        <a class="apply" href="javascript:;" data-name="'+item.sku_infos[0].id+'">加入购物车</a>\n' +
-                    '                    </div>\n' +
-                    '                </li>';
-            }
-
-            $('.recommend ul').append(html);
-        })
 
 
         // 推荐配件加入购物车
-        $('.recommend .content').on('click','.apply',function(){
+        $('.recommend .content').on('click', '.apply', function () {
             var sku_id = $(this).attr('data-name');
             var quantity = 1;
             var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
             if (createCart.code === 200) {
                 $('.zhezhao').show();
-                if(isEnglish()){
+                if (isEnglish()) {
                     $('.tan2 .con p').html('Add to Cart successful.');
-                }else{
+                } else {
                     $('.tan2 .con p').html('加入购物车成功。');
                 }
                 $('.tan2').show();
-                api.getCartList(getCookie('userId'), i18nLanguage,showCart);
+                api.getCartList(getCookie('userId'), i18nLanguage, showCart);
                 setTimeout(function () {
                     //location.href = "cart.html"
                     $('.zhezhao').hide();

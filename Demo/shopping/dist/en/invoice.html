@@ -128,104 +128,129 @@
         <a href="javascript:;">Request an invoice (Fapiao)</a>
     </div>
     <div class="invoice">
-        <div class="box">
-            <p>Request an invoice (Fapiao)</p>
+        <div class="invoice-submit">
+            <div class="box">
+                <p>Request an invoice (Fapiao)</p>
+            </div>
+            <div class="con">
+                <div class="invoiceInfo">
+                    <span class="title">Invoice (Fapiao) Category：</span><span><input type="radio" id="general" name="info" value="normal" checked><label for="general">General Invoice</label></span><span><input type="radio" id="added" name="info" value="vat"><label for="added">Special VAT Invoice (Fapiao)</label></span>
+                </div>
+                <div class="invoiceType" style="display: block;">
+                    <div>
+                        <span class="title">General Invoice:</span><span><input type="radio" id="person1" name="type1" value="personal" checked><label for="person1">Individual</label></span><span><input type="radio" value="company" id="company1" name="type1"><label for="company1">Enterprise</label></span>
+                    </div>
+                    <div>
+                        <span class="title">Invoice (Fapiao) title:</span><input id="normal_title" type="text" placeholder="Please enter your Invoice title">
+                    </div>
+                    <div class="tax_no">
+                        <span class="title">Enterprise Taxpayer ID:</span><input id="normal_tax_no" type="text" placeholder="Please enter your Enterprise Taxpayer ID">
+                    </div>
+                    <div>
+                        <span class="title">Invoice Item Description:</span><span><input type="radio" id="goodsDetail1" name="content1" value="detail" checked><label for="goodsDetail1">Item</label></span><span><input type="radio" id="goodsType1" value="category" name="content1"><label for="goodsType1">Item Category</label></span>
+                    </div>
+                </div>
+                <div class="invoiceType" style="display: none;">
+                    <div>
+                        <span class="title">Invoice (Fapiao) Category:</span><span>Enterprise</span>
+                    </div>
+                    <div>
+                        <span class="title">Invoice Item Description:</span><span>Item</span>
+                    </div>
+                    <div>
+                        <span class="title">Enterprise's Name:</span><input id="vat_company" type="text" placeholder="Please enter your Enterprise's Name">
+                    </div>
+                    <div>
+                        <span class="title">Taxpayer's ID:</span><input id="vat_tax_no" type="text" placeholder="Please enter your Taxpayer's ID">
+                    </div>
+                    <div>
+                        <span class="title">Address:</span><input id="vat_address" type="text" placeholder="Please enter your Address">
+                    </div>
+                    <div>
+                        <span class="title">Phone Number:</span><input id="vat_phone" type="text" placeholder="Please enter your Phone Number">
+                    </div>
+                    <div>
+                        <span class="title">Bank Name:</span><input id="vat_bank" type="text" placeholder="Please enter your Bank Name">
+                    </div>
+                    <div>
+                        <span class="title">Bank Account:</span><input id="vat_bank_no" type="text" placeholder="Please enter your Bank Account">
+                    </div>
+                    <div>
+                        <span class="title">Recipient:</span><input id="receiver_name" type="text" placeholder="Please enter your Recipient">
+                    </div>
+                    <div>
+                        <span class="title">Mobile Phone:</span><input id="receiver_phone" type="text" placeholder="Please enter your Mobile Phone">
+                    </div>
+                    <div data-toggle="distpicker" id="distpicker">
+                        <span class="title">Province:</span>
+                        <select id="receiver_province" data-province="Select Province"></select>
+                        <select id="receiver_city" data-city="Select City"></select>
+                        <select id="receiver_area" data-district="Select District"></select>
+
+                    </div>
+                    <div>
+                        <span class="title">Address details:</span>
+                        <textarea id="receiver_address" placeholder="Please enter your Address details"></textarea>
+                    </div>
+
+                </div>
+                <p class="error tl"></p>
+                <div class="btn">
+
+                    <a href="javascript:;" class="submit">Request an invoice (Fapiao)</a>
+                </div>
+            </div>
         </div>
-        <!--<div class="con">
-            <div class="invoiceInfo">
-                <span class="title">Invoice (Fapiao) Category：</span><span><input type="radio" id="general" name="info" value="normal" checked><label for="general">General Invoice</label></span><span><input type="radio" id="added" name="info" value="vat"><label for="added">Special VAT Invoice (Fapiao)</label></span>
+
+        <div class="invoice-info">
+            <div class="box">
+                <p>Invoice Info</p>
             </div>
-            <div class="invoiceType" style="display: block;">
-                <div>
-                    <span class="title">General Invoice:</span><span><input type="radio" id="person1" name="type1" value="personal" checked><label for="person1">Individual</label></span><span><input type="radio" value="company" id="company1" name="type1"><label for="company1">Enterprise</label></span>
+            <div class="con">
+                <div class="invoice-normal">
+                    <div><span class="title billing_type">Invoice (Fapiao) Info：<em></em></span></div>
+                    <div><span class="title vat_invoice_type">Invoice (Fapiao) Category：<em></em></span></div>
+                    <div><span class="title normal_title">Invoice (Fapiao) title：<em></em></span></div>
+                    <div><span class="title normal_tax_no">Enterprise Taxpayer ID：<em></em></span></div>
+                    <div><span class="title normal_content">Invoice Item Description：<em></em></span></div>
                 </div>
-                <div>
-                    <span class="title">Invoice (Fapiao) title:</span><input id="normal_title" type="text" placeholder="Please enter your Invoice title">
+                <div class="invoice-vat">
+                    <div><span class="title billing_type">Invoice (Fapiao) Info：<em></em></span></div>
+                    <div><span class="title vat_invoice_type">Invoice (Fapiao) Category：<em></em></span></div>
+                    <div><span class="title vat_company">Enterprise's Name：<em></em></span></div>
+                    <div><span class="title vat_tax_no">Enterprise Taxpayer ID：<em></em></span></div>
+                    <div><span class="title vat_address">Address：<em></em></span></div>
+                    <div><span class="title vat_phone">Phone Number：<em></em></span></div>
+                    <div><span class="title vat_bank">Bank Name：<em></em></span></div>
+                    <div><span class="title vat_bank_no">Bank Account：<em></em></span></div>
+                    <div><span class="title receiver_name">Recipient：<em></em></span></div>
+                    <div><span class="title receiver_phone">Mobile Phone：<em></em></span></div>
+                    <div><span class="title receiver_province">Province：<em></em></span></div>
+                    <div><span class="title receiver_address">Address details：<em></em></span></div>
                 </div>
-                <div>
-                    <span class="title">Enterprise Taxpayer ID:</span><input id="normal_tax_no" type="text" placeholder="Please enter your Enterprise Taxpayer ID">
-                </div>
-                <div>
-                    <span class="title">Invoice Item Description:</span><span><input type="radio" id="goodsDetail1" name="content1" value="detail" checked><label for="goodsDetail1">Item</label></span><span><input type="radio" id="goodsType1" value="category" name="content1"><label for="goodsType1">Item Category</label></span>
-                </div>
+
+
+                <!--<div><span class="title" id="order_no">order no：<em></em></span></div>
+                <div><span class="title" id="billing_type">Invoice (Fapiao) Info：<em></em></span></div>
+                <div><span class="title" id="normal_invoice_type">General Invoice：<em></em></span></div>
+                <div><span class="title" id="normal_title">Invoice (Fapiao) title：<em></em></span></div>
+                <div><span class="title" id="normal_tax_no">Enterprise Taxpayer ID：<em></em></span></div>
+                <div><span class="title" id="normal_content">Invoice Item Description：<em></em></span></div>
+                <div><span class="title" id="vat_invoice_type">Invoice (Fapiao) Category：<em></em></span></div>
+                <div><span class="title" id="vat_tax_no">Taxpayer's ID：<em></em></span></div>
+                <div><span class="title" id="vat_content">Invoice Item Description：<em></em></span></div>
+                <div><span class="title" id="vat_company">Enterprise's Name：<em></em></span></div>
+                <div><span class="title" id="vat_address">Address：<em></em></span></div>
+                <div><span class="title" id="vat_phone">Phone Number：<em></em></span></div>
+                <div><span class="title" id="vat_bank">Bank Name：<em></em></span></div>
+                <div><span class="title" id="vat_bank_no">Bank Account：<em></em></span></div>
+                <div><span class="title" id="receiver_name">Recipient：<em></em></span></div>
+                <div><span class="title" id="receiver_phone">Mobile Phone：<em></em></span></div>
+                <div><span class="title" id="receiver_province">Province：<em></em></span></div>
+                <div><span class="title" id="receiver_city">Province：<em></em></span></div>
+                <div><span class="title" id="receiver_area">City：<em></em></span></div>
+                <div><span class="title" id="receiver_address">Address details：<em></em></span></div>-->
             </div>
-            <div class="invoiceType" style="display: none;">
-                <div>
-                    <span class="title">Invoice (Fapiao) Category:</span><span>Enterprise</span>
-                </div>
-                <div>
-                    <span class="title">Invoice Item Description:</span><span>Item</span>
-                </div>
-                <div>
-                    <span class="title">Enterprise's Name:</span><input id="vat_company" type="text" placeholder="Please enter your Enterprise's Name">
-                </div>
-                <div>
-                    <span class="title">Taxpayer's ID:</span><input id="vat_tax_no" type="text" placeholder="Please enter your Taxpayer's ID">
-                </div>
-                <div>
-                    <span class="title">Address:</span><input id="vat_address" type="text" placeholder="Please enter your Address">
-                </div>
-                <div>
-                    <span class="title">Phone Number:</span><input id="vat_phone" type="text" placeholder="Please enter your Phone Number">
-                </div>
-                <div>
-                    <span class="title">Bank Name:</span><input id="vat_bank" type="text" placeholder="Please enter your Bank Name">
-                </div>
-                <div>
-                    <span class="title">Bank Account:</span><input id="vat_bank_no" type="text" placeholder="Please enter your Bank Account">
-                </div>
-                <div>
-                    <span class="title">Recipient:</span><input id="receiver_name" type="text" placeholder="Please enter your Recipient">
-                </div>
-                <div>
-                    <span class="title">Mobile Phone:</span><input id="receiver_phone" type="text" placeholder="Please enter your Mobile Phone">
-                </div>
-                <div data-toggle="distpicker" id="distpicker">
-                    <span class="title">Province:</span>
-                    <select id="receiver_province" data-province="Select Province"></select>
-                    <select id="receiver_city" data-city="Select City"></select>
-                    <select id="receiver_area" data-district="Select District"></select>
-
-                </div>
-                <div>
-                    <span class="title">Address details:</span>
-                    <textarea id="receiver_address" placeholder="Please enter your Address details"></textarea>
-                </div>
-
-            </div>
-            <p class="error tl"></p>
-            <div class="btn">
-
-                <a href="javascript:;" class="submit">Request an invoice (Fapiao)</a>
-            </div>
-        </div>-->
-
-        <div class="con">
-            <div><span class="title" id="order_no">order no：<em></em></span></div>
-            <div><span class="title" id="billing_type">Invoice (Fapiao) Info：<em></em></span></div>
-            <div><span class="title" id="normal_invoice_type">General Invoice：<em></em></span></div>
-            <div><span class="title" id="normal_title">Invoice (Fapiao) title：<em></em></span></div>
-            <div><span class="title" id="normal_tax_no">Enterprise Taxpayer ID：<em></em></span></div>
-            <div><span class="title" id="normal_content">Invoice Item Description：<em></em></span></div>
-            <div><span class="title" id="vat_invoice_type">Invoice (Fapiao) Category：<em></em></span></div>
-            <div><span class="title" id="vat_tax_no">Taxpayer's ID：<em></em></span></div>
-            <div><span class="title" id="vat_content">Invoice Item Description：<em></em></span></div>
-            <div><span class="title" id="vat_company">Enterprise's Name：<em></em></span></div>
-            <div><span class="title" id="vat_address">Address：<em></em></span></div>
-            <div><span class="title" id="vat_phone">Phone Number：<em></em></span></div>
-            <div><span class="title" id="vat_bank">Bank Name：<em></em></span></div>
-            <div><span class="title" id="vat_bank_no">Bank Account：<em></em></span></div>
-            <div><span class="title" id="receiver_name">Recipient：<em></em></span></div>
-            <div><span class="title" id="receiver_phone">Mobile Phone：<em></em></span></div>
-            <div><span class="title" id="receiver_province">Province：<em></em></span></div>
-            <div><span class="title" id="receiver_city">Province：<em></em></span></div>
-            <div><span class="title" id="receiver_area">City：<em></em></span></div>
-            <div><span class="title" id="receiver_address">Address details：<em></em></span></div>
-
-            <div class="btn">
-                <a href="javascript:;" class="submit">Request an invoice (Fapiao)</a>
-            </div>
-
         </div>
 
     </div>

@@ -543,43 +543,45 @@ $(function () {
     var repairStatus,backup_status;
     if(isEnglish()){
         repairStatus = {
-            uSubmited: 'uSubmited',
-            pReceived: 'pReceived',
-            pEvaluated: 'pEvaluated',
-            uConfirmed: 'uConfirmed',
-            pRepairing: 'pRepairing',
-            pRepaired: 'pRepaired',
-            uReceived: 'uReceived',
-            uWaitingForPay: 'uWaitingForPay',
-            uPaid: 'uPaid'
+            uSubmited: 'Request Submitted.',
+            pReceived: 'Ruturned successfully. Waiting for assessing',
+            pEvaluated: 'Assessment accomplished. Waiting for confirmation',
+            uConfirmed: 'Repairing plan is confirmed. Repair in progress',
+            pRepairing: 'Repaired successfully,to be received by user',
+            pRepaired: 'Received successfully, repair accomplished',
+            uWaitingForPay: 'Received successfully, waiting for payment',
+            uPaid: 'Paid successfully, repair accomplished',
+            uCanceled: 'repair request canceled'
         };
 
         backup_status = {
-            uSubmited: 'uSubmited',
-            pNoticedUser: 'pNoticedUser',
-            uReceived: 'uReceived',
-            uReturned: 'uReturned',
-            pConfirmReturned: 'pConfirmReturned'
+            uSubmited: 'Request submitted. Waiting for loaner',
+            pNoticedUser: 'Waiting for receiving',
+            uReceived: 'Loaner received by user.',
+            uReturned: 'Loaner delivered. To be returned.',
+            pConfirmReturned: 'Loaner returned.',
+            none:''
         }
     }else{
         repairStatus = {
-            uSubmited: '用户已提交',
-            pReceived: '平台确认收到机器',
-            pEvaluated: '平台已评估',
-            uConfirmed: '用户已确认',
-            pRepairing: '平台维修中',
-            pRepaired: '平台维修完成待领取',
-            uReceived: '用户已领取',
-            uWaitingForPay: '待用户支付费用',
-            uPaid: '用户已支付'
+            uSubmited: '提交成功待返件',
+            pReceived: '返件成功待评估',
+            pEvaluated: '评估完成，待用户确认维修',
+            uConfirmed: '维修方案已确认，维修中',
+            pRepairing: '维修完成，待用户领取',
+            pRepaired: '设备已确认领取，维修完成',
+            uWaitingForPay: '设备已确认领取，待支付',
+            uPaid: '付款成功，维修完成',
+            uCanceled: '已取消维修申请'
         };
 
         backup_status = {
-            uSubmited: '用户已提交申请',
-            pNoticedUser: '已通知用户领取备用机',
+            uSubmited: '申请提交成功，待分配备用机',
+            pNoticedUser: '备用机待领',
             uReceived: '用户已领取',
-            uReturned: '用户已归还',
-            pConfirmReturned: '平台确认用户已归还'
+            uReturned: '使用中，待归还',
+            pConfirmReturned: '确认用户归还',
+            none: ''
         }
     }
 
@@ -626,19 +628,98 @@ $(function () {
                         }else{
                             url = '';
                         }
+                        var isSz = false;
+                        if(getUser.school_info.city === 'sh'){
+                            isSz = false;
+                        }else{
+                            isSz = true;
+                        }
+
+                        var operate;
+                        if(isEnglish()){
+                            if(item.status === 'uSubmited'){
+                                operate = '<a href="javascript:;" class="cancelRepair">Cancel my request</a>'
+                            }else if(item.status === 'pReceived'){
+                                operate = '<a href="javascript:;" class="cancelRepair">Cancel my request</a>'
+                            }else if(item.status === 'pEvaluated'){
+                                operate = '<a href="javascript:;" class="confirmRepair">Confirm repair request</a>'
+                            }else if(item.status === 'uConfirmed'){
+                                if(isSz){
+                                    operate = '<a href="javascript:;" class="applyBackup">Apply Backup</a>'
+                                }else{
+                                    operate = ''
+                                }
+                            }else if(item.status === 'pRepaired'){
+                                operate = ''
+                            }else if(item.status === 'uWaitingForPay'){
+                                operate = '<a href="javascript:;" class="waitForPay" data-name="'+item.order_no+'" data-repair_no="'+item.repair_no+'" data-price="'+item.price+'">Make the payment</a>'
+                            }else if(item.status === 'pReceived'){
+                                operate = ''
+                            }else if(item.status === 'uPaid'){
+                                operate = ''
+                            }else if(item.status === 'uCanceled'){
+                                operate = ''
+                            }
+
+                            if(item.backup_status === 'pNoticedUser'){
+                                operate += '<a href="javascript:;" class="receivingConfirmed">Receiving loaner confirmed</a>'
+                            }
+
+                        }else{
+                            if(item.status === 'uSubmited'){
+                                operate = '<a href="javascript:;" class="cancelRepair">取消维修申请</a>'
+                            }else if(item.status === 'pReceived'){
+                                operate = '<a href="javascript:;" class="cancelRepair">取消维修申请</a>'
+                            }else if(item.status === 'pEvaluated'){
+                                operate = '<a href="javascript:;" class="confirmRepair">确认维修</a>'
+                            }else if(item.status === 'uConfirmed'){
+                                if(isSz){
+                                    operate = '<a href="javascript:;" class="applyBackup">申请备用机</a>'
+                                }else{
+                                    operate = ''
+                                }
+                            }else if(item.status === 'pRepaired'){
+                                operate = ''
+                            }else if(item.status === 'uWaitingForPay'){
+                                operate = '<a href="javascript:;" class="waitForPay" data-name="'+item.order_no+'" data-repair_no="'+item.repair_no+'" data-price="'+item.price+'">支付</a>'
+                            }else if(item.status === 'pReceived'){
+                                operate = ''
+                            }else if(item.status === 'uPaid'){
+                                operate = ''
+                            }else if(item.status === 'uCanceled'){
+                                operate = ''
+                            }
+
+                            if(item.backup_status === 'pNoticedUser'){
+                                operate += '<a href="javascript:;" class="receivingConfirmed">备用机确认领取</a>'
+                            }
+                        }
+
+                        var backupStatus;
+                        if(item.backup_status !== null){
+                            if(isEnglish()){
+                                backupStatus = backup_status[item.backup_status];
+                            }else{
+                                backupStatus = backup_status[item.backup_status];
+                            }
+                        }else{
+                            backupStatus = '';
+                        }
+
+
                         if(isEnglish()){
                             pcHtml = '<tr>\n' +
                                 '                <td><p>'+item.description+'</p></td>\n' +
                                 '                <td><div class="img"><img src="'+ url +'" alt=""></div></td>\n' +
-                                '                <td><p>'+item.order_no+'</p></td>\n' +
+                                '                <td><p>'+item.device_category_info[0]+'</p></td>\n' +
                                 '                <td><p>'+item.evaluation+'</p></td>\n' +
-                                '                <td class="operate"><a href="javascript:;">'+backup_status[item.backup_status]+'</a></td>\n' +
+                                '                <td class="operate" data-name="'+item.id+'">'+operate+'</td>\n' +
                                 '                <td class="status">\n' +
                                 '                    <p>'+repairStatus[item.status]+'</p>\n' +
                                 '                    <span>repair no：'+item.repair_no+'</span>\n' +
                                 '                </td>\n' +
                                 '                <td class="backup_status">\n' +
-                                '                    <p>'+backup_status[item.backup_status]+'</p>\n' +
+                                '                    <p>'+backupStatus+'</p>\n' +
                                 '                    <span>Created time：'+item.created_at+'</span>\n' +
                                 '                </td>\n' +
                                 '            </tr>';
@@ -646,11 +727,17 @@ $(function () {
                             mHtml = '<li>\n' +
                                 '                    <div class="up">\n' +
                                 '                        <div class="operate">\n' +
+                                '                            <div>Status：<em>'+repairStatus[item.status]+'</em></div>\n' +
+                                '                        </div>\n' +
+                                '                        <div class="operate">\n' +
+                                '                            <div>Backup Staus：<em>'+backupStatus+'</em></div>\n' +
+                                '                        </div>\n' +
+                                '                        <div class="operate">\n' +
                                 '                            <div>repair no：<em>'+item.repair_no+'</em></div>\n' +
                                 '                            <div class="status">'+repairStatus[item.status]+'</div>\n' +
                                 '                        </div>\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div>order no：<em>'+item.order_no+'</em></div>\n' +
+                                '                            <div>order no：<em>'+item.device_category_info[0]+'</em></div>\n' +
                                 '                            <div class="status">'+backup_status[item.backup_status]+'</div>\n' +
                                 '                        </div>' +
                                 '                        <div class="text">\n' +
@@ -661,13 +748,12 @@ $(function () {
                                 '                                <span>'+item.evaluation+'</span>\n' +
                                 '                            </div>\n' +
                                 '                        </div>\n' +
-                                '                        <div class="operate">\n' +
-                                '                            <div class="status">'+repairStatus[item.status]+'</div>\n' +
+                                '                        <div class="operate" data-name="'+item.id+'">\n' +
                                 '                            <div class="time"><span>Created time：'+item.created_at+'</span></div>\n' +
                                 '                        </div>\n' +
                                 '                    </div>\n' +
                                 '                    <div class="down">\n' +
-                                '                        <a href="javascript:;">'+backup_status[item.backup_status]+'</a>\n' +
+                                                            operate +
                                 '                    </div>\n' +
                                 '                </li>';
 
@@ -675,15 +761,15 @@ $(function () {
                             pcHtml = '<tr>\n' +
                                 '                <td><p>'+item.description+'</p></td>\n' +
                                 '                <td><div class="img"><img src="'+ url +'" alt=""></div></td>\n' +
-                                '                <td><p>'+item.order_no+'</p></td>\n' +
+                                '                <td><p>'+item.device_category_info[0]+'</p></td>\n' +
                                 '                <td><p>'+item.evaluation+'</p></td>\n' +
-                                '                <td class="operate"><a href="javascript:;">'+backup_status[item.backup_status]+'</a></td>\n' +
+                                '                <td class="operate" data-name="'+item.id+'">'+operate+'</td>\n' +
                                 '                <td class="status">\n' +
                                 '                    <p>'+repairStatus[item.status]+'</p>\n' +
                                 '                    <span>单号：'+item.repair_no+'</span>\n' +
                                 '                </td>\n' +
                                 '                <td class="backup_status">\n' +
-                                '                    <p>'+backup_status[item.backup_status]+'</p>\n' +
+                                '                    <p>'+backupStatus+'</p>\n' +
                                 '                    <span>创建时间：'+item.created_at+'</span>\n' +
                                 '                </td>\n' +
                                 '            </tr>';
@@ -691,12 +777,16 @@ $(function () {
                             mHtml = '<li>\n' +
                                 '                    <div class="up">\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div>单号：<em>'+item.repair_no+'</em></div>\n' +
-                                '                            <div class="status">'+repairStatus[item.status]+'</div>\n' +
+                                '                            <div>状态：<em>'+repairStatus[item.status]+'</em></div>\n' +
                                 '                        </div>\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div>设备型号：<em>'+item.order_no+'</em></div>\n' +
-                                '                            <div class="status">'+backup_status[item.backup_status]+'</div>\n' +
+                                '                            <div>备用机状态：<em>'+backupStatus+'</em></div>\n' +
+                                '                        </div>\n' +
+                                '                        <div class="operate">\n' +
+                                '                            <div>单号：<em>'+item.repair_no+'</em></div>\n' +
+                                '                        </div>\n' +
+                                '                        <div class="operate">\n' +
+                                '                            <div>设备型号：<em>'+item.device_category_info[0]+'</em></div>\n' +
                                 '                        </div>' +
                                 '                        <div class="text">\n' +
                                 '                            <div class="question">\n' +
@@ -707,18 +797,17 @@ $(function () {
                                 '                            </div>\n' +
                                 '                        </div>\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div class="status">'+repairStatus[item.status]+'</div>\n' +
                                 '                            <div class="time"><span>提交时间：'+item.created_at+'</span></div>\n' +
                                 '                        </div>\n' +
                                 '                    </div>\n' +
-                                '                    <div class="down">\n' +
-                                '                        <a href="javascript:;">'+backup_status[item.backup_status]+'</a>\n' +
+                                '                    <div class="down" data-name="'+item.id+'">\n' +
+                                                            operate +
                                 '                    </div>\n' +
                                 '                </li>';
                         }
 
-                        $('.pcService').append(pcHtml);
-                        $('.mService ul').append(mHtml);
+                        $('.records .pcService').append(pcHtml);
+                        $('.records .mService ul').append(mHtml);
 
 
                     })
@@ -728,7 +817,200 @@ $(function () {
 
             }
         })
+
+
+        // 取消维修申请
+        $('.records').on('click', '.cancelRepair', function () {
+            var that = $(this);
+
+            $.ajax({
+                type: 'POST',
+                url: url + '/api/v1/repair/update',
+                dataType: 'json',
+                data:{
+                    token: token,
+                    id: that.parent().attr('data-name'),
+                    status: 'uCanceled'
+                },
+                success: function(data){
+                    if (data.code === 200) {
+                        if(isEnglish()){
+                            showTan('repair request canceled');
+                        }else{
+                            showTan('取消维修申请成功');
+                        }
+                        getMaintenanceRecords();
+                    }else{
+                        showTan(data.msg);
+                    }
+                },
+                error: function(){}
+            })
+
+        });
+
+        // 确认维修
+        $('.records').on('click', '.confirmRepair', function () {
+            var that = $(this);
+
+            var price_type;
+
+            $('.zhezhao').show();
+            $('.tan3').show();
+            $('.typeClick div').click(function(){
+                $(this).parent().find('div').removeClass('active');
+                $(this).addClass('active');
+
+                price_type = $('.tan3 typeClick').find('active').attr('data-name');
+
+                $.ajax({
+                    type: 'POST',
+                    url: url + '/api/v1/repair/confirm-price',
+                    dataType: 'json',
+                    data:{
+                        token: token,
+                        id: that.parent().attr('data-name'),
+                        price_type : price_type
+                    },
+                    success: function(data){
+                        if (data.code === 200) {
+                            if(isEnglish()){
+                                showTan('Confirm repair request');
+                            }else{
+                                showTan('确认维修');
+                            }
+                            getMaintenanceRecords();
+                        }else{
+                            showTan(data.msg);
+                        }
+                    },
+                    error: function(){}
+                })
+            })
+
+
+        });
+
+        // 申请备用机
+        $('.records').on('click', '.applyBackup', function () {
+            var that = $(this);
+
+            $.ajax({
+                type: 'POST',
+                url: url + '/api/v1/repair/update',
+                dataType: 'json',
+                data:{
+                    token: token,
+                    id: that.parent().attr('data-name'),
+                    backup_status: 'uSubmited'
+                },
+                success: function(data){
+                    if (data.code === 200) {
+                        if(isEnglish()){
+                            showTan('Receiving loaner confirmed');
+                        }else{
+                            showTan('申请备用机确认领取成功');
+                        }
+                        getMaintenanceRecords();
+                    }else{
+                        showTan(data.msg);
+                    }
+                },
+                error: function(){}
+            })
+        });
+
+        // 支付
+        $('.records').on('click', '.waitForPay', function () {
+            var that = $(this);
+
+            var flag = false;
+            var pay_type;
+
+            $('.zhezhao').show();
+            $('.tan4').show();
+            $('.typeClick div').click(function(){
+                $(this).parent().find('div').removeClass('active');
+                $(this).addClass('active');
+
+                pay_type = $(this).attr('data-name')
+
+                if(that.attr('data-name') !== 'null'){
+                    location.href = "payment.html?orderNo="+that.attr('data-name');
+                }else{
+                    $.ajax({
+                        type:'POST',
+                        url:url+'/api/v1/order/create',
+                        dataType:'json',
+                        data:{
+                            token: token,
+                            price: that.attr('data-price'),
+                            order_type: 'repair',
+                            pay_type: pay_type,
+                            repair_id: that.parent().attr('data-name'),
+                        },
+                        success:function(data){
+                            if(data.code === 200){
+                                location.href = "payment.html?orderNo="+data.data.orderNo;
+                            }
+                        },
+                        error:function(){}
+                    })
+                }
+            })
+
+        });
+
+        // 备用机确认领取
+        $('.records').on('click', '.receivingConfirmed', function () {
+            var that = $(this);
+
+            $.ajax({
+                type: 'POST',
+                url: url + '/api/v1/repair/update',
+                dataType: 'json',
+                data:{
+                    token: token,
+                    id: that.parent().attr('data-name'),
+                    backup_status: 'uReceived'
+                },
+                success: function(data){
+                    if (data.code === 200) {
+                        if(isEnglish()){
+                            showTan('Loaner successfully requested');
+                        }else{
+                            showTan('备用机申请成功');
+                        }
+                        getMaintenanceRecords();
+                    }else{
+                        showTan(data.msg);
+                    }
+                },
+                error: function(){}
+            })
+        });
+
     }
+
+    function showTan(text) {
+        $('.zhezhao').show();
+        $('.tan2 .con p').html(text);
+
+        $('.tan2').show();
+        setTimeout(function () {
+            //location.href = "cart.html"
+            $('.zhezhao').hide();
+            $('.tan2').hide();
+        }, 1000);
+    }
+
+
+    $('.cls').click(function(){
+        $('.zhezhao').hide();
+        $('.pop').hide();
+    })
+
+
 
 
     $('.orderNav li').click(function () {

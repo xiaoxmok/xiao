@@ -3,6 +3,18 @@ $(function () {
         location.href = "login.html"
     }
 
+    // 纳税号切换
+    $('.invoiceType input[name="type1"]').click(function(){
+        var index = $(this).val();
+        console.log(index);
+        if(index === 'personal'){
+            $('.tax_no').hide();
+        }else if(index === 'company'){
+            $('.tax_no').show();
+        }
+
+    });
+
     var token = getCookie('token');
     var getUrl = GetRequest();
 
@@ -49,31 +61,63 @@ $(function () {
     }
 
     api.getOrderInfo(getUrl.order_no,function(data){
+        // 判断是否普通发票 或 增值税发票
+        if(data.invoice_info.billing_type === 'normal'){
+            // 判断个人发票 或 企业发票
+            if(data.invoice_info.normal_invoice_type === 'personal'){
+                // 判断title是否为空，为空未打印过发票
+                if(data.invoice_info.normal_title !== null){
+                    $('.invoice-info').show();
+                    $('.invoice-normal').show();
+                }else{
+                    $('.invoice-submit').show();
+                }
+
+            }else if(data.invoice_info.normal_invoice_type === 'company'){
+                if(data.invoice_info.normal_title !== null && data.invoice_info.normal_tax_no !== null){
+                    $('.invoice-info').show();
+                    $('.invoice-normal').show();
+                }else{
+                    $('.invoice-submit').show();
+                }
+            }
+
+
+        }else if(data.invoice_info.billing_type === 'vat'){
+            if(data.invoice_info.vat_company !== null && data.invoice_info.vat_tax_no !== null){
+                $('.invoice-info').show();
+                $('.invoice-normal').show();
+            }else{
+                $('.invoice-submit').show();
+            }
+        }
+
+
         console.log(data);
-            $('#order_no em').html(data.invoice_info.order_no);
-            $('#billing_type em').html(billing_type[data.invoice_info.billing_type]);
-            $('#normal_invoice_type em').html(normal_invoice_type[data.invoice_info.normal_invoice_type]);
-            $('#normal_title em').html(data.invoice_info.normal_title);
-            $('#normal_tax_no em').html(data.invoice_info.normal_tax_no);
-            $('#normal_content em').html(normal_content[data.invoice_info.normal_content]);
-            $('#vat_invoice_type em').html(vat_invoice_type[data.invoice_info.vat_invoice_type]);
-            $('#vat_tax_no em').html(data.invoice_info.vat_tax_no);
-            $('#vat_content em').html(vat_content[data.invoice_info.vat_content]);
-            $('#vat_company em').html(data.invoice_info.vat_company);
-            $('#vat_address em').html(data.invoice_info.vat_address);
-            $('#vat_phone em').html(data.invoice_info.vat_phone);
-            $('#vat_bank em').html(data.invoice_info.vat_bank);
-            $('#vat_bank_no em').html(data.invoice_info.vat_bank_no);
-            $('#receiver_name em').html(data.invoice_info.receiver_name);
-            $('#receiver_phone em').html(data.invoice_info.receiver_phone);
-            $('#receiver_province em').html(data.invoice_info.receiver_province);
-            $('#receiver_city em').html(data.invoice_info.receiver_city);
-            $('#receiver_area em').html(data.invoice_info.receiver_area);
-            $('#receiver_address em').html(data.invoice_info.receiver_address);
+            $('.order_no em').html(data.invoice_info.order_no);
+            $('.billing_type em').html(billing_type[data.invoice_info.billing_type]);
+            $('.normal_invoice_type em').html(normal_invoice_type[data.invoice_info.normal_invoice_type]);
+            $('.normal_title em').html(data.invoice_info.normal_title);
+            $('.normal_tax_no em').html(data.invoice_info.normal_tax_no);
+            $('.normal_content em').html(normal_content[data.invoice_info.normal_content]);
+            $('.vat_invoice_type em').html(vat_invoice_type[data.invoice_info.vat_invoice_type]);
+            $('.vat_tax_no em').html(data.invoice_info.vat_tax_no);
+            $('.vat_content em').html(vat_content[data.invoice_info.vat_content]);
+            $('.vat_company em').html(data.invoice_info.vat_company);
+            $('.vat_address em').html(data.invoice_info.vat_address);
+            $('.vat_phone em').html(data.invoice_info.vat_phone);
+            $('.vat_bank em').html(data.invoice_info.vat_bank);
+            $('.vat_bank_no em').html(data.invoice_info.vat_bank_no);
+            $('.receiver_name em').html(data.invoice_info.receiver_name);
+            $('.receiver_phone em').html(data.invoice_info.receiver_phone);
+            $('.receiver_province em').html(data.invoice_info.receiver_province+' '+data.invoice_info.receiver_city+' '+data.invoice_info.receiver_area);
+            $('.receiver_city em').html(data.invoice_info.receiver_city);
+            $('.receiver_area em').html(data.invoice_info.receiver_area);
+            $('.receiver_address em').html(data.invoice_info.receiver_address);
     })
 
     // 更新订单发票信息
-    /*$('.submit').click(function () {
+    $('.submit').click(function () {
         var invoiceData;
         // 普通发票
         if($('.invoiceInfo input[name="info"]:checked').val() === 'normal'){
@@ -118,7 +162,11 @@ $(function () {
             data: invoiceData,
             success:function(data){
                 if(data.code === 200){
-                    $('.error').html('提交成功，2秒后跳转个人中心页面');
+                    if(isEnglish()){
+                        $('.error').html('Submitted successfully');
+                    }else{
+                        $('.error').html('提交成功');
+                    }
                     setTimeout(function () {
                         location.href = "center.html"
                     }, 2000);
@@ -126,7 +174,7 @@ $(function () {
             },
             error:function(){}
         })
-    });*/
+    });
 
 
 });

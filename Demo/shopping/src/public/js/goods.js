@@ -19,16 +19,15 @@ $(function () {
     $('.introduce').html(getGoods.introduce);
 
 
-
     function showSku(i) {
         // 加载商品图片
         var imgArr;
-        if(i === 999){
+        if (i === 999) {
             imgArr = getGoods.img_infos;
-            i=0;
-        }else{
+            i = 0;
+        } else {
             imgArr = getSkuListData[i].img_infos;
-            if(imgArr.length === 0){
+            if (imgArr.length === 0) {
                 imgArr = getGoods.img_infos;
             }
         }
@@ -38,22 +37,22 @@ $(function () {
             var html = '<div class="swiper-slide"><img src="' + item.url + '" alt=""></div>';
             $('.swiper-wrapper').append(html);
 
-            var small = '<a href="javascript:;" class="link"  data-name="'+index+'"><img src="' + item.url + '" alt=""></a>'
+            var small = '<a href="javascript:;" class="link"  data-name="' + index + '"><img src="' + item.url + '" alt=""></a>'
             $('.product .small').append(small);
         });
 
         // 加载sku商品信息
 
         $('#price').html(toPrice(getSkuListData[i].price));
-        if(login()){
+        if (login()) {
             $('#school_price').html(toPrice(getSkuListData[i].school_price));
             $('.exclusive').hide();
-            if(isEnglish()){
+            if (isEnglish()) {
                 $('.OfferPrice').html('Exclusive offer');
-            }else{
+            } else {
                 $('.OfferPrice').html('专属优惠');
             }
-        }else{
+        } else {
             $('#school_price').html(toPrice(getSkuListData[i].education_price));
         }
 
@@ -69,8 +68,8 @@ $(function () {
             },
         });
 
-        $('.small').on('click','.link',function(){
-            var i = parseInt($(this).attr('data-name'))+1;
+        $('.small').on('click', '.link', function () {
+            var i = parseInt($(this).attr('data-name')) + 1;
             // $('.swiper-pagination span').eq(i).trigger('click');
             mySwiper.slideTo(i, 1000, false);
         })
@@ -109,13 +108,14 @@ $(function () {
 
             $('.param').append(html);
         }
-    };
+    }
+    ;
 
 
     // 判断是否已收藏
-    if(getGoods.is_fav === 'y'){
+    if (getGoods.is_fav === 'y') {
         $('.collect').html('<span></span>已收藏');
-    }else{
+    } else {
         $('.collect').html('<span></span>收藏');
     }
 
@@ -154,7 +154,7 @@ $(function () {
         //console.log(sku_id);
     });
 
-    function showTan(text){
+    function showTan(text) {
         $('.zhezhao').show();
         $('.tan2 .con p').html(text);
 
@@ -171,75 +171,95 @@ $(function () {
         if (!login()) {
 
             var quantity = $('#quantity').val();
-            console.log(sku_id,quantity);
+            console.log(sku_id, quantity);
             var localCart = [];
             var flag = true;
-            if(getCookie("localCart")){
+            if (getCookie("localCart")) {
                 var str = getCookie("localCart");
+
+                var itemIndex, itemArr;
                 localCart = str.split(',');
-                localCart.forEach(function(item,index){
-                    if(item.split('-')[0] == sku_id){
+                localCart.forEach(function (item, index) {
+                    if (item.split('-')[0] == sku_id) {
                         flag = false;
+                        itemIndex = index;
+                        itemArr = item.split('-');
                     }
                 });
 
-                if(flag){
-                    localCart.push(sku_id+'-'+quantity);
+                if (flag) {
+                    localCart.push(sku_id + '-' + quantity);
                     getCookie("localCart", localCart, {
                         expires: 30,
                         path: '/'
                     });
-                    if(isEnglish()){
+                    if (isEnglish()) {
                         showTan('Join the temporary shopping cart successfully!');
-                    }else{
+                    } else {
                         showTan('加入临时购物车成功！')
                     }
 
-                }else{
-                    if(isEnglish()){
-                        showTan('Already in a temporary shopping cart');
-                    }else{
-                        showTan('已经在临时购物车')
+                } else {
+                    localCart.splice(itemIndex, 1, sku_id + '-' + (parseInt(quantity) + parseInt(itemArr[1])));
+                    getCookie("localCart", localCart, {
+                        expires: 30,
+                        path: '/'
+                    });
+                    if (isEnglish()) {
+                        showTan('Join the temporary shopping cart successfully!');
+                    } else {
+                        showTan('加入临时购物车成功！')
                     }
                 }
 
 
-            }else {
-                localCart.push(sku_id+'-'+quantity);
+            } else {
+                localCart.push(sku_id + '-' + quantity);
                 getCookie("localCart", localCart, {
                     expires: 30,
                     path: '/'
                 });
-                if(isEnglish()){
+                if (isEnglish()) {
                     showTan('Join the temporary shopping cart successfully!');
-                }else{
+                } else {
                     showTan('加入临时购物车成功！')
                 }
             }
 
             // 更新购物车数据
-            if(getCookie("localCart")) {
+            if (getCookie("localCart")) {
                 var str = getCookie("localCart");
-                localCart = str.split(',');
-                $('.cart .count').html(localCart.length);
+                var localCartArr = str.split(',');
+                var count = 0;
+                localCartArr.forEach(function(item,index){
+                    var itemId = item.split('-');
+                    count += parseInt(itemId[1]);
+                })
+                $('.cart .count').html(count)
             }
 
-        }else{
+        } else {
             var quantity = $('#quantity').val();
             console.log('quantity', quantity);
             var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
             if (createCart.code === 200) {
                 $('.zhezhao').show();
-                if(isEnglish()){
+                if (isEnglish()) {
                     $('.tan2 .con p').html('Add to Cart successful.');
-                }else{
+                } else {
                     $('.tan2 .con p').html('加入购物车成功。');
                 }
                 $('.tan2').show();
                 //优化 做成异步的方式
                 api.getCartList(getCookie('userId'), i18nLanguage,function(getCartList){
-                    $('.cart .count').html(getCartList.length);
+
+                    var count = 0;
+                    getCartList.forEach(function(item,index){
+                        count += item.quantity;
+                    })
+                    $('.cart .count').html(count);
                 });
+
                 setTimeout(function () {
                     //location.href = "cart.html"
                     $('.zhezhao').hide();
@@ -248,50 +268,50 @@ $(function () {
             }
 
 
-           /* var flag = true;
-            api.getCartList(getCookie('userId'), i18nLanguage,function(getCartList){
-                getCartList.forEach(function (item, index) {
-                    if (item.sku_id === sku_id) {
-                        flag = false;
-                    }
-                });
+            /* var flag = true;
+             api.getCartList(getCookie('userId'), i18nLanguage,function(getCartList){
+                 getCartList.forEach(function (item, index) {
+                     if (item.sku_id === sku_id) {
+                         flag = false;
+                     }
+                 });
 
-                if (flag) {
-                    console.log('quantity', quantity);
-                    var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
-                    if (createCart.code === 200) {
-                        $('.zhezhao').show();
-                        if(isEnglish()){
-                            $('.tan2 .con p').html('Add to Cart successful.');
-                        }else{
-                            $('.tan2 .con p').html('加入购物车成功。');
-                        }
-                        $('.tan2').show();
-                        //优化 做成异步的方式
-                        api.getCartList(getCookie('userId'), i18nLanguage,function(getCartList){
-                            $('.cart .count').html(getCartList.length);
-                        });
-                        setTimeout(function () {
-                            //location.href = "cart.html"
-                            $('.zhezhao').hide();
-                            $('.tan2').hide();
-                        }, 1000);
-                    }
-                } else {
-                    $('.zhezhao').show();
-                    if(isEnglish()){
-                        $('.tan2 .con p').html('The item has been added to the shopping, please go to the shopping cart to place an order.');
-                    }else{
-                        $('.tan2 .con p').html('该商品已经加入购物，请去购物车下单。');
-                    }
-                    $('.tan2').show();
-                    setTimeout(function () {
-                        //location.href = "cart.html"
-                        $('.zhezhao').hide();
-                        $('.tan2').hide();
-                    }, 1000);
-                }
-            });*/
+                 if (flag) {
+                     console.log('quantity', quantity);
+                     var createCart = api.getCartCreate(getCookie('userId'), sku_id, quantity);
+                     if (createCart.code === 200) {
+                         $('.zhezhao').show();
+                         if(isEnglish()){
+                             $('.tan2 .con p').html('Add to Cart successful.');
+                         }else{
+                             $('.tan2 .con p').html('加入购物车成功。');
+                         }
+                         $('.tan2').show();
+                         //优化 做成异步的方式
+                         api.getCartList(getCookie('userId'), i18nLanguage,function(getCartList){
+                             $('.cart .count').html(getCartList.length);
+                         });
+                         setTimeout(function () {
+                             //location.href = "cart.html"
+                             $('.zhezhao').hide();
+                             $('.tan2').hide();
+                         }, 1000);
+                     }
+                 } else {
+                     $('.zhezhao').show();
+                     if(isEnglish()){
+                         $('.tan2 .con p').html('The item has been added to the shopping, please go to the shopping cart to place an order.');
+                     }else{
+                         $('.tan2 .con p').html('该商品已经加入购物，请去购物车下单。');
+                     }
+                     $('.tan2').show();
+                     setTimeout(function () {
+                         //location.href = "cart.html"
+                         $('.zhezhao').hide();
+                         $('.tan2').hide();
+                     }, 1000);
+                 }
+             });*/
 
 
         }
@@ -305,9 +325,9 @@ $(function () {
 
         if (!login()) {
             $('.zhezhao').show();
-            if(isEnglish()){
+            if (isEnglish()) {
                 $('.tan2 .con p').html('please sign in....');
-            }else{
+            } else {
                 $('.tan2 .con p').html('请登录。。。');
             }
             $('.tan2').show();
@@ -317,36 +337,36 @@ $(function () {
                 $('.tan2').hide();
                 location.href = "login.html"
             }, 1000);
-        }else{
+        } else {
             var param = ''
-            order_items.forEach(function(item,index){
-                if(index === 0){
-                    param += 'goods'+index+'='+item.sku_id+'_'+item.quantity
-                }else{
-                    param += '&goods'+index+'='+item.sku_id+'_'+item.quantity
+            order_items.forEach(function (item, index) {
+                if (index === 0) {
+                    param += 'goods' + index + '=' + item.sku_id + '_' + item.quantity
+                } else {
+                    param += '&goods' + index + '=' + item.sku_id + '_' + item.quantity
                 }
             });
-            location.href = "submitOrder.html?"+param;
+            location.href = "submitOrder.html?" + param;
         }
     });
 
     // 加入收藏
     $('.collect').click(function () {
-        if(login()){
+        if (login()) {
             $.ajax({
-                type:'POST',
-                url:url+'/api/v1/fav/create',
-                dataType:'json',
-                data:{
-                    token:token,
-                    goods_id:urlInfo.id
+                type: 'POST',
+                url: url + '/api/v1/fav/create',
+                dataType: 'json',
+                data: {
+                    token: token,
+                    goods_id: urlInfo.id
                 },
-                success:function(data){
-                    if(data.code === 200){
+                success: function (data) {
+                    if (data.code === 200) {
                         $('.zhezhao').show();
-                        if(isEnglish()){
+                        if (isEnglish()) {
                             $('.tan2 .con p').html('Collection success.');
-                        }else{
+                        } else {
                             $('.tan2 .con p').html('收藏成功。');
                         }
                         $('.tan2').show();
@@ -357,13 +377,14 @@ $(function () {
                         }, 1000);
                     }
                 },
-                error:function(){}
+                error: function () {
+                }
             })
-        }else{
+        } else {
             $('.zhezhao').show();
-            if(isEnglish()){
+            if (isEnglish()) {
                 $('.tan2 .con p').html('please sign in.');
-            }else{
+            } else {
                 $('.tan2 .con p').html('请登录。');
             }
             $('.tan2').show();

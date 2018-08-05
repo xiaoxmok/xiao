@@ -56,7 +56,7 @@ $(function(){
         }
 
 
-        $('.confirm table').html('');
+        //$('.confirm table').html('');
         $('.orderStatus em').html(status[getOrderInfo.status]);
         $('.logisticsStatus em').html(status[getOrderInfo.status]);
         if(getOrderInfo.address_info !== null){
@@ -134,7 +134,7 @@ $(function(){
             $('.order-return').show();
             $.ajax({
                 url: url + '/api/v1/order/get-return-or-exchange?order_no='+hash.id+'&token='+token,
-                type: 'GET',
+                type: 'POST',
                 dataType: 'json',
                 success: function(data){
                     if (data.code === 200) {
@@ -173,7 +173,7 @@ $(function(){
             var price = (item.sku_info.school_price * item.quantity).toFixed(2);
             var html = '<tr>\n' +
                 '                    <td>\n' +
-                '                        <div class="img"><img src="'+item.sku_info.img_infos[0].url+'" alt=""></div>\n' +
+                '                        <div class="img"><img src="'+item.sku_info.goods_cover_url+'" alt=""></div>\n' +
                 '                        <div class="con">\n' +
                 '                            <p class="title">'+item.sku_info.goods_name+'</p>\n' +
                 '                            <span class="price">￥<em>'+item.sku_info.school_price+'</em></span>\n' +
