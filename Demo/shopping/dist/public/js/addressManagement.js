@@ -28,6 +28,16 @@ $(function () {
                 }
             }
 
+            var deleteAdd;
+            if(item.is_from_school === 'y'){
+                deleteAdd = ''
+            }else{
+                if(isEnglish()){
+                    deleteAdd = '<a href="javascript:;" class="delete" data-name="'+item.id+'">Delete</a>'
+                }else{
+                    deleteAdd = '<a href="javascript:;" class="delete" data-name="'+item.id+'">删除</a>'
+                }
+            }
 
             var html;
             if(isEnglish()){
@@ -40,7 +50,7 @@ $(function () {
                     '                <div class="operate">\n' +
                     setDefault +
                     '                    <a href="./updateAddress.html?id=' + item.id + '" class="edit">Edit</a>\n' +
-                    '                    <a href="javascript:;" class="delete" data-name="'+item.id+'">Delete</a>\n' +
+                    deleteAdd+
                     '                </div>\n' +
                     '            </li>';
             }else{
@@ -53,7 +63,7 @@ $(function () {
                     '                <div class="operate">\n' +
                     setDefault +
                     '                    <a href="./updateAddress.html?id=' + item.id + '" class="edit">编辑</a>\n' +
-                    '                    <a href="javascript:;" class="delete" data-name="'+item.id+'">删除</a>\n' +
+                    deleteAdd+
                     '                </div>\n' +
                     '            </li>';
             }

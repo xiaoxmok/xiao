@@ -115,7 +115,7 @@ $(function () {
 
 
                     // 如果用户首次登录，添加学校默认地址；
-                    if (getUser.name == null) {
+                    if (getUser.name === null) {
                         /*$('.error').html('首次登录，请完善资料');
 
                         setTimeout(function () {
@@ -124,12 +124,12 @@ $(function () {
                         return;*/
 
                         var addreesData = {
-                            token: token,
+                            token: data.data.token,
                             user_id: getUser.id,
-                            reciever_name: getUser.name,
+                            reciever_name: account,
                             //country_code: '086',
                             reciever_phone: getUser.phone,
-                            address: getUser.school_region_info.address,
+                            address: getUser.school_region_info.address+' '+getUser.school_region_info.name,
                             is_default: 'y',
                             is_from_school: 'y'
                         };

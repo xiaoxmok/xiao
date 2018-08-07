@@ -114,9 +114,9 @@ $(function () {
 
     // 判断是否已收藏
     if (getGoods.is_fav === 'y') {
-        $('.collect').html('<span></span>已收藏');
+        $('.collect').html('<span class="marked"></span>已收藏');
     } else {
-        $('.collect').html('<span></span>收藏');
+        $('.collect').html('<span class="unmark"></span>收藏');
     }
 
     // sku param值的切换,并且获得sku_id

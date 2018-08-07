@@ -56,7 +56,8 @@
 
 .product .con .btn{margin-top: 30px;font-size: 13px;}
 .product .con .btn .collect{cursor: pointer;line-height: 45px;margin-right: 30px;}
-.product .con .btn .collect span{background: url(../img/star.png) no-repeat;width:23px;height: 22px;display: inline-block;margin-top: 10px;float: left;margin-right: 5px;}
+.product .con .btn .collect .marked{background: url(../img/good_marked.png) no-repeat;width:23px;height: 22px;display: inline-block;margin-top: 10px;float: left;margin-right: 5px;background-size: contain;}
+.product .con .btn .collect .unmark{background: url(../img/good_unmark.png) no-repeat;width:23px;height: 22px;display: inline-block;margin-top: 10px;float: left;margin-right: 5px;background-size: contain;}
 .product .con .btn .add{display: inline-block;background:#fbe8a4;cursor: pointer;color:#fff;width:215px;height:45px;border-radius: 5px;text-align: center;line-height: 45px;margin-right: 10px; }
 .product .con .btn .buy{display: inline-block;background:#fa874b;cursor: pointer;color:#fff;width:215px;height:45px;border-radius: 5px;text-align: center;line-height: 45px; }
 

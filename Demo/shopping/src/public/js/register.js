@@ -232,7 +232,7 @@ $(function () {
                 email: account,
                 verify_code: valid_code,
                 password: password,
-                school_region_id: school_id
+                school_id: school_id
             }
 
             loginData = {
@@ -313,44 +313,27 @@ $(function () {
 
 
                                     // 如果用户首次登录，添加学校默认地址；
-                                    if(getUser.name == null){
-                                        var addreesData = {
-                                            token: token,
-                                            user_id: getUser.id,
-                                            reciever_name: getUser.name,
-                                            //country_code: '086',
-                                            reciever_phone: getUser.phone,
-                                            address: getUser.school_region_info.address,
-                                            is_default: 'y',
-                                            is_from_school:'y'
-                                        };
+                                    var addreesData = {
+                                        token: data.data.token,
+                                        user_id: getUser.id,
+                                        reciever_name: account,
+                                        //country_code: '086',
+                                        reciever_phone: getUser.phone,
+                                        address: getUser.school_region_info.address+' '+getUser.school_region_info.name,
+                                        is_default: 'y',
+                                        is_from_school:'y'
+                                    };
 
-                                        // 添加收货地址
-                                        $.ajax({
-                                            type: 'POST',
-                                            url: url + '/api/v1/address/create',
-                                            dataType: 'json',
-                                            data: addreesData,
-                                            success: function (data) {
-                                                /*if (data.code === 200) {
-                                                    if(isEnglish()){
-                                                        $('.error').html('Submitted successfully');
-                                                    }else{
-                                                        $('.error').html('提交成功');
-                                                    }
-                                                    setTimeout(function () {
-                                                        location.href = "addressManagement.html"
-                                                    }, 1000);
-                                                } else {
-
-                                                }*/
-                                            },
-                                            error: function (xhr, status, error) {
-
-                                            }
-                                        })
-
-                                    }
+                                    // 添加收货地址
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: url + '/api/v1/address/create',
+                                        dataType: 'json',
+                                        data: addreesData,
+                                        success: function (data) {},
+                                        error: function (xhr, status, error) {
+                                        }
+                                    })
 
                                     if(isEnglish()){
                                         $('.welcome').html('Dear '+getUser.name+' , Welcome to '+getSchool.name+' page.');
@@ -362,10 +345,48 @@ $(function () {
                                         $('.error').html('登录成功，2秒后进入首页。');
                                     }
 
-                                    if(getCookie("localCart")){
+                                    if (getCookie("localCart")) {
                                         $('.error').html('临时购物车存在商品，将批量加入本账户。');
+                                        var itemArr = [];
+
+                                        if (getCookie("localCart")) {
+                                            var str = getCookie("localCart");
+                                            var localCartArr = str.split(',');
+
+                                            localCartArr.forEach(function (item, index) {
+                                                var item = {
+                                                    "sku_id": item.split('-')[0],
+                                                    "quantity": item.split('-')[1]
+                                                }
+                                                itemArr.push(item);
+                                            })
+
+                                        }
+
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: url + '/api/v1/cart/batch-create',
+                                            dataType: 'json',
+                                            data: {
+                                                token: data.data.token,
+                                                user_id: getUser.id,
+                                                items: JSON.stringify(itemArr)
+                                            },
+                                            success: function (data) {
+                                                if (data.code === 200) {
+                                                    //console.log('success:'+data);
+                                                    //alert(JSON.stringify(data))
+                                                }
+                                            },
+                                            error: function () {
+                                            }
+                                        })
                                     }
 
+                                    setTimeout(function () {
+                                        location.href = "index.html"
+                                        // window.history.go(-1);
+                                    }, 2000);
                                 } else {
                                     $('.error').html(data.msg);
                                 }
@@ -377,7 +398,7 @@ $(function () {
 
                     }, 2000);
                 } else {
-                    $('.error').html(data.detail);
+                    $('.error').html(data.msg);
                 }
             },
             error: function (xhr, status, error) {

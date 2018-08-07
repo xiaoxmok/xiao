@@ -24,7 +24,7 @@
 .userName .person{width:80%;}
 .userName .person div{margin-bottom: 10px;}
 .userName .person span{margin-right: 20px;color:#999;font-size: 14px;}
-.userName .person .name{font-size: 18px;font-weight: bold;color: #000;}
+.userName .person .name{}
 .userName .person .tuijian em{background: url(../img/3.png) no-repeat;display: inline-block;width:30px;height:31px;}
 .userName .person .tuijian a{color:#50b7b4;}
 .userName .person .dizhi a{color:#50b7b4;}
@@ -66,7 +66,7 @@
 .ticket li .up .img{background: url(../img/9.png) no-repeat;width:54px;height:53px;float:left;margin: 70px 10px 0 70px;}
 .ticket li .up p{color:#348284;font-size: 24px;line-height: 54px;padding-top: 70px;}
 .ticket li .down{background: #f9f9f9;height:50px;padding-top: 20px;}
-.ticket li .down a{border: 1px solid #74d2d4;color:#74d2d4;width: 100px;height:20px;margin: 0 auto;display: block;text-align: center;border-radius: 3px;}
+.ticket li .down a{border: 1px solid #74d2d4;color:#74d2d4;width: 100px;height:20px;line-height:20px;margin: 0 auto;display: block;text-align: center;border-radius: 3px;}
 .ticket .ticket1 .up{background: url(../img/8.png) no-repeat;width:282px;height:203px;}
 .ticket .ticket2 .up{background: url(../img/10.png) no-repeat;width:282px;height:203px;}
 

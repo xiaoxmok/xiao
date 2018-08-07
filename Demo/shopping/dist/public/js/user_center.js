@@ -37,9 +37,9 @@ $(function () {
         }
     }
 
-    $('.userName .person .name').html(getUser.name);
-    $('.userName .person .sex').html(sex);
-    $('.userName .person .role').html(role);
+    $('.userName .person .name em').html(getUser.name);
+    $('.userName .person .sex em').html(sex);
+    $('.userName .person .role em').html(role);
 
     var school_no,school_info;
     if(getUser.type === 'student'){
@@ -481,6 +481,31 @@ $(function () {
             data:{token:token,lang:i18nLanguage},
             success:function(data){
                 if(data.code === 200){
+                    var dataArr = data.data;
+                    $('.myDevice ul').html('')
+                    dataArr.forEach(function(item,index){
+                        var html;
+                        if(isEnglish()){
+                            html = '<li>\n' +
+                                '                    <img src="'+item.img_infos[0].url+'" alt="">\n' +
+                                '                    <div class="con">\n' +
+                                '                        <p class="Title">'+item.goods_name+'</p>\n' +
+                                '                        <a class="apply" href="./repairApplication.html">Request Repair</a>\n' +
+                                '                    </div>\n' +
+                                '                </li>'
+                        }else{
+                            html = '<li>\n' +
+                                '                    <img src="'+item.img_infos[0].url+'" alt="">\n' +
+                                '                    <div class="con">\n' +
+                                '                        <p class="Title">'+item.goods_name+'</p>\n' +
+                                '                        <a class="apply" href="./repairApplication.html">申请维修</a>\n' +
+                                '                    </div>\n' +
+                                '                </li>'
+                        }
+
+                        $('.myDevice ul').append(html);
+
+                    })
 
 
                 }
