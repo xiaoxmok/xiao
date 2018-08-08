@@ -41,44 +41,44 @@ $(function () {
     $('.userName .person .sex em').html(sex);
     $('.userName .person .role em').html(role);
 
-    var school_no,school_info;
-    if(getUser.type === 'student'){
-        if(isEnglish()){
+    var school_no, school_info;
+    if (getUser.type === 'student') {
+        if (isEnglish()) {
             school_info = 'Student ID No.: '
-        }else{
+        } else {
             school_info = '学号: '
         }
-    }else{
-        if(isEnglish()){
+    } else {
+        if (isEnglish()) {
             school_info = 'Staff: ';
-        }else{
+        } else {
             school_info = '教职员工号: ';
         }
     }
-    if(getUser.school_no !== null){
+    if (getUser.school_no !== null) {
         school_no = getUser.school_no
-    }else{
-        if(isEnglish()){
+    } else {
+        if (isEnglish()) {
             school_no = 'unfilled';
-        }else{
+        } else {
             school_no = '未填写';
         }
     }
 
     $('.userName .person .no em').html(school_info + school_no);
     var email;
-    if(getUser.email !== null){
-        email = getUser.email.split('@')[0].slice(0,-4) + '****@' +getUser.email.split('@')[1];
-    }else{
-        if(isEnglish()){
+    if (getUser.email !== null) {
+        email = getUser.email.split('@')[0].slice(0, -4) + '****@' + getUser.email.split('@')[1];
+    } else {
+        if (isEnglish()) {
             email = 'unfilled';
-        }else{
+        } else {
             email = '未填写';
         }
     }
 
     $('.userName .person .email em').html(email);
-    $('.userName .person .phone em').html(getUser.phone.slice(0,3)+'****'+getUser.phone.slice(-4));
+    $('.userName .person .phone em').html(getUser.phone.slice(0, 3) + '****' + getUser.phone.slice(-4));
 
     // 获取默认地址
 
@@ -176,17 +176,17 @@ $(function () {
                 dataArr.forEach(function (item, index) {
 
                     var toPay;
-                    if(item.pay_type === 'unionpay'){
-                        if(isEnglish()){
+                    if (item.pay_type === 'unionpay') {
+                        if (isEnglish()) {
                             toPay = '<a href="./payment.html?orderNo=' + item.order_no + '&center=true">Go to pay</a>'
-                        }else{
+                        } else {
                             toPay = '<a href="./payment.html?orderNo=' + item.order_no + '&center=true">去支付</a>'
                         }
-                    }else{
-                        if(isEnglish()){
-                            toPay = '<a href="javascript:;" class="toPay" data-name="'+item.order_no+'">Go to pay</a>'
-                        }else{
-                            toPay = '<a href="javascript:;" class="toPay" data-name="'+item.order_no+'">去支付</a>'
+                    } else {
+                        if (isEnglish()) {
+                            toPay = '<a href="javascript:;" class="toPay" data-name="' + item.order_no + '">Go to pay</a>'
+                        } else {
+                            toPay = '<a href="javascript:;" class="toPay" data-name="' + item.order_no + '">去支付</a>'
                         }
                     }
 
@@ -427,20 +427,20 @@ $(function () {
         $('.zhezhao').show();
         $('.tan5').show();
 
-        $('.tan5 .typeClick div').click(function(){
+        $('.tan5 .typeClick div').click(function () {
             $('.tan5 .typeClick div').removeClass('active')
             $(this).addClass('active');
         })
 
-        $('.clear').click(function(){
+        $('.clear').click(function () {
             $('.zhezhao').hide();
             $('.tan5').hide();
         })
 
-        $('.goPay').click(function(){
+        $('.goPay').click(function () {
             pay_type = $(this).parent().parent().find('.active').attr('data-name');
 
-            location.href = 'payment.html?orderNo=' + orderId + '&center=true&pay_type='+ pay_type;
+            location.href = 'payment.html?orderNo=' + orderId + '&center=true&pay_type=' + pay_type;
         })
     });
 
@@ -460,9 +460,9 @@ $(function () {
                         dataArr.forEach(function (item, index) {
                             var html;
 
-                            if(item.summary !== null){
+                            if (item.summary !== null) {
                                 summary = item.summary;
-                            }else{
+                            } else {
                                 summary = 'Not described';
                             }
                             if (isEnglish()) {
@@ -518,29 +518,29 @@ $(function () {
     function getMyDevice() {
 
         $.ajax({
-            type:'post',
+            type: 'post',
             url: url + '/api/v1/user/device-list',
-            dataType:'json',
-            data:{token:token,lang:i18nLanguage},
-            success:function(data){
-                if(data.code === 200){
+            dataType: 'json',
+            data: {token: token, lang: i18nLanguage},
+            success: function (data) {
+                if (data.code === 200) {
                     var dataArr = data.data;
                     $('.myDevice ul').html('')
-                    dataArr.forEach(function(item,index){
+                    dataArr.forEach(function (item, index) {
                         var html;
-                        if(isEnglish()){
+                        if (isEnglish()) {
                             html = '<li>\n' +
-                                '                    <img src="'+item.img_infos[0].url+'" alt="">\n' +
+                                '                    <img src="' + item.img_infos[0].url + '" alt="">\n' +
                                 '                    <div class="con">\n' +
-                                '                        <p class="Title">'+item.goods_name+'</p>\n' +
+                                '                        <p class="Title">' + item.goods_name + '</p>\n' +
                                 '                        <a class="apply" href="./repairApplication.html">Request Repair</a>\n' +
                                 '                    </div>\n' +
                                 '                </li>'
-                        }else{
+                        } else {
                             html = '<li>\n' +
-                                '                    <img src="'+item.img_infos[0].url+'" alt="">\n' +
+                                '                    <img src="' + item.img_infos[0].url + '" alt="">\n' +
                                 '                    <div class="con">\n' +
-                                '                        <p class="Title">'+item.goods_name+'</p>\n' +
+                                '                        <p class="Title">' + item.goods_name + '</p>\n' +
                                 '                        <a class="apply" href="./repairApplication.html">申请维修</a>\n' +
                                 '                    </div>\n' +
                                 '                </li>'
@@ -553,7 +553,8 @@ $(function () {
 
                 }
             },
-            error:function(){}
+            error: function () {
+            }
         });
 
     }
@@ -608,8 +609,8 @@ $(function () {
 
     }
 
-    var repairStatus,backup_status;
-    if(isEnglish()){
+    var repairStatus, backup_status;
+    if (isEnglish()) {
         repairStatus = {
             uSubmited: 'Request Submitted.',
             pReceived: 'Ruturned successfully. Waiting for assessing',
@@ -628,9 +629,9 @@ $(function () {
             uReceived: 'Loaner received by user.',
             uReturned: 'Loaner delivered. To be returned.',
             pConfirmReturned: 'Loaner returned.',
-            none:''
+            none: ''
         }
-    }else{
+    } else {
         repairStatus = {
             uSubmited: '提交成功待返件',
             pReceived: '返件成功待评估',
@@ -665,7 +666,7 @@ $(function () {
                     $('.pcService').html('');
                     $('.mService ul').html('');
                     var head;
-                    if(isEnglish()){
+                    if (isEnglish()) {
                         head = '<tr>\n' +
                             '                <th>Fault description</th>\n' +
                             '                <th>Fault image</th>\n' +
@@ -675,7 +676,7 @@ $(function () {
                             '                <th>Status</th>\n' +
                             '                <th>Backup Status</th>\n' +
                             '            </tr>';
-                    }else{
+                    } else {
                         head = '<tr>\n' +
                             '                <th>故障描述</th>\n' +
                             '                <th>故障照片</th>\n' +
@@ -690,186 +691,186 @@ $(function () {
                     $('.pcService').append(head);
 
                     dataArr.forEach(function (item, index) {
-                        var pcHtml,mHtml,url;
-                        if(item.img_infos.length > 0){
+                        var pcHtml, mHtml, url;
+                        if (item.img_infos.length > 0) {
                             url = item.img_infos[0].url;
-                        }else{
+                        } else {
                             url = '';
                         }
                         var isSz = false;
-                        if(getUser.school_info.city === 'sh'){
+                        if (getUser.school_info.city === 'sh') {
                             isSz = false;
-                        }else{
+                        } else {
                             isSz = true;
                         }
 
                         var operate;
-                        if(isEnglish()){
-                            if(item.status === 'uSubmited'){
+                        if (isEnglish()) {
+                            if (item.status === 'uSubmited') {
                                 operate = '<a href="javascript:;" class="cancelRepair">Cancel my request</a>'
-                            }else if(item.status === 'pReceived'){
+                            } else if (item.status === 'pReceived') {
                                 operate = '<a href="javascript:;" class="cancelRepair">Cancel my request</a>'
-                            }else if(item.status === 'pEvaluated'){
+                            } else if (item.status === 'pEvaluated') {
                                 operate = '<a href="javascript:;" class="confirmRepair">Confirm repair request</a>'
-                            }else if(item.status === 'uConfirmed'){
-                                if(isSz){
+                            } else if (item.status === 'uConfirmed') {
+                                if (isSz) {
                                     operate = '<a href="javascript:;" class="applyBackup">Apply Backup</a>'
-                                }else{
+                                } else {
                                     operate = ''
                                 }
-                            }else if(item.status === 'pRepaired'){
+                            } else if (item.status === 'pRepaired') {
                                 operate = ''
-                            }else if(item.status === 'uWaitingForPay'){
-                                operate = '<a href="javascript:;" class="waitForPay" data-name="'+item.order_no+'" data-repair_no="'+item.repair_no+'" data-price="'+item.price+'">Make the payment</a>'
-                            }else if(item.status === 'pReceived'){
+                            } else if (item.status === 'uWaitingForPay') {
+                                operate = '<a href="javascript:;" class="waitForPay" data-name="' + item.order_no + '" data-repair_no="' + item.repair_no + '" data-price="' + item.price + '">Make the payment</a>'
+                            } else if (item.status === 'pReceived') {
                                 operate = ''
-                            }else if(item.status === 'uPaid'){
+                            } else if (item.status === 'uPaid') {
                                 operate = ''
-                            }else if(item.status === 'uCanceled'){
+                            } else if (item.status === 'uCanceled') {
                                 operate = ''
                             }
 
-                            if(item.backup_status === 'pNoticedUser'){
+                            if (item.backup_status === 'pNoticedUser') {
                                 operate += '<a href="javascript:;" class="receivingConfirmed">Receiving loaner confirmed</a>'
                             }
 
-                        }else{
-                            if(item.status === 'uSubmited'){
+                        } else {
+                            if (item.status === 'uSubmited') {
                                 operate = '<a href="javascript:;" class="cancelRepair">取消维修申请</a>'
-                            }else if(item.status === 'pReceived'){
+                            } else if (item.status === 'pReceived') {
                                 operate = '<a href="javascript:;" class="cancelRepair">取消维修申请</a>'
-                            }else if(item.status === 'pEvaluated'){
+                            } else if (item.status === 'pEvaluated') {
                                 operate = '<a href="javascript:;" class="confirmRepair">确认维修</a>'
-                            }else if(item.status === 'uConfirmed'){
-                                if(isSz){
+                            } else if (item.status === 'uConfirmed') {
+                                if (isSz) {
                                     operate = '<a href="javascript:;" class="applyBackup">申请备用机</a>'
-                                }else{
+                                } else {
                                     operate = ''
                                 }
-                            }else if(item.status === 'pRepaired'){
+                            } else if (item.status === 'pRepaired') {
                                 operate = ''
-                            }else if(item.status === 'uWaitingForPay'){
-                                operate = '<a href="javascript:;" class="waitForPay" data-name="'+item.order_no+'" data-repair_no="'+item.repair_no+'" data-price="'+item.price+'">支付</a>'
-                            }else if(item.status === 'pReceived'){
+                            } else if (item.status === 'uWaitingForPay') {
+                                operate = '<a href="javascript:;" class="waitForPay" data-name="' + item.order_no + '" data-repair_no="' + item.repair_no + '" data-price="' + item.price + '">支付</a>'
+                            } else if (item.status === 'pReceived') {
                                 operate = ''
-                            }else if(item.status === 'uPaid'){
+                            } else if (item.status === 'uPaid') {
                                 operate = ''
-                            }else if(item.status === 'uCanceled'){
+                            } else if (item.status === 'uCanceled') {
                                 operate = ''
                             }
 
-                            if(item.backup_status === 'pNoticedUser'){
+                            if (item.backup_status === 'pNoticedUser') {
                                 operate += '<a href="javascript:;" class="receivingConfirmed">备用机确认领取</a>'
                             }
                         }
 
                         var backupStatus;
-                        if(item.backup_status !== null){
-                            if(isEnglish()){
+                        if (item.backup_status !== null) {
+                            if (isEnglish()) {
                                 backupStatus = backup_status[item.backup_status];
-                            }else{
+                            } else {
                                 backupStatus = backup_status[item.backup_status];
                             }
-                        }else{
+                        } else {
                             backupStatus = '';
                         }
 
 
-                        if(isEnglish()){
+                        if (isEnglish()) {
                             pcHtml = '<tr>\n' +
-                                '                <td><p>'+item.description+'</p></td>\n' +
-                                '                <td><div class="img"><img src="'+ url +'" alt=""></div></td>\n' +
-                                '                <td><p>'+item.device_category_info[0]+'</p></td>\n' +
-                                '                <td><p>'+item.evaluation+'</p></td>\n' +
-                                '                <td class="operate" data-name="'+item.id+'">'+operate+'</td>\n' +
+                                '                <td><p>' + item.description + '</p></td>\n' +
+                                '                <td><div class="img"><img src="' + url + '" alt=""></div></td>\n' +
+                                '                <td><p>' + item.device_category_info[0] + '</p></td>\n' +
+                                '                <td><p>' + item.evaluation + '</p></td>\n' +
+                                '                <td class="operate" data-name="' + item.id + '">' + operate + '</td>\n' +
                                 '                <td class="status">\n' +
-                                '                    <p>'+repairStatus[item.status]+'</p>\n' +
-                                '                    <span>repair no：'+item.repair_no+'</span>\n' +
+                                '                    <p>' + repairStatus[item.status] + '</p>\n' +
+                                '                    <span>repair no：' + item.repair_no + '</span>\n' +
                                 '                </td>\n' +
                                 '                <td class="backup_status">\n' +
-                                '                    <p>'+backupStatus+'</p>\n' +
-                                '                    <span>Created time：'+item.created_at+'</span>\n' +
+                                '                    <p>' + backupStatus + '</p>\n' +
+                                '                    <span>Created time：' + item.created_at + '</span>\n' +
                                 '                </td>\n' +
                                 '            </tr>';
 
                             mHtml = '<li>\n' +
                                 '                    <div class="up">\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div>Status：<em>'+repairStatus[item.status]+'</em></div>\n' +
+                                '                            <div>Status：<em>' + repairStatus[item.status] + '</em></div>\n' +
                                 '                        </div>\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div>Backup Staus：<em>'+backupStatus+'</em></div>\n' +
+                                '                            <div>Backup Staus：<em>' + backupStatus + '</em></div>\n' +
                                 '                        </div>\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div>repair no：<em>'+item.repair_no+'</em></div>\n' +
-                                '                            <div class="status">'+repairStatus[item.status]+'</div>\n' +
+                                '                            <div>repair no：<em>' + item.repair_no + '</em></div>\n' +
+                                '                            <div class="status">' + repairStatus[item.status] + '</div>\n' +
                                 '                        </div>\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div>order no：<em>'+item.device_category_info[0]+'</em></div>\n' +
-                                '                            <div class="status">'+backup_status[item.backup_status]+'</div>\n' +
+                                '                            <div>order no：<em>' + item.device_category_info[0] + '</em></div>\n' +
+                                '                            <div class="status">' + backup_status[item.backup_status] + '</div>\n' +
                                 '                        </div>' +
                                 '                        <div class="text">\n' +
                                 '                            <div class="question">\n' +
-                                '                                <span>'+item.description+'</span>\n' +
+                                '                                <span>' + item.description + '</span>\n' +
                                 '                            </div>\n' +
                                 '                            <div class="assess">\n' +
-                                '                                <span>'+item.evaluation+'</span>\n' +
+                                '                                <span>' + item.evaluation + '</span>\n' +
                                 '                            </div>\n' +
                                 '                        </div>\n' +
-                                '                        <div class="operate" data-name="'+item.id+'">\n' +
-                                '                            <div class="time"><span>Created time：'+item.created_at+'</span></div>\n' +
+                                '                        <div class="operate" data-name="' + item.id + '">\n' +
+                                '                            <div class="time"><span>Created time：' + item.created_at + '</span></div>\n' +
                                 '                        </div>\n' +
                                 '                    </div>\n' +
                                 '                    <div class="down">\n' +
-                                                            operate +
+                                operate +
                                 '                    </div>\n' +
                                 '                </li>';
 
-                        }else{
+                        } else {
                             pcHtml = '<tr>\n' +
-                                '                <td><p>'+item.description+'</p></td>\n' +
-                                '                <td><div class="img"><img src="'+ url +'" alt=""></div></td>\n' +
-                                '                <td><p>'+item.device_category_info[0]+'</p></td>\n' +
-                                '                <td><p>'+item.evaluation+'</p></td>\n' +
-                                '                <td class="operate" data-name="'+item.id+'">'+operate+'</td>\n' +
+                                '                <td><p>' + item.description + '</p></td>\n' +
+                                '                <td><div class="img"><img src="' + url + '" alt=""></div></td>\n' +
+                                '                <td><p>' + item.device_category_info[0] + '</p></td>\n' +
+                                '                <td><p>' + item.evaluation + '</p></td>\n' +
+                                '                <td class="operate" data-name="' + item.id + '">' + operate + '</td>\n' +
                                 '                <td class="status">\n' +
-                                '                    <p>'+repairStatus[item.status]+'</p>\n' +
-                                '                    <span>单号：'+item.repair_no+'</span>\n' +
+                                '                    <p>' + repairStatus[item.status] + '</p>\n' +
+                                '                    <span>单号：' + item.repair_no + '</span>\n' +
                                 '                </td>\n' +
                                 '                <td class="backup_status">\n' +
-                                '                    <p>'+backupStatus+'</p>\n' +
-                                '                    <span>创建时间：'+item.created_at+'</span>\n' +
+                                '                    <p>' + backupStatus + '</p>\n' +
+                                '                    <span>创建时间：' + item.created_at + '</span>\n' +
                                 '                </td>\n' +
                                 '            </tr>';
 
                             mHtml = '<li>\n' +
                                 '                    <div class="up">\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div>状态：<em>'+repairStatus[item.status]+'</em></div>\n' +
+                                '                            <div>状态：<em>' + repairStatus[item.status] + '</em></div>\n' +
                                 '                        </div>\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div>备用机状态：<em>'+backupStatus+'</em></div>\n' +
+                                '                            <div>备用机状态：<em>' + backupStatus + '</em></div>\n' +
                                 '                        </div>\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div>单号：<em>'+item.repair_no+'</em></div>\n' +
+                                '                            <div>单号：<em>' + item.repair_no + '</em></div>\n' +
                                 '                        </div>\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div>设备型号：<em>'+item.device_category_info[0]+'</em></div>\n' +
+                                '                            <div>设备型号：<em>' + item.device_category_info[0] + '</em></div>\n' +
                                 '                        </div>' +
                                 '                        <div class="text">\n' +
                                 '                            <div class="question">\n' +
-                                '                                <span>'+item.description+'</span>\n' +
+                                '                                <span>' + item.description + '</span>\n' +
                                 '                            </div>\n' +
                                 '                            <div class="assess">\n' +
-                                '                                <span>'+item.evaluation+'</span>\n' +
+                                '                                <span>' + item.evaluation + '</span>\n' +
                                 '                            </div>\n' +
                                 '                        </div>\n' +
                                 '                        <div class="operate">\n' +
-                                '                            <div class="time"><span>提交时间：'+item.created_at+'</span></div>\n' +
+                                '                            <div class="time"><span>提交时间：' + item.created_at + '</span></div>\n' +
                                 '                        </div>\n' +
                                 '                    </div>\n' +
-                                '                    <div class="down" data-name="'+item.id+'">\n' +
-                                                            operate +
+                                '                    <div class="down" data-name="' + item.id + '">\n' +
+                                operate +
                                 '                    </div>\n' +
                                 '                </li>';
                         }
@@ -895,24 +896,25 @@ $(function () {
                 type: 'POST',
                 url: url + '/api/v1/repair/update',
                 dataType: 'json',
-                data:{
+                data: {
                     token: token,
                     id: that.parent().attr('data-name'),
                     status: 'uCanceled'
                 },
-                success: function(data){
+                success: function (data) {
                     if (data.code === 200) {
-                        if(isEnglish()){
+                        if (isEnglish()) {
                             showTan('repair request canceled');
-                        }else{
+                        } else {
                             showTan('取消维修申请成功');
                         }
                         getMaintenanceRecords();
-                    }else{
+                    } else {
                         showTan(data.msg);
                     }
                 },
-                error: function(){}
+                error: function () {
+                }
             })
 
         });
@@ -925,7 +927,7 @@ $(function () {
 
             $('.zhezhao').show();
             $('.tan3').show();
-            $('.typeClick div').click(function(){
+            $('.typeClick div').click(function () {
                 $(this).parent().find('div').removeClass('active');
                 $(this).addClass('active');
 
@@ -935,24 +937,25 @@ $(function () {
                     type: 'POST',
                     url: url + '/api/v1/repair/confirm-price',
                     dataType: 'json',
-                    data:{
+                    data: {
                         token: token,
                         id: that.parent().attr('data-name'),
-                        price_type : price_type
+                        price_type: price_type
                     },
-                    success: function(data){
+                    success: function (data) {
                         if (data.code === 200) {
-                            if(isEnglish()){
+                            if (isEnglish()) {
                                 showTan('Confirm repair request');
-                            }else{
+                            } else {
                                 showTan('确认维修');
                             }
                             getMaintenanceRecords();
-                        }else{
+                        } else {
                             showTan(data.msg);
                         }
                     },
-                    error: function(){}
+                    error: function () {
+                    }
                 })
             })
 
@@ -965,106 +968,105 @@ $(function () {
             // 获取备用机券
             $.ajax({
                 type: 'get',
-                url: url + '/api/v1/coupon/index?type=backup',
+                url: url + '/api/v1/coupon/index?type=backup&token=' + token,
                 dataType: 'json',
-                success: function(data){
-                    if(data.code === 200){
+                success: function (data) {
+                    if (data.code === 200) {
                         var dataArr = data.data;
                         var flag = false;
                         var count = 0;
                         var coupon_id;
-                        dataArr.forEach(function(item,index){
-                            if(item.used === 'n'){
+                        dataArr.forEach(function (item, index) {
+                            if (item.used === 'n') {
                                 flag = true;
-                                count +=1;
+                                count += 1;
                                 coupon_id = item.id
                             }
                         })
 
                         // 有备用机券可用
-                        if(flag){
+                        if (flag) {
                             var r;
-                            if(isEnglish()){
-                                r=confirm("You have "+count+" Loaner Coupon.One coupon will be used if you submit successfully.Confirm to submit the request?")
-                            }else{
-                                r = confirm("您当前有"+count+"张备⽤机券，提交成功后将⾃动扣除1张。是否确认提交申请？")
+                            if (isEnglish()) {
+                                r = confirm("You have " + count + " Loaner Coupon.One coupon will be used if you submit successfully.Confirm to submit the request?")
+                            } else {
+                                r = confirm("您当前有" + count + "张备⽤机券，提交成功后将⾃动扣除1张。是否确认提交申请？")
                             }
 
-                            if (r==true)
-                            {
+                            if (r == true) {
                                 $.ajax({
                                     type: 'POST',
                                     url: url + '/api/v1/repair/update',
                                     dataType: 'json',
-                                    data:{
+                                    data: {
                                         token: token,
                                         id: that.parent().attr('data-name'),
                                         backup_status: 'uSubmited',
                                         user_backup_coupon_id: coupon_id
                                     },
-                                    success: function(data){
+                                    success: function (data) {
                                         if (data.code === 200) {
-                                            if(isEnglish()){
+                                            if (isEnglish()) {
                                                 showTan('Receiving loaner confirmed');
-                                            }else{
+                                            } else {
                                                 showTan('申请备用机确认领取成功');
                                             }
                                             getMaintenanceRecords();
-                                        }else{
+                                        } else {
                                             showTan(data.msg);
                                         }
                                     },
-                                    error: function(){}
+                                    error: function () {
+                                    }
                                 })
                             }
-                            else
-                            {
+                            else {
                                 //document.write("You pressed Cancel!")
                             }
-                        }else{
+                        } else {
                             var r;
-                            if(isEnglish()){
-                                r=confirm("Service fee might apply to loaner request. Confirm to submit the request?")
-                            }else{
+                            if (isEnglish()) {
+                                r = confirm("Service fee might apply to loaner request. Confirm to submit the request?")
+                            } else {
                                 r = confirm("提交备⽤机申请可能产⽣服务费，是否确认提交？")
                             }
 
-                            if (r==true)
-                            {
+                            if (r == true) {
                                 $.ajax({
                                     type: 'POST',
                                     url: url + '/api/v1/repair/update',
                                     dataType: 'json',
-                                    data:{
+                                    data: {
                                         token: token,
                                         id: that.parent().attr('data-name'),
                                         backup_status: 'uSubmited',
                                         user_backup_coupon_id: coupon_id
                                     },
-                                    success: function(data){
+                                    success: function (data) {
                                         if (data.code === 200) {
-                                            if(isEnglish()){
+                                            if (isEnglish()) {
                                                 showTan('Receiving loaner confirmed');
-                                            }else{
+                                            } else {
                                                 showTan('申请备用机确认领取成功');
                                             }
                                             getMaintenanceRecords();
-                                        }else{
+                                        } else {
                                             showTan(data.msg);
                                         }
                                     },
-                                    error: function(){}
+                                    error: function () {
+                                    }
                                 })
                             }
-                            else
-                            {
+                            else {
                                 //document.write("You pressed Cancel!")
                             }
                         }
 
                     }
                 },
-                error: function(){}
+                error: function () {
+                }
             })
 
         });
@@ -1078,32 +1080,33 @@ $(function () {
 
             $('.zhezhao').show();
             $('.tan4').show();
-            $('.typeClick div').click(function(){
+            $('.typeClick div').click(function () {
                 $(this).parent().find('div').removeClass('active');
                 $(this).addClass('active');
 
                 pay_type = $(this).attr('data-name')
 
-                if(that.attr('data-name') !== 'null'){
-                    location.href = "payment.html?orderNo="+that.attr('data-name');
-                }else{
+                if (that.attr('data-name') !== 'null') {
+                    location.href = "payment.html?orderNo=" + that.attr('data-name');
+                } else {
                     $.ajax({
-                        type:'POST',
-                        url:url+'/api/v1/order/create',
-                        dataType:'json',
-                        data:{
+                        type: 'POST',
+                        url: url + '/api/v1/order/create',
+                        dataType: 'json',
+                        data: {
                             token: token,
                             price: that.attr('data-price'),
                             order_type: 'repair',
                             pay_type: pay_type,
                             repair_id: that.parent().attr('data-name'),
                         },
-                        success:function(data){
-                            if(data.code === 200){
-                                location.href = "payment.html?orderNo="+data.data.orderNo;
+                        success: function (data) {
+                            if (data.code === 200) {
+                                location.href = "payment.html?orderNo=" + data.data.orderNo;
                             }
                         },
-                        error:function(){}
+                        error: function () {
+                        }
                     })
                 }
             })
@@ -1118,24 +1121,25 @@ $(function () {
                 type: 'POST',
                 url: url + '/api/v1/repair/update',
                 dataType: 'json',
-                data:{
+                data: {
                     token: token,
                     id: that.parent().attr('data-name'),
                     backup_status: 'uReceived'
                 },
-                success: function(data){
+                success: function (data) {
                     if (data.code === 200) {
-                        if(isEnglish()){
+                        if (isEnglish()) {
                             showTan('Loaner successfully requested');
-                        }else{
+                        } else {
                             showTan('备用机申请成功');
                         }
                         getMaintenanceRecords();
-                    }else{
+                    } else {
                         showTan(data.msg);
                     }
                 },
-                error: function(){}
+                error: function () {
+                }
             })
         });
 
@@ -1154,12 +1158,10 @@ $(function () {
     }
 
 
-    $('.cls').click(function(){
+    $('.cls').click(function () {
         $('.zhezhao').hide();
         $('.pop').hide();
     })
-
-
 
 
     $('.orderNav li').click(function () {
@@ -1169,7 +1171,7 @@ $(function () {
 
     })
 
-    function orderNav(index){
+    function orderNav(index) {
         $('.list').hide().eq(index).show();
         $('.orderNav li').removeClass('active');
         $('.orderNav li').eq(index).addClass('active');
@@ -1198,7 +1200,7 @@ $(function () {
     }
 
     var getUrl = GetRequest();
-    if(getUrl.nav){
+    if (getUrl.nav) {
         orderNav(parseInt(getUrl.nav));
     }
 
