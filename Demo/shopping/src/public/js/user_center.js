@@ -174,16 +174,33 @@ $(function () {
             if (getOrderList.data.length > 0) {
                 var dataArr = getOrderList.data;
                 dataArr.forEach(function (item, index) {
+
+                    var toPay;
+                    if(item.pay_type === 'unionpay'){
+                        if(isEnglish()){
+                            toPay = '<a href="./payment.html?orderNo=' + item.order_no + '&center=true">Go to pay</a>'
+                        }else{
+                            toPay = '<a href="./payment.html?orderNo=' + item.order_no + '&center=true">去支付</a>'
+                        }
+                    }else{
+                        if(isEnglish()){
+                            toPay = '<a href="javascript:;" class="toPay" data-name="'+item.order_no+'">Go to pay</a>'
+                        }else{
+                            toPay = '<a href="javascript:;" class="toPay" data-name="'+item.order_no+'">去支付</a>'
+                        }
+                    }
+
+
                     var operate
                     // 订单状态的管理
                     if (isEnglish()) {
                         if (item.status === 'waitingForPay') {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n' +
-                                '                    <a href="./payment.html?orderNo=' + item.order_no + '&center=true">Go to pay</a>\n' +
+                                toPay +
                                 '                    <a href="javascript:;" id="cancel" data-name="' + item.order_no + '">Cancel Order</a>\n';
                         } else if (item.status === 'paying') {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n' +
-                                '                    <a href="./payment.html?orderNo=' + item.order_no + '&center=true">Go to pay</a>\n' +
+                                toPay +
                                 '                    <a href="javascript:;" id="cancel" data-name="' + item.order_no + '">Cancel Order</a>\n';
                         } else if (item.status === 'paid') {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n' +
@@ -235,11 +252,11 @@ $(function () {
                     } else {
                         if (item.status === 'waitingForPay') {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n' +
-                                '                    <a href="./payment.html?orderNo=' + item.order_no + '&center=true">去支付</a>\n' +
+                                toPay +
                                 '                    <a href="javascript:;" id="cancel" data-name="' + item.order_no + '">取消订单</a>\n';
                         } else if (item.status === 'paying') {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n' +
-                                '                    <a href="./payment.html?orderNo=' + item.order_no + '&center=true">去支付</a>\n' +
+                                toPay +
                                 '                    <a href="javascript:;" id="cancel" data-name="' + item.order_no + '">取消订单</a>\n';
                         } else if (item.status === 'paid') {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n' +
@@ -399,6 +416,32 @@ $(function () {
         var orderId = $(this).attr('data-name');
         var getOrderCancel = api.getOrderCancel(orderId);
         api.getOrderList('', getOrders);
+    });
+
+    // 去支付
+    $('.myOrder').on('click', '.toPay', function () {
+        //console.log('22');
+        var orderId = $(this).attr('data-name');
+        var pay_type;
+
+        $('.zhezhao').show();
+        $('.tan5').show();
+
+        $('.tan5 .typeClick div').click(function(){
+            $('.tan5 .typeClick div').removeClass('active')
+            $(this).addClass('active');
+        })
+
+        $('.clear').click(function(){
+            $('.zhezhao').hide();
+            $('.tan5').hide();
+        })
+
+        $('.goPay').click(function(){
+            pay_type = $(this).parent().parent().find('.active').attr('data-name');
+
+            location.href = 'payment.html?orderNo=' + orderId + '&center=true&pay_type='+ pay_type;
+        })
     });
 
 
@@ -919,30 +962,111 @@ $(function () {
         // 申请备用机
         $('.records').on('click', '.applyBackup', function () {
             var that = $(this);
-
+            // 获取备用机券
             $.ajax({
-                type: 'POST',
-                url: url + '/api/v1/repair/update',
+                type: 'get',
+                url: url + '/api/v1/coupon/index?type=backup',
                 dataType: 'json',
-                data:{
-                    token: token,
-                    id: that.parent().attr('data-name'),
-                    backup_status: 'uSubmited'
-                },
                 success: function(data){
-                    if (data.code === 200) {
-                        if(isEnglish()){
-                            showTan('Receiving loaner confirmed');
+                    if(data.code === 200){
+                        var dataArr = data.data;
+                        var flag = false;
+                        var count = 0;
+                        var coupon_id;
+                        dataArr.forEach(function(item,index){
+                            if(item.used === 'n'){
+                                flag = true;
+                                count +=1;
+                                coupon_id = item.id
+                            }
+                        })
+
+                        // 有备用机券可用
+                        if(flag){
+                            var r;
+                            if(isEnglish()){
+                                r=confirm("You have "+count+" Loaner Coupon.One coupon will be used if you submit successfully.Confirm to submit the request?")
+                            }else{
+                                r = confirm("您当前有"+count+"张备⽤机券，提交成功后将⾃动扣除1张。是否确认提交申请？")
+                            }
+
+                            if (r==true)
+                            {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: url + '/api/v1/repair/update',
+                                    dataType: 'json',
+                                    data:{
+                                        token: token,
+                                        id: that.parent().attr('data-name'),
+                                        backup_status: 'uSubmited',
+                                        user_backup_coupon_id: coupon_id
+                                    },
+                                    success: function(data){
+                                        if (data.code === 200) {
+                                            if(isEnglish()){
+                                                showTan('Receiving loaner confirmed');
+                                            }else{
+                                                showTan('申请备用机确认领取成功');
+                                            }
+                                            getMaintenanceRecords();
+                                        }else{
+                                            showTan(data.msg);
+                                        }
+                                    },
+                                    error: function(){}
+                                })
+                            }
+                            else
+                            {
+                                //document.write("You pressed Cancel!")
+                            }
                         }else{
-                            showTan('申请备用机确认领取成功');
+                            var r;
+                            if(isEnglish()){
+                                r=confirm("Service fee might apply to loaner request. Confirm to submit the request?")
+                            }else{
+                                r = confirm("提交备⽤机申请可能产⽣服务费，是否确认提交？")
+                            }
+
+                            if (r==true)
+                            {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: url + '/api/v1/repair/update',
+                                    dataType: 'json',
+                                    data:{
+                                        token: token,
+                                        id: that.parent().attr('data-name'),
+                                        backup_status: 'uSubmited',
+                                        user_backup_coupon_id: coupon_id
+                                    },
+                                    success: function(data){
+                                        if (data.code === 200) {
+                                            if(isEnglish()){
+                                                showTan('Receiving loaner confirmed');
+                                            }else{
+                                                showTan('申请备用机确认领取成功');
+                                            }
+                                            getMaintenanceRecords();
+                                        }else{
+                                            showTan(data.msg);
+                                        }
+                                    },
+                                    error: function(){}
+                                })
+                            }
+                            else
+                            {
+                                //document.write("You pressed Cancel!")
+                            }
                         }
-                        getMaintenanceRecords();
-                    }else{
-                        showTan(data.msg);
+
                     }
                 },
                 error: function(){}
             })
+
         });
 
         // 支付

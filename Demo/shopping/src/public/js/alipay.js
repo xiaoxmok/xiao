@@ -17,27 +17,30 @@ $(function(){
     api.getOrderInfo(getUrl.orderNo,function(getOrderInfo){
         payData = {
             order_no:getUrl.orderNo,
-            price:0.01,
-            pay_type:getOrderInfo.pay_type,
+            price:getOrderInfo.price,
+            pay_type:getUrl.pay_type,
             agent:agent,
             token:token
         }
-    });
 
-    $.ajax({
-        type: 'POST',
-        url: url + '/api/v1/order/pay',
-        dataType: 'json',
-        data:payData,
-        success: function (data) {
-            if(data.code === 200){
-                $('.alipayPc').html(data.data["raw-html"]);
+        $.ajax({
+            type: 'POST',
+            url: url + '/api/v1/order/pay',
+            dataType: 'json',
+            data: payData,
+            success: function (data) {
+                if(data.code === 200){
+                    $('.alipayPc').html(data.data["raw-html"]);
 
+                }
+            },
+            error: function () {
             }
-        },
-        error: function () {
-        }
+        });
+
     });
+
+
 
 
 })

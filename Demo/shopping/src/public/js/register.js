@@ -338,11 +338,11 @@ $(function () {
                                     if(isEnglish()){
                                         $('.welcome').html('Dear '+getUser.name+' , Welcome to '+getSchool.name+' page.');
 
-                                        $('.error').html('The login is successful, and the home page is entered after 2 seconds.');
+                                        //$('.error').html('The login is successful, and the home page is entered after 2 seconds.');
                                     }else{
                                         $('.welcome').html('Dear '+getUser.name+'，欢迎访问'+getSchool.name+'专属页面。');
 
-                                        $('.error').html('登录成功，2秒后进入首页。');
+                                        //$('.error').html('登录成功，2秒后进入首页。');
                                     }
 
                                     if (getCookie("localCart")) {

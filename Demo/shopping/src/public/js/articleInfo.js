@@ -10,28 +10,74 @@ $(function () {
     var pathname = window.location.pathname;
     var urlArr = pathname.split('/');
     var name = urlArr[2].slice(0, -5);
+    var category_id;
+    var parent_id
     //console.log(name);
     var alias;
     if(name === 'aboutUs'){
         alias = 'about';
+        category_id = 137;
+        parent_id = 123;
     }else if(name === 'eduSoftware'){
         alias = 'soft';
+        category_id = 135;
+        parent_id = 120;
     }else if(name === 'solution'){
         alias = 'solution';
+        category_id = 134;
+        parent_id = 122;
     }else if(name === 'information'){
         alias = 'news';
+        category_id = 136;
+        parent_id = 118;
     }
+
+    // 获取banner
+    $.ajax({
+        type: 'GET',
+        url: url + '/api/v1/banner/index?category_id='+category_id,
+        dataType: 'json',
+        success: function (data) {
+            //console.log(data);
+            if (data.code == 200) {
+                var imgArr = data.data;
+                $('.swiper-wrapper').html('');
+                imgArr.forEach(function (item, index) {
+                    var html = '<div class="swiper-slide">\n' +
+                        '                <a href="' + item.link + '"><img src="' + item.img_info.url + '" alt=""></a>\n' +
+                        '            </div>'
+                    $('.swiper-wrapper').append(html);
+                    //console.log(item.img_info.url);
+                })
+                var mySwiper = new Swiper('.swiper-container', {
+                    speed: 1000,
+                    autoplay: {
+                        delay: 3000,//1秒切换一次
+                    },
+                    loop: true,
+                    // 如果需要分页器
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+                })
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log(xhr, status, error);
+        }
+
+    })
 
     // 获取分类
     $.ajax({
         type: 'GET',
-        url: url + '/api/v1/category/get?alias='+alias+'&lang=' + i18nLanguage,
+        url: url + '/api/v1/category/index?type=article&lang=' + i18nLanguage+'&parent_id='+parent_id,
         dataType: 'json',
         success: function (data) {
             if (data.code === 200) {
 
                 //$('.nav .left ul').append(all);
-                var category = data.data.children;
+                var category = data.data;
                 var allId = [];
                 var html = '';
                 category.forEach(function (item, index) {
@@ -48,41 +94,7 @@ $(function () {
                 api.getArticleList(allId.join(','), 1, 20, i18nLanguage, redraw);
 
 
-                // 获取banner
-                $.ajax({
-                    type: 'GET',
-                    url: url + '/api/v1/banner/index?category_id='+data.data.id,
-                    dataType: 'json',
-                    success: function (data) {
-                        //console.log(data);
-                        if (data.code == 200) {
-                            var imgArr = data.data;
-                            $('.swiper-wrapper').html('');
-                            imgArr.forEach(function (item, index) {
-                                var html = '<div class="swiper-slide">\n' +
-                                    '                <a href="' + item.link + '"><img src="' + item.img_info.url + '" alt=""></a>\n' +
-                                    '            </div>'
-                                $('.swiper-wrapper').append(html);
-                                //console.log(item.img_info.url);
-                            })
-                            var mySwiper = new Swiper('.swiper-container', {
-                                speed: 1000,
-                                autoplay: {
-                                    delay: 3000,//1秒切换一次
-                                },
-                                loop: true,
-                                // 如果需要分页器
-                                pagination: {
-                                    el: '.swiper-pagination',
-                                },
-                            })
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.log(xhr, status, error);
-                    }
 
-                })
             }
         },
         error: function () {

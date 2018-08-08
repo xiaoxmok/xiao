@@ -166,10 +166,10 @@ $(function () {
                         userName = '';
                         if (isEnglish()) {
                             $('.welcome').html('Dear ' + getCookie('account') + ', Welcome to ' + getCookie('school') + ' page.');
-                            $('.error').html('The login is successful, and the home page is entered after 2 seconds.');
+                            //$('.error').html('The login is successful, and the home page is entered after 2 seconds.');
                         } else {
                             $('.welcome').html('Dear ' + getCookie('account') + ', 欢迎访问' + getCookie('school') + '专属页面。');
-                            $('.error').html('登录成功，2秒后进入首页。');
+                            //$('.error').html('登录成功，2秒后进入首页。');
                         }
                     } else {
                         if (isEnglish()) {
@@ -177,7 +177,7 @@ $(function () {
                             $('.error').html('The login is successful, and the home page is entered after 2 seconds.');
                         } else {
                             $('.welcome').html('Dear ' + userName + ', 欢迎访问' + getCookie('school') + '专属页面。');
-                            $('.error').html('登录成功，2秒后进入首页。');
+                            //$('.error').html('登录成功，2秒后进入首页。');
                         }
                     }
 

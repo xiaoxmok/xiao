@@ -32,7 +32,7 @@ $(function () {
     // 获取banner
     $.ajax({
         type: 'GET',
-        url: url + '/api/v1/banner/index',
+        url: url + '/api/v1/banner/index?category_id=133',
         dataType: 'json',
         success: function (data) {
             //console.log(data);

@@ -17,20 +17,23 @@ $(function(){
         var status,pay_type;
         if(isEnglish()){
             status = {
-                waitingForPay:"waitingForPay",
-                paying:"paying",
-                paid:"paid",
-                waitingForInstall:"waitingForInstall",
-                installing:"installing",
-                installed:"installed",
-                dispatching:"dispatching",
-                dispatched:"dispatched",
-                waitingForSign:"waitingForSign",
-                signed:"signed",
-                canceled:"canceled",
-                returned:"returned",
-                exchanged:"exchanged",
-                waitingForReturn:"waitingForReturn"
+                waitingForPay: "Waiting for payment",
+                paying: "Waiting for payment",
+                paid: "Paid",
+                waitingForInstall: "Waiting for Install",
+                installing: "Installation in Progress",
+                installed: "Installed",
+                dispatching: "Delivering",
+                dispatched: "Shipped to Destination",
+                waitingForSign: "Waiting For Sign",
+                signed: "Delivered",
+                canceled: "Canceled",
+                returning: "Returning",
+                waitingForExchange: "Waiting for Exchanging",
+                returned: "Returned",
+                exchanging: "Exchanging",
+                exchanged: "Exchanged",
+                waitingForReturn: "returnHandled"
             };
 
             pay_type = {
@@ -40,20 +43,25 @@ $(function(){
             };
         }else{
             status = {
-                waitingForPay:"待支付",
-                paying:"支付中",
-                paid:"已支付",
-                waitingForInstall:"待安装",
-                installing:"安装中",
-                installed:"已安装",
-                dispatching:"配送中",
-                dispatched:"已配送",
-                waitingForSign:"待签收",
-                signed:"已签收",
-                canceled:"已取消",
-                returned:"已退货",
-                exchanged:"已换货",
-                waitingForReturn:"待退货"
+                waitingForPay: "待支付",
+                paying: "待支付",
+                paid: "已支付",
+                waitingForInstall: "待安装",
+                installing: "安装中",
+                installed: "已安装",
+                dispatching: "配送中",
+                dispatched: "已配送",
+                waitingForSign: "待签收",
+                signed: "已签收",
+                canceled: "已取消",
+                returning: "退货中",
+                refuseForReturn: "退货完成",
+                waitingForExchange: "待换货",
+                returned: "已退货",
+                exchanging: "换货中",
+                exchanged: "已换货",
+                waitingForReturn: "待退货",
+                refuseForExchange: "拒绝换货"
             };
 
             pay_type = {
@@ -63,9 +71,14 @@ $(function(){
             }
         }
 
+        var getPay_type;
+        if(getUrl.pay_type){
+            getPay_type = getUrl.pay_type;
+        }else{
+            getPay_type = getOrderInfo.pay_type;
+        }
 
-
-        $('#pay_type').html(pay_type[getOrderInfo.pay_type]);
+        $('#pay_type').html(pay_type[getPay_type]);
         $('#status').html(status[getOrderInfo.status]);
 
         var agent = 'pc';
@@ -76,12 +89,12 @@ $(function(){
         var payData = {
             order_no:getUrl.orderNo,
             price:0.01,
-            pay_type:getOrderInfo.pay_type,
+            pay_type:getPay_type,
             agent:agent,
             token:token
         }
 
-        if(getOrderInfo.pay_type === 'unionpay'){
+        if(getPay_type === 'unionpay'){
             $('.unionpay').show();
 
             $('.unionpay .submit').click(function(){
@@ -104,10 +117,10 @@ $(function(){
                 });
             })
 
-        }else if(getOrderInfo.pay_type === 'alipay'){
+        }else if(getPay_type === 'alipay' || agent === 'phone'){
             $('.alipayPc').show();
 
-            $('.payImmediately').attr('href','./alipay.html?orderNo='+getUrl.orderNo);
+            $('.payImmediately').attr('href','./alipay.html?orderNo='+getUrl.orderNo+'&pay_type='+getPay_type);
             $('.payImmediately').click(function(){
                 $('.zhezhao').show();
                 $('.alipay').show();
@@ -139,31 +152,35 @@ $(function(){
             })
 
         }else{
-            $.ajax({
-                type: 'POST',
-                url: url + '/api/v1/order/pay',
-                dataType: 'json',
-                data:payData,
-                success: function (data) {
-                    if(data.code === 200){
-                        $('.qrCode').show();
-                        $('.qrCode img').attr('src',data.data.url);
 
-                        $('.wechat').click(function(){
-                            api.getOrderInfo(getUrl.orderNo,function(orderInfo){
-                                if(orderInfo.status === 'paid'){
-                                    $('.qrCode .success').show();
-                                    setTimeout(function () {
-                                        location.href = "center.html"
-                                    }, 2000);
-                                }
-                            });
-                        })
+            // 微信pc
+            if(agent === 'pc'){
+                $.ajax({
+                    type: 'POST',
+                    url: url + '/api/v1/order/pay',
+                    dataType: 'json',
+                    data:payData,
+                    success: function (data) {
+                        if(data.code === 200){
+                            $('.qrCode').show();
+                            $('.qrCode img').attr('src',data.data.url);
+
+                            $('.wechat').click(function(){
+                                api.getOrderInfo(getUrl.orderNo,function(orderInfo){
+                                    if(orderInfo.status === 'paid'){
+                                        $('.qrCode .success').show();
+                                        setTimeout(function () {
+                                            location.href = "center.html"
+                                        }, 2000);
+                                    }
+                                });
+                            })
+                        }
+                    },
+                    error: function () {
                     }
-                },
-                error: function () {
-                }
-            });
+                });
+            }
         }
     }
 });

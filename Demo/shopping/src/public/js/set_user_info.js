@@ -114,9 +114,10 @@ $(function () {
             default_address: $('.defalutAddress span').html()
         }
 
-        if(getUser.verify_type === 'phone'){
+        if(getUser.verify_type === 'phone' && $('.email').val() !== getUser.email){
             updataData.email=$('.email').val();
-        }else{
+        }
+        if(getUser.verify_type === 'email' && $('.phone').val() !== getUser.phone){
             updataData.phone=$('.phone').val();
         }
 

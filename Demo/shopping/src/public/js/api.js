@@ -174,10 +174,17 @@ var api = {
      * @returns {*}
      */
     getGoods: function (id, lang) {
-        var result;
+        var result,token;
+        var param ;
+        if (login()) {
+            token = getCookie('token');
+            param = 'id=' + id + '&lang=' + lang + '&token=' + token;
+        } else {
+            param = 'id=' + id + '&lang=' + lang;
+        }
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/goods/get?id=' + id + '&lang=' + lang,
+            url: url + '/api/v1/goods/get?'+param,
             dataType: 'json',
             async: false,
             success: function (data) {
