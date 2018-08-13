@@ -66,103 +66,107 @@ $(function(){
         $('.message em').html(getOrderInfo.message);
         $('.price em').html(getOrderInfo.price);
 
-        var billing_type,normal_invoice_type,normal_content;
-        if(isEnglish()){
-            billing_type= {
-                normal:'normal',
-                vat:'vat'
-            };
-            normal_invoice_type = {
-                personal:'personal',
-                company:'company'
-            };
-            normal_content ={
-                details:'details',
-                category:'category'
-            };
-        }else{
-            billing_type= {
-                normal:'普通',
-                vat:'增值税'
-            };
-            normal_invoice_type = {
-                personal:'个人',
-                company:'公司'
-            };
-            normal_content ={
-                details:'商品明细',
-                category:'商品类别'
-            };
-        }
+        if(getOrderInfo.invoice_info !== null){
+            var billing_type,normal_invoice_type,normal_content;
+            if(isEnglish()){
+                billing_type= {
+                    normal:'normal',
+                    vat:'vat'
+                };
+                normal_invoice_type = {
+                    personal:'personal',
+                    company:'company'
+                };
+                normal_content ={
+                    details:'details',
+                    category:'category'
+                };
+            }else{
+                billing_type= {
+                    normal:'普通',
+                    vat:'增值税'
+                };
+                normal_invoice_type = {
+                    personal:'个人',
+                    company:'公司'
+                };
+                normal_content ={
+                    details:'商品明细',
+                    category:'商品类别'
+                };
+            }
 
-        $('#billing_type em').html(billing_type[getOrderInfo.invoice_info.billing_type]);
-        $('#normal_invoice_type em').html(normal_invoice_type[getOrderInfo.invoice_info.normal_invoice_type]);
-        $('#normal_title em').html(getOrderInfo.invoice_info.normal_title);
-        $('#normal_tax_no em').html(getOrderInfo.invoice_info.normal_tax_no);
-        $('#normal_content em').html(normal_content[getOrderInfo.invoice_info.normal_content]);
-        $('#vat_invoice_type em').html(getOrderInfo.invoice_info.vat_invoice_type);
-        $('#vat_content em').html(getOrderInfo.invoice_info.vat_content);
-        $('#vat_company em').html(getOrderInfo.invoice_info.vat_company);
-        $('#vat_tax_no em').html(getOrderInfo.invoice_info.vat_tax_no);
-        $('#vat_address em').html(getOrderInfo.invoice_info.vat_address);
-        $('#vat_phone em').html(getOrderInfo.invoice_info.vat_phone);
-        $('#vat_bank em').html(getOrderInfo.invoice_info.vat_bank);
-        $('#vat_bank_no em').html(getOrderInfo.invoice_info.vat_bank_no);
-        $('#receiver_name em').html(getOrderInfo.invoice_info.receiver_name);
-        $('#receiver_phone em').html(getOrderInfo.invoice_info.receiver_phone);
-        $('#receiver_province em').html(getOrderInfo.invoice_info.receiver_province);
-        $('#receiver_city em').html(getOrderInfo.invoice_info.receiver_city);
-        $('#receiver_area em').html(getOrderInfo.invoice_info.receiver_area);
-        $('#receiver_address em').html(getOrderInfo.invoice_info.receiver_address);
+            $('#billing_type em').html(billing_type[getOrderInfo.invoice_info.billing_type]);
+            $('#normal_invoice_type em').html(normal_invoice_type[getOrderInfo.invoice_info.normal_invoice_type]);
+            $('#normal_title em').html(getOrderInfo.invoice_info.normal_title);
+            $('#normal_tax_no em').html(getOrderInfo.invoice_info.normal_tax_no);
+            $('#normal_content em').html(normal_content[getOrderInfo.invoice_info.normal_content]);
+            $('#vat_invoice_type em').html(getOrderInfo.invoice_info.vat_invoice_type);
+            $('#vat_content em').html(getOrderInfo.invoice_info.vat_content);
+            $('#vat_company em').html(getOrderInfo.invoice_info.vat_company);
+            $('#vat_tax_no em').html(getOrderInfo.invoice_info.vat_tax_no);
+            $('#vat_address em').html(getOrderInfo.invoice_info.vat_address);
+            $('#vat_phone em').html(getOrderInfo.invoice_info.vat_phone);
+            $('#vat_bank em').html(getOrderInfo.invoice_info.vat_bank);
+            $('#vat_bank_no em').html(getOrderInfo.invoice_info.vat_bank_no);
+            $('#receiver_name em').html(getOrderInfo.invoice_info.receiver_name);
+            $('#receiver_phone em').html(getOrderInfo.invoice_info.receiver_phone);
+            $('#receiver_province em').html(getOrderInfo.invoice_info.receiver_province);
+            $('#receiver_city em').html(getOrderInfo.invoice_info.receiver_city);
+            $('#receiver_area em').html(getOrderInfo.invoice_info.receiver_area);
+            $('#receiver_address em').html(getOrderInfo.invoice_info.receiver_address);
 
-        if(getOrderInfo.invoice_info.billing_type === 'normal'){
-            $('.normal').show();
-        }else{
-            $('.vat').show();
+            if(getOrderInfo.invoice_info.billing_type === 'normal'){
+                $('.normal').show();
+            }else{
+                $('.vat').show();
+            }
         }
 
 
         $('.orderNumber em').html(getOrderInfo.order_no);
-        $('.orderTime em').html(getOrderInfo.create_at);
+        $('.orderTime em').html(getOrderInfo.created_at);
         /*$('.deliveryMethod em').html(getOrderInfo.express_info.company_name);
         $('.trackingNumber em').html(getOrderInfo.express_info.express_no);*/
 
 
         // 退货详情
         if(getOrderInfo.status === 'waitingForReturn' || getOrderInfo.status === 'returning' || getOrderInfo.status === 'returned'){
-            $('.order-normal').hide();
-            $('.order-return').show();
-            $.ajax({
-                url: url + '/api/v1/order/get-return-or-exchange?order_no='+hash.id+'&token='+token,
-                type: 'POST',
-                dataType: 'json',
-                success: function(data){
-                    if (data.code === 200) {
-                        var result = data.data;
-                        if(result.img_infos !== null){
-                            imgInfos = result.img_infos;
-                            var html = '';
-                            imgInfos.forEach(function(item,index){
-                                html += '<img src="'+item.url+'" alt="'+item.name+'">';
-                            })
-                        }
+            // $('.order-normal').hide();
+            //$('.order-return').show();
 
-                        $('.contactPhone em').html(result.phone);
-                        $('.reasonForReturn em').html(result.reason);
-                        $('.documentPhoto em').html(html);
-                        $('.returnPrice em').html(result.price);
-                        $('.returnOrderNumber em').html(result.express_id);
-                        $('.returnOrderTime em').html(result.time);
-                        $('.deliveryMethod em').html(result.express_info.company_name);
-
-                    } else {
-
-                    }
-                },
-                error: function(){}
-
-            })
         }
+
+        $.ajax({
+            url: url + '/api/v1/order/get-return-or-exchange?order_no='+hash.id+'&token='+token,
+            type: 'POST',
+            dataType: 'json',
+            success: function(data){
+                if (data.code === 200) {
+                    var result = data.data;
+                    if(result.img_infos !== null){
+                        imgInfos = result.img_infos;
+                        var html = '';
+                        imgInfos.forEach(function(item,index){
+                            html += '<img src="'+item.url+'" width="70" height="70" alt="'+item.name+'">';
+                        })
+                    }
+
+                    $('.contactPhone em').html(result.phone);
+                    $('.reasonForReturn em').html(result.reason_detail);
+                    $('.documentPhoto em').html(html);
+                    $('.returnPrice em').html(result.price);
+                    $('.returnOrderNumber em').html(result.express_info.express_no);
+                    $('.returnOrderTime em').html(result.time);
+                    $('.deliveryMethod em').html(result.express_info.company_name);
+
+                } else {
+
+                }
+            },
+            error: function(){}
+
+        })
     }
 
     var getOrderItems = api.getOrderItems(hash.id);

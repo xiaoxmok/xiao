@@ -143,9 +143,9 @@ var api = {
         var param, token;
         if (login()) {
             token = getCookie('token');
-            param = 'category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang + '&token=' + token;
+            param = 'category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang +' &onsale=y'+ '&token=' + token;
         } else {
-            param = 'category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang;
+            param = 'category_id=' + category_id + '&page=' + page + '&count=' + count + '&sort=' + sort + '&lang=' + lang + '&onsale=y';
         }
         $.ajax({
             type: 'GET',

@@ -13,18 +13,29 @@ $(function () {
         });
 
         var userName = getCookie('username');
-        if(getCookie('username').length <= 0 ){
-            userName = '';
-            if(isEnglish()){
-                $('.welcome').html('Dear '+getCookie('account')+', Welcome to '+getCookie('school')+' page.');
-            }else{
-                $('.welcome').html('Dear '+getCookie('account')+', 欢迎访问'+getCookie('school')+'专属页面。');
+        if (getCookie('username').length <= 0) {
+
+            // 验证是否手机或邮箱
+            var accountName;
+            var str = getCookie('account');
+
+            if (CheckMobile(str)) {
+                accountName = str.slice(0, 3) + '****' + str.slice(-4)
+            } else {
+                accountName = str.split('@')[0].slice(0, -4) + '****@' + str.split('@')[1];
             }
-        }else{
-            if(isEnglish()){
-                $('.welcome').html('Dear '+userName+', Welcome to '+getCookie('school')+' page.');
-            }else{
-                $('.welcome').html('Dear '+userName+', 欢迎访问'+getCookie('school')+'专属页面。');
+
+
+            if (isEnglish()) {
+                $('.welcome').html('Dear ' + accountName + ', Welcome to ' + getCookie('school') + ' page.');
+            } else {
+                $('.welcome').html('Dear ' + accountName + ', 欢迎访问' + getCookie('school') + '专属页面。');
+            }
+        } else {
+            if (isEnglish()) {
+                $('.welcome').html('Dear ' + userName + ', Welcome to ' + getCookie('school') + ' page.');
+            } else {
+                $('.welcome').html('Dear ' + userName + ', 欢迎访问' + getCookie('school') + '专属页面。');
             }
         }
     }
@@ -277,7 +288,7 @@ $(function () {
         if (pageArr[0] + 1 > pageArr[1]) {
             api.getGoodsList(category_id, pageArr[1], 20, '%2Bprice', i18nLanguage,redraw)
         } else {
-            api.getGoodsList(category_id, pageArr[0] + 1, 20, '%2Bprice', i18nLanguage,redraw)
+            api.getGoodsList(category_id, parseInt(pageArr[0]) + 1, 20, '%2Bprice', i18nLanguage,redraw)
         }
     })
 });

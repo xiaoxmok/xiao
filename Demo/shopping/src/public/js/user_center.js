@@ -77,8 +77,19 @@ $(function () {
         }
     }
 
+    var phone;
+    if (getUser.phone !== null) {
+        phone = getUser.phone.slice(0, 3) + '****' + getUser.phone.slice(-4);
+    } else {
+        if (isEnglish()) {
+            phone = 'unfilled';
+        } else {
+            phone = '未填写';
+        }
+    }
+
     $('.userName .person .email em').html(email);
-    $('.userName .person .phone em').html(getUser.phone.slice(0, 3) + '****' + getUser.phone.slice(-4));
+    $('.userName .person .phone em').html(phone);
 
     // 获取默认地址
 
@@ -218,6 +229,10 @@ $(function () {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n' +
                                 '                    <a href="./invoice.html?order_no=' + item.order_no + '">Request an invoice (Fapiao)</a>\n' +
                                 '                    <a href="./returns.html?id=' + item.order_no + '">Return and Refund</a>\n';
+                        } else if (item.status === 'dispatched') {
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n' +
+                                '                    <a href="./invoice.html?order_no=' + item.order_no + '">Request an invoice (Fapiao)</a>\n' +
+                                '                    <a href="./returns.html?id=' + item.order_no + '">Return and Refund</a>\n';
                         } else if (item.status === 'dispatching') {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">Details</a>\n' +
                                 '                    <a href="./invoice.html?order_no=' + item.order_no + '">Request an invoice (Fapiao)</a>\n' +
@@ -275,6 +290,10 @@ $(function () {
                                 '                    <a href="./invoice.html?order_no=' + item.order_no + '">开具发票</a>\n' +
                                 '                    <a href="./returns.html?id=' + item.order_no + '">退换货</a>\n';
                         } else if (item.status === 'dispatching') {
+                            operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n' +
+                                '                    <a href="./invoice.html?order_no=' + item.order_no + '">开具发票</a>\n' +
+                                '                    <a href="./returns.html?id=' + item.order_no + '">退换货</a>\n';
+                        } else if (item.status === 'dispatched') {
                             operate = '              <a href="./ordersDetail.html?id=' + item.order_no + '">查看详情</a>\n' +
                                 '                    <a href="./invoice.html?order_no=' + item.order_no + '">开具发票</a>\n' +
                                 '                    <a href="./returns.html?id=' + item.order_no + '">退换货</a>\n';
@@ -564,7 +583,7 @@ $(function () {
 
         $.ajax({
             type: 'GET',
-            url: url + '/api/v1/coupon/index?token=' + token + '&type=repair ',
+            url: url + '/api/v1/coupon/index?token=' + token,
             dataType: 'json',
             success: function (data) {
                 if (data.code === 200) {
@@ -573,9 +592,37 @@ $(function () {
 
                     dataArr.forEach(function (item, index) {
                         var html;
-                        var type = {
-                            repair: '维修券'
+                        var type;
+
+                        if(isEnglish()){
+                            type = {
+                                repair: 'repair',
+                                backup: 'backup',
+                                training: 'training'
+                            }
+                        }else{
+                            type = {
+                                repair: '维修券',
+                                backup: '备用机券',
+                                training: '培训券'
+                            }
                         }
+
+                        var used;
+                        if(item.used === 'n'){
+                            if(isEnglish()){
+                                used = 'Unused';
+                            }else{
+                                used = '未使用'
+                            }
+                        }else{
+                            if(isEnglish()){
+                                used = 'Used'
+                            }else{
+                                used = '已使用'
+                            }
+                        }
+
                         if (isEnglish()) {
                             html = '<li class="ticket1">\n' +
                                 '                <div class="up">\n' +
@@ -583,7 +630,7 @@ $(function () {
                                 '                    <p>' + item.type + '</p>\n' +
                                 '                </div>\n' +
                                 '                <div class="down">\n' +
-                                '                    <a href="javascript:;">Unused</a>\n' +
+                                '                    <a href="javascript:;">'+used+'</a>\n' +
                                 '                </div>\n' +
                                 '            </li>';
                         } else {
@@ -593,7 +640,7 @@ $(function () {
                                 '                    <p>' + type[item.type] + '</p>\n' +
                                 '                </div>\n' +
                                 '                <div class="down">\n' +
-                                '                    <a href="javascript:;">未使用</a>\n' +
+                                '                    <a href="javascript:;">'+used+'</a>\n' +
                                 '                </div>\n' +
                                 '            </li>';
                         }
@@ -616,9 +663,10 @@ $(function () {
             pReceived: 'Ruturned successfully. Waiting for assessing',
             pEvaluated: 'Assessment accomplished. Waiting for confirmation',
             uConfirmed: 'Repairing plan is confirmed. Repair in progress',
-            pRepairing: 'Repaired successfully,to be received by user',
-            pRepaired: 'Received successfully, repair accomplished',
+            pRepairing: 'Repairing plan isconfirmed. Repair in progress',
+            pRepaired: 'Repaired successfully,to be received by user',
             uWaitingForPay: 'Received successfully, waiting for payment',
+            uReceived: 'Receivedsuccessfully, repair accomplished',
             uPaid: 'Paid successfully, repair accomplished',
             uCanceled: 'repair request canceled'
         };
@@ -637,9 +685,10 @@ $(function () {
             pReceived: '返件成功待评估',
             pEvaluated: '评估完成，待用户确认维修',
             uConfirmed: '维修方案已确认，维修中',
-            pRepairing: '维修完成，待用户领取',
-            pRepaired: '设备已确认领取，维修完成',
+            pRepairing: '维修方案已确认，维修中',
+            pRepaired: '维修完成，待用户领取',
             uWaitingForPay: '设备已确认领取，待支付',
+            uReceived: '设备已确认领取，维修完成',
             uPaid: '付款成功，维修完成',
             uCanceled: '已取消维修申请'
         };
@@ -711,22 +760,22 @@ $(function () {
                             } else if (item.status === 'pReceived') {
                                 operate = '<a href="javascript:;" class="cancelRepair">Cancel my request</a>'
                             } else if (item.status === 'pEvaluated') {
-                                operate = '<a href="javascript:;" class="confirmRepair">Confirm repair request</a>'
-                            } else if (item.status === 'uConfirmed') {
-                                if (isSz) {
-                                    operate = '<a href="javascript:;" class="applyBackup">Apply Backup</a>'
-                                } else {
-                                    operate = ''
-                                }
+                                operate = '<a href="javascript:;" class="confirmRepair" data-price="' + item.price + '" data-other="'+item.other_price+'">Confirm repair request</a>'
+                            } else if (item.status === 'uConfirmed' && item.backup_status === null && isSz) {
+                                operate = '<a href="javascript:;" class="applyBackup">Apply Backup</a>'
+                            } else if (item.status === 'pRepairing' && item.backup_status === null && isSz) {
+                                operate = '<a href="javascript:;" class="applyBackup">Apply Backup</a>'
                             } else if (item.status === 'pRepaired') {
                                 operate = ''
                             } else if (item.status === 'uWaitingForPay') {
-                                operate = '<a href="javascript:;" class="waitForPay" data-name="' + item.order_no + '" data-repair_no="' + item.repair_no + '" data-price="' + item.price + '">Make the payment</a>'
+                                operate = '<a href="javascript:;" class="waitForPay" data-name="' + item.order_no + '" data-repair_no="' + item.repair_no + '" data-price="' + item.price + '" data-other="'+item.other_price+'" data-type="'+item.price_type+'">Make the payment</a>'
                             } else if (item.status === 'pReceived') {
                                 operate = ''
                             } else if (item.status === 'uPaid') {
                                 operate = ''
                             } else if (item.status === 'uCanceled') {
+                                operate = ''
+                            } else{
                                 operate = ''
                             }
 
@@ -740,22 +789,22 @@ $(function () {
                             } else if (item.status === 'pReceived') {
                                 operate = '<a href="javascript:;" class="cancelRepair">取消维修申请</a>'
                             } else if (item.status === 'pEvaluated') {
-                                operate = '<a href="javascript:;" class="confirmRepair">确认维修</a>'
-                            } else if (item.status === 'uConfirmed') {
-                                if (isSz) {
-                                    operate = '<a href="javascript:;" class="applyBackup">申请备用机</a>'
-                                } else {
-                                    operate = ''
-                                }
+                                operate = '<a href="javascript:;" class="confirmRepair" data-price="' + item.price + '" data-other="'+item.other_price+'">确认维修</a>'
+                            } else if (item.status === 'uConfirmed' && item.backup_status === null && isSz) {
+                                operate = '<a href="javascript:;" class="applyBackup">申请备用机</a>'
+                            } else if (item.status === 'pRepairing' && item.backup_status === null && isSz) {
+                                operate = '<a href="javascript:;" class="applyBackup">申请备用机</a>'
                             } else if (item.status === 'pRepaired') {
                                 operate = ''
                             } else if (item.status === 'uWaitingForPay') {
-                                operate = '<a href="javascript:;" class="waitForPay" data-name="' + item.order_no + '" data-repair_no="' + item.repair_no + '" data-price="' + item.price + '">支付</a>'
+                                operate = '<a href="javascript:;" class="waitForPay" data-name="' + item.order_no + '" data-repair_no="' + item.repair_no + '" data-price="' + item.price + '" data-other="'+item.other_price+'" data-type="'+item.price_type+'">支付</a>'
                             } else if (item.status === 'pReceived') {
                                 operate = ''
                             } else if (item.status === 'uPaid') {
                                 operate = ''
                             } else if (item.status === 'uCanceled') {
+                                operate = ''
+                            } else{
                                 operate = ''
                             }
 
@@ -925,13 +974,15 @@ $(function () {
 
             var price_type;
 
+            $('.tan3 .platform em').html($(this).attr('data-price'));
+            $('.tan3 .other em').html($(this).attr('data-other'));
             $('.zhezhao').show();
             $('.tan3').show();
-            $('.typeClick div').click(function () {
+            $('.tan3 .typeClick div').click(function () {
                 $(this).parent().find('div').removeClass('active');
                 $(this).addClass('active');
 
-                price_type = $('.tan3 typeClick').find('active').attr('data-name');
+                price_type = $('.tan3 .typeClick').find('.active').attr('data-name');
 
                 $.ajax({
                     type: 'POST',
@@ -944,12 +995,36 @@ $(function () {
                     },
                     success: function (data) {
                         if (data.code === 200) {
-                            if (isEnglish()) {
-                                showTan('Confirm repair request');
-                            } else {
-                                showTan('确认维修');
-                            }
-                            getMaintenanceRecords();
+                            $.ajax({
+                                type: 'POST',
+                                url: url + '/api/v1/repair/update',
+                                dataType: 'json',
+                                data: {
+                                    token: token,
+                                    id: that.parent().attr('data-name'),
+                                    status: 'uConfirmed',
+                                    //user_backup_coupon_id: coupon_id
+                                },
+                                success: function (data) {
+                                    if (data.code === 200) {
+                                        $('.zhezhao').hide();
+                                        $('.tan3').hide();
+                                        if (isEnglish()) {
+                                            showTan('Confirm repair request');
+                                        } else {
+                                            showTan('确认维修');
+                                        }
+                                        location.href = "./center.html?nav=4"
+                                        // getMaintenanceRecords();
+                                    } else {
+                                        showTan(data.msg);
+                                    }
+                                },
+                                error: function () {
+                                }
+                            })
+
+                            //getMaintenanceRecords();
                         } else {
                             showTan(data.msg);
                         }
@@ -1019,8 +1094,7 @@ $(function () {
                                     error: function () {
                                     }
                                 })
-                            }
-                            else {
+                            }else {
                                 //document.write("You pressed Cancel!")
                             }
                         } else {
@@ -1040,7 +1114,7 @@ $(function () {
                                         token: token,
                                         id: that.parent().attr('data-name'),
                                         backup_status: 'uSubmited',
-                                        user_backup_coupon_id: coupon_id
+                                        //user_backup_coupon_id: coupon_id
                                     },
                                     success: function (data) {
                                         if (data.code === 200) {
@@ -1057,8 +1131,7 @@ $(function () {
                                     error: function () {
                                     }
                                 })
-                            }
-                            else {
+                            }else {
                                 //document.write("You pressed Cancel!")
                             }
                         }
@@ -1087,15 +1160,22 @@ $(function () {
                 pay_type = $(this).attr('data-name')
 
                 if (that.attr('data-name') !== 'null') {
-                    location.href = "payment.html?orderNo=" + that.attr('data-name');
+                    location.href = "payment.html?orderNo=" + that.attr('data-name')+'&pay_type='+pay_type;
                 } else {
+                    var price;
+                    if(that.attr('data-type') === 'other'){
+                        price = that.attr('data-other');
+                    }else if(that.attr('data-type') === 'platform'){
+                        price = that.attr('data-other');
+                    }
+
                     $.ajax({
                         type: 'POST',
                         url: url + '/api/v1/order/create',
                         dataType: 'json',
                         data: {
                             token: token,
-                            price: that.attr('data-price'),
+                            price: price,
                             order_type: 'repair',
                             pay_type: pay_type,
                             repair_id: that.parent().attr('data-name'),

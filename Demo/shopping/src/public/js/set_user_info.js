@@ -101,6 +101,10 @@ $(function () {
     // 更新个人信息
     $('.submit').click(function () {
 
+        // 校区变了需要修改学校地址
+        var oldRegion = getUser.school_region_id;
+
+
         var updataData = {
             token: token,
             id: getUser.id,
@@ -128,14 +132,62 @@ $(function () {
             data:updataData,
             success: function (data) {
                 if (data.code === 200) {
-                    if(isEnglish()){
-                        $('.error').html('Successfully modified.');
+
+
+                    if(oldRegion !== parseInt(updataData.school_region_id)){
+                        var getAddressList = api.getAddressList(getCookie('userId'));
+                        var addId;
+                        getAddressList.forEach(function(item,index){
+                            if(item.is_from_school === 'y'){
+                                addId =  item.id;
+                            }
+                        })
+
+                        // var getAddressId = api.getAddressId(addId);
+                        // console.log(addId,typeof addId)
+                        getUser = api.getUser(token);
+
+                        $.ajax({
+                            type: 'POST',
+                            url: url + '/api/v1/address/update',
+                            dataType: 'json',
+                            data: {
+                                token: token,
+                                id: addId,
+                                address: getUser.school_info.name+' '+getUser.school_region_info.name,
+                                is_from_school: 'y'
+                            },
+                            success: function (data) {
+                                if (data.code === 200) {
+                                    if(isEnglish()){
+                                        $('.error').html('Successfully modified.');
+                                    }else{
+                                        $('.error').html('修改成功。');
+                                    }
+
+                                    setTimeout(function () {
+                                        location.href = "center.html"
+                                    }, 1000);
+                                } else {
+
+                                }
+                            },
+                            error: function (xhr, status, error) {
+
+                            }
+                        })
                     }else{
-                        $('.error').html('修改成功。');
+                        if(isEnglish()){
+                            $('.error').html('Successfully modified.');
+                        }else{
+                            $('.error').html('修改成功。');
+                        }
+
+                        setTimeout(function () {
+                            location.href = "center.html"
+                        }, 1000);
                     }
-                    setTimeout(function () {
-                        location.href = "center.html"
-                    }, 1000);
+
                 } else {
                     $('.error').html(data.msg);
                 }

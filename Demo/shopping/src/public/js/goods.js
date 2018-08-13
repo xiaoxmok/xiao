@@ -112,12 +112,7 @@ $(function () {
     ;
 
 
-    // 判断是否已收藏
-    if (getGoods.is_fav === 'y') {
-        $('.collect').html('<span class="marked"></span>已收藏');
-    } else {
-        $('.collect').html('<span class="unmark"></span>收藏');
-    }
+
 
     // sku param值的切换,并且获得sku_id
 
@@ -350,36 +345,95 @@ $(function () {
         }
     });
 
+
+    // 判断是否已收藏
+    if (getGoods.is_fav === 'y') {
+        if(isEnglish()){
+            $('.collect').html('<span class="marked"></span>collected');
+        }else{
+            $('.collect').html('<span class="marked"></span>已收藏');
+        }
+    } else {
+        if(isEnglish()){
+            $('.collect').html('<span class="unmark"></span>Collection');
+        }else{
+            $('.collect').html('<span class="unmark"></span>收藏');
+        }
+    }
+
     // 加入收藏
     $('.collect').click(function () {
         if (login()) {
-            $.ajax({
-                type: 'POST',
-                url: url + '/api/v1/fav/create',
-                dataType: 'json',
-                data: {
-                    token: token,
-                    goods_id: urlInfo.id
-                },
-                success: function (data) {
-                    if (data.code === 200) {
-                        $('.zhezhao').show();
-                        if (isEnglish()) {
-                            $('.tan2 .con p').html('Collection success.');
-                        } else {
-                            $('.tan2 .con p').html('收藏成功。');
+            var is_fav = api.getGoods(urlInfo.id, i18nLanguage).is_fav;
+            if (is_fav === 'y'){
+                $.ajax({
+                    type: 'get',
+                    url: url + '/api/v1/fav/delete?token='+token+'&goods_id='+urlInfo.id,
+                    dataType: 'json',
+                    /*data: {
+                        token: token,
+                        goods_id: urlInfo.id
+                    },*/
+                    success: function (data) {
+                        if (data.code === 200) {
+                            $('.zhezhao').show();
+                            if (isEnglish()) {
+                                $('.tan2 .con p').html('Cancel collection success.');
+                                $('.collect').html('<span class="unmark"></span>Collection');
+                            } else {
+                                $('.tan2 .con p').html('取消收藏成功。');
+                                $('.collect').html('<span class="unmark"></span>收藏');
+                            }
+
+                           // getGoods = api.getGoods(urlInfo.id, i18nLanguage);
+
+                            $('.tan2').show();
+                            setTimeout(function () {
+                                //location.href = "cart.html"
+                                $('.zhezhao').hide();
+                                $('.tan2').hide();
+                            }, 1000);
                         }
-                        $('.tan2').show();
-                        setTimeout(function () {
-                            //location.href = "cart.html"
-                            $('.zhezhao').hide();
-                            $('.tan2').hide();
-                        }, 1000);
+                    },
+                    error: function () {
                     }
-                },
-                error: function () {
-                }
-            })
+                })
+            }else{
+                $.ajax({
+                    type: 'POST',
+                    url: url + '/api/v1/fav/create',
+                    dataType: 'json',
+                    data: {
+                        token: token,
+                        goods_id: urlInfo.id
+                    },
+                    success: function (data) {
+                        if (data.code === 200) {
+                            $('.zhezhao').show();
+                            if (isEnglish()) {
+                                $('.tan2 .con p').html('Collection success.');
+                                $('.collect').html('<span class="marked"></span>collected');
+                            } else {
+                                $('.tan2 .con p').html('收藏成功。');
+                                $('.collect').html('<span class="marked"></span>已收藏');
+                            }
+
+                            //getGoods = api.getGoods(urlInfo.id, i18nLanguage);
+
+                            $('.tan2').show();
+                            setTimeout(function () {
+                                //location.href = "cart.html"
+                                $('.zhezhao').hide();
+                                $('.tan2').hide();
+                            }, 1000);
+                        }
+                    },
+                    error: function () {
+                    }
+                })
+            }
+
+
         } else {
             $('.zhezhao').show();
             if (isEnglish()) {

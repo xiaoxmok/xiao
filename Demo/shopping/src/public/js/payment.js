@@ -88,7 +88,7 @@ $(function(){
 
         var payData = {
             order_no:getUrl.orderNo,
-            price:0.01,
+            price:getOrderInfo.price,
             pay_type:getPay_type,
             agent:agent,
             token:token
@@ -142,10 +142,15 @@ $(function(){
                         //$('.success').show();
                         location.href = "center.html"
                     }else{
-                        $('.error').html('未支付成功！');
+                        if(isEnglish()){
+                            $('.error').html('Unpaid success!');
+                        }else{
+                            $('.error').html('未支付成功！');
+                        }
                     }
                 });
             });
+
 
             $('.a2').click(function(){
                 location.href = "commonProblem.html"

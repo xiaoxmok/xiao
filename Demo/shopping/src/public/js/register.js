@@ -32,13 +32,14 @@ $(function () {
     });
 
     // 获取校区
-    $("#schoolSearch").bind('change', function() {
+    $("#schoolSearch").bind('change', function () {
         schoolRegion();
     });
     schoolRegion();
-    function schoolRegion(){
+
+    function schoolRegion() {
         var school_id = $('#schoolSearch').children('option:selected').val();
-        if(school_id == null){
+        if (school_id == null) {
             school_id = 1;
         }
         $('#schoolRegion').html('');
@@ -85,9 +86,9 @@ $(function () {
         if (value === 'phone') {
             account = $('.account').val();
             if (!CheckMobile(account)) {
-                if(isEnglish()){
+                if (isEnglish()) {
                     $('.error').html('Account format is incorrect.');
-                }else{
+                } else {
                     $('.error').html('账号格式不正确.');
                 }
                 return;
@@ -100,9 +101,9 @@ $(function () {
         } else if (value === 'email') {
             account = $('.account').val();
             if (!CheckEmail(account)) {
-                if(isEnglish()){
+                if (isEnglish()) {
                     $('.error').html('E-mail format is incorrect.');
-                }else{
+                } else {
                     $('.error').html('邮箱格式不正确。');
                 }
                 return;
@@ -114,15 +115,14 @@ $(function () {
         }
         var captcha = $('.Captcha_code').val();
         if (captcha.length === 0) {
-            if(isEnglish()){
+            if (isEnglish()) {
                 $('.error').html('Graphic verification code cannot be empty');
-            }else{
+            } else {
                 $('.error').html('图形验证码不能为空');
             }
             return;
         }
         verifyData.captcha = captcha;
-
 
 
         /*获取验证码倒记时*/
@@ -166,16 +166,16 @@ $(function () {
 
     // 注册
     $('.register').click(function () {
-        var account, password, valid_code, school_id, registeData,loginData;
+        var account, password, valid_code, school_id, registeData, loginData;
         $('.error').html('');
 
         var value = $('#select').children('option:selected').val();
 
         valid_code = $('.valid_code').val();
         if (!CheckCode(valid_code)) {
-            if(isEnglish()){
+            if (isEnglish()) {
                 $('.error').html('The verification code is not in the correct format.');
-            }else{
+            } else {
                 $('.error').html('验证码格式不正确。');
             }
             return;
@@ -183,9 +183,9 @@ $(function () {
 
         password = $('.password').val();
         if (!CheckPwd(password)) {
-            if(isEnglish()){
+            if (isEnglish()) {
                 $('.error').html('The password is illegal');
-            }else{
+            } else {
                 $('.error').html('密码不合法，输入5-15位数！');
             }
             return;
@@ -196,9 +196,9 @@ $(function () {
         if (value === 'phone') {
             account = $('.account').val();
             if (!CheckMobile(account)) {
-                if(isEnglish()){
+                if (isEnglish()) {
                     $('.error').html('Account format is incorrect.');
-                }else{
+                } else {
                     $('.error').html('账号格式不正确.');
                 }
                 return;
@@ -220,9 +220,9 @@ $(function () {
         } else if (value === 'email') {
             account = $('.account').val();
             if (!CheckEmail(account)) {
-                if(isEnglish()){
+                if (isEnglish()) {
                     $('.error').html('E-mail format is incorrect.');
-                }else{
+                } else {
                     $('.error').html('邮箱格式不正确。');
                 }
                 return;
@@ -253,9 +253,9 @@ $(function () {
                 //console.log(data.code,typeof data.code);
                 if (data.code === 200) {
                     // console.log('注册成功。');
-                    if(isEnglish()){
+                    if (isEnglish()) {
                         $('.error').html('Registration is successful, Automatic login.');
-                    }else{
+                    } else {
                         $('.error').html('注册成功，自动登录中。');
                     }
                     setTimeout(function () {
@@ -278,7 +278,7 @@ $(function () {
                                         path: '/'
                                     });
 
-                                    if(getUser.name == null){
+                                    if (getUser.name == null) {
                                         getUser.name = ''
                                     }
 
@@ -294,9 +294,15 @@ $(function () {
                                         path: '/'
                                     });
 
-                                    var getSchool = api.getSchool(getUser.school_info.id,i18nLanguage);
+                                    // cookie记录token
+                                    getCookie("account", account, {
+                                        expires: 1,
+                                        path: '/'
+                                    });
 
-                                    if(getSchool.name == null){
+                                    var getSchool = api.getSchool(getUser.school_info.id, i18nLanguage);
+
+                                    if (getSchool.name == null) {
                                         getSchool.name = ''
                                     }
                                     // cookie记录学校
@@ -318,10 +324,10 @@ $(function () {
                                         user_id: getUser.id,
                                         reciever_name: account,
                                         //country_code: '086',
-                                        reciever_phone: getUser.phone,
-                                        address: getUser.school_region_info.address+' '+getUser.school_region_info.name,
+                                        reciever_phone: getUser.phone ? getUser.phone : '',
+                                        address: getUser.school_info.name + ' ' + getUser.school_region_info.name,
                                         is_default: 'y',
-                                        is_from_school:'y'
+                                        is_from_school: 'y'
                                     };
 
                                     // 添加收货地址
@@ -330,23 +336,42 @@ $(function () {
                                         url: url + '/api/v1/address/create',
                                         dataType: 'json',
                                         data: addreesData,
-                                        success: function (data) {},
+                                        success: function (data) {
+                                        },
                                         error: function (xhr, status, error) {
                                         }
                                     })
 
-                                    if(isEnglish()){
-                                        $('.welcome').html('Dear '+getUser.name+' , Welcome to '+getSchool.name+' page.');
+                                    var userName = getCookie('username');
+                                    if (getCookie('username').length <= 0) {
 
-                                        //$('.error').html('The login is successful, and the home page is entered after 2 seconds.');
-                                    }else{
-                                        $('.welcome').html('Dear '+getUser.name+'，欢迎访问'+getSchool.name+'专属页面。');
+                                        // 验证是否手机或邮箱
+                                        var accountName;
+                                        var str = getCookie('account');
 
-                                        //$('.error').html('登录成功，2秒后进入首页。');
+                                        if (CheckMobile(str)) {
+                                            accountName = str.slice(0, 3) + '****' + str.slice(-4)
+                                        } else {
+                                            accountName = str.split('@')[0].slice(0, -4) + '****@' + str.split('@')[1];
+                                        }
+
+
+                                        if (isEnglish()) {
+                                            $('.welcome').html('Dear ' + accountName + ', Welcome to ' + getCookie('school') + ' page.');
+                                        } else {
+                                            $('.welcome').html('Dear ' + accountName + ', 欢迎访问' + getCookie('school') + '专属页面。');
+                                        }
+                                    } else {
+                                        if (isEnglish()) {
+                                            $('.welcome').html('Dear ' + userName + ', Welcome to ' + getCookie('school') + ' page.');
+                                        } else {
+                                            $('.welcome').html('Dear ' + userName + ', 欢迎访问' + getCookie('school') + '专属页面。');
+                                        }
                                     }
 
+                                    // 临时购物车存在商品，将批量加入本账户。
                                     if (getCookie("localCart")) {
-                                        $('.error').html('临时购物车存在商品，将批量加入本账户。');
+                                        // $('.error').html('临时购物车存在商品，将批量加入本账户。');
                                         var itemArr = [];
 
                                         if (getCookie("localCart")) {

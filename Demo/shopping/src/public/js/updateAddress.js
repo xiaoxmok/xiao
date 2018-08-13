@@ -19,6 +19,11 @@ $(function(){
     }else{
         $('#defalut').prop("checked", false);
     }
+    if(getAddressId.is_from_school === 'y'){
+        $('#is_from_school').prop("checked", true);
+    }else{
+        $('#is_from_school').prop("checked", false);
+    }
 
 
     // 更新地址

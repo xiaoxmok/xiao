@@ -9,7 +9,7 @@ $(function () {
 
     var pathname = window.location.pathname;
     var urlArr = pathname.split('/');
-    var name = urlArr[2].slice(0, -5);
+    var name = urlArr[urlArr.length-1].slice(0, -5);
     var category_id;
     var parent_id
     //console.log(name);
@@ -188,7 +188,7 @@ $(function () {
         if (pageArr[0] + 1 > pageArr[1]) {
             api.getArticleList(category_id, pageArr[1], 20, i18nLanguage, redraw)
         } else {
-            api.getArticleList(category_id, pageArr[0] + 1, 20, i18nLanguage, redraw)
+            api.getArticleList(category_id, parseInt(pageArr[0]) + 1, 20, i18nLanguage, redraw)
         }
     })
 

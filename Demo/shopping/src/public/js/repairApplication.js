@@ -198,8 +198,14 @@ $(function () {
         //你的设备
         if (device_infos.length !== 0) {
             device_infos.forEach(function (item, index) {
-                var htmlSelf = '<p><input type="radio" name="addr" class="device4" id="s'+index+'" value="'+item.id+'" checked=""><label for="s'+index+'"><span>型号：'+item.goods_name+' 价格：'+item.school_price+' </span></label></p>';
-                var htmlDoor = '<p><input type="radio" name="addr" class="device4" id="d'+index+'" value="'+item.id+'" checked=""><label for="d'+index+'"><span>型号：'+item.goods_name+' 价格：'+item.school_price+' </span></label></p>';
+                var checked;
+                if(index === 0 ){
+                    checked = 'checked'
+                }else{
+                    checked= ''
+                }
+                var htmlSelf = '<p><input type="radio" name="addrS" class="device4" id="s'+index+'" value="'+item.id+'" checked="'+checked+'"><label for="s'+index+'"><span>型号：'+item.goods_name+' 价格：'+item.school_price+' </span></label></p>';
+                var htmlDoor = '<p><input type="radio" name="addrD" class="device4" id="d'+index+'" value="'+item.id+'" checked="'+checked+'"><label for="d'+index+'"><span>型号：'+item.goods_name+' 价格：'+item.school_price+' </span></label></p>';
 
                 $('#self .sku_id').append(htmlSelf);
                 $('#door .sku_id').append(htmlDoor);
@@ -217,26 +223,28 @@ $(function () {
                     repair: '维修券'
                 }
 
-                if (isEnglish()) {
-                    html = '<a href="javascript:;" class="ticket1" data-name="' + item.id + '">\n' +
-                        '                        <div class="up">\n' +
-                        '                            <div class="img"></div>\n' +
-                        '                            <p>' + item.type + '</p>\n' +
-                        '                        </div>\n' +
-                        '                        <div class="down">\n' +
-                        '                            <p>Unused</p>\n' +
-                        '                        </div>\n' +
-                        '                    </a>';
-                } else {
-                    html = '<a href="javascript:;" class="ticket1" data-name="' + item.id + '">\n' +
-                        '                        <div class="up">\n' +
-                        '                            <div class="img"></div>\n' +
-                        '                            <p>' + type[item.type] + '</p>\n' +
-                        '                        </div>\n' +
-                        '                        <div class="down">\n' +
-                        '                            <p>未使用</p>\n' +
-                        '                        </div>\n' +
-                        '                    </a>';
+                if(item.used === 'n'){
+                    if (isEnglish()) {
+                        html = '<a href="javascript:;" class="ticket1" data-name="' + item.id + '">\n' +
+                            '                        <div class="up">\n' +
+                            '                            <div class="img"></div>\n' +
+                            '                            <p>' + item.type + '</p>\n' +
+                            '                        </div>\n' +
+                            '                        <div class="down">\n' +
+                            '                            <p>Unused</p>\n' +
+                            '                        </div>\n' +
+                            '                    </a>';
+                    } else {
+                        html = '<a href="javascript:;" class="ticket1" data-name="' + item.id + '">\n' +
+                            '                        <div class="up">\n' +
+                            '                            <div class="img"></div>\n' +
+                            '                            <p>' + type[item.type] + '</p>\n' +
+                            '                        </div>\n' +
+                            '                        <div class="down">\n' +
+                            '                            <p>未使用</p>\n' +
+                            '                        </div>\n' +
+                            '                    </a>';
+                    }
                 }
 
                 $('#user_coupon_id').append(html);
@@ -313,9 +321,12 @@ $(function () {
 
     });*/
 
-    var user_coupon_id = [];
+    var user_coupon_id ;
     $('#user_coupon_id').on('click', '.ticket1', function () {
-        if ($(this).hasClass('active')) {
+        $('.ticket1').removeClass('active');
+        $(this).addClass('active');
+        user_coupon_id = $(this).attr('data-name');
+        /*if ($(this).hasClass('active')) {
             $(this).removeClass('active');
             var that = $(this);
             user_coupon_id.forEach(function (item, index) {
@@ -326,7 +337,7 @@ $(function () {
         } else {
             $(this).addClass('active');
             user_coupon_id.push($(this).attr('data-name'));
-        }
+        }*/
         //console.log(user_coupon_id);
     });
 
@@ -378,7 +389,7 @@ $(function () {
                 repairData.email = $('#self .email').val()
             }
             if($('#self .sku_id').has('input')){
-                repairData.sku_id = $('#self .sku_id input[name="addr"]:checked').val();
+                repairData.sku_id = $('#self .sku_id input[name="addrS"]:checked').val();
             }
 
 
@@ -419,11 +430,11 @@ $(function () {
             if($('#door .email').val().length > 0){
                 repairData.email = $('#door .email').val()
             }
-            if(user_coupon_id.length > 0){
-                repairData.user_coupon_id = user_coupon_id.join(',');
+            if(user_coupon_id !== ''){
+                repairData.user_coupon_id = user_coupon_id;
             }
             if($('#door .sku_id').has('input')){
-                repairData.sku_id = $('#door .sku_id input[name="addr"]:checked').val();
+                repairData.sku_id = $('#door .sku_id input[name="addrD"]:checked').val();
             }
 
         }
@@ -452,9 +463,9 @@ $(function () {
                     }, 1000);
                 }else{
                     if (isEnglish()) {
-                        $('.error').html('The selected phone is invalid.');
+                        $('.error').html(data.msg);
                     } else {
-                        $('.error').html('手机号码与用户信息不一致。');
+                        $('.error').html(data.msg);
                     }
                 }
             },

@@ -81,10 +81,10 @@
 .pop .con{clear:both;padding: 20px;}
 .pop .con p{line-height: 25px;color:#343434;font-size: 14px;}
 
-.pop .con div{border: 2px solid #ccc;width:100px;height: 30px;line-height: 30px;text-align: center;float:left;margin: 0 20px 20px 0;cursor:pointer;}
+.pop .con div{padding:5px; border: 2px solid #ccc;height: 30px;line-height: 30px;text-align: center;float:left;margin: 0 20px 20px 0;cursor:pointer;}
 .pop .con div.active{border: 2px solid #74d2d4;color: #74d2d4}
 
-.tan5 .but{margin-bottom: 20px;}
+.tan5 .but{margin-bottom: 20px;clear: both;}
 .tan5 .but a{
     width:50%;height: 20px;line-height: 20px;text-align: center;display: inline-block;float:left;margin-bottom: 20px;
 }
@@ -104,6 +104,8 @@
     .school .device a,.school .data a,.school .question a{
         color:#b9d7df;font-size: 12px;
     }
+
+    .pop{display:none;position: fixed;top:50%;left:50%;width:90%;margin-left: -45%;}
 
     .userName .person{width:100%;font-size: 12px;}
     .userName .person span{

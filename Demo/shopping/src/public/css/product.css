@@ -77,7 +77,7 @@
 
 .pop{display:none;position: fixed;top:50%;left:50%;width:400px;margin-top:-60px;margin-left:-200px;background: #fff;z-index: 99;box-shadow: 1px 1px 2px #e4f4f3;}
 .pop h3{background: #f5f5f5;padding:5px 10px;font-size: 12px;font-weight: normal;color:#343434;line-height: 20px;}
-.pop a{display: inline-block;position:absolute;top:3px;right:10px;cursor:pointer;color:#343434;background: #f5f5f5;}
+.pop .cls{display: inline-block;position:absolute;top:3px;right:10px;cursor:pointer;color:#343434;background: #f5f5f5;}
 
 .pop .con{clear:both;padding: 20px;}
 .pop .con p{line-height: 25px;color:#343434;font-size: 14px;}
@@ -115,4 +115,7 @@
     .contact a em{margin-top: 3px;}
 
     .pop{width:80%;margin-left: -40%;}
+
+    .product .con .btn .collect .marked{margin-top: 3px}
+    .product .con .btn .collect .unmark{margin-top: 3px}
 }

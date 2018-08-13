@@ -128,8 +128,8 @@ $(function () {
                             user_id: getUser.id,
                             reciever_name: account,
                             //country_code: '086',
-                            reciever_phone: getUser.phone,
-                            address: getUser.school_region_info.address+' '+getUser.school_region_info.name,
+                            reciever_phone: getUser.phone?getUser.phone:' ',
+                            address: getUser.school_info.name+' '+getUser.school_region_info.name,
                             is_default: 'y',
                             is_from_school: 'y'
                         };
@@ -163,21 +163,28 @@ $(function () {
 
                     var userName = getCookie('username');
                     if (getCookie('username').length <= 0) {
-                        userName = '';
-                        if (isEnglish()) {
-                            $('.welcome').html('Dear ' + getCookie('account') + ', Welcome to ' + getCookie('school') + ' page.');
-                            //$('.error').html('The login is successful, and the home page is entered after 2 seconds.');
+
+                        // 验证是否手机或邮箱
+                        var accountName;
+                        var str = getCookie('account');
+
+                        if (CheckMobile(str)) {
+                            accountName = str.slice(0, 3) + '****' + str.slice(-4)
                         } else {
-                            $('.welcome').html('Dear ' + getCookie('account') + ', 欢迎访问' + getCookie('school') + '专属页面。');
-                            //$('.error').html('登录成功，2秒后进入首页。');
+                            accountName = str.split('@')[0].slice(0, -4) + '****@' + str.split('@')[1];
+                        }
+
+
+                        if (isEnglish()) {
+                            $('.welcome').html('Dear ' + accountName + ', Welcome to ' + getCookie('school') + ' page.');
+                        } else {
+                            $('.welcome').html('Dear ' + accountName + ', 欢迎访问' + getCookie('school') + '专属页面。');
                         }
                     } else {
                         if (isEnglish()) {
                             $('.welcome').html('Dear ' + userName + ', Welcome to ' + getCookie('school') + ' page.');
-                            $('.error').html('The login is successful, and the home page is entered after 2 seconds.');
                         } else {
                             $('.welcome').html('Dear ' + userName + ', 欢迎访问' + getCookie('school') + '专属页面。');
-                            //$('.error').html('登录成功，2秒后进入首页。');
                         }
                     }
 

@@ -63,7 +63,7 @@ body.on5 .header .nav li .on5{border-bottom: 3px solid #fff;}
     .header{display: none;}
     .header-bar .content .welcome{font-size: 12px;margin-left: 15px;float:left;line-height: 30px;text-overflow: ellipsis;
         white-space: nowrap;
-        overflow: hidden;}
+        overflow: hidden;width:90%}
     .header-bar.header-bar .content .address,.header-bar .content .login,.header-bar .content .cart{display: none!important;}
 
     .header-bar .content{width:100%;}

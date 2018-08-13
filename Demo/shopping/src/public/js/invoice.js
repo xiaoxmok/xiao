@@ -61,6 +61,11 @@ $(function () {
     }
 
     api.getOrderInfo(getUrl.order_no,function(data){
+        if(data.invoice_info === null){
+            $('.invoice-submit').show();
+            return
+        }
+
         // 判断是否普通发票 或 增值税发票
         if(data.invoice_info.billing_type === 'normal'){
             // 判断个人发票 或 企业发票

@@ -495,6 +495,7 @@ $(function () {
                 }
                 $('.tan2').show();
                 api.getCartList(getCookie('userId'), i18nLanguage, showCart);
+                getCartCount();
                 setTimeout(function () {
                     //location.href = "cart.html"
                     $('.zhezhao').hide();
