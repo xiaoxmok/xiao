@@ -319,16 +319,30 @@ $(function () {
 
 
                                     // 如果用户首次登录，添加学校默认地址；
-                                    var addreesData = {
-                                        token: data.data.token,
-                                        user_id: getUser.id,
-                                        reciever_name: account,
-                                        //country_code: '086',
-                                        reciever_phone: getUser.phone ? getUser.phone : '',
-                                        address: getUser.school_info.name + ' ' + getUser.school_region_info.name,
-                                        is_default: 'y',
-                                        is_from_school: 'y'
-                                    };
+                                    var addreesData = {}
+
+                                    if(value === 'phone'){
+                                        addreesData = {
+                                            token: data.data.token,
+                                            user_id: getUser.id,
+                                            reciever_name: account,
+                                            //country_code: '086',
+                                            reciever_phone: getUser.phone,
+                                            address: getUser.school_info.name + ' ' + getUser.school_region_info.name,
+                                            is_default: 'y',
+                                            is_from_school: 'y'
+                                        };
+                                    }else{
+                                        addreesData = {
+                                            token: data.data.token,
+                                            user_id: getUser.id,
+                                            reciever_name: account,
+                                            //country_code: '086',
+                                            address: getUser.school_info.name + ' ' + getUser.school_region_info.name,
+                                            is_default: 'y',
+                                            is_from_school: 'y'
+                                        };
+                                    }
 
                                     // 添加收货地址
                                     $.ajax({

@@ -174,7 +174,7 @@ $(function () {
 
 var urlL = '';
 //var url = 'xiao/Demo/shopping/dist/';
-var url = 'http://byod.mc2edu.com:8080';
+var url = 'http://byod.mc2edu.com';
 
 
 /*常见问题*/

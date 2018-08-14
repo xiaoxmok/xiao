@@ -131,42 +131,42 @@ $(function(){
 
 
         // 退货详情
-        if(getOrderInfo.status === 'waitingForReturn' || getOrderInfo.status === 'returning' || getOrderInfo.status === 'returned'){
+        if(getOrderInfo.status === 'waitingForReturn' || getOrderInfo.status === 'returning' || getOrderInfo.status === 'returned' || getOrderInfo.status === 'refuseForReturn' || getOrderInfo.status === 'waitingForExchange' || getOrderInfo.status === 'exchanging' || getOrderInfo.status === 'exchanged' || getOrderInfo.status === 'refuseForExchange'){
             // $('.order-normal').hide();
-            //$('.order-return').show();
+            $('.order-return').show();
+            $.ajax({
+                url: url + '/api/v1/order/get-return-or-exchange?order_no='+hash.id+'&token='+token,
+                type: 'POST',
+                dataType: 'json',
+                success: function(data){
+                    if (data.code === 200) {
+                        var result = data.data;
+                        if(result.img_infos !== null){
+                            imgInfos = result.img_infos;
+                            var html = '';
+                            imgInfos.forEach(function(item,index){
+                                html += '<img src="'+item.url+'" width="70" height="70" alt="'+item.name+'">';
+                            })
+                        }
 
+                        $('.contactPhone em').html(result.phone);
+                        $('.reasonForReturn em').html(result.reason_detail);
+                        $('.documentPhoto em').html(html);
+                        $('.returnPrice em').html(result.price);
+                        $('.returnOrderNumber em').html(result.express_info.express_no);
+                        $('.returnOrderTime em').html(result.time);
+                        $('.deliveryMethod em').html(result.express_info.company_name);
+
+                    } else {
+
+                    }
+                },
+                error: function(){}
+
+            })
         }
 
-        $.ajax({
-            url: url + '/api/v1/order/get-return-or-exchange?order_no='+hash.id+'&token='+token,
-            type: 'POST',
-            dataType: 'json',
-            success: function(data){
-                if (data.code === 200) {
-                    var result = data.data;
-                    if(result.img_infos !== null){
-                        imgInfos = result.img_infos;
-                        var html = '';
-                        imgInfos.forEach(function(item,index){
-                            html += '<img src="'+item.url+'" width="70" height="70" alt="'+item.name+'">';
-                        })
-                    }
 
-                    $('.contactPhone em').html(result.phone);
-                    $('.reasonForReturn em').html(result.reason_detail);
-                    $('.documentPhoto em').html(html);
-                    $('.returnPrice em').html(result.price);
-                    $('.returnOrderNumber em').html(result.express_info.express_no);
-                    $('.returnOrderTime em').html(result.time);
-                    $('.deliveryMethod em').html(result.express_info.company_name);
-
-                } else {
-
-                }
-            },
-            error: function(){}
-
-        })
     }
 
     var getOrderItems = api.getOrderItems(hash.id);
