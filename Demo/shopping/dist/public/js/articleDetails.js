@@ -1,1 +1,0 @@
-$(function(){var t=GetRequest();t.id&&api.getArticleInfo(t.id,"",i18nLanguage,function(t){$(".articleTitle").html(t.data.title),$(".articleDetails").html(t.data.content)}),t.statistics&&api.getStatistics(function(t){$(".articleDetails").html(t.page)}),t.device_config_page&&api.getDeviceConfigPage(function(t){$(".articleDetails").html(t.page)})});

@@ -1,6 +1,0 @@
-title=i18n Resource Internationalization
-
-lan=Language：
-hellomsg1=Index message: 
-hellomsg2=Hello word! This is index message!
-searchPlaceholder=Please input serach information

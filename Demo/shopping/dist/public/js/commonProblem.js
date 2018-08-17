@@ -1,1 +1,0 @@
-$(function(){var a=api.getFaqPage();console.log(a)});
