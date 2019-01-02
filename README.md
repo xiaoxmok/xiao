@@ -1,14 +1,9 @@
 # xiao
 xiaoxm的学习片段。
 
-## /LArea
-移动端城市选择控件
 
 ## /ajax
 ajax的各种用法
-
-## /guesture
-H5单页面手势滑屏切换示例
 
 ## /gulpDemo
 gulp构建工具的使用
@@ -62,4 +57,4 @@ vue音乐项目，webpack模块打包，采集了QQ音乐的数据，部分数�
 
 ## /webpack
 #### /webpack-vue
-手动配置webpack，及搭建vue项目，todoList项目，使用了JSX、多组件、localStorage等技术。
+手动配置webpack，及搭建vue项目，todoList项目。
