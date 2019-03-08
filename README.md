@@ -1,5 +1,5 @@
 # xiao
-xiaoxm的学习片段。
+xiaoxm的学习碎片。
 
 
 ## /ajax

@@ -42,7 +42,9 @@
             //ball.g= 1;
         }
         if(ball.x <= -ball.r*2){
-            clearInterval(time);
+            // clearInterval(time);
+            ball.x = 512;
+            ball.y = 100;
         }
     };
 
