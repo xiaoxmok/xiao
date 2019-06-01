@@ -7,5 +7,5 @@
         }
         return sum;
     }
-    console.log(fib(10), '测试一下');
+    console.log(fib(10));
 }
