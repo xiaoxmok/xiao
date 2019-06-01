@@ -7,5 +7,5 @@
         }
         return sum;
     }
-    console.log(fib(10), 'imay');
+    console.log(fib(10));
 }
