@@ -5,7 +5,9 @@
 /*
 
  Number类型：
- Number类型是ECMAScript中最常用和最令人关注的类型了；这种类型使用IEEE754格式来表示整数和浮点数值（浮点数值在某些语言中也被成为双精度数值），为支持各种数据类型，ECMA-262定义了不同的数值面量格式。
+ Number类型是ECMAScript中最常用和最令人关注的类型了；这种类型使用IEEE754格式来表示整数和浮点数值（浮点数值在某些语言中也被成为双精度数值），
+ 为支持各种数据类型，ECMA-262定义了不同的数值面量格式。
+
  十进制：
  var intNum=10; //整数
  八进制:
@@ -144,6 +146,7 @@ Number.prototype.subtr = function (arg) {
 //减法：subtr
 //乘法：mul
 //除法：div
-
+var a = 0.5555, b = 111
+console.log(accMul(a, b))
 
 
