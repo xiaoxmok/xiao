@@ -6,30 +6,31 @@
 
 
 define(['widget', 'jquery'], function (widget, $) {
-    function Window () {
+    function Window() {
         this.cfg = {
-            width                   : '300',
-            height                  : '200',
-            title                   : "标题",
-            content                 : '',
-            handler                 : null,
-            isDraggable             : true,      //是否可拖动
-            dragHandle              : 'null',    //手动把手
-            hasMask                 : true,      //是否显示遮罩层
-            skinClassName           : null,      //定制皮肤
-            hasCloseBtn             : false,     //是否显示关闭按钮
-            text4AlertBtn           : '确定',
-            text4ConfirmBtn         : '确定',
-            text4CancelBtn          : '取消',
-            handler4AlertBtn        : null,      //回调函数
-            handler4CloseBtn        : null,
-            handler4ConfirmBtn      : null,
-            handler4CancelBtn       : null,
-            text4PromptBtn          : '取消',
-            isPromptInputPassword   : 'false',   //是否密码类型
+            width: '300',
+            height: '200',
+            title: "标题",
+            content: '',
+            handler: null,
+            isDraggable: true,           //是否可拖动
+            dragHandle: 'null',          //手动把手
+            hasMask: true,               //是否显示遮罩层
+            skinClassName: null,         //定制皮肤
+            hasCloseBtn: false,          //是否显示关闭按钮
+            text4AlertBtn: '确定',
+            text4ConfirmBtn: '确定',
+            text4CancelBtn: '取消',
+            handler4AlertBtn: null,      //回调函数
+            handler4CloseBtn: null,
+            handler4ConfirmBtn: null,
+            handler4CancelBtn: null,
+
+            text4PromptBtn: '取消',
+            isPromptInputPassword: 'false',      //是否密码类型
             defaultValue4PromptInput: '',        //默认文字
-            maxLength4PromptInput   : '10',      //默认长度
-            handler4PromptBtn       : null
+            maxLength4PromptInput: '10',         //默认长度
+            handler4PromptBtn: null
         };
         //this.handlers = {};
     };
@@ -124,7 +125,7 @@ define(['widget', 'jquery'], function (widget, $) {
             }
             if (this.cfg.isDraggable) {
                 if (this.cfg.dragHandle) {
-                    this.boundingBox.draggable({ handle: this.cfg.dragHandle });
+                    this.boundingBox.draggable({handle: this.cfg.dragHandle});
                 } else {
                     this.boundingBox.draggable();
                 }
@@ -137,22 +138,22 @@ define(['widget', 'jquery'], function (widget, $) {
             this._mask && this._mask.remove();
         },
         alert: function (cfg) {
-            $.extend(this.cfg, cfg, { winType: "alert" });
+            $.extend(this.cfg, cfg, {winType: "alert"});
             this.render();
             return this;        //return this的写法是可用连缀写法
         },
         confirm: function (cfg) {
-            $.extend(this.cfg, cfg, { winType: "confirm" });
+            $.extend(this.cfg, cfg, {winType: "confirm"});
             this.render();
             return this;        //return this的写法是可用连缀写法
         },
 
         prompt: function (cfg) {
-            $.extend(this.cfg, cfg, { winType: "prompt" });
+            $.extend(this.cfg, cfg, {winType: "prompt"});
             this.render();
             this._promptInput.focus();      //让输入框自动获得焦点
             return this;
         }
     });
-    return { Window: Window };
+    return {Window: Window};
 });
