@@ -4,7 +4,7 @@
     <button @click="addItem" class="todo-bnt">add</button>
     <!--<ul class="todo-ul">-->
     <transition-group tag="ul" name="fade" mode="in-out" class="todo-ul">
-      <li v-for="(item,index) in items" v-bind:class="{Finished:item.isFinished}" :key="index">
+      <li v-for="(item, index) in items" v-bind:class="{Finished:item.isFinished}" :key="item.label">
         <input type="checkbox" v-bind:id="item.label" v-model="item.isFinished">
         <label v-bind:for="item.label">{{index + 1}}、{{item.label}}</label>
         <div class="delete" @click.prevent="deleteItem(index)">X</div>
